@@ -117,6 +117,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="entity\Auther.cs" />
+    <Compile Include="entity\PhysicalPower.cs" />
+    <Compile Include="entity\seter.cs" />
+    <Compile Include="entity\SymptomInfo.cs" />
+    <Compile Include="entity\TrainInfo.cs" />
+    <Compile Include="entity\User.cs" />
     <Compile Include="util\DbUtil.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -150,7 +156,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="entity\deleteme.later" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

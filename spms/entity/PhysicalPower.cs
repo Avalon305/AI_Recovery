@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace spms.entity
 {
-    class deleteme
+    class PhysicalPower
     {
     }
 }
