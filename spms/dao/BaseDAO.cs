@@ -11,6 +11,10 @@ namespace spms.dao
 {
     class BaseDAO<T> where T : class
     {
+        /// <summary>
+        /// 查询所有
+        /// </summary>
+        /// <returns></returns>
         public List<T> ListAll()
         {
             using (var conn = DbUtil.getConn())
@@ -23,6 +27,11 @@ namespace spms.dao
 
         }
 
+       /// <summary>
+       /// 根据主键载入
+       /// </summary>
+       /// <param name="primaryKey"></param>
+       /// <returns></returns>
         public T Load(Object primaryKey)
         {
             using (var conn = DbUtil.getConn())
@@ -35,6 +44,11 @@ namespace spms.dao
 
         }
 
+        /// <summary>
+        /// 插入单条
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public long Insert(T t)
         {
             using (var conn = DbUtil.getConn())
@@ -46,6 +60,11 @@ namespace spms.dao
             }
         }
 
+        /// <summary>
+        /// 批量插入
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
         public long BatchInsert(List<T> list)
         {
             using (var conn = DbUtil.getConn())
@@ -57,6 +76,11 @@ namespace spms.dao
             }
         }
 
+        /// <summary>
+        /// 根据主键更新
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public Boolean UpdateByPrimaryKey(T t)
         {
             using (var conn = DbUtil.getConn())
@@ -68,7 +92,11 @@ namespace spms.dao
             }
         }
  
-
+        /// <summary>
+        /// 根据主键删除
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public Boolean DeleteByPrimaryKey(T t)
         {
             using (var conn = DbUtil.getConn())
@@ -80,6 +108,10 @@ namespace spms.dao
             }
         }
 
+        /// <summary>
+        /// 删除所有
+        /// </summary>
+        /// <returns></returns>
         public Boolean DeleteAll()
         {
             using (var conn = DbUtil.getConn())
