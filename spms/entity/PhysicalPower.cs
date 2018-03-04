@@ -20,8 +20,35 @@ namespace spms.entity
         public DateTime? Gmt_Modified { get; set; }
         //关联的用户ID
         public int FK_user_Id { get; set; }
-
-        public string pp_high { get; set; }
-       
+        //身高
+        public string PP_High { get; set; }
+        //体重
+        public string PP_Weight { get; set; }
+        //握力
+        public string PP_Grip { get; set; }
+        //睁眼单脚站立
+        public string PP_EyeOpenStand { get; set; }
+        //功能性前伸
+        public string PP_FunctionProtract { get; set; }
+        //坐姿体前屈
+        public string PP_SitandReach { get; set; }
+        //time&up go
+        public string PP_TimeUpGo { get; set; }
+        //5m步行-通常
+        public string PP_Walk5MileGeneral { get; set; }
+        //5m步行-最快
+        public string PP_Walk5MileFast { get; set; }
+        //10m步行，第一个字段是模式
+        public string PP_Walk10Mile { get; set; }
+        //6分钟步行
+        public string PP_Walk6Minute { get; set; }
+        //2分钟踏步
+        public string PP_Step2Minute { get; set; }
+        //2分钟抬腿
+        public string PP_LegRaise2Minute { get; set; }
+        //使用用者感想
+        public string PP_UserMemo { get; set; }
+        //工作人员感想
+        public string PP_WorkerMemo { get; set; }
     }
 }
