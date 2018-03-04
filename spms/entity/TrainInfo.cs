@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,120 @@ using System.Threading.Tasks;
 
 namespace spms.entity
 {
+    //训练信息
+    [Table("bdl_traininfo")]
     class TrainInfo
     {
+        //主键 自增
+        [Key]
+        public int Pk_TI_Id { get; set; }
+        //数据创建时间
+        public DateTime? Gmt_Create { get; set; }
+        //数据更新时间
+        public DateTime? Gmt_Modified { get; set; }
+        //关联的用户ID
+        public string FK_User_Id { get; set; }
     }
+    //单一设备处方
+    [Table("bdl_deviceprescription")]
+    class DevicePrescription
+    {
+        //状态常量 1做了  0没做
+        public static byte? UNDO = 0;
+        public static byte? DOWN = 1;
+        //主键 自增
+        [Key]
+        public int Pk_DP_Id { get; set; }
+        //数据创建时间
+        public DateTime? Gmt_Create { get; set; }
+        //数据更新时间
+        public DateTime? Gmt_Modified { get; set; }
+        //关联的单一训练信息ID
+        public int Fk_TI_Id { get; set; }
+        //关联的单一设备类型ID，通过这个获得设备name
+        public int Fk_DS_Id { get; set; }
+        //状态
+        public Byte? dp_status { get; set; }
+        //注意点，指示
+        public string DP_Memo { get; set; }
+
+         //组数
+        public int dp_groupcount { get; set; }
+        //每组个数
+        public int dp_groupnum { get; set; }
+        //休息时间
+        public int dp_relaxtime { get; set; }
+        //移乘方式
+        public int dp_moveway { get; set; }
+        //砝码
+        public int dp_weight { get; set; }
+    }
+    //设备处方的训练结果  一对一
+    [Table("bdl_prescriptionresult")]
+    class PrescriptionResult
+    {
+        //主键 自增
+        [Key]
+        public int Pk_PR_Id { get; set; }
+        //数据创建时间
+        public DateTime? Gmt_Create { get; set; }
+        //数据更新时间
+        public DateTime? Gmt_Modified { get; set; }
+        //设备处方ID
+        public int Fk_DP_Id { get; set; }
+        //自觉运动强度
+        public string PR_SportStrength { get; set; }
+        //第一个时间
+        public int PR_Time1 { get; set; }
+        //第二个时间
+        public int PR_Time2 { get; set; }
+        //距离
+        public int PR_Distance { get; set; }
+        //总工作量
+        public int PR_Countworkquantity { get; set; }
+        //热量
+        public int PR_Cal { get; set; }
+        //指数
+        public int PR_Index { get; set; }
+        //完成组数
+        public int PR_FinishGroup { get; set; }
+        //时机，姿势，评价
+        public string PR_Evaluate { get; set; }
+        //注意点
+        public string PR_AttentionPoint { get; set; }
+        //病人感想
+        public string PR_UserThoughts { get; set; }
+        //备忘
+        public string PR_Memo { get; set; }
+    }
+
+        //设备系列
+        [Table("bdl_deviceset")]
+    class DeviceSet {
+        //主键 自增
+        [Key]
+        public int Pk_DSet_Id { get; set; }
+        //数据创建时间
+        public DateTime? Gmt_Create { get; set; }
+        //数据更新时间
+        public DateTime? Gmt_Modified { get; set; }
+        //系列名称
+        public string dset_name { get; set; }
+    }
+    //设备类型
+    [Table("bdl_devicesort")]
+    class DeviceSort
+    {
+        [Key]
+        public int Pk_DSet_Id { get; set; }
+        //数据创建时间
+        public DateTime? Gmt_Create { get; set; }
+        //数据更新时间
+        public DateTime? Gmt_Modified { get; set; }
+        //设备名称
+        public string DS_name { get; set; }
+        //所属的设备系列ID
+        public int Fk_DSet_Id { get; set; } 
+    }
+
 }
