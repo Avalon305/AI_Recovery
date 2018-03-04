@@ -124,9 +124,7 @@
     </ApplicationDefinition>
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="dao\SetterDAO.cs" />
-    <Compile Include="entity\Diagnosis.cs" />
-    <Compile Include="entity\Disease.cs" />
-    <Compile Include="entity\Group.cs" />
+    <Compile Include="entity\Assist.cs" />
     <Compile Include="entity\UploadManagement.cs" />
     <Compile Include="protocol\ProtocolHandler.cs" />
     <Compile Include="server\NettyLuncher.cs" />
