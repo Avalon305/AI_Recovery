@@ -48,11 +48,11 @@ namespace spms
                 auth,a
             };
 
-            var resutl = dao.listByUserStatus(1);
+            var resutl = dao.ListByUserStatus(1);
             resutl.ForEach(delegate (Auth name)
-       {
-           MessageBox.Show(name.Auth_UserName);
-       });
+            {
+                MessageBox.Show(name.Auth_UserName);
+            });
 
         }
     }
