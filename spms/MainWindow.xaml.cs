@@ -1,4 +1,5 @@
-﻿using spms.dao;
+﻿using NLog;
+using spms.dao;
 using spms.entity;
 using spms.server;
 using spms.service;
@@ -26,6 +27,7 @@ namespace spms
     /// </summary>
     public partial class MainWindow : Window
     {
+    private static Logger logger = LogManager.GetCurrentClassLogger();
         public MainWindow()
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace spms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            logger.Warn("测试{0}参数{1}","1","2");
  
             try
             {
