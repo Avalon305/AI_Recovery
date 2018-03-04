@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace spms.entity
 {
     [Table("bdl_auth")]
-    public class Auth
+    public class Auther
     {
         [Key]
         public int Pk_Auth_Id { get; set; }
         public string Auth_UserName { get; set; }
         public string Auth_UserPass { get; set; }
-        public byte Auth_Level { get; set; }
+        public byte? Auth_Level { get; set; }
 
         public DateTime? Gmt_Create { get; set; }
 
