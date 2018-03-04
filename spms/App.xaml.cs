@@ -13,9 +13,14 @@ namespace spms
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// 应用启动的时候生命周期
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnStartup(StartupEventArgs e)
         {
-           
+            //启动netty
+             
             base.OnStartup(e);
         }
     }

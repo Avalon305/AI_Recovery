@@ -119,6 +119,7 @@
     </ApplicationDefinition>
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="entity\Auth.cs" />
+    <Compile Include="server\NettyLuncher.cs" />
     <Compile Include="util\DbUtil.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -152,7 +153,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="entity\deleteme.later" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -161,7 +161,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="protocol\deleteme.later" />
-    <None Include="server\deleteme.later" />
     <None Include="service\deleteme.later" />
     <None Include="view\deleteme.later" />
   </ItemGroup>

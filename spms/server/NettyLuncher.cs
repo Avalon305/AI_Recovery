@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace spms.entity
+namespace spms.server
 {
-    class deleteme
+    public class NettyLuncher
     {
+
     }
 }
