@@ -19,13 +19,14 @@ namespace spms.entity
         //设置语言
         public int Set_Language { get; set; }
         //机构名称
-        public string Set_Organizationname { get; set; }
+        public string Set_OrganizationName { get; set; }
         //机构分类
-        public string Set_Organizationsort { get; set; }
+        public string Set_OrganizationSort { get; set; }
         //照片位置
-        public string Set_Photolocation { get; set; }
+        public string Set_PhotoLocation { get; set; }
         //机构电话
-        public string Set_Organizationphone { get; set; }
-       
+        public string Set_OrganizationPhone { get; set; }
+ 
+
     }
 }
