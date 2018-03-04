@@ -18,13 +18,9 @@ namespace spms.dao
             using (var conn = DbUtil.getConn())
             {
                 const string query = "select * from bdl_set";
-                List<Setter> setList = (List<Setter>)conn.Query<Setter>(query);
-                Setter setter = null;
-                if (setList!=null) {
-                    setter = setList.First<Setter>();
-                }
-                
-                return setter;
+                conn.Open();
+                var result =  conn.QueryFirst<Setter>(query);
+                return result;
             }
         }
         

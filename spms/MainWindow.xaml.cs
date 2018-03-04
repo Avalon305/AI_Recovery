@@ -1,11 +1,14 @@
-﻿using spms.dao;
+﻿using NLog;
+using spms.dao;
 using spms.entity;
+using spms.server;
 using spms.service;
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +27,7 @@ namespace spms
     /// </summary>
     public partial class MainWindow : Window
     {
+    private static Logger logger = LogManager.GetCurrentClassLogger();
         public MainWindow()
         {
             InitializeComponent();
@@ -31,12 +35,13 @@ namespace spms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            logger.Warn("测试{0}参数{1}","1","2");
+ 
             try
             {
             new AuthService().updateTest();
 
             }catch(Exception ee)
-
             {
 
             }
@@ -48,5 +53,6 @@ namespace spms
             entity.Setter setter = new SetterService().getSetter();
             MessageBox.Show(setter.Set_OrganizationSort.ToString()+"-");
         }
+ 
     }
 }
