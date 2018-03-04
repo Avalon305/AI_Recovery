@@ -121,6 +121,7 @@
     </ApplicationDefinition>
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="dao\SetterDAO.cs" />
+    <Compile Include="entity\UploadManagement.cs" />
     <Compile Include="protocol\ProtocolHandler.cs" />
     <Compile Include="server\NettyLuncher.cs" />
     <Compile Include="entity\Auther.cs" />

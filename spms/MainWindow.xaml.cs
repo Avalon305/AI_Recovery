@@ -48,7 +48,7 @@ namespace spms
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             entity.Setter setter = new SetterService().getSetter();
-            MessageBox.Show(setter.Set_Organizationsort.ToString());
+            MessageBox.Show(setter.Set_OrganizationSort.ToString()+"-");
         }
  
     }
