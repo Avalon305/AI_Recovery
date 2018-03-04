@@ -36,6 +36,7 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
+                Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
                 conn.Open();
 
                 var result = conn.Get<T>(primaryKey);
@@ -45,10 +46,10 @@ namespace spms.dao
         }
 
         /// <summary>
-        /// 插入单条
+        /// 插入单条 
         /// </summary>
         /// <param name="t"></param>
-        /// <returns></returns>
+        /// <returns>主键</returns>
         public long Insert(T t)
         {
             using (var conn = DbUtil.getConn())
@@ -64,7 +65,7 @@ namespace spms.dao
         /// 批量插入
         /// </summary>
         /// <param name="list"></param>
-        /// <returns></returns>
+        /// <returns>插入的数量</returns>
         public long BatchInsert(List<T> list)
         {
             using (var conn = DbUtil.getConn())
@@ -80,23 +81,22 @@ namespace spms.dao
         /// 根据主键更新
         /// </summary>
         /// <param name="t"></param>
-        /// <returns></returns>
+        /// <returns>true,false成功失败</returns>
         public Boolean UpdateByPrimaryKey(T t)
         {
             using (var conn = DbUtil.getConn())
             {
                 conn.Open();
-
                 var result = conn.Update<T>(t);
                 return result;
             }
         }
- 
+
         /// <summary>
         /// 根据主键删除
         /// </summary>
         /// <param name="t"></param>
-        /// <returns></returns>
+        /// <returns>true,false成功失败</returns>
         public Boolean DeleteByPrimaryKey(T t)
         {
             using (var conn = DbUtil.getConn())
@@ -111,7 +111,7 @@ namespace spms.dao
         /// <summary>
         /// 删除所有
         /// </summary>
-        /// <returns></returns>
+        /// <returns>true,false成功失败</returns>
         public Boolean DeleteAll()
         {
             using (var conn = DbUtil.getConn())
