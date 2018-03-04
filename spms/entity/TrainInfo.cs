@@ -77,7 +77,7 @@ namespace spms.entity
         //距离
         public int PR_Distance { get; set; }
         //总工作量
-        public int PR_Countworkquantity { get; set; }
+        public int PR_CountWorkQuantity { get; set; }
         //热量
         public int PR_Cal { get; set; }
         //指数
