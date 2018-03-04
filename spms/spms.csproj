@@ -133,6 +133,7 @@
     <Compile Include="service\AuthService.cs" />
     <Compile Include="service\SetterService.cs" />
     <Compile Include="util\DbUtil.cs" />
+    <Compile Include="util\GeneralResponse.cs" />
     <Compile Include="util\JsonTools.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

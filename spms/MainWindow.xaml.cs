@@ -1,11 +1,13 @@
 ﻿using spms.dao;
 using spms.entity;
+using spms.server;
 using spms.service;
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,12 +33,12 @@ namespace spms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+ 
             try
             {
             new AuthService().updateTest();
 
             }catch(Exception ee)
-
             {
 
             }
@@ -48,5 +50,6 @@ namespace spms
             entity.Setter setter = new SetterService().getSetter();
             MessageBox.Show(setter.Set_OrganizationSort.ToString()+"-");
         }
+ 
     }
 }
