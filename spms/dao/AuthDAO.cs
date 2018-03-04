@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace spms.dao
 {
-    class AuthDAO : BaseDAO<Auth>
+    class AuthDAO : BaseDAO<Auther>
     {
 
-        public List<Auth> ListByUserStatus(byte status)
+        public List<Auther> ListByUserStatus(byte status)
         {
             using (var conn = DbUtil.getConn())
             {
                 const string query = "select * from bdl_auth where user_status = @Status";
 
-                return (List<Auth>)conn.Query<Auth>(query, new { Status = status });
+                return (List<Auther>)conn.Query<Auther>(query, new { Status = status });
             }
         }
     }

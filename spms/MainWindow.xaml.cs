@@ -31,7 +31,7 @@ namespace spms
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AuthDAO dao = new AuthDAO();
-            Auth auth = new Auth();
+            Auther auth = new Auther();
             auth.Auth_Level = 1;
             auth.Auth_UserName = "haha";
             auth.Auth_UserPass = "444";
@@ -40,16 +40,16 @@ namespace spms
             auth.User_Status = 1;
             auth.Auth_OfflineTime = DateTime.Now;
 
-            Auth a = new Auth();
+            Auther a = new Auther();
             a.Auth_UserPass = "333";
 
-            List<Auth> list = new List<Auth>
+            List<Auther> list = new List<Auther>
             {
                 auth,a
             };
 
             var resutl = dao.ListByUserStatus(1);
-            resutl.ForEach(delegate (Auth name)
+            resutl.ForEach(delegate (Auther name)
             {
                 MessageBox.Show(name.Auth_UserName);
             });
