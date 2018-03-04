@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace spms.entity
 {
-    class Auther
+    public class Auther
     {
+
     }
 }
