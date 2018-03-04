@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace spms.entity
+namespace spms.util
 {
-    class Seter
-    {
+    //json转化类
+    static class JsonTools
+    { 
+
     }
 }

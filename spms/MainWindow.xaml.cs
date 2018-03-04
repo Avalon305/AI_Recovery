@@ -36,10 +36,17 @@ namespace spms
             new AuthService().updateTest();
 
             }catch(Exception ee)
+
             {
 
             }
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            entity.Setter setter = new SetterService().getSetter();
+            MessageBox.Show(setter.Set_Organizationsort.ToString());
         }
     }
 }
