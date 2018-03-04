@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace spms.entity
 {
+    //分组实体
+    [Table("bdl_group")]
     class Assist
     {
         //主键 自增
@@ -20,20 +22,22 @@ namespace spms.entity
         public string Gr_Name { get; set; }
 
     }
-
+    //疾病实体
+    [Table("bdl_disease")]
     class Disease
     {
         //主键 自增
         [Key]
-        public int Pk_Gr_Id { get; set; }
+        public int Pk_Ds_Id { get; set; }
         //数据创建时间
         public DateTime? Gmt_Create { get; set; }
         //数据更新时间
         public DateTime? Gmt_Modified { get; set; }
         //疾病名字
-        public string Gr_Name { get; set; }
+        public string Ds_Name { get; set; }
     }
-
+    //残障名称实体
+    [Table("bdl_diagnosis")]
     class Diagnosis
     {
         //主键 自增

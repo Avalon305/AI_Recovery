@@ -105,14 +105,14 @@ namespace spms.entity
         //数据更新时间
         public DateTime? Gmt_Modified { get; set; }
         //系列名称
-        public string dset_name { get; set; }
+        public string DSet_Name { get; set; }
     }
     //设备类型
     [Table("bdl_devicesort")]
     class DeviceSort
     {
         [Key]
-        public int Pk_DSet_Id { get; set; }
+        public int Pk_DS_Id { get; set; }
         //数据创建时间
         public DateTime? Gmt_Create { get; set; }
         //数据更新时间
