@@ -89,6 +89,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.IO.Compression" />
@@ -99,6 +100,7 @@
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
     </Reference>
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -118,6 +120,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="dao\AuthDAO.cs" />
+    <Compile Include="protocol\ProtocolHandler.cs" />
     <Compile Include="server\NettyLuncher.cs" />
     <Compile Include="entity\Auther.cs" />
     <Compile Include="entity\PhysicalPower.cs" />
@@ -125,6 +128,7 @@
     <Compile Include="entity\SymptomInfo.cs" />
     <Compile Include="entity\TrainInfo.cs" />
     <Compile Include="entity\User.cs" />
+    <Compile Include="service\AuthService.cs" />
     <Compile Include="util\DbUtil.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -165,8 +169,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="protocol\deleteme.later" />
-    <None Include="service\deleteme.later" />
     <None Include="view\deleteme.later" />
   </ItemGroup>
   <ItemGroup>

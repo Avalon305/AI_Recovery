@@ -1,5 +1,6 @@
 ﻿using spms.dao;
 using spms.entity;
+using spms.service;
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
@@ -30,29 +31,14 @@ namespace spms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AuthDAO dao = new AuthDAO();
-            Auther auth = new Auther();
-            auth.Auth_Level = 1;
-            auth.Auth_UserName = "haha";
-            auth.Auth_UserPass = "444";
-            auth.Gmt_Create = null;
-            auth.Gmt_Modified = null;
-            auth.User_Status = 1;
-            auth.Auth_OfflineTime = DateTime.Now;
-
-            Auther a = new Auther();
-            a.Auth_UserPass = "333";
-
-            List<Auther> list = new List<Auther>
+            try
             {
-                auth,a
-            };
+            new AuthService().updateTest();
 
-            var resutl = dao.ListByUserStatus(1);
-            resutl.ForEach(delegate (Auther name)
+            }catch(Exception ee)
             {
-                MessageBox.Show(name.Auth_UserName);
-            });
+
+            }
 
         }
     }

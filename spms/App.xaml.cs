@@ -1,8 +1,10 @@
-﻿using System;
+﻿using spms.server;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -20,7 +22,8 @@ namespace spms
         protected override void OnStartup(StartupEventArgs e)
         {
             //启动netty
-             
+            Thread th = new Thread(() => { new NettyLuncher().Start(); });
+            th.Start();
             base.OnStartup(e);
         }
     }
