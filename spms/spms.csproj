@@ -131,6 +131,8 @@
     <Compile Include="entity\UploadManagement.cs" />
     <Compile Include="http\BigDataOfficer.cs" />
     <Compile Include="http\HttpSender.cs" />
+    <Compile Include="protocol\MakerTCP.cs" />
+    <Compile Include="protocol\ParserTCP.cs" />
     <Compile Include="protocol\ProtocolHandler.cs" />
     <Compile Include="server\NettyLuncher.cs" />
     <Compile Include="entity\Auther.cs" />
@@ -145,6 +147,42 @@
     <Compile Include="util\GeneralResponse.cs" />
     <Compile Include="util\JsonTools.cs" />
     <Compile Include="util\SerialPortUtil.cs" />
+    <Compile Include="view\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\AdvancedSettings.xaml.cs">
+      <DependentUpon>AdvancedSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\InputManualMvaluation.xaml.cs">
+      <DependentUpon>InputManualMvaluation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\InputSymptomInformation .xaml.cs">
+      <DependentUpon>InputSymptomInformation .xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\InputTraining .xaml.cs">
+      <DependentUpon>InputTraining .xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\InputTrainingResult.xaml.cs">
+      <DependentUpon>InputTrainingResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\Register.xaml.cs">
+      <DependentUpon>Register.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\Retrieval.xaml.cs">
+      <DependentUpon>Retrieval.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\UserUpdata.xaml.cs">
+      <DependentUpon>UserUpdata.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\DesignPage.xaml.cs">
+      <DependentUpon>DesignPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\DesignPage1.xaml.cs">
+      <DependentUpon>DesignPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -166,6 +204,54 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\AdvancedSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputManualMvaluation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputSymptomInformation .xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputTraining .xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputTrainingResult.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\Register.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\Retrieval.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\UserUpdata.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\DesignPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\DesignPage1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -181,6 +267,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\5920.jpg" />
+    <Resource Include="view\Images\bdl.PNG" />
+    <Resource Include="view\Images\bdl_login.PNG" />
+    <Resource Include="view\Images\bdl_logo.PNG" />
+    <Resource Include="view\Images\design.PNG" />
+    <Resource Include="view\Images\icon.png" />
+    <Resource Include="view\Images\icon1.png" />
+    <Resource Include="view\Images\icon2.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -188,6 +282,7 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="constant\deleteme.later" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -198,7 +293,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="view\deleteme.later" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
