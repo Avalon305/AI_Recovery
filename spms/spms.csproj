@@ -139,6 +139,8 @@
     <Compile Include="util\DbUtil.cs" />
     <Compile Include="util\GeneralResponse.cs" />
     <Compile Include="util\JsonTools.cs" />
+    <Compile Include="util\ProtocolUtil.cs" />
+    <Compile Include="util\SerialPortUtil.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -199,6 +201,8 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
