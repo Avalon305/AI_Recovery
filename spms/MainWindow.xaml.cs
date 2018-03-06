@@ -55,43 +55,36 @@ namespace spms
             MessageBox.Show(setter.Set_OrganizationSort.ToString()+"-");
         }
 
+        private SerialPort serialPort;
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            entity.Setter setter = new entity.Setter();
-            setter.Pk_Set_Id = 1;
-            setter.Set_Language = entity.Setter.SET_LANGUAGE_CHINA;
-            setter.Set_OrganizationName = "1";
-            setter.Set_OrganizationPhone = "2";
-            setter.Set_OrganizationSort = "3";
-            setter.Set_PhotoLocation = "4";
+            byte[] data = new byte[2] { 0x11, 0x12 };
+            if (serialPort == null)
+            {
+                serialPort = SerialPortUtil.ConnectSerialPort("COM3", OnPortDataReceived);
+                serialPort.Open();
+            }
 
-            string str = JsonTools.Obj2JSONStr<entity.Setter>(setter);
-            MessageBox.Show(str);
+            serialPort.Write(data, 0, data.Length);
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void OnPortDataReceived(Object sender, SerialDataReceivedEventArgs e)
         {
-            entity.Setter setter = new entity.Setter();
-            setter.Pk_Set_Id = 1;
-            setter.Set_Language = entity.Setter.SET_LANGUAGE_CHINA;
-            setter.Set_OrganizationName = "1";
-            setter.Set_OrganizationPhone = "2";
-            setter.Set_OrganizationSort = "3";
-            setter.Set_PhotoLocation = "4";
+            try
+            {
+                Thread.Sleep(50);
 
+                byte[] buffer = null; ;
+                int len = serialPort.BytesToRead;
 
-            entity.Setter setter2 = new entity.Setter();
-            setter2.Pk_Set_Id = 1;
-            setter2.Set_Language = entity.Setter.SET_LANGUAGE_CHINA;
-            setter2.Set_OrganizationName = "1";
-            setter2.Set_OrganizationPhone = "2";
-            setter2.Set_OrganizationSort = "3";
-            setter2.Set_PhotoLocation = "4";
-            List<entity.Setter> list = new List<entity.Setter>();
-            list.Add(setter);
-            list.Add(setter2);
-            string str = JsonTools.List2JSONStr<entity.Setter>(list);
-            MessageBox.Show(str);
+                byte[] ReceiveData = new byte[len];
+                serialPort.Read(ReceiveData, 0, len);
+                string str = Encoding.Default.GetString(ReceiveData);
+                Console.WriteLine(str);
+            }
+            catch (Exception ex)
+            {
+            }
         }
     }
 }
