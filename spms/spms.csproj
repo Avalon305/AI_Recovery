@@ -144,6 +144,7 @@
     <Compile Include="util\DbUtil.cs" />
     <Compile Include="util\GeneralResponse.cs" />
     <Compile Include="util\JsonTools.cs" />
+    <Compile Include="util\SerialPortUtil.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
