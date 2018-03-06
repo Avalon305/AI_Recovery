@@ -131,6 +131,8 @@
     <Compile Include="entity\UploadManagement.cs" />
     <Compile Include="http\BigDataOfficer.cs" />
     <Compile Include="http\HttpSender.cs" />
+    <Compile Include="protocol\MakerTCP.cs" />
+    <Compile Include="protocol\ParserTCP.cs" />
     <Compile Include="protocol\ProtocolHandler.cs" />
     <Compile Include="server\NettyLuncher.cs" />
     <Compile Include="entity\Auther.cs" />
@@ -250,6 +252,54 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\AdvancedSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputManualMvaluation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputSymptomInformation .xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputTraining .xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputTrainingResult.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\Register.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\Retrieval.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\UserUpdata.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\DesignPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\DesignPage1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -280,6 +330,7 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="constant\deleteme.later" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -290,7 +341,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="view\deleteme.later" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
