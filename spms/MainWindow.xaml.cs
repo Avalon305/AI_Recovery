@@ -61,7 +61,7 @@ namespace spms
             byte[] data = new byte[2] { 0x11, 0x12 };
             if (serialPort == null)
             {
-                serialPort = SerialPortUtil.ConnectSerialPort("COM3", OnPortDataReceived);
+                serialPort = util.SerialPortUtil.ConnectSerialPort("COM3", OnPortDataReceived);
                 serialPort.Open();
             }
 
@@ -85,6 +85,47 @@ namespace spms
             catch (Exception ex)
             {
             }
+        }
+        private void Buttonlz_Click_2(object sender, RoutedEventArgs e)
+        {
+            entity.Setter setter = new entity.Setter();
+            setter.Pk_Set_Id = 1;
+            setter.Set_Language = entity.Setter.SET_LANGUAGE_CHINA;
+            setter.Set_OrganizationName = "1";
+            setter.Set_OrganizationPhone = "2";
+            setter.Set_OrganizationSort = "3";
+            setter.Set_PhotoLocation = "4";
+            //自封装
+            //string str = JsonTools.Obj2JSONStr<entity.Setter>(setter);
+            //blog
+            string str = JsonTools.Obj2JSONStrNew(setter);
+            MessageBox.Show(str);
+        }
+
+        private void Buttonlz_Click_3(object sender, RoutedEventArgs e)
+        {
+            entity.Setter setter = new entity.Setter();
+            setter.Pk_Set_Id = 1;
+            setter.Set_Language = entity.Setter.SET_LANGUAGE_CHINA;
+            setter.Set_OrganizationName = "1";
+            setter.Set_OrganizationPhone = "2";
+            setter.Set_OrganizationSort = "3";
+            setter.Set_PhotoLocation = "4";
+
+
+            entity.Setter setter2 = new entity.Setter();
+            setter2.Pk_Set_Id = 1;
+            setter2.Set_Language = entity.Setter.SET_LANGUAGE_CHINA;
+            setter2.Set_OrganizationName = "1";
+            setter2.Set_OrganizationPhone = "2";
+            setter2.Set_OrganizationSort = "3";
+            setter2.Set_PhotoLocation = "4";
+            List<entity.Setter> list = new List<entity.Setter>();
+            list.Add(setter);
+            list.Add(setter2);
+            //string str = JsonTools.List2JSONStr<entity.Setter>(list);
+            string str = JsonTools.List2JSONStrNew(list);
+            MessageBox.Show(str);
         }
     }
 }

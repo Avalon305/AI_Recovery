@@ -1,14 +1,86 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace spms.util
 {
-    //json转化类
-    static class JsonTools
-    { 
+    //使用Newtonsoft.Json.Linq需要在nuget中安装dll，命令为Install-Package Newtonsoft.Json  
+    //json转化工具类
+    public static class JsonTools
+    {
+        //Dictionary转化为json对象的工具类
+        private static string DictionaryToJSONStr(Dictionary<String, String> param) {
+            string jsonstring = "";
+            JObject json = new JObject();
+            if (param.Count != 0) //将参数添加到json对象中
+            {
+                foreach (var item in param)
+                {
+                    json.Add(item.Key, item.Value);
+                }
+            }
+            jsonstring = json.ToString();//获得参数的json字符串
+            return jsonstring;
+        }
+        //对象转化为Dictionary
+        private static Dictionary<String, String> ObjToDictionary<T>(T obj) {
+            Dictionary<String, String> param = new Dictionary<string, string>();
+            //FieldInfo[] fieldInfos = obj.GetType().GetFields();
+            //foreach (FieldInfo fieldInfo in fieldInfos ) {
+                //获得属性的值
+                //string propertyname = fieldInfo.Name.ToString();
+                //Type type = typeof(T);
+                //PropertyInfo property = type.GetProperty(propertyname);
+                //string propertyValue = (string)property.GetValue(obj);
+               
+            //}
+            Type type = typeof(T);
+            foreach (PropertyInfo pi in type.GetProperties()) {
+                string propertyValue = pi.GetValue(obj, null).ToString();//用pi.GetValue获得值
+                string propertyname = pi.Name;//获得属性的名字,后面就可以根据名字判断来进行些自己想要的操作
+                param.Add(propertyname, propertyValue);
+            }
+            
+          
+            return param;
 
+           
+
+        }
+        //obj转化为string of json
+        private static string Obj2JSONStr<T>(T obj) {
+            return DictionaryToJSONStr(ObjToDictionary<T>(obj));
+        }
+        //list<obj>转化为string of json
+        private static string List2JSONStr<T>(List<T> list)
+        {
+            StringBuilder stringBuilder = new StringBuilder("[");
+            //第一次为0  之后不为0
+            int flag = 0;
+            foreach (var obj in list) {
+                if (flag != 0) {
+                    stringBuilder.AppendLine(",");
+                }
+                flag++;
+                stringBuilder.AppendLine(DictionaryToJSONStr(ObjToDictionary<T>(obj)));
+            }
+            stringBuilder.AppendLine("]");
+            return stringBuilder.ToString().Trim(' ');
+        }
+        //obj转化为string of json
+        public static string Obj2JSONStrNew<T>(T obj)
+        {
+            return JsonConvert.SerializeObject(obj);
+        }
+        //list<obj>转化为string of json
+        public static string List2JSONStrNew<T>(List<T> list)
+        {
+            return JsonConvert.SerializeObject(list);
+        }
     }
 }

@@ -9,6 +9,9 @@
     <Grid>
         <Button Content="测试dapper更新" HorizontalAlignment="Left" Margin="86,93,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click"/>
         <Button Content="测试dapper查找唯一" HorizontalAlignment="Left" Margin="197,93,0,0" VerticalAlignment="Top" Width="122" Click="Button_Click_1"/>
-        <Button Content="测试串口" HorizontalAlignment="Left" Margin="86,164,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click_2" Height="21"/>
+        <Button Content="测试json-obj" HorizontalAlignment="Left" Margin="376,93,0,0" VerticalAlignment="Top" Width="75" Click="Buttonlz_Click_2"/>
+        <Button Content="测试json-list" HorizontalAlignment="Left" Margin="376,124,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.179,0.564" Click="Buttonlz_Click_3"/>
+        <Button Content="测试串口" HorizontalAlignment="Left" Margin="86,143,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.026,-0.384" Click="Button_Click_2"/>
+
     </Grid>
 </Window>
