@@ -9,20 +9,20 @@ namespace spms.util
 {
     class SerialPortUtil
     {
-        private static SerialPort MySerialPort;
+        private static SerialPort serialPort;
         public delegate void OnPortDataReceived(Object sender, SerialDataReceivedEventArgs e);
 
-        public static SerialPort ConnectSerialPort(string PortName, OnPortDataReceived MyOnPortDataReceived)
+        public static SerialPort ConnectSerialPort(string portName, OnPortDataReceived onPortDataReceived)
         {
-            MySerialPort = new SerialPort();
-            MySerialPort.PortName = PortName;
-            MySerialPort.BaudRate = 115200;
-            MySerialPort.ReadTimeout = 3000; //单位毫秒
-            MySerialPort.WriteTimeout = 3000; //单位毫秒
-            MySerialPort.ReceivedBytesThreshold = 1;
-            MySerialPort.DataReceived += new SerialDataReceivedEventHandler(MyOnPortDataReceived);
+            serialPort = new SerialPort();
+            serialPort.PortName = portName;
+            serialPort.BaudRate = 115200;
+            serialPort.ReadTimeout = 3000; //单位毫秒
+            serialPort.WriteTimeout = 3000; //单位毫秒
+            serialPort.ReceivedBytesThreshold = 1;
+            serialPort.DataReceived += new SerialDataReceivedEventHandler(onPortDataReceived);
 
-            return MySerialPort;
+            return serialPort;
         }
     }
 }

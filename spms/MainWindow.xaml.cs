@@ -55,17 +55,17 @@ namespace spms
             MessageBox.Show(setter.Set_OrganizationSort.ToString()+"-");
         }
 
-        private SerialPort MySerialPort;
+        private SerialPort serialPort;
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             byte[] data = new byte[2] { 0x11, 0x12 };
-            if (MySerialPort == null)
+            if (serialPort == null)
             {
-                MySerialPort = SerialPortUtil.ConnectSerialPort("COM3", OnPortDataReceived);
-                MySerialPort.Open();
+                serialPort = SerialPortUtil.ConnectSerialPort("COM3", OnPortDataReceived);
+                serialPort.Open();
             }
 
-            MySerialPort.Write(data, 0, data.Length);
+            serialPort.Write(data, 0, data.Length);
         }
 
         private void OnPortDataReceived(Object sender, SerialDataReceivedEventArgs e)
@@ -75,10 +75,10 @@ namespace spms
                 Thread.Sleep(50);
 
                 byte[] buffer = null; ;
-                int len = MySerialPort.BytesToRead;
+                int len = serialPort.BytesToRead;
 
                 byte[] ReceiveData = new byte[len];
-                MySerialPort.Read(ReceiveData, 0, len);
+                serialPort.Read(ReceiveData, 0, len);
                 string str = Encoding.Default.GetString(ReceiveData);
                 Console.WriteLine(str);
             }
