@@ -61,7 +61,7 @@ namespace spms
             byte[] data = new byte[2] { 0x11, 0x12 };
             if (serialPort == null)
             {
-                serialPort = SerialPortUtil.ConnectSerialPort("COM3", OnPortDataReceived);
+                serialPort = util.SerialPortUtil.ConnectSerialPort("COM3", OnPortDataReceived);
                 serialPort.Open();
             }
 
@@ -96,9 +96,9 @@ namespace spms
             setter.Set_OrganizationSort = "3";
             setter.Set_PhotoLocation = "4";
             //自封装
-            string str = JsonTools.Obj2JSONStr<entity.Setter>(setter);
+            //string str = JsonTools.Obj2JSONStr<entity.Setter>(setter);
             //blog
-            str = JsonTools.Obj2JSONStrNew(setter);
+            string str = JsonTools.Obj2JSONStrNew(setter);
             MessageBox.Show(str);
         }
 
@@ -123,8 +123,8 @@ namespace spms
             List<entity.Setter> list = new List<entity.Setter>();
             list.Add(setter);
             list.Add(setter2);
-            string str = JsonTools.List2JSONStr<entity.Setter>(list);
-            str = JsonTools.List2JSONStrNew(list);
+            //string str = JsonTools.List2JSONStr<entity.Setter>(list);
+            string str = JsonTools.List2JSONStrNew(list);
             MessageBox.Show(str);
         }
     }
