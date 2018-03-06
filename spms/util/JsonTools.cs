@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace spms.util
 {
+    //使用Newtonsoft.Json.Linq需要在nuget中安装dll，命令为Install-Package Newtonsoft.Json  
     //json转化工具类
     public static class JsonTools
     {
@@ -51,11 +53,11 @@ namespace spms.util
 
         }
         //obj转化为string of json
-        public static string Obj2JSONStr<T>(T obj) {
+        private static string Obj2JSONStr<T>(T obj) {
             return DictionaryToJSONStr(ObjToDictionary<T>(obj));
         }
         //list<obj>转化为string of json
-        public static string List2JSONStr<T>(List<T> list)
+        private static string List2JSONStr<T>(List<T> list)
         {
             StringBuilder stringBuilder = new StringBuilder("[");
             //第一次为0  之后不为0
@@ -69,6 +71,16 @@ namespace spms.util
             }
             stringBuilder.AppendLine("]");
             return stringBuilder.ToString().Trim(' ');
+        }
+        //obj转化为string of json
+        public static string Obj2JSONStrNew<T>(T obj)
+        {
+            return JsonConvert.SerializeObject(obj);
+        }
+        //list<obj>转化为string of json
+        public static string List2JSONStrNew<T>(List<T> list)
+        {
+            return JsonConvert.SerializeObject(list);
         }
     }
 }
