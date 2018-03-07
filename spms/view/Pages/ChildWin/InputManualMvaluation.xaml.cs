@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,11 +26,13 @@ namespace UI.Pages.ChildWin
         {
             InitializeComponent();
 
-            List<String> list = new List<string>();
-            list.Add("T字拐杖");
-            list.Add("4字拐杖");
-            list.Add("步行器");
-            list.Add("其他");
+            List<String> list = new List<string>
+            {
+                "T字拐杖",
+                "4字拐杖",
+                "步行器",
+                "其他"
+            };
             comBox1.ItemsSource = list;
             comBox3.ItemsSource = list;
         }

@@ -10,7 +10,17 @@
         <TabControl Name="TabControl1" HorizontalAlignment="Left" Height="337" Margin="2.3,8,0,0" VerticalAlignment="Top" Width="955">
             <TabItem Header="水平腿部推蹬机" Width="95">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left"  VerticalAlignment="Top"  Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
+                    <DataGrid x:Name="TrainingRecord" HorizontalAlignment="Left"  VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
+                        <!--去掉选中单元格的框线-->
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell" >
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="训练日期" Width="90"/>
                             <DataGridTextColumn Binding="{Binding User_Name}" Header="移乘方法" Width="80"/>

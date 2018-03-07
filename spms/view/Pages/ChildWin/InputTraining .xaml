@@ -15,12 +15,12 @@
             <Grid>
                 <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38">输入训练</Label>
                 <!-- 按钮排放位置-->
-                <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="570" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2">
+                <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="568" Height="28" VerticalAlignment="Bottom" >
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                        <Button Width="140"  Background="Gray"  Foreground="White" Margin="2,0,0,-0.2" >下一页</Button>
-                        <Button Width="140"    Background="Gray"  Foreground="White" Margin="2,0,0,-0.2"  RenderTransformOrigin="0.5,0.504">保存</Button>
-                        <Button Width="140" Height="25"     Background="Gray"  Foreground="White"  Margin="2,0,0,0" >写入IC卡</Button>
-                        <Button Width="140"   Background="Gray"  Foreground="White"  Content="删除"  Margin="2,0,2,-0.2" />
+                        <Button Width="140"  Height="25"  Background="Gray"  Foreground="White" Margin="2,0,0,0"  Style="{StaticResource myBtn}" VerticalAlignment="Bottom">下一页</Button>
+                        <Button Width="140"  Height="25"   Background="Gray"  Foreground="White" Margin="2,0,0,0"  RenderTransformOrigin="0.5,0.504" Style="{StaticResource myBtn}" VerticalAlignment="Bottom">保存</Button>
+                        <Button Width="140" Height="25"     Background="Gray"  Foreground="White"  Margin="2,0,0,0"  Style="{StaticResource myBtn}" VerticalAlignment="Bottom">写入IC卡</Button>
+                        <Button Width="140" Height="25"   Background="Gray"  Foreground="White"  Content="删除"  Margin="2,0,0,0"  Style="{StaticResource myBtn}" VerticalAlignment="Bottom"/>
                     </StackPanel>
                 </Border>
                 <!-- 结束：按钮排放位置-->

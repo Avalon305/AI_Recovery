@@ -28,22 +28,22 @@
                         <Image Source="/Images/bdl.PNG" Margin="0,-11,0,-100" Width="1089"></Image>
                     </Border>
                     <Border Margin="0,20,30,19" HorizontalAlignment="Right" Width="75">
-                        <Button>后退</Button>
+                        <Button Style="{StaticResource myBtn}">后退</Button>
                     </Border>
                 </Grid>
                 <!--结束：图片及按钮-->
             </StackPanel>
             <!--结束：图片-->
             <!--使用者一览表_按钮-->
-            <Border Height="40" CornerRadius="5,5,0,0" Background="Gray" Margin="5,0,25,0">
+            <Border Height="39" CornerRadius="5,5,0,0" Background="Gray" Margin="5,0,27,0">
                 <Grid>
                     <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38">使用者一览表</Label>
-                    <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="570" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2">
+                    <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="568" Height="29" VerticalAlignment="Bottom">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button Width="140" Height="25"    Foreground="Black" Margin="2,0,0,0" Click="Retrieval">条件检索</Button>
-                            <Button Width="140" Height="25"    Foreground="Black"  Margin="2,0,0,0" Click="Register">添加</Button>
-                            <Button Width="140" Height="25"     Foreground="Black"  Margin="2,0,0,0" Click="UserUpdata">更新</Button>
-                            <Button Width="140"   Foreground="Black"  Content="删除"  Margin="2,0,2,0"/>
+                            <Button Width="140" Height="25" Foreground="Black" Margin="2,0,0,0" Click="Retrieval" Style="{StaticResource myBtn}">条件检索</Button>
+                            <Button Width="140" Height="25" Foreground="Black"  Margin="2,0,0,0" Click="Register" Style="{StaticResource myBtn}">添加</Button>
+                            <Button Width="140" Height="25" Foreground="Black"  Margin="2,0,0,0" Click="UserUpdata" Style="{StaticResource myBtn}">更新</Button>
+                            <Button Width="140"  Height="25" Foreground="Black"  Content="删除"  Margin="2,0,0,0" Style="{StaticResource myBtn}" Click="Delete_User"/>
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -51,9 +51,19 @@
             <!--结束：使用者一览表_按钮-->
             <!--使用者一览表_数据-->
             <Border>
-                <DataGrid x:Name="DataGrid1" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="150" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" >
+                <DataGrid x:Name="UsersInfo" HorizontalAlignment="Left" DataGridRow.MouseUp="Grid_Click"   IsReadOnly="true" Margin="5,5,0,0" VerticalAlignment="Top"  Height="150" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0"  >
+                    <!--去掉选中单元格的框线-->
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell" >
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.CellStyle>
                     <DataGrid.Columns >
-                        <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="使用ID" Width="140" />
+                        <DataGridTextColumn Binding="{Binding User_Id}" Header="使用ID" Width="140" />
                         <DataGridTextColumn Binding="{Binding User_Name}" Header="使用者名称" Width="140"/>
                         <DataGridTextColumn Binding="{Binding User_Namepinyin}" Header="使用者名称（拼音）" Width="150"/>
                         <DataGridTextColumn Binding="{Binding User_Sex}" Header="性别" Width="50"/>
@@ -62,21 +72,21 @@
                         <DataGridTextColumn Binding="{Binding User_Initcare}" Header="初期要介护程度" Width="120"/>
                         <DataGridTextColumn Binding="{Binding User_Nowtcare}" Header="现在要介护程度" Width="120"/>
                         <DataGridTextColumn Binding="{Binding User_Illnessname}" Header="疾病名称" Width="173"/>
-                        <DataGridTextColumn Binding="{Binding User_Physicaildisabilities}" Header="残障名称" Width="173"/>
+                        <DataGridTextColumn Binding="{Binding User_Physicaildisabilities}" Header="残障名称" Width="167"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Border>
             <!--结束：使用者一览表_数据-->
             <!--使用者信息_按钮-->
-            <Border Height="40" CornerRadius="5,5,0,0" Background="Gray" Margin="5,5,25,0">
+            <Border Height="40" CornerRadius="5,5,0,0" Background="Gray" Margin="5,5,27,0">
                 <Grid>
-                    <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38">使用者信息</Label>
-                    <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="570" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2">
+                    <Label VerticalAlignment="Bottom" Margin="10,0,0.2,0" Foreground="White" FontSize="20" Height="38">使用者信息</Label>
+                    <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="568" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button Width="140" Height="25"    Foreground="Black"  Margin="2,0,0,0" Click="InputSymptomInformation">输入征状信息</Button>
-                            <Button Width="140" Height="25"     Foreground="Black"  Margin="2,0,0,0" Click="InputTraining">输入训练</Button>
-                            <Button Width="140"   Foreground="Black"  Content="输入体力评价"  Margin="2,0,0,0" Click="InputManualMvaluation"/>
-                            <Button Width="140"   Foreground="Black"  Content="制作报告"  Margin="2,0,2,0"/>
+                            <Button Width="140" Height="25"    Foreground="Black"  Margin="2,0,0,0" Click="InputSymptomInformation" Style="{StaticResource myBtn}">输入征状信息</Button>
+                            <Button Width="140" Height="25"     Foreground="Black"  Margin="2,0,0,0" Click="InputTraining" Style="{StaticResource myBtn}">输入训练</Button>
+                            <Button Width="140"   Foreground="Black"  Content="输入体力评价"  Margin="2,0,0,0" Click="InputManualMvaluation" Style="{StaticResource myBtn}"/>
+                            <Button Width="140"   Foreground="Black"  Content="制作报告"  Margin="2,0,0,0" Style="{StaticResource myBtn}" Click="MakeReport"/>
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -87,65 +97,67 @@
                 <!--使用者信息展示-->
                 <Border BorderBrush="Black" BorderThickness="1" Width="300" Height="360" HorizontalAlignment="Left" Margin="5,5,5,5" Background="Gray">
                     <StackPanel Orientation="Vertical">
-                        <Border BorderBrush="Black" BorderThickness="1" Width="250" Height="100" VerticalAlignment="Top" Margin="0,6,0,0" Background="White">
+                        <Border BorderBrush="Black" BorderThickness="1" Width="250" Height="145" VerticalAlignment="Top" Margin="0,6,0,0" Background="White">
                             <Label VerticalAlignment="Center" HorizontalAlignment="Center">没有图象数据</Label>
                         </Border>
-                        <Grid Margin="40,0,0,0">
+                        <Grid Margin="20,0,0,0" Name="UserInfo">
                             <Grid.ColumnDefinitions >
-                                <ColumnDefinition Width="120"/>
-                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="20"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Grid.Column="0">使用者ID</Label>
-                            <Label Grid.Row="0" Grid.Column="1">:</Label>
-                            <Label Grid.Row="0" Grid.Column="2">123141</Label>
-                            <Label Grid.Row="1" Grid.Column="0">使用者姓名</Label>
-                            <Label Grid.Row="1" Grid.Column="1">:</Label>
-                            <Label Grid.Row="1" Grid.Column="2">李仲浩</Label>
-                            <Label Grid.Row="2" Grid.Column="0">使用者姓名（拼音）</Label>
-                            <Label Grid.Row="2" Grid.Column="1">:</Label>
-                            <Label Grid.Row="2" Grid.Column="2">lizhonghao</Label>
-                            <Label Grid.Row="3" Grid.Column="0">性别</Label>
-                            <Label Grid.Row="3" Grid.Column="1">:</Label>
-                            <Label Grid.Row="3" Grid.Column="2">男</Label>
-                            <Label Grid.Row="4" Grid.Column="0">年龄</Label>
-                            <Label Grid.Row="4" Grid.Column="1">:</Label>
-                            <Label Grid.Row="4" Grid.Column="2">21</Label>
-                            <Label Grid.Row="5" Grid.Column="0">小组名称</Label>
-                            <Label Grid.Row="5" Grid.Column="1">:</Label>
-                            <Label Grid.Row="5" Grid.Column="2">山东省</Label>
-                            <Label Grid.Row="6" Grid.Column="0">初期要介护程度</Label>
-                            <Label Grid.Row="6" Grid.Column="1">:</Label>
-                            <Label Grid.Row="6" Grid.Column="2">21</Label>
-                            <Label Grid.Row="7" Grid.Column="0">现在要介护程度</Label>
-                            <Label Grid.Row="7" Grid.Column="1">:</Label>
-                            <Label Grid.Row="7" Grid.Column="2">21</Label>
-                            <Label Grid.Row="8" Grid.Column="0">疾病名称</Label>
-                            <Label Grid.Row="8" Grid.Column="1">:</Label>
-                            <Label Grid.Row="8" Grid.Column="2">21</Label>
-                            <Label Grid.Row="9" Grid.Column="0">残障名称</Label>
-                            <Label Grid.Row="9" Grid.Column="1">:</Label>
-                            <Label Grid.Row="9" Grid.Column="2">21</Label>
+                            <Label Grid.Row="0" Grid.Column="0" Margin="0,0,0,-6">使用者ID</Label>
+                            <Label Grid.Row="0" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                            <Label Grid.Row="0" Grid.Column="2" Content="{Binding Pk_User_Id}" Margin="0,0,0,-4"></Label>
+                            <Label Grid.Row="1" Grid.Column="0" Margin="0,0,0,-6">使用者姓名</Label>
+                            <Label Grid.Row="1" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                            <Label Grid.Row="1" Grid.Column="2" Content="{Binding User_Name}" Margin="0,0,0,-6"></Label>
+                            <Label Grid.Row="2" Grid.Column="0" Margin="0,0,0,-6">使用者姓名（拼音）</Label>
+                            <Label Grid.Row="2" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                            <Label Grid.Row="2" Grid.Column="2" Content="{Binding User_Namepinyin}" Margin="0,0,0,-6"></Label>
+                            <Label Grid.Row="3" Grid.Column="0" Margin="0,0,0,-6">性别</Label>
+                            <Label Grid.Row="3" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                            <Label Grid.Row="3" Grid.Column="2" Content="{Binding User_Sex}" Margin="0,0,0,-6"></Label>
+                            <Label Grid.Row="4" Grid.Column="0" Margin="0,0,0,-6">年龄</Label>
+                            <Label Grid.Row="4" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                            <Label Grid.Row="4" Grid.Column="2" Content="{Binding User_GroupName}" Margin="0,0,0,-6"></Label>
+                            <Label Grid.Row="5" Grid.Column="0" Margin="0,0,0,-6">小组名称</Label>
+                            <Label Grid.Row="5" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                            <Label Grid.Row="5" Grid.Column="2" Margin="0,0,0,-6">山东省</Label>
+                            <Label Grid.Row="6" Grid.Column="0" Margin="0,0,0,-6">初期要介护程度</Label>
+                            <Label Grid.Row="6" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                            <Label Grid.Row="6" Grid.Column="2" Margin="0,0,0,-6">21</Label>
+                            <Label Grid.Row="7" Grid.Column="0" Margin="0,0,0,-6">现在要介护程度</Label>
+                            <Label Grid.Row="7" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                            <Label Grid.Row="7" Grid.Column="2" Margin="0,0,0,-6">21</Label>
+                            <Label Grid.Row="8" Grid.Column="0" Margin="0,0,0,-6">疾病名称</Label>
+                            <Label Grid.Row="8" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                            <Label Grid.Row="8" Grid.Column="2" Margin="0,0,0,-6">21</Label>
+                            <Label Grid.Row="9" Grid.Column="0" Margin="0,0,0,-6">残障名称</Label>
+                            <Label Grid.Row="9" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                            <Label Grid.Row="9" Grid.Column="2" Margin="0,0,0,-6">21</Label>
                         </Grid>
                     </StackPanel>
                 </Border>
                 <!--结束：使用者信息展示-->
                 <!--训练信息-->
-                <Border BorderBrush="Black" BorderThickness="1" Margin="0,5,0,0" Height="360" VerticalAlignment="Top" Width="955">
-                    <WrapPanel Orientation="Vertical" Height="359" VerticalAlignment="Top" Margin="0,0.2,0,-0.8">
-                        <Grid Margin="0,14,0,0">
+                <Border BorderBrush="Black" BorderThickness="1" Margin="0,5,0,0" Height="360" VerticalAlignment="Top" Width="953">
+                    <WrapPanel Orientation="Vertical" Height="360" VerticalAlignment="Top" Margin="0,0.2,0,-0.8" >
+                        <WrapPanel Orientation="Vertical">
+                            <Frame Width="955" Height="315"  Name="record" NavigationUIVisibility="Hidden"></Frame>
+                        <!--<Grid Margin="0,14,0,0">
                             <Border Background="Gray" Margin="117,3,607.6,-3.4" BorderBrush="Black" BorderThickness="1">
                                 <Label HorizontalAlignment="Center" Margin="94.2,-4.8,85.2,-4.6" VerticalAlignment="Center" Height="24" Width="51" RenderTransformOrigin="0.562,0.656">康复前</Label>
                             </Border>
@@ -155,7 +167,7 @@
                         </Grid>
 
 
-                        <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="280" Width="950" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
+                        <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="280" Width="942" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="训练日期" Width="110"/>
                                 <DataGridTextColumn Binding="{Binding User_Name}" Header="血压" Width="80"/>
@@ -171,14 +183,15 @@
                                 <DataGridTextColumn Binding="{Binding User_Physicaildisabilities}" Header="参加/不参加" Width="80"/>
                                 <DataGridTextColumn Binding="{Binding User_Physicaildisabilities}" Header="看护记录" Width="180"/>
                             </DataGrid.Columns>
-                        </DataGrid>
+                        </DataGrid>-->
+                        </WrapPanel>
                         <StackPanel Orientation="Horizontal" Height="25" Margin="30,7,0,0" HorizontalAlignment="Left" Width="916">
-                            <RadioButton VerticalAlignment="Center">征状信息记录</RadioButton>
-                            <RadioButton VerticalAlignment="Center">训练记录</RadioButton>
-                            <RadioButton IsChecked="True" VerticalAlignment="Center">体力评价记录</RadioButton>
-                            <Button Content="输入训练结果" Margin="300,0,0,0"/>
-                            <Button Margin="60,0,0,0" Content="查看详细信息"/>
-                            <Button Content="文档输出" Margin="60,0,0,0" Width="74"/>
+                            <RadioButton VerticalAlignment="Center" IsChecked="True"  GroupName="record_radio" Name="is_signinformationrecord" Click="Radio_Check" >征状信息记录</RadioButton>
+                            <RadioButton VerticalAlignment="Center" GroupName="record_radio" Name="is_trainingrecord" Click="Radio_Check">训练记录</RadioButton>
+                            <RadioButton VerticalAlignment="Center" GroupName="record_radio" Name="is_physicalevaluation" Click="Radio_Check">体力评价记录</RadioButton>
+                            <Button Content="输入训练结果" Margin="240,0,0,0" Style="{StaticResource myBtn}" Width="140" Click="InputTrainingResults"/>
+                            <Button Margin="2,0,0,0" Content="查看详细信息" Style="{StaticResource myBtn}" Width="140" Click="ViewDetails"/>
+                            <Button Content="文档输出" Margin="2,0,0,0"  Style="{StaticResource myBtn}" Width="140" Click="Output_Document"/>
                         </StackPanel>
                     </WrapPanel>
                 </Border>

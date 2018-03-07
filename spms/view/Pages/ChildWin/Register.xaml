@@ -72,10 +72,10 @@
 
                         <Label VerticalAlignment="Center" FontSize="22" Foreground="White" Content="用户信息"/>
 
-                        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="287" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2" BorderBrush="White">
+                        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="284" Height="28" VerticalAlignment="Bottom" BorderBrush="White">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,-0.4"  Foreground="Black" Content="确定"/>
-                                <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" Content="取消" Margin="0,0,2,0" />
+                                <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,0"  Foreground="Black" Content="确定" Style="{StaticResource myBtn}"/>
+                                <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" Content="取消" Margin="0,0,0,0"  Style="{StaticResource myBtn}"/>
                             </StackPanel>
                         </Border>
                     </Grid>
@@ -104,11 +104,11 @@
                     <Border Background="Gray" Margin="0,0,4,2">
                         <Label Content="用户ID" Grid.Row="0"  Grid.Column="0"  FontStyle="Normal"   Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="0" Name="t1" Grid.Column="1"   Margin="0.2,0,100.4,1.8" Grid.ColumnSpan="2"/>
+                    <TextBox Grid.Row="0" Name="t1" Grid.Column="1"   Margin="0.2,0,100.4,1.8" Grid.ColumnSpan="2" FontSize="15"/>
                     <Label Content="*   为必填项" Grid.Row="0" Grid.Column="2"  Margin="0.4,0,-71.6,28.6" Grid.RowSpan="2"/>
 
                     <Border Grid.Row="1" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
-                        <Label Content="用户姓名"  FontStyle="Normal"  VerticalAlignment="Center"  Foreground="White"/>
+                        <Label Content="用户姓名"  VerticalAlignment="Center"  Foreground="White"/>
                     </Border>
                     <TextBox Grid.Row="1" Name="t2" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>
                     <Label  Grid.Row="1" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
@@ -122,7 +122,7 @@
                     <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="性别" Grid.Row="3" Grid.Column="0" Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c1" Grid.Row="3" Grid.Column="1"  Background="Black" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" >
+                    <ComboBox Name="c1" Grid.Row="3" Grid.Column="1"  Background="Black" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" FontSize="15" >
                         <ComboBoxItem Content="男" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                         <ComboBoxItem Content="女" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                     </ComboBox>
@@ -172,7 +172,7 @@
                         <ComboBoxItem Content="女" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                         <ComboBoxItem Content="ComboBoxItem" HorizontalAlignment="Left" Width="284.8"/>
                     </ComboBox>
-                    <Button Content="疾病名称登录"  Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25"/>
+                    <Button Content="疾病名称添加"  Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" Style="{StaticResource myBtn}" Width="80" Click="DiseaseNameAddition"/>
 
                     <Border Grid.Row="9" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="残障名称" Grid.Row="9" Grid.Column="0"  Foreground="White"/>
@@ -182,24 +182,37 @@
                         <ComboBoxItem Content="女" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                         <ComboBoxItem Content="ComboBoxItem" HorizontalAlignment="Left" Width="284.8"/>
                     </ComboBox>
-                    <Button Content="残障名称登录"  Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25"/>
+                    <Button Content="残障名称添加"  Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" Style="{StaticResource myBtn}" Width="80" Click="DisabilityNameAddition"/>
 
                     <Border Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="备忘" Grid.Row="10" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="10" Name="t11" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>
-                    <Button Content="非公开信息"  Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" Width="75"/>
+                    <RichTextBox  AcceptsReturn="True"  Grid.Row="10" Name="t11" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2">
+                        <!--行间距-->
+                        <RichTextBox.Document>
+                            <FlowDocument Focusable="True" LineHeight="1">
+                            </FlowDocument>
+                        </RichTextBox.Document>
+                    </RichTextBox>
+                    <!--<TextBox Grid.Row="10" Name="t11" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>-->
+                    <Button Content="非公开信息"  Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25"  Style="{StaticResource myBtn}" Width="80" Click="InputNonPublicInformationPassword"/>
                 </Grid>
 
                 <StackPanel Height="211" Orientation="Horizontal" Margin="10,0,0,0">
                     <Border BorderThickness="2" BorderBrush="Silver">
-                        <TextBlock   Opacity="5" Margin="0,-1.6,0,-2.2" Width="334" Text="没有图像数据" FontSize="30"/>
+                        <TextBlock   Opacity="5" Margin="0,-1.6,0,-2.2" Width="301" Text="没有图像数据" FontSize="30"/>
                     </Border>
 
-                    <Grid Margin="0,0,0,0.2" Width="257" >
-                        <Button Content="摄影" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Width="75" Height="25" RenderTransformOrigin="0.004,-0.462"/>
-                        <Button Content="参照" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="75"  Height="25" RenderTransformOrigin="0.049,0.799" />
+                    <Grid Margin="0,0,0,0.2" Width="86" >
+                        <Button Content="摄影" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Width="75" Height="25" RenderTransformOrigin="0.004,-0.462" Style="{StaticResource myBtn}"/>
+                        <Button Content="参照" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="75"  Height="25" RenderTransformOrigin="0.049,0.799"  Style="{StaticResource myBtn}"/>
                     </Grid>
+                    <DockPanel Margin="22,0,0,0" Name="Non_Public_Information"  Visibility="Hidden">
+                        <Border Height="20" Width="270" Background="Red" DockPanel.Dock="Top" >
+                            <Label Margin="0,-2,0,-2">非公开信息</Label>
+                        </Border>
+                        <TextBox ></TextBox>
+                    </DockPanel>
                 </StackPanel>
 
             </StackPanel>

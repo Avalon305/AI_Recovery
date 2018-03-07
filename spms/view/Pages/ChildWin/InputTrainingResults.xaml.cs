@@ -15,17 +15,13 @@ using System.Windows.Shapes;
 namespace UI.Pages.ChildWin
 {
     /// <summary>
-    /// InputTraining.xaml 的交互逻辑
+    /// InputTrainingResults.xaml 的交互逻辑
     /// </summary>
-    public partial class InputTraining : Window
+    public partial class InputTrainingResults : Window
     {
-        public InputTraining()
+        public InputTrainingResults()
         {
-           
             InitializeComponent();
-            
         }
-
-       
     }
 }

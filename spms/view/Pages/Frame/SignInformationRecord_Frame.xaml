@@ -18,7 +18,17 @@
             </Grid>
 
 
-            <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="280" Width="942" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
+            <DataGrid x:Name="SignInformationRecord" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="280" Width="942" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" >
+                <!--去掉选中单元格的框线-->
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell" >
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="训练日期" Width="110"/>
                     <DataGridTextColumn Binding="{Binding User_Name}" Header="血压" Width="80"/>

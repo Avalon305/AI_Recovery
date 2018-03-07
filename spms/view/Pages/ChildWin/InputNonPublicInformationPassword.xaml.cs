@@ -15,17 +15,20 @@ using System.Windows.Shapes;
 namespace UI.Pages.ChildWin
 {
     /// <summary>
-    /// InputTraining.xaml 的交互逻辑
+    /// InputNonPublicInformationPassword.xaml 的交互逻辑
     /// </summary>
-    public partial class InputTraining : Window
+    public partial class InputNonPublicInformationPassword : Window
     {
-        public InputTraining()
+        public InputNonPublicInformationPassword()
         {
-           
             InitializeComponent();
-            
         }
-
-       
+        //确定按钮
+        private void Determine(object sender, RoutedEventArgs e)
+        {
+            String password = NonPublicInformationPassword.Text;
+            Console.WriteLine("123123");
+            this.Close();
+        }
     }
 }

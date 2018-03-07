@@ -37,8 +37,8 @@
                     
                     <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="287" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,-0.4"  Foreground="Black" Content="确定更改"/>
-                            <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" Content="取消" Margin="0,0,2,0" Click="GoBack"/>
+                            <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,-0.4"  Foreground="Black" Content="确定更改" Style="{StaticResource myBtn}"/>
+                            <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" Content="取消" Margin="0,0,2,0" Click="GoBack" Style="{StaticResource myBtn}"/>
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -111,7 +111,7 @@
                 </Border>
  
                 <Border Grid.Row="2" Grid.Column="2"  Margin="2,0,0,2">
-                    <Button>参照</Button>
+                    <Button Style="{StaticResource myBtn}">参照</Button>
                 </Border>
                 <!--结束：照片保存文档-->
                 <!--语言-->
@@ -133,7 +133,7 @@
             </Grid>
             <!--高级设置按钮-->
             <Border Margin="250,0,0,0" Width="223">
-                <Button Content="高级设置" Width="141"  Height="38" Click="AdvancedSettings"/>
+                <Button Content="高级设置" Width="141"  Height="38" Click="AdvancedSettings" Style="{StaticResource myBtn}"/>
             </Border>
             <!--结束：高级设置按钮-->
             <!--
@@ -202,16 +202,16 @@
         <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="15,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >
                     <Border CornerRadius="5" Margin="40,0,50,0">
-                        <Button Height="25" Width="50">添加</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">添加</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Background="Black" Height="25" Width="50">
-                        <Button Height="25" Width="50">更新</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">更新</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50" Background="Black">
                         <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
                                 <Hyperlink Name="delete_group"    NavigateUri=" http://www.google.com/" Foreground="White"> 删除 </Hyperlink>
                             </TextBlock>-->
-                        <Button Height="25" Width="50">删除</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">删除</Button>
                     </Border>
                 
         </StackPanel>
@@ -221,16 +221,16 @@
             <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="5,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >
                     <Border CornerRadius="5" Margin="40,0,50,0">
-                        <Button Height="25" Width="50">添加</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">添加</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Background="Black" Height="25" Width="50">
-                        <Button Height="25" Width="50">更新</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">更新</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50" Background="Black">
                         <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
                                 <Hyperlink Name="delete_group"    NavigateUri=" http://www.google.com/" Foreground="White"> 删除 </Hyperlink>
                             </TextBlock>-->
-                        <Button Height="25" Width="50">删除</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">删除</Button>
                     </Border>
 
                 </StackPanel>
@@ -240,16 +240,16 @@
             <Border  BorderBrush= "Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="5,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >
                     <Border CornerRadius="5" Margin="40,0,50,0">
-                        <Button Height="25" Width="50">添加</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">添加</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Background="Black" Height="25" Width="50">
-                        <Button Height="25" Width="50">更新</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">更新</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50" Background="Black">
                         <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
                                 <Hyperlink Name="delete_group"    NavigateUri=" http://www.google.com/" Foreground="White"> 删除 </Hyperlink>
                             </TextBlock>-->
-                        <Button Height="25" Width="50">删除</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">删除</Button>
                     </Border>
 
                 </StackPanel>

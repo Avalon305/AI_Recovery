@@ -15,17 +15,18 @@ using System.Windows.Shapes;
 namespace UI.Pages.ChildWin
 {
     /// <summary>
-    /// InputTraining.xaml 的交互逻辑
+    /// InputDiseaseName.xaml 的交互逻辑
     /// </summary>
-    public partial class InputTraining : Window
+    public partial class InputDiseaseName : Window
     {
-        public InputTraining()
+        public InputDiseaseName()
         {
-           
             InitializeComponent();
-            
         }
-
-       
+        //取消按钮，关闭此窗体
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

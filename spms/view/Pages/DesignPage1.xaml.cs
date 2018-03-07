@@ -25,26 +25,19 @@ namespace UI.Pages
             InitializeComponent();
             //DataGrid2.ColumnHeadersDefaultCellStyle.BackColor = Color.Ivory;
         }
-
+        //按钮：高级设置
         private void AdvancedSettings(object sender, RoutedEventArgs e)
         {
-            NavigationWindow window = new NavigationWindow();
-            window.Source = new Uri("/Pages/AdvancedSettings.xaml", UriKind.RelativeOrAbsolute);
-            window.Show();
-            // NavigationService.GetNavigationService(this).Navigate(new Uri("AdvancedSettings.xaml", UriKind.Relative));
-            //AdvancedSettings advancedSettings = new Pages.AdvancedSettings();
-            //advancedSettings.Owner
-            //this.Content = advancedSettings;
-            //this.Content = new AdvancedSettings();
-            //Window w = new Window();
-            //w.ShowDialog();
-            //this.NavigationService.Navigate(advancedSettings);
+            Window window = (Window)this.Parent;
+            window.Content = new AdvancedSettings();
+            
         }
+        //返回上一页
         private void GoBack(object sender, RoutedEventArgs e)
         {
-            //AdvancedSettings advancedSettings = new Pages.AdvancedSettings();
-            //this.Content = advancedSettings;
-            //this.NavigationService.GoBack();
+          
+
+
         }
     }
 }
