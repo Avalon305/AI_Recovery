@@ -6,6 +6,7 @@ using spms.service;
 using spms.util;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
+using WPFMediaKit.DirectShow.Controls;
 
 namespace spms
 {
@@ -28,21 +31,34 @@ namespace spms
     /// </summary>
     public partial class MainWindow : Window
     {
-    private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private string path = null;
         public MainWindow()
         {
             InitializeComponent();
+
+            // 初始化摄像头
+            Camera_CB.ItemsSource = MultimediaUtil.VideoInputNames;
+            if (MultimediaUtil.VideoInputNames.Length > 0)
+            {
+                Camera_CB.SelectedIndex = 0;//第0个摄像头为默认摄像头
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("电脑没有安装任何可用摄像头");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            logger.Warn("测试{0}参数{1}","1","2");
- 
+            logger.Warn("测试{0}参数{1}", "1", "2");
+
             try
             {
-            new AuthService().updateTest();
+                new AuthService().updateTest();
 
-            }catch(Exception ee)
+            }
+            catch (Exception ee)
             {
 
             }
@@ -52,7 +68,7 @@ namespace spms
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             entity.Setter setter = new SetterService().getSetter();
-            MessageBox.Show(setter.Set_OrganizationSort.ToString()+"-");
+            System.Windows.MessageBox.Show(setter.Set_OrganizationSort.ToString() + "-");
         }
 
         private SerialPort serialPort;
@@ -99,7 +115,7 @@ namespace spms
             //string str = JsonTools.Obj2JSONStr<entity.Setter>(setter);
             //blog
             string str = JsonTools.Obj2JSONStrNew(setter);
-            MessageBox.Show(str);
+            System.Windows.MessageBox.Show(str);
         }
 
         private void Buttonlz_Click_3(object sender, RoutedEventArgs e)
@@ -125,7 +141,62 @@ namespace spms
             list.Add(setter2);
             //string str = JsonTools.List2JSONStr<entity.Setter>(list);
             string str = JsonTools.List2JSONStrNew(list);
-            MessageBox.Show(str);
+            System.Windows.MessageBox.Show(str);
         }
+
+        //选择照片文件的储存路径
+        private void Select_Path_Click(object sender, RoutedEventArgs e)
+        {
+
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "选择照片储存路径";
+
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                path = fbd.SelectedPath;
+            }
+
+        }
+
+        //拍照按钮
+        private void Capture_Click_Btn(object sender, RoutedEventArgs e)
+        {
+
+            //vce是前台wpfmedia控件的name
+            //为避免抓不全的情况，需要在Render之前调用Measure、Arrange
+            RenderTargetBitmap bmp = new RenderTargetBitmap((int)VCE.ActualWidth,
+                (int)VCE.ActualHeight, 96, 96, PixelFormats.Default);
+
+            VCE.Measure(VCE.RenderSize);
+            VCE.Arrange(new Rect(VCE.RenderSize));
+
+            bmp.Render(VCE);
+
+            //这里需要创建一个流以便存储摄像头拍摄到的图片。
+            //当然，可以使文件流，也可以使内存流。
+            BitmapEncoder encoder = new JpegBitmapEncoder();
+            // 获取图像的帧
+            encoder.Frames.Add(BitmapFrame.Create(bmp));
+
+            Console.WriteLine(path+"1.jpg");
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                encoder.Save(ms);
+                byte[] captureData = ms.ToArray();
+                File.WriteAllBytes(path + "/1" + Guid.NewGuid().ToString().Substring(0, 5) + ".jpg", captureData);
+                //@"./photo/" + "1" + Guid.NewGuid().ToString().Substring(0, 5) + 
+                //@"./photo/" + Guid.NewGuid().ToString().Substring(0, 5) + ".jpg"
+            }
+            VCE.Pause();
+        }
+
+        //加载ComBox中的摄像头选择
+        private void SelectionChanged_CB(object sender, SelectionChangedEventArgs e)
+        {
+            //vce是前台wpfmedia控件的name
+            VCE.VideoCaptureSource = (string)Camera_CB.SelectedItem;
+        }
+
     }
 }
