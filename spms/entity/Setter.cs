@@ -16,6 +16,8 @@ namespace spms.entity
         //主键
         [Key]
         public int Pk_Set_Id { get; set; }
+        //主机唯一标识
+        public string Set_Unique_Id { get; set; }
         //设置语言
         public int Set_Language { get; set; }
         //机构名称
