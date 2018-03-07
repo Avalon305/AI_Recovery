@@ -166,6 +166,7 @@
     <Compile Include="server\UsbDogService.cs" />
     <Compile Include="service\AuthService.cs" />
     <Compile Include="service\SetterService.cs" />
+    <Compile Include="util\AesUtil.cs" />
     <Compile Include="util\DbUtil.cs" />
     <Compile Include="util\ExcelUtil.cs" />
     <Compile Include="util\GeneralResponse.cs" />
