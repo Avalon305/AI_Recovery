@@ -71,6 +71,9 @@ namespace spms
             System.Windows.MessageBox.Show(setter.Set_OrganizationSort.ToString() + "-");
         }
 
+        /// <summary>
+        /// 串口测试
+        /// </summary>
         private SerialPort serialPort;
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {

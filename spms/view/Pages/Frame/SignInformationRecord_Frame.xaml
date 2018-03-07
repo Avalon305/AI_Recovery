@@ -1,0 +1,49 @@
+﻿<Page x:Class="UI.Pages.Frame.SignInformationRecord_Frame"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Pages.Frame"
+             
+             mc:Ignorable="d" d:DesignWidth="955" Height="321.666">
+    <Grid>
+        <WrapPanel Orientation="Vertical">
+            <Grid Margin="0,8,0,0">
+                <Border Background="Gray" Margin="117,3,607.6,-3.4" BorderBrush="Black" BorderThickness="1">
+                    <Label HorizontalAlignment="Center" Margin="94.2,-4.8,85.2,-4.6" VerticalAlignment="Center" Height="24" Width="51" RenderTransformOrigin="0.562,0.656">康复前</Label>
+                </Border>
+                <Border Height="20" Background="Gray" Margin="346,3,377.6,-3.4" BorderBrush="Black" BorderThickness="1">
+                    <Label HorizontalAlignment="Left" Margin="90.2,-3.8,0,-4.6" VerticalAlignment="Center" Height="26" Width="56">康复后</Label>
+                </Border>
+            </Grid>
+
+
+            <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="280" Width="942" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="训练日期" Width="110"/>
+                    <DataGridTextColumn Binding="{Binding User_Name}" Header="血压" Width="80"/>
+                    <DataGridTextColumn Binding="{Binding User_Namepinyin}" Header="脉搏" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding User_Sex}" Header="脉" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding User_Age}" Header="体温" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding User_Groupname}" Header="血压" Width="80"/>
+                    <DataGridTextColumn Binding="{Binding User_Initcare}" Header="脉搏" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding User_Nowtcare}" Header="脉" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding User_Illnessname}" Header="体温" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding User_Physicaildisabilities}" Header="水分摄取" Width="60"/>
+                    <DataGridTextColumn Binding="{Binding User_Physicaildisabilities}" Header="问诊确认单" Width="80"/>
+                    <DataGridTextColumn Binding="{Binding User_Physicaildisabilities}" Header="参加/不参加" Width="80"/>
+                    <DataGridTextColumn Binding="{Binding User_Physicaildisabilities}" Header="看护记录" Width="180"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </WrapPanel>
+        <!--<TabControl Name="TabControl1" HorizontalAlignment="Left" Height="337" Margin="0,20,0,0" VerticalAlignment="Top" Width="572">
+            <TabItem Header="原始窗口">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox HorizontalAlignment="Left"  Height="305" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="562"/>
+
+
+                </Grid>
+            </TabItem>
+        </TabControl>-->
+    </Grid>
+</Page>
