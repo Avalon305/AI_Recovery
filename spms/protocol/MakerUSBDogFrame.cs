@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using spms.constant;
 
 namespace spms.protocol
 {
@@ -24,9 +25,10 @@ namespace spms.protocol
             string hex = len.ToString("x4");//int转成16进制字符串
             result[2] = Convert.ToByte(hex.Substring(0, 2), 16);//16进制字符串(数字化)转字节 3.长度
             result[3] = Convert.ToByte(hex.Substring(2, 2), 16);
-            for (int i = 0; i < data.Length; i++)
+            byte[] EncryptData=AesUtil.Encrypt(data, ProtocolConstant.USB_DOG_PASSWORD);
+            for (int i = 0; i < EncryptData.Length; i++)
             {
-                result[4 + i] = data[i];
+                result[4 + i] = EncryptData[i];
             }
             //4.异或校检
             byte xor = ProtocolUtil.XorByByte(result, 1, 3 + len);
