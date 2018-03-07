@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace spms.protocol
 {
-    class ParserTCP
+    interface IMakerFrame
     {
+        void PackData(ref byte[] source,byte[] cmd,byte[] data);
     }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace spms.constant
+namespace spms.protocol
 {
-    class deleteme
+    interface IParserFrame
     {
+        void Parser(ref object result, byte[] source);
     }
 }

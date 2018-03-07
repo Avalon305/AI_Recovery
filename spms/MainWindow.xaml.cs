@@ -21,8 +21,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Forms;
 using WPFMediaKit.DirectShow.Controls;
+using spms.constant;
+using spms.protocol;
 
 namespace spms
 {
@@ -151,13 +152,13 @@ namespace spms
         private void Select_Path_Click(object sender, RoutedEventArgs e)
         {
 
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.Description = "选择照片储存路径";
+            // FolderBrowserDialog fbd = new FolderBrowserDialog();
+            //fbd.Description = "选择照片储存路径";
 
-            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                path = fbd.SelectedPath;
-            }
+            //  if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //  {
+            //      path = fbd.SelectedPath;
+            // }
 
         }
 
@@ -181,7 +182,7 @@ namespace spms
             // 获取图像的帧
             encoder.Frames.Add(BitmapFrame.Create(bmp));
 
-            Console.WriteLine(path+"1.jpg");
+            Console.WriteLine(path + "1.jpg");
 
             using (MemoryStream ms = new MemoryStream())
             {
@@ -201,5 +202,24 @@ namespace spms
             VCE.VideoCaptureSource = (string)Camera_CB.SelectedItem;
         }
 
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            //打包协议到result;
+            byte[] result = null;
+            ProtocolConstant.USB_DOG_CONTENT = new byte[] { 0x0A, 0x0B, 0x0C };
+            new MakerUSBDogFrame().PackData(ref result, new byte[] { 0xFF }, ProtocolConstant.USB_DOG_CONTENT);
+            string a = ProtocolUtil.BytesToString(result);
+            MessageBox.Show(a);
+
+            //解析这个协议
+            object rr = null;
+            new ParserUSBDogFrame().Parser(ref rr, result);
+            string b = ProtocolUtil.BytesToString((byte[])rr);
+            //解析出的数据体
+            MessageBox.Show(b);
+            //是否和发送的数据体相等
+            MessageBox.Show(ProtocolUtil.ArrayEqual((byte[])rr, ProtocolConstant.USB_DOG_CONTENT).ToString());
+
+        }
     }
 }

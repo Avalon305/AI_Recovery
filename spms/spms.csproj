@@ -95,6 +95,18 @@
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.4.13\lib\net45\NLog.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
@@ -109,7 +121,6 @@
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -131,10 +142,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="constant\ProtocolConstant.cs" />
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="dao\SetterDAO.cs" />
     <Compile Include="entity\Assist.cs" />
     <Compile Include="entity\UploadManagement.cs" />
+    <Compile Include="http\BigDataOfficer.cs" />
+    <Compile Include="http\HttpSender.cs" />
+    <Compile Include="protocol\IMakerFrame.cs" />
+    <Compile Include="protocol\IParserFrame.cs" />
+    <Compile Include="protocol\MakerTCPFrame.cs" />
+    <Compile Include="protocol\MakerUSBDogFrame.cs" />
+    <Compile Include="protocol\ParserTCPFrame.cs" />
+    <Compile Include="protocol\ParserUSBDogFrame.cs" />
     <Compile Include="protocol\ProtocolHandler.cs" />
     <Compile Include="server\NettyLuncher.cs" />
     <Compile Include="entity\Auther.cs" />
@@ -143,13 +163,63 @@
     <Compile Include="entity\SymptomInfo.cs" />
     <Compile Include="entity\TrainInfo.cs" />
     <Compile Include="entity\User.cs" />
+    <Compile Include="server\UsbDogService.cs" />
     <Compile Include="service\AuthService.cs" />
     <Compile Include="service\SetterService.cs" />
     <Compile Include="util\DbUtil.cs" />
+    <Compile Include="util\ExcelUtil.cs" />
     <Compile Include="util\GeneralResponse.cs" />
     <Compile Include="util\JsonTools.cs" />
     <Compile Include="util\ProtocolUtil.cs" />
     <Compile Include="util\SerialPortUtil.cs" />
+    <Compile Include="view\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\AdvancedSettings.xaml.cs">
+      <DependentUpon>AdvancedSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\InputManualMvaluation.xaml.cs">
+      <DependentUpon>InputManualMvaluation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\InputSymptomInformation .xaml.cs">
+      <DependentUpon>InputSymptomInformation .xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\InputTraining .xaml.cs">
+      <DependentUpon>InputTraining .xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\InputTrainingResult.xaml.cs">
+      <DependentUpon>InputTrainingResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\Register.xaml.cs">
+      <DependentUpon>Register.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\Retrieval.xaml.cs">
+      <DependentUpon>Retrieval.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\UserUpdata.xaml.cs">
+      <DependentUpon>UserUpdata.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\DesignPage.xaml.cs">
+      <DependentUpon>DesignPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\DesignPage1.xaml.cs">
+      <DependentUpon>DesignPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\Frame\PhysicaleValuation_Frame.xaml.cs">
+      <DependentUpon>PhysicaleValuation_Frame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\Frame\SignInformationRecord_Frame.xaml.cs">
+      <DependentUpon>SignInformationRecord_Frame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\Frame\TrainingRecord_Frame.xaml.cs">
+      <DependentUpon>TrainingRecord_Frame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -168,6 +238,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="resources\zh-cn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -215,6 +289,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\Pages\Frame\PhysicaleValuation_Frame.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\Frame\SignInformationRecord_Frame.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\Frame\TrainingRecord_Frame.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\Pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -234,6 +320,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\5920.jpg" />
+    <Resource Include="view\Images\bdl.PNG" />
+    <Resource Include="view\Images\bdl_login.PNG" />
+    <Resource Include="view\Images\bdl_logo.PNG" />
+    <Resource Include="view\Images\design.PNG" />
+    <Resource Include="view\Images\icon.png" />
+    <Resource Include="view\Images\icon1.png" />
+    <Resource Include="view\Images\icon2.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

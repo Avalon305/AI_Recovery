@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace spms.protocol
 {
-    class MakerTCP
+    class ParserTCPFrame
     {
     }
 }
