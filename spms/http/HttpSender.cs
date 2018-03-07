@@ -10,12 +10,12 @@ using Newtonsoft.Json.Linq;
 namespace spms.http
 {
     //负责发送http请求的发送者对象
-    class HttpSender
+    public class HttpSender
     {
         //发送地址
-        private string Uri;
+        public string Uri { get; set; }
         //发送的json数据体
-        private string Data;
+        public string Data { get; set; }
         //有参构造
         public HttpSender(string UriTarget, string DataBody) {
             this.Uri = UriTarget;
@@ -25,9 +25,9 @@ namespace spms.http
         private HttpSender()
         {
         }
-        //发送数据至平台的具体方法
+        //发送数据至平台的默认方法-post
         public string sendDataToWebPlatform() {
-            return "";
+            return POSTByJsonStr(this.Uri, this.Data);
         }
         //url为请求的网址，param参数为需要查询的条件（服务端接收的参数，没有则为null）
         //返回该次请求的响应
@@ -81,6 +81,39 @@ namespace spms.http
             }
             string jsonstring = json.ToString();//获得参数的json字符串
             byte[] jsonbyte = Encoding.UTF8.GetBytes(jsonstring);
+            Stream postStream = request.GetRequestStream();
+            postStream.Write(jsonbyte, 0, jsonbyte.Length);
+            postStream.Close();
+            //发送请求并获取相应回应数据       
+            HttpWebResponse res;
+            try
+            {
+                res = (HttpWebResponse)request.GetResponse();
+            }
+            catch (WebException ex)
+            {
+                res = (HttpWebResponse)ex.Response;
+            }
+            StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
+            string content = sr.ReadToEnd(); //获得响应字符串
+            return content;
+        }
+        //post方式，参数为json串
+        public static string POSTByJsonStr(string url, string jsonStr)
+        {
+            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest; //创建请求
+            CookieContainer cookieContainer = new CookieContainer();
+            request.CookieContainer = cookieContainer;
+            request.AllowAutoRedirect = true;
+            //request.AllowReadStreamBuffering = true;
+            request.MaximumResponseHeadersLength = 1024;
+            request.Method = "POST"; //请求方式为post
+            request.AllowAutoRedirect = true;
+            request.MaximumResponseHeadersLength = 1024;
+            request.ContentType = "application/json";
+             
+           // string jsonstring = json.ToString();//获得参数的json字符串
+            byte[] jsonbyte = Encoding.UTF8.GetBytes(jsonStr);
             Stream postStream = request.GetRequestStream();
             postStream.Write(jsonbyte, 0, jsonbyte.Length);
             postStream.Close();

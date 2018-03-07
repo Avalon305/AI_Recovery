@@ -135,8 +135,6 @@
     <Compile Include="dao\SetterDAO.cs" />
     <Compile Include="entity\Assist.cs" />
     <Compile Include="entity\UploadManagement.cs" />
-    <Compile Include="http\BigDataOfficer.cs" />
-    <Compile Include="http\HttpSender.cs" />
     <Compile Include="protocol\ProtocolHandler.cs" />
     <Compile Include="server\NettyLuncher.cs" />
     <Compile Include="entity\Auther.cs" />
@@ -150,6 +148,7 @@
     <Compile Include="util\DbUtil.cs" />
     <Compile Include="util\GeneralResponse.cs" />
     <Compile Include="util\JsonTools.cs" />
+    <Compile Include="util\ProtocolUtil.cs" />
     <Compile Include="util\SerialPortUtil.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -165,12 +164,60 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="resources\en-us.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="resources\zh-cn.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\AdvancedSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputManualMvaluation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputSymptomInformation .xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputTraining .xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputTrainingResult.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\Register.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\Retrieval.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\UserUpdata.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\DesignPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\DesignPage1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -211,7 +258,9 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets" Condition="Exists('..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

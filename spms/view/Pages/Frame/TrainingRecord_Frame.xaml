@@ -1,0 +1,68 @@
+﻿<Page x:Class="UI.Pages.Frame.TrainingRecord_Frame"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Pages.Frame"
+             mc:Ignorable="d" 
+             d:DesignHeight="321.666" d:DesignWidth="955">
+    <Grid>
+        <TabControl Name="TabControl1" HorizontalAlignment="Left" Height="337" Margin="2.3,8,0,0" VerticalAlignment="Top" Width="955">
+            <TabItem Header="水平腿部推蹬机" Width="95">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left"  VerticalAlignment="Top"  Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="训练日期" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding User_Name}" Header="移乘方法" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding User_Namepinyin}" Header="重量" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding User_Sex}" Header="组数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding User_Age}" Header="个数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding User_Groupname}" Header="自觉运动强度" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding User_Initcare}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding User_Nowtcare}" Header="备忘" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding User_Illnessname}" Header="利用者感想" Width="200"/>
+                           
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="坐姿划船机" Width="95">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox HorizontalAlignment="Left"  Height="305" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="562"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="身体伸展弯曲机" Width="95">
+            <Grid Background="#FFE5E5E5">
+                <TextBox HorizontalAlignment="Left"  Height="305" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="562"/>
+
+
+            </Grid>
+            </TabItem>
+            <TabItem Header="腿部伸展弯曲机" Width="95">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox HorizontalAlignment="Left"  Height="305" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="562"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="臀部外展内收机" Width="95">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox HorizontalAlignment="Left"  Height="305" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="562"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="胸部推举机" Width="95">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox HorizontalAlignment="Left"  Height="305" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="562"/>
+
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>
