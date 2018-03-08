@@ -12,8 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UI.Pages;
-namespace UI
+using spms.entity;
+namespace spms
+
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑

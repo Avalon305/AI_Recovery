@@ -1,9 +1,9 @@
-﻿<Page x:Class="UI.Pages.Frame.TrainingRecord_Frame"
+﻿<Page x:Class="spms.view.Pages.Frame.TrainingRecord_Frame"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:UI.Pages.Frame"
+             xmlns:local="clr-namespace:spms.view.Pages.Frame"
              mc:Ignorable="d" 
              d:DesignHeight="321.666" d:DesignWidth="955">
     <Grid>

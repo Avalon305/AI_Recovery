@@ -11,8 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using UI.Pages.ChildWin;
-namespace UI.Pages.ChildWin
+using spms.view.Pages.ChildWin;
+namespace spms.view.Pages.ChildWin
 {
     /// <summary>
     /// InputSymptomInformation.xaml 的交互逻辑

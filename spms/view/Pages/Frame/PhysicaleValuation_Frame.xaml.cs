@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UI.Pages.Frame
+namespace spms.view.Pages.Frame
 {
     /// <summary>
     /// PhysicaleValuation.xaml 的交互逻辑
