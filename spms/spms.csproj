@@ -173,12 +173,6 @@
     <Compile Include="util\JsonTools.cs" />
     <Compile Include="util\ProtocolUtil.cs" />
     <Compile Include="util\SerialPortUtil.cs" />
-    <Compile Include="view\App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="view\Pages\AdvancedSettings.xaml.cs">
       <DependentUpon>AdvancedSettings.xaml</DependentUpon>
     </Compile>
@@ -269,11 +263,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="view\App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="view\MainWindow.xaml">
+    <Page Include="view\Dictionary\Button.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
