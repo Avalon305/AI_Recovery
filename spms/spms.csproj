@@ -182,8 +182,17 @@
     <Compile Include="view\Pages\AdvancedSettings.xaml.cs">
       <DependentUpon>AdvancedSettings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\Pages\ChildWin\InputDisabilityName.xaml.cs">
+      <DependentUpon>InputDisabilityName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\InputDiseaseName.xaml.cs">
+      <DependentUpon>InputDiseaseName.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\ChildWin\InputManualMvaluation.xaml.cs">
       <DependentUpon>InputManualMvaluation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\InputNonPublicInformationPassword.xaml.cs">
+      <DependentUpon>InputNonPublicInformationPassword.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\InputSymptomInformation .xaml.cs">
       <DependentUpon>InputSymptomInformation .xaml</DependentUpon>
@@ -194,14 +203,32 @@
     <Compile Include="view\Pages\ChildWin\InputTrainingResult.xaml.cs">
       <DependentUpon>InputTrainingResult.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\Pages\ChildWin\InputTrainingResults.xaml.cs">
+      <DependentUpon>InputTrainingResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\NonPublicInformation.xaml.cs">
+      <DependentUpon>NonPublicInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\PhysicalAssessmentReport.xaml.cs">
+      <DependentUpon>PhysicalAssessmentReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\ChildWin\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\Retrieval.xaml.cs">
       <DependentUpon>Retrieval.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\Pages\ChildWin\TrainingReport.xaml.cs">
+      <DependentUpon>TrainingReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\ChildWin\UserUpdata.xaml.cs">
       <DependentUpon>UserUpdata.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\ViewSymptomInformation.xaml.cs">
+      <DependentUpon>ViewSymptomInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\ViewTrainingResults.xaml.cs">
+      <DependentUpon>ViewTrainingResults.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\DesignPage.xaml.cs">
       <DependentUpon>DesignPage.xaml</DependentUpon>
@@ -254,7 +281,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\Pages\ChildWin\InputDisabilityName.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputDiseaseName.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\Pages\ChildWin\InputManualMvaluation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputNonPublicInformationPassword.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -270,6 +309,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\Pages\ChildWin\InputTrainingResults.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\NonPublicInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\PhysicalAssessmentReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\Pages\ChildWin\Register.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -278,7 +329,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\Pages\ChildWin\TrainingReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\Pages\ChildWin\UserUpdata.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\ViewSymptomInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\ViewTrainingResults.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

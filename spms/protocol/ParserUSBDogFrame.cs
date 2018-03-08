@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using spms.constant;
+using spms.util;
 
 namespace spms.protocol
 {
@@ -18,7 +19,7 @@ namespace spms.protocol
             Int32 data_len = Convert.ToInt32(dataLenStr, 16);
             byte[] temp = new byte[data_len];
             Array.Copy(source, 4, temp, 0, data_len);
-            result = AesUtil.Decrypt(temp, protocolContant.USB_DOG_PASSWORD);
+            result = AesUtil.Decrypt(temp, ProtocolConstant.USB_DOG_PASSWORD);
 
         }
     }
