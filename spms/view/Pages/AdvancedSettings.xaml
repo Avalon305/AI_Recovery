@@ -13,7 +13,7 @@
     <StackPanel Orientation="Vertical">
         <!--图片-->
         <Border>
-            <Image Source="/Images/bdl.png"></Image>
+            <Image Source="/view/Images/bdl.png"></Image>
         </Border>
         <!--结束：图片-->
         <!--标题栏-->

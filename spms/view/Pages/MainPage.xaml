@@ -19,16 +19,16 @@
             <StackPanel Orientation="Horizontal" Margin="5,0,25,0">
                 <!-- logo -->
                 <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <Image Source="/Images/bdl_logo.PNG"></Image>
+                    <Image Source="/view/Images/bdl_logo.PNG"></Image>
                 </Border>
                 <!--结束：logo-->
                 <!--图片及按钮-->
                 <Grid>
                     <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left">
-                        <Image Source="/Images/bdl.PNG" Margin="0,-11,0,-100" Width="1089"></Image>
+                        <Image Source="/view/Images/bdl.PNG" Margin="0,-11,0,-100" Width="1089"></Image>
                     </Border>
                     <Border Margin="0,20,30,19" HorizontalAlignment="Right" Width="75">
-                        <Button Style="{StaticResource myBtn}">后退</Button>
+                        <Button Style="{StaticResource myBtn}" Click="GoBack">后退</Button>
                     </Border>
                 </Grid>
                 <!--结束：图片及按钮-->

@@ -29,21 +29,22 @@ namespace spms.view.Pages.ChildWin
 
         }
 
-        private void B2_Click(object sender, RoutedEventArgs e)
+        
+       
+        //关闭检索窗口
+        private void GoBack(object sender, RoutedEventArgs e)
+
         {
-            t1.Text = "";
-            t2.Text = "";
-            t3.Text = "";
-            t4.Text = "";
-            c1.Text = "";
-            c3.Text = "";
-            c2.Text = "";
+            this.Close();
+            //Window window = (Window)this.Parent;
+            //window.Content = new DesignPage1();
         }
-
-        private void B3_Click(object sender, RoutedEventArgs e)
+        //置空检索条件
+        private void Emptying_Condition(object sender, RoutedEventArgs e)
         {
+            entity.User user = new entity.User();
 
+            Retrieval_Conditon.DataContext = user;
         }
-
     }
 }

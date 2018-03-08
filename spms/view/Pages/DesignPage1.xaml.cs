@@ -35,7 +35,12 @@ namespace spms.view.Pages
         //返回上一页
         private void GoBack(object sender, RoutedEventArgs e)
         {
-          
+            //NavigationService.GetNavigationService(this).GoForward(); //向后转
+
+            if (this.NavigationService.CanGoForward)
+            {
+                this.NavigationService.GoForward();
+            }
 
 
         }

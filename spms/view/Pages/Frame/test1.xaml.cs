@@ -12,22 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace spms.view.Pages.ChildWin
+namespace spms.view.Pages.Frame
 {
     /// <summary>
-    /// ViewSymptomInformation.xaml 的交互逻辑
+    /// test1.xaml 的交互逻辑
     /// </summary>
-    public partial class ViewSymptomInformation : Window
+    public partial class test1 : Window
     {
-        public ViewSymptomInformation()
+        public test1()
         {
             InitializeComponent();
-        }
-
-        //取消操作，关闭窗体
-        private void Cancel(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

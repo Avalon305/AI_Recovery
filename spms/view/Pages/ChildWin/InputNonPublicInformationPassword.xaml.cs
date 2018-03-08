@@ -30,5 +30,10 @@ namespace spms.view.Pages.ChildWin
             Console.WriteLine("123123");
             this.Close();
         }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

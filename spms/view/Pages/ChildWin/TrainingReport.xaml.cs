@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace UI.Pages.ChildWin
+namespace spms.view.Pages.ChildWin
 {
     /// <summary>
     /// MakeReport.xaml 的交互逻辑
@@ -32,6 +32,10 @@ namespace UI.Pages.ChildWin
             btn.SetBinding(Button.ContentProperty, binding);
         }
 
-
+        //取消操作，关闭窗体
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

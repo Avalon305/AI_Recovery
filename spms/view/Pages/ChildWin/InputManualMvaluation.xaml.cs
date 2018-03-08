@@ -389,6 +389,11 @@ namespace spms.view.Pages.ChildWin
         {
             c49.IsChecked = false;
         }
+        //取消操作，关闭窗口
+        private void GoBack(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
         //private void c29_Checked(object sender, RoutedEventArgs e)
         //{

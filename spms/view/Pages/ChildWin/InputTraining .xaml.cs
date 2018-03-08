@@ -26,6 +26,13 @@ namespace spms.view.Pages.ChildWin
             
         }
 
-       
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult dr = MessageBox.Show("是否所有编辑都无效？", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (dr == MessageBoxResult.OK)
+            {
+                this.Close();
+            }
+        }
     }
 }

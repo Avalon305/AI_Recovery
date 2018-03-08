@@ -26,5 +26,10 @@ namespace spms.view.Pages.ChildWin
             l1.Content = "andianl";
             l2.Content = "13210104659";
         }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

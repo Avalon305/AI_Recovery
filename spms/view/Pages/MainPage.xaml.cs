@@ -51,17 +51,17 @@ namespace spms.view.Pages
             if (is_signinformationrecord.IsChecked == true)
             {
                 //显示征状信息记录
-                record.Source = new Uri("/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
+                record.Source = new Uri("/view/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
             }
             else if(is_trainingrecord.IsChecked == true)
             {
                 //显示训练信息记录
-                record.Source = new Uri("/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
+                record.Source = new Uri("/view/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
             }
             else
             {
                 //显示体力评价记录
-                record.Source = new Uri("/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
+                record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
             }
         }
         //按钮：输入征状信息
@@ -155,16 +155,16 @@ namespace spms.view.Pages
             if (is_signinformationrecord.IsChecked == true)
             {
                 //record.Source = new Uri("/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
-                record.Source = new Uri("/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
+                record.Source = new Uri("/view/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
             }
             else if (is_trainingrecord.IsChecked == true)
             {
-                record.Source = new Uri("/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
+                record.Source = new Uri("/view/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
 
             }
             else
             {
-                record.Source = new Uri("/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
+                record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
             }
         }
         //按钮：删除
@@ -205,8 +205,8 @@ namespace spms.view.Pages
                 List<TrainInfo> list = new List<TrainInfo>();
                 TrainInfo trainInfo = new TrainInfo
                 {
-                    Gmt_Create = new DateTime(2012, 01, 02)
-                };
+                    Gmt_Create = DateTime.Parse("2010-2-12")
+            };
                 list.Add(trainInfo);
                 Console.WriteLine(trainInfo.Gmt_Create);
                 list.Add(trainInfo);
@@ -343,6 +343,13 @@ namespace spms.view.Pages
                 physicalAssessmentReport.ShowDialog();
 
             }
+        }
+
+        private void GoBack(object sender, RoutedEventArgs e)
+        {
+            Window window = (Window)this.Parent;
+            window.Show();
+            //window.Content = new MainWindow();
         }
 
         //private void SignInformationRecord_Frame(object sender, RoutedEventArgs e)
