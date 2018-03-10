@@ -44,6 +44,8 @@ namespace spms.entity
         //注意点，指示
         public string DP_Memo { get; set; }
 
+        //设备属性，第一个是设备名，后面可以是多个属性，用*分割，格式：设备名*属性-属性值*[属性-属性值*]
+        public string DP_Attrs { get; set; }
          //组数
         public int dp_groupcount { get; set; }
         //每组个数
