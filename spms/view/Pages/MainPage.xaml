@@ -157,7 +157,7 @@
                     <WrapPanel Orientation="Vertical" Height="360" VerticalAlignment="Top" Margin="0,0.2,0,-0.8" >
                         <WrapPanel Orientation="Vertical">
                             <Frame Width="955" Height="315"  Name="record" NavigationUIVisibility="Hidden"></Frame>
-                        <!--<Grid Margin="0,14,0,0">
+                            <!--<Grid Margin="0,14,0,0">
                             <Border Background="Gray" Margin="117,3,607.6,-3.4" BorderBrush="Black" BorderThickness="1">
                                 <Label HorizontalAlignment="Center" Margin="94.2,-4.8,85.2,-4.6" VerticalAlignment="Center" Height="24" Width="51" RenderTransformOrigin="0.562,0.656">康复前</Label>
                             </Border>

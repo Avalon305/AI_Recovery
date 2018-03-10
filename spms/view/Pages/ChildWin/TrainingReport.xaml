@@ -24,9 +24,13 @@
 
         <Style TargetType="ListBoxItem" x:Key="myListBoxItem">
             <Style.Resources>
-                --><!--SelectedItem with focus--><!--
+                -->
+    <!--SelectedItem with focus-->
+    <!--
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="White" Opacity=".4"/>
-                --><!--SelectedItem without focus--><!--
+                -->
+    <!--SelectedItem without focus-->
+    <!--
                 <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="White" Opacity=".4"/>
             </Style.Resources>
         </Style>
@@ -69,18 +73,18 @@
                 <Label Margin="0,-2,0,-4">输入报告</Label>
             </Border>
             <Border BorderBrush="Black" BorderThickness="1" Width="365">
-            <Grid Margin="10,4,0,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"></RowDefinition>
-                    <RowDefinition Height="20"></RowDefinition>
-                    <RowDefinition Height="20"></RowDefinition>
-                </Grid.RowDefinitions>
-                <RadioButton Content="综合报告" Grid.Row="0"/>
-                <RadioButton Content="详细报告" Grid.Row="1"/>
-                <RadioButton Content="看护记录报告" Grid.Row="2"/>
-            </Grid>
+                <Grid Margin="10,4,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <RadioButton Content="综合报告" Grid.Row="0"/>
+                    <RadioButton Content="详细报告" Grid.Row="1"/>
+                    <RadioButton Content="看护记录报告" Grid.Row="2"/>
+                </Grid>
             </Border>
-            
+
         </StackPanel>
         <!--结束：输入报告-->
         <!--实施日期-->

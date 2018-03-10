@@ -19,39 +19,23 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class UserUpdata : Window
     {
+        //小组的名称列表
+        List<string> list = new List<string> { "aa", "bb", "abc", "csd", "sdlfks", "osdi", "awd" };
+        //疾病名称列表
+        List<string> list2 = new List<string> { "单侧麻痹", "心脏病", "脑梗赛", "脑出血", "高血压", "帕金森病", "糖尿病", "变形性膝关节炎", "没有" };
+        //残障名称列表
+        List<string> list3 = new List<string> { "上肢的脱离或截肢", "下肢的脱离或截肢", "上肢的外伤性运动障碍", "下肢的外伤性运动障碍", "脊髓损伤", "脑源性运动机能障碍", "左上下肢麻痹", "右上下肢麻痹", "没有" };
+        //初期介护度列表
+        List<string> list4 = new List<string> { "没有申请", "自理", "要支援一", "要支援二", "要介护1", "要介护2", "要介护3", "要介护4", "要介护5" };
         public UserUpdata()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void t5_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            //初始化下拉框值
+            c2.ItemsSource = list;
+            c3.ItemsSource = list4;
+            c4.ItemsSource = list4;
+            c5.ItemsSource = list2;
+            c6.ItemsSource = list3;
         }
         //添加疾病名称
         private void DiseaseNameAddition(object sender, RoutedEventArgs e)
@@ -98,6 +82,62 @@ namespace spms.view.Pages.ChildWin
         private void Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Button_OK(object sender, RoutedEventArgs e)
+        {
+            //获取用户ID的内容
+            string userID = t1.Text;
+            //获取用户姓名的内容
+            string userName = t2.Text;
+            //获取用户姓名拼音的内容
+            string username = t3.Text;
+            //获取用户性别的内容
+            string usersex = c1.Text;
+            //获取用户出生年月的内容
+            string brithday = t4.Text;
+            //获取小组名称的内容
+            string groupName = c2.Text;
+            //获取初期要介护度的内容
+            string initial = c3.Text;
+            //获取现在要介护度的内容
+            string now = c4.Text;
+            //获取疾病名称的内容
+            string sicknessName = c5.Text;
+            //获取残障名称的内容
+            string disabilityName = c6.Text;
+            //获取备忘的内容
+            TextRange text = new TextRange(t6.Document.ContentStart, t6.Document.ContentEnd);
+            string memo = text.Text;
+
+
+            if (userID.Equals(""))
+            {
+                MessageBoxResult dr = MessageBox.Show("用户ID不能为空");
+            }
+            else
+            {
+                try
+                {
+                    //里面填写接口内容
+                    int i = Convert.ToInt32(t1.Text);
+                }
+                catch
+                {
+                    MessageBoxResult dr = MessageBox.Show("用户ID必须为数字");
+                }
+
+            }
+        }
+        //摄影按钮
+        private void Button_TakePhoto(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //参照按钮
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

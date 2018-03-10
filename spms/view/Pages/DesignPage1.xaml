@@ -34,7 +34,7 @@
             <Border CornerRadius="5,5,0,0" Height="38" Margin="2,180,17,2" Background="Gray">
                 <Grid>
                     <Label VerticalAlignment="Center" FontSize="20" Foreground="White" Content="设定"/>
-                    
+
                     <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="287" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                             <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,-0.4"  Foreground="Black" Content="确定更改" Style="{StaticResource myBtn}"/>
@@ -59,16 +59,16 @@
                     <RowDefinition Height="25"/>
                     <RowDefinition Height="25"/>
                     <RowDefinition Height="25"/>
-                   <!-- <RowDefinition Height="25"/>
+                    <!-- <RowDefinition Height="25"/>
                     <RowDefinition Height="25"/>
                     <RowDefinition Height="25"/>-->
                 </Grid.RowDefinitions>
                 <!--机构团体名称-->
                 <Border Grid.Row="0" Grid.Column="0"  Width="140" HorizontalAlignment="Left" Margin="0,0,0,2">
                     <Label Foreground="White" Background="Black" FontSize="10" >
-                        机构、团体名称 </Label>
+                        机构、团体名称</Label>
                 </Border>
-                
+
                 <Border Grid.Row="0" Grid.Column="1" Margin="0,0,0,2" >
                     <TextBox></TextBox>
                 </Border>
@@ -109,7 +109,7 @@
                 <Border Grid.Row="2" Grid.Column="1"  Margin="0,0,0,2">
                     <TextBox></TextBox>
                 </Border>
- 
+
                 <Border Grid.Row="2" Grid.Column="2"  Margin="2,0,0,2">
                     <Button Style="{StaticResource myBtn}">参照</Button>
                 </Border>
@@ -175,13 +175,13 @@
         <!--结束：基础设置及其高级设置按钮-->
 
         <StackPanel Orientation="Horizontal" >
-         <!--小组名称-->
-        <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" Margin="15,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="小组名称" Width="410"/>
-            </DataGrid.Columns>
-        </DataGrid>
-         <!--结束小组名称-->
+            <!--小组名称-->
+            <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" Margin="15,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="小组名称" Width="410"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <!--结束小组名称-->
             <!--疾病名称-->
             <DataGrid x:Name="DataGrid3" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
                 <DataGrid.Columns>
@@ -199,7 +199,7 @@
         </StackPanel>
         <!--小组名称——添加、更新、删除按钮-->
         <StackPanel Orientation="Horizontal">
-        <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="15,0,0,0" Width="410" HorizontalAlignment="Left">
+            <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="15,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >
                     <Border CornerRadius="5" Margin="40,0,50,0">
                         <Button Height="25" Width="50" Style="{StaticResource myBtn}">添加</Button>
@@ -213,10 +213,10 @@
                             </TextBlock>-->
                         <Button Height="25" Width="50" Style="{StaticResource myBtn}">删除</Button>
                     </Border>
-                
-        </StackPanel>
-         <!--结束：小组名称——添加、更新、删除按钮-->
-         <!--疾病名称——添加、更新、删除按钮-->
+
+                </StackPanel>
+                <!--结束：小组名称——添加、更新、删除按钮-->
+                <!--疾病名称——添加、更新、删除按钮-->
             </Border>
             <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="5,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >
@@ -235,7 +235,7 @@
 
                 </StackPanel>
             </Border>
-         <!--结束：疾病名称——添加、更新、删除按钮-->
+            <!--结束：疾病名称——添加、更新、删除按钮-->
             <!--残障名称——添加、更新、删除按钮-->
             <Border  BorderBrush= "Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="5,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >

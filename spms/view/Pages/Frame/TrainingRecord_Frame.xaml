@@ -31,7 +31,7 @@
                             <DataGridTextColumn Binding="{Binding User_Initcare}" Header="运动时机、姿势等" Width="110"/>
                             <DataGridTextColumn Binding="{Binding User_Nowtcare}" Header="备忘" Width="50"/>
                             <DataGridTextColumn Binding="{Binding User_Illnessname}" Header="利用者感想" Width="200"/>
-                           
+
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -46,11 +46,11 @@
                 </Grid>
             </TabItem>
             <TabItem Header="身体伸展弯曲机" Width="95">
-            <Grid Background="#FFE5E5E5">
-                <TextBox HorizontalAlignment="Left"  Height="305" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="562"/>
+                <Grid Background="#FFE5E5E5">
+                    <TextBox HorizontalAlignment="Left"  Height="305" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="562"/>
 
 
-            </Grid>
+                </Grid>
             </TabItem>
             <TabItem Header="腿部伸展弯曲机" Width="95">
                 <Grid Background="#FFE5E5E5">

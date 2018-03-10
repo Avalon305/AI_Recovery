@@ -18,7 +18,7 @@
                 <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="568" Height="28" VerticalAlignment="Bottom" >
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
                         <Button Width="140"  Height="25"  Background="Gray"  Foreground="White" Margin="2,0,0,0"  Style="{StaticResource myBtn}" VerticalAlignment="Bottom">下一页</Button>
-                        <Button Width="140"  Height="25"   Background="Gray"  Foreground="White" Margin="2,0,0,0"  RenderTransformOrigin="0.5,0.504" Style="{StaticResource myBtn}" VerticalAlignment="Bottom">保存</Button>
+                        <Button Width="140"  Height="25"   Background="Gray"  Foreground="White" Margin="2,0,0,0"  RenderTransformOrigin="0.5,0.508" Style="{StaticResource myBtn}" VerticalAlignment="Bottom" Click="Button_Save">保存</Button>
                         <Button Width="140" Height="25"     Background="Gray"  Foreground="White"  Margin="2,0,0,0"  Style="{StaticResource myBtn}" VerticalAlignment="Bottom">写入IC卡</Button>
                         <Button Width="140" Height="25"   Background="Gray"  Foreground="White"  Content="取消"  Margin="2,0,0,0"  Style="{StaticResource myBtn}" VerticalAlignment="Bottom" Click="Cancel"/>
                     </StackPanel>
@@ -64,44 +64,94 @@
             </Grid.ColumnDefinitions>
             <!--器材名称开始-->
             <Border Grid.Row="0"  Grid.Column="0" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox1" Foreground="White"  Margin="0,3,0,0" >水平腿部推蹬机</CheckBox>
+                <CheckBox Name="checkbox1" Unchecked="checkbox1_Unchecked" Foreground="White"  Margin="0,3,0,0" Checked="checkbox1_Checked" >水平腿部推蹬机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="1" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Foreground="White"  Margin="00,3,0,0">坐姿划船机</CheckBox>
+                <CheckBox Name="checkbox2" Unchecked="checkbox2_Unchecked"  Foreground="White"  Margin="00,3,0,0" Checked="checkbox2_Checked" >坐姿划船机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="2" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Foreground="White"  Margin="0,3,0,0">身体伸展弯曲机</CheckBox>
+                <CheckBox Name="checkbox3" Unchecked="checkbox3_Unchecked" Foreground="White"  Margin="0,3,0,0" Checked="checkbox3_Checked">身体伸展弯曲机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="3" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Foreground="White"  Margin="0,3,0,0">腿部伸展弯曲机</CheckBox>
+                <CheckBox Name="checkbox4" Unchecked="checkbox4_Unchecked" Foreground="White"  Margin="0,3,0,0" Checked="checkbox4_Checked">腿部伸展弯曲机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="4" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Foreground="White"  Margin="0,3,0,0">臀部外展内收机</CheckBox>
+                <CheckBox Name="checkbox5" Unchecked="checkbox5_Unchecked" Foreground="White"  Margin="0,3,0,0" Checked="checkbox5_Checked">臀部外展内收机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="5" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Foreground="White"  Margin="0,3,0,0">胸部推举机</CheckBox>
+                <CheckBox  Name="checkbox6" Unchecked="checkbox6_Unchecked" Foreground="White"  Margin="0,3,0,0" Checked="checkbox6_Checked">胸部推举机</CheckBox>
             </Border>
             <!--器材名称结束-->
 
             <!--器材图片开始-->
             <Border Grid.Row="1" Grid.Column="0" Margin="10,3,10,3">
-                <Image Source="/view/Images/5920.jpg"  Stretch="Fill" Name="image1"></Image>
+                <Grid Margin="0,0,-0.2,10.8">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/view/Images/KFA-01_副本.jpg" Stretch="Fill"  />
+                    </Grid.Background>
+                    <ComboBox Name="com_01" Height="20" Width="50" Margin="10,104,133,86" RenderTransformOrigin="0.502,0.5" ></ComboBox>
+                    <ComboBox Name="com_02" Height="20" Width="50" Margin="10,143,133,47"></ComboBox>
+                    <ComboBox Name="com_03" Height="20" Width="50" Margin="10,65,133,125"></ComboBox>
+                    <ComboBox Name="com_04" Height="20" Width="50" Margin="107,154,36,36"></ComboBox>
+                </Grid>
             </Border>
 
             <Border Grid.Row="1" Grid.Column="1" Margin="10,3,10,3">
-                <Image Source="/view/Images/5920.jpg"  Stretch="Fill" Name="image2"></Image>
+                <Grid Margin="0,0,-0.2,10.8">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/view/Images/KFA-010_副本.jpg" Stretch="Fill"  />
+                    </Grid.Background>
+                    <ComboBox Name="com_11" Height="20" Width="50" Margin="20,50,123,140"></ComboBox>
+                    <ComboBox Name="com_12" Height="20" Width="50" Margin="20,122,123,68"></ComboBox>
+                    <ComboBox Name="com_13" Height="20" Width="50" Margin="121,77,22,113"></ComboBox>
+                    <ComboBox Name="com_14" Height="20" Width="50" Margin="121,24,22,166"></ComboBox>
+
+                </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="2" Margin="10,3,10,3">
-                <Image Source="/view/Images/5920.jpg"  Stretch="Fill" Name="image3"></Image>
+                <Grid Margin="0,0,-0.2,10.8">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/view/Images/KFA-04_副本.jpg" Stretch="Fill"  />
+                    </Grid.Background>
+                    <ComboBox Name="com_21" Height="20" Width="50" Margin="10,70,133,120"></ComboBox>
+                    <ComboBox Name="com_22" Height="20" Width="50" Margin="10,121,133,69"></ComboBox>
+                    <ComboBox Name="com_23" Height="20" Width="50" Margin="109,140,34,50" RenderTransformOrigin="1.002,-0.44"></ComboBox>
+                    <ComboBox Name="com_24" Height="20" Width="50" Margin="10,163,133,27"></ComboBox>
+                </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="3" Margin="10,3,10,3">
-                <Image Source="/view/Images/5920.jpg"  Stretch="Fill" Name="image4"></Image>
+                <Grid Margin="0,0,-0.2,10.8">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/view/Images/KFA-14_副本.jpg" Stretch="Fill"  />
+                    </Grid.Background>
+                    <ComboBox Name="com_31" Height="20" Width="50" Margin="10,24,133.8,166"></ComboBox>
+                    <ComboBox Name="com_32" Height="20" Width="50" Margin="10,102,133.8,88" RenderTransformOrigin="-0.672,0.78"></ComboBox>
+                    <ComboBox Name="com_33" Height="20" Width="50" Margin="80,64,63.8,126"></ComboBox>
+                    <ComboBox Name="com_34" Height="20" Width="50" Margin="10,147,133.8,43"></ComboBox>
+                    <ComboBox Name="com_35" Height="20" Width="50" Margin="120,135,23.8,55"></ComboBox>
+                </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="4" Margin="10,3,10,3">
-                <Image Source="/view/Images/5920.jpg"  Stretch="Fill" Name="image5"></Image>
+                <Grid Margin="0,0,-0.2,10.8">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/view/Images/KFA-15_副本.jpg" Stretch="Fill"  />
+                    </Grid.Background>
+                    <ComboBox Name="com_41" Height="20" Width="50" Margin="96,38,37,152"></ComboBox>
+                    <ComboBox Name="com_42" Height="20" Width="50" Margin="96,98,37,92"></ComboBox>
+                    <ComboBox Name="com_43" Height="20" Width="50" Margin="96,144,37,46"></ComboBox>
+
+                </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="5" Margin="10,3,10,3" >
-                <Image Source="/view/Images/5920.jpg"  Stretch="Fill" Name="image6"></Image>
+                <Grid Margin="0,0,-0.2,10.8">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/view/Images/KFA-1819_副本.jpg" Stretch="Fill"  />
+                    </Grid.Background>
+                    <ComboBox Name="com_51" Height="20" Width="50" Margin="96,38,37,152"></ComboBox>
+                    <ComboBox Name="com_52" Height="20" Width="50" Margin="10,104,133.8,86"></ComboBox>
+                    <ComboBox Name="com_53" Height="20" Width="50" Margin="96,144,37,46"></ComboBox>
+
+                </Grid>
             </Border>
             <!--器材名称结束-->
 
@@ -411,37 +461,37 @@
             <!--第一个-->
             <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Vertical" >
                 <Label Content="注意点、运动方法的指示等。" Background="Gray" Foreground="White" Margin="10,5,10,0"/>
-                <TextBox Height="174" Margin="10,0,10,3" />
+                <TextBox Name="t1" Height="174" Margin="10,0,10,3" />
             </StackPanel>
 
             <!--第二个-->
             <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Vertical">
                 <Label Content="注意点、运动方法的指示等。" Background="Gray" Foreground="White" Margin="10,5,10,0"/>
-                <TextBox Height="174" Margin="10,0,10,3" />
+                <TextBox Name="t2" Height="174" Margin="10,0,10,3" />
             </StackPanel>
 
             <!--第三个-->
             <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Vertical">
                 <Label Content="注意点、运动方法的指示等。" Background="Gray" Foreground="White" Margin="10,5,10,0"/>
-                <TextBox Height="174" Margin="10,0,10,3" />
+                <TextBox Name="t3" Height="174" Margin="10,0,10,3" />
             </StackPanel>
 
             <!--第四个-->
             <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Vertical">
                 <Label Content="注意点、运动方法的指示等。" Background="Gray" Foreground="White" Margin="10,5,10,0"/>
-                <TextBox Height="174" Margin="10,0,10,3" />
+                <TextBox Name="t4" Height="174" Margin="10,0,10,3" />
             </StackPanel>
 
             <!--第五个-->
             <StackPanel Grid.Row="3" Grid.Column="4" Orientation="Vertical">
                 <Label Content="注意点、运动方法的指示等。" Background="Gray" Foreground="White" Margin="10,5,10,0"/>
-                <TextBox Height="174" Margin="10,0,10,3" />
+                <TextBox Name="t5" Height="174" Margin="10,0,10,3" />
             </StackPanel>
 
             <!--第六个-->
             <StackPanel Grid.Row="3" Grid.Column="5" Orientation="Vertical">
                 <Label Content="注意点、运动方法的指示等。" Background="Gray" Foreground="White" Margin="10,5,10,0"/>
-                <TextBox Height="174" Margin="10,0,10,3" />
+                <TextBox Name="t6" Height="174" Margin="10,0,10,3" />
             </StackPanel>
             <!--备注结束 -->
         </Grid>
