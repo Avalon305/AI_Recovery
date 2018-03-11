@@ -73,17 +73,17 @@ namespace spms.entity
         //自觉运动强度
         public string PR_SportStrength { get; set; }
         //第一个时间
-        public int PR_Time1 { get; set; }
+        public double PR_Time1 { get; set; }
         //第二个时间
-        public int PR_Time2 { get; set; }
+        public double PR_Time2 { get; set; }
         //距离
         public int PR_Distance { get; set; }
         //总工作量
         public int PR_CountWorkQuantity { get; set; }
         //热量
-        public int PR_Cal { get; set; }
+        public double PR_Cal { get; set; }
         //指数
-        public int PR_Index { get; set; }
+        public double PR_Index { get; set; }
         //完成组数
         public int PR_FinishGroup { get; set; }
         //时机，姿势，评价
