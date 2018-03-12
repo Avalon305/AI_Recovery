@@ -381,6 +381,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\KFA-010_副本.jpg" />
+    <Resource Include="view\Images\KFA-01_副本.jpg" />
+    <Resource Include="view\Images\KFA-04_副本.jpg" />
+    <Resource Include="view\Images\KFA-14_副本.jpg" />
+    <Resource Include="view\Images\KFA-15_副本.jpg" />
+    <Resource Include="view\Images\KFA-1819_副本.jpg" />
     <Resource Include="view\Images\5920.jpg" />
     <Resource Include="view\Images\bdl.PNG" />
     <Resource Include="view\Images\bdl_login.PNG" />

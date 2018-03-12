@@ -53,7 +53,7 @@ namespace spms.view.Pages
                 //显示征状信息记录
                 record.Source = new Uri("/view/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
             }
-            else if(is_trainingrecord.IsChecked == true)
+            else if (is_trainingrecord.IsChecked == true)
             {
                 //显示训练信息记录
                 record.Source = new Uri("/view/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
@@ -170,7 +170,7 @@ namespace spms.view.Pages
         //按钮：删除
         private void Delete_User(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult dr = MessageBox.Show("您确定删除该使用者信息？\n 使用者："+ ((User)UsersInfo.SelectedItem).User_Name, "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            MessageBoxResult dr = MessageBox.Show("您确定删除该使用者信息？\n 使用者：" + ((User)UsersInfo.SelectedItem).User_Name, "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (dr == MessageBoxResult.OK)
             {
 
@@ -193,7 +193,7 @@ namespace spms.view.Pages
         private void MakeReport(object sender, RoutedEventArgs e)
         {
             //打开训练报告
-            if(is_signinformationrecord.IsChecked == true)
+            if (is_signinformationrecord.IsChecked == true)
             {
                 TrainingReport trainingReport = new TrainingReport
                 {
@@ -206,7 +206,7 @@ namespace spms.view.Pages
                 TrainInfo trainInfo = new TrainInfo
                 {
                     Gmt_Create = DateTime.Parse("2010-2-12")
-            };
+                };
                 list.Add(trainInfo);
                 Console.WriteLine(trainInfo.Gmt_Create);
                 list.Add(trainInfo);
@@ -214,7 +214,7 @@ namespace spms.view.Pages
                 trainingReport.ShowDialog();
             }
             //打开训练报告页面
-            else if(is_trainingrecord.IsChecked == true )
+            else if (is_trainingrecord.IsChecked == true)
             {
                 TrainingReport trainingReport = new TrainingReport
                 {
@@ -261,7 +261,7 @@ namespace spms.view.Pages
             ////{
             ////    list.Add("sas" + i);
             ////}
-           
+
 
         }
         //按钮：输入训练结果
@@ -282,7 +282,7 @@ namespace spms.view.Pages
             //查看征状详细信息
             if (is_signinformationrecord.IsChecked == true)
             {
-               ViewSymptomInformation viewSymptomInformation = new ViewSymptomInformation
+                ViewSymptomInformation viewSymptomInformation = new ViewSymptomInformation
                 {
                     Owner = Window.GetWindow(this),
                     ShowActivated = true,

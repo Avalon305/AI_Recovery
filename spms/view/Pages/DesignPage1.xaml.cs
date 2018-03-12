@@ -30,7 +30,7 @@ namespace spms.view.Pages
         {
             Window window = (Window)this.Parent;
             window.Content = new AdvancedSettings();
-            
+
         }
         //返回上一页
         private void GoBack(object sender, RoutedEventArgs e)

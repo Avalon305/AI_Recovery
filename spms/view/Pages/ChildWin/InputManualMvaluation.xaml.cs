@@ -33,106 +33,128 @@ namespace spms.view.Pages.ChildWin
                 "步行器",
                 "其他"
             };
-            comBox1.ItemsSource = list;
+            stand_comBox1.ItemsSource = list;
             comBox3.ItemsSource = list;
         }
 
-
-        private void c1_Checked(object sender, RoutedEventArgs e)
+        //保存
+        private void Button_Save(object sender, RoutedEventArgs e)
         {
-            t1.IsEnabled = IsEnabled;
+
+        }
+        //取消操作，关闭窗口
+        private void GoBack(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
-        private void c1_Unchecked(object sender, RoutedEventArgs e)
+
+        //一下所有函数为控制输入框和单选框的 没有逻辑的实现 不需要理会
+
+        private void Stand_left_Checked(object sender, RoutedEventArgs e)
         {
-            t1.IsEnabled = UnEnabled;
+            stand_right.IsChecked = false;
         }
 
-
-
-        private void c4_Checked(object sender, RoutedEventArgs e)
+        private void Stand_right_Checked(object sender, RoutedEventArgs e)
         {
-            c3.IsChecked = false;
+            stand_left.IsChecked = false;
         }
 
-        private void c3_Checked(object sender, RoutedEventArgs e)
+        private void Stand_nosupport_Checked(object sender, RoutedEventArgs e)
         {
-            c4.IsChecked = false;
+            stand_toolsupport.IsChecked = false;
+            stand_support.IsChecked = false;
         }
 
-        private void c5_Checked(object sender, RoutedEventArgs e)
+        private void Stand_toolsupport_Checked(object sender, RoutedEventArgs e)
         {
-            c6.IsChecked = false;
-            c7.IsChecked = false;
-        }
-
-        private void c6_Checked(object sender, RoutedEventArgs e)
-        {
-            c7.IsChecked = false;
-            c5.IsChecked = false;
-            comBox1.IsEnabled = true;
-            comBox2.IsEnabled = true;
+            stand_support.IsChecked = false;
+            stand_nosupport.IsChecked = false;
+            stand_comBox1.IsEnabled = true;
+            stand_comBox2.IsEnabled = true;
         }
         private void c6_Unchecked(object sender, RoutedEventArgs e)
         {
-            comBox1.IsEnabled = false;
-            comBox2.IsEnabled = false;
+            stand_comBox1.IsEnabled = false;
+            stand_comBox2.IsEnabled = false;
         }
 
-        private void c7_Checked(object sender, RoutedEventArgs e)
+        private void Stand_support_Checked(object sender, RoutedEventArgs e)
         {
-            c5.IsChecked = false;
-            c6.IsChecked = false;
+            stand_nosupport.IsChecked = false;
+            stand_toolsupport.IsChecked = false;
 
         }
 
-        private void c8_Checked(object sender, RoutedEventArgs e)
+
+
+
+        private void Grip_left_Checked(object sender, RoutedEventArgs e)
         {
-            c9.IsChecked = false;
+            grit_right.IsChecked = false;
         }
 
-        private void c9_Checked(object sender, RoutedEventArgs e)
+        private void Grit_right_Checked(object sender, RoutedEventArgs e)
         {
-            c8.IsChecked = false;
+            grip_left.IsChecked = false;
         }
 
-        private void c10_Checked(object sender, RoutedEventArgs e)
+        private void Grid_stand_Checked(object sender, RoutedEventArgs e)
         {
-            c11.IsChecked = false;
+            grid_sit.IsChecked = false;
         }
 
-        private void c11_Checked(object sender, RoutedEventArgs e)
+        private void Grid_sit_Checked(object sender, RoutedEventArgs e)
         {
-            c10.IsChecked = false;
+            grid_stand.IsChecked = false;
         }
 
-        private void c16_Checked(object sender, RoutedEventArgs e)
+
+
+
+        private void Protrack_twohands_Checked(object sender, RoutedEventArgs e)
         {
-            c12.IsChecked = false;
-            c13.IsChecked = false;
+            protrack_left.IsChecked = false;
+            protrack_right.IsChecked = false;
         }
 
-        private void c12_Checked(object sender, RoutedEventArgs e)
+        private void Protrack_left_Checked(object sender, RoutedEventArgs e)
         {
-            c13.IsChecked = false;
-            c16.IsChecked = false;
+            protrack_right.IsChecked = false;
+            protrack_twohands.IsChecked = false;
         }
 
-        private void c13_Checked(object sender, RoutedEventArgs e)
+        private void Protrack_right_Checked(object sender, RoutedEventArgs e)
         {
-            c12.IsChecked = false;
-            c16.IsChecked = false;
+            protrack_left.IsChecked = false;
+            protrack_twohands.IsChecked = false;
         }
 
-        private void c14_Checked(object sender, RoutedEventArgs e)
+        private void Protrack_curvature_Checked(object sender, RoutedEventArgs e)
         {
-            c15.IsChecked = false;
+            protrack_sit.IsChecked = false;
         }
 
-        private void c15_Checked(object sender, RoutedEventArgs e)
+        private void Protrack_sit_Checked(object sender, RoutedEventArgs e)
         {
-            c14.IsChecked = false;
+            protrack_curvature.IsChecked = false;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //改到此处了
+
 
         private void c17_Checked(object sender, RoutedEventArgs e)
         {
@@ -301,10 +323,6 @@ namespace spms.view.Pages.ChildWin
             comBox6.IsEnabled = UnEnabled;
         }
 
-        //private void c40_Unchecked(object sender, RoutedEventArgs e)
-        //{
-        //    text4.IsEnabled = UnEnabled;
-        //}
 
         private void c39_Checked(object sender, RoutedEventArgs e)
         {
@@ -389,26 +407,10 @@ namespace spms.view.Pages.ChildWin
         {
             c49.IsChecked = false;
         }
-        //取消操作，关闭窗口
-        private void GoBack(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
 
-        //private void c29_Checked(object sender, RoutedEventArgs e)
-        //{
 
-        //}
 
-        //private void c25_Checked(object sender, RoutedEventArgs e)
-        //{
 
-        //}
-
-        //private void c24_Checked(object sender, RoutedEventArgs e)
-        //{
-
-        //}
     }
 }
 

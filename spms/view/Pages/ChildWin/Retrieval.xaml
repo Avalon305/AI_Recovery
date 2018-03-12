@@ -26,7 +26,7 @@
                         <Button Content="检索" Name="b1"  Click="B1_Click" Height="25" DockPanel.Dock="Right" Width="60" Margin="2,0,2.1,0" Style="{StaticResource myBtn}"/>
                     </DockPanel>
                 </Border>
-                
+
             </DockPanel>
         </Border>
 
@@ -46,12 +46,12 @@
                 <RowDefinition Height="2"></RowDefinition>
                 <RowDefinition Height="23"></RowDefinition>
 
-               
+
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="130"></ColumnDefinition>
                 <ColumnDefinition Width="2"></ColumnDefinition>
-                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="323.2"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Label Content="用户ID" Grid.Row="0" Grid.Column="0"  Background="Gray" Foreground="White"/>
             <TextBox Grid.Row="0" Name="t1" Grid.Column="2"   />
@@ -60,37 +60,17 @@
             <Label Content="用户姓名（拼音）" Grid.Row="4" Grid.Column="0" Background="Gray" Foreground="White"/>
             <TextBox Grid.Row="4" Name="t3" Grid.Column="2" />
             <Label Content="性别" Grid.Row="6" Grid.Column="0" Background="Gray" Foreground="White" />
-            <ComboBox Name="c1" Grid.Row="6" Grid.Column="2"   Background="LightGray" >
+            <ComboBox Name="c1" Grid.Row="5" Grid.Column="1"   Background="LightGray" Grid.ColumnSpan="2" Margin="1.4,1.4,0.2,0.4" Grid.RowSpan="2" >
                 <ComboBoxItem Content="男"></ComboBoxItem>
                 <ComboBoxItem Content="女"></ComboBoxItem>
             </ComboBox>
-            <TextBox Grid.Row="8" Name="t4" Grid.Column="2" />
+            <ComboBox IsTextSearchEnabled="False" IsEditable="True" Name="comboBox1"  Grid.Row="8"  Grid.Column="2" KeyUp="comboBox1_KeyUp" SelectionChanged="comboBox1_SelectionChanged"/>
             <Label Content="小组名称" Grid.Row="8" Grid.Column="0" Background="Gray" Foreground="White"/>
             <Label Content="疾病名称" Grid.Row="10" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <ComboBox Name="c2" Grid.Row="10" Grid.Column="2" >
-                <ComboBoxItem Content="认知病"></ComboBoxItem>
-                <ComboBoxItem Content="单侧麻痹"></ComboBoxItem>
-                <ComboBoxItem Content="心脏病"></ComboBoxItem>
-                <ComboBoxItem Content="脑梗赛"></ComboBoxItem>
-                <ComboBoxItem Content="脑出血"></ComboBoxItem>
-                <ComboBoxItem Content="高血压"></ComboBoxItem>
-                <ComboBoxItem Content="帕金森病"></ComboBoxItem>
-                <ComboBoxItem Content="糖尿病"></ComboBoxItem>
-                <ComboBoxItem Content="变形性膝关节炎"></ComboBoxItem>
-                <ComboBoxItem Content="没有"></ComboBoxItem>
-            </ComboBox>
+            <ComboBox Name="c2" Grid.Row="10" Grid.Column="2" />
+
             <Label Content="残障名称" Grid.Row="12" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <ComboBox Name="c3" Grid.Row="12" Grid.Column="2" Background="LightGray">
-                <ComboBoxItem Content="上肢的脱离或截肢"></ComboBoxItem>
-                <ComboBoxItem Content="下肢的脱离或截肢"></ComboBoxItem>
-                <ComboBoxItem Content="上肢的外伤性运动障碍"></ComboBoxItem>
-                <ComboBoxItem Content="下肢的外伤性运动障碍"></ComboBoxItem>
-                <ComboBoxItem Content="脊髓损伤"></ComboBoxItem>
-                <ComboBoxItem Content="脑源性运动机能障碍"></ComboBoxItem>
-                <ComboBoxItem Content="左上下肢麻痹"></ComboBoxItem>
-                <ComboBoxItem Content="右上下肢麻痹"></ComboBoxItem>
-                <ComboBoxItem Content="没有"></ComboBoxItem>
-            </ComboBox>
+            <ComboBox Name="c3" Grid.Row="12" Grid.Column="2" Background="LightGray"/>
         </Grid>
     </StackPanel>
 
