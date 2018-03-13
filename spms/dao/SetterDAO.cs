@@ -11,7 +11,7 @@ namespace spms.dao
 {
      class SetterDAO : BaseDAO<Setter>
     {
-        /*获得设置者
+        /*获得唯一设置者
          */
         public Setter getSetter ()
         {

@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -14,7 +15,7 @@ namespace spms.util
     public static class JsonTools
     {
         //Dictionary转化为json对象的工具类
-        private static string DictionaryToJSONStr(Dictionary<String, String> param) {
+        public static string DictionaryToJSONStr(Dictionary<String, String> param) {
             string jsonstring = "";
             JObject json = new JObject();
             if (param.Count != 0) //将参数添加到json对象中
@@ -28,7 +29,7 @@ namespace spms.util
             return jsonstring;
         }
         //对象转化为Dictionary
-        private static Dictionary<String, String> ObjToDictionary<T>(T obj) {
+        public static Dictionary<String, String> ObjToDictionary<T>(T obj) {
             Dictionary<String, String> param = new Dictionary<string, string>();
             //FieldInfo[] fieldInfos = obj.GetType().GetFields();
             //foreach (FieldInfo fieldInfo in fieldInfos ) {
@@ -72,7 +73,13 @@ namespace spms.util
             stringBuilder.AppendLine("]");
             return stringBuilder.ToString().Trim(' ');
         }
-        //obj转化为string of json
+        /// <summary>
+        /// obj转化为string of json
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+
         public static string Obj2JSONStrNew<T>(T obj)
         {
             return JsonConvert.SerializeObject(obj);
@@ -81,6 +88,20 @@ namespace spms.util
         public static string List2JSONStrNew<T>(List<T> list)
         {
             return JsonConvert.SerializeObject(list);
+        }
+        /// <summary>
+        /// 解析JSON字符串生成对象实体
+        /// </summary>
+        /// <typeparam name="T">对象类型</typeparam>
+        /// <param name="json">json字符串(eg.{"ID":"112","Name":"石子儿"})</param>
+        /// <returns>对象实体</returns>
+        public static T DeserializeJsonToObject<T>(string json) where T : class
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            StringReader sr = new StringReader(json);
+            object o = serializer.Deserialize(new JsonTextReader(sr), typeof(T));
+            T t = o as T;
+            return t;
         }
     }
 }

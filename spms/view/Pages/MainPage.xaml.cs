@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using spms.entity;
+using spms.http;
 using spms.view.Pages.ChildWin;
 namespace spms.view.Pages
 {
@@ -22,11 +24,18 @@ namespace spms.view.Pages
     public partial class MainPage : Page
     {
         List<User> users = new List<User>();
+        //大数据线程，主要上传除心跳之外的所有数据信息
+        Thread bigDataThread;
+        
 
         public MainPage()
         {
 
             InitializeComponent();
+            //启动大数据线程,切换界面记得关闭该线程
+            bigDataThread = new Thread(new ThreadStart(UploadDataToWEB));
+            //暂时先不启动
+            //bigDataThread.Start();
             //添加使用者
             User user = new User
             {
@@ -63,6 +72,13 @@ namespace spms.view.Pages
                 //显示体力评价记录
                 record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
             }
+        }
+        /// <summary>
+        /// 上传的方法，参数为秒
+        /// </summary>
+        public static void UploadDataToWEB() {
+            //300秒-5分钟一次上传
+            BigDataOfficer bigDataOfficer = new BigDataOfficer(300 * 1000);
         }
         //按钮：输入征状信息
         private void InputSymptomInformation(object sender, RoutedEventArgs e)

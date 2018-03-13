@@ -12,20 +12,24 @@ namespace spms.http
     //负责发送http请求的发送者对象
     public class HttpSender
     {
+        public const string URLBASE = "XXX/";
         //发送地址
         public string Uri { get; set; }
         //发送的json数据体
         public string Data { get; set; }
         //有参构造
         public HttpSender(string UriTarget, string DataBody) {
-            this.Uri = UriTarget;
+            this.Uri = URLBASE+UriTarget;
             this.Data = DataBody;
         }
         //私有化空构造
         private HttpSender()
         {
         }
-        //发送数据至平台的默认方法-post
+        /// <summary>
+        /// 发送数据至平台的默认方法-post
+        /// </summary>
+        /// <returns>返回web响应的string串</returns>
         public string sendDataToWebPlatform() {
             return POSTByJsonStr(this.Uri, this.Data);
         }
