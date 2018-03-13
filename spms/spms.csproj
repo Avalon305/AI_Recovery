@@ -145,9 +145,13 @@
     <Compile Include="constant\ProtocolConstant.cs" />
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="dao\SetterDAO.cs" />
+    <Compile Include="dao\UploadManagementDAO.cs" />
     <Compile Include="entity\Assist.cs" />
     <Compile Include="entity\UploadManagement.cs" />
     <Compile Include="http\BigDataOfficer.cs" />
+    <Compile Include="http\dto\AutherDTO.cs" />
+    <Compile Include="http\entity\HttpHeartBeat.cs" />
+    <Compile Include="http\entity\ServiceResult.cs" />
     <Compile Include="http\HttpSender.cs" />
     <Compile Include="protocol\IMakerFrame.cs" />
     <Compile Include="protocol\IParserFrame.cs" />
@@ -166,6 +170,7 @@
     <Compile Include="server\UsbDogService.cs" />
     <Compile Include="service\AuthService.cs" />
     <Compile Include="service\SetterService.cs" />
+    <Compile Include="service\UploadManagementService.cs" />
     <Compile Include="util\AesUtil.cs" />
     <Compile Include="util\DbUtil.cs" />
     <Compile Include="util\ExcelUtil.cs" />
@@ -244,6 +249,9 @@
     </Compile>
     <Compile Include="view\Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="zeroTest.xaml.cs">
+      <DependentUpon>zeroTest.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -366,6 +374,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="zeroTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -422,6 +434,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets" Condition="Exists('..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

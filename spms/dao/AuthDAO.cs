@@ -11,14 +11,19 @@ namespace spms.dao
 {
     class AuthDAO : BaseDAO<Auther>
     {
-
-        public List<Auther> ListByUserStatus(byte status)
+        /// <summary>
+        /// 根据权限级别获得用户
+        /// 一名普通管理员，一名超级管理员
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        public Auther GetByAuthLevel(byte? Auth_Level)
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "select * from bdl_auth where user_status = @Status";
+                const string query = "select * from bdl_auth where Auth_Level = @Auth_Level";
 
-                return (List<Auther>)conn.Query<Auther>(query, new { Status = status });
+                return conn.QueryFirst<Auther>(query, new { Auth_Level = Auth_Level });
             }
         }
     }

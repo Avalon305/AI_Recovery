@@ -18,5 +18,12 @@ namespace spms.entity
         public int UM_DataId { get; set; }
         //持有数据所在的表名
         public string UM_DataTable { get; set; }
+        //ID构造器
+        public UploadManagement(int keyID) {
+            this.Pk_UM_Id = keyID;
+        }
+        public UploadManagement()
+        {
+        }
     }
 }
