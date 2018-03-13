@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.entity;
 using spms.view.Pages.ChildWin;
 namespace spms.view.Pages.ChildWin
 {
@@ -24,7 +26,7 @@ namespace spms.view.Pages.ChildWin
             InitializeComponent();
 
             l1.Content = "andianl";
-            l2.Content = "13210104659";
+            user_id.Content = "13210104659";
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
@@ -36,91 +38,111 @@ namespace spms.view.Pages.ChildWin
         {
             //获取日期
             string da = date.SelectedDate.ToString();
-
-            //康复前数据
-            //血压
-            string bloodlow1 = bloodlow_1.Text;
-            string bloodhight1 = bloodhight_1.Text;
-            //心率
-            string heartRate1 = heartRate_1.Text;
-            //脉
-            string heart1 = null;
+            
+            //康复前血压
+            string preLowPressure = bloodlow_1.Text;
+            string preHighPressure = bloodhight_1.Text;
+            //康复前心率
+            string preHeartRate = heartRate_1.Text;
+            //康复前脉
+            int prePulse = 0;
             if (rule_1.IsChecked == true)
-            {
-                heart1 = rule_1.Content as string;
-                // MessageBoxResult messageBoxResult = MessageBox.Show(heart);
+            {//规律脉
+                prePulse = 0;
             }
-            else
-            {
-                if (irregular_1.IsChecked == true)
-                {
-                    heart1 = irregular_1.Content as string;
-                }
-
+            else if (irregular_1.IsChecked == true)
+            {//脉律不齐
+                prePulse = 1;
             }
-            //体温
-            string heat1 = heat_1.Text;
-
-            //康复后数据
-            //血压
-            string bloodlow2 = bloodlow_2.Text;
-            string bloodhight2 = bloodhight_2.Text;
-            //心率
-            string heartRate2 = heartRate_2.Text;
-            //脉
-            string heart2 = null;
+            //康复前体温
+            string preAnimalheat = heat_1.Text;
+            
+            //康复后血压
+            string sufLowPressure = bloodlow_2.Text;
+            string sufHighPressure = bloodhight_2.Text;
+            //康复后心率
+            string sufHeartRate = heartRate_2.Text;
+            //康复后脉
+            int sufPulse = 0;
             if (rule_2.IsChecked == true)
-            {
-                heart2 = rule_2.Content as string;
-
+            {//规律脉
+                sufPulse = 0;
             }
-            else
-            {
-                if (irregular_2.IsChecked == true)
-                {
-                    heart2 = irregular_2.Content as string;
-                }
-
+            else if (irregular_2.IsChecked == true)
+            {//脉律不齐
+                sufPulse = 1;
             }
-            //体温
-            string heat2 = heat_2.Text;
+            //康复后体温
+            string sufAnimalheat = heat_2.Text;
 
-            //获取问诊票 被选中的将其内容保存在list中
-            List<string> list = new List<string>();
-
+            //问诊票
+            List<string> inquiryList = new List<string>();
             foreach (CheckBox chk in this.stackPanel_1.Children.OfType<CheckBox>())
             {
                 if (chk.IsChecked == true)
                 {
-                    list.Add(chk.Content as string);
-                    // MessageBoxResult messageBoxResult = MessageBox.Show(chk.Content as string);
+                    inquiryList.Add(chk.Content as string);
                 }
-
             }
             foreach (CheckBox chk in this.stackPanel_2.Children.OfType<CheckBox>())
             {
                 if (chk.IsChecked == true)
                 {
-                    list.Add(chk.Content as string);
-                    // MessageBoxResult messageBoxResult = MessageBox.Show(chk.Content as string);
+                    inquiryList.Add(chk.Content as string);
                 }
             }
+            string inquiryStr = string.Join(",", inquiryList.ToArray());
+
             //参加不参加
-            string join = null;
+            Byte isJoin = 0;
             if (join_1.IsChecked == true)
             {
-                join = join_1.Content as string;
+                isJoin = 0;
             }
             else if (join_2.IsChecked == true)
             {
-                join = join_2.Content as string;
+                isJoin = 1;
             }
+
             //摄取水分量
-            string am = amunt.Text;
+            string waterInput = amunt.Text;
 
             //看护记录
-            string record = Record.Text;
+            string careInfo = Record.Text;
 
+            //构建对象
+            SymptomInfo symptomInfo = new SymptomInfo();
+            SymptomInfoChild symptomInfoChild = new SymptomInfoChild();
+            //症状信息
+            symptomInfo.Fk_User_Id = 2;
+            symptomInfo.Gmt_Create = DateTime.Now;
+            symptomInfo.Gmt_Modified = DateTime.Now;
+            symptomInfo.SI_CareInfo = careInfo;
+            symptomInfo.SI_Inquiry = inquiryStr;
+            symptomInfo.SI_IsJoin = isJoin;
+            symptomInfo.SI_WaterInput = waterInput;
+            //康复前
+            symptomInfoChild.Fk_SI_Id = 2;
+            symptomInfoChild.Gmt_Create = DateTime.Now;
+            symptomInfoChild.Gmt_Modified = DateTime.Now;
+            symptomInfoChild.SIC_AnimalHeat = preAnimalheat;
+            symptomInfoChild.SIC_HeartRate = preHeartRate;
+            symptomInfoChild.SIC_HighPressure = preHighPressure;
+            symptomInfoChild.SIC_LowPressure = preLowPressure;
+            symptomInfoChild.SIC_Pulse = prePulse;
+            symptomInfoChild.Status = 1;
+            //康复后
+            symptomInfoChild.Fk_SI_Id = 2;
+            symptomInfoChild.Gmt_Create = DateTime.Now;
+            symptomInfoChild.Gmt_Modified = DateTime.Now;
+            symptomInfoChild.SIC_AnimalHeat = sufAnimalheat;
+            symptomInfoChild.SIC_HeartRate = sufHeartRate;
+            symptomInfoChild.SIC_HighPressure = sufHighPressure;
+            symptomInfoChild.SIC_LowPressure = sufLowPressure;
+            symptomInfoChild.SIC_Pulse = sufPulse;
+            symptomInfoChild.Status = 2;
+
+            MessageBox.Show(symptomInfo.ToString() + "\n" + symptomInfoChild.ToString());
         }
     }
 }

@@ -28,5 +28,11 @@ namespace spms.view.Pages.ChildWin
         {
             this.Close();
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            string da = dp.SelectedDate.ToString();//实施日期
+
+        }
     }
 }

@@ -56,6 +56,11 @@ namespace spms.entity
         public int dp_moveway { get; set; }
         //砝码
         public int dp_weight { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(Pk_DP_Id)}: {Pk_DP_Id}, {nameof(Gmt_Create)}: {Gmt_Create}, {nameof(Gmt_Modified)}: {Gmt_Modified}, {nameof(Fk_TI_Id)}: {Fk_TI_Id}, {nameof(Fk_DS_Id)}: {Fk_DS_Id}, {nameof(dp_status)}: {dp_status}, {nameof(DP_Memo)}: {DP_Memo}, {nameof(DP_Attrs)}: {DP_Attrs}, {nameof(dp_groupcount)}: {dp_groupcount}, {nameof(dp_groupnum)}: {dp_groupnum}, {nameof(dp_relaxtime)}: {dp_relaxtime}, {nameof(dp_moveway)}: {dp_moveway}, {nameof(dp_weight)}: {dp_weight}";
+        }
     }
     //设备处方的训练结果  一对一
     [Table("bdl_prescriptionresult")]

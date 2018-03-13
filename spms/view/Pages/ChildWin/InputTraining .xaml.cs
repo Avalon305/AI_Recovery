@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.entity;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -282,78 +283,209 @@ namespace spms.view.Pages.ChildWin
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
-            //一
-            string com01 = com_01.Text;
-            string com02 = com_02.Text;
-            string com03 = com_03.Text;
-            string com04 = com_04.Text;
-            string combobox01 = combobox_01.Text;
-            string combobox02 = combobox_02.Text;
-            string combobox03 = combobox_03.Text;
-            string combobox04 = combobox_04.Text;
-            string combobox05 = combobox_05.Text;
-            string s1 = t1.Text;
-            List<string> list1 = new List<string> { com01, com02, com03, com04, combobox01, combobox02, combobox03, combobox04, combobox05, s1 };
-            //二
-            string com11 = com_11.Text;
-            string com12 = com_12.Text;
-            string com13 = com_13.Text;
-            string com14 = com_14.Text;
-            string combobox11 = combobox_11.Text;
-            string combobox12 = combobox_12.Text;
-            string combobox13 = combobox_13.Text;
-            string combobox14 = combobox_14.Text;
-            string combobox15 = combobox_15.Text;
-            string s2 = t2.Text;
-            List<string> list2 = new List<string> { com11, com12, com13, com14, combobox11, combobox12, combobox13, combobox14, combobox15, s2 };
-            //三
-            string com21 = com_21.Text;
-            string com22 = com_22.Text;
-            string com23 = com_23.Text;
-            string com24 = com_24.Text;
-            string combobox21 = combobox_21.Text;
-            string combobox22 = combobox_22.Text;
-            string combobox23 = combobox_23.Text;
-            string combobox24 = combobox_24.Text;
-            string combobox25 = combobox_25.Text;
-            string s3 = t3.Text;
-            List<string> list3 = new List<string> { com21, com22, com23, com24, combobox21, combobox22, combobox23, combobox24, combobox25, s3 };
-            //四
-            string com31 = com_31.Text;
-            string com32 = com_32.Text;
-            string com33 = com_33.Text;
-            string com34 = com_34.Text;
-            string com35 = com_35.Text;
-            string combobox31 = combobox_31.Text;
-            string combobox32 = combobox_32.Text;
-            string combobox33 = combobox_33.Text;
-            string combobox34 = combobox_34.Text;
-            string combobox35 = combobox_35.Text;
-            string s4 = t4.Text;
-            List<string> list4 = new List<string> { com31, com32, com33, com34, com35, combobox31, combobox32, combobox33, combobox34, combobox35, s4 };
-
-            string com41 = com_41.Text;
-            string com42 = com_42.Text;
-            string com43 = com_43.Text;
-            string combobox41 = combobox_41.Text;
-            string combobox42 = combobox_42.Text;
-            string combobox43 = combobox_43.Text;
-            string combobox44 = combobox_44.Text;
-            string combobox45 = combobox_45.Text;
-            string s5 = t5.Text;
-            List<string> list5 = new List<string> { com41, com42, com43, combobox41, combobox42, combobox43, combobox44, combobox45, s5 };
-
-            string com51 = com_51.Text;
-            string com52 = com_52.Text;
-            string com53 = com_53.Text;
-            string combobox51 = combobox_51.Text;
-            string combobox52 = combobox_52.Text;
-            string combobox53 = combobox_53.Text;
-            string combobox54 = combobox_54.Text;
-            string combobox55 = combobox_55.Text;
-            string s6 = t6.Text;
-            List<string> list6 = new List<string> { com51, com52, com53, combobox51, combobox52, combobox53, combobox54, combobox55, s6 };
-
+            string devName;//设备名字
+            string attr1;//属性1
+            string attr2;//2
+            string attr3;//3
+            string attr4;//4
+            string attr5;//5
+            int groupCount;//组数
+            int groupNum;//个数
+            int relaxTime;//间隔时间
+            int weight;//砝码
+            int moveWay;//移乘方式
+            string memo;//注意点
+            if (checkbox1.IsChecked == true)
+            {//水平腿部推蹬机
+                devName = "水平腿部推蹬机";
+                attr1 = com_01.Text;//属性1
+                attr2 = com_02.Text;//2
+                attr3 = com_03.Text;//3
+                attr4 = com_04.Text;//4
+                groupCount = Convert.ToInt32(combobox_01.Text);//组数
+                groupNum = Convert.ToInt32(combobox_02.Text);//个数
+                relaxTime = Convert.ToInt32(combobox_03.Text);//间隔时间
+                weight = Convert.ToInt32(combobox_04.Text);//砝码
+                moveWay = combobox_05.SelectedIndex;//移乘方式
+                memo = t1.Text;//注意点
+                //构建对象
+                DevicePrescription devicePrescription = new DevicePrescription();
+                devicePrescription.DP_Attrs = devName + "*" +
+                                              "attr1-" + attr1 + "*" +
+                                              "attr2-" + attr2 + "*" +
+                                              "attr3-" + attr3 + "*" +
+                                              "attr4-" + attr4 + "*";
+                devicePrescription.DP_Memo = memo;
+                devicePrescription.Fk_DS_Id = 1;
+                devicePrescription.Fk_TI_Id = 2;
+                devicePrescription.Gmt_Create = DateTime.Now;
+                devicePrescription.Gmt_Modified = DateTime.Now;
+                devicePrescription.dp_groupcount = groupCount;
+                devicePrescription.dp_groupnum = groupNum;
+                devicePrescription.dp_moveway = moveWay;
+                devicePrescription.dp_relaxtime = relaxTime;
+                devicePrescription.dp_weight = weight;
+                MessageBox.Show(devicePrescription.ToString());
+            }
+            if (checkbox2.IsChecked == true)
+            {//坐姿划船机
+                devName = "坐姿划船机";
+                attr1 = com_11.Text;//属性1
+                attr2 = com_12.Text;//2
+                attr3 = com_13.Text;//3
+                attr4 = com_14.Text;//4
+                groupCount = Convert.ToInt32(combobox_11.Text);//组数
+                groupNum = Convert.ToInt32(combobox_12.Text);//个数
+                relaxTime = Convert.ToInt32(combobox_13.Text);//间隔时间
+                weight = Convert.ToInt32(combobox_14.Text);//砝码
+                moveWay = combobox_15.SelectedIndex;//移乘方式
+                memo = t2.Text;//注意点
+                //构建对象
+                DevicePrescription devicePrescription = new DevicePrescription();
+                devicePrescription.DP_Attrs = devName + "*" +
+                                              "attr1-" + attr1 + "*" +
+                                              "attr2-" + attr2 + "*" +
+                                              "attr3-" + attr3 + "*" +
+                                              "attr4-" + attr4 + "*";
+                devicePrescription.DP_Memo = memo;
+                devicePrescription.Fk_DS_Id = 1;
+                devicePrescription.Fk_TI_Id = 2;
+                devicePrescription.Gmt_Create = DateTime.Now;
+                devicePrescription.Gmt_Modified = DateTime.Now;
+                devicePrescription.dp_groupcount = groupCount;
+                devicePrescription.dp_groupnum = groupNum;
+                devicePrescription.dp_moveway = moveWay;
+                devicePrescription.dp_relaxtime = relaxTime;
+                devicePrescription.dp_weight = weight;
+                MessageBox.Show(devicePrescription.ToString());
+            }
+            if (checkbox3.IsChecked == true)
+            {//身体伸展弯曲机
+                devName = "身体伸展弯曲机";
+                attr1 = com_21.Text;//属性1
+                attr2 = com_22.Text;//2
+                attr3 = com_23.Text;//3
+                attr4 = com_24.Text;//4
+                groupCount = Convert.ToInt32(combobox_21.Text);//组数
+                groupNum = Convert.ToInt32(combobox_22.Text);//个数
+                relaxTime = Convert.ToInt32(combobox_23.Text);//间隔时间
+                weight = Convert.ToInt32(combobox_24.Text);//砝码
+                moveWay = combobox_25.SelectedIndex;//移乘方式
+                memo = t3.Text;//注意点
+                //构建对象
+                DevicePrescription devicePrescription = new DevicePrescription();
+                devicePrescription.DP_Attrs = devName + "*" +
+                                              "attr1-" + attr1 + "*" +
+                                              "attr2-" + attr2 + "*" +
+                                              "attr3-" + attr3 + "*" +
+                                              "attr4-" + attr4 + "*";
+                devicePrescription.DP_Memo = memo;
+                devicePrescription.Fk_DS_Id = 1;
+                devicePrescription.Fk_TI_Id = 2;
+                devicePrescription.Gmt_Create = DateTime.Now;
+                devicePrescription.Gmt_Modified = DateTime.Now;
+                devicePrescription.dp_groupcount = groupCount;
+                devicePrescription.dp_groupnum = groupNum;
+                devicePrescription.dp_moveway = moveWay;
+                devicePrescription.dp_relaxtime = relaxTime;
+                devicePrescription.dp_weight = weight;
+                MessageBox.Show(devicePrescription.ToString());
+            }
+            if (checkbox4.IsChecked == true)
+            {//腿部伸展弯曲机
+                devName = "腿部伸展弯曲机";
+                attr1 = com_31.Text;//属性1
+                attr2 = com_32.Text;//2
+                attr3 = com_33.Text;//3
+                attr4 = com_34.Text;//4
+                attr5 = com_35.Text;//5
+                groupCount = Convert.ToInt32(combobox_31.Text);//组数
+                groupNum = Convert.ToInt32(combobox_32.Text);//个数
+                relaxTime = Convert.ToInt32(combobox_33.Text);//间隔时间
+                weight = Convert.ToInt32(combobox_34.Text);//砝码
+                moveWay = combobox_35.SelectedIndex;//移乘方式
+                memo = t4.Text;//注意点
+                //构建对象
+                DevicePrescription devicePrescription = new DevicePrescription();
+                devicePrescription.DP_Attrs = devName + "*" +
+                                              "attr1-" + attr1 + "*" +
+                                              "attr2-" + attr2 + "*" +
+                                              "attr3-" + attr3 + "*" +
+                                              "attr4-" + attr4 + "*" +
+                                              "attr5-" + attr5 + "*";
+                devicePrescription.DP_Memo = memo;
+                devicePrescription.Fk_DS_Id = 1;
+                devicePrescription.Fk_TI_Id = 2;
+                devicePrescription.Gmt_Create = DateTime.Now;
+                devicePrescription.Gmt_Modified = DateTime.Now;
+                devicePrescription.dp_groupcount = groupCount;
+                devicePrescription.dp_groupnum = groupNum;
+                devicePrescription.dp_moveway = moveWay;
+                devicePrescription.dp_relaxtime = relaxTime;
+                devicePrescription.dp_weight = weight;
+                MessageBox.Show(devicePrescription.ToString());
+            }
+            if (checkbox5.IsChecked == true)
+            {//臂部外展内收机
+                devName = "臂部外展内收机";
+                attr1 = com_41.Text;//属性1
+                attr2 = com_42.Text;//2
+                attr3 = com_43.Text;//3
+                groupCount = Convert.ToInt32(combobox_41.Text);//组数
+                groupNum = Convert.ToInt32(combobox_42.Text);//个数
+                relaxTime = Convert.ToInt32(combobox_43.Text);//间隔时间
+                weight = Convert.ToInt32(combobox_44.Text);//砝码
+                moveWay = combobox_45.SelectedIndex;//移乘方式
+                memo = t5.Text;//注意点
+                //构建对象
+                DevicePrescription devicePrescription = new DevicePrescription();
+                devicePrescription.DP_Attrs = devName + "*" +
+                                              "attr1-" + attr1 + "*" +
+                                              "attr2-" + attr2 + "*" +
+                                              "attr3-" + attr3 + "*";
+                devicePrescription.DP_Memo = memo;
+                devicePrescription.Fk_DS_Id = 1;
+                devicePrescription.Fk_TI_Id = 2;
+                devicePrescription.Gmt_Create = DateTime.Now;
+                devicePrescription.Gmt_Modified = DateTime.Now;
+                devicePrescription.dp_groupcount = groupCount;
+                devicePrescription.dp_groupnum = groupNum;
+                devicePrescription.dp_moveway = moveWay;
+                devicePrescription.dp_relaxtime = relaxTime;
+                devicePrescription.dp_weight = weight;
+                MessageBox.Show(devicePrescription.ToString());
+            }
+            if (checkbox1.IsChecked == true)
+            {//胸部推举机
+                devName = "胸部推举机";
+                attr1 = com_51.Text;//属性1
+                attr2 = com_52.Text;//2
+                attr3 = com_53.Text;//3
+                groupCount = Convert.ToInt32(combobox_51.Text);//组数
+                groupNum = Convert.ToInt32(combobox_52.Text);//个数
+                relaxTime = Convert.ToInt32(combobox_53.Text);//间隔时间
+                weight = Convert.ToInt32(combobox_54.Text);//砝码
+                moveWay = combobox_55.SelectedIndex;//移乘方式
+                memo = t6.Text;//注意点
+                //构建对象
+                DevicePrescription devicePrescription = new DevicePrescription();
+                devicePrescription.DP_Attrs = devName + "*" +
+                                              "attr1-" + attr1 + "*" +
+                                              "attr2-" + attr2 + "*" +
+                                              "attr3-" + attr3 + "*";
+                devicePrescription.DP_Memo = memo;
+                devicePrescription.Fk_DS_Id = 1;
+                devicePrescription.Fk_TI_Id = 2;
+                devicePrescription.Gmt_Create = DateTime.Now;
+                devicePrescription.Gmt_Modified = DateTime.Now;
+                devicePrescription.dp_groupcount = groupCount;
+                devicePrescription.dp_groupnum = groupNum;
+                devicePrescription.dp_moveway = moveWay;
+                devicePrescription.dp_relaxtime = relaxTime;
+                devicePrescription.dp_weight = weight;
+                MessageBox.Show(devicePrescription.ToString());
+            }
+            
         }
     }
 }

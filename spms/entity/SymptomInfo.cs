@@ -32,6 +32,11 @@ namespace spms.entity
         public string SI_CareInfo { get; set; }
         //问诊票
         public string SI_Inquiry { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(Pk_SI_Id)}: {Pk_SI_Id}, {nameof(Gmt_Create)}: {Gmt_Create}, {nameof(Gmt_Modified)}: {Gmt_Modified}, {nameof(Fk_User_Id)}: {Fk_User_Id}, {nameof(SI_IsJoin)}: {SI_IsJoin}, {nameof(SI_WaterInput)}: {SI_WaterInput}, {nameof(SI_CareInfo)}: {SI_CareInfo}, {nameof(SI_Inquiry)}: {SI_Inquiry}";
+        }
     }
     //症状信息关联子表
     [Table("bdl_symptominfochild")]
@@ -47,7 +52,7 @@ namespace spms.entity
         public DateTime? Gmt_Create { get; set; }
         //数据更新时间
         public DateTime? Gmt_Modified { get; set; }
-        //症状信息所属的用户ID
+        //症状信息所属的症状ID
         public int Fk_SI_Id { get; set; }
         //状态
         public Byte? Status { get; set; }
@@ -62,6 +67,10 @@ namespace spms.entity
         public string SIC_AnimalHeat { get; set; }
         //脉搏
         public int SIC_Pulse { get; set; }
-        
+
+        public override string ToString()
+        {
+            return $"{nameof(Pk_SIC_Id)}: {Pk_SIC_Id}, {nameof(Gmt_Create)}: {Gmt_Create}, {nameof(Gmt_Modified)}: {Gmt_Modified}, {nameof(Fk_SI_Id)}: {Fk_SI_Id}, {nameof(Status)}: {Status}, {nameof(SIC_HighPressure)}: {SIC_HighPressure}, {nameof(SIC_LowPressure)}: {SIC_LowPressure}, {nameof(SIC_HeartRate)}: {SIC_HeartRate}, {nameof(SIC_AnimalHeat)}: {SIC_AnimalHeat}, {nameof(SIC_Pulse)}: {SIC_Pulse}";
+        }
     }
 }
