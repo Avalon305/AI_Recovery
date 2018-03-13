@@ -9,7 +9,7 @@ namespace spms.entity
 {
     //分组实体
     [Table("bdl_group")]
-    class Assist
+    public class Assist
     {
         //主键 自增
         [Key]
@@ -24,7 +24,7 @@ namespace spms.entity
     }
     //疾病实体
     [Table("bdl_disease")]
-    class Disease
+    public class Disease
     {
         //主键 自增
         [Key]
@@ -38,7 +38,7 @@ namespace spms.entity
     }
     //残障名称实体
     [Table("bdl_diagnosis")]
-    class Diagnosis
+    public class Diagnosis
     {
         //主键 自增
         [Key]

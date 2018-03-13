@@ -146,10 +146,12 @@
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="dao\SetterDAO.cs" />
     <Compile Include="dao\UploadManagementDAO.cs" />
+    <Compile Include="dao\UserDAO.cs" />
     <Compile Include="entity\Assist.cs" />
     <Compile Include="entity\UploadManagement.cs" />
     <Compile Include="http\BigDataOfficer.cs" />
     <Compile Include="http\dto\AutherDTO.cs" />
+    <Compile Include="http\dto\UserDTO.cs" />
     <Compile Include="http\entity\HttpHeartBeat.cs" />
     <Compile Include="http\entity\ServiceResult.cs" />
     <Compile Include="http\HttpSender.cs" />

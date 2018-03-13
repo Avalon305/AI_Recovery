@@ -9,7 +9,7 @@ using Dapper.Contrib.Extensions;
 
 namespace spms.dao
 {
-    class BaseDAO<T> where T : class
+    public class BaseDAO<T> where T : class
     {
         /// <summary>
         /// 查询所有

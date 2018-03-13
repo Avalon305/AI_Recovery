@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using spms.http.entity;
+using spms.http.dto;
+using spms.util;
 
 namespace spms.service
 {
@@ -44,9 +46,42 @@ namespace spms.service
             if (uploadManagement.UM_DataTable== "bdl_auth") {
                 AuthDAO authDAO = new AuthDAO();
                 Auther auther = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
+                AutherDTO autherDTO = new AutherDTO(setter, auther);
+                serviceResult.URL = "/clientController/addClient.action";
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<AutherDTO>(autherDTO);
+            }
+            else if (uploadManagement.UM_DataTable == "bdl_user")
+            {
+                UserDAO userDAO = new UserDAO();
+                User user = userDAO.Load(uploadManagement.UM_DataId);
+                //TODO 编写entityDTO
+                UserDTO userDTO = new UserDTO(user,setter);
+                serviceResult.URL = "/bigData/BodyStrongUser";
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<UserDTO>(userDTO);
+            }
+           
+            else if (uploadManagement.UM_DataTable == "bdl_symptominfochild")
+            {
 
             }
-            else if (uploadManagement.UM_DataTable == "")
+            else if (uploadManagement.UM_DataTable == "bdl_symptominfo")
+            {
+
+            }
+            else if (uploadManagement.UM_DataTable == "bdl_traininfo")
+            {
+
+            }
+            else if (uploadManagement.UM_DataTable == "bdl_prescriptionresult")
+            {
+
+            }
+           
+            else if (uploadManagement.UM_DataTable == "bdl_deviceprescription")
+            {
+
+            }
+            else if (uploadManagement.UM_DataTable == "bdl_physicalpower")
             {
 
             }

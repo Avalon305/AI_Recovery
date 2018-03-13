@@ -40,7 +40,7 @@ namespace spms.entity
     }
     //症状信息关联子表
     [Table("bdl_symptominfochild")]
-    class SymptomInfoChild
+    public class SymptomInfoChild
     {
         //状态常量，0代表之前，1代表之后
         public static byte? STATUS_BEFORE = 0;

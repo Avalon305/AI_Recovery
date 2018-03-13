@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace spms.entity
 {
     [Table("bdl_user")]
-    class User
+    public class User
     {
         //删除状态常量
         public static byte? DELETED = 1;
