@@ -147,6 +147,8 @@
     <Compile Include="dao\SetterDAO.cs" />
     <Compile Include="dao\UploadManagementDAO.cs" />
     <Compile Include="dao\UserDAO.cs" />
+    <Compile Include="dao\SymptomInfoDAO.cs" />
+    <Compile Include="dao\TrainInfoDAO.cs" />
     <Compile Include="entity\Assist.cs" />
     <Compile Include="entity\UploadManagement.cs" />
     <Compile Include="http\BigDataOfficer.cs" />
@@ -173,6 +175,8 @@
     <Compile Include="service\AuthService.cs" />
     <Compile Include="service\SetterService.cs" />
     <Compile Include="service\UploadManagementService.cs" />
+    <Compile Include="service\SymptomService.cs" />
+    <Compile Include="service\TrainService.cs" />
     <Compile Include="util\AesUtil.cs" />
     <Compile Include="util\DbUtil.cs" />
     <Compile Include="util\ExcelUtil.cs" />

@@ -149,9 +149,7 @@
                     <TabItem Header="坐姿划船机" Width="95">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/Images/bdl.PNG" Stretch="Fill"  />
-                                </Grid.Background>
+                                
                                 <TextBox Height="20" Width="50" Margin="172,86,74,194"></TextBox>
                                 <TextBox Height="20" Width="50" Margin="172,38,74,242"></TextBox>
                                 <TextBox Height="20" Width="50" Margin="172,146,74,134"></TextBox>
@@ -236,9 +234,7 @@
                     <TabItem Header="身体伸展弯曲机" Width="95">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/Images/bdl_login.PNG" Stretch="Fill"  />
-                                </Grid.Background>
+                                
                                 <TextBox Height="20" Width="50" Margin="172,86,74,194"></TextBox>
                                 <TextBox Height="20" Width="50" Margin="172,38,74,242"></TextBox>
                                 <TextBox Height="20" Width="50" Margin="172,146,74,134"></TextBox>
@@ -322,9 +318,7 @@
                     <TabItem Header="腿部伸展弯曲机" Width="95">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/Images/design.PNG" Stretch="Fill"  />
-                                </Grid.Background>
+                                
                                 <TextBox Height="20" Width="50" Margin="172,86,74,194"></TextBox>
                                 <TextBox Height="20" Width="50" Margin="172,38,74,242"></TextBox>
                                 <TextBox Height="20" Width="50" Margin="172,146,74,134"></TextBox>
@@ -408,9 +402,7 @@
                     <TabItem Header="臀部外展内收机" Width="95">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/Images/icon.png" Stretch="Fill"  />
-                                </Grid.Background>
+                                
                                 <TextBox Height="20" Width="50" Margin="174,94,22,201.2" ></TextBox>
                                 <TextBox Height="20" Width="50" Margin="172,46,22,249.2"/>
                                 <TextBox Height="20" Width="50" Margin="172,146,0,134" RenderTransformOrigin="0.328,0.47"></TextBox>
@@ -494,9 +486,7 @@
                     <TabItem Header="胸部推举机" Width="95">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/Images/icon1.png" Stretch="Fill"  />
-                                </Grid.Background>
+                                
                                 <TextBox Height="20" Width="50" Margin="172,86,74,194"></TextBox>
                                 <TextBox Height="20" Width="50" Margin="172,38,74,242"></TextBox>
                                 <TextBox Height="20" Width="50" Margin="172,146,74,134"></TextBox>

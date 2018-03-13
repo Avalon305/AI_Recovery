@@ -292,7 +292,7 @@ namespace spms.view.Pages.ChildWin
             int groupCount;//组数
             int groupNum;//个数
             int relaxTime;//间隔时间
-            int weight;//砝码
+            double weight;//砝码
             int moveWay;//移乘方式
             string memo;//注意点
             if (checkbox1.IsChecked == true)
@@ -305,7 +305,7 @@ namespace spms.view.Pages.ChildWin
                 groupCount = Convert.ToInt32(combobox_01.Text);//组数
                 groupNum = Convert.ToInt32(combobox_02.Text);//个数
                 relaxTime = Convert.ToInt32(combobox_03.Text);//间隔时间
-                weight = Convert.ToInt32(combobox_04.Text);//砝码
+                weight = Convert.ToDouble(combobox_04.Text);//砝码
                 moveWay = combobox_05.SelectedIndex;//移乘方式
                 memo = t1.Text;//注意点
                 //构建对象
@@ -337,7 +337,7 @@ namespace spms.view.Pages.ChildWin
                 groupCount = Convert.ToInt32(combobox_11.Text);//组数
                 groupNum = Convert.ToInt32(combobox_12.Text);//个数
                 relaxTime = Convert.ToInt32(combobox_13.Text);//间隔时间
-                weight = Convert.ToInt32(combobox_14.Text);//砝码
+                weight = Convert.ToDouble(combobox_14.Text);//砝码
                 moveWay = combobox_15.SelectedIndex;//移乘方式
                 memo = t2.Text;//注意点
                 //构建对象
@@ -369,7 +369,7 @@ namespace spms.view.Pages.ChildWin
                 groupCount = Convert.ToInt32(combobox_21.Text);//组数
                 groupNum = Convert.ToInt32(combobox_22.Text);//个数
                 relaxTime = Convert.ToInt32(combobox_23.Text);//间隔时间
-                weight = Convert.ToInt32(combobox_24.Text);//砝码
+                weight = Convert.ToDouble(combobox_24.Text);//砝码
                 moveWay = combobox_25.SelectedIndex;//移乘方式
                 memo = t3.Text;//注意点
                 //构建对象
@@ -402,7 +402,7 @@ namespace spms.view.Pages.ChildWin
                 groupCount = Convert.ToInt32(combobox_31.Text);//组数
                 groupNum = Convert.ToInt32(combobox_32.Text);//个数
                 relaxTime = Convert.ToInt32(combobox_33.Text);//间隔时间
-                weight = Convert.ToInt32(combobox_34.Text);//砝码
+                weight = Convert.ToDouble(combobox_34.Text);//砝码
                 moveWay = combobox_35.SelectedIndex;//移乘方式
                 memo = t4.Text;//注意点
                 //构建对象
@@ -434,7 +434,7 @@ namespace spms.view.Pages.ChildWin
                 groupCount = Convert.ToInt32(combobox_41.Text);//组数
                 groupNum = Convert.ToInt32(combobox_42.Text);//个数
                 relaxTime = Convert.ToInt32(combobox_43.Text);//间隔时间
-                weight = Convert.ToInt32(combobox_44.Text);//砝码
+                weight = Convert.ToDouble(combobox_44.Text);//砝码
                 moveWay = combobox_45.SelectedIndex;//移乘方式
                 memo = t5.Text;//注意点
                 //构建对象
@@ -464,7 +464,7 @@ namespace spms.view.Pages.ChildWin
                 groupCount = Convert.ToInt32(combobox_51.Text);//组数
                 groupNum = Convert.ToInt32(combobox_52.Text);//个数
                 relaxTime = Convert.ToInt32(combobox_53.Text);//间隔时间
-                weight = Convert.ToInt32(combobox_54.Text);//砝码
+                weight = Convert.ToDouble(combobox_54.Text);//砝码
                 moveWay = combobox_55.SelectedIndex;//移乘方式
                 memo = t6.Text;//注意点
                 //构建对象
