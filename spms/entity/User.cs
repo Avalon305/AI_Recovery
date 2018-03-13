@@ -26,7 +26,7 @@ namespace spms.entity
         public string User_Name { get; set; }
         //姓名拼音
         public string User_Namepinyin { get; set; }
-        //性别  
+        //性别  0为女   1为男
         public byte? User_Sex { get; set; }
         //生日
         public DateTime? User_Birth { get; set; }
