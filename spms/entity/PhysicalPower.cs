@@ -9,7 +9,7 @@ namespace spms.entity
 {
     //体力评价实体
     [Table("bdl_physicalpower")]
-    class PhysicalPower
+    public class PhysicalPower
     {
         //主键 自增
         [Key]

@@ -42,7 +42,7 @@ namespace spms.service
             SetterDAO setterDAO = new SetterDAO();
             Setter setter = setterDAO.getSetter();
             //if识别出表,设置发送路径，select出实体，转化至DTO，json打成string,返回
-            //识别是否是用户添加
+            //识别是否是权限用户添加
             if (uploadManagement.UM_DataTable== "bdl_auth") {
                 AuthDAO authDAO = new AuthDAO();
                 Auther auther = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
@@ -50,6 +50,7 @@ namespace spms.service
                 serviceResult.URL = "/clientController/addClient.action";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<AutherDTO>(autherDTO);
             }
+            //病人表
             else if (uploadManagement.UM_DataTable == "bdl_user")
             {
                 UserDAO userDAO = new UserDAO();
@@ -60,7 +61,7 @@ namespace spms.service
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<UserDTO>(userDTO);
             }
            
-            
+            //症状表
             else if (uploadManagement.UM_DataTable == "bdl_symptominfo")
             {
                 SymptomInfoDao symptomInfoDao = new SymptomInfoDao();
@@ -70,6 +71,7 @@ namespace spms.service
                 serviceResult.URL = "/bigData/SymptomInfo";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<SymptomInfoDTO>(symptomInfoDTO);
             }
+            //症状子表
             else if (uploadManagement.UM_DataTable == "bdl_symptominfochild")
             {
                 SymptomInfoChildDao symptomInfoChildDao = new SymptomInfoChildDao();
@@ -77,24 +79,47 @@ namespace spms.service
                 //TODO SymptomInfoDTO
                 SymptomInfoChildDTO symptomInfoChildDTO = new SymptomInfoChildDTO(result, setter);
                 serviceResult.URL = "/bigData/SymptomInfoChild";
-                serviceResult.Data = JsonTools.Obj2JSONStrNew<SymptomInfoDTO>(symptomInfoDTO);
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<SymptomInfoChildDTO>(symptomInfoChildDTO);
             }
+            //训练处方总表
             else if (uploadManagement.UM_DataTable == "bdl_traininfo")
             {
-
-            }
-            else if (uploadManagement.UM_DataTable == "bdl_prescriptionresult")
-            {
+                TrainInfoDAO trainInfoDAO = new TrainInfoDAO();
+                var result = trainInfoDAO.Load(uploadManagement.UM_DataId);
+                //todo
+                TrainInfoDTO trainInfoDTO = new TrainInfoDTO(result,setter);
+                serviceResult.URL = "/bigData/TrainInfo";
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<TrainInfoDTO>(trainInfoDTO);
 
             }
            
+           //总表中的一条数据对某台设备的具体处方
             else if (uploadManagement.UM_DataTable == "bdl_deviceprescription")
             {
-
+                DevicePrescriptionDAO devicePrescriptionDAO = new DevicePrescriptionDAO();
+                var result = devicePrescriptionDAO.Load(uploadManagement.UM_DataId);
+                //todo
+                DevicePrescriptionDTO devicePrescriptionDTO = new DevicePrescriptionDTO(result, setter);
+                serviceResult.URL = "/bigData/DevicePrescription";
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<DevicePrescriptionDTO>(devicePrescriptionDTO);
+            }
+            //具体处方的具体反馈
+            else if (uploadManagement.UM_DataTable == "bdl_prescriptionresult")
+            {
+                PrescriptionResultDAO prescriptionResultDAO = new PrescriptionResultDAO();
+                var result = prescriptionResultDAO.Load(uploadManagement.UM_DataId);
+                //todo
+                PrescriptionResultDTO prescriptionResultDTO = new PrescriptionResultDTO(result, setter);
+                serviceResult.URL = "/bigData/PrescriptionResult";
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<PrescriptionResultDTO>(prescriptionResultDTO);
             }
             else if (uploadManagement.UM_DataTable == "bdl_physicalpower")
             {
-
+                PhysicalPowerDAO physicalPowerDAO = new PhysicalPowerDAO();
+                var result = physicalPowerDAO.Load(uploadManagement.UM_DataId);
+                PhysicalPowerDTO physicalPowerDTO = new PhysicalPowerDTO(result, setter);
+                serviceResult.URL = "/bigData/PrescriptionResult";
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<PhysicalPowerDTO>(physicalPowerDTO);
             }
 
             return serviceResult;

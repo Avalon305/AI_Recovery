@@ -145,6 +145,7 @@
     <Compile Include="constant\ProtocolConstant.cs" />
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="dao\app\SetterDAO.cs" />
+    <Compile Include="dao\PhysicalPowerDAO.cs" />
     <Compile Include="dao\UploadManagementDAO.cs" />
     <Compile Include="dao\UserDAO.cs" />
     <Compile Include="dao\SymptomInfoDAO.cs" />
@@ -153,8 +154,12 @@
     <Compile Include="entity\UploadManagement.cs" />
     <Compile Include="http\BigDataOfficer.cs" />
     <Compile Include="http\dto\AutherDTO.cs" />
+    <Compile Include="http\dto\DevicePrescriptionDTO.cs" />
+    <Compile Include="http\dto\PhysicalPowerDTO.cs" />
+    <Compile Include="http\dto\PrescriptionResultDTO.cs" />
     <Compile Include="http\dto\SymptomInfoChildDTO.cs" />
     <Compile Include="http\dto\SymptomInfoDTO.cs" />
+    <Compile Include="http\dto\TrainInfoDTO.cs" />
     <Compile Include="http\dto\UserDTO.cs" />
     <Compile Include="http\entity\HttpHeartBeat.cs" />
     <Compile Include="http\entity\ServiceResult.cs" />
