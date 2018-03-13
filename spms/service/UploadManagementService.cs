@@ -60,13 +60,24 @@ namespace spms.service
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<UserDTO>(userDTO);
             }
            
-            else if (uploadManagement.UM_DataTable == "bdl_symptominfochild")
-            {
-
-            }
+            
             else if (uploadManagement.UM_DataTable == "bdl_symptominfo")
             {
-
+                SymptomInfoDao symptomInfoDao = new SymptomInfoDao();
+                var result = symptomInfoDao.Load(uploadManagement.UM_DataId);
+                //TODO SymptomInfoDTO
+                SymptomInfoDTO symptomInfoDTO = new SymptomInfoDTO(result,setter);
+                serviceResult.URL = "/bigData/SymptomInfo";
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<SymptomInfoDTO>(symptomInfoDTO);
+            }
+            else if (uploadManagement.UM_DataTable == "bdl_symptominfochild")
+            {
+                SymptomInfoChildDao symptomInfoChildDao = new SymptomInfoChildDao();
+                var result = symptomInfoChildDao.Load(uploadManagement.UM_DataId);
+                //TODO SymptomInfoDTO
+                SymptomInfoChildDTO symptomInfoChildDTO = new SymptomInfoChildDTO(result, setter);
+                serviceResult.URL = "/bigData/SymptomInfoChild";
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<SymptomInfoDTO>(symptomInfoDTO);
             }
             else if (uploadManagement.UM_DataTable == "bdl_traininfo")
             {

@@ -7,7 +7,15 @@ using spms.entity;
 
 namespace spms.dao
 {
-    class TrainInfoDao : BaseDAO<TrainInfo>
+    public class TrainInfoDAO : BaseDAO<TrainInfo>
     {
     }
+    public class DevicePrescriptionDAO : BaseDAO<TrainInfo>
+    {
+    }
+    public class PrescriptionResultDAO : BaseDAO<TrainInfo>
+    {
+    }
+     
+
 }

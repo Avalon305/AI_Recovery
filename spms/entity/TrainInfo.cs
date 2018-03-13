@@ -9,7 +9,7 @@ namespace spms.entity
 {
     //训练信息
     [Table("bdl_traininfo")]
-    class TrainInfo
+    public class TrainInfo
     {
         //主键 自增
         [Key]
@@ -23,7 +23,7 @@ namespace spms.entity
     }
     //单一设备处方
     [Table("bdl_deviceprescription")]
-    class DevicePrescription
+    public class DevicePrescription
     {
         //状态常量 1做了  0没做
         public static byte? UNDO = 0;
@@ -64,7 +64,7 @@ namespace spms.entity
     }
     //设备处方的训练结果  一对一
     [Table("bdl_prescriptionresult")]
-    class PrescriptionResult
+    public class PrescriptionResult
     {
         //主键 自增
         [Key]
@@ -108,7 +108,7 @@ namespace spms.entity
 
         //设备系列
         [Table("bdl_deviceset")]
-    class DeviceSet {
+    public class DeviceSet {
         //主键 自增
         [Key]
         public int Pk_DSet_Id { get; set; }
@@ -121,7 +121,7 @@ namespace spms.entity
     }
     //设备类型
     [Table("bdl_devicesort")]
-    class DeviceSort
+    public class DeviceSort
     {
         [Key]
         public int Pk_DS_Id { get; set; }
