@@ -12,7 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.dao;
 using spms.entity;
+using spms.service;
 using spms.view.Pages.ChildWin;
 namespace spms.view.Pages.ChildWin
 {
@@ -142,7 +144,9 @@ namespace spms.view.Pages.ChildWin
             symptomInfoChild.SIC_Pulse = sufPulse;
             symptomInfoChild.Status = 2;
 
-            MessageBox.Show(symptomInfo.ToString() + "\n" + symptomInfoChild.ToString());
+            //存储
+            int id = new SymptomService().AddSymptomnInfo(symptomInfo);
+            MessageBox.Show("完成:" + id);
         }
     }
 }

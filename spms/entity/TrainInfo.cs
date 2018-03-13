@@ -55,7 +55,7 @@ namespace spms.entity
         //移乘方式
         public int dp_moveway { get; set; }
         //砝码
-        public int dp_weight { get; set; }
+        public double dp_weight { get; set; }
 
         public override string ToString()
         {
@@ -99,6 +99,11 @@ namespace spms.entity
         public string PR_UserThoughts { get; set; }
         //备忘
         public string PR_Memo { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(Pk_PR_Id)}: {Pk_PR_Id}, {nameof(Gmt_Create)}: {Gmt_Create}, {nameof(Gmt_Modified)}: {Gmt_Modified}, {nameof(Fk_DP_Id)}: {Fk_DP_Id}, {nameof(PR_SportStrength)}: {PR_SportStrength}, {nameof(PR_Time1)}: {PR_Time1}, {nameof(PR_Time2)}: {PR_Time2}, {nameof(PR_Distance)}: {PR_Distance}, {nameof(PR_CountWorkQuantity)}: {PR_CountWorkQuantity}, {nameof(PR_Cal)}: {PR_Cal}, {nameof(PR_Index)}: {PR_Index}, {nameof(PR_FinishGroup)}: {PR_FinishGroup}, {nameof(PR_Evaluate)}: {PR_Evaluate}, {nameof(PR_AttentionPoint)}: {PR_AttentionPoint}, {nameof(PR_UserThoughts)}: {PR_UserThoughts}, {nameof(PR_Memo)}: {PR_Memo}";
+        }
     }
 
         //设备系列
