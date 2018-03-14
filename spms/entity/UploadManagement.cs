@@ -25,5 +25,11 @@ namespace spms.entity
         public UploadManagement()
         {
         }
+
+        public UploadManagement(int umDataId, string umDataTable)
+        {
+            UM_DataId = umDataId;
+            UM_DataTable = umDataTable;
+        }
     }
 }
