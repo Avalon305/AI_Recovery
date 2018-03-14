@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -15,6 +16,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using spms.entity;
 using spms.http;
+using spms.http.entity;
+using spms.util;
 using spms.view.Pages.ChildWin;
 namespace spms.view.Pages
 {
@@ -26,7 +29,8 @@ namespace spms.view.Pages
         List<User> users = new List<User>();
         //大数据线程，主要上传除心跳之外的所有数据信息
         Thread bigDataThread;
-        
+        //后台心跳更新UI线程
+        public System.Timers.Timer timerNotice = null;
 
         public MainPage()
         {
@@ -36,6 +40,14 @@ namespace spms.view.Pages
             bigDataThread = new Thread(new ThreadStart(UploadDataToWEB));
             //暂时先不启动
             //bigDataThread.Start();
+            ///心跳线程部分-load方法启动
+            
+            
+
+
+
+
+
             //添加使用者
             User user = new User
             {
@@ -367,6 +379,81 @@ namespace spms.view.Pages
             window.Show();
             //window.Content = new MainWindow();
         }
+        /// <summary>
+        /// 定时器心跳间隔，load时设置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            #region 通知公告
+            if (timerNotice == null)
+            {
+                BindNotice();
+
+                timerNotice = new System.Timers.Timer();
+                timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) =>
+                {
+                    BindNotice();
+                });
+                timerNotice.Interval = 60 * 1000;
+                timerNotice.Start();
+            }
+            #endregion
+
+        }
+        /// <summary>
+        /// 异步进程与UI更新
+        /// </summary>
+        #region 绑定通知公告
+        private void BindNotice()
+        {
+            System.Threading.Tasks.Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    HeartBeatOffice heartBeatOffice = new HeartBeatOffice();
+                    HttpHeartBeat result = heartBeatOffice.GetHeartBeatByCurrent();
+                    HttpSender httpSender = new HttpSender("/communicationController/analysisJson", JsonTools.Obj2JSONStrNew<HttpHeartBeat>(result));
+                    string jsonStr = httpSender.sendDataToWebPlatform();
+                    HttpHeartBeat webResult = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(jsonStr);
+                    //本地数据更改
+                    heartBeatOffice.SolveHeartbeat(webResult);
+                    Dispatcher.Invoke(new Action(() =>
+                    {
+                        if (webResult.authStatus == 0) {
+                            //正常心跳不处理
+
+                        } else if (webResult.authStatus == 1) {
+                            //冻结，弹窗，然后关闭窗口
+                            // 程序强制退出
+                            MessageBox.Show("用户被冻结，即将退出，请联系宝德龙管理员解冻！");
+                            Environment.Exit(0);
+                        }
+                        else if (webResult.authStatus == 2)
+                        {
+                            //解冻，只需要更改数据库。界面无反馈，不处理
+                        }
+                        else if (webResult.authStatus == 3)
+                        {
+                            //永久离线，只需要更改数据库。界面无反馈，不处理
+                        }
+                        else if (webResult.authStatus == 4)
+                        {
+                            //已删除，按照冻结处理
+                            MessageBox.Show("用户被删除，即将退出，请联系宝德龙管理员恢复！");
+                            Environment.Exit(0);
+                        }
+                    }));
+                }
+                catch
+                {
+
+                }
+            });
+        }
+        #endregion
+
 
         //private void SignInformationRecord_Frame(object sender, RoutedEventArgs e)
         //{

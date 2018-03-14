@@ -23,5 +23,13 @@ namespace spms.http.dto
             this.gmtModified = trainInfo.Gmt_Modified.ToString();
             this.pkTiId = trainInfo.Pk_TI_Id.ToString();
         }
+        public TrainInfoDTO(TrainInfo trainInfo, string mac)
+        {
+            this.clientId = mac;
+            this.fkUserId = trainInfo.FK_User_Id;
+            this.gmtCreate = trainInfo.Gmt_Create.ToString();
+            this.gmtModified = trainInfo.Gmt_Modified.ToString();
+            this.pkTiId = trainInfo.Pk_TI_Id.ToString();
+        }
     }
 }

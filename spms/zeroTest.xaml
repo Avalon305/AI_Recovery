@@ -13,6 +13,7 @@
         <Button Content="测试list30" HorizontalAlignment="Left" Margin="105,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         <Button Content="DTO驼峰测试" HorizontalAlignment="Left" Margin="202,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.199,-0.645" Click="Button_Click_2"/>
         <Button Content="auth通过权限等级查询" HorizontalAlignment="Left" Margin="297,10,0,0" VerticalAlignment="Top" Width="134" Click="Button_Click_3"/>
+        <Button Content="冻结关闭弹窗效果" HorizontalAlignment="Left" Margin="450,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
 
     </Grid>
 </Page>

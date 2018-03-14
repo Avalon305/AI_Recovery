@@ -30,7 +30,6 @@ namespace spms.http
             // 停止定时器并执行清理工作
             bigDataTimer.Dispose();
         }
-
         //定时器轮询方法
         private void Run(object state)
         {
@@ -47,13 +46,8 @@ namespace spms.http
                 if (setter.Set_Unique_Id!=null&& setter.Set_Unique_Id .Equals("")) {
                     Upload();
                 }
-              
             }
         }
-
-      
-      
-         
         //3.upload方法中上传    接受返回结果后删除     测试在线，本地无记录时的不发送。
         private void Upload() {
             UploadManagementService uploadManagementService = new UploadManagementService();

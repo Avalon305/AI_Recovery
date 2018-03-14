@@ -58,5 +58,12 @@ namespace spms
             string pingJsonStr = JsonTools.Obj2JSONStrNew(auther);
             MessageBox.Show(pingJsonStr);
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            //已删除，按照冻结处理
+            MessageBox.Show("用户被删除，即将退出，请联系宝德龙管理员恢复！");
+            Environment.Exit(0);
+        }
     }
 }

@@ -163,6 +163,7 @@
     <Compile Include="http\dto\UserDTO.cs" />
     <Compile Include="http\entity\HttpHeartBeat.cs" />
     <Compile Include="http\entity\ServiceResult.cs" />
+    <Compile Include="http\HeartBeatOffice.cs" />
     <Compile Include="http\HttpSender.cs" />
     <Compile Include="protocol\IMakerFrame.cs" />
     <Compile Include="protocol\IParserFrame.cs" />

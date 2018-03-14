@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:spms.view.Pages"
       mc:Ignorable="d" 
       Title="MainPage"
-      Height="700" Width="1290">
+      Height="700" Width="1290" Loaded="Page_Loaded">
 
     <Grid >
 

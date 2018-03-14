@@ -31,5 +31,18 @@ namespace spms.http.dto
             this. siIsjoin= symptomInfo.SI_IsJoin.ToString();
             this.siWaterinput = symptomInfo.SI_WaterInput.ToString();
         }
+        public SymptomInfoDTO(SymptomInfo symptomInfo, string mac)
+        {
+            this.clientId = mac;
+            this.fkUserId = symptomInfo.Fk_User_Id.ToString();
+
+            this.gmtCreate = symptomInfo.Gmt_Create.ToString();
+            this.gmtModified = symptomInfo.Gmt_Modified.ToString();
+            this.pkSiId = symptomInfo.Pk_SI_Id.ToString();
+            this.siCareinfo = symptomInfo.SI_CareInfo.ToString();
+            this.siInquiry = symptomInfo.SI_Inquiry.ToString();
+            this.siIsjoin = symptomInfo.SI_IsJoin.ToString();
+            this.siWaterinput = symptomInfo.SI_WaterInput.ToString();
+        }
     }
 }

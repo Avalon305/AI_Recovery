@@ -33,5 +33,19 @@ namespace spms.http.dto
             this.sicPulse = symptomInfoChild.SIC_Pulse.ToString();
             this.status = symptomInfoChild.Status.ToString();
         }
+        public SymptomInfoChildDTO(SymptomInfoChild symptomInfoChild, string mac)
+        {
+            this.clientId = mac;
+            this.fkSiId = symptomInfoChild.Fk_SI_Id.ToString();
+            this.gmtCreate = symptomInfoChild.Gmt_Create.ToString();
+            this.gmtModified = symptomInfoChild.Gmt_Modified.ToString();
+            this.pkSicId = symptomInfoChild.Pk_SIC_Id.ToString();
+            this.sicAnimalheat = symptomInfoChild.SIC_AnimalHeat.ToString();
+            this.sicHeartrate = symptomInfoChild.SIC_HeartRate.ToString();
+            this.sicHighpressure = symptomInfoChild.SIC_HighPressure.ToString();
+            this.sicLowpressure = symptomInfoChild.SIC_LowPressure.ToString();
+            this.sicPulse = symptomInfoChild.SIC_Pulse.ToString();
+            this.status = symptomInfoChild.Status.ToString();
+        }
     }
 }
