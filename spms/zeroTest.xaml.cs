@@ -65,5 +65,18 @@ namespace spms
             MessageBox.Show("用户被删除，即将退出，请联系宝德龙管理员恢复！");
             Environment.Exit(0);
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            AuthDAO authDAO = new AuthDAO();
+            Auther auther = authDAO.Login("123", "123");
+            string pingJsonStr = JsonTools.Obj2JSONStrNew(auther);
+            MessageBox.Show(pingJsonStr);
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(SystemInfo.GetMacAddress());
+        }
     }
 }

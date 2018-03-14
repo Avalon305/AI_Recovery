@@ -50,7 +50,7 @@
             <Label Grid.Row="2" Grid.Column="6"  Content="密码:"  />
             <PasswordBox  Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="4" Name="User_Password" />
             <Label Grid.Row="2" Grid.Column="11" Name="Password_ErrorInfo"></Label>
-            <Button  Grid.Row="3" Grid.Column="6" Content="登录"   Click="Button_Click" Grid.ColumnSpan="3" Style="{StaticResource myBtn}" Margin="40,19.8,40.8,0" Grid.RowSpan="2"/>
+            <Button  Grid.Row="4" Grid.Column="6" Content="登录"   Click="Button_Click" Grid.ColumnSpan="3" Style="{StaticResource myBtn}" Margin="40,0,41,0" Height="25" VerticalAlignment="Top"/>
             <Button   Grid.Row="3" Grid.Column="9" Content="重置"  Grid.ColumnSpan="2" Style="{StaticResource myBtn}" Click="Resetting_Button" RenderTransformOrigin="0.785,0.536" Margin="39.2,19.8,40.6,0" Grid.RowSpan="2"/>
 
         </Grid>
