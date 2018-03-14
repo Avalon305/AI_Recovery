@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using spms.entity;
+using spms.service;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -283,6 +284,8 @@ namespace spms.view.Pages.ChildWin
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
+            List<DevicePrescription> devicePrescriptions = new List<DevicePrescription>();
+
             string devName;//设备名字
             string attr1;//属性1
             string attr2;//2
@@ -295,6 +298,7 @@ namespace spms.view.Pages.ChildWin
             double weight;//砝码
             int moveWay;//移乘方式
             string memo;//注意点
+
             if (checkbox1.IsChecked == true)
             {//水平腿部推蹬机
                 devName = "水平腿部推蹬机";
@@ -316,8 +320,8 @@ namespace spms.view.Pages.ChildWin
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*";
                 devicePrescription.DP_Memo = memo;
-                devicePrescription.Fk_DS_Id = 1;
-                devicePrescription.Fk_TI_Id = 2;
+                //TODO 设置设备类型外键
+
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = groupCount;
@@ -325,7 +329,8 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_moveway = moveWay;
                 devicePrescription.dp_relaxtime = relaxTime;
                 devicePrescription.dp_weight = weight;
-                MessageBox.Show(devicePrescription.ToString());
+
+                devicePrescriptions.Add(devicePrescription);
             }
             if (checkbox2.IsChecked == true)
             {//坐姿划船机
@@ -348,8 +353,8 @@ namespace spms.view.Pages.ChildWin
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*";
                 devicePrescription.DP_Memo = memo;
-                devicePrescription.Fk_DS_Id = 1;
-                devicePrescription.Fk_TI_Id = 2;
+                //TODO 设置设备类型外键
+
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = groupCount;
@@ -357,7 +362,8 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_moveway = moveWay;
                 devicePrescription.dp_relaxtime = relaxTime;
                 devicePrescription.dp_weight = weight;
-                MessageBox.Show(devicePrescription.ToString());
+
+                devicePrescriptions.Add(devicePrescription);
             }
             if (checkbox3.IsChecked == true)
             {//身体伸展弯曲机
@@ -380,8 +386,8 @@ namespace spms.view.Pages.ChildWin
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*";
                 devicePrescription.DP_Memo = memo;
-                devicePrescription.Fk_DS_Id = 1;
-                devicePrescription.Fk_TI_Id = 2;
+                //TODO 设置设备类型外键
+
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = groupCount;
@@ -389,7 +395,8 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_moveway = moveWay;
                 devicePrescription.dp_relaxtime = relaxTime;
                 devicePrescription.dp_weight = weight;
-                MessageBox.Show(devicePrescription.ToString());
+
+                devicePrescriptions.Add(devicePrescription);
             }
             if (checkbox4.IsChecked == true)
             {//腿部伸展弯曲机
@@ -423,7 +430,8 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_moveway = moveWay;
                 devicePrescription.dp_relaxtime = relaxTime;
                 devicePrescription.dp_weight = weight;
-                MessageBox.Show(devicePrescription.ToString());
+
+                devicePrescriptions.Add(devicePrescription);
             }
             if (checkbox5.IsChecked == true)
             {//臂部外展内收机
@@ -444,8 +452,8 @@ namespace spms.view.Pages.ChildWin
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*";
                 devicePrescription.DP_Memo = memo;
-                devicePrescription.Fk_DS_Id = 1;
-                devicePrescription.Fk_TI_Id = 2;
+                //TODO 设置设备类型外键
+
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = groupCount;
@@ -453,7 +461,8 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_moveway = moveWay;
                 devicePrescription.dp_relaxtime = relaxTime;
                 devicePrescription.dp_weight = weight;
-                MessageBox.Show(devicePrescription.ToString());
+
+                devicePrescriptions.Add(devicePrescription);
             }
             if (checkbox1.IsChecked == true)
             {//胸部推举机
@@ -474,8 +483,8 @@ namespace spms.view.Pages.ChildWin
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*";
                 devicePrescription.DP_Memo = memo;
-                devicePrescription.Fk_DS_Id = 1;
-                devicePrescription.Fk_TI_Id = 2;
+                //TODO 设置设备类型外键
+
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = groupCount;
@@ -483,9 +492,17 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_moveway = moveWay;
                 devicePrescription.dp_relaxtime = relaxTime;
                 devicePrescription.dp_weight = weight;
-                MessageBox.Show(devicePrescription.ToString());
+
+                devicePrescriptions.Add(devicePrescription);
             }
-            
+
+            TrainInfo trainInfo = new TrainInfo();
+            trainInfo.Gmt_Create = DateTime.Now;
+            trainInfo.Gmt_Modified = DateTime.Now;
+            //TODO 获取设置用户id
+
+            //存储到数据库
+            new TrainService().AddTraininfo(trainInfo, devicePrescriptions);
         }
     }
 }

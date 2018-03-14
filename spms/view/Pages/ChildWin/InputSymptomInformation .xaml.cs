@@ -114,8 +114,10 @@ namespace spms.view.Pages.ChildWin
 
             //构建对象
             SymptomInfo symptomInfo = new SymptomInfo();
-            SymptomInfoChild symptomInfoChild = new SymptomInfoChild();
+            SymptomInfoChild preSymptomInfoChild = new SymptomInfoChild();
+            SymptomInfoChild sufSymptomInfoChild = new SymptomInfoChild();
             //症状信息
+            //TODO 用户外键待获取
             symptomInfo.Fk_User_Id = 2;
             symptomInfo.Gmt_Create = DateTime.Now;
             symptomInfo.Gmt_Modified = DateTime.Now;
@@ -124,29 +126,26 @@ namespace spms.view.Pages.ChildWin
             symptomInfo.SI_IsJoin = isJoin;
             symptomInfo.SI_WaterInput = waterInput;
             //康复前
-            symptomInfoChild.Fk_SI_Id = 2;
-            symptomInfoChild.Gmt_Create = DateTime.Now;
-            symptomInfoChild.Gmt_Modified = DateTime.Now;
-            symptomInfoChild.SIC_AnimalHeat = preAnimalheat;
-            symptomInfoChild.SIC_HeartRate = preHeartRate;
-            symptomInfoChild.SIC_HighPressure = preHighPressure;
-            symptomInfoChild.SIC_LowPressure = preLowPressure;
-            symptomInfoChild.SIC_Pulse = prePulse;
-            symptomInfoChild.Status = 1;
+            preSymptomInfoChild.Gmt_Create = DateTime.Now;
+            preSymptomInfoChild.Gmt_Modified = DateTime.Now;
+            preSymptomInfoChild.SIC_AnimalHeat = preAnimalheat;
+            preSymptomInfoChild.SIC_HeartRate = preHeartRate;
+            preSymptomInfoChild.SIC_HighPressure = preHighPressure;
+            preSymptomInfoChild.SIC_LowPressure = preLowPressure;
+            preSymptomInfoChild.SIC_Pulse = prePulse;
+            preSymptomInfoChild.Status = 1;
             //康复后
-            symptomInfoChild.Fk_SI_Id = 2;
-            symptomInfoChild.Gmt_Create = DateTime.Now;
-            symptomInfoChild.Gmt_Modified = DateTime.Now;
-            symptomInfoChild.SIC_AnimalHeat = sufAnimalheat;
-            symptomInfoChild.SIC_HeartRate = sufHeartRate;
-            symptomInfoChild.SIC_HighPressure = sufHighPressure;
-            symptomInfoChild.SIC_LowPressure = sufLowPressure;
-            symptomInfoChild.SIC_Pulse = sufPulse;
-            symptomInfoChild.Status = 2;
+            sufSymptomInfoChild.Gmt_Create = DateTime.Now;
+            sufSymptomInfoChild.Gmt_Modified = DateTime.Now;
+            sufSymptomInfoChild.SIC_AnimalHeat = sufAnimalheat;
+            sufSymptomInfoChild.SIC_HeartRate = sufHeartRate;
+            sufSymptomInfoChild.SIC_HighPressure = sufHighPressure;
+            sufSymptomInfoChild.SIC_LowPressure = sufLowPressure;
+            sufSymptomInfoChild.SIC_Pulse = sufPulse;
+            sufSymptomInfoChild.Status = 2;
 
             //存储
-            int id = new SymptomService().AddSymptomnInfo(symptomInfo);
-            MessageBox.Show("完成:" + id);
+            new SymptomService().AddSymptomnInfo(symptomInfo, preSymptomInfoChild, sufSymptomInfoChild);
         }
     }
 }
