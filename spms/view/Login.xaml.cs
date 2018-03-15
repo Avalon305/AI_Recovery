@@ -88,5 +88,6 @@ namespace spms.view
             User_Name.Clear();
             User_Password.Clear();
         }
+ 
     }
 }

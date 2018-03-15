@@ -150,7 +150,7 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             User user = (User)UsersInfo.SelectedItem;
-            userUpdata.User_Update.DataContext = user;
+           // userUpdata.User_Update.DataContext = user;
             userUpdata.ShowDialog();
         }
         //按钮：删除

@@ -44,7 +44,7 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Button   Content="登录" Width="70" Height="35" Foreground="Black" FontWeight="Bold" FontSize="20" Grid.Column="0" Margin="50,0,0,0" VerticalAlignment="Center" Style="{StaticResource Btn}"></Button>
+                        <Button   Content="登录" Width="70" Height="35" Foreground="Black" FontWeight="Bold" FontSize="20" Grid.Column="0" Margin="50,0,0,0" VerticalAlignment="Center" Style="{StaticResource Btn}" Click="Button_Click"></Button>
                         <Button  Content="重置" Width="70" Height="35" Foreground="Black" FontWeight="Bold" FontSize="20" Grid.Column="1" VerticalAlignment="Center" Style="{StaticResource Btn}"></Button>
                     </Grid>
 

@@ -87,7 +87,7 @@ namespace spms.view.Pages.ChildWin
         private void Button_OK(object sender, RoutedEventArgs e)
         {
             //获取用户ID的内容
-            string userID = t1.Text;
+           // string userID = t1.Text;
             //获取用户姓名的内容
             string userName = t2.Text;
             //获取用户姓名拼音的内容
@@ -111,23 +111,23 @@ namespace spms.view.Pages.ChildWin
             string memo = text.Text;
 
 
-            if (userID.Equals(""))
-            {
-                MessageBoxResult dr = MessageBox.Show("用户ID不能为空");
-            }
-            else
-            {
-                try
-                {
-                    //里面填写接口内容
-                    int i = Convert.ToInt32(t1.Text);
-                }
-                catch
-                {
-                    MessageBoxResult dr = MessageBox.Show("用户ID必须为数字");
-                }
+            //if (userID.Equals(""))
+            //{
+            //    MessageBoxResult dr = MessageBox.Show("用户ID不能为空");
+            //}
+            //else
+            //{
+            //    try
+            //    {
+            //        //里面填写接口内容
+            //        int i = Convert.ToInt32(t1.Text);
+            //    }
+            //    catch
+            //    {
+            //        MessageBoxResult dr = MessageBox.Show("用户ID必须为数字");
+            //    }
 
-            }
+            //}
         }
         //摄影按钮
         private void Button_TakePhoto(object sender, RoutedEventArgs e)
@@ -136,6 +136,16 @@ namespace spms.view.Pages.ChildWin
         }
         //参照按钮
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Photograph(object sender, RoutedEventArgs e)
         {
 
         }
