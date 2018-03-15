@@ -173,7 +173,7 @@ namespace spms.view.Pages
         {
             User user = (User)UsersInfo.SelectedItem;
             UserInfo.DataContext = user;
-
+             
 
 
         }
