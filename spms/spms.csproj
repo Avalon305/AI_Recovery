@@ -203,6 +203,8 @@
     <Compile Include="util\ProtocolUtil.cs" />
     <Compile Include="util\SerialPortUtil.cs" />
     <Compile Include="util\SystemInfo.cs" />
+    <Compile Include="view\converter\AgeConverter.cs" />
+    <Compile Include="view\converter\SexConverter.cs" />
     <Compile Include="view\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -297,6 +299,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="resources\zh-cn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Dictionary\Btn.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -415,6 +421,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\1.PNG" />
+    <Resource Include="view\Images\123.png" />
+    <Resource Include="view\Images\Arrow.jpg" />
+    <Resource Include="view\Images\back.jpg" />
+    <Resource Include="view\Images\bdl_login1.PNG" />
+    <Resource Include="view\Images\KFA-01.jpg" />
+    <Resource Include="view\Images\KFA-010.jpg" />
+    <Resource Include="view\Images\KFA-04.jpg" />
+    <Resource Include="view\Images\KFA-14.jpg" />
+    <Resource Include="view\Images\KFA-15.jpg" />
+    <Resource Include="view\Images\KFA-1819.jpg" />
+    <Resource Include="view\Images\Login_Background.jpg" />
+    <Resource Include="view\Images\logo.png" />
     <Resource Include="view\Images\KFA-010_副本.jpg" />
     <Resource Include="view\Images\KFA-01_副本.jpg" />
     <Resource Include="view\Images\KFA-04_副本.jpg" />

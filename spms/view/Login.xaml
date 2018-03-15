@@ -6,55 +6,54 @@
         xmlns:local="clr-namespace:spms.view"
         mc:Ignorable="d"
         ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
         Icon="/view/Images/icon2.png"
         Title="宝德龙" Height="720" Width="1290"
         >
+    <!--WindowStyle="None"-->
+    <Grid>
+        <Image Source="/view\Images\Login_Background.jpg"  Margin="0,0,0.2,0" Stretch="Fill"/>
+        <Border  Opacity="1" Width="400" Height="400" Background="White" CornerRadius="5" HorizontalAlignment="Right" Margin="0,0,30,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Content="用户登录" Foreground="Black" FontSize="30" Opacity="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Label Content="用户名" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right"  VerticalAlignment="Center" FontSize="15" FontWeight="Bold"></Label>
+                <!--提示信息-->
+                <Label Foreground="Red"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,100,0" Name="error_Info"></Label>
+                <!--用户名-->
+                <TextBox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="25" Width="250" Margin="10,0,0,0" BorderThickness="2" BorderBrush="Black" FontWeight="Bold"></TextBox>
+                <Label Content="密码" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right"  VerticalAlignment="Center" FontSize="15" FontWeight="Bold"></Label>
+                <!--密码-->
+                <PasswordBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="25" Width="250" Margin="10,0,0,0" BorderThickness="2" BorderBrush="Black" FontWeight="Bold"></PasswordBox>
+                <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Grid Margin="0,0,0,-0.2" Width="392">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button   Content="登录" Width="70" Height="35" Foreground="Black" FontWeight="Bold" FontSize="20" Grid.Column="0" Margin="50,0,0,0" VerticalAlignment="Center" Style="{StaticResource Btn}"></Button>
+                        <Button  Content="重置" Width="70" Height="35" Foreground="Black" FontWeight="Bold" FontSize="20" Grid.Column="1" VerticalAlignment="Center" Style="{StaticResource Btn}"></Button>
+                    </Grid>
 
-    <StackPanel Margin="0,0,0.2,0.4"  >
+                </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button HorizontalAlignment="Right" MinWidth="50" Margin="0,20,40,0" Click="Design">设置</Button>
-            <Button HorizontalAlignment="Right" MinWidth="50" Margin="0,20,40,0">后退</Button>
-        </StackPanel>
-        <!--图片-->
-        <Image Source="C:\Users\lenovo\source\repos\UI\UI\Images\bdl_login.PNG" Height="360"  Margin="0,20,0.2,50" Stretch="Fill"/>
-        <!--结束：图片-->
-        <!--登录表单-->
-        <Grid Name="Login_Form">
+            </Grid>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="6*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0" Grid.Column="6"  Content="用户名:"  />
-            <TextBox  Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="4" Name="User_Name"/>
-            <Label Grid.Row="0" Grid.Column="11" Name="Name_ErrorInfo"></Label>
-            <Label Grid.Row="2" Grid.Column="6"  Content="密码:"  />
-            <PasswordBox  Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="4" Name="User_Password" />
-            <Label Grid.Row="2" Grid.Column="11" Name="Password_ErrorInfo"></Label>
-            <Button  Grid.Row="4" Grid.Column="6" Content="登录"   Click="Button_Click" Grid.ColumnSpan="3" Style="{StaticResource myBtn}" Margin="40,0,41,0" Height="25" VerticalAlignment="Top"/>
-            <Button   Grid.Row="3" Grid.Column="9" Content="重置"  Grid.ColumnSpan="2" Style="{StaticResource myBtn}" Click="Resetting_Button" RenderTransformOrigin="0.785,0.536" Margin="39.2,19.8,40.6,0" Grid.RowSpan="2"/>
 
-        </Grid>
-        <!--结束：登录表单-->
-    </StackPanel>
+        </Border>
 
+    </Grid>
 </Window>
