@@ -80,5 +80,12 @@ namespace spms
             MessageBox.Show(SystemInfo.GetMacAddress());
 
         }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            UserService userService = new UserService();
+            string pingJsonStr = JsonTools.Obj2JSONStrNew(userService.GetAllUsers());
+            MessageBox.Show(pingJsonStr);
+        }
     }
 }
