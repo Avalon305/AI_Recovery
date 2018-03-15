@@ -10,10 +10,8 @@ using spms.util;
 
 namespace spms.dao
 {
+    
     public class SymptomInfoDao : BaseDAO<SymptomInfo>
-    {
-    }
-    public class SymptomInfoChildDao : BaseDAO<SymptomInfoChild>
     {
     }
 }

@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace spms.entity
 {
+
+    /// <summary>
+    /// 用于辅助的三个实体，不需要写service，直接dao
+    /// </summary>
+
     //分组实体
     [Table("bdl_group")]
     public class Assist

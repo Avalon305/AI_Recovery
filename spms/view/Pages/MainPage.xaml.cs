@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using spms.entity;
 using spms.http;
 using spms.http.entity;
+using spms.service;
 using spms.util;
 using spms.view.Pages.ChildWin;
 namespace spms.view.Pages
@@ -26,12 +27,21 @@ namespace spms.view.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-        List<User> users = new List<User>();
+        ///病人信息一览表
+        public List<User> users = new List<User>();
+        //当前选择的User
+        public User selectUser = null;
+        //用到的业务层实例
+        UserService userService = new UserService();
+
+
         //大数据线程，主要上传除心跳之外的所有数据信息
         Thread bigDataThread;
         //后台心跳更新UI线程
         public System.Timers.Timer timerNotice = null;
-
+        /// <summary>
+        /// 启动时的构造函数
+        /// </summary>
         public MainPage()
         {
 
@@ -41,33 +51,6 @@ namespace spms.view.Pages
             //暂时先不启动
             //bigDataThread.Start();
             ///心跳线程部分-load方法启动
-            
-            
-
-
-
-
-
-            //添加使用者
-            User user = new User
-            {
-                User_Name = "123",
-                User_Namepinyin = "123"
-            };
-            users.Add(user);
-            User user1 = new User
-            {
-                User_Name = "1234",
-                User_Namepinyin = "1234"
-            };
-            User user2 = new User
-            {
-                User_Name = "12345",
-                User_Namepinyin = "12345"
-            };
-            users.Add(user2);
-            UsersInfo.ItemsSource = users;
-            UsersInfo.SelectedIndex = 0;
             //初始显示的记录
             if (is_signinformationrecord.IsChecked == true)
             {
@@ -92,32 +75,46 @@ namespace spms.view.Pages
             //300秒-5分钟一次上传
             BigDataOfficer bigDataOfficer = new BigDataOfficer(300 * 1000);
         }
-        //按钮：输入征状信息
-        private void InputSymptomInformation(object sender, RoutedEventArgs e)
-        {
 
-            InputSymptomInformation w2 = new InputSymptomInformation
+        /// <summary>
+        /// 选中使用者信息时触发，将详细信息展示在左下角
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Grid_Click(object sender, MouseButtonEventArgs e)
+        {
+            selectUser = (User)UsersInfo.SelectedItem;
+            UserInfo.DataContext = selectUser;
+        }
+        /// <summary>
+        /// 定时器心跳间隔，load时设置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            ///心跳部分
+            #region 通知公告
+            if (timerNotice == null)
             {
-                Owner = Window.GetWindow(this),
-                ShowActivated = true,
-                ShowInTaskbar = false,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen
-            };
-            w2.ShowDialog();
+                BindNotice();
+
+                timerNotice = new System.Timers.Timer();
+                timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) =>
+                {
+                    BindNotice();
+                });
+                timerNotice.Interval = 60 * 1000;
+                timerNotice.Start();
+            }
+            #endregion
+            ///载入时数据装填到list,默认选中第一个
+            users = userService.GetAllUsers();
+            UsersInfo.ItemsSource = users;
+            UsersInfo.SelectedIndex = 0;
 
         }
-        //按钮：输入训练
-        private void InputTraining(object sender, RoutedEventArgs e)
-        {
-            InputTraining inputTraining = new InputTraining
-            {
-                Owner = Window.GetWindow(this),
-                ShowActivated = true,
-                ShowInTaskbar = false,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen
-            };
-            inputTraining.ShowDialog();
-        }
+      
         //按钮：添加
         private void Register(object sender, RoutedEventArgs e)
         {
@@ -156,27 +153,22 @@ namespace spms.view.Pages
             userUpdata.User_Update.DataContext = user;
             userUpdata.ShowDialog();
         }
-        //按钮：输入
-        private void InputManualMvaluation(object sender, RoutedEventArgs e)
+        //按钮：删除
+        private void Delete_User(object sender, RoutedEventArgs e)
         {
-            InputManualMvaluation inputManualMvaluation = new InputManualMvaluation
+            MessageBoxResult dr = MessageBox.Show("您确定删除该使用者信息？\n 使用者：" + ((User)UsersInfo.SelectedItem).User_Name, "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (dr == MessageBoxResult.OK)
             {
-                Owner = Window.GetWindow(this),
-                ShowActivated = true,
-                ShowInTaskbar = false,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen
-            };
-            inputManualMvaluation.ShowDialog();
+                //删除
+                userService.DeleteUser(selectUser);
+                //致空
+                selectUser = null;
+                //刷新界面
+                users = userService.GetAllUsers();
+                UsersInfo.ItemsSource = users;
+            }
         }
-        //使用者信息选中，将详细信息展示在左下角
-        private void Grid_Click(object sender, MouseButtonEventArgs e)
-        {
-            User user = (User)UsersInfo.SelectedItem;
-            UserInfo.DataContext = user;
 
-
-
-        }
         //记录类型切换
         private void Radio_Check(object sender, RoutedEventArgs e)
         {
@@ -195,15 +187,7 @@ namespace spms.view.Pages
                 record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
             }
         }
-        //按钮：删除
-        private void Delete_User(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult dr = MessageBox.Show("您确定删除该使用者信息？\n 使用者：" + ((User)UsersInfo.SelectedItem).User_Name, "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
-            if (dr == MessageBoxResult.OK)
-            {
-
-            }
-        }
+       
         //按钮：文档输出
         private void Output_Document(object sender, RoutedEventArgs e)
         {
@@ -379,29 +363,7 @@ namespace spms.view.Pages
             window.Show();
             //window.Content = new MainWindow();
         }
-        /// <summary>
-        /// 定时器心跳间隔，load时设置
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            #region 通知公告
-            if (timerNotice == null)
-            {
-                BindNotice();
-
-                timerNotice = new System.Timers.Timer();
-                timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) =>
-                {
-                    BindNotice();
-                });
-                timerNotice.Interval = 60 * 1000;
-                timerNotice.Start();
-            }
-            #endregion
-
-        }
+        
         /// <summary>
         /// 异步进程与UI更新
         /// </summary>
@@ -454,11 +416,43 @@ namespace spms.view.Pages
         }
         #endregion
 
+        //按钮：输入征状信息
+        private void InputSymptomInformation(object sender, RoutedEventArgs e)
+        {
 
-        //private void SignInformationRecord_Frame(object sender, RoutedEventArgs e)
-        //{
-        //    this.record.Source = new Uri("/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
+            InputSymptomInformation w2 = new InputSymptomInformation
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            w2.ShowDialog();
 
-        //}
+        }
+        //按钮：输入训练
+        private void InputTraining(object sender, RoutedEventArgs e)
+        {
+            InputTraining inputTraining = new InputTraining
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            inputTraining.ShowDialog();
+        }
+        //按钮：输入体力评价
+        private void InputManualMvaluation(object sender, RoutedEventArgs e)
+        {
+            InputManualMvaluation inputManualMvaluation = new InputManualMvaluation
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            inputManualMvaluation.ShowDialog();
+        }
     }
 }

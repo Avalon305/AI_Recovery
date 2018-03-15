@@ -1,4 +1,5 @@
-﻿using System;
+﻿using spms.dao.app;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,23 +20,32 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class Register : Window
     {
+        AssistDAO assistDAO = new AssistDAO();
+        DiseaseDAO DiseaseDAO = new DiseaseDAO();
+        DiagnosisDAO DiagnosisDAO = new DiagnosisDAO();
+
         //小组的名称列表
-        List<string> list = new List<string> { "aa", "bb", "abc", "csd", "sdlfks", "osdi", "awd" };
+        List<string> groupList;
         //疾病名称列表
-        List<string> list2 = new List<string> { "单侧麻痹", "心脏病", "脑梗赛", "脑出血", "高血压", "帕金森病", "糖尿病", "变形性膝关节炎", "没有" };
+        List<string> diseaseList ;
         //残障名称列表
-        List<string> list3 = new List<string> { "上肢的脱离或截肢", "下肢的脱离或截肢", "上肢的外伤性运动障碍", "下肢的外伤性运动障碍", "脊髓损伤", "脑源性运动机能障碍", "左上下肢麻痹", "右上下肢麻痹", "没有" };
-        //初期介护度列表
-        List<string> list4 = new List<string> { "没有申请", "自理", "要支援一", "要支援二", "要介护1", "要介护2", "要介护3", "要介护4", "要介护5" };
+        List<string> diagnosisList;
+        //护理度列表
+        List<string> careList = new List<string> { "没有申请", "自理", "要支援一", "要支援二", "要介护1", "要介护2", "要介护3", "要介护4", "要介护5" };
         public Register()
         {
             InitializeComponent();
+
+            groupList = assistDAO.GetGroupStr();
+            diseaseList = DiseaseDAO.GetDiseaseStr();
+            diagnosisList = DiagnosisDAO.GetDiagnosisStr();
             //初始化下拉框值
-            c2.ItemsSource = list;
-            c3.ItemsSource = list4;
-            c4.ItemsSource = list4;
-            c5.ItemsSource = list2;
-            c6.ItemsSource = list3;
+            c2.ItemsSource = groupList;
+            c5.ItemsSource = diseaseList;
+            c6.ItemsSource = diagnosisList;
+            //护理程度下拉框
+            c3.ItemsSource = careList;
+            c4.ItemsSource = careList;
         }
 
         private void c1_SelectionChanged(object sender, SelectionChangedEventArgs e)
