@@ -26,7 +26,13 @@ namespace spms.view.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-        List<User> users = new List<User>();
+        ///病人信息一览表
+        public List<User> users = new List<User>();
+        //当前选择的User
+        public User selectUser = null;
+
+
+
         //大数据线程，主要上传除心跳之外的所有数据信息
         Thread bigDataThread;
         //后台心跳更新UI线程
@@ -91,6 +97,16 @@ namespace spms.view.Pages
         public static void UploadDataToWEB() {
             //300秒-5分钟一次上传
             BigDataOfficer bigDataOfficer = new BigDataOfficer(300 * 1000);
+        }
+
+        //使用者信息选中，将详细信息展示在左下角
+        private void Grid_Click(object sender, MouseButtonEventArgs e)
+        {
+            User user = (User)UsersInfo.SelectedItem;
+            UserInfo.DataContext = user;
+
+
+
         }
         //按钮：输入征状信息
         private void InputSymptomInformation(object sender, RoutedEventArgs e)
@@ -168,15 +184,7 @@ namespace spms.view.Pages
             };
             inputManualMvaluation.ShowDialog();
         }
-        //使用者信息选中，将详细信息展示在左下角
-        private void Grid_Click(object sender, MouseButtonEventArgs e)
-        {
-            User user = (User)UsersInfo.SelectedItem;
-            UserInfo.DataContext = user;
-             
-
-
-        }
+        
         //记录类型切换
         private void Radio_Check(object sender, RoutedEventArgs e)
         {
