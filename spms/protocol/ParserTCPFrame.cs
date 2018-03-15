@@ -46,7 +46,7 @@ namespace spms.protocol
             {
                 case MsgId.X0001://设备通用应答
                     break;
-                case MsgId.X0002://心跳
+                case MsgId.X0002://心跳OK
                     HandleHeartBeat(ref response, frameBean);
                     break;
                 case MsgId.X0008://开始训练
@@ -71,7 +71,11 @@ namespace spms.protocol
 
             return response;
         }
-
+        /// <summary>
+        /// 处理请求图片数据
+        /// </summary>
+        /// <param name="response"></param>
+        /// <param name="frameBean"></param>
         private void HandleRequestImageData(ref byte[] response, TcpFrameBean frameBean)
         {
             byte[] body = frameBean.DataBody;
@@ -84,7 +88,11 @@ namespace spms.protocol
 
         }
 
-       
+       /// <summary>
+       /// 处理请求图片包数
+       /// </summary>
+       /// <param name="response"></param>
+       /// <param name="frameBean"></param>
         private void HandleRequestImageCount(ref byte[] response, TcpFrameBean frameBean)
         {
             byte[] idBytes = frameBean.DataBody;
@@ -97,17 +105,58 @@ namespace spms.protocol
 
         }
 
+        /// <summary>
+        /// 处理请求用户信息
+        /// </summary>
+        /// <param name="response"></param>
+        /// <param name="frameBean"></param>
         private void HandleRequestUserInfo(ref byte[] response, TcpFrameBean frameBean)
         {
             byte[] body = frameBean.DataBody;
             string idcard = Encoding.GetEncoding("GBK").GetString(body, 0, 18);
+            byte[] data = MakerTCPFrame.GetInstance().Make800AFrame(idcard);
+            Int16 nextSerialNo = (Int16)(frameBean.SerialNo + 1);
+            MakerTCPFrame.GetInstance().PackData(MsgId.X800A, nextSerialNo, frameBean.TerminalId, data);
         }
-
+        /// <summary>
+        /// 处理训练结果上报
+        /// </summary>
+        /// <param name="response"></param>
+        /// <param name="frameBean"></param>
         private void HandlePricticeResult(ref byte[] response, TcpFrameBean frameBean)
         {
-            throw new NotImplementedException();
+            ParserPricticeResult paser = new ParserPricticeResult();
+            byte[] body = frameBean.DataBody;
+            //设备类型
+            DeviceType deviceType = (DeviceType)body[0];
+            switch (deviceType)
+            {
+                case DeviceType.X01://胸部推举机
+                    paser.PaserX01(body);
+                    break;
+                case DeviceType.X02:
+                    break;
+                case DeviceType.X03:
+                    break;
+                case DeviceType.X04:
+                    break;
+                case DeviceType.X05:
+                    break;
+                case DeviceType.X06:
+                    break;
+            }
+            //数据上报响应通用应答
+            byte[] data = MakerTCPFrame.GetInstance().Make8001Frame(frameBean.SerialNo, frameBean.MsgId, CommResponse.Success);
+            byte nextSerialNo = (byte)(frameBean.SerialNo + 1);
+            response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, nextSerialNo, frameBean.TerminalId, data);
+
         }
 
+        /// <summary>
+        /// 处理请求处方信息
+        /// </summary>
+        /// <param name="response"></param>
+        /// <param name="frameBean"></param>
         public void HandleStartPrictice(ref byte[] response, TcpFrameBean frameBean)
         {
             byte[] data = frameBean.DataBody;
@@ -115,6 +164,11 @@ namespace spms.protocol
             DeviceType deviceType = (DeviceType)data[32];
 
         }
+        /// <summary>
+        /// 处理心跳
+        /// </summary>
+        /// <param name="response"></param>
+        /// <param name="frameBean"></param>
         public void HandleHeartBeat(ref byte[] response,TcpFrameBean frameBean)
         {
             byte[] data = MakerTCPFrame.GetInstance().Make8001Frame(frameBean.SerialNo, frameBean.MsgId, CommResponse.Success);
@@ -122,5 +176,43 @@ namespace spms.protocol
             response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, nextSerialNo, frameBean.TerminalId, data);
 
         }
+
+        /// <summary>
+        /// 内部类，辅助解析各种设备上报
+        /// </summary>
+        class ParserPricticeResult
+        {
+            /// <summary>
+            /// 胸部推举机上报解析
+            /// </summary>
+            /// <param name="body"></param>
+            public void PaserX01(byte[] body)
+            {
+                //运动强度
+                byte strength = ProtocolUtil.BcdToInt(body[1]);
+                //运动时间 1/100秒
+                Int32 time = BitConverter.ToInt32(body, 2);
+                //总移动距离 毫米
+                Int32 distance = BitConverter.ToInt32(body, 6);
+                //总功 1/100 焦耳
+                Int32 energy = BitConverter.ToInt32(body, 10);
+                //消耗热量 1/100 卡路里
+                Int32 heat = BitConverter.ToInt32(body, 14);
+                //指数标识 0 正数 1 负数
+                //指数值 1/100
+                Int32 singer = BitConverter.ToInt32(body, 19);
+                singer = body[18] == 0x00 ? singer : -1 * singer;
+                //动作节奏 0没问题 1 有些许问题 2 没问题
+                byte rhythem = body[23];
+                //使用者感想
+                string think = Encoding.GetEncoding("GBK").GetString(body, 24, body.Length - 24);
+
+                PrescriptionResult result = new PrescriptionResult();
+                //自觉运动强度
+                result.PR_SportStrength = strength.ToString();
+            }
+        }
     }
+
+    
 }

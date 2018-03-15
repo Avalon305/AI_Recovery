@@ -12,6 +12,26 @@ namespace spms.util
     /// </summary>
     class ProtocolUtil
     {
+        /// <summary>
+        /// string转为BCD码，若string有奇数个字符，byte[]长度为len/2+1,左侧补零
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static byte[] StringToBcd(string source)
+        {
+            source = source.Trim();
+            if (source.Length % 2 != 0)
+            {
+                source = "0" + source;
+            }
+            byte[] result = new byte[source.Length / 2];
+            for (int i = 0; i < source.Length / 2; i++)
+            {
+                result[i] = Convert.ToByte(source.Substring(i * 2, 2), 16);
+            }
+
+            return result;
+        }
 
         public static MsgId BytesToMsgId(byte[] source, int startIndex)
         {
@@ -152,6 +172,15 @@ namespace spms.util
                 outString += source[i].ToString("X2");
             }
             return outString;
+        }
+        public static byte BcdToInt(byte b)
+        {
+            //高四位    
+            byte b1 = (byte)((b >> 4) & 0xF);
+            //低四位    
+            byte b2 = (byte)(b & 0xF);
+
+            return (byte)(b1 * 10 + b2);
         }
     }
 }

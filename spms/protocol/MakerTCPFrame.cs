@@ -1,4 +1,5 @@
 ﻿using spms.constant;
+using spms.entity;
 using spms.service;
 using spms.util;
 using System;
@@ -129,8 +130,40 @@ namespace spms.protocol
         /// <returns></returns>
         public byte[] Make800AFrame(string idcard)
         {
-            byte[] arr = new byte[23];
+            UserService userService = new UserService();
+            User u = userService.GetByIdCard(idcard);
 
+            byte[] arr = new byte[730];
+            //用户ID32个字节
+            byte[] idBytes = Encoding.GetEncoding("GBK").GetBytes(idcard);
+            Array.Copy(idBytes, 0, arr, 0, idBytes.Length);
+            //姓名20个字节
+            byte[] userName = Encoding.GetEncoding("GBK").GetBytes(u.User_Name);
+            Array.Copy(userName, 0, arr, 32, userName.Length);
+            //姓名拼音32个字节
+            byte[] namePinYin = Encoding.GetEncoding("GBK").GetBytes(u.User_Namepinyin);
+            Array.Copy(namePinYin, 0, arr, 52, namePinYin.Length);
+            //性别，协议里0是男1是女，异或一下
+            arr[85] = (byte)(u.User_Sex ^ 1);
+            //出生年月 4字节
+            string birthStr = String.Format("yyyyMMdd ", u.User_Birth);
+            byte[] birth = ProtocolUtil.StringToBcd(birthStr);
+            Array.Copy(birth, 0, arr, 86, birth.Length);
+            //组 128字节
+            byte[] group = Encoding.GetEncoding("GBK").GetBytes(u.User_GroupName);
+            Array.Copy(group, 0, arr, 90, group.Length);
+            //开始时的要护理程度 128 字节
+            byte[] initCare = Encoding.GetEncoding("GBK").GetBytes(u.User_InitCare);
+            Array.Copy(initCare, 0, arr, 218, initCare.Length);
+            //现在的要护理程度
+            byte[] nowCare = Encoding.GetEncoding("GBK").GetBytes(u.User_Nowcare);
+            Array.Copy(nowCare, 0, arr, 346, nowCare.Length);
+            //诊断名称
+            byte[] illnessName = Encoding.GetEncoding("GBK").GetBytes(u.User_IllnessName);
+            Array.Copy(illnessName, 0, arr, 474, illnessName.Length);
+            //伤残名称
+            byte[] disabilitiesName = Encoding.GetEncoding("GBK").GetBytes(u.User_PhysicalDisabilities);
+            Array.Copy(disabilitiesName, 0, arr, 602, disabilitiesName.Length);
             return arr;
 
         }
