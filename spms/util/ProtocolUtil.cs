@@ -1,4 +1,5 @@
-﻿using System;
+﻿using spms.constant;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,75 @@ namespace spms.util
     /// </summary>
     class ProtocolUtil
     {
+
+        public static MsgId BytesToMsgId(byte[] source, int startIndex)
+        {
+            byte[] temp = new byte[4];
+            temp[0] = source[startIndex];
+            temp[1] = source[startIndex + 1];
+            temp[2] = 0;
+            temp[3] = 0;
+            return (MsgId)BitConverter.ToInt32(temp, 0);
+        }
+        /// <summary>
+        /// 将0x7D 0x02,0x7D 0x01转回0x7E和0x7D
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static byte[] UnTransfer(byte[] source)
+        {
+            List<byte> list = new List<byte>();
+            list.Add(source[0]);
+
+            for (int i = 1; i < source.Length - 1; i++)
+            {
+                if (source[i] == 0x7D)
+                {
+                    if (source[i + 1] == 0x01)
+                    {
+                        list.Add(0x7D);
+                    }
+                    else if (source[i + 1] == 0x02)
+                    {
+                        list.Add(0x7E);
+                    }
+                    i++;
+                }
+                else
+                {
+                    list.Add(source[i]);
+                }
+            }
+            list.Add(source[source.Length - 1]);
+            return list.ToArray();
+        }
+        /// <summary>
+        /// 7E和7D转义
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static byte[] Transfer(byte[] source)
+        {
+            List<byte> list = new List<byte>(source);
+
+            for (int i = 1; i < list.Count - 1; i++)
+            {
+                if (list[i] == 0x7E)
+                {
+                    list[i] = 0x7D;
+                    list.Insert(i + 1, 0x02);
+
+                }
+                else if (list[i] == 0x7D)
+                {
+                    list.Insert(i + 1, 0x01);
+                }
+            }
+
+
+            return list.ToArray();
+
+        }
         public static string BytesToString(byte[] InBytes)
         {
             string StringOut = "";
@@ -72,6 +142,16 @@ namespace spms.util
                 temp ^= bytes[i];
             }
             return temp;
+        }
+
+        public static string BcdToString(byte[] source, int startIndex, int len)
+        {
+            string outString = "";
+            for (int i = startIndex; i < startIndex + len; i++)
+            {
+                outString += source[i].ToString("X2");
+            }
+            return outString;
         }
     }
 }

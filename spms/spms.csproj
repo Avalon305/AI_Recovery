@@ -142,6 +142,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="bean\TcpFrameBean.cs" />
     <Compile Include="constant\ProtocolConstant.cs" />
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="dao\app\SetterDAO.cs" />
@@ -178,7 +179,7 @@
     <Compile Include="entity\SymptomInfo.cs" />
     <Compile Include="entity\TrainInfo.cs" />
     <Compile Include="entity\User.cs" />
-    <Compile Include="server\UsbDogService.cs" />
+    <Compile Include="service\UsbDogService.cs" />
     <Compile Include="service\AuthService.cs" />
     <Compile Include="service\SetterService.cs" />
     <Compile Include="service\UploadManagementService.cs" />

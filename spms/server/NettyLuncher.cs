@@ -12,6 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using DotNetty.Codecs;
+using DotNetty.Buffers;
 
 namespace spms.server
 {
@@ -56,8 +58,12 @@ namespace spms.server
                     .ChildHandler(new ActionChannelInitializer<ISocketChannel>(channel =>
                     { // 
                         IChannelPipeline pipeline = channel.Pipeline;
+                      
+                         IByteBuffer delimiter = Unpooled.Buffer(); ;
+                        delimiter.WriteByte((byte)0x7E);
+                        pipeline.AddLast(new DelimiterBasedFrameDecoder(1024, delimiter));
                         pipeline.AddLast(new LoggingHandler("SRV-CONN"));
-                        pipeline.AddLast("echo", new ProtocolHandler());
+                        pipeline.AddLast("tcpHandler", new ProtocolHandler());
                     }));
 
                 // bootstrap bind port 

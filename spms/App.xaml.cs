@@ -26,7 +26,7 @@ namespace spms
             {
                 try
                 {
-                      NettyLuncher.getInstance().Start().Wait();
+                     NettyLuncher.getInstance().Start().Wait();
 
                 }
                 catch (AggregateException ee)
@@ -38,7 +38,7 @@ namespace spms
                     }));
                 }
             });
-            th.Start();
+             th.Start();
             base.OnStartup(e);
         }
         /// <summary>

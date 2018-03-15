@@ -18,6 +18,9 @@ using spms.service;
 using spms.http.dto;
 using spms.dao;
 using spms.entity;
+using spms.protocol;
+using spms.constant;
+using NLog;
 
 namespace spms
 {
@@ -26,6 +29,7 @@ namespace spms
     /// </summary>
     public partial class zeroTest : Page
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public zeroTest()
         {
             InitializeComponent();
@@ -57,6 +61,20 @@ namespace spms
             Auther auther = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_ADMIN);
             string pingJsonStr = JsonTools.Obj2JSONStrNew(auther);
             MessageBox.Show(pingJsonStr);
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            byte[] data = { 0x76, 0x7E, 0x12, 0x7D, 0x77 };
+            byte[] result =  MakerTCPFrame.GetInstance().PackData(MsgId.X8001,2, "123456789012", data);
+            byte[] buffer = ProtocolUtil.UnTransfer(result);
+           // MessageBox.Show(ProtocolUtil.BytesToString(buffer));
+            MsgId msgId =  ProtocolUtil.BytesToMsgId(buffer, 1);
+            Int16 data_len = BitConverter.ToInt16(buffer, 3);
+           // MessageBox.Show(ProtocolUtil.XorByByte(buffer, 1, 12 + data_len).ToString());
+            var ra =MsgId.X0001;
+            var bbb = MakerTCPFrame.GetInstance().Make0001Frame();
+            logger.Info(ProtocolUtil.BytesToString(bbb));
         }
     }
 }
