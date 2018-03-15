@@ -187,7 +187,10 @@
     <Compile Include="service\UploadManagementService.cs" />
     <Compile Include="service\SymptomService.cs" />
     <Compile Include="service\TrainService.cs" />
+    <Compile Include="service\UserPicService.cs" />
+    <Compile Include="service\UserService.cs" />
     <Compile Include="util\AesUtil.cs" />
+    <Compile Include="util\CommUtil.cs" />
     <Compile Include="util\DbUtil.cs" />
     <Compile Include="util\ExcelUtil.cs" />
     <Compile Include="util\GeneralResponse.cs" />

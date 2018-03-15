@@ -16,8 +16,14 @@ namespace spms.constant
         /// 加密狗鉴权密钥
         /// </summary>
         public static readonly byte[] USB_DOG_AUTH_PASSWORD = { 0x41, 0x6C, 0x69, 0x65, 0x6E, 0x74, 0x65, 0x6B, 0x45, 0x78, 0x70, 0x6C, 0x6F, 0x72, 0x65, 0x72 };
-
+        /// <summary>
+        /// 加密狗的内容
+        /// </summary>
         public static byte[] USB_DOG_CONTENT;
+        /// <summary>
+        /// 图片每包数据多少字节
+        /// </summary>
+        public static readonly int PIC_PACK_SIZE = 512;
 
 
 

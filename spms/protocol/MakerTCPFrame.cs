@@ -1,4 +1,5 @@
 ﻿using spms.constant;
+using spms.service;
 using spms.util;
 using System;
 using System.Collections.Generic;
@@ -87,9 +88,51 @@ namespace spms.protocol
 
             return arr;
         }
-        public byte[] Make0001Frame()
+        /// <summary>
+        /// 响应照片包数
+        /// </summary>
+        /// <param name="idcard"></param>
+        /// <returns></returns>
+        public byte[] Make8006Frame(string idcard)
         {
-            return PackData(MsgId.X0002, 1, "123456789012", new byte[0]);
+            UserPicService picService = new UserPicService();
+            Int16 count = picService.GetPicturePackCount(idcard);
+
+            byte[] arr = new byte[2];
+            arr[0] = Convert.ToByte(count & 0x00FF);//照片包数高字节
+            arr[1] = Convert.ToByte((count & 0xFF00) >> 8);//照片包数，低字节
+            return arr;
+        }
+
+        /// <summary>
+        /// 响应照片数据
+        /// </summary>
+        /// <param name="packNum"></param>
+        /// <param name="idcard"></param>
+        /// <returns></returns>
+        public byte[] Make8007Frame(Int16 packNum,string idcard)
+        {
+            byte[] arr = new byte[514];
+            arr[0] = Convert.ToByte(packNum & 0x00FF);//包序号高字节
+            arr[1] = Convert.ToByte((packNum & 0xFF00) >> 8);//包序号，低字节
+
+            UserPicService picService = new UserPicService();
+            byte[] picData = picService.GetPictureData(idcard, packNum);
+
+            Array.Copy(picData, 0, arr, 2, picData.Length);
+            return arr;
+        }
+
+        /// <summary>
+        /// 组帧，用户信息
+        /// </summary>
+        /// <returns></returns>
+        public byte[] Make800AFrame(string idcard)
+        {
+            byte[] arr = new byte[23];
+
+            return arr;
+
         }
 
     }
