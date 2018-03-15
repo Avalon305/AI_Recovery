@@ -19,7 +19,7 @@ namespace spms.entity
         //数据更新时间
         public DateTime? Gmt_Modified { get; set; }
         //关联的用户ID
-        public string FK_User_Id { get; set; }
+        public int FK_User_Id { get; set; }
     }
     //单一设备处方
     [Table("bdl_deviceprescription")]
@@ -76,7 +76,7 @@ namespace spms.entity
         //设备处方ID
         public int Fk_DP_Id { get; set; }
         //自觉运动强度,1-10代表轻松->剧烈
-        public string PR_SportStrength { get; set; }
+        public int PR_SportStrength { get; set; }
         //第一个时间
         public double PR_Time1 { get; set; }
         //第二个时间

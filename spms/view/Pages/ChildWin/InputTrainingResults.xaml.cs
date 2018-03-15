@@ -87,7 +87,8 @@ namespace spms.view.Pages.ChildWin
             prescriptionResult.PR_FinishGroup = finishGroup;
             prescriptionResult.PR_Index = index;
             prescriptionResult.PR_Memo = memo;
-            prescriptionResult.PR_SportStrength = sportStrength;
+            prescriptionResult.PR_SportStrength = int.Parse(sportStrength);
+            
             prescriptionResult.PR_UserThoughts = userThoughts;
             prescriptionResult.PR_Time1 = time1;
             prescriptionResult.PR_Time2 = time2;
