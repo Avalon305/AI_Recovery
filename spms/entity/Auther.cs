@@ -10,12 +10,27 @@ namespace spms.entity
     //权限人员实体
     [Table("bdl_auth")]
     public class Auther
-    {   //权限等级常量，0代表超级管理员，1代表管理员
+    {   //权限等级常量
+        /// <summary>
+        /// 超级管理员
+        /// </summary>
         public static  byte? AUTH_LEVEL_ADMIN = 0;
+        /// <summary>
+        /// 一般管理员
+        /// </summary>
         public static byte? AUTH_LEVEL_MANAGER = 1;
-        //用户状态常量，0代表正常，1代表冻结，2代表完全离线
+        //用户状态常量，0代表正常、解冻，1代表冻结，2代表完全离线
+        /// <summary>
+        /// 正常/解冻
+        /// </summary>
         public static byte? USER_STATUS_GENERAL = 0;
+        /// <summary>
+        /// 冻结
+        /// </summary>
         public static byte? USER_STATUS_FREEZE = 1;
+        /// <summary>
+        /// 完全离线
+        /// </summary>
         public static byte? USER_STATUS_FREE = 2;
         //截止时间常量，完全离线至N年
         public static DateTime? Auth_OFFLINETIMEFREE = DateTime.MaxValue;

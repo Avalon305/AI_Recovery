@@ -65,16 +65,25 @@ namespace spms
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            byte[] data = { 0x76, 0x7E, 0x12, 0x7D, 0x77 };
-            byte[] result =  MakerTCPFrame.GetInstance().PackData(MsgId.X8001,2, "123456789012", data);
-            byte[] buffer = ProtocolUtil.UnTransfer(result);
-           // MessageBox.Show(ProtocolUtil.BytesToString(buffer));
-            MsgId msgId =  ProtocolUtil.BytesToMsgId(buffer, 1);
-            Int16 data_len = BitConverter.ToInt16(buffer, 3);
-           // MessageBox.Show(ProtocolUtil.XorByByte(buffer, 1, 12 + data_len).ToString());
-            var ra =MsgId.X0001;
-            var bbb = MakerTCPFrame.GetInstance().Make0001Frame();
-            logger.Info(ProtocolUtil.BytesToString(bbb));
+ 
+ 
+            //已删除，按照冻结处理
+            MessageBox.Show("用户被删除，即将退出，请联系宝德龙管理员恢复！");
+            Environment.Exit(0);
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            AuthDAO authDAO = new AuthDAO();
+            Auther auther = authDAO.Login("123", "123");
+            string pingJsonStr = JsonTools.Obj2JSONStrNew(auther);
+            MessageBox.Show(pingJsonStr);
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(SystemInfo.GetMacAddress());
+ 
         }
     }
 }

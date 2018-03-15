@@ -26,5 +26,35 @@ namespace spms.dao
                 return conn.QueryFirst<Auther>(query, new { Auth_Level = Auth_Level });
             }
         }
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="Auth_Level"></param>
+        /// <returns></returns>
+        public Auther Login(string name,string password)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select * from bdl_auth where Auth_UserName = @Auth_UserName and Auth_UserPass = @Auth_UserPass";
+
+                return conn.QueryFirst<Auther>(query, new { Auth_UserName = name, Auth_UserPass = password });
+            }
+        }
+
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="Auth_Level"></param>
+        /// <returns></returns>
+        public Auther GetByName(string name)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select * from bdl_auth where Auth_UserName = @Auth_UserName ";
+
+                return conn.QueryFirst<Auther>(query, new { Auth_UserName = name});
+            }
+        }
+
     }
 }

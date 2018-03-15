@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace spms.http.entity
 {
     //http心跳对象
-    class HttpHeartBeat
+    public class HttpHeartBeat
     {
         //用户唯一标识
         public string username { get; set; }
