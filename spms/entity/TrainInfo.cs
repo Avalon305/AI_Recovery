@@ -76,7 +76,7 @@ namespace spms.entity
         //设备处方ID
         public int Fk_DP_Id { get; set; }
         //自觉运动强度,1-10代表轻松->剧烈
-        public byte? PR_SportStrength { get; set; }
+        public string PR_SportStrength { get; set; }
         //第一个时间
         public double PR_Time1 { get; set; }
         //第二个时间

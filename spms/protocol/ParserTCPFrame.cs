@@ -209,7 +209,7 @@ namespace spms.protocol
 
                 PrescriptionResult result = new PrescriptionResult();
                 //自觉运动强度
-                result.PR_SportStrength = strength.ToString();
+               // result.PR_SportStrength = strength-5;
             }
         }
     }
