@@ -34,10 +34,10 @@
                 <!--提示信息-->
                 <Label Foreground="Red"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,100,0" Name="error_Info"></Label>
                 <!--用户名-->
-                <TextBox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="25" Width="250" Margin="10,0,0,0" BorderThickness="2" BorderBrush="Black" FontWeight="Bold"></TextBox>
+                <TextBox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="25" Width="250" Margin="10,0,0,0" BorderThickness="2" BorderBrush="Black" FontWeight="Bold" Name="User_Name"></TextBox>
                 <Label Content="密码" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right"  VerticalAlignment="Center" FontSize="15" FontWeight="Bold"></Label>
                 <!--密码-->
-                <PasswordBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="25" Width="250" Margin="10,0,0,0" BorderThickness="2" BorderBrush="Black" FontWeight="Bold"></PasswordBox>
+                <PasswordBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="25" Width="250" Margin="10,0,0,0" BorderThickness="2" BorderBrush="Black" FontWeight="Bold" Name="User_Password"></PasswordBox>
                 <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Grid Margin="0,0,0,-0.2" Width="392">
                         <Grid.ColumnDefinitions>
