@@ -275,9 +275,6 @@
     <Compile Include="view\Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="zeroTest.xaml.cs">
-      <DependentUpon>zeroTest.xaml</DependentUpon>
-    </Compile>
     <Page Include="ganDongPinMing.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -402,10 +399,6 @@
     <Page Include="view\Pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="zeroTest.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
