@@ -23,12 +23,10 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class InputSymptomInformation : Window
     {
+        private User user;
         public InputSymptomInformation()
         {
             InitializeComponent();
-
-            l1.Content = "andianl";
-            user_id.Content = "13210104659";
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
@@ -117,8 +115,7 @@ namespace spms.view.Pages.ChildWin
             SymptomInfoChild preSymptomInfoChild = new SymptomInfoChild();
             SymptomInfoChild sufSymptomInfoChild = new SymptomInfoChild();
             //症状信息
-            //TODO 用户外键待获取
-            symptomInfo.Fk_User_Id = 2;
+            symptomInfo.Fk_User_Id = user.Pk_User_Id;
             symptomInfo.Gmt_Create = DateTime.Now;
             symptomInfo.Gmt_Modified = DateTime.Now;
             symptomInfo.SI_CareInfo = careInfo;
@@ -146,6 +143,13 @@ namespace spms.view.Pages.ChildWin
 
             //存储
             new SymptomService().AddSymptomnInfo(symptomInfo, preSymptomInfoChild, sufSymptomInfoChild);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            user = (User)DataContext;
+            l1.Content = user.User_Name;
+            user_id.Content = user.Pk_User_Id;
         }
     }
 }
