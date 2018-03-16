@@ -19,6 +19,7 @@ namespace spms.util
         //键是DValue的缓存
         private static Dictionary<string, Dictionary<string, string>> codeMapDValue = new Dictionary<string, Dictionary<string, string>>();
 
+ 
         private DataCodeDAO codeDAO = new DataCodeDAO();
         private DataCodeCache()
         {
@@ -27,6 +28,15 @@ namespace spms.util
         public static DataCodeCache GetInstance()
         {
             return instance;
+        }
+        /// <summary>
+        /// 根据typeID返回列表，可直接绑定到下拉框
+        /// </summary>
+        /// <param name="typeId"></param>
+        /// <returns></returns>
+        public List<DataCode> GetDateCodeList(string typeId)
+        {
+           return codeDAO.ListByTypeId(typeId);
         }
         /// <summary>
         /// 返回"SValue","DValue"
