@@ -126,10 +126,17 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             register.ShowDialog();
+            //添加之后，flush界面
+            //致空
+            selectUser = null;
+            //刷新界面
+            users = userService.GetAllUsers();
+            UsersInfo.ItemsSource = users;
         }
         //按钮：条件检索
         private void Retrieval(object sender, RoutedEventArgs e)
         {
+            //查询弹框
             Retrieval retrieval = new Retrieval
             {
                 Owner = Window.GetWindow(this),
@@ -149,8 +156,11 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
+            //类中使用
             User user = (User)UsersInfo.SelectedItem;
-           // userUpdata.User_Update.DataContext = user;
+            userUpdata.SelectUser = user;
+            //UI中使用
+            userUpdata.selectUser.DataContext = user;
             userUpdata.ShowDialog();
         }
         //按钮：删除

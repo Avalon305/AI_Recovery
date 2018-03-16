@@ -12,91 +12,23 @@
          ResizeMode = "NoResize"
         Loaded="Window_Loaded">
 
-    <!--<Window.Resources>
-        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
-            <Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
-        </ControlTemplate>
-        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="40" />
-                </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" BorderThickness="2" BorderBrush="#e8e8e8" />
-
-                <Border Grid.Column="1" Background="#e8e8e8" Cursor="Hand"/>
-                <Path x:Name="Arrow" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z" Margin="16,16,10,10" Stretch="Fill" Fill="White" />
-            </Grid>
-        </ControlTemplate>
-
-        <Style TargetType="{x:Type ComboBox}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ComboBox}">
-                        <Grid>
-                            -->
-    <!-- ToggleButton 已数据绑定到 ComboBox 本身以切换 IsDropDownOpen -->
-    <!--
-                            <ToggleButton Grid.Column="2" Template="{DynamicResource ComboBoxToggleButton}" x:Name="ToggleButton" Focusable="false" IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press"/>
-                            <ContentPresenter HorizontalAlignment="Left" Margin="3,3,23,3" x:Name="ContentSite" VerticalAlignment="Center" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" IsHitTestVisible="False"/>
-
-                            -->
-    <!-- 必须将 TextBox 命名为 PART_EditableTextBox，否则 ComboBox 将无法识别它 -->
-    <!--
-                            <TextBox Visibility="Hidden" Template="{DynamicResource ComboBoxTextBox}" HorizontalAlignment="Left" Margin="3,3,23,3" x:Name="PART_EditableTextBox" Style="{x:Null}" VerticalAlignment="Center" Focusable="True" Background="Transparent" IsReadOnly="{TemplateBinding IsReadOnly}"/>
-
-                            -->
-    <!-- Popup 可显示 ComboBox 中的项列表。IsOpen 已数据绑定到通过 ComboBoxToggleButton 来切换的 IsDropDownOpen -->
-    <!--
-                            <Popup IsOpen="{TemplateBinding IsDropDownOpen}" Placement="Bottom" x:Name="Popup" Focusable="False" AllowsTransparency="True" PopupAnimation="Slide">
-                                <Grid MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{TemplateBinding ActualWidth}" x:Name="DropDown" SnapsToDevicePixels="True">
-                                    <Border x:Name="DropDownBorder" Background="{DynamicResource WindowBackgroundBrush}" BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1"/>
-                                    <ScrollViewer Margin="4,6,4,6" Style="{DynamicResource SimpleScrollViewer}" SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
-                                        -->
-    <!-- StackPanel 用于显示子级，方法是将 IsItemsHost 设置为 True -->
-    <!--
-                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" Background="White"/>
-                                    </ScrollViewer>
-                                </Grid>
-                            </Popup>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources> -->
+    
     <Grid>
         <Border CornerRadius="2">
             <StackPanel >
-                <!--<Border CornerRadius="5,5,0,0">
-                <StackPanel Orientation="Horizontal" Margin="10,15" Background="Gray">
-                    <Label Content="用户信息" FontSize="18" FontStyle="Normal" Style="{StaticResource {x:Type Label}}"/>
-                    
-                    <Button Content="更新" Margin="290,0,5,0" Width="97"  />
-                    <Button Content="取消" Width="96"/>
-                </StackPanel>
-                </Border>-->
                 <Border CornerRadius="5,5,0,0" Height="50" Margin="10,0,10,2" >
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                             <GradientStop Color="Silver" Offset="0.1"/>
                             <GradientStop Color="Gray" Offset="0.9"/>
                         </LinearGradientBrush>
-
                     </Border.Background>
                     <Grid>
-
                         <Label VerticalAlignment="Center" FontSize="22" Foreground="White" Content="用户信息"/>
-
-                        <!--<Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="284" Height="28" VerticalAlignment="Bottom" BorderBrush="White">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,0"  Foreground="Black" Content="确定" Style="{StaticResource Btn}" Click="Button_OK"/>
-                                <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" Content="取消" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
-                            </StackPanel>
-                        </Border>-->
                     </Grid>
                 </Border>
-                <Grid Margin="10,15,9.6,15"  Height="374">
+                <!-- 传递过来的user -->
+                <Grid Margin="10,15,9.6,15"  Height="374" Name="selectUser">
                     <Grid.RowDefinitions>
 
                         <RowDefinition Height="28"/>
@@ -148,11 +80,11 @@
                     <Border Grid.Row="4" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="手机号" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="4"  Grid.Column="1" FontSize="15"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding  User_IDCard}"/>
+                    <TextBox Grid.Row="4"   Name ="phoneNum" Grid.Column="1" FontSize="15"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding  User_IDCard}"/>
                     <Border Grid.Row="5" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="身份证号" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="5"  Grid.Column="1" FontSize="15"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_GroupName}"/>
+                    <TextBox Grid.Row="5" Name="IDCard" Grid.Column="1" FontSize="15"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_GroupName}"/>
                     <Border Grid.Row="6" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="小组名称"   Foreground="White"/>
                     </Border>

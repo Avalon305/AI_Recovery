@@ -87,5 +87,21 @@ namespace spms
             string pingJsonStr = JsonTools.Obj2JSONStrNew(userService.GetAllUsers());
             MessageBox.Show(pingJsonStr);
         }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+           DateTime dateTime = Convert.ToDateTime("2000/02/12");
+            MessageBox.Show(dateTime.ToShortDateString());
+        }
+
+        private void Button_Click_9(object sender, RoutedEventArgs e)
+        {
+            UserService userService = new UserService();
+            User user = userService.GetByIdCard("438");
+            List<User> queryResult = userService.SelectByCondition(user);
+            foreach (var i in queryResult) {
+                MessageBox.Show(JsonTools.Obj2JSONStrNew(i));
+            }
+        }
     }
 }

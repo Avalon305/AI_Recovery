@@ -18,6 +18,8 @@
             <Button Content="冻结关闭弹窗效果" HorizontalAlignment="Left" Margin="450,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
             <Button Content="测试登录" HorizontalAlignment="Left" Margin="545,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.068,0.599" Click="Button_Click_5"/>
             <Button Content="Test MAC" HorizontalAlignment="Left" Margin="634,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_6"/>
+            <Button Content="str->date" HorizontalAlignment="Left" Margin="155,42,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_8"/>
+            <Button Content="模糊查询" HorizontalAlignment="Left" Margin="262,42,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.104,-0.617" Click="Button_Click_9"/>
 
 
         </Grid>

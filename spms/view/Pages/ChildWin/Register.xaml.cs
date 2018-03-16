@@ -1,4 +1,6 @@
 ﻿using spms.dao.app;
+using spms.entity;
+using spms.service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,9 @@ namespace spms.view.Pages.ChildWin
         AssistDAO assistDAO = new AssistDAO();
         DiseaseDAO DiseaseDAO = new DiseaseDAO();
         DiagnosisDAO DiagnosisDAO = new DiagnosisDAO();
+
+        //service层初始化
+        UserService userService = new UserService();
 
         //小组的名称列表
         List<string> groupList;
@@ -63,6 +68,9 @@ namespace spms.view.Pages.ChildWin
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             inputDiseaseName.ShowDialog();
+            //flush 界面
+            diseaseList = DiseaseDAO.GetDiseaseStr();
+            c5.ItemsSource = diseaseList;
         }
         //添加残障名称
         private void DisabilityNameAddition(object sender, RoutedEventArgs e)
@@ -75,6 +83,9 @@ namespace spms.view.Pages.ChildWin
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             inputDisabilityName.ShowDialog();
+            //flush 界面
+            diagnosisList = DiagnosisDAO.GetDiagnosisStr();
+            c6.ItemsSource = diagnosisList;
         }
         //输入非公开信息
         private void InputNonPublicInformationPassword(object sender, RoutedEventArgs e)
@@ -101,16 +112,20 @@ namespace spms.view.Pages.ChildWin
         private void Button_OK(object sender, RoutedEventArgs e)
         {
 
-            //获取用户ID的内容
+            //获取用户身份证的内容
             //string userID = t1.Text;
             //获取用户姓名的内容
             string userName = t2.Text;
             //获取用户姓名拼音的内容
-            string username = t3.Text;
+            string usernamePY = t3.Text;
             //获取用户性别的内容
             string usersex = c1.Text;
             //获取用户出生年月的内容
             string brithday = t4.Text;
+            //获得身份证号
+            string IDCard = this.IDCard.Text;
+            //获得手机号
+            string phone = this.phoneNum.Text;
             //获取小组名称的内容
             string groupName = c2.Text;
             //获取初期要介护度的内容
@@ -125,24 +140,26 @@ namespace spms.view.Pages.ChildWin
             TextRange text = new TextRange(t6.Document.ContentStart, t6.Document.ContentEnd);
             string memo = text.Text;
 
+            User user = new User();
+            user.User_Birth = Convert.ToDateTime(brithday);
+            user.User_GroupName = groupName;
+            user.User_IDCard = IDCard;
+            user.User_IllnessName = sicknessName;
+            user.User_InitCare = initial;
+            user.User_Memo = memo;
+            user.User_Name = userName;
+            user.User_Namepinyin = usernamePY;
+            user.User_Nowcare = now;
+            user.User_PhysicalDisabilities = disabilityName;
+            user.User_Sex = (byte?)(usersex.Equals("男") ? 1 : 0);
+            user.User_Phone = phone;
+            ///补齐照片的部分
 
-            //if (userID.Equals(""))
-            //{
-            //    MessageBoxResult dr = MessageBox.Show("用户ID不能为空");
-            //}
-            //else
-            //{
-            //    try
-            //    {
-            //        //里面填写接口内容
-            //        int i = Convert.ToInt32(t1.Text);
-            //    }
-            //    catch
-            //    {
-            //        MessageBoxResult dr = MessageBox.Show("用户ID必须为数字");
-            //    }
 
-            //}
+
+            userService.InsertUser(user);
+            this.Close();
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

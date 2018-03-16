@@ -37,5 +37,29 @@ namespace spms.service
             user.Is_Deleted = 1;
             userDAO.UpdateByPrimaryKey(user);
         }
+        /// <summary>
+        ///  插入一个新用户，业务层添加
+        /// </summary>
+        public void InsertUser(User user) {
+            user.Gmt_Create = DateTime.Now;
+            user.Gmt_Modified = DateTime.Now;
+            user.Is_Deleted = 0;
+            userDAO.Insert(user);
+        }
+        /// <summary>
+        /// 更新用户，根据主键
+        /// </summary>
+        /// <param name="user"></param>
+        public void UpdateUser(User user)
+        {
+            
+            user.Gmt_Modified = DateTime.Now;
+             
+            userDAO.UpdateByPrimaryKey(user);
+        }
+
+        public List<User> SelectByCondition(User user) {
+            return userDAO.SelectByCondition(user);
+        }
     }
 }

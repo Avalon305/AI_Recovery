@@ -1,4 +1,5 @@
-﻿using System;
+﻿using spms.dao.app;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,19 +21,33 @@ namespace spms.view.Pages.ChildWin
 
     public partial class Retrieval : Window
     {
+
+        /// <summary>
+        /// 辅助类
+        /// </summary>
+        AssistDAO assistDAO = new AssistDAO();
+        DiseaseDAO DiseaseDAO = new DiseaseDAO();
+        DiagnosisDAO DiagnosisDAO = new DiagnosisDAO();
         //小组的名称列表
-        List<string> list = new List<string> { "aa", "bb", "abc", "csd", "sdlfks", "osdi", "awd" };
+        List<string> groupList;
         //疾病名称列表
-        List<string> list2 = new List<string> { "单侧麻痹", "心脏病", "脑梗赛", "脑出血", "高血压", "帕金森病", "糖尿病", "变形性膝关节炎", "没有" };
+        List<string> diseaseList;
         //残障名称列表
-        List<string> list3 = new List<string> { "上肢的脱离或截肢", "下肢的脱离或截肢", "上肢的外伤性运动障碍", "下肢的外伤性运动障碍", "脊髓损伤", "脑源性运动机能障碍", "左上下肢麻痹", "右上下肢麻痹", "没有" };
+        List<string> diagnosisList;
+        //护理度列表
+        List<string> careList = new List<string> { "没有申请", "自理", "要支援一", "要支援二", "要介护1", "要介护2", "要介护3", "要介护4", "要介护5" };
+
         public Retrieval()
         {
             InitializeComponent();
+
+            groupList = assistDAO.GetGroupStr();
+            diseaseList = DiseaseDAO.GetDiseaseStr();
+            diagnosisList = DiagnosisDAO.GetDiagnosisStr();
             //初始化下拉列表内容
-            comboBox1.ItemsSource = list;
-            c2.ItemsSource = list2;
-            c3.ItemsSource = list3;
+            comboBox1.ItemsSource = groupList;
+            c2.ItemsSource = diseaseList;
+            c3.ItemsSource = diagnosisList;
         }
 
         private void B1_Click(object sender, RoutedEventArgs e)
@@ -103,7 +118,7 @@ namespace spms.view.Pages.ChildWin
         private void comboBox1_KeyUp(object sender, KeyEventArgs e)
         {
             List<string> mylist = new List<string>();
-            mylist = list.FindAll(delegate (string s) { return s.Contains(comboBox1.Text.Trim()); });
+            mylist = groupList.FindAll(delegate (string s) { return s.Contains(comboBox1.Text.Trim()); });
             comboBox1.ItemsSource = mylist;
             comboBox1.IsDropDownOpen = true;
         }
