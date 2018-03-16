@@ -520,6 +520,8 @@ namespace spms.view.Pages.ChildWin
 
             //存储到数据库
             new TrainService().AddTraininfo(trainInfo, devicePrescriptions);
+            MessageBox.Show("已存储");
+            this.Close();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

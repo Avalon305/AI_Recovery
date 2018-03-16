@@ -18,29 +18,25 @@ namespace spms.service
         /// <param name="devicePrescriptions"></param>
         public void AddTraininfo(TrainInfo trainInfo, List<DevicePrescription> devicePrescriptions)
         {
-            int tiId;
+            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+            DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
+            TrainInfoDAO trainInfoDao = new TrainInfoDAO();
             using (TransactionScope ts = new TransactionScope())//使整个代码块成为事务性代码
             {
-                UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
-                DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
-                TrainInfoDAO trainInfoDao = new TrainInfoDAO();
-
-                //插入症状信息返回主键
-                tiId = (int)trainInfoDao.Insert(trainInfo);
-
-                //插入上传表
+                //插入症状信息、插入上传表
+                int tiId = (int)trainInfoDao.Insert(trainInfo);
                 uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo"));
 
-                int dsId;
+                int dpId;
                 //插入设备处方
                 if (devicePrescriptions != null)
                 {
                     foreach (DevicePrescription devicePrescription in devicePrescriptions)
                     {
                         devicePrescription.Fk_TI_Id = tiId;
-                        dsId = (int)devicePrescriptionDao.Insert(devicePrescription);
+                        dpId = (int)devicePrescriptionDao.Insert(devicePrescription);
                         //插入至上传表
-                        uploadManagementDao.Insert(new UploadManagement(dsId, "bdl_deviceprescription"));
+                        uploadManagementDao.Insert(new UploadManagement(dpId, "bdl_deviceprescription"));
                     }
                 }
                 ts.Complete();
@@ -50,10 +46,42 @@ namespace spms.service
         /// <summary>
         /// 添加训练结果，返回主键
         /// </summary>
-        public void AddPrescriptionResult()
+        public void AddPrescriptionResult(TrainInfo trainInfo,
+            Dictionary<DevicePrescription, PrescriptionResult> prescriptionDic)
         {
+            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+            DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
+            PrescriptionResultDAO prescriptionResultDao = new PrescriptionResultDAO();
 
+            using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
+            {
+                //插入训练信息和上传表
+                int tiId = (int)new TrainInfoDAO().Insert(trainInfo);
+                uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo"));
+
+                if (prescriptionDic != null)
+                {
+                    int dpId;
+                    int prId;
+                    foreach (KeyValuePair<DevicePrescription, PrescriptionResult> prescription in prescriptionDic)
+                    {
+                        DevicePrescription devicePrescription = prescription.Key;
+                        PrescriptionResult prescriptionResult = prescription.Value;
+                        //插入设备处方、上传表
+                        devicePrescription.Fk_TI_Id = tiId;
+                        dpId = (int)devicePrescriptionDao.Insert(devicePrescription);
+                        uploadManagementDao.Insert(new UploadManagement(dpId, "bdl_deviceprescription"));
+
+                        //插入设备处方结果、上传表
+                        prescriptionResult.Fk_DP_Id = dpId;
+                        prId = (int) prescriptionResultDao.Insert(prescriptionResult);
+                        uploadManagementDao.Insert(new UploadManagement(prId, "bdl_prescriptionresult"));
+                    }
+                }
+                ts.Complete();
+            }
         }
+
 
         /// <summary>
         /// 获取该用户最后一次训练处方

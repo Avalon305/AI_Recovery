@@ -143,6 +143,8 @@ namespace spms.view.Pages.ChildWin
 
             //存储
             new SymptomService().AddSymptomnInfo(symptomInfo, preSymptomInfoChild, sufSymptomInfoChild);
+            MessageBox.Show("已存储");
+            this.Close();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
