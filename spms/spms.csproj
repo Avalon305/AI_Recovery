@@ -148,6 +148,7 @@
     <Compile Include="dao\app\AssistDAO.cs" />
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="dao\app\SetterDAO.cs" />
+    <Compile Include="dao\DataCodeDAO.cs" />
     <Compile Include="dao\PhysicalPowerDAO.cs" />
     <Compile Include="dao\SymptomInfoChildDAO.cs" />
     <Compile Include="dao\UploadManagementDAO.cs" />
@@ -155,7 +156,11 @@
     <Compile Include="dao\SymptomInfoDAO.cs" />
     <Compile Include="dao\TrainInfoDAO.cs" />
     <Compile Include="entity\Assist.cs" />
+    <Compile Include="entity\DataCode.cs" />
     <Compile Include="entity\UploadManagement.cs" />
+    <Compile Include="FmyTest.xaml.cs">
+      <DependentUpon>FmyTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ganDongPinMing.xaml.cs">
       <DependentUpon>ganDongPinMing.xaml</DependentUpon>
     </Compile>
@@ -196,6 +201,7 @@
     <Compile Include="service\UserService.cs" />
     <Compile Include="util\AesUtil.cs" />
     <Compile Include="util\CommUtil.cs" />
+    <Compile Include="util\DataCodeCache.cs" />
     <Compile Include="util\DbUtil.cs" />
     <Compile Include="util\ExcelUtil.cs" />
     <Compile Include="util\GeneralResponse.cs" />
@@ -277,6 +283,10 @@
     <Compile Include="view\Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="FmyTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ganDongPinMing.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
