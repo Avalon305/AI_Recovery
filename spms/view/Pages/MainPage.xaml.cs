@@ -299,6 +299,8 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
+            User user = (User)UsersInfo.SelectedItem;
+            inputTrainingResults.DataContext = user;
             inputTrainingResults.ShowDialog();
         }
         //按钮：查看详细信息
@@ -440,6 +442,8 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
+            User user = (User)UsersInfo.SelectedItem;
+            w2.DataContext = user;
             w2.ShowDialog();
 
         }
@@ -453,6 +457,8 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
+            User user = (User) UsersInfo.SelectedItem;
+            inputTraining.DataContext = user;
             inputTraining.ShowDialog();
         }
         //按钮：输入体力评价
