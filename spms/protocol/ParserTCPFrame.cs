@@ -202,14 +202,26 @@ namespace spms.protocol
                 //指数值 1/100
                 Int32 singer = BitConverter.ToInt32(body, 19);
                 singer = body[18] == 0x00 ? singer : -1 * singer;
-                //动作节奏 0没问题 1 有些许问题 2 没问题
+                //动作节奏 0没问题 1 有些许问题 2 有问题
                 byte rhythem = body[23];
                 //使用者感想
                 string think = Encoding.GetEncoding("GBK").GetString(body, 24, body.Length - 24);
 
                 PrescriptionResult result = new PrescriptionResult();
                 //自觉运动强度
-               // result.PR_SportStrength = strength-5;
+                result.PR_SportStrength = (byte)(strength - 5);
+                result.PR_Time1 = time / 100.0;
+                result.PR_Distance = distance ;
+                result.PR_CountWorkQuantity = energy / 100.0;
+                result.PR_Cal = heat / 100.0;
+                result.PR_Index = singer / 100.0;
+                result.PR_Evaluate = rhythem;
+                result.PR_UserThoughts = think;
+
+                TrainService trainService = new TrainService();
+                 //TODO 存数据库
+
+
             }
         }
     }

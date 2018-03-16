@@ -83,11 +83,12 @@ namespace spms.view.Pages.ChildWin
             prescriptionResult.PR_Cal = cal;
             prescriptionResult.PR_CountWorkQuantity = countWorkqu;
             prescriptionResult.PR_Distance = distance;
-            prescriptionResult.PR_Evaluate = evaluate;
+            //TODO 时机、评价 编码表对应
+            //prescriptionResult.PR_Evaluate = evaluate;
             prescriptionResult.PR_FinishGroup = finishGroup;
             prescriptionResult.PR_Index = index;
             prescriptionResult.PR_Memo = memo;
-            prescriptionResult.PR_SportStrength = int.Parse(sportStrength);
+            prescriptionResult.PR_SportStrength = byte.Parse(sportStrength);
             
             prescriptionResult.PR_UserThoughts = userThoughts;
             prescriptionResult.PR_Time1 = time1;

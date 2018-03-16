@@ -76,7 +76,7 @@ namespace spms.entity
         //设备处方ID
         public int Fk_DP_Id { get; set; }
         //自觉运动强度,1-10代表轻松->剧烈
-        public int PR_SportStrength { get; set; }
+        public byte? PR_SportStrength { get; set; }
         //第一个时间
         public double PR_Time1 { get; set; }
         //第二个时间
@@ -84,15 +84,15 @@ namespace spms.entity
         //距离
         public int PR_Distance { get; set; }
         //总工作量
-        public int PR_CountWorkQuantity { get; set; }
+        public double PR_CountWorkQuantity { get; set; }
         //热量
         public double PR_Cal { get; set; }
         //指数
         public double PR_Index { get; set; }
         //完成组数
         public int PR_FinishGroup { get; set; }
-        //时机，姿势，评价
-        public string PR_Evaluate { get; set; }
+        //时机，姿势，评价 0没问题 1 有些许问题 2 有问题
+        public byte? PR_Evaluate { get; set; }
         //注意点
         public string PR_AttentionPoint { get; set; }
         //病人感想
