@@ -78,9 +78,9 @@
                 <ComboBoxItem Content="女"></ComboBoxItem>
             </ComboBox>
             <Label Content="手机号" Grid.Row="8" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <ComboBox Name="c2" Grid.Row="8" Grid.Column="2" Margin="0,0.2,10.4,0" />
+            <TextBox Name="c2" Grid.Row="8" Grid.Column="2" Margin="0,0.2,10.4,0" />
             <Label Content="身份证号" Grid.Row="10" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <ComboBox  Grid.Row="10" Grid.Column="2" Margin="0,0.2,10.4,0" />
+            <TextBox  Grid.Row="10" Grid.Column="2" Margin="0,0.2,10.4,0" />
             <ComboBox IsTextSearchEnabled="False" IsEditable="True" Name="comboBox1"  Grid.Row="12"  Grid.Column="2" KeyUp="comboBox1_KeyUp" SelectionChanged="comboBox1_SelectionChanged" Margin="0,0,10.4,0.2"/>
             <Label Content="小组名称" Grid.Row="12" Grid.Column="0" Background="Gray" Foreground="White"/>
             <Label Content="疾病名称" Grid.Row="14" Grid.Column="0" Background="Gray" Foreground="White"/>
