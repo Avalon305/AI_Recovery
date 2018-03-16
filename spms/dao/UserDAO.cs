@@ -38,5 +38,81 @@ namespace spms.dao
                 return (List<User>)conn.Query<User>(query);
             }
         }
+
+        public List<User> SelectByCondition(User user)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                string query = "select * from bdl_user where Is_Deleted = 0";
+                var p = new DynamicParameters();
+                //ID  name   pinyin  sex  phone    IDCard   group  jibing    canzhang
+                if (user.Pk_User_Id != 0) {
+                    query += " and Pk_User_Id = @Pk_User_Id";
+                    p.Add("Pk_User_Id",user.Pk_User_Id);
+                }
+                //name
+                if (!string.IsNullOrEmpty(user.User_Name)) {
+                    
+                    
+                    query += " and User_Name = @User_Name";
+                    p.Add("User_Name", user.User_Name);
+                }
+                //pinyin
+                if (!string.IsNullOrEmpty(user.User_Namepinyin))
+                {
+
+
+                    query += " and User_Namepinyin = @User_Namepinyin";
+                    p.Add("User_Namepinyin", user.User_Namepinyin);
+
+                   
+                }
+                //sex
+                if (user.User_Sex != null && (user.User_Sex == 0|| user.User_Sex == 1))
+                {
+                    
+                    query += " and User_Sex = @User_Sex";
+                    p.Add("User_Sex", user.User_Sex);
+                }
+                //phone
+                if (!string.IsNullOrEmpty(user.User_Phone))
+                {
+
+                    query += " and User_Phone = @User_Phone";
+                    p.Add("User_Phone", user.User_Phone);
+ 
+                }
+                //IDCard
+                if (!string.IsNullOrEmpty(user.User_IDCard))
+                {
+                    query += " and User_IDCard like @User_IDCard";
+                    p.Add("User_IDCard", "%"+user.User_IDCard+"%");
+                    
+                }
+                //group
+                if (!string.IsNullOrEmpty(user.User_GroupName))
+                {
+                    query += " and User_GroupName = @User_GroupName";
+                    p.Add("User_GroupName", user.User_GroupName);
+                    
+                }
+                //jibing
+                if (!string.IsNullOrEmpty(user.User_IllnessName))
+                {
+                    query += " and User_IllnessName = @User_IllnessName";
+                    p.Add("User_IllnessName", user.User_IllnessName);
+                     
+                }
+                //canzhang
+                if (!string.IsNullOrEmpty(user.User_PhysicalDisabilities))
+                {
+                     
+                    query += " and User_PhysicalDisabilities = @User_PhysicalDisabilities";
+                    p.Add("User_PhysicalDisabilities", user.User_PhysicalDisabilities);
+                }
+
+                return (List<User>)conn.Query<User>(query,p);
+            }
+        }
     }
 }

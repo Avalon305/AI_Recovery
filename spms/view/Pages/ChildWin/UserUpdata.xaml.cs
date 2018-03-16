@@ -1,4 +1,7 @@
-﻿using System;
+﻿using spms.dao.app;
+using spms.entity;
+using spms.service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,23 +22,41 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class UserUpdata : Window
     {
+        ///传递过来的User
+        public User SelectUser { get; set; }
+        /// <summary>
+        /// 辅助类
+        /// </summary>
+        AssistDAO assistDAO = new AssistDAO();
+        DiseaseDAO DiseaseDAO = new DiseaseDAO();
+        DiagnosisDAO DiagnosisDAO = new DiagnosisDAO();
         //小组的名称列表
-        List<string> list = new List<string> { "aa", "bb", "abc", "csd", "sdlfks", "osdi", "awd" };
+        List<string> groupList;
         //疾病名称列表
-        List<string> list2 = new List<string> { "单侧麻痹", "心脏病", "脑梗赛", "脑出血", "高血压", "帕金森病", "糖尿病", "变形性膝关节炎", "没有" };
+        List<string> diseaseList;
         //残障名称列表
-        List<string> list3 = new List<string> { "上肢的脱离或截肢", "下肢的脱离或截肢", "上肢的外伤性运动障碍", "下肢的外伤性运动障碍", "脊髓损伤", "脑源性运动机能障碍", "左上下肢麻痹", "右上下肢麻痹", "没有" };
-        //初期介护度列表
-        List<string> list4 = new List<string> { "没有申请", "自理", "要支援一", "要支援二", "要介护1", "要介护2", "要介护3", "要介护4", "要介护5" };
+        List<string> diagnosisList;
+        //护理度列表
+        List<string> careList = new List<string> { "没有申请", "自理", "要支援一", "要支援二", "要介护1", "要介护2", "要介护3", "要介护4", "要介护5" };
+       
+        //service层初始化
+        UserService userService = new UserService();
+
+        
         public UserUpdata()
         {
             InitializeComponent();
+
+            groupList = assistDAO.GetGroupStr();
+            diseaseList = DiseaseDAO.GetDiseaseStr();
+            diagnosisList = DiagnosisDAO.GetDiagnosisStr();
             //初始化下拉框值
-            c2.ItemsSource = list;
-            c3.ItemsSource = list4;
-            c4.ItemsSource = list4;
-            c5.ItemsSource = list2;
-            c6.ItemsSource = list3;
+            c2.ItemsSource = groupList;
+            c5.ItemsSource = diseaseList;
+            c6.ItemsSource = diagnosisList;
+            //护理程度下拉框
+            c3.ItemsSource = careList;
+            c4.ItemsSource = careList;
         }
         //添加疾病名称
         private void DiseaseNameAddition(object sender, RoutedEventArgs e)
@@ -86,12 +107,11 @@ namespace spms.view.Pages.ChildWin
 
         private void Button_OK(object sender, RoutedEventArgs e)
         {
-            //获取用户ID的内容
-           // string userID = t1.Text;
+             
             //获取用户姓名的内容
             string userName = t2.Text;
             //获取用户姓名拼音的内容
-            string username = t3.Text;
+            string usernamePY = t3.Text;
             //获取用户性别的内容
             string usersex = c1.Text;
             //获取用户出生年月的内容
@@ -109,25 +129,33 @@ namespace spms.view.Pages.ChildWin
             //获取备忘的内容
             TextRange text = new TextRange(t6.Document.ContentStart, t6.Document.ContentEnd);
             string memo = text.Text;
+            //获得身份证号
+            string IDCard = this.IDCard.Text;
+            //获得手机号
+            string phone = this.phoneNum.Text;
 
 
-            //if (userID.Equals(""))
-            //{
-            //    MessageBoxResult dr = MessageBox.Show("用户ID不能为空");
-            //}
-            //else
-            //{
-            //    try
-            //    {
-            //        //里面填写接口内容
-            //        int i = Convert.ToInt32(t1.Text);
-            //    }
-            //    catch
-            //    {
-            //        MessageBoxResult dr = MessageBox.Show("用户ID必须为数字");
-            //    }
+            SelectUser.User_Birth = Convert.ToDateTime(brithday);
+            SelectUser.User_GroupName = groupName;
+            SelectUser.User_IDCard = IDCard;
+            SelectUser.User_IllnessName = sicknessName;
+            SelectUser.User_InitCare = initial;
+            SelectUser.User_Memo = memo;
+            SelectUser.User_Name = userName;
+            SelectUser.User_Namepinyin = usernamePY;
+            SelectUser.User_Nowcare = now;
+            SelectUser.User_PhysicalDisabilities = disabilityName;
+            SelectUser.User_Sex = (byte?)(usersex.Equals("男") ? 1 : 0);
+            SelectUser.User_Phone = phone;
+            ///补齐照片的部分
 
-            //}
+
+
+            userService.UpdateUser(SelectUser);
+            this.Close();
+
+
+
         }
         //摄影按钮
         private void Button_TakePhoto(object sender, RoutedEventArgs e)
