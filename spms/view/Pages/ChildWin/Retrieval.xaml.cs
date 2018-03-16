@@ -1,6 +1,7 @@
 ﻿using spms.dao.app;
 using spms.entity;
 using spms.service;
+using spms.util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,7 +88,7 @@ namespace spms.view.Pages.ChildWin
             user.User_Name = userName;
             user.User_Namepinyin = usernamePY;
 
-            user.User_Sex =  (byte?)(usersex.Equals("男") ? 1 : 0);
+            user.User_Sex =  (byte?)(usersex.Equals("男") ? 1 : usersex.Equals("女") ? 0 : 2);
             user.User_Phone = phone;
             user.User_IDCard = IDCard;
 
@@ -96,7 +97,7 @@ namespace spms.view.Pages.ChildWin
             user.User_PhysicalDisabilities = disabilityName;
 
             QueryResult = userService.SelectByCondition(user);
-
+            Console.WriteLine(JsonTools.Obj2JSONStrNew<User>(user));
             this.Close();
         }
 
