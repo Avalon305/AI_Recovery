@@ -26,6 +26,17 @@ namespace spms.entity
         //分组名字
         public string Gr_Name { get; set; }
 
+        public Assist()
+        {
+
+        }
+        public Assist(string name)
+        {
+            this.Gr_Name = name;
+            this.Gmt_Create = DateTime.Now;
+            this.Gmt_Modified = DateTime.Now;
+        }
+
     }
     //疾病实体
     [Table("bdl_disease")]
@@ -40,6 +51,16 @@ namespace spms.entity
         public DateTime? Gmt_Modified { get; set; }
         //疾病名字
         public string Ds_Name { get; set; }
+
+        public Disease() {
+
+        }
+        public Disease(string name)
+        {
+            this.Ds_Name = name;
+            this.Gmt_Create = DateTime.Now;
+            this.Gmt_Modified = DateTime.Now;
+        }
     }
     //残障名称实体
     [Table("bdl_diagnosis")]
@@ -54,5 +75,16 @@ namespace spms.entity
         public DateTime? Gmt_Modified { get; set; }
         //残疾名字
         public string Dn_Name { get; set; }
+
+        public Diagnosis()
+        {
+
+        }
+        public Diagnosis(string name)
+        {
+            this.Dn_Name = name;
+            this.Gmt_Create = DateTime.Now;
+            this.Gmt_Modified = DateTime.Now;
+        }
     }
 }

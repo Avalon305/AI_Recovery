@@ -69,6 +69,9 @@ namespace spms.view.Pages.ChildWin
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             inputDiseaseName.ShowDialog();
+            //flush 界面
+            diseaseList = DiseaseDAO.GetDiseaseStr();
+            c5.ItemsSource = diseaseList;
         }
         //添加残障名称
         private void DisabilityNameAddition(object sender, RoutedEventArgs e)
@@ -81,6 +84,9 @@ namespace spms.view.Pages.ChildWin
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             inputDisabilityName.ShowDialog();
+            //flush 界面
+            diagnosisList = DiagnosisDAO.GetDiagnosisStr();
+            c6.ItemsSource = diagnosisList;
         }
         //输入非公开信息
         private void InputNonPublicInformationPassword(object sender, RoutedEventArgs e)

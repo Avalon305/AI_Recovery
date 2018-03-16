@@ -1,4 +1,6 @@
-﻿using System;
+﻿using spms.dao.app;
+using spms.entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +28,18 @@ namespace spms.view.Pages.ChildWin
         //取消按钮，关闭此窗体
         private void Cancel(object sender, RoutedEventArgs e)
         {
+            this.Close();
+
+        }
+       
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DiagnosisDAO diagnosisDAO = new DiagnosisDAO();
+            string name = this.Diagnosis.Text;
+            Diagnosis diagnosis = new Diagnosis(name);
+            diagnosisDAO.Insert(diagnosis);
+            Console.WriteLine("点击");
             this.Close();
         }
     }
