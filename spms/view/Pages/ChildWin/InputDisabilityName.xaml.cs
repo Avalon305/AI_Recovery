@@ -1,5 +1,6 @@
-﻿using spms.dao.app;
+﻿
 using spms.entity;
+using spms.service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,11 +36,14 @@ namespace spms.view.Pages.ChildWin
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DiagnosisDAO diagnosisDAO = new DiagnosisDAO();
+     
+            DataCodeService dataCodeService = new DataCodeService();
+
             string name = this.Diagnosis.Text;
-            Diagnosis diagnosis = new Diagnosis(name);
-            diagnosisDAO.Insert(diagnosis);
-            Console.WriteLine("点击");
+
+            DataCode dataCode = new DataCode();
+
+            dataCodeService.AddCustomDataCode(constant.DataCodeTypeEnum.Diagiosis, name);
             this.Close();
         }
     }

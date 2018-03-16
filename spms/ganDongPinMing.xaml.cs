@@ -1,4 +1,5 @@
-﻿using spms.dao;
+﻿using spms.constant;
+using spms.dao;
 using spms.entity;
 using spms.http.dto;
 using spms.http.entity;
@@ -102,6 +103,11 @@ namespace spms
             foreach (var i in queryResult) {
                 MessageBox.Show(JsonTools.Obj2JSONStrNew(i));
             }
+        }
+
+        private void Button_Click_10(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(DataCodeTypeEnum.Diagiosis.ToString());
         }
     }
 }

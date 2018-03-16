@@ -24,11 +24,23 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "select MAX(code_xh)  from bdl_datacode WHERE code_type_id = @TypeId ";
-
+                //先验证是不是第一次添加
+                string query = "select count(*)  from bdl_datacode WHERE code_type_id = @TypeId ";
+                int  count = conn.QueryFirst<int>(query, new { TypeId = typeId });
+                if ( count == 0) {
+                    return 0;
+                }
+                //不是第一次添加走正常流程
+                query = "select MAX(code_xh)  from bdl_datacode WHERE code_type_id = @TypeId ";
+                Console.WriteLine("typeId:" + typeId);
                return conn.QueryFirst<int>(query, new { TypeId = typeId });
             }
             
         }
+
+        
+
+       
+
     }
 }

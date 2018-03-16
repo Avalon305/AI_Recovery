@@ -1,4 +1,4 @@
-﻿using spms.dao.app;
+﻿
 using spms.entity;
 using spms.service;
 using System;
@@ -27,9 +27,8 @@ namespace spms.view.Pages.ChildWin
         /// <summary>
         /// 辅助类
         /// </summary>
-        AssistDAO assistDAO = new AssistDAO();
-        DiseaseDAO DiseaseDAO = new DiseaseDAO();
-        DiagnosisDAO DiagnosisDAO = new DiagnosisDAO();
+        DataCodeService dataCodeService = new DataCodeService();
+
         //小组的名称列表
         List<string> groupList;
         //疾病名称列表
@@ -47,9 +46,9 @@ namespace spms.view.Pages.ChildWin
         {
             InitializeComponent();
 
-            groupList = assistDAO.GetGroupStr();
-            diseaseList = DiseaseDAO.GetDiseaseStr();
-            diagnosisList = DiagnosisDAO.GetDiagnosisStr();
+            groupList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Group);
+            diseaseList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Disease);
+            diagnosisList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Diagiosis);
             //初始化下拉框值
             c2.ItemsSource = groupList;
             c5.ItemsSource = diseaseList;
@@ -70,7 +69,7 @@ namespace spms.view.Pages.ChildWin
             };
             inputDiseaseName.ShowDialog();
             //flush 界面
-            diseaseList = DiseaseDAO.GetDiseaseStr();
+            diseaseList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Disease);
             c5.ItemsSource = diseaseList;
         }
         //添加残障名称
@@ -85,7 +84,7 @@ namespace spms.view.Pages.ChildWin
             };
             inputDisabilityName.ShowDialog();
             //flush 界面
-            diagnosisList = DiagnosisDAO.GetDiagnosisStr();
+            diagnosisList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Diagiosis);
             c6.ItemsSource = diagnosisList;
         }
         //输入非公开信息

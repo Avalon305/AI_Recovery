@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace spms.entity
 {
     [Table("bdl_datacode")]
-        class DataCode
+        public class DataCode
     {
         //主键 自增
         [Key]
@@ -23,5 +23,10 @@ namespace spms.entity
         public string Code_D_Value { get; set; }
         //启用状态
         public byte Code_State { get; set; }
+       
+        //构造函数，默认启用
+        public DataCode() {
+            this.Code_State = 1;
+        }
     }
 }

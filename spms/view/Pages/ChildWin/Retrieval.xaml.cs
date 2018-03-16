@@ -1,4 +1,4 @@
-﻿using spms.dao.app;
+﻿
 using spms.entity;
 using spms.service;
 using spms.util;
@@ -29,9 +29,7 @@ namespace spms.view.Pages.ChildWin
         /// <summary>
         /// 辅助类
         /// </summary>
-        AssistDAO assistDAO = new AssistDAO();
-        DiseaseDAO DiseaseDAO = new DiseaseDAO();
-        DiagnosisDAO DiagnosisDAO = new DiagnosisDAO();
+        DataCodeService dataCodeService = new DataCodeService();
         //小组的名称列表
         List<string> groupList;
         //疾病名称列表
@@ -45,9 +43,9 @@ namespace spms.view.Pages.ChildWin
         {
             InitializeComponent();
 
-            groupList = assistDAO.GetGroupStr();
-            diseaseList = DiseaseDAO.GetDiseaseStr();
-            diagnosisList = DiagnosisDAO.GetDiagnosisStr();
+            groupList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Group);
+            diseaseList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Disease);
+            diagnosisList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Diagiosis);
             //初始化下拉列表内容
             comboBox1.ItemsSource = groupList;
             c4.ItemsSource = diseaseList;
