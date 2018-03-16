@@ -20,5 +20,15 @@ namespace spms.dao
                 return (List<DataCode>)conn.Query<DataCode>(query, new { Code_type_id = typeId });
             }
         }
+        public int GetMaxXh(string typeId)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select MAX(code_xh)  from bdl_datacode WHERE code_type_id = @TypeId ";
+
+               return conn.QueryFirst<int>(query, new { TypeId = typeId });
+            }
+            
+        }
     }
 }

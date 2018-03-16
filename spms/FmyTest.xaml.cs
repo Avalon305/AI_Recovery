@@ -1,4 +1,6 @@
-﻿using spms.dao;
+﻿using spms.constant;
+using spms.dao;
+using spms.entity;
 using spms.util;
 using System;
 using System.Collections.Generic;
@@ -28,10 +30,26 @@ namespace spms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var d = DataCodeCache.GetInstance().GetCodeDValue("PR_Evaluate", "1");
-            var s = DataCodeCache.GetInstance().GetCodeSValue("PR_Evaluate", "有些许问题");
-            MessageBox.Show(d);
-            MessageBox.Show(s);
+            var f = treeView.SelectedItem as DataCode;
+            MessageBox.Show(f.Code_Type_Id);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var list = DataCodeCache.GetInstance().GetDateCodeList(DataCodeTypeEnum.DList);
+            var topNode = new TreeViewItem() { Header = "数据编码" };
+           
+            foreach (var d in list)
+            {
+                topNode.Items.Add(d.Code_D_Value);
+            }
+            //treeView.Items.Add(topNode);
+            treeView.ItemsSource = list;
+        }
+
+        private void treeView_Loaded(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

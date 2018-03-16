@@ -1,4 +1,5 @@
-﻿using spms.dao;
+﻿using spms.constant;
+using spms.dao;
 using spms.entity;
 using System;
 using System.Collections.Generic;
@@ -34,19 +35,19 @@ namespace spms.util
         /// </summary>
         /// <param name="typeId"></param>
         /// <returns></returns>
-        public List<DataCode> GetDateCodeList(string typeId)
+        public List<DataCode> GetDateCodeList(DataCodeTypeEnum typeId)
         {
-           return codeDAO.ListByTypeId(typeId);
+           return codeDAO.ListByTypeId(typeId.ToString());
         }
         /// <summary>
         /// 返回"SValue","DValue"
         /// </summary>
         /// <param name="typeId"></param>
         /// <returns></returns>
-        private Dictionary<string, string> LoadCodeMap(string typeId)
+        private Dictionary<string, string> LoadCodeMap(DataCodeTypeEnum typeId)
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
-            List<DataCode> dataCodes = codeDAO.ListByTypeId(typeId);
+            List<DataCode> dataCodes = codeDAO.ListByTypeId(typeId.ToString());
             foreach (var d in dataCodes)
             {
                 result.Add(d.Code_S_Value, d.Code_D_Value);
@@ -58,10 +59,10 @@ namespace spms.util
         /// </summary>
         /// <param name="typeId"></param>
         /// <returns></returns>
-        private Dictionary<string, string> LoadDValueCodeMap(string typeId)
+        private Dictionary<string, string> LoadDValueCodeMap(DataCodeTypeEnum typeId)
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
-            List<DataCode> dataCodes = codeDAO.ListByTypeId(typeId);
+            List<DataCode> dataCodes = codeDAO.ListByTypeId(typeId.ToString());
             foreach (var d in dataCodes)
             {
                 result.Add(d.Code_D_Value, d.Code_S_Value);
@@ -74,17 +75,17 @@ namespace spms.util
         /// <param name="typeId">大类名称</param>
         /// <param name="key">键</param>
         /// <returns>空字符串或者值</returns>
-        public string GetCodeSValue(string typeId, string key)
+        public string GetCodeSValue(DataCodeTypeEnum typeId, string key)
         {
             string result = null;
             Dictionary<string, string> codeMap = null;
-            codeMapDValue.TryGetValue(typeId, out codeMap);
+            codeMapDValue.TryGetValue(typeId.ToString(), out codeMap);
             if (codeMap == null)
             {
                 codeMap = LoadDValueCodeMap(typeId);
                 if (codeMap != null)
                 {
-                    codeMapDValue.Add(typeId, codeMap);
+                    codeMapDValue.Add(typeId.ToString(), codeMap);
                     codeMap.TryGetValue(key,out result);
                 }
             }
@@ -104,18 +105,18 @@ namespace spms.util
         /// <param name="typeId">大类名称</param>
         /// <param name="key">键</param>
         /// <returns>空字符串或者值</returns>
-        public string GetCodeDValue(string typeId, string key)
+        public string GetCodeDValue(DataCodeTypeEnum typeId, string key)
         {
             string result = null;
 
             Dictionary<string, string> codeMap = null;
-            codeMapSValue.TryGetValue(typeId,out codeMap);
+            codeMapSValue.TryGetValue(typeId.ToString(), out codeMap);
             if (codeMap == null)
             {
                 codeMap = LoadCodeMap(typeId);
                 if (codeMap != null)
                 {
-                    codeMapSValue.Add(typeId, codeMap);
+                    codeMapSValue.Add(typeId.ToString(), codeMap);
                     codeMap.TryGetValue(key, out result);
                 }
             }

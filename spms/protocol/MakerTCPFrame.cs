@@ -168,5 +168,13 @@ namespace spms.protocol
 
         }
 
+        /// <summary>
+        /// 内部类，处方信息响应报文组帧
+        /// </summary>
+        class MakePrescription
+        {
+
+        }
+
     }
 }

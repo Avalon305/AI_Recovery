@@ -162,6 +162,21 @@ namespace spms.protocol
             byte[] data = frameBean.DataBody;
             string userId = Encoding.GetEncoding("GBK").GetString(data, 0, 18);
             DeviceType deviceType = (DeviceType)data[32];
+            switch (deviceType)
+            {
+                case DeviceType.X01://胸部推举机
+                    break;
+                case DeviceType.X02:
+                    break;
+                case DeviceType.X03:
+                    break;
+                case DeviceType.X04:
+                    break;
+                case DeviceType.X05:
+                    break;
+                case DeviceType.X06:
+                    break;
+            }
 
         }
         /// <summary>

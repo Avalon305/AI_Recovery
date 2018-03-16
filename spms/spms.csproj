@@ -144,6 +144,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="bean\TcpFrameBean.cs" />
+    <Compile Include="constant\CodeConstant.cs" />
     <Compile Include="constant\ProtocolConstant.cs" />
     <Compile Include="dao\app\AssistDAO.cs" />
     <Compile Include="dao\AuthDAO.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="entity\SymptomInfo.cs" />
     <Compile Include="entity\TrainInfo.cs" />
     <Compile Include="entity\User.cs" />
+    <Compile Include="service\DataCodeService.cs" />
     <Compile Include="service\UsbDogService.cs" />
     <Compile Include="service\AuthService.cs" />
     <Compile Include="service\SetterService.cs" />
