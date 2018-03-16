@@ -145,6 +145,9 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             retrieval.ShowDialog();
+            //刷新界面
+            users = retrieval.QueryResult;
+            UsersInfo.ItemsSource = users;
         }
         //按钮：更新
         private void UserUpdata(object sender, RoutedEventArgs e)

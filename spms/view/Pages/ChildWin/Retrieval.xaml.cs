@@ -1,4 +1,6 @@
 ﻿using spms.dao.app;
+using spms.entity;
+using spms.service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +23,8 @@ namespace spms.view.Pages.ChildWin
 
     public partial class Retrieval : Window
     {
-
+        public List<User> QueryResult { get; set; }
+        UserService userService = new UserService();
         /// <summary>
         /// 辅助类
         /// </summary>
@@ -46,7 +49,7 @@ namespace spms.view.Pages.ChildWin
             diagnosisList = DiagnosisDAO.GetDiagnosisStr();
             //初始化下拉列表内容
             comboBox1.ItemsSource = groupList;
-            c2.ItemsSource = diseaseList;
+            c4.ItemsSource = diseaseList;
             c3.ItemsSource = diagnosisList;
         }
 
@@ -57,36 +60,44 @@ namespace spms.view.Pages.ChildWin
             //获取用户姓名的内容
             string userName = t2.Text;
             //获取用户姓名拼音的内容
-            string username = t3.Text;
+            string usernamePY = t3.Text;
 
             //获取用户性别的内容
             string usersex = c1.Text;
+            //手机号
+            string phone = this.phone.Text;
+            //身份证号
+            string IDCard = this.IDCard.Text;
+
+
             //获取小组名称的内容
             string groupName = comboBox1.Text;
             //获取疾病名称的内容
-            string sicknessName = c2.Text;
+            string sicknessName = c4.Text;
             //获取残障名称的内容
             string disabilityName = c3.Text;
 
-            if (userID.Equals(""))
-            {
-                MessageBoxResult dr = MessageBox.Show("用户ID不能为空");
-            }
-            else
-            {
-                try
-                {
-                    //将用户ID转成整型，如果转换失败，说明有非数字
-                    int i = Convert.ToInt32(t1.Text);
+            User user = new User();
 
-                    //在此处写添加的主要逻辑代码
-                }
-                catch
-                {
-                    MessageBoxResult dr = MessageBox.Show("用户ID必须为数字");
-                }
+            //将用户ID转成整型，如果转换失败，说明有非数字
+            //int i = Convert.ToInt32(t1.Text);
+            user.Pk_User_Id = (!string.IsNullOrEmpty(userID)) ? Convert.ToInt32(userID) : 0;
 
-            }
+
+            user.User_Name = userName;
+            user.User_Namepinyin = usernamePY;
+
+            user.User_Sex =  (byte?)(usersex.Equals("男") ? 1 : 0);
+            user.User_Phone = phone;
+            user.User_IDCard = IDCard;
+
+            user.User_GroupName = groupName;
+            user.User_IllnessName = sicknessName;
+            user.User_PhysicalDisabilities = disabilityName;
+
+            QueryResult = userService.SelectByCondition(user);
+
+            this.Close();
         }
 
 
@@ -111,7 +122,7 @@ namespace spms.view.Pages.ChildWin
             comboBox1.Text = "";
             c1.Text = "";
             c3.Text = "";
-            c2.Text = "";
+            c4.Text = "";
         }
 
         //小组名称过滤事件
