@@ -155,6 +155,7 @@
     <Compile Include="dao\UserDAO.cs" />
     <Compile Include="dao\SymptomInfoDAO.cs" />
     <Compile Include="dao\TrainInfoDAO.cs" />
+    <Compile Include="entity\CustomData.cs" />
     <Compile Include="entity\DataCode.cs" />
     <Compile Include="entity\UploadManagement.cs" />
     <Compile Include="FmyTest.xaml.cs">
