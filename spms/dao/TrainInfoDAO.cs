@@ -47,4 +47,8 @@ namespace spms.dao
     public class PrescriptionResultDAO : BaseDAO<PrescriptionResult>
     {
     }
+    public class DeviceSetDAO : BaseDAO<DeviceSet>
+    {
+    }
+
 }

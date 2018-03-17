@@ -24,7 +24,7 @@ namespace spms.entity
         /// <summary>
         /// 
         /// </summary>
-        public byte？ Is_Deleted { get; set; }
+        public byte? Is_Deleted { get; set; }
 
-}
+    }
 }

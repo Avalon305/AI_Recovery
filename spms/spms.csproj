@@ -206,6 +206,7 @@
     <Compile Include="util\DbUtil.cs" />
     <Compile Include="util\ExcelUtil.cs" />
     <Compile Include="util\GeneralResponse.cs" />
+    <Compile Include="util\IntToBoolConverter .cs" />
     <Compile Include="util\JsonTools.cs" />
     <Compile Include="util\ProtocolUtil.cs" />
     <Compile Include="util\SerialPortUtil.cs" />
