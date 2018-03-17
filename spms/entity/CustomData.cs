@@ -22,9 +22,33 @@ namespace spms.entity
         /// </summary>
         public byte? CD_Type { get; set; }
         /// <summary>
-        /// 
+        /// 是否删除  默认为o  不删除
         /// </summary>
-        public byte？ Is_Deleted { get; set; }
+        public byte? Is_Deleted { get; set; }
 
-}
+        /// <summary>
+        /// 构造函数默认是使用中的状态
+        /// </summary>
+        public CustomData() {
+            this.Is_Deleted = 0;
+        }
+        /// <summary>
+        /// 自定义类型的枚举类
+        /// </summary>
+        public enum CustomDataEnum {
+            /// <summary>
+            /// 分组编码：与数据库信息严格对应 
+            /// </summary>
+            Group ,
+            /// <summary>
+            /// 疾病编码：与数据库信息严格对应  
+            /// </summary>
+            Disease ,
+            /// <summary>
+            /// 残障编码：与数据库信息严格对应 
+            /// </summary>
+            Diagiosis 
+        }
+
+    }
 }

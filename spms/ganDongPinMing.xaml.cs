@@ -1,5 +1,6 @@
 ﻿using spms.constant;
 using spms.dao;
+using spms.dao.app;
 using spms.entity;
 using spms.http.dto;
 using spms.http.entity;
@@ -19,6 +20,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static spms.entity.CustomData;
 
 namespace spms
 {
@@ -107,7 +109,30 @@ namespace spms
 
         private void Button_Click_10(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(DataCodeTypeEnum.Diagiosis.ToString());
+            //MessageBox.Show(DataCodeTypeEnum.Diagiosis.ToString());
+        }
+        /// <summary>
+        /// 测试获得自定义类型的list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_11(object sender, RoutedEventArgs e)
+        {
+             
+
+            CustomDataDAO customDataDAO = new CustomDataDAO();
+            Console.WriteLine(CustomDataEnum.Disease.ToString());
+            MessageBox.Show(JsonTools.Obj2JSONStrNew(customDataDAO.GetListByTypeID(CustomDataEnum.Diagiosis)));
+        }
+        /// <summary>
+        /// 测试自定义模糊查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_12(object sender, RoutedEventArgs e)
+        {
+            CustomDataDAO customDataDAO = new CustomDataDAO();
+            MessageBox.Show(JsonTools.Obj2JSONStrNew(customDataDAO.GetExistByValue(CustomDataEnum.Group,"C")));
         }
     }
 }

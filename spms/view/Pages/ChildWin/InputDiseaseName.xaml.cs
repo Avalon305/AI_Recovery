@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static spms.entity.CustomData;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -22,6 +23,11 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class InputDiseaseName : Window
     {
+        /// <summary>
+        /// 自定义三项service
+        /// </summary>
+        CustomDataService customDataService = new CustomDataService();
+
         public InputDiseaseName()
         {
             InitializeComponent();
@@ -34,14 +40,8 @@ namespace spms.view.Pages.ChildWin
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DataCodeService dataCodeService = new DataCodeService();
-
-             
-            string name = this.DiseaseName.Text;
-           
-            DataCode dataCode = new DataCode();
-
-            dataCodeService.AddCustomDataCode(constant.DataCodeTypeEnum.Disease, name);
+            string value = this.DiseaseName.Text;
+            customDataService.InsertCustomData(CustomDataEnum.Disease, value);
             this.Close();
         }
     }

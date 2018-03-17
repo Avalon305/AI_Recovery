@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static spms.entity.CustomData;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -24,12 +25,15 @@ namespace spms.view.Pages.ChildWin
 
     public partial class Retrieval : Window
     {
-        public List<User> QueryResult { get; set; }
-        UserService userService = new UserService();
         /// <summary>
-        /// 辅助类
+        /// 查询的最终返回结果
         /// </summary>
-        DataCodeService dataCodeService = new DataCodeService();
+        public List<User> QueryResult { get; set; }
+        /// <summary>
+        /// 初始化用户service和自定义三项service
+        /// </summary>
+        UserService userService = new UserService();
+        CustomDataService customDataService = new CustomDataService();
         //小组的名称列表
         List<string> groupList;
         //疾病名称列表
@@ -43,9 +47,9 @@ namespace spms.view.Pages.ChildWin
         {
             InitializeComponent();
 
-            groupList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Group);
-            diseaseList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Disease);
-            diagnosisList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Diagiosis);
+            groupList = customDataService.GetAllByType(CustomDataEnum.Group);
+            diseaseList = customDataService.GetAllByType(CustomDataEnum.Disease);
+            diagnosisList = customDataService.GetAllByType(CustomDataEnum.Diagiosis);
             //初始化下拉列表内容
             comboBox1.ItemsSource = groupList;
             c4.ItemsSource = diseaseList;

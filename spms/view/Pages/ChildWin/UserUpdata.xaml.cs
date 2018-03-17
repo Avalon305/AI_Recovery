@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static spms.entity.CustomData;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -24,10 +25,7 @@ namespace spms.view.Pages.ChildWin
     {
         ///传递过来的User
         public User SelectUser { get; set; }
-        /// <summary>
-        /// 辅助类
-        /// </summary>
-        DataCodeService dataCodeService = new DataCodeService();
+         
 
         //小组的名称列表
         List<string> groupList;
@@ -40,15 +38,15 @@ namespace spms.view.Pages.ChildWin
        
         //service层初始化
         UserService userService = new UserService();
+        CustomDataService customDataService = new CustomDataService();
 
-        
         public UserUpdata()
         {
             InitializeComponent();
 
-            groupList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Group);
-            diseaseList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Disease);
-            diagnosisList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Diagiosis);
+            groupList = customDataService.GetAllByType(CustomDataEnum.Group);
+            diseaseList = customDataService.GetAllByType(CustomDataEnum.Disease);
+            diagnosisList = customDataService.GetAllByType(CustomDataEnum.Diagiosis);
             //初始化下拉框值
             c2.ItemsSource = groupList;
             c5.ItemsSource = diseaseList;
@@ -69,7 +67,7 @@ namespace spms.view.Pages.ChildWin
             };
             inputDiseaseName.ShowDialog();
             //flush 界面
-            diseaseList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Disease);
+            diseaseList = customDataService.GetAllByType(CustomDataEnum.Disease);
             c5.ItemsSource = diseaseList;
         }
         //添加残障名称
@@ -84,7 +82,7 @@ namespace spms.view.Pages.ChildWin
             };
             inputDisabilityName.ShowDialog();
             //flush 界面
-            diagnosisList = dataCodeService.GetDataStrByTypeId(constant.DataCodeTypeEnum.Diagiosis);
+            diagnosisList = customDataService.GetAllByType(CustomDataEnum.Diagiosis);
             c6.ItemsSource = diagnosisList;
         }
         //输入非公开信息
