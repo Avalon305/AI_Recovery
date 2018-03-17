@@ -11,9 +11,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.constant;
 using spms.dao;
 using spms.entity;
 using spms.service;
+using spms.util;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -22,8 +24,6 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class InputTrainingResults : Window
     {
-        List<string> list = new List<string> { "自理", "照看", "完全失能" };
-        List<string> list2 = new List<string> { "时机1", "时机2", "时机3" };
         private User user;
         public InputTrainingResults()
         {
@@ -58,8 +58,8 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_relaxtime = Convert.ToInt32(HLPRelaxTime.Text);
                 devicePrescription.dp_weight = Convert.ToDouble(HLPWeight.Text);
                 devicePrescription.dp_status = 1;
-                devicePrescription.dp_moveway = HLPMoveway.SelectedIndex;//TODO 对应表
-                //TODO 设备属性没有获取
+                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, HLPMoveway.Text)); //移乘方式
+                //TODO 设备属性、类型没有获取
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -71,11 +71,10 @@ namespace spms.view.Pages.ChildWin
                 prescriptionResult.PR_Cal = Convert.ToDouble(HLPCal.Text);
                 prescriptionResult.PR_Index = Convert.ToDouble(HLPIndex.Text);
                 prescriptionResult.PR_FinishGroup = Convert.ToInt32(HLPFinishgroup.Text);
-                prescriptionResult.PR_Evaluate = (byte?) HLPEvaluate.SelectedIndex;//TODO 对应表
+                prescriptionResult.PR_Evaluate = Byte.Parse(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.Evaluate, HLPEvaluate.Text));
                 prescriptionResult.PR_AttentionPoint = HLPAttentionpoint.Text;
                 prescriptionResult.PR_UserThoughts = HLPUserthoughts.Text;
                 prescriptionResult.PR_Memo = HLPMemo.Text;
-                //TODO 获取设备类型
                 
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -92,8 +91,8 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_relaxtime = Convert.ToInt32(ROWRelaxTime.Text);
                 devicePrescription.dp_weight = Convert.ToDouble(ROWWeight.Text);
                 devicePrescription.dp_status = 1;
-                devicePrescription.dp_moveway = ROWMoveway.SelectedIndex;//TODO 对应表
-                //TODO 设备属性没有获取
+                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, ROWMoveway.Text)); //移乘方式
+                //TODO 设备属性、类型没有获取
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -105,11 +104,10 @@ namespace spms.view.Pages.ChildWin
                 prescriptionResult.PR_Cal = Convert.ToDouble(ROWCal.Text);
                 prescriptionResult.PR_Index = Convert.ToDouble(ROWIndex.Text);
                 prescriptionResult.PR_FinishGroup = Convert.ToInt32(ROWFinishgroup.Text);
-                prescriptionResult.PR_Evaluate = (byte?)ROWEvaluate.SelectedIndex;//TODO 对应表
+                prescriptionResult.PR_Evaluate = Byte.Parse(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.Evaluate, HLPEvaluate.Text));
                 prescriptionResult.PR_AttentionPoint = ROWAttentionpoint.Text;
                 prescriptionResult.PR_UserThoughts = ROWUserthoughts.Text;
                 prescriptionResult.PR_Memo = ROWMemo.Text;
-                //TODO 获取设备类型
 
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -126,8 +124,8 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_relaxtime = Convert.ToInt32(TFRelaxTime.Text);
                 devicePrescription.dp_weight = Convert.ToDouble(TFWeight.Text);
                 devicePrescription.dp_status = 1;
-                devicePrescription.dp_moveway = TFMoveway.SelectedIndex;//TODO 对应表
-                //TODO 设备属性没有获取
+                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, TFMoveway.Text)); //移乘方式
+                //TODO 设备属性、类型没有获取
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -139,11 +137,10 @@ namespace spms.view.Pages.ChildWin
                 prescriptionResult.PR_Cal = Convert.ToDouble(TFCal.Text);
                 prescriptionResult.PR_Index = Convert.ToDouble(TFIndex.Text);
                 prescriptionResult.PR_FinishGroup = Convert.ToInt32(TFFinishgroup.Text);
-                prescriptionResult.PR_Evaluate = (byte?)TFEvaluate.SelectedIndex;//TODO 对应表
+                prescriptionResult.PR_Evaluate = Byte.Parse(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.Evaluate, HLPEvaluate.Text));
                 prescriptionResult.PR_AttentionPoint = TFAttentionpoint.Text;
                 prescriptionResult.PR_UserThoughts = TFUserthoughts.Text;
                 prescriptionResult.PR_Memo = TFMemo.Text;
-                //TODO 获取设备类型
 
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -160,8 +157,8 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_relaxtime = Convert.ToInt32(LERelaxTime.Text);
                 devicePrescription.dp_weight = Convert.ToDouble(LEWeight.Text);
                 devicePrescription.dp_status = 1;
-                devicePrescription.dp_moveway = LEMoveway.SelectedIndex;//TODO 对应表
-                //TODO 设备属性没有获取
+                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, LEMoveway.Text)); //移乘方式
+                //TODO 设备属性、类型没有获取
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -173,11 +170,10 @@ namespace spms.view.Pages.ChildWin
                 prescriptionResult.PR_Cal = Convert.ToDouble(LECal.Text);
                 prescriptionResult.PR_Index = Convert.ToDouble(LEIndex.Text);
                 prescriptionResult.PR_FinishGroup = Convert.ToInt32(LEFinishgroup.Text);
-                prescriptionResult.PR_Evaluate = (byte?)LEEvaluate.SelectedIndex;//TODO 对应表
+                prescriptionResult.PR_Evaluate = Byte.Parse(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.Evaluate, HLPEvaluate.Text));
                 prescriptionResult.PR_AttentionPoint = LEAttentionpoint.Text;
                 prescriptionResult.PR_UserThoughts = LEUserthoughts.Text;
                 prescriptionResult.PR_Memo = LEMemo.Text;
-                //TODO 获取设备类型
 
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -194,8 +190,8 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_relaxtime = Convert.ToInt32(HARelaxTime.Text);
                 devicePrescription.dp_weight = Convert.ToDouble(HAWeight.Text);
                 devicePrescription.dp_status = 1;
-                devicePrescription.dp_moveway = HAMoveway.SelectedIndex;//TODO 对应表
-                //TODO 设备属性没有获取
+                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, HAMoveway.Text)); //移乘方式
+                //TODO 设备属性、类型没有获取
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -207,11 +203,10 @@ namespace spms.view.Pages.ChildWin
                 prescriptionResult.PR_Cal = Convert.ToDouble(HACal.Text);
                 prescriptionResult.PR_Index = Convert.ToDouble(HAIndex.Text);
                 prescriptionResult.PR_FinishGroup = Convert.ToInt32(HAFinishgroup.Text);
-                prescriptionResult.PR_Evaluate = (byte?)HAEvaluate.SelectedIndex;//TODO 对应表
+                prescriptionResult.PR_Evaluate = Byte.Parse(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.Evaluate, HLPEvaluate.Text));
                 prescriptionResult.PR_AttentionPoint = HAAttentionpoint.Text;
                 prescriptionResult.PR_UserThoughts = HAUserthoughts.Text;
                 prescriptionResult.PR_Memo = HAMemo.Text;
-                //TODO 获取设备类型
 
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -228,8 +223,8 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_relaxtime = Convert.ToInt32(CPRelaxTime.Text);
                 devicePrescription.dp_weight = Convert.ToDouble(CPWeight.Text);
                 devicePrescription.dp_status = 1;
-                devicePrescription.dp_moveway = CPMoveway.SelectedIndex;//TODO 对应表
-                //TODO 设备属性没有获取
+                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, CPMoveway.Text)); //移乘方式
+                //TODO 设备属性、类型没有获取
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -241,11 +236,10 @@ namespace spms.view.Pages.ChildWin
                 prescriptionResult.PR_Cal = Convert.ToDouble(CPCal.Text);
                 prescriptionResult.PR_Index = Convert.ToDouble(CPIndex.Text);
                 prescriptionResult.PR_FinishGroup = Convert.ToInt32(CPFinishgroup.Text);
-                prescriptionResult.PR_Evaluate = (byte?)CPEvaluate.SelectedIndex;//TODO 对应表
+                prescriptionResult.PR_Evaluate = Byte.Parse(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.Evaluate, HLPEvaluate.Text));
                 prescriptionResult.PR_AttentionPoint = CPAttentionpoint.Text;
                 prescriptionResult.PR_UserThoughts = CPUserthoughts.Text;
                 prescriptionResult.PR_Memo = CPMemo.Text;
-                //TODO 获取设备类型
 
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -263,23 +257,42 @@ namespace spms.view.Pages.ChildWin
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
 
-            HLPMoveway.ItemsSource = list;
-            HLPEvaluate.ItemsSource = list2;
+            List<DataCode> dataCodesEvaluate = DataCodeCache.GetInstance().GetDateCodeList(DataCodeTypeEnum.Evaluate);
+            List<string> dataItemsEvaluate = new List<string>();
+            if (dataCodesEvaluate != null)
+            {
+                foreach (var dataCode in dataCodesEvaluate)
+                {
+                    dataItemsEvaluate.Add(dataCode.Code_D_Value);
+                }
+            }
+            List<DataCode> dataCodesMoveWay = DataCodeCache.GetInstance().GetDateCodeList(DataCodeTypeEnum.MoveWay);
+            List<string> dataItemsMoveWay = new List<string>();
+            if (dataCodesMoveWay != null)
+            {
+                foreach (var dataCode in dataCodesMoveWay)
+                {
+                    dataItemsMoveWay.Add(dataCode.Code_D_Value);
+                }
+            }
 
-            ROWMoveway.ItemsSource = list;
-            ROWEvaluate.ItemsSource = list2;
+            HLPMoveway.ItemsSource = dataItemsMoveWay;
+            HLPEvaluate.ItemsSource = dataItemsEvaluate;
 
-            TFMoveway.ItemsSource = list;
-            TFEvaluate.ItemsSource = list2;
+            ROWMoveway.ItemsSource = dataItemsMoveWay;
+            ROWEvaluate.ItemsSource = dataItemsEvaluate;
 
-            LEMoveway.ItemsSource = list;
-            LEEvaluate.ItemsSource = list2;
+            TFMoveway.ItemsSource = dataItemsMoveWay;
+            TFEvaluate.ItemsSource = dataItemsEvaluate;
 
-            HAMoveway.ItemsSource = list;
-            HAEvaluate.ItemsSource = list2;
+            LEMoveway.ItemsSource = dataItemsMoveWay;
+            LEEvaluate.ItemsSource = dataItemsEvaluate;
 
-            CPMoveway.ItemsSource = list;
-            CPEvaluate.ItemsSource = list2;
+            HAMoveway.ItemsSource = dataItemsMoveWay;
+            HAEvaluate.ItemsSource = dataItemsEvaluate;
+
+            CPMoveway.ItemsSource = dataItemsMoveWay;
+            CPEvaluate.ItemsSource = dataItemsEvaluate;
         }
     }
 }

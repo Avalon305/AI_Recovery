@@ -11,8 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.constant;
 using spms.entity;
 using spms.service;
+using spms.util;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -21,74 +23,10 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class InputTraining : Window
     {
-        List<string> list = new List<string> {"自理", "照看", "完全失能"};
         private User user; 
         public InputTraining()
         {
-
             InitializeComponent();
-            com_01.ItemsSource = Add(0, 700, 2);
-            com_02.ItemsSource = Add(0, 30, 2);
-            com_03.ItemsSource = Add(1, 5, 2);
-            com_04.ItemsSource = Add(1, 9, 2);
-            combobox_01.ItemsSource = Add(1, 3, 2);
-            combobox_02.ItemsSource = Add(1, 20, 2);
-            combobox_03.ItemsSource = Add(1, 60, 2);
-            combobox_04.ItemsSource = Add(1.0, 84.0, 2);
-            combobox_05.ItemsSource = list;
-
-            com_11.ItemsSource = Add(0, 400, 2);
-            com_12.ItemsSource = Add(0, 30, 1);
-            com_13.ItemsSource = Add(1, 4, 2);
-            com_14.ItemsSource = Add(1, 4, 2);
-            combobox_11.ItemsSource = Add(1, 3, 2);
-            combobox_12.ItemsSource = Add(1, 20, 2);
-            combobox_13.ItemsSource = Add(1, 60, 2);
-            combobox_14.ItemsSource = Add(1.0, 32.0, 1);
-            combobox_15.ItemsSource = list;
-
-            com_21.ItemsSource = Add(0, 700, 2);
-            com_22.ItemsSource = Add(0, 30, 1);
-            com_23.ItemsSource = Add(1, 6, 2);
-            com_24.ItemsSource = Add(1, 9, 2);
-            combobox_21.ItemsSource = Add(1, 3, 2);
-            combobox_22.ItemsSource = Add(1, 20, 2);
-            combobox_23.ItemsSource = Add(1, 60, 2);
-            combobox_24.ItemsSource = Add(0.5, 32.0, 1);
-            combobox_25.ItemsSource = list;
-
-            com_31.ItemsSource = Add(0, 260, 1);
-            com_32.ItemsSource = Add(0, 30, 1);
-            com_33.ItemsSource = Add(1, 5, 2);
-            com_34.ItemsSource = Add(1, 5, 2);
-            com_35.ItemsSource = Add(1, 9, 2);
-            combobox_31.ItemsSource = Add(1, 3, 2);
-            combobox_32.ItemsSource = Add(1, 20, 2);
-            combobox_33.ItemsSource = Add(1, 60, 2);
-            combobox_34.ItemsSource = Add(1.0, 32.0, 1);
-            combobox_35.ItemsSource = list;
-
-            com_41.ItemsSource = Add(0, 500, 2);
-            com_42.ItemsSource = Add(0, 30, 1);
-            com_43.ItemsSource = Add(1, 9, 2);
-            combobox_41.ItemsSource = Add(1, 3, 2);
-            combobox_42.ItemsSource = Add(1, 20, 2);
-            combobox_43.ItemsSource = Add(1, 60, 2);
-            combobox_44.ItemsSource = Add(1.0, 32.0, 1);
-            combobox_45.ItemsSource = list;
-
-            com_51.ItemsSource = Add(0, 180, 2);
-            com_52.ItemsSource = Add(0, 30, 1);
-            com_53.ItemsSource = Add(1, 8, 2);
-            combobox_51.ItemsSource = Add(1, 3, 2);
-            combobox_52.ItemsSource = Add(1, 20, 2);
-            combobox_53.ItemsSource = Add(1, 60, 2);
-            combobox_54.ItemsSource = Add(1.0, 32.0, 1);
-            combobox_55.ItemsSource = list;
-
-            l1.Content = "安典龙"; //设置用户姓名
-            l2.Content = "13210104659"; //用户ID
-
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
@@ -313,12 +251,7 @@ namespace spms.view.Pages.ChildWin
                 attr2 = com_02.Text; //2
                 attr3 = com_03.Text; //3
                 attr4 = com_04.Text; //4
-                groupCount = Convert.ToInt32(combobox_01.Text); //组数
-                groupNum = Convert.ToInt32(combobox_02.Text); //个数
-                relaxTime = Convert.ToInt32(combobox_03.Text); //间隔时间
-                weight = Convert.ToDouble(combobox_04.Text); //砝码
-                moveWay = combobox_05.SelectedIndex; //移乘方式
-                memo = t1.Text; //注意点
+
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
                 devicePrescription.DP_Attrs = devName + "*" +
@@ -326,16 +259,16 @@ namespace spms.view.Pages.ChildWin
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*";
-                devicePrescription.DP_Memo = memo;
+                devicePrescription.DP_Memo = t1.Text; //注意点
                 //TODO 设置设备类型外键
 
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
-                devicePrescription.dp_groupcount = groupCount;
-                devicePrescription.dp_groupnum = groupNum;
-                devicePrescription.dp_moveway = moveWay;
-                devicePrescription.dp_relaxtime = relaxTime;
-                devicePrescription.dp_weight = weight;
+                devicePrescription.dp_groupcount = Convert.ToInt32(combobox_01.Text); //组数;
+                devicePrescription.dp_groupnum = Convert.ToInt32(combobox_02.Text); //个数;
+                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_05.Text)); //移乘方式
+                devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_03.Text); //间隔时间;
+                devicePrescription.dp_weight = Convert.ToDouble(combobox_04.Text); //砝码;
                 devicePrescription.dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -348,12 +281,7 @@ namespace spms.view.Pages.ChildWin
                 attr2 = com_12.Text; //2
                 attr3 = com_13.Text; //3
                 attr4 = com_14.Text; //4
-                groupCount = Convert.ToInt32(combobox_11.Text); //组数
-                groupNum = Convert.ToInt32(combobox_12.Text); //个数
-                relaxTime = Convert.ToInt32(combobox_13.Text); //间隔时间
-                weight = Convert.ToDouble(combobox_14.Text); //砝码
-                moveWay = combobox_15.SelectedIndex; //移乘方式
-                memo = t2.Text; //注意点
+
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
                 devicePrescription.DP_Attrs = devName + "*" +
@@ -361,16 +289,16 @@ namespace spms.view.Pages.ChildWin
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*";
-                devicePrescription.DP_Memo = memo;
+                devicePrescription.DP_Memo = t2.Text; //注意点
                 //TODO 设置设备类型外键
 
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
-                devicePrescription.dp_groupcount = groupCount;
-                devicePrescription.dp_groupnum = groupNum;
-                devicePrescription.dp_moveway = moveWay;
-                devicePrescription.dp_relaxtime = relaxTime;
-                devicePrescription.dp_weight = weight;
+                devicePrescription.dp_groupcount = Convert.ToInt32(combobox_11.Text); //组数
+                devicePrescription.dp_groupnum = Convert.ToInt32(combobox_12.Text); //个数
+                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_15.Text)); //移乘方式
+                devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_13.Text); //间隔时间
+                devicePrescription.dp_weight = Convert.ToDouble(combobox_14.Text); //砝码
                 devicePrescription.dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -383,12 +311,6 @@ namespace spms.view.Pages.ChildWin
                 attr2 = com_22.Text; //2
                 attr3 = com_23.Text; //3
                 attr4 = com_24.Text; //4
-                groupCount = Convert.ToInt32(combobox_21.Text); //组数
-                groupNum = Convert.ToInt32(combobox_22.Text); //个数
-                relaxTime = Convert.ToInt32(combobox_23.Text); //间隔时间
-                weight = Convert.ToDouble(combobox_24.Text); //砝码
-                moveWay = combobox_25.SelectedIndex; //移乘方式
-                memo = t3.Text; //注意点
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
                 devicePrescription.DP_Attrs = devName + "*" +
@@ -396,16 +318,16 @@ namespace spms.view.Pages.ChildWin
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*";
-                devicePrescription.DP_Memo = memo;
+                devicePrescription.DP_Memo = t3.Text; //注意点
                 //TODO 设置设备类型外键
 
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
-                devicePrescription.dp_groupcount = groupCount;
-                devicePrescription.dp_groupnum = groupNum;
-                devicePrescription.dp_moveway = moveWay;
-                devicePrescription.dp_relaxtime = relaxTime;
-                devicePrescription.dp_weight = weight;
+                devicePrescription.dp_groupcount = Convert.ToInt32(combobox_21.Text); //组数
+                devicePrescription.dp_groupnum = Convert.ToInt32(combobox_22.Text); //个数
+                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_25.Text)); //移乘方式
+                devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_23.Text); //间隔时间
+                devicePrescription.dp_weight = Convert.ToDouble(combobox_24.Text); //砝码
                 devicePrescription.dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -419,12 +341,7 @@ namespace spms.view.Pages.ChildWin
                 attr3 = com_33.Text; //3
                 attr4 = com_34.Text; //4
                 attr5 = com_35.Text; //5
-                groupCount = Convert.ToInt32(combobox_31.Text); //组数
-                groupNum = Convert.ToInt32(combobox_32.Text); //个数
-                relaxTime = Convert.ToInt32(combobox_33.Text); //间隔时间
-                weight = Convert.ToDouble(combobox_34.Text); //砝码
-                moveWay = combobox_35.SelectedIndex; //移乘方式
-                memo = t4.Text; //注意点
+
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
                 devicePrescription.DP_Attrs = devName + "*" +
@@ -433,16 +350,16 @@ namespace spms.view.Pages.ChildWin
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*" +
                                               "attr5-" + attr5 + "*";
-                devicePrescription.DP_Memo = memo;
+                devicePrescription.DP_Memo = t4.Text; //注意点
                 //TODO 设置设备类型外键
 
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
-                devicePrescription.dp_groupcount = groupCount;
-                devicePrescription.dp_groupnum = groupNum;
-                devicePrescription.dp_moveway = moveWay;
-                devicePrescription.dp_relaxtime = relaxTime;
-                devicePrescription.dp_weight = weight;
+                devicePrescription.dp_groupcount = Convert.ToInt32(combobox_31.Text); //组数
+                devicePrescription.dp_groupnum = Convert.ToInt32(combobox_32.Text); //个数
+                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_35.Text)); //移乘方式
+                devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_33.Text); //间隔时间
+                devicePrescription.dp_weight = Convert.ToDouble(combobox_34.Text); //砝码
                 devicePrescription.dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -454,28 +371,23 @@ namespace spms.view.Pages.ChildWin
                 attr1 = com_41.Text; //属性1
                 attr2 = com_42.Text; //2
                 attr3 = com_43.Text; //3
-                groupCount = Convert.ToInt32(combobox_41.Text); //组数
-                groupNum = Convert.ToInt32(combobox_42.Text); //个数
-                relaxTime = Convert.ToInt32(combobox_43.Text); //间隔时间
-                weight = Convert.ToDouble(combobox_44.Text); //砝码
-                moveWay = combobox_45.SelectedIndex; //移乘方式
-                memo = t5.Text; //注意点
+
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
                 devicePrescription.DP_Attrs = devName + "*" +
                                               "attr1-" + attr1 + "*" +
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*";
-                devicePrescription.DP_Memo = memo;
+                devicePrescription.DP_Memo = t5.Text; //注意点
                 //TODO 设置设备类型外键
 
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
-                devicePrescription.dp_groupcount = groupCount;
-                devicePrescription.dp_groupnum = groupNum;
-                devicePrescription.dp_moveway = moveWay;
-                devicePrescription.dp_relaxtime = relaxTime;
-                devicePrescription.dp_weight = weight;
+                devicePrescription.dp_groupcount = Convert.ToInt32(combobox_41.Text); //组数
+                devicePrescription.dp_groupnum = Convert.ToInt32(combobox_42.Text); //个数
+                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_45.Text)); //移乘方式
+                devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_43.Text); //间隔时间
+                devicePrescription.dp_weight = Convert.ToDouble(combobox_44.Text); //砝码
                 devicePrescription.dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -487,28 +399,23 @@ namespace spms.view.Pages.ChildWin
                 attr1 = com_51.Text; //属性1
                 attr2 = com_52.Text; //2
                 attr3 = com_53.Text; //3
-                groupCount = Convert.ToInt32(combobox_51.Text); //组数
-                groupNum = Convert.ToInt32(combobox_52.Text); //个数
-                relaxTime = Convert.ToInt32(combobox_53.Text); //间隔时间
-                weight = Convert.ToDouble(combobox_54.Text); //砝码
-                moveWay = combobox_55.SelectedIndex; //移乘方式
-                memo = t6.Text; //注意点
+
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
                 devicePrescription.DP_Attrs = devName + "*" +
                                               "attr1-" + attr1 + "*" +
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*";
-                devicePrescription.DP_Memo = memo;
+                devicePrescription.DP_Memo = t6.Text; //注意点
                 //TODO 设置设备类型外键
 
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
-                devicePrescription.dp_groupcount = groupCount;
-                devicePrescription.dp_groupnum = groupNum;
-                devicePrescription.dp_moveway = moveWay;
-                devicePrescription.dp_relaxtime = relaxTime;
-                devicePrescription.dp_weight = weight;
+                devicePrescription.dp_groupcount = Convert.ToInt32(combobox_51.Text); //组数
+                devicePrescription.dp_groupnum = Convert.ToInt32(combobox_52.Text); //个数
+                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_55.Text)); //移乘方式
+                devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_53.Text); //间隔时间
+                devicePrescription.dp_weight = Convert.ToDouble(combobox_54.Text); //砝码
                 devicePrescription.dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -527,8 +434,77 @@ namespace spms.view.Pages.ChildWin
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             user = (User) DataContext;
+            List<DataCode> dataCodes = DataCodeCache.GetInstance().GetDateCodeList(DataCodeTypeEnum.MoveWay);
+            List<string> dataItems = new List<string>();
+            if (dataCodes != null)
+            {
+                foreach (var dataCode in dataCodes)
+                {
+                    dataItems.Add(dataCode.Code_D_Value);
+                }
+            }
+
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
+            com_01.ItemsSource = Add(0, 700, 2);
+            com_02.ItemsSource = Add(0, 30, 2);
+            com_03.ItemsSource = Add(1, 5, 2);
+            com_04.ItemsSource = Add(1, 9, 2);
+            combobox_01.ItemsSource = Add(1, 3, 2);
+            combobox_02.ItemsSource = Add(1, 20, 2);
+            combobox_03.ItemsSource = Add(1, 60, 2);
+            combobox_04.ItemsSource = Add(1.0, 84.0, 2);
+            combobox_05.ItemsSource = dataItems;
+
+            com_11.ItemsSource = Add(0, 400, 2);
+            com_12.ItemsSource = Add(0, 30, 1);
+            com_13.ItemsSource = Add(1, 4, 2);
+            com_14.ItemsSource = Add(1, 4, 2);
+            combobox_11.ItemsSource = Add(1, 3, 2);
+            combobox_12.ItemsSource = Add(1, 20, 2);
+            combobox_13.ItemsSource = Add(1, 60, 2);
+            combobox_14.ItemsSource = Add(1.0, 32.0, 1);
+            combobox_15.ItemsSource = dataItems;
+
+            com_21.ItemsSource = Add(0, 700, 2);
+            com_22.ItemsSource = Add(0, 30, 1);
+            com_23.ItemsSource = Add(1, 6, 2);
+            com_24.ItemsSource = Add(1, 9, 2);
+            combobox_21.ItemsSource = Add(1, 3, 2);
+            combobox_22.ItemsSource = Add(1, 20, 2);
+            combobox_23.ItemsSource = Add(1, 60, 2);
+            combobox_24.ItemsSource = Add(0.5, 32.0, 1);
+            combobox_25.ItemsSource = dataItems;
+
+            com_31.ItemsSource = Add(0, 260, 1);
+            com_32.ItemsSource = Add(0, 30, 1);
+            com_33.ItemsSource = Add(1, 5, 2);
+            com_34.ItemsSource = Add(1, 5, 2);
+            com_35.ItemsSource = Add(1, 9, 2);
+            combobox_31.ItemsSource = Add(1, 3, 2);
+            combobox_32.ItemsSource = Add(1, 20, 2);
+            combobox_33.ItemsSource = Add(1, 60, 2);
+            combobox_34.ItemsSource = Add(1.0, 32.0, 1);
+            combobox_35.ItemsSource = dataItems;
+
+            com_41.ItemsSource = Add(0, 500, 2);
+            com_42.ItemsSource = Add(0, 30, 1);
+            com_43.ItemsSource = Add(1, 9, 2);
+            combobox_41.ItemsSource = Add(1, 3, 2);
+            combobox_42.ItemsSource = Add(1, 20, 2);
+            combobox_43.ItemsSource = Add(1, 60, 2);
+            combobox_44.ItemsSource = Add(1.0, 32.0, 1);
+            combobox_45.ItemsSource = dataItems;
+
+            com_51.ItemsSource = Add(0, 180, 2);
+            com_52.ItemsSource = Add(0, 30, 1);
+            com_53.ItemsSource = Add(1, 8, 2);
+            combobox_51.ItemsSource = Add(1, 3, 2);
+            combobox_52.ItemsSource = Add(1, 20, 2);
+            combobox_53.ItemsSource = Add(1, 60, 2);
+            combobox_54.ItemsSource = Add(1.0, 32.0, 1);
+            combobox_55.ItemsSource = dataItems;
+
             List<DevicePrescription> devicePrescriptions = new TrainService().GetLastDevicePrescriptionsByUser(user);
             if (devicePrescriptions == null)
             {
@@ -536,6 +512,10 @@ namespace spms.view.Pages.ChildWin
             }
             foreach (DevicePrescription devicePrescription in devicePrescriptions)
             {
+                if (devicePrescription.DP_Attrs == null)
+                {//如果没设置属性，直接跳过
+                    continue;
+                }
                 string[] attrs = devicePrescription.DP_Attrs.Split(new char[] {'*'});
                 string devName = attrs[0]; //设备名字
                 switch (devName)

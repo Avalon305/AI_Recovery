@@ -18,12 +18,10 @@ namespace spms.constant
         /// <summary>
         /// 评价，有没有问题 1
         /// </summary>
-        Evaluate, 
-         
-
-
-
+        Evaluate,
+        /// <summary>
+        /// 移乘方式：与数据库严格对应5
+        /// </summary>
+        MoveWay 
     }
- 
-    
 }
