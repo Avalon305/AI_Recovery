@@ -6,11 +6,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static spms.entity.CustomData;
 
 namespace spms.dao
 {
     class DataCodeDAO :BaseDAO<DataCode>
     {
+        public List<CustomData> GetListByTypeID(CustomDataEnum typeId)
+        {
+
+            using (var conn = DbUtil.getConn())
+            {
+           
+                const string query = "select * from bdl_customdata where is_deleted = 0 and CD_Type = @CD_Type";
+
+                return (List<CustomData>)conn.Query<CustomData>(query, new { CD_Type = typeId });
+            }
+        }
         public List<DataCode> ListByTypeId(string typeId)
         {
             using (var conn = DbUtil.getConn())
@@ -24,15 +36,7 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
-                //先验证是不是第一次添加
-                string query = "select count(*)  from bdl_datacode WHERE code_type_id = @TypeId ";
-                int  count = conn.QueryFirst<int>(query, new { TypeId = typeId });
-                if ( count == 0) {
-                    return 0;
-                }
-                //不是第一次添加走正常流程
-                query = "select MAX(code_xh)  from bdl_datacode WHERE code_type_id = @TypeId ";
-                Console.WriteLine("typeId:" + typeId);
+               const string query = "select if(isnull(MAX(code_xh)),0,MAX(code_xh)) maxXh from bdl_datacode WHERE code_type_id = @TypeId ";
                return conn.QueryFirst<int>(query, new { TypeId = typeId });
             }
             

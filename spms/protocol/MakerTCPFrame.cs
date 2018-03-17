@@ -20,7 +20,7 @@ namespace spms.protocol
             return instance;
         }
 
-        public byte[] PackData(MsgId msgId,Int16 serialNo, string terminalId, byte[] data)
+        public byte[] PackData(MsgId msgId, Int16 serialNo, string terminalId, byte[] data)
         {
             int pos = 0;
             int data_len = data.Length;
@@ -47,7 +47,7 @@ namespace spms.protocol
             Array.Copy(data, 0, arr, 13, data_len);
             pos += 12 + data_len;
             // 校验码
-            arr[++pos] = ProtocolUtil.XorByByte(arr,1, 12 + data_len) ;
+            arr[++pos] = ProtocolUtil.XorByByte(arr, 1, 12 + data_len);
             //标识位置
             arr[++pos] = 0x7E;
 
@@ -63,7 +63,7 @@ namespace spms.protocol
         /// <param name="msgId">回应的请求消息ID</param>
         /// <param name="respType"></param>
         /// <returns></returns>
-        public byte[] Make8001Frame(Int16 serialNo, MsgId msgId, CommResponse respType )
+        public byte[] Make8001Frame(Int16 serialNo, MsgId msgId, CommResponse respType)
         {
             byte[] arr = new byte[5];
             arr[0] = Convert.ToByte(serialNo & 0x00FF);//流水号高字节
@@ -81,11 +81,11 @@ namespace spms.protocol
         /// <param name="respType"></param>
         /// <returns></returns>
         public byte[] Make8008Frame(Int16 serialNo, MsgId msgId, CommResponse respType)
-        {  
+        {
             //TODO 备忘
             string notes = "别忘了吃药";
             int len = notes.Length * 2;
-            byte[] arr = new byte[66 + len] ;
+            byte[] arr = new byte[66 + len];
 
             return arr;
         }
@@ -111,7 +111,7 @@ namespace spms.protocol
         /// <param name="packNum"></param>
         /// <param name="idcard"></param>
         /// <returns></returns>
-        public byte[] Make8007Frame(Int16 packNum,string idcard)
+        public byte[] Make8007Frame(Int16 packNum, string idcard)
         {
             byte[] arr = new byte[514];
             arr[0] = Convert.ToByte(packNum & 0x00FF);//包序号高字节
@@ -171,10 +171,21 @@ namespace spms.protocol
         /// <summary>
         /// 内部类，处方信息响应报文组帧
         /// </summary>
-        class MakePrescription
+        public class MakePrescription
         {
+            /// <summary>
+            /// 胸部推举机处方组帧应答
+            /// </summary>
+            /// <param name="idcard"></param>
+            /// <param name="deviceType"></param>
+            /// <returns></returns>
+            public byte[] Make8008Frame(string idcard, DeviceType deviceType)
+            {
+                byte[] arr = new byte[34];
+
+                return arr;
+            }
 
         }
-
     }
 }

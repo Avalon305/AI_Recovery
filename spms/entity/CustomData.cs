@@ -29,25 +29,28 @@ namespace spms.entity
         /// <summary>
         /// 构造函数默认是使用中的状态
         /// </summary>
-        public CustomData() {
+        public CustomData()
+        {
             this.Is_Deleted = 0;
         }
         /// <summary>
         /// 自定义类型的枚举类
         /// </summary>
-        public enum CustomDataEnum {
+        public enum CustomDataEnum : byte
+        {
+
             /// <summary>
             /// 分组编码：与数据库信息严格对应 
             /// </summary>
-            Group ,
+            Group = 0,
             /// <summary>
             /// 疾病编码：与数据库信息严格对应  
             /// </summary>
-            Disease ,
+            Disease = 1,
             /// <summary>
             /// 残障编码：与数据库信息严格对应 
             /// </summary>
-            Diagiosis 
+            Diagiosis = 2
         }
 
     }

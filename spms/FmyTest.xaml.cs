@@ -30,21 +30,13 @@ namespace spms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var f = treeView.SelectedItem as DataCode;
-            MessageBox.Show(f.Code_Type_Id);
+             
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var list = DataCodeCache.GetInstance().GetDateCodeList(DataCodeTypeEnum.DList);
-            var topNode = new TreeViewItem() { Header = "数据编码" };
-           
-            foreach (var d in list)
-            {
-                topNode.Items.Add(d.Code_D_Value);
-            }
-            //treeView.Items.Add(topNode);
-            treeView.ItemsSource = list;
+           var list =  new DataCodeDAO().GetListByTypeID(CustomData.CustomDataEnum.Ceshi);
+
         }
 
         private void treeView_Loaded(object sender, RoutedEventArgs e)

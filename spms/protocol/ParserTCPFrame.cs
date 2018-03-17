@@ -159,12 +159,15 @@ namespace spms.protocol
         /// <param name="frameBean"></param>
         public void HandleStartPrictice(ref byte[] response, TcpFrameBean frameBean)
         {
+            var maker = new MakerTCPFrame.MakePrescription();
+
             byte[] data = frameBean.DataBody;
             string userId = Encoding.GetEncoding("GBK").GetString(data, 0, 18);
             DeviceType deviceType = (DeviceType)data[32];
             switch (deviceType)
             {
                 case DeviceType.X01://胸部推举机
+                    maker.Make8008Frame(userId, deviceType);
                     break;
                 case DeviceType.X02:
                     break;
