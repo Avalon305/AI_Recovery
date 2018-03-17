@@ -46,7 +46,7 @@ namespace spms.entity
 
         //设备属性，第一个是设备名，后面可以是多个属性，用*分割，格式：设备名*属性-属性值*[属性-属性值*]
         public string DP_Attrs { get; set; }
-         //组数
+        //组数
         public int dp_groupcount { get; set; }
         //每组个数
         public int dp_groupnum { get; set; }
@@ -106,9 +106,10 @@ namespace spms.entity
         }
     }
 
-        //设备系列
-        [Table("bdl_deviceset")]
-    public class DeviceSet {
+    //设备系列
+    [Table("bdl_deviceset")]
+    public class DeviceSet
+    {
         //主键 自增
         [Key]
         public int Pk_DSet_Id { get; set; }
@@ -118,6 +119,8 @@ namespace spms.entity
         public DateTime? Gmt_Modified { get; set; }
         //系列名称
         public string DSet_Name { get; set; }
+        //设备状态
+        public int DSet_Status { get; set; }
     }
     //设备类型
     [Table("bdl_devicesort")]
@@ -132,7 +135,7 @@ namespace spms.entity
         //设备名称
         public string DS_name { get; set; }
         //所属的设备系列ID
-        public int Fk_DSet_Id { get; set; } 
+        public int Fk_DSet_Id { get; set; }
     }
 
 }
