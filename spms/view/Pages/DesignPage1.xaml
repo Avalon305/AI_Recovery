@@ -37,7 +37,7 @@
 
                     <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="287" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,-0.4"  Foreground="Black" Content="确定更改" Style="{StaticResource myBtn}"/>
+                            <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,-0.4"  Foreground="Black" Content="确定更改" Style="{StaticResource myBtn}" Click="Btn_Confirm"/>
                             <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" Content="取消" Margin="0,0,2,0" Click="GoBack" Style="{StaticResource myBtn}"/>
                         </StackPanel>
                     </Border>
@@ -47,7 +47,7 @@
         <!--结束：标题栏-->
         <!--基础设置及其高级设置按钮-->
         <StackPanel Margin="10" Orientation="Horizontal" >
-            <Grid>
+            <Grid x:Name="DataGrid1">
                 <Grid.ColumnDefinitions >
                     <ColumnDefinition Width="140"/>
                     <ColumnDefinition Width="470"/>
@@ -70,7 +70,7 @@
                 </Border>
 
                 <Border Grid.Row="0" Grid.Column="1" Margin="0,0,0,2" >
-                    <TextBox></TextBox>
+                    <TextBox x:Name="textBox1" Text="{Binding Set_OrganizationName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
                 </Border>
                 <!--结束：机构团体名称-->
                 <!--机构区分-->
@@ -78,7 +78,7 @@
                     <Label Foreground="White" Background="Black">机构区分</Label>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1"    Margin="0,0,0,2">
-                    <ComboBox ></ComboBox>
+                    <ComboBox x:Name="comboBox1" ItemsSource="{Binding}" SelectedIndex ="0"  SelectedValuePath="Pk_Set_Id" DisplayMemberPath="Set_Unique_Id" ></ComboBox>
                 </Border>
                 <!--结束：机构区分-->
                 <!-- <Border Grid.Row="2" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,0,0,2">
@@ -107,7 +107,7 @@
                     <Label Foreground="White" Background="Black">照片保存文档</Label>
                 </Border>
                 <Border Grid.Row="2" Grid.Column="1"  Margin="0,0,0,2">
-                    <TextBox></TextBox>
+                    <TextBox x:Name="textBox2" Text="{Binding Set_PhotoLocation}" ></TextBox>
                 </Border>
 
                 <Border Grid.Row="2" Grid.Column="2"  Margin="2,0,0,2">
@@ -119,7 +119,7 @@
                     <Label Foreground="White" Background="Black">语言</Label>
                 </Border>
                 <Border Grid.Row="3" Grid.Column="1"  Margin="0,0,0,2">
-                    <ComboBox>
+                    <ComboBox x:Name="comboBox2" ItemsSource="{Binding}" SelectedIndex="0"  SelectedValuePath="Pk_Set_Id"  DisplayMemberPath="Set_Language" >
                     </ComboBox>
                 </Border>
                 <!--结束：语言-->
@@ -176,23 +176,44 @@
 
         <StackPanel Orientation="Horizontal" >
             <!--小组名称-->
-            <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" Margin="15,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
+            <DataGrid x:Name="DataGrid2"  CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="15,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="小组名称" Width="410"/>
+                    <DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox  Click="CheckBox1_Click" Tag="{Binding Pk_CD_Id}"></CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="小组名称" Width="410"/>
                 </DataGrid.Columns>
             </DataGrid>
             <!--结束小组名称-->
             <!--疾病名称-->
-            <DataGrid x:Name="DataGrid3" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
+            <DataGrid x:Name="DataGrid3" HorizontalAlignment="Left" CanUserAddRows="False" AutoGenerateColumns="False" Margin="5,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="疾病名称" Width="410"/>
+                    <DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox  Click="CheckBox2_Click" Tag="{Binding Pk_CD_Id}"></CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="疾病名称" Width="410"/>
                 </DataGrid.Columns>
             </DataGrid>
             <!--结束：疾病名称-->
             <!--残障名称-->
-            <DataGrid x:Name="DataGrid4" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
+            <DataGrid x:Name="DataGrid4" HorizontalAlignment="Left" Margin="5,5,0,0" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="残障名称" Width="410"/>
+                    <DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox  Click="CheckBox3_Click" Tag="{Binding Pk_CD_Id}"></CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="残障名称" Width="410"/>
                 </DataGrid.Columns>
             </DataGrid>
             <!--结束：残障名称-->
@@ -202,16 +223,16 @@
             <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="15,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >
                     <Border CornerRadius="5" Margin="40,0,50,0">
-                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">添加</Button>
+                        <Button Width="50" Style="{StaticResource myBtn}" Click="Add_Group" Margin="0,7,0,6.723">添加</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Background="Black" Height="25" Width="50">
-                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">更新</Button>
+                        <Button Width="50" Style="{StaticResource myBtn}" Click="Group_Update" Margin="0,0,0.017,0" Height="25" VerticalAlignment="Top">更新</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50" Background="Black">
                         <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
                                 <Hyperlink Name="delete_group"    NavigateUri=" http://www.google.com/" Foreground="White"> 删除 </Hyperlink>
                             </TextBlock>-->
-                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">删除</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}" Click="Group_Delete">删除</Button>
                     </Border>
 
                 </StackPanel>
@@ -221,16 +242,16 @@
             <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="5,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >
                     <Border CornerRadius="5" Margin="40,0,50,0">
-                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">添加</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}" Click="Add_Disease">添加</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Background="Black" Height="25" Width="50">
-                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">更新</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}" Click="Disease_Update">更新</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50" Background="Black">
                         <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
                                 <Hyperlink Name="delete_group"    NavigateUri=" http://www.google.com/" Foreground="White"> 删除 </Hyperlink>
                             </TextBlock>-->
-                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">删除</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}" Click="Disease_Delete">删除</Button>
                     </Border>
 
                 </StackPanel>
@@ -240,16 +261,16 @@
             <Border  BorderBrush= "Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="5,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >
                     <Border CornerRadius="5" Margin="40,0,50,0">
-                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">添加</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}" Click="Add_Diagnosis">添加</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Background="Black" Height="25" Width="50">
-                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">更新</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}" Click="Diagnosis_Update">更新</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50" Background="Black">
                         <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
                                 <Hyperlink Name="delete_group"    NavigateUri=" http://www.google.com/" Foreground="White"> 删除 </Hyperlink>
                             </TextBlock>-->
-                        <Button Height="25" Width="50" Style="{StaticResource myBtn}">删除</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource myBtn}" Click="Diagnosis_Delete">删除</Button>
                     </Border>
 
                 </StackPanel>

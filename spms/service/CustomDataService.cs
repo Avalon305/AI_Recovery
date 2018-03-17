@@ -39,6 +39,12 @@ namespace spms.service
             }
             return queryResult;
         }
+        public  List<CustomData> GetAllObjectByType(CustomDataEnum customDataEnum)
+        {
+            List<CustomData> queryResult = new List<CustomData>();
+            queryResult = customDataDAO.GetListByTypeID(customDataEnum);
+            return queryResult;
+        }
 
         /// <summary>
         /// 根据value模糊查询获得对应的自定义的List<string>
