@@ -69,7 +69,7 @@
                 <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="200">
                     <StackPanel Margin="10" >
 
-                        <DataGrid x:Name="DataGrid2" GridLinesVisibility="None" HeadersVisibility="None"  Margin="5,10,5,10" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top"  Height="165" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False"  >
+                        <DataGrid x:Name="DataGrid2" GridLinesVisibility="None" HeadersVisibility="None"  Margin="5,10,5,10" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top"  Height="165" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
                             <DataGrid.Columns >
                                 <DataGridTemplateColumn Header="选中" Width="50" DisplayIndex="0" >
                                     <DataGridTemplateColumn.HeaderStyle>
@@ -104,7 +104,7 @@
             <!--结束：器械选择-->
             <!--用户表-->
             <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Margin="30,35,20,0">
-                <DataGrid x:Name="DataGrid1" HorizontalAlignment="Left" Margin="5,5,0,0" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top"  Height="209" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" BorderBrush="Black" BorderThickness="1" Width="883">
+                <DataGrid x:Name="DataGrid1" HorizontalAlignment="Left" Margin="5,5,0,0" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top"  Height="209" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" BorderBrush="Black" BorderThickness="1" Width="883" >
                     <DataGrid.Columns >
                         <DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
                             <DataGridTemplateColumn.CellTemplate>
@@ -114,11 +114,10 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTextColumn Binding="{Binding Auth_UserName}" Header="用户名" Width="140" />
-                        <DataGridTextColumn Binding="{Binding Gmt_Create}" Header="创建时间" Width="140"/>
-                        <DataGridTextColumn Binding="{Binding Gmt_Modified}" Header="更新时间" Width="150"/>
-                        <DataGridTextColumn Binding="{Binding User_Status}" Header="当前状态" Width="100"/>
-                        <DataGridTextColumn Binding="{Binding Auth_OfflineTime}" Header="离线使用时间" Width="100"/>
-                        <DataGridTextColumn Binding="{Binding User_Groupname}" Header="备注" Width="250"/>
+                        <DataGridTextColumn Binding="{Binding Auth_UserPass}" Header="密码" Width="140" />
+                        <DataGridTextColumn Binding="{Binding Gmt_Create}" Header="创建时间" Width="160"/>
+                        <DataGridTextColumn Binding="{Binding Gmt_Modified}" Header="更新时间" Width="160"/>
+                        <DataGridTextColumn Binding="{Binding Auth_OfflineTime}" Header="离线使用时间" Width="160"/>
 
                     </DataGrid.Columns>
                 </DataGrid>
@@ -140,9 +139,9 @@
         <!--激活状态-->
         <WrapPanel Width="279" HorizontalAlignment="Left" Margin="40,0,0,0" Height="90">
             <Label Content="激活产品配合产品密钥:" FontSize="20"></Label>
-            <Button Width="50" Height="30"  Style="{StaticResource myBtn}">激活</Button>
+            <Button Width="50" Height="30"  Style="{StaticResource myBtn}" Click="Btn_Activate">激活</Button>
             <Label FontSize="20">激活状态:</Label>
-            <Label   Content="未激活"  FontSize="20"></Label>
+            <Label  Name="Status" Content="未激活"  FontSize="20"></Label>
         </WrapPanel>
         <!--结束：激活状态-->
     </StackPanel>
