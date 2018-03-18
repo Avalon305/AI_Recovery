@@ -435,6 +435,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\3.png" />
+    <Resource Include="view\Images\4-7.png" />
+    <Resource Include="view\Images\5-4.png" />
+    <Resource Include="view\Images\6.png" />
     <Resource Include="view\Images\1.PNG" />
     <Resource Include="view\Images\123.png" />
     <Resource Include="view\Images\Arrow.jpg" />

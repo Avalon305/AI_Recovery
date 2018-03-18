@@ -4,9 +4,15 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:spms.view.Pages"
+      xmlns:converter="clr-namespace:spms.view.converter"
       mc:Ignorable="d" 
-      Title="MainPage"
-      Height="700" Width="1290" Loaded="Page_Loaded">
+        Title="宝德龙"
+      Height="700" Width="1290"
+    >
+    <Page.Resources>
+        <converter:SexConverter x:Key="sexconverter"/>
+        <converter:AgeConverter x:Key="ageconverter"/>
+    </Page.Resources>
 
     <Grid >
 
@@ -16,34 +22,155 @@
         </StackPanel>-->
         <StackPanel Orientation="Vertical" >
             <!--图片-->
-            <StackPanel Orientation="Horizontal" Margin="5,0,25,0">
-                <!-- logo -->
-                <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <Image Source="/view/Images/bdl_logo.PNG"></Image>
-                </Border>
-                <!--结束：logo-->
+            <Grid>
+                <!--<StackPanel Orientation="Horizontal" Margin="5,0,25,0">-->
+
                 <!--图片及按钮-->
                 <Grid>
                     <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left">
-                        <Image Source="/view/Images/bdl.PNG" Margin="0,-11,0,-100" Width="1089"></Image>
+                        <Image Source="/view/Images/1.PNG" Margin="11,-10,27,-10" Stretch="UniformToFill"></Image>
                     </Border>
-                    <Border Margin="0,20,30,19" HorizontalAlignment="Right" Width="75">
-                        <Button Style="{StaticResource myBtn}" Click="GoBack">后退</Button>
+                    <Border Margin="0,20,40,19" HorizontalAlignment="Right" Width="160">
+                        <StackPanel Orientation="Horizontal">
+
+                            <Button Style="{StaticResource Btn}"  Width="75" >设置</Button>
+                            <Button Style="{StaticResource Btn}" Click="GoBack" Width="75" Margin="10,0,0,0">关闭</Button>
+                        </StackPanel>
+
                     </Border>
                 </Grid>
+                <!-- logo -->
+                <!--
+                <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="11,0,0,0">
+                    <Border.Resources>
+
+                        <Storyboard x:Key="LoadHeadStoryboard">
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:02"   Duration="00:00:05" RepeatBehavior="Forever"  Storyboard.TargetName="DesignerHead" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                <SplineDoubleKeyFrame   Value="1"/>
+                                <SplineDoubleKeyFrame    Value="-1"/>
+                                <SplineDoubleKeyFrame    Value="1"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+
+                    </Border.Resources>
+                    <Border.Triggers>
+                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                            <BeginStoryboard Storyboard="{StaticResource LoadHeadStoryboard}"/>
+                        </EventTrigger>
+                    </Border.Triggers>
+
+                    <Image  x:Name="DesignerHead"  RenderTransformOrigin="0.5,0.5" Source="/view/images/logo.PNG" Stretch="Fill" Width="150" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="1" ScaleY="1"  />
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Border>
+                -->
+                <!--结束：logo-->
+                <!-- logo -->
+                <Border Margin="10,0,1034.6,0">
+                    <Image  x:Name="DesignerHead3"  RenderTransformOrigin="0.4,0.5" Source="/view/images/3.png" Stretch="Fill" Width="245" Height="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-0.2,0" >
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="1" ScaleY="1"  />
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Border>
+                <!-- logo -->
+                <Border Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="23,13,0,0" Width="80" RenderTransformOrigin="0.5,0.5">
+                    <Border.Resources>
+                        <Storyboard x:Key="LoadHeadStoryboard">
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:02"    Duration="00:00:12.5" RepeatBehavior="Forever"  Storyboard.TargetName="DesignerHead" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                <LinearDoubleKeyFrame KeyTime="0:0:0.5" Value="-1"/>
+                                <LinearDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+
+                    </Border.Resources>
+                    <Border.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="0.509"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="0.391"/>
+                        </TransformGroup>
+                    </Border.RenderTransform>
+                    <Border.Triggers>
+                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                            <BeginStoryboard Storyboard="{StaticResource LoadHeadStoryboard}"/>
+                        </EventTrigger>
+                    </Border.Triggers>
+
+                    <Image  x:Name="DesignerHead"  RenderTransformOrigin="0.4,0.5" Source="/view/images/4-7.png" Stretch="Fill" Width="90" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-10,0" >
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="1" ScaleY="1"  />
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Border>
+                <!-- logo -->
+                <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="116,0,0,0" Width="109">
+                    <Border.Resources>
+
+                        <Storyboard x:Key="LoadHeadStoryboard">
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:3.5"    Duration="00:00:12.5"   RepeatBehavior="1"  Storyboard.TargetName="DesignerHead2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                <LinearDoubleKeyFrame KeyTime="0:0:0.5" Value="1.23"/>
+                                <LinearDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+
+                            </DoubleAnimationUsingKeyFrames>
+
+                        </Storyboard>
+
+                    </Border.Resources>
+                    <Border.Triggers>
+                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                            <BeginStoryboard Storyboard="{StaticResource LoadHeadStoryboard}"/>
+                        </EventTrigger>
+                    </Border.Triggers>
+
+                    <Image  x:Name="DesignerHead2"  RenderTransformOrigin="0.4,0.5" Source="/view/images/5-4.png" Stretch="Fill" Width="120" Height="21" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,-11.2,29">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="1" ScaleY="1"  />
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Border>
+                <Border Margin="10,10,1034.6,0.4">
+                    <Image  x:Name="DesignerHead4"  RenderTransformOrigin="0.4,0.5" Source="/view/images/6.png" Stretch="Fill" Width="225" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="1" ScaleY="1"  />
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Border>
+                <!--结束：logo-->
                 <!--结束：图片及按钮-->
-            </StackPanel>
+                <!--</StackPanel>-->
+            </Grid>
             <!--结束：图片-->
             <!--使用者一览表_按钮-->
-            <Border Height="39" CornerRadius="5,5,0,0" Background="Gray" Margin="5,0,27,0">
+            <Border Height="39" CornerRadius="5,5,0,0" Margin="11,0,27,0" >
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Silver" Offset="0.1"/>
+                        <GradientStop Color="Gray" Offset="0.9"/>
+                    </LinearGradientBrush>
+
+                </Border.Background>
                 <Grid>
                     <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38">使用者一览表</Label>
                     <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="568" Height="29" VerticalAlignment="Bottom">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button Width="140" Height="25" Foreground="Black" Margin="2,0,0,0" Click="Retrieval" Style="{StaticResource myBtn}">条件检索</Button>
-                            <Button Width="140" Height="25" Foreground="Black"  Margin="2,0,0,0" Click="Register" Style="{StaticResource myBtn}">添加</Button>
-                            <Button Width="140" Height="25" Foreground="Black"  Margin="2,0,0,0" Click="UserUpdata" Style="{StaticResource myBtn}">更新</Button>
-                            <Button Width="140"  Height="25" Foreground="Black"  Content="删除"  Margin="2,0,0,0" Style="{StaticResource myBtn}" Click="Delete_User"/>
+                            <Button Width="140" Height="25" Foreground="Black" Margin="2,0,0,0" Click="Retrieval" Style="{StaticResource Btn}">条件检索</Button>
+                            <Button Width="140" Height="25" Foreground="Black"  Margin="2,0,0,0" Click="Register" Style="{StaticResource Btn}">添加</Button>
+                            <Button Width="140" Height="25" Foreground="Black"  Margin="2,0,0,0" Click="UserUpdata" Style="{StaticResource Btn}">更新</Button>
+                            <Button Width="140"  Height="25" Foreground="Black"  Content="删除"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="Delete_User"/>
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -51,7 +178,12 @@
             <!--结束：使用者一览表_按钮-->
             <!--使用者一览表_数据-->
             <Border>
-                <DataGrid x:Name="UsersInfo" HorizontalAlignment="Left" DataGridRow.MouseUp="Grid_Click"   IsReadOnly="true" Margin="5,5,0,0" VerticalAlignment="Top"  Height="150" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0"  >
+                <DataGrid x:Name="UsersInfo" HorizontalAlignment="Left" DataGridRow.MouseUp="Grid_Click"   IsReadOnly="true" Margin="11,5,0,0" VerticalAlignment="Top"  Height="150" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" Width="1254"  >
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Height" Value="18" />
+                        </Style>
+                    </DataGrid.RowStyle>
                     <!--去掉选中单元格的框线-->
                     <DataGrid.CellStyle>
                         <Style TargetType="DataGridCell" >
@@ -63,30 +195,37 @@
                         </Style>
                     </DataGrid.CellStyle>
                     <DataGrid.Columns >
-                        <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="使用ID" Width="140" />
+                        <DataGridTextColumn Binding="{Binding User_Id}" Header="使用ID" Width="140" />
                         <DataGridTextColumn Binding="{Binding User_Name}" Header="使用者名称" Width="140"/>
                         <DataGridTextColumn Binding="{Binding User_Namepinyin}" Header="使用者名称（拼音）" Width="150"/>
-                        <DataGridTextColumn Binding="{Binding User_Sex}"  Header="性别" Width="50"/>
-                        <DataGridTextColumn Binding="{Binding User_Birth}" Header="年龄" Width="50"/>
-                        <DataGridTextColumn Binding="{Binding User_GroupName}" Header="小组名称" Width="140"/>
-                        <DataGridTextColumn Binding="{Binding User_InitCare}" Header="初期要介护程度" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding User_Nowcare}" Header="现在要介护程度" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding User_IllnessName}" Header="疾病名称" Width="173"/>
-                        <DataGridTextColumn Binding="{Binding User_PhysicalDisabilities}" Header="残障名称" Width="167"/>
+                        <DataGridTextColumn Binding="{Binding User_Sex, Converter={StaticResource sexconverter}}" Header="性别" Width="50"/>
+                        <DataGridTextColumn Binding="{Binding User_Birth, Converter={StaticResource ageconverter}}" Header="年龄" Width="50"/>
+                        <DataGridTextColumn Binding="{Binding User_Groupname}" Header="小组名称" Width="140"/>
+                        <DataGridTextColumn Binding="{Binding User_Initcare}" Header="初期要介护程度" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding User_Nowtcare}" Header="现在要介护程度" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding User_Illnessname}" Header="疾病名称" Width="173"/>
+                        <DataGridTextColumn Binding="{Binding User_Physicaildisabilities}" Header="残障名称" Width="163"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Border>
             <!--结束：使用者一览表_数据-->
             <!--使用者信息_按钮-->
-            <Border Height="40" CornerRadius="5,5,0,0" Background="Gray" Margin="5,5,27,0">
+            <Border Height="40" CornerRadius="5,5,0,0"  Margin="11,5,27,0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Silver" Offset="0.1"/>
+                        <GradientStop Color="Gray" Offset="0.9"/>
+                    </LinearGradientBrush>
+
+                </Border.Background>
                 <Grid>
-                    <Label VerticalAlignment="Bottom" Margin="10,0,0.2,0" Foreground="White" FontSize="20" Height="38">使用者信息</Label>
+                    <Label VerticalAlignment="Bottom" Margin="10,0,0.4,0" Foreground="White" FontSize="20" Height="38">使用者信息</Label>
                     <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="568" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button Width="140" Height="25"    Foreground="Black"  Margin="2,0,0,0" Click="InputSymptomInformation" Style="{StaticResource myBtn}">输入征状信息</Button>
-                            <Button Width="140" Height="25"     Foreground="Black"  Margin="2,0,0,0" Click="InputTraining" Style="{StaticResource myBtn}">输入训练</Button>
-                            <Button Width="140"   Foreground="Black"  Content="输入体力评价"  Margin="2,0,0,0" Click="InputManualMvaluation" Style="{StaticResource myBtn}"/>
-                            <Button Width="140"   Foreground="Black"  Content="制作报告"  Margin="2,0,0,0" Style="{StaticResource myBtn}" Click="MakeReport"/>
+                            <Button Width="140" Height="25"    Foreground="Black"  Margin="2,0,0,0" Click="InputSymptomInformation" Style="{StaticResource Btn}">输入征状信息</Button>
+                            <Button Width="140" Height="25"     Foreground="Black"  Margin="2,0,0,0" Click="InputTraining" Style="{StaticResource Btn}">输入训练</Button>
+                            <Button Width="140"   Foreground="Black"  Content="输入体力评价"  Margin="2,0,0,0" Click="InputManualMvaluation" Style="{StaticResource Btn}"/>
+                            <Button Width="140"   Foreground="Black"  Content="制作报告"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="MakeReport"/>
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -95,7 +234,14 @@
 
             <StackPanel Orientation="Horizontal">
                 <!--使用者信息展示-->
-                <Border BorderBrush="Black" BorderThickness="1" Width="300" Height="360" HorizontalAlignment="Left" Margin="5,5,5,5" Background="Gray">
+                <Border BorderBrush="Black" BorderThickness="1" Width="300" Height="360" HorizontalAlignment="Left" Margin="11,5,5,5" >
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="Silver" Offset="0.1"/>
+                            <GradientStop Color="Gray" Offset="0.9"/>
+                        </LinearGradientBrush>
+
+                    </Border.Background>
                     <StackPanel Orientation="Vertical">
                         <Border BorderBrush="Black" BorderThickness="1" Width="250" Height="145" VerticalAlignment="Top" Margin="0,6,0,0" Background="White">
                             <Label VerticalAlignment="Center" HorizontalAlignment="Center">没有图象数据</Label>
@@ -135,28 +281,28 @@
                             <Label Grid.Row="4" Grid.Column="2" Content="{Binding User_GroupName}" Margin="0,0,0,-6"></Label>
                             <Label Grid.Row="5" Grid.Column="0" Margin="0,0,0,-6">小组名称</Label>
                             <Label Grid.Row="5" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                            <Label Grid.Row="5" Grid.Column="2" Margin="0,0,0,-6">山东省</Label>
+                            <Label Grid.Row="5" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_Groupname}"></Label>
                             <Label Grid.Row="6" Grid.Column="0" Margin="0,0,0,-6">初期要介护程度</Label>
                             <Label Grid.Row="6" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                            <Label Grid.Row="6" Grid.Column="2" Margin="0,0,0,-6">21</Label>
+                            <Label Grid.Row="6" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_Initcare}"></Label>
                             <Label Grid.Row="7" Grid.Column="0" Margin="0,0,0,-6">现在要介护程度</Label>
                             <Label Grid.Row="7" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                            <Label Grid.Row="7" Grid.Column="2" Margin="0,0,0,-6">21</Label>
+                            <Label Grid.Row="7" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_Nowtcare}"></Label>
                             <Label Grid.Row="8" Grid.Column="0" Margin="0,0,0,-6">疾病名称</Label>
                             <Label Grid.Row="8" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                            <Label Grid.Row="8" Grid.Column="2" Margin="0,0,0,-6">21</Label>
+                            <Label Grid.Row="8" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_Illnessname}"></Label>
                             <Label Grid.Row="9" Grid.Column="0" Margin="0,0,0,-6">残障名称</Label>
                             <Label Grid.Row="9" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                            <Label Grid.Row="9" Grid.Column="2" Margin="0,0,0,-6">21</Label>
+                            <Label Grid.Row="9" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_Physicaildisabilities}"></Label>
                         </Grid>
                     </StackPanel>
                 </Border>
                 <!--结束：使用者信息展示-->
                 <!--训练信息-->
-                <Border BorderBrush="Black" BorderThickness="1" Margin="0,5,0,0" Height="360" VerticalAlignment="Top" Width="953">
+                <Border BorderBrush="Black" BorderThickness="1" Margin="0,5,0,0" Height="360" VerticalAlignment="Top" Width="948">
                     <WrapPanel Orientation="Vertical" Height="360" VerticalAlignment="Top" Margin="0,0.2,0,-0.8" >
                         <WrapPanel Orientation="Vertical">
-                            <Frame Width="955" Height="315"  Name="record" NavigationUIVisibility="Hidden"></Frame>
+                            <Frame Width="946" Height="315"  Name="record" NavigationUIVisibility="Hidden"></Frame>
                             <!--<Grid Margin="0,14,0,0">
                             <Border Background="Gray" Margin="117,3,607.6,-3.4" BorderBrush="Black" BorderThickness="1">
                                 <Label HorizontalAlignment="Center" Margin="94.2,-4.8,85.2,-4.6" VerticalAlignment="Center" Height="24" Width="51" RenderTransformOrigin="0.562,0.656">康复前</Label>
@@ -189,9 +335,9 @@
                             <RadioButton VerticalAlignment="Center" IsChecked="True"  GroupName="record_radio" Name="is_signinformationrecord" Click="Radio_Check" >征状信息记录</RadioButton>
                             <RadioButton VerticalAlignment="Center" GroupName="record_radio" Name="is_trainingrecord" Click="Radio_Check">训练记录</RadioButton>
                             <RadioButton VerticalAlignment="Center" GroupName="record_radio" Name="is_physicalevaluation" Click="Radio_Check">体力评价记录</RadioButton>
-                            <Button Content="输入训练结果" Margin="240,0,0,0" Style="{StaticResource myBtn}" Width="140" Click="InputTrainingResults"/>
-                            <Button Margin="2,0,0,0" Content="查看详细信息" Style="{StaticResource myBtn}" Width="140" Click="ViewDetails"/>
-                            <Button Content="文档输出" Margin="2,0,0,0"  Style="{StaticResource myBtn}" Width="140" Click="Output_Document"/>
+                            <Button Content="输入训练结果" Margin="240,0,0,0" Style="{StaticResource Btn}" Width="140" Click="InputTrainingResults"/>
+                            <Button Margin="2,0,0,0" Content="查看详细信息" Style="{StaticResource Btn}" Width="140" Click="ViewDetails"/>
+                            <Button Content="文档输出" Margin="2,0,0,0"  Style="{StaticResource Btn}" Width="140" Click="Output_Document"/>
                         </StackPanel>
                     </WrapPanel>
                 </Border>
