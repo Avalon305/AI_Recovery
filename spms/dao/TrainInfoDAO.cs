@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using spms.constant;
 using spms.entity;
 using spms.util;
 
@@ -41,6 +42,21 @@ namespace spms.dao
                 const string query = "select * from bdl_deviceprescription where fk_ti_id = @Fk_TI_Id";
 
                 return conn.Query<DevicePrescription>(query, new { Fk_TI_Id = tiId }).ToList();
+            }
+        }
+        /// <summary>
+        /// 根据用户身份证号和设备类型查询处方信息
+        /// </summary>
+        /// <param name="idcard"></param>
+        /// <param name="deviceType"></param>
+        /// <returns></returns>
+        public DevicePrescription GetByUserIdDeviceType(string idcard,DeviceType deviceType)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select d.* from bdl_user u join bdl_traininfo t on u.pk_user_id = t.fk_user_id join bdl_deviceprescription d on d.fk_ti_id = t.pk_ti_id where u.user_idcard = @Idcard and d.fk_ds_id = @DeviceType";
+
+                return conn.QueryFirstOrDefault<DevicePrescription>(query, new { Idcard = idcard, DeviceType=(byte)deviceType });
             }
         }
     }

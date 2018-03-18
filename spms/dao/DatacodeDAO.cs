@@ -12,17 +12,7 @@ namespace spms.dao
 {
     class DataCodeDAO :BaseDAO<DataCode>
     {
-        public List<CustomData> GetListByTypeID(CustomDataEnum typeId)
-        {
 
-            using (var conn = DbUtil.getConn())
-            {
-           
-                const string query = "select * from bdl_customdata where is_deleted = 0 and CD_Type = @CD_Type";
-
-                return (List<CustomData>)conn.Query<CustomData>(query, new { CD_Type = typeId });
-            }
-        }
         public List<DataCode> ListByTypeId(string typeId)
         {
             using (var conn = DbUtil.getConn())

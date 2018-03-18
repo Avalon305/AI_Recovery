@@ -23,7 +23,7 @@ namespace spms.dao
             {
                 const string query = "select * from bdl_auth where Auth_Level = @Auth_Level";
 
-                return conn.QueryFirst<Auther>(query, new { Auth_Level = Auth_Level });
+                return conn.QueryFirstOrDefault<Auther>(query, new { Auth_Level = Auth_Level });
             }
         }
         /// <summary>
@@ -37,7 +37,7 @@ namespace spms.dao
             {
                 const string query = "select * from bdl_auth where Auth_UserName = @Auth_UserName and Auth_UserPass = @Auth_UserPass";
 
-                return conn.QueryFirst<Auther>(query, new { Auth_UserName = name, Auth_UserPass = password });
+                return conn.QueryFirstOrDefault<Auther>(query, new { Auth_UserName = name, Auth_UserPass = password });
             }
         }
 
@@ -52,7 +52,7 @@ namespace spms.dao
             {
                 const string query = "select * from bdl_auth where Auth_UserName = @Auth_UserName ";
 
-                return conn.QueryFirst<Auther>(query, new { Auth_UserName = name});
+                return conn.QueryFirstOrDefault<Auther>(query, new { Auth_UserName = name});
             }
         }
 

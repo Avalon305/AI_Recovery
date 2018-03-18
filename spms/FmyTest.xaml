@@ -7,31 +7,11 @@
         mc:Ignorable="d"
         Title="FmyTest" Height="450" Width="800">
     <Grid>
-        <Button Content="测试编码" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click" RenderTransformOrigin="0.072,0.455"/>
-        <Button Content="测试编码2" HorizontalAlignment="Left" Margin="116,10,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click_1"/>
-        <TreeView x:Name="treeView" Loaded="treeView_Loaded" HorizontalAlignment="Left" Height="352" Margin="10,58,0,0"   VerticalAlignment="Top" Width="194">
-            <TreeView.ItemTemplate>
-
-                <HierarchicalDataTemplate  ItemsSource="{Binding Path=Children}">
-
-                    <StackPanel Orientation="Horizontal">
-
-
-                        <TextBlock VerticalAlignment="Center" Name="nodeName" Text="{Binding Code_D_Value}"></TextBlock>
-
-
-                        <StackPanel.ToolTip>
-
-                            <TextBlock VerticalAlignment="Center" Text="{Binding Name}" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
-
-                        </StackPanel.ToolTip>
-
-                    </StackPanel>
-
-                </HierarchicalDataTemplate>
-
-            </TreeView.ItemTemplate>
-        </TreeView>
+       
+        <Button Content="获取照片包数" HorizontalAlignment="Left" Margin="176,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button Content="获取使用者信息" HorizontalAlignment="Left" Margin="338,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="获取照片" HorizontalAlignment="Left" Margin="308,86,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="进登陆界面" HorizontalAlignment="Left" Margin="126,72,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click_3"/>
 
     </Grid>
 </Window>

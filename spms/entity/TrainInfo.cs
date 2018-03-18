@@ -40,7 +40,7 @@ namespace spms.entity
         //关联的单一设备类型ID，通过这个获得设备name
         public int Fk_DS_Id { get; set; }
         //状态
-        public Byte? dp_status { get; set; }
+        public Byte? Dp_status { get; set; }
         //注意点，指示
         public string DP_Memo { get; set; }
 
@@ -59,7 +59,7 @@ namespace spms.entity
 
         public override string ToString()
         {
-            return $"{nameof(Pk_DP_Id)}: {Pk_DP_Id}, {nameof(Gmt_Create)}: {Gmt_Create}, {nameof(Gmt_Modified)}: {Gmt_Modified}, {nameof(Fk_TI_Id)}: {Fk_TI_Id}, {nameof(Fk_DS_Id)}: {Fk_DS_Id}, {nameof(dp_status)}: {dp_status}, {nameof(DP_Memo)}: {DP_Memo}, {nameof(DP_Attrs)}: {DP_Attrs}, {nameof(dp_groupcount)}: {dp_groupcount}, {nameof(dp_groupnum)}: {dp_groupnum}, {nameof(dp_relaxtime)}: {dp_relaxtime}, {nameof(dp_moveway)}: {dp_moveway}, {nameof(dp_weight)}: {dp_weight}";
+            return $"{nameof(Pk_DP_Id)}: {Pk_DP_Id}, {nameof(Gmt_Create)}: {Gmt_Create}, {nameof(Gmt_Modified)}: {Gmt_Modified}, {nameof(Fk_TI_Id)}: {Fk_TI_Id}, {nameof(Fk_DS_Id)}: {Fk_DS_Id}, {nameof(Dp_status)}: {Dp_status}, {nameof(DP_Memo)}: {DP_Memo}, {nameof(DP_Attrs)}: {DP_Attrs}, {nameof(dp_groupcount)}: {dp_groupcount}, {nameof(dp_groupnum)}: {dp_groupnum}, {nameof(dp_relaxtime)}: {dp_relaxtime}, {nameof(dp_moveway)}: {dp_moveway}, {nameof(dp_weight)}: {dp_weight}";
         }
     }
     //设备处方的训练结果  一对一

@@ -32,7 +32,7 @@ namespace spms.http.dto
             this.dpMoveway = devicePrescription.dp_moveway.ToString();
 
             this.dpRelaxtime = devicePrescription.dp_relaxtime.ToString();
-            this.dpStatus = devicePrescription.dp_status.ToString();
+            this.dpStatus = devicePrescription.Dp_status.ToString();
             this.dpWeight = devicePrescription.dp_weight.ToString();
             this.fkDsId = devicePrescription.Fk_DS_Id.ToString();
             this.fkTiId = devicePrescription.Fk_TI_Id.ToString();
@@ -50,7 +50,7 @@ namespace spms.http.dto
             this.dpMoveway = devicePrescription.dp_moveway.ToString();
 
             this.dpRelaxtime = devicePrescription.dp_relaxtime.ToString();
-            this.dpStatus = devicePrescription.dp_status.ToString();
+            this.dpStatus = devicePrescription.Dp_status.ToString();
             this.dpWeight = devicePrescription.dp_weight.ToString();
             this.fkDsId = devicePrescription.Fk_DS_Id.ToString();
             this.fkTiId = devicePrescription.Fk_TI_Id.ToString();

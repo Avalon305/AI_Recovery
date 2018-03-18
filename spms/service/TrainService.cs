@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using spms.constant;
 using spms.dao;
 using spms.entity;
 
@@ -74,7 +75,7 @@ namespace spms.service
 
                         //插入设备处方结果、上传表
                         prescriptionResult.Fk_DP_Id = dpId;
-                        prId = (int) prescriptionResultDao.Insert(prescriptionResult);
+                        prId = (int)prescriptionResultDao.Insert(prescriptionResult);
                         uploadManagementDao.Insert(new UploadManagement(prId, "bdl_prescriptionresult"));
                     }
                 }
@@ -98,6 +99,17 @@ namespace spms.service
                 devicePrescriptions = new DevicePrescriptionDAO().GetByTIId(trainInfoFromDB.Pk_TI_Id);
             }
             return devicePrescriptions;
+        }
+
+        /// <summary>
+        /// 根据用户身份证号和设备类型查询处方
+        /// </summary>
+        /// <param name="idcard"></param>
+        /// <param name="deviceType"></param>
+        /// <returns></returns>
+        public DevicePrescription GetDevicePrescriptionByIdCardDeviceType(string idcard, DeviceType deviceType)
+        {
+            return new DevicePrescriptionDAO().GetByUserIdDeviceType(idcard, deviceType);
         }
     }
 }

@@ -269,7 +269,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_05.Text)); //移乘方式
                 devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_03.Text); //间隔时间;
                 devicePrescription.dp_weight = Convert.ToDouble(combobox_04.Text); //砝码;
-                devicePrescription.dp_status = 0;
+                devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
 
@@ -299,7 +299,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_15.Text)); //移乘方式
                 devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_13.Text); //间隔时间
                 devicePrescription.dp_weight = Convert.ToDouble(combobox_14.Text); //砝码
-                devicePrescription.dp_status = 0;
+                devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
 
@@ -328,7 +328,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_25.Text)); //移乘方式
                 devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_23.Text); //间隔时间
                 devicePrescription.dp_weight = Convert.ToDouble(combobox_24.Text); //砝码
-                devicePrescription.dp_status = 0;
+                devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
 
@@ -360,7 +360,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_35.Text)); //移乘方式
                 devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_33.Text); //间隔时间
                 devicePrescription.dp_weight = Convert.ToDouble(combobox_34.Text); //砝码
-                devicePrescription.dp_status = 0;
+                devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
 
@@ -388,7 +388,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_45.Text)); //移乘方式
                 devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_43.Text); //间隔时间
                 devicePrescription.dp_weight = Convert.ToDouble(combobox_44.Text); //砝码
-                devicePrescription.dp_status = 0;
+                devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
 
@@ -416,7 +416,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_55.Text)); //移乘方式
                 devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_53.Text); //间隔时间
                 devicePrescription.dp_weight = Convert.ToDouble(combobox_54.Text); //砝码
-                devicePrescription.dp_status = 0;
+                devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
 

@@ -57,7 +57,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_groupnum = Convert.ToInt32(HLPGroupnum.Text);
                 devicePrescription.dp_relaxtime = Convert.ToInt32(HLPRelaxTime.Text);
                 devicePrescription.dp_weight = Convert.ToDouble(HLPWeight.Text);
-                devicePrescription.dp_status = 1;
+                devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, HLPMoveway.Text)); //移乘方式
                 //TODO 设备属性、类型没有获取
 
@@ -90,7 +90,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_groupnum = Convert.ToInt32(ROWGroupnum.Text);
                 devicePrescription.dp_relaxtime = Convert.ToInt32(ROWRelaxTime.Text);
                 devicePrescription.dp_weight = Convert.ToDouble(ROWWeight.Text);
-                devicePrescription.dp_status = 1;
+                devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, ROWMoveway.Text)); //移乘方式
                 //TODO 设备属性、类型没有获取
 
@@ -123,7 +123,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_groupnum = Convert.ToInt32(TFGroupnum.Text);
                 devicePrescription.dp_relaxtime = Convert.ToInt32(TFRelaxTime.Text);
                 devicePrescription.dp_weight = Convert.ToDouble(TFWeight.Text);
-                devicePrescription.dp_status = 1;
+                devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, TFMoveway.Text)); //移乘方式
                 //TODO 设备属性、类型没有获取
 
@@ -156,7 +156,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_groupnum = Convert.ToInt32(LEGroupnum.Text);
                 devicePrescription.dp_relaxtime = Convert.ToInt32(LERelaxTime.Text);
                 devicePrescription.dp_weight = Convert.ToDouble(LEWeight.Text);
-                devicePrescription.dp_status = 1;
+                devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, LEMoveway.Text)); //移乘方式
                 //TODO 设备属性、类型没有获取
 
@@ -189,7 +189,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_groupnum = Convert.ToInt32(HAGroupnum.Text);
                 devicePrescription.dp_relaxtime = Convert.ToInt32(HARelaxTime.Text);
                 devicePrescription.dp_weight = Convert.ToDouble(HAWeight.Text);
-                devicePrescription.dp_status = 1;
+                devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, HAMoveway.Text)); //移乘方式
                 //TODO 设备属性、类型没有获取
 
@@ -222,7 +222,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_groupnum = Convert.ToInt32(CPGroupnum.Text);
                 devicePrescription.dp_relaxtime = Convert.ToInt32(CPRelaxTime.Text);
                 devicePrescription.dp_weight = Convert.ToDouble(CPWeight.Text);
-                devicePrescription.dp_status = 1;
+                devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, CPMoveway.Text)); //移乘方式
                 //TODO 设备属性、类型没有获取
 

@@ -22,7 +22,7 @@ namespace spms.dao
             {
                 const string query = "select * from bdl_user where user_idcard = @IdCard";
 
-                return conn.QueryFirst<User>(query, new { IdCard = idCard });
+                return conn.QueryFirstOrDefault<User>(query, new { IdCard = idCard });
 
             }
         }

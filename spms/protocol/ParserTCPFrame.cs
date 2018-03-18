@@ -1,4 +1,5 @@
-﻿using spms.bean;
+﻿using NLog;
+using spms.bean;
 using spms.constant;
 using spms.entity;
 using spms.service;
@@ -13,6 +14,7 @@ namespace spms.protocol
 {
     class ParserTCPFrame
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public byte[] Parser(byte[] source)
         {
             byte[] response = new byte[0];
@@ -29,7 +31,7 @@ namespace spms.protocol
 
             Array.Copy(buffer, 12, data, 0, data_len);
 
-            byte calcXor = ProtocolUtil.XorByByte(buffer, 0, 11 + data_len);
+            byte calcXor = ProtocolUtil.XorByByte(buffer, 0, 12 + data_len);
 
             TcpFrameBean frameBean = new TcpFrameBean();
             if (xor != calcXor)
@@ -83,6 +85,7 @@ namespace spms.protocol
             Int16 packNum = BitConverter.ToInt16(body, 32);
 
             byte[] data = MakerTCPFrame.GetInstance().Make8007Frame(packNum, idcard);
+            logger.Error(ProtocolUtil.BytesToString(data));
             byte nextSerialNo = (byte)(frameBean.SerialNo + 1);
             response = MakerTCPFrame.GetInstance().PackData(MsgId.X8007, nextSerialNo, frameBean.TerminalId, data);
 
@@ -115,6 +118,7 @@ namespace spms.protocol
             byte[] body = frameBean.DataBody;
             string idcard = Encoding.GetEncoding("GBK").GetString(body, 0, 18);
             byte[] data = MakerTCPFrame.GetInstance().Make800AFrame(idcard);
+            logger.Error(ProtocolUtil.BytesToString(data));
             Int16 nextSerialNo = (Int16)(frameBean.SerialNo + 1);
             MakerTCPFrame.GetInstance().PackData(MsgId.X800A, nextSerialNo, frameBean.TerminalId, data);
         }
