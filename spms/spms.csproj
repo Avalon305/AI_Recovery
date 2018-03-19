@@ -249,14 +249,14 @@
     <Compile Include="view\Pages\ChildWin\InputTraining .xaml.cs">
       <DependentUpon>InputTraining .xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\Pages\ChildWin\InputTrainingResult.xaml.cs">
-      <DependentUpon>InputTrainingResult.xaml</DependentUpon>
-    </Compile>
     <Compile Include="view\Pages\ChildWin\InputTrainingResults.xaml.cs">
       <DependentUpon>InputTrainingResults.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\NonPublicInformation.xaml.cs">
       <DependentUpon>NonPublicInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\Photograph.xaml.cs">
+      <DependentUpon>Photograph.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\PhysicalAssessmentReport.xaml.cs">
       <DependentUpon>PhysicalAssessmentReport.xaml</DependentUpon>
@@ -269,6 +269,9 @@
     </Compile>
     <Compile Include="view\Pages\ChildWin\TrainingReport.xaml.cs">
       <DependentUpon>TrainingReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\TwoLevelCipher.xaml.cs">
+      <DependentUpon>TwoLevelCipher.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\UpdateDiagnosisName.xaml.cs">
       <DependentUpon>UpdateDiagnosisName.xaml</DependentUpon>
@@ -387,15 +390,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="view\Pages\ChildWin\InputTrainingResult.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="view\Pages\ChildWin\InputTrainingResults.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="view\Pages\ChildWin\NonPublicInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\Photograph.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -412,6 +415,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="view\Pages\ChildWin\TrainingReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\TwoLevelCipher.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
