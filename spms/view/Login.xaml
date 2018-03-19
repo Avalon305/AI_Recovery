@@ -19,6 +19,26 @@
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Margin" Value="20,0" />
         </Style>
+        <Style TargetType="Label" x:Key="tipLable">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Label}">
+                    <Grid>
+                        <Border CornerRadius="4" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" Margin="8.5,0,0,0" Background="White" HorizontalAlignment="Left" Padding="5">
+                            <ContentPresenter />
+                        </Border>
+                        <Canvas Width="10" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0" Background="Transparent">
+                            <Path Stroke="Black" StrokeThickness="0.5" Fill="White">
+                                <Path.Data>
+                                    <PathGeometry Figures="M 10,0 L 10,0,0,5  L 0,5,10,10"/>
+                                </Path.Data>
+                            </Path>
+                        </Canvas>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     </Window.Resources>
 
     <!--WindowStyle="None"-->
@@ -35,7 +55,7 @@
                     </LinearGradientBrush>
 
                 </Grid.Background>
-                <Button  Style="{StaticResource Btn}"  Width="140" Height="25" Margin="1050,25,75,615" Content="结束" FontSize="15" Foreground="White" />
+                <Button  Style="{StaticResource Btn}"  Width="140" Height="25" Margin="1050,25,75,615" Content="关闭" FontSize="15" Foreground="White" />
                 <Image  Source="/view/Images/body3.png"  Margin="0,31,1029.2,580.4"/>
 
 
@@ -123,12 +143,19 @@
                 </Border>
                 <Label Content="宝德龙康复医疗系统" FontWeight="DemiBold" Foreground="DimGray" FontFamily="{StaticResource ResourceKey=微软雅黑}" FontSize="50"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="84" Margin="405.2,44,405.2,442.4" />
                 <Label Content="Version 1.0.0" Margin="709,218,301.2,419.4" Foreground="Gray"  FontFamily="{StaticResource ResourceKey=MAGNETOB}" FontSize="20"/>
-                <Label Content="用户名:" FontSize="30" Foreground="DimGray" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Margin="382,290,750.2,328.4" />
+                <!--<Label Content="错误提示" FontWeight="DemiBold" FontSize="15" FontFamily="{StaticResource 微软雅黑}" Foreground="Red" Margin="509,273,381.2,340.4" Name="Error_Info"></Label>-->
+                <Label Content="用户名:" HorizontalAlignment="Right" FontSize="30" Foreground="DimGray" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Margin="332,290,785.2,328.4" />
                 <TextBlock  Margin="500,307,380,340.4" FontSize="20" Text="  请在此输入管理用户名"  FontFamily="{StaticResource   LiSu}" Foreground="Gray" FontStyle="Italic"/>
                 <TextBox Name="User_Name" Margin="500,300,380,340.4"  FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Foreground="DimGray" FontSize="25" Style="{StaticResource watermark}" />
+                <Popup Name="bubble" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=User_Name}" Placement="Right" >
+                    <Label Style="{StaticResource tipLable}">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Foreground="Red" Name="Error_Info" Content="用户名或密码错误"/>
+                        </StackPanel>
+                    </Label>
+                </Popup>
 
-
-                <Label  Content="密   码:" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="30"   Foreground="DimGray" Margin="382,345,750.2,270" />
+                <Label  Content="密   码:" HorizontalAlignment="Right" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="30"   Foreground="DimGray" Margin="380,345,785.2,270" />
                 <TextBlock  Margin="500,363,380.2,285.4" FontSize="20" Text="  请在此输入管理密码"  Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic" />
                 <PasswordBox Name="User_Password" Margin="500,356,380,285.4" Foreground="DimGray"  FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="25" Style="{StaticResource Watermark}"/>
 
