@@ -193,7 +193,7 @@
                         </Style>
                     </DataGrid.CellStyle>
                     <DataGrid.Columns >
-                        <DataGridTextColumn Binding="{Binding User_Id}" Header="使用ID" Width="140" />
+                        <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="使用ID" Width="140" />
                         <DataGridTextColumn Binding="{Binding User_Name}" Header="使用者名称" Width="140"/>
                         <DataGridTextColumn Binding="{Binding User_Namepinyin}" Header="使用者名称（拼音）" Width="150"/>
                         <DataGridTextColumn Binding="{Binding User_Sex, Converter={StaticResource sexconverter}}" Header="性别" Width="50"/>
@@ -202,7 +202,7 @@
                         <DataGridTextColumn Binding="{Binding User_InitCare}" Header="初期要介护程度" Width="120"/>
                         <DataGridTextColumn Binding="{Binding User_NowtCare}" Header="现在要介护程度" Width="120"/>
                         <DataGridTextColumn Binding="{Binding User_IllnessName}" Header="疾病名称" Width="173"/>
-                        <DataGridTextColumn Binding="{Binding User_PhysicailDisabilities}" Header="残障名称" Width="163"/>
+                        <DataGridTextColumn Binding="{Binding User_PhysicalDisabilities}" Header="残障名称" Width="163"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Border>
