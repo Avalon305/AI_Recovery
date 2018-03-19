@@ -28,5 +28,78 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+    <Style TargetType="{x:Type TextBox}" x:Key="watermark">
+
+        <Style.Triggers>
+
+            <MultiTrigger>
+
+                <MultiTrigger.Conditions>
+
+                    <Condition Property="Text" Value=""/>
+
+                    <Condition Property="TextBox.IsFocused" Value="false"/>
+
+                </MultiTrigger.Conditions>
+
+                <Setter Property="Template">
+
+                    <Setter.Value>
+
+                        <ControlTemplate>
+
+                            <Border BorderThickness="1" BorderBrush="Gray" Margin="0">
+
+                                <TextBlock x:Name="MainTextBlock"  Text="{TemplateBinding TextBox.Tag}" Width="{TemplateBinding TextBox.ActualWidth}" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                            </Border>
+
+                        </ControlTemplate>
+
+                    </Setter.Value>
+
+                </Setter>
+
+            </MultiTrigger>
+
+        </Style.Triggers>
+
+    </Style>
+    <Style TargetType="{x:Type PasswordBox}" x:Key="Watermark">
+
+        <Style.Triggers>
+
+            <MultiTrigger>
+
+                <MultiTrigger.Conditions>
+
+                   
+
+                    <Condition Property="TextBox.IsFocused" Value="false"/>
+
+                </MultiTrigger.Conditions>
+
+                <Setter Property="Template">
+
+                    <Setter.Value>
+
+                        <ControlTemplate>
+
+                            <Border BorderThickness="1" BorderBrush="Gray" Margin="0">
+
+                                <TextBlock x:Name="MainTextBlock"  Text="{TemplateBinding TextBox.Tag}" Width="{TemplateBinding TextBox.ActualWidth}" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                            </Border>
+
+                        </ControlTemplate>
+
+                    </Setter.Value>
+
+                </Setter>
+
+            </MultiTrigger>
+
+        </Style.Triggers>
+
+    </Style>
 </ResourceDictionary>
