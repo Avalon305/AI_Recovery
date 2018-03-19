@@ -153,5 +153,13 @@ namespace spms.view.Pages.ChildWin
             l1.Content = user.User_Name;
             user_id.Content = user.Pk_User_Id;
         }
+
+        //错误：OnlyInputNumbers
+        //设置手机号输入框只能输入数字
+        private void OnlyInputNumbers(object sender, TextCompositionEventArgs e)
+        {
+            inputlimited.InputLimited.OnlyInputNumbers(e);
+        }
+
     }
 }

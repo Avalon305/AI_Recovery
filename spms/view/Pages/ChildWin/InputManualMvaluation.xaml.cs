@@ -407,6 +407,12 @@ namespace spms.view.Pages.ChildWin
         {
             c49.IsChecked = false;
         }
+        //错误：OnlyInputNumbers
+        //设置手机号输入框只能输入数字
+        private void OnlyInputNumbers(object sender, TextCompositionEventArgs e)
+        {
+            inputlimited.InputLimited.OnlyInputNumbers(e);
+        }
 
 
 
