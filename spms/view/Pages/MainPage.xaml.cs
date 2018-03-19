@@ -375,8 +375,9 @@ namespace spms.view.Pages
 
         private void GoBack(object sender, RoutedEventArgs e)
         {
-            Window window = (Window)this.Parent;
-            window.Show();
+            System.Environment.Exit(0);
+            //Window window = (Window)this.Parent;
+            //window.Show();
             //window.Content = new MainWindow();
         }
         
@@ -474,6 +475,13 @@ namespace spms.view.Pages
             };
             inputManualMvaluation.ShowDialog();
         }
- 
+
+        private void BtnSetting_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = (Window)this.Parent;
+            window.Content = new DesignPage1();
+
+
+        }
     }
 }
