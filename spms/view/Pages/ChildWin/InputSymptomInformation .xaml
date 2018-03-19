@@ -3,10 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:dec="clr-namespace:spms.view.Dictionary"
         xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
-        xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
-         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
         Title="宝德龙"
@@ -59,7 +57,7 @@
             <Label Grid.Column="0" Content="用户姓名: " Margin="0,11,69.8,-1.4" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
             <Label Grid.Column="1"  Margin="2,11,-9.2,-1.4" Name="l1" Grid.RowSpan="2"/>
             <Label Grid.Row="0" Grid.Column="0" Content="用户ID:" Margin="0,-6,69.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Label Grid.Row="0" Grid.Column="1"  Margin="2,-6,-9.2,15.6" Name="user_id"Grid.RowSpan="2"/>
+            <Label Grid.Row="0" Grid.Column="1"  Margin="2,-6,-9.2,15.6" Name="user_id" Grid.RowSpan="2"/>
         </Grid>
         <!--结束：用户ID和姓名-->
         <!--实施日期-->
@@ -214,14 +212,15 @@
             <Grid Margin="0,0,0,0.4" >
                 <Label Content="看护记录"  Background="Gray" Foreground="White" Width="80" Margin="0,0,0,136" Height="30"/>
             </Grid>
-            <RichTextBox  AcceptsReturn="True" Margin="3,0,0,0.4" Width="461" Name="Record">
-                <!--行间距-->
+            
+            <!--<RichTextBox  AcceptsReturn="True" Margin="3,0,0,0.4" Width="461" Name="Record">
+                --><!--行间距--><!--
                 <RichTextBox.Document>
                     <FlowDocument Focusable="True" LineHeight="1" >
                     </FlowDocument>
                 </RichTextBox.Document>
-            </RichTextBox>
-            <!--<TextBox Margin="3,0,0,0.4" Width="461" Name="Record"/>-->
+            </RichTextBox>-->
+            <TextBox Margin="3,0,0,0.4" Width="461" Name="Record" AcceptsReturn="True" TextWrapping="Wrap"/>
         </StackPanel>
         <!--结束：看护记录-->
         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="128" Height="27" VerticalAlignment="Bottom"  Margin="0,15,11,0">

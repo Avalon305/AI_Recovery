@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
+        xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
         Title="宝德龙" Height="356.975" Width="470"
@@ -57,37 +58,37 @@
                 <RowDefinition Height="2"></RowDefinition>
                 <RowDefinition Height="23"></RowDefinition>
                 <RowDefinition Height="2"></RowDefinition>
-                <RowDefinition Height="23"></RowDefinition>
+                <RowDefinition Height="24"></RowDefinition>
 
 
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="130"></ColumnDefinition>
                 <ColumnDefinition Width="2"></ColumnDefinition>
-                <ColumnDefinition Width="314"></ColumnDefinition>
+                <ColumnDefinition Width="304"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Label Content="用户ID" Grid.Row="0" Grid.Column="0"  Background="Gray" Foreground="White"/>
-            <TextBox Grid.Row="0" Name="t1" Grid.Column="2" Margin="0,0,10.4,0"   />
+            <TextBox Grid.Row="0" Name="t1" Grid.Column="2"   VerticalContentAlignment="Center"/>
             <Label Content="用户姓名" Grid.Row="2" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <TextBox Grid.Row="2" Name="t2" Grid.Column="2"  Text="{Binding User_Name}" Margin="0,0.4,10.4,1.4" Grid.RowSpan="2"/>
+            <TextBox Grid.Row="2" Name="t2" Grid.Column="2"  Text="{Binding User_Name}"   VerticalContentAlignment="Center"/>
             <Label Content="用户姓名（拼音）" Grid.Row="4" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <TextBox Grid.Row="3" Name="t3" Grid.Column="2" Margin="0,1.2,10.4,1.2" Grid.RowSpan="3" />
+            <TextBox Grid.Row="4" Name="t3" Grid.Column="2"  VerticalContentAlignment="Center"/>
             <Label Content="性别" Grid.Row="6" Grid.Column="0" Background="Gray" Foreground="White" />
-            <ComboBox Name="c1" Grid.Row="5" Grid.Column="1"   Background="LightGray" Grid.ColumnSpan="2" Margin="1.4,1.4,10.4,0.4" Grid.RowSpan="2" >
+            <ComboBox Name="c1" Grid.Row="6" Grid.Column="2"   Background="LightGray"     VerticalContentAlignment="Center">
                 <ComboBoxItem Content="男"></ComboBoxItem>
                 <ComboBoxItem Content="女"></ComboBoxItem>
             </ComboBox>
             <Label Content="手机号" Grid.Row="8" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <TextBox Name="phone" Grid.Row="8" Grid.Column="2" Margin="0,0.2,10.4,0" />
+            <TextBox Name="phone" Grid.Row="8" Grid.Column="2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
             <Label Content="身份证号" Grid.Row="10" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <TextBox Name="IDCard" Grid.Row="10" Grid.Column="2" Margin="0,0.2,10.4,0" />
-            <ComboBox IsTextSearchEnabled="False" IsEditable="True" Name="comboBox1"  Grid.Row="12"  Grid.Column="2" KeyUp="comboBox1_KeyUp" SelectionChanged="comboBox1_SelectionChanged" Margin="0,0,10.4,0.2"/>
+            <TextBox Name="IDCard" Grid.Row="10" Grid.Column="2" VerticalContentAlignment="Center"/>
+            <ComboBox IsTextSearchEnabled="False"  Name="comboBox1"  Grid.Row="12"  Grid.Column="2" KeyUp="comboBox1_KeyUp" SelectionChanged="comboBox1_SelectionChanged"   />
             <Label Content="小组名称" Grid.Row="12" Grid.Column="0" Background="Gray" Foreground="White"/>
             <Label Content="疾病名称" Grid.Row="14" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <ComboBox Name="c4" Grid.Row="14" Grid.Column="2" Margin="0,0.2,10.4,0" />
+            <ComboBox Name="c4" Grid.Row="14" Grid.Column="2" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False"/>
 
             <Label Content="残障名称" Grid.Row="16" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <ComboBox Name="c3" Grid.Row="16" Grid.Column="2" Background="LightGray" Margin="0,0.4,10.4,-0.2"/>
+            <ComboBox Name="c3" Grid.Row="16" Grid.Column="2" Background="LightGray" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False"/>
         </Grid>
         <Border CornerRadius="5,0,0,0" DockPanel.Dock="Right" Background="White" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="208" Margin="0,3,10,10" BorderBrush="White" BorderThickness="0">
             <DockPanel  VerticalAlignment="Bottom">

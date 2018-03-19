@@ -72,22 +72,22 @@ ResizeMode="NoResize"
             </Grid.ColumnDefinitions>
             <!--器材名称开始-->
             <Border Grid.Row="0"  Grid.Column="0" Background="Gray" Margin="11,0,10,0">
-                <CheckBox Name="checkbox1"  Foreground="White"  Margin="0,3,0,0" Click="Instrument1">水平腿部推蹬机</CheckBox>
+                <CheckBox Name="checkbox1"  Foreground="White"  Margin="0,3,0,0" >水平腿部推蹬机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="1" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox2"   Foreground="White"  Margin="00,3,0,0" Click="Instrument2" >坐姿划船机</CheckBox>
+                <CheckBox Name="checkbox2"   Foreground="White"  Margin="00,3,0,0"  >坐姿划船机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="2" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox3"  Foreground="White"  Margin="0,3,0,0"  Click="Instrument3">身体伸展弯曲机</CheckBox>
+                <CheckBox Name="checkbox3"  Foreground="White"  Margin="0,3,0,0"  >身体伸展弯曲机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="3" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox4"  Foreground="White"  Margin="0,3,0,0"  Click="Instrument4">腿部伸展弯曲机</CheckBox>
+                <CheckBox Name="checkbox4"  Foreground="White"  Margin="0,3,0,0"  >腿部伸展弯曲机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="4" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox5"  Foreground="White"  Margin="0,3,0,0"  Click="Instrument5">臀部外展内收机</CheckBox>
+                <CheckBox Name="checkbox5"  Foreground="White"  Margin="0,3,0,0"  >臀部外展内收机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="5" Background="Gray" Margin="10,0,10,0">
-                <CheckBox  Name="checkbox6" Foreground="White"  Margin="0,3,0,0"  Click="Instrument6">胸部推举机</CheckBox>
+                <CheckBox  Name="checkbox6" Foreground="White"  Margin="0,3,0,0"  >胸部推举机</CheckBox>
             </Border>
             <!--器材名称结束-->
 

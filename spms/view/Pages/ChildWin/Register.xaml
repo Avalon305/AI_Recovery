@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        
+        xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
        
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
@@ -122,19 +122,19 @@
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
                         <Label Content="用户姓名"  VerticalAlignment="Center"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="0" Name="t2" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Name}"/>
+                    <TextBox Grid.Row="0" Name="t2" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <Label  Grid.Row="0" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
 
                     <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="用户姓名(拼音)"  FontStyle="Normal"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="1" Name="t3" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Namepinyin}"/>
+                    <TextBox Grid.Row="1" Name="t3" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <Label Grid.Row="1" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
 
                     <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="性别" Grid.Row="2" Grid.Column="0" Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c1" Grid.Row="2" Grid.Column="1"  Background="Black" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" FontSize="15" SelectedValue="{Binding User_Name}">
+                    <ComboBox Name="c1" Grid.Row="2" Grid.Column="1"  Background="Black" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" >
                         <ComboBoxItem Content="男" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                         <ComboBoxItem Content="女" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                     </ComboBox>
@@ -143,55 +143,56 @@
                     <Border Grid.Row="3" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="出生年月" Grid.Row="3" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="3" Name="t4" Grid.Column="1" FontSize="15"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Birth}"/>
+                    <TextBox Grid.Row="3" Name="t4" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <Label Content="（yyyy/mm/dd）" Grid.Row="3" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="0.4,1.6,-71.6,0.2"/>
                     <Border Grid.Row="4" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="手机号" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="4" Name="phoneNum" Grid.Column="1" FontSize="15"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Phone}"/>
+                    <TextBox Grid.Row="4" Name="phoneNum" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                     <Border Grid.Row="5" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="身份证号" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="5" Name="IDCard" Grid.Column="1" FontSize="15"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Name}"/>
+                    <TextBox Grid.Row="5" Name="IDCard" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <Border Grid.Row="6" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="小组名称"   Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c2" Grid.Row="6" Grid.Column="1" FontSize="15"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" />
+                    <ComboBox Name="c2" Grid.Row="6" Grid.Column="1" Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" />
 
                     <Label Grid.Row="6" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="0.2,0.2,100.4,1.6"/>
 
                     <Border Grid.Row="7" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="初期要介护度"   Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c3" Grid.Row="7" Grid.Column="1" FontSize="15"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>
+                    <ComboBox Name="c3" Grid.Row="7" Grid.Column="1" Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>
 
                     <Label  Grid.Row="7" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
 
                     <Border Grid.Row="8" Grid.Column="0" Background="Gray"  Margin="0,0,4,2" >
                         <Label Content="现在要介护度" Grid.Row="8" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c4" Grid.Row="8" Grid.Column="1" FontSize="15"  Background="LightGray"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>
+                    <ComboBox Name="c4" Grid.Row="8" Grid.Column="1"  Background="LightGray"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>
 
                     <Label  Grid.Row="8" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
 
                     <Border Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="疾病名称" Grid.Row="9" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c5" Grid.Row="9" Grid.Column="1" FontSize="15"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" />
+                    <ComboBox Name="c5" Grid.Row="9" Grid.Column="1"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" IsEditable="True" IsTextSearchEnabled="False" VerticalContentAlignment="Center"/>
 
                     <Button Content="疾病名称添加"  Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" Style="{StaticResource Btn}" Width="80" Click="DiseaseNameAddition"/>
 
                     <Border Grid.Row="10" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="残障名称" Grid.Row="10" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c6" Grid.Row="10" Grid.Column="1" FontSize="15"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>
+                    <ComboBox Name="c6" Grid.Row="10" Grid.Column="1"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False"/>
 
                     <Button Content="残障名称添加"  Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" Style="{StaticResource Btn}" Width="80" Click="DisabilityNameAddition"/>
 
                     <Border Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="备忘" Grid.Row="11" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <RichTextBox  AcceptsReturn="True"  Grid.Row="11" Name="t6" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2">
+                    <!--<TextBox TextWrapping="Wrap" AcceptsReturn="True"  Grid.Row="11" Name="t6" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"></TextBox>-->
+                    <RichTextBox  AcceptsReturn="True"  Grid.Row="11" Name="t6" Grid.Column="1"   Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2">
                         <!--行间距-->
                         <RichTextBox.Document>
                             <FlowDocument Focusable="True" LineHeight="1">
