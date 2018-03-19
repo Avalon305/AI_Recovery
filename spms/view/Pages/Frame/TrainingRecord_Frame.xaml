@@ -7,10 +7,51 @@
              mc:Ignorable="d" 
              d:DesignHeight="321.666" d:DesignWidth="955">
     <Grid>
-        <TabControl Name="TabControl1" HorizontalAlignment="Left" Height="337" Margin="2.3,8,0,0" VerticalAlignment="Top" Width="955">
+        <TabControl Name="TabControl1" HorizontalAlignment="Left" Height="337" Margin="2.3,8,0,0" VerticalAlignment="Top" Width="948">
             <TabItem Header="水平腿部推蹬机" Width="95">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="TrainingRecord" HorizontalAlignment="Left"  VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
+                    <DataGrid x:Name="TrainingRecord1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" IsReadOnly="true">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Height" Value="18" />
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <!--去掉选中单元格的框线-->
+                        
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell" >
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+                            <DataGridTextColumn Binding="{Binding dp_moveway}" Header="移乘方法" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding dp_weight}" Header="重量" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding dp_groupcount}" Header="组数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding  dp_groupnum}" Header="个数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding PR_SportStrength}" Header="自觉运动强度" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding PR_Evaluate}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="坐姿划船机" Width="95">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="TrainingRecord2" HorizontalAlignment="Left"  VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Height" Value="18" />
+                            </Style>
+                        </DataGrid.RowStyle>
                         <!--去掉选中单元格的框线-->
                         <DataGrid.CellStyle>
                             <Style TargetType="DataGridCell" >
@@ -22,15 +63,15 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="训练日期" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding User_Name}" Header="移乘方法" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding User_Namepinyin}" Header="重量" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding User_Sex}" Header="组数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding User_Age}" Header="个数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding User_Groupname}" Header="自觉运动强度" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding User_Initcare}" Header="运动时机、姿势等" Width="110"/>
-                            <DataGridTextColumn Binding="{Binding User_Nowtcare}" Header="备忘" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding User_Illnessname}" Header="利用者感想" Width="200"/>
+                            <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130"/>
+                            <DataGridTextColumn Binding="{Binding dp_moveway}" Header="移乘方法" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding dp_weight}" Header="重量" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding dp_groupcount}" Header="组数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding  dp_groupnum}" Header="个数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding PR_SportStrength}" Header="自觉运动强度" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding PR_Evaluate}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding PR_UserThoughts}" Header="使用者者感想" Width="200"/>
 
                         </DataGrid.Columns>
                     </DataGrid>
@@ -38,38 +79,139 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="坐姿划船机" Width="95">
-                <Grid Background="#FFE5E5E5">
-                    <TextBox HorizontalAlignment="Left"  Height="305" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="562"/>
-
-
-                </Grid>
-            </TabItem>
             <TabItem Header="身体伸展弯曲机" Width="95">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox HorizontalAlignment="Left"  Height="305" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="562"/>
+                    <DataGrid x:Name="TrainingRecord3" HorizontalAlignment="Left"  VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False"  BorderThickness="0" IsReadOnly="true">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Height" Value="18" />
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <!--去掉选中单元格的框线-->
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell" >
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130"/>
+                            <DataGridTextColumn Binding="{Binding dp_moveway}" Header="移乘方法" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding dp_weight}" Header="重量" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding dp_groupcount}" Header="组数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding  dp_groupnum}" Header="个数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding PR_SportStrength}" Header="自觉运动强度" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding PR_Evaluate}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding PR_UserThoughts}" Header="使用者者感想" Width="200"/>
 
+                        </DataGrid.Columns>
+                    </DataGrid>
 
                 </Grid>
             </TabItem>
             <TabItem Header="腿部伸展弯曲机" Width="95">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox HorizontalAlignment="Left"  Height="305" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="562"/>
+                    <DataGrid x:Name="TrainingRecord4" HorizontalAlignment="Left"  VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Height" Value="18" />
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <!--去掉选中单元格的框线-->
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell" >
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130"/>
+                            <DataGridTextColumn Binding="{Binding dp_moveway}" Header="移乘方法" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding dp_weight}" Header="重量" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding dp_groupcount}" Header="组数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding  dp_groupnum}" Header="个数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding PR_SportStrength}" Header="自觉运动强度" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding PR_Evaluate}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
 
                 </Grid>
             </TabItem>
             <TabItem Header="臀部外展内收机" Width="95">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox HorizontalAlignment="Left"  Height="305" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="562"/>
+                    <DataGrid x:Name="TrainingRecord5" HorizontalAlignment="Left"  VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Height" Value="18" />
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <!--去掉选中单元格的框线-->
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell" >
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130"/>
+                            <DataGridTextColumn Binding="{Binding dp_moveway}" Header="移乘方法" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding dp_weight}" Header="重量" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding dp_groupcount}" Header="组数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding  dp_groupnum}" Header="个数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding PR_SportStrength}" Header="自觉运动强度" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding PR_Evaluate}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
 
 
                 </Grid>
             </TabItem>
             <TabItem Header="胸部推举机" Width="95">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox HorizontalAlignment="Left"  Height="305" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="562"/>
-
+                    <DataGrid x:Name="TrainingRecord6" HorizontalAlignment="Left"  VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False"  BorderThickness="0" IsReadOnly="true">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Height" Value="18" />
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <!--去掉选中单元格的框线-->
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell" >
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130"/>
+                            <DataGridTextColumn Binding="{Binding dp_moveway}" Header="移乘方法" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding dp_weight}" Header="重量" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding dp_groupcount}" Header="组数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding  dp_groupnum}" Header="个数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding PR_SportStrength}" Header="自觉运动强度" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding PR_Evaluate}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
                 </Grid>
             </TabItem>
