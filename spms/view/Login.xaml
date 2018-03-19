@@ -55,7 +55,7 @@
                     </LinearGradientBrush>
 
                 </Grid.Background>
-                <Button  Style="{StaticResource Btn}"  Width="140" Height="25" Margin="1050,25,75,615" Content="关闭" FontSize="15" Foreground="White" />
+                <Button  Name="EndBtn" Style="{StaticResource Btn}"  Width="140" Height="25" Margin="1050,25,75,615" Content="关闭" FontSize="15" Foreground="White" Click="EndBtn_Click" />
                 <Image  Source="/view/Images/body3.png"  Margin="0,31,1029.2,580.4"/>
 
 
