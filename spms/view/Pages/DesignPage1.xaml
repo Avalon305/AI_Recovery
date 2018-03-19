@@ -40,7 +40,7 @@
 
                 </Border.Background>
                 <Grid>
-                    <Label VerticalAlignment="Center" FontSize="20" Foreground="White" Content="设定"/>
+                    <Label VerticalAlignment="Center" FontSize="20" Foreground="White" Content="初级设置"/>
 
                     <!--<Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="287" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">

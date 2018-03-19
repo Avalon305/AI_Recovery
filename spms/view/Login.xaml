@@ -121,7 +121,7 @@
                         </Image.RenderTransform>
                     </Image>
                 </Border>
-                <Label Content="宝德龙康复系统" FontWeight="DemiBold" Foreground="DimGray" FontFamily="{StaticResource ResourceKey=微软雅黑}" FontSize="50"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="84" Margin="413,44,409.2,442.4" />
+                <Label Content="宝德龙康复医疗系统" FontWeight="DemiBold" Foreground="DimGray" FontFamily="{StaticResource ResourceKey=微软雅黑}" FontSize="50"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="84" Margin="405.2,44,405.2,442.4" />
                 <Label Content="Version 1.0.0" Margin="709,218,301.2,419.4" Foreground="Gray"  FontFamily="{StaticResource ResourceKey=MAGNETOB}" FontSize="20"/>
                 <Label Content="用户名:" FontSize="30" Foreground="DimGray" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Margin="382,290,750.2,328.4" />
                 <TextBlock  Margin="500,307,380,340.4" FontSize="20" Text="  请在此输入管理用户名"  FontFamily="{StaticResource   LiSu}" Foreground="Gray" FontStyle="Italic"/>
