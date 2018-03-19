@@ -171,5 +171,11 @@ namespace spms.view.Pages.ChildWin
         {
 
         }
+        //设置手机号输入框只能输入数字
+        private void OnlyInputNumbers(object sender, TextCompositionEventArgs e)
+        {
+            inputlimited.InputLimited.OnlyInputNumbers(e);
+        }
+
     }
 }

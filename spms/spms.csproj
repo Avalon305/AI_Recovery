@@ -215,6 +215,7 @@
     <Compile Include="util\SystemInfo.cs" />
     <Compile Include="view\converter\AgeConverter.cs" />
     <Compile Include="view\converter\SexConverter.cs" />
+    <Compile Include="view\inputlimited\InputLimited.cs" />
     <Compile Include="view\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -477,6 +478,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\fonts\MAGNETOB.TTF" />
+    <Resource Include="view\fonts\MSYH.TTC" />
+    <Resource Include="view\fonts\MSYHBD.TTC" />
+    <Resource Include="view\fonts\MSYHL.TTC" />
+    <Resource Include="view\fonts\SIMLI.TTF" />
+    <Resource Include="view\fonts\STCAIYUN.TTF" />
     <Resource Include="view\Images\3.png" />
     <Resource Include="view\Images\4-7.png" />
     <Resource Include="view\Images\5-4.png" />
