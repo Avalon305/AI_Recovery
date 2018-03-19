@@ -5,6 +5,18 @@
              StartupUri="view/Login.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <FontFamily x:Key="微软雅黑">
+                /view/fonts/#微软雅黑
+            </FontFamily>
+            <FontFamily x:Key="MAGNETOB">
+                /view/fonts/#Magneto
+            </FontFamily>
+            <FontFamily x:Key="华文彩云">
+                /view/fonts/#华文彩云
+            </FontFamily>
+            <FontFamily x:Key="LiSu">
+                /view/fonts/#LiSu
+            </FontFamily>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="resources\en-us.xaml"/>
                 <ResourceDictionary Source="resources\zh-cn.xaml"/>
