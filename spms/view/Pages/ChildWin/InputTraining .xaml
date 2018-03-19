@@ -5,31 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
-         Title="PRexer"
-         ResizeMode ="NoResize" 
-        Height="700" Width="1300" Loaded="Window_Loaded">
+        Icon="/view/Images/icon2.png"
+        Title="宝德龙"
+ResizeMode="NoResize"
+        Height="763.2" Width="1300"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <Style TargetType="TextBlock">
+            <Setter   Property="VerticalAlignment"  Value="Center"></Setter>
+        </Style>
+        <Style TargetType="Border">
+            <Setter  Property="BorderBrush" Value="Gray"></Setter>
+        </Style>
+    </Window.Resources>
     <!-- 整体框架用的 StackPanel 布局-->
-    <StackPanel Orientation="Vertical">
+    <StackPanel Orientation="Vertical" Margin="0,0,3.6,-0.4">
         <!--Border 使用者一览表以及按钮  开始-->
-        <Border Height="40" CornerRadius="5,5,0,0" Background="Gray" Margin="5,5,25,0">
+        <Border Height="40" CornerRadius="5,5,0,0"  Margin="11,5,10,0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="Silver" Offset="0.1"/>
+                    <GradientStop Color="Gray" Offset="0.9"/>
+                </LinearGradientBrush>
+
+            </Border.Background>
             <Grid>
                 <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38">输入训练</Label>
-                <!-- 按钮排放位置-->
-                <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="568" Height="28" VerticalAlignment="Bottom" >
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                        <Button Width="140"  Height="25"  Background="Gray"  Foreground="White" Margin="2,0,0,0"  Style="{StaticResource myBtn}" VerticalAlignment="Bottom">下一页</Button>
-                        <Button Width="140"  Height="25"   Background="Gray"  Foreground="White" Margin="2,0,0,0"  RenderTransformOrigin="0.5,0.508" Style="{StaticResource myBtn}" VerticalAlignment="Bottom" Click="Button_Save">保存</Button>
-                        <Button Width="140" Height="25"     Background="Gray"  Foreground="White"  Margin="2,0,0,0"  Style="{StaticResource myBtn}" VerticalAlignment="Bottom">写入IC卡</Button>
-                        <Button Width="140" Height="25"   Background="Gray"  Foreground="White"  Content="取消"  Margin="2,0,0,0"  Style="{StaticResource myBtn}" VerticalAlignment="Bottom" Click="Cancel"/>
-                    </StackPanel>
-                </Border>
-                <!-- 结束：按钮排放位置-->
             </Grid>
         </Border>
         <!--Border 使用者一览表以及按钮  结束-->
 
         <!--Grid 使用者信息展示 开始-->
-        <Grid Height="34" Margin="10,10,18.6,0">
+        <Grid Height="34" Margin="12,10,18.6,0">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -46,7 +54,7 @@
         <!--Grid 使用者信息展示 结束-->
 
         <!--Grid 使用器材选择 开始-->
-        <Grid Height="593" Margin="0,0,15,0">
+        <Grid Height="593" Margin="0,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="23*"/>
                 <RowDefinition Height="200*"/>
@@ -63,93 +71,97 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <!--器材名称开始-->
-            <Border Grid.Row="0"  Grid.Column="0" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox1" Unchecked="checkbox1_Unchecked" Foreground="White"  Margin="0,3,0,0" Checked="checkbox1_Checked" >水平腿部推蹬机</CheckBox>
+            <Border Grid.Row="0"  Grid.Column="0" Background="Gray" Margin="11,0,10,0">
+                <CheckBox Name="checkbox1"  Foreground="White"  Margin="0,3,0,0" Click="Instrument1">水平腿部推蹬机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="1" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox2" Unchecked="checkbox2_Unchecked"  Foreground="White"  Margin="00,3,0,0" Checked="checkbox2_Checked" >坐姿划船机</CheckBox>
+                <CheckBox Name="checkbox2"   Foreground="White"  Margin="00,3,0,0" Click="Instrument2" >坐姿划船机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="2" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox3" Unchecked="checkbox3_Unchecked" Foreground="White"  Margin="0,3,0,0" Checked="checkbox3_Checked">身体伸展弯曲机</CheckBox>
+                <CheckBox Name="checkbox3"  Foreground="White"  Margin="0,3,0,0"  Click="Instrument3">身体伸展弯曲机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="3" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox4" Unchecked="checkbox4_Unchecked" Foreground="White"  Margin="0,3,0,0" Checked="checkbox4_Checked">腿部伸展弯曲机</CheckBox>
+                <CheckBox Name="checkbox4"  Foreground="White"  Margin="0,3,0,0"  Click="Instrument4">腿部伸展弯曲机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="4" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox5" Unchecked="checkbox5_Unchecked" Foreground="White"  Margin="0,3,0,0" Checked="checkbox5_Checked">臀部外展内收机</CheckBox>
+                <CheckBox Name="checkbox5"  Foreground="White"  Margin="0,3,0,0"  Click="Instrument5">臀部外展内收机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="5" Background="Gray" Margin="10,0,10,0">
-                <CheckBox  Name="checkbox6" Unchecked="checkbox6_Unchecked" Foreground="White"  Margin="0,3,0,0" Checked="checkbox6_Checked">胸部推举机</CheckBox>
+                <CheckBox  Name="checkbox6" Foreground="White"  Margin="0,3,0,0"  Click="Instrument6">胸部推举机</CheckBox>
             </Border>
             <!--器材名称结束-->
 
             <!--器材图片开始-->
             <Border Grid.Row="1" Grid.Column="0" Margin="10,3,10,3">
                 <Grid Margin="0,0,-0.2,10.8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="115*"/>
+                        <ColumnDefinition Width="78*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-01_副本.jpg" Stretch="Fill"  />
+                        <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_01" Height="20" Width="50" Margin="10,104,133,86" RenderTransformOrigin="0.502,0.5" ></ComboBox>
-                    <ComboBox Name="com_02" Height="20" Width="50" Margin="10,143,133,47"></ComboBox>
-                    <ComboBox Name="com_03" Height="20" Width="50" Margin="10,65,133,125"></ComboBox>
-                    <ComboBox Name="com_04" Height="20" Width="50" Margin="107,154,36,36"></ComboBox>
+                    <ComboBox Name="com_01" Height="20" Width="50" Margin="10,104,54.7,86" RenderTransformOrigin="0.502,0.5"   IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
+                    <ComboBox Name="com_02" Height="20" Width="50" Margin="10,143,54.7,47"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
+                    <ComboBox Name="com_03" Height="20" Width="50" Margin="10,65,54.7,125"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
+                    <ComboBox Name="com_04" Height="20" Width="50" Margin="107,154,36,36" Grid.ColumnSpan="2"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
                 </Grid>
             </Border>
 
             <Border Grid.Row="1" Grid.Column="1" Margin="10,3,10,3">
                 <Grid Margin="0,0,-0.2,10.8">
                     <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-010_副本.jpg" Stretch="Fill"  />
+                        <ImageBrush ImageSource="/view/Images/KFA-010.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_11" Height="20" Width="50" Margin="20,50,123,140"></ComboBox>
-                    <ComboBox Name="com_12" Height="20" Width="50" Margin="20,122,123,68"></ComboBox>
-                    <ComboBox Name="com_13" Height="20" Width="50" Margin="121,77,22,113"></ComboBox>
-                    <ComboBox Name="com_14" Height="20" Width="50" Margin="121,24,22,166"></ComboBox>
+                    <ComboBox Name="com_11" Height="20" Width="50" Margin="20,50,123,140" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+                    <ComboBox Name="com_12" Height="20" Width="50" Margin="20,122,123,68" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+                    <ComboBox Name="com_13" Height="20" Width="50" Margin="121,77,22,113" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+                    <ComboBox Name="com_14" Height="20" Width="50" Margin="121,24,22,166" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
 
                 </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="2" Margin="10,3,10,3">
                 <Grid Margin="0,0,-0.2,10.8">
                     <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-04_副本.jpg" Stretch="Fill"  />
+                        <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_21" Height="20" Width="50" Margin="10,70,133,120"></ComboBox>
-                    <ComboBox Name="com_22" Height="20" Width="50" Margin="10,121,133,69"></ComboBox>
-                    <ComboBox Name="com_23" Height="20" Width="50" Margin="109,140,34,50" RenderTransformOrigin="1.002,-0.44"></ComboBox>
-                    <ComboBox Name="com_24" Height="20" Width="50" Margin="10,163,133,27"></ComboBox>
+                    <ComboBox Name="com_21" Height="20" Width="50" Margin="10,70,133,120" IsEnabled="{Binding IsChecked, ElementName=checkbox3}" ></ComboBox>
+                    <ComboBox Name="com_22" Height="20" Width="50" Margin="10,121,133,69" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
+                    <ComboBox Name="com_23" Height="20" Width="50" Margin="109,140,34,50" RenderTransformOrigin="1.002,-0.44" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
+                    <ComboBox Name="com_24" Height="20" Width="50" Margin="10,163,133,27" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
                 </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="3" Margin="10,3,10,3">
                 <Grid Margin="0,0,-0.2,10.8">
                     <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-14_副本.jpg" Stretch="Fill"  />
+                        <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_31" Height="20" Width="50" Margin="10,24,133.8,166"></ComboBox>
-                    <ComboBox Name="com_32" Height="20" Width="50" Margin="10,102,133.8,88" RenderTransformOrigin="-0.672,0.78"></ComboBox>
-                    <ComboBox Name="com_33" Height="20" Width="50" Margin="80,64,63.8,126"></ComboBox>
-                    <ComboBox Name="com_34" Height="20" Width="50" Margin="10,147,133.8,43"></ComboBox>
-                    <ComboBox Name="com_35" Height="20" Width="50" Margin="120,135,23.8,55"></ComboBox>
+                    <ComboBox Name="com_31" Height="20" Width="50" Margin="10,24,133.8,166" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                    <ComboBox Name="com_32" Height="20" Width="50" Margin="10,102,133.8,88" RenderTransformOrigin="-0.672,0.78" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                    <ComboBox Name="com_33" Height="20" Width="50" Margin="80,64,63.8,126" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                    <ComboBox Name="com_34" Height="20" Width="50" Margin="10,147,133.8,43" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                    <ComboBox Name="com_35" Height="20" Width="50" Margin="120,135,23.8,55" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
                 </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="4" Margin="10,3,10,3">
                 <Grid Margin="0,0,-0.2,10.8">
                     <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-15_副本.jpg" Stretch="Fill"  />
+                        <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_41" Height="20" Width="50" Margin="96,38,37,152"></ComboBox>
-                    <ComboBox Name="com_42" Height="20" Width="50" Margin="96,98,37,92"></ComboBox>
-                    <ComboBox Name="com_43" Height="20" Width="50" Margin="96,144,37,46"></ComboBox>
+                    <ComboBox Name="com_41" Height="20" Width="50" Margin="96,38,37,152"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
+                    <ComboBox Name="com_42" Height="20" Width="50" Margin="96,98,37,92" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
+                    <ComboBox Name="com_43" Height="20" Width="50" Margin="96,144,37,46" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
 
                 </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="5" Margin="10,3,10,3" >
                 <Grid Margin="0,0,-0.2,10.8">
                     <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-1819_副本.jpg" Stretch="Fill"  />
+                        <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_51" Height="20" Width="50" Margin="96,38,37,152"></ComboBox>
-                    <ComboBox Name="com_52" Height="20" Width="50" Margin="10,104,133.8,86"></ComboBox>
-                    <ComboBox Name="com_53" Height="20" Width="50" Margin="96,144,37,46"></ComboBox>
+                    <ComboBox Name="com_51" Height="20" Width="50" Margin="96,38,37,152" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>
+                    <ComboBox Name="com_52" Height="20" Width="50" Margin="10,104,133.8,86" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>
+                    <ComboBox Name="com_53" Height="20" Width="50" Margin="96,144,37,46" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>
 
                 </Grid>
             </Border>
@@ -171,38 +183,38 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,0,0,0" >
-                    <Label  FontSize="10" Foreground="White" Height="37" Margin="0,0,-0.4,-0.2" VerticalAlignment="Top"  >组数</Label>
+                    <Label  FontSize="10" Foreground="White" Height="37" Margin="0,0,-0.4,-0.2" VerticalAlignment="Top"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}">组数</Label>
                 </Border>
                 <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,0,10,0">
-                    <ComboBox Name="combobox_01"/>
+                    <ComboBox Name="combobox_01"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
                 </Border>
 
                 <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White" >一组的个数</Label>
+                    <Label  FontSize="10" Foreground="White" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}">一组的个数</Label>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_02"/>
+                    <ComboBox Name="combobox_02" IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
                 </Border>
 
                 <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"   Margin="0,0,-0.4,-0.2" VerticalAlignment="Bottom" >组间隔休息时间</Label>
+                    <Label  FontSize="10" Foreground="White"   Margin="0,0,-0.4,-0.2" VerticalAlignment="Bottom" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}">组间隔休息时间</Label>
                 </Border>
                 <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_03"/>
+                    <ComboBox Name="combobox_03" IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
                 </Border>
 
                 <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"  >砝码</Label>
+                    <Label  FontSize="10" Foreground="White"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}">砝码</Label>
                 </Border>
                 <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_04"/>
+                    <ComboBox Name="combobox_04" IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
                 </Border>
 
                 <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"  >移乘方法</Label>
+                    <Label  FontSize="10" Foreground="White"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}">移乘方法</Label>
                 </Border>
                 <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_05"/>
+                    <ComboBox Name="combobox_05" IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
                 </Border>
             </Grid>
 
@@ -221,38 +233,38 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,0,0,0" >
-                    <Label  FontSize="10" Foreground="White" Height="37" Margin="0,0,-0.4,-0.2" VerticalAlignment="Top"  >组数</Label>
+                    <Label  FontSize="10" Foreground="White" Height="37" Margin="0,0,-0.4,-0.2" VerticalAlignment="Top"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}">组数</Label>
                 </Border>
                 <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,0,10,0">
-                    <ComboBox Name="combobox_11"/>
+                    <ComboBox Name="combobox_11" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
                 </Border>
 
                 <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White" >一组的个数</Label>
+                    <Label  FontSize="10" Foreground="White" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}">一组的个数</Label>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_12"/>
+                    <ComboBox Name="combobox_12" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
                 </Border>
 
                 <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"   Margin="0,0,-0.4,-0.2" VerticalAlignment="Bottom" >组间隔休息时间</Label>
+                    <Label  FontSize="10" Foreground="White"   Margin="0,0,-0.4,-0.2" VerticalAlignment="Bottom" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}">组间隔休息时间</Label>
                 </Border>
                 <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_13"/>
+                    <ComboBox Name="combobox_13" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
                 </Border>
 
                 <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"  >砝码</Label>
+                    <Label  FontSize="10" Foreground="White"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}">砝码</Label>
                 </Border>
                 <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_14" Height="22" Margin="0,0,-0.4,0" VerticalAlignment="Top"/>
+                    <ComboBox Name="combobox_14" Height="22" Margin="0,0,-0.4,0" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
                 </Border>
 
                 <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"  >移乘方法</Label>
+                    <Label  FontSize="10" Foreground="White" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}">移乘方法</Label>
                 </Border>
-                <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_15"/>
+                <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,1,10,0" >
+                    <ComboBox Name="combobox_15" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
                 </Border>
             </Grid>
 
@@ -271,38 +283,38 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,0,0,0" >
-                    <Label  FontSize="10" Foreground="White" Height="37" Margin="0,0,-0.4,-0.2" VerticalAlignment="Top"  >组数</Label>
+                    <Label  FontSize="10" Foreground="White" Height="37" Margin="0,0,-0.4,-0.2" VerticalAlignment="Top"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}">组数</Label>
                 </Border>
                 <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,0,10,0">
-                    <ComboBox Name="combobox_21"/>
+                    <ComboBox Name="combobox_21" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
                 </Border>
 
                 <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White" >一组的个数</Label>
+                    <Label  FontSize="10" Foreground="White" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}">一组的个数</Label>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_22"/>
+                    <ComboBox Name="combobox_22" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
                 </Border>
 
                 <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"   Margin="0,0,-0.4,-0.2" VerticalAlignment="Bottom" >组间隔休息时间</Label>
+                    <Label  FontSize="10" Foreground="White"   Margin="0,0,-0.4,-0.2" VerticalAlignment="Bottom" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}">组间隔休息时间</Label>
                 </Border>
                 <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_23"/>
+                    <ComboBox Name="combobox_23" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
                 </Border>
 
                 <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"  >砝码</Label>
+                    <Label  FontSize="10" Foreground="White"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}">砝码</Label>
                 </Border>
                 <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_24"/>
+                    <ComboBox Name="combobox_24" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
                 </Border>
 
                 <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"  >移乘方法</Label>
+                    <Label  FontSize="10" Foreground="White" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}" >移乘方法</Label>
                 </Border>
                 <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_25"/>
+                    <ComboBox Name="combobox_25" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
                 </Border>
             </Grid>
 
@@ -321,38 +333,38 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,0,0,0" >
-                    <Label  FontSize="10" Foreground="White" Height="37" Margin="0,0,-0.4,-0.2" VerticalAlignment="Top"  >组数</Label>
+                    <Label  FontSize="10" Foreground="White" Height="37" Margin="0,0,-0.4,-0.2" VerticalAlignment="Top" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}" >组数</Label>
                 </Border>
                 <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,0,10,0">
-                    <ComboBox Name="combobox_31"/>
+                    <ComboBox Name="combobox_31" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
                 </Border>
 
                 <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White" >一组的个数</Label>
+                    <Label  FontSize="10" Foreground="White" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}">一组的个数</Label>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_32"/>
+                    <ComboBox Name="combobox_32" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
                 </Border>
 
                 <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"   Margin="0,0,-0.4,-0.2" VerticalAlignment="Bottom" >组间隔休息时间</Label>
+                    <Label  FontSize="10" Foreground="White"   Margin="0,0,-0.4,-0.2" VerticalAlignment="Bottom" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}">组间隔休息时间</Label>
                 </Border>
                 <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_33"/>
+                    <ComboBox Name="combobox_33" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
                 </Border>
 
                 <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"  >砝码</Label>
+                    <Label  FontSize="10" Foreground="White"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}">砝码</Label>
                 </Border>
                 <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_34"/>
+                    <ComboBox Name="combobox_34" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
                 </Border>
 
                 <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"  >移乘方法</Label>
+                    <Label  FontSize="10" Foreground="White"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}">移乘方法</Label>
                 </Border>
                 <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_35"/>
+                    <ComboBox Name="combobox_35" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
                 </Border>
             </Grid>
 
@@ -371,38 +383,38 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,0,0,0" >
-                    <Label  FontSize="10" Foreground="White" Height="37" Margin="0,0,-0.4,-0.2" VerticalAlignment="Top"  >组数</Label>
+                    <Label  FontSize="10" Foreground="White" Height="37" Margin="0,0,-0.4,-0.2" VerticalAlignment="Top"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}">组数</Label>
                 </Border>
                 <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,0,10,0">
-                    <ComboBox Name="combobox_41"/>
+                    <ComboBox Name="combobox_41" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
                 </Border>
 
                 <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White" >一组的个数</Label>
+                    <Label  FontSize="10" Foreground="White" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}">一组的个数</Label>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_42"/>
+                    <ComboBox Name="combobox_42" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
                 </Border>
 
                 <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"   Margin="0,0,-0.4,-0.2" VerticalAlignment="Bottom" >组间隔休息时间</Label>
+                    <Label  FontSize="10" Foreground="White"   Margin="0,0,-0.4,-0.2" VerticalAlignment="Bottom" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}">组间隔休息时间</Label>
                 </Border>
                 <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_43"/>
+                    <ComboBox Name="combobox_43" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
                 </Border>
 
                 <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"  >砝码</Label>
+                    <Label  FontSize="10" Foreground="White" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}" >砝码</Label>
                 </Border>
                 <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_44"/>
+                    <ComboBox Name="combobox_44" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
                 </Border>
 
                 <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"  >移乘方法</Label>
+                    <Label  FontSize="10" Foreground="White"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}">移乘方法</Label>
                 </Border>
                 <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_45"/>
+                    <ComboBox Name="combobox_45" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
                 </Border>
             </Grid>
 
@@ -421,38 +433,38 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,0,0,0" >
-                    <Label  FontSize="10" Foreground="White" Height="37" Margin="0,0,-0.4,-0.2" VerticalAlignment="Top"  >组数</Label>
+                    <Label  FontSize="10" Foreground="White" Height="37" Margin="0,0,-0.4,-0.2" VerticalAlignment="Top"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}">组数</Label>
                 </Border>
                 <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,0,10,0">
-                    <ComboBox Name="combobox_51"/>
+                    <ComboBox Name="combobox_51" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
                 </Border>
 
                 <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White" >一组的个数</Label>
+                    <Label  FontSize="10" Foreground="White" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}">一组的个数</Label>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_52"/>
+                    <ComboBox Name="combobox_52"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
                 </Border>
 
                 <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"   Margin="0,0,-0.4,-0.2" VerticalAlignment="Bottom" >组间隔休息时间</Label>
+                    <Label  FontSize="10" Foreground="White"   Margin="0,0,-0.4,-0.2" VerticalAlignment="Bottom" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}">组间隔休息时间</Label>
                 </Border>
                 <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_53"/>
+                    <ComboBox Name="combobox_53"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
                 </Border>
 
                 <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"  >砝码</Label>
+                    <Label  FontSize="10" Foreground="White"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}">砝码</Label>
                 </Border>
                 <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_54"/>
+                    <ComboBox Name="combobox_54"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
                 </Border>
 
                 <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,1,0,0" >
-                    <Label  FontSize="10" Foreground="White"  >移乘方法</Label>
+                    <Label  FontSize="10" Foreground="White" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" >移乘方法</Label>
                 </Border>
                 <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,1,10,0">
-                    <ComboBox Name="combobox_55"/>
+                    <ComboBox Name="combobox_55"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
                 </Border>
             </Grid>
             <!--器材数据设置 结束-->
@@ -466,7 +478,7 @@
 
             <!--第二个-->
             <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Vertical">
-                <Label Content="注意点、运动方法的指示等。" Background="Gray" Foreground="White" Margin="10,5,10,0"/>
+                <Label Content="注意点、运动方法的指示等。" Background="Gray" Foreground="White" Margin="10,5,10,0" />
                 <TextBox Name="t2" Height="174" Margin="10,0,10,3" />
             </StackPanel>
 
@@ -496,6 +508,16 @@
             <!--备注结束 -->
         </Grid>
         <!--Grid 使用器材选择 结束-->
+        <!-- 按钮排放位置-->
+        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="686" Height="28" VerticalAlignment="Bottom" Margin="0,0,10,0" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <Button Width="140"  Height="25"  Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom">下一页</Button>
+                <Button Width="140"  Height="25"  Margin="2,0,0,0"  RenderTransformOrigin="0.5,0.508" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Save">保存</Button>
+                <Button Width="140" Height="25"   Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom">写入IC卡</Button>
+                <Button Width="140" Height="25"  Content="取消"  Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Cancel"/>
+            </StackPanel>
+        </Border>
+        <!-- 结束：按钮排放位置-->
     </StackPanel>
 </Window>
  
