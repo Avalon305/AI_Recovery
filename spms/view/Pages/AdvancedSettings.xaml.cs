@@ -2,6 +2,7 @@
 using spms.dao;
 using spms.entity;
 using spms.util;
+using spms.view.Pages.ChildWin;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -39,8 +40,9 @@ namespace spms.view.Pages
             InitializeComponent();
             AutherList = authDAO.ListAll();
             DeviceSetList = deviceSetDAO.ListAll();
-            AutherCollection = new ObservableCollection<Auther>(AutherList);
+
             DeviceSetCollection = new ObservableCollection<DeviceSet>(DeviceSetList);
+            AutherCollection = new ObservableCollection<Auther>(AutherList);
             ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherCollection;
             ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = DeviceSetCollection;
         }
@@ -84,37 +86,73 @@ namespace spms.view.Pages
 
             }
         }
+        private void Grid_Row_Click(object sender, MouseButtonEventArgs e)
+        {
+            auther = (Auther)DataGrid2.SelectedItem;
+            DataGrid2.DataContext = auther;
+        }
         private void Btn_Insert(object sender, RoutedEventArgs e)
         {
-
-            judge = 1;  //现在为添加状态       
-            DataGrid1.CanUserAddRows = true;
-            //点击添加后  将CanUserAddRows重新设置为True，这样DataGrid就会自动生成新行，我们就能在新行中输入数据了。  
+            AutherAdd addAuther = new AutherAdd
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            addAuther.ShowDialog();
+            //添加之后，flush界面
+            //致空
+            auther = null;
+            //刷新界面
+            AutherList = authDAO.ListAll();
+            AutherCollection = new ObservableCollection<Auther>(AutherList);
+            ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherCollection;
         }
         private void BTN_Update(object sender, RoutedEventArgs e)
         {
-            using (var conn = DbUtil.getConn())
+            AutherUpdate autherUpdate = new AutherUpdate
             {
-                conn.Execute("update bdl_auth set Auth_UserName=@Auth_UserName,Gmt_Create=@Gmt_Create ,Gmt_Modified=@Gmt_Modified,User_Status=@User_Status,Auth_OfflineTime=@Auth_OfflineTime where Pk_Auth_Id=@Pk_Auth_Id", AutherCollection);
-            }
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            //自定义窗口更新使用
+            Auther auther = (Auther)DataGrid1.SelectedItem;
+            autherUpdate.selectedAuther = auther;
+            //UI中使用
+            autherUpdate.UserName.Text = auther.Auth_UserName;
+            autherUpdate.Pass.Password = auther.Auth_UserPass;
+            autherUpdate.Confirm_Pass.Password = auther.Auth_UserPass;
+            autherUpdate.ShowDialog();
+            //致空
+            auther = null;
+            //刷新界面
+            AutherList = authDAO.ListAll();
+            AutherCollection = new ObservableCollection<Auther>(AutherList);
+            ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherCollection;
         }
         private void Btn_Confirm(object sender, RoutedEventArgs e)
         {
-            if (checkchange == 1)
-            {
-                MessageBox.Show(DeviceSetCollection[0].DSet_Status.ToString());
-                using (var conn = DbUtil.getConn())
-                {
-                    conn.Execute("update bdl_deviceset set DSet_Status=@DSet_Status where DSet_Name=@DSet_Name", DeviceSetCollection);
-                }
-            }
-            DataGrid1.CanUserAddRows = false;
-            auther = DataGrid1.SelectedItem as Auther;//获取该行的记录  
-            if (judge == 1)//如果是添加状态就保存该行的值到lstInformation中  这样我们就完成了新行值的获取  
-            {
-                authDAO.Insert(auther);
-            }
 
+
+        }
+
+        private void Btn_Activate(object sender, RoutedEventArgs e)
+        {
+            //InputNonPublicInformationPassword
+            InputNonPublicInformationPassword passwordInput = new InputNonPublicInformationPassword
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            passwordInput.ShowDialog();
+            Status.Content = "已激活";
+            Color color = Color.FromArgb(255, 2, 200, 5);
+            Status.Foreground = new SolidColorBrush(color);
         }
     }
 }

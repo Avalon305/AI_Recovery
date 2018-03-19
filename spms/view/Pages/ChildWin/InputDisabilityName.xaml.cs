@@ -38,7 +38,7 @@ namespace spms.view.Pages.ChildWin
             this.Close();
 
         }
-       
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

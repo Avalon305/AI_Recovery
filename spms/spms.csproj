@@ -221,11 +221,20 @@
     <Compile Include="view\Pages\AdvancedSettings.xaml.cs">
       <DependentUpon>AdvancedSettings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\Pages\ChildWin\AutherAdd.xaml.cs">
+      <DependentUpon>AutherAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\AutherUpdate.xaml.cs">
+      <DependentUpon>AutherUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\ChildWin\InputDisabilityName.xaml.cs">
       <DependentUpon>InputDisabilityName.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\InputDiseaseName.xaml.cs">
       <DependentUpon>InputDiseaseName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\InputGroupName.xaml.cs">
+      <DependentUpon>InputGroupName.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\InputManualMvaluation.xaml.cs">
       <DependentUpon>InputManualMvaluation.xaml</DependentUpon>
@@ -259,6 +268,15 @@
     </Compile>
     <Compile Include="view\Pages\ChildWin\TrainingReport.xaml.cs">
       <DependentUpon>TrainingReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\UpdateDiagnosisName.xaml.cs">
+      <DependentUpon>UpdateDiagnosisName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\UpdateDiseaseName.xaml.cs">
+      <DependentUpon>UpdateDiseaseName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\UpdateGroupName.xaml.cs">
+      <DependentUpon>UpdateGroupName.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\UserUpdata.xaml.cs">
       <DependentUpon>UserUpdata.xaml</DependentUpon>
@@ -332,6 +350,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\Pages\ChildWin\AutherAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Pages\ChildWin\AutherUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\Pages\ChildWin\InputDisabilityName.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -339,6 +365,10 @@
     <Page Include="view\Pages\ChildWin\InputDiseaseName.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\InputGroupName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\ChildWin\InputManualMvaluation.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -383,6 +413,18 @@
     <Page Include="view\Pages\ChildWin\TrainingReport.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\UpdateDiagnosisName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Pages\ChildWin\UpdateDiseaseName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Pages\ChildWin\UpdateGroupName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\ChildWin\UserUpdata.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -24,8 +24,8 @@ namespace spms.view.converter
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string strValue = value.ToString();
-            return value;
+            int revalue = (int)value;
+            return DateTime.Now.Year -revalue;
         }
     }
 }
