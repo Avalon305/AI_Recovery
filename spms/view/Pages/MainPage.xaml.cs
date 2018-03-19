@@ -93,6 +93,10 @@ namespace spms.view.Pages
         /// <param name="e"></param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            ///载入时数据装填到list,默认选中第一个
+            users = userService.GetAllUsers();
+            UsersInfo.ItemsSource = users;
+            UsersInfo.SelectedIndex = 0;
             ///心跳部分
             #region 通知公告
             if (timerNotice == null)
@@ -108,10 +112,7 @@ namespace spms.view.Pages
                 timerNotice.Start();
             }
             #endregion
-            ///载入时数据装填到list,默认选中第一个
-            users = userService.GetAllUsers();
-            UsersInfo.ItemsSource = users;
-            UsersInfo.SelectedIndex = 0;
+           
 
         }
       
@@ -473,5 +474,6 @@ namespace spms.view.Pages
             };
             inputManualMvaluation.ShowDialog();
         }
+ 
     }
 }
