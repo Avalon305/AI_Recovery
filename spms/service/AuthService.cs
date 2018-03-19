@@ -57,6 +57,11 @@ namespace spms.service
             if (auther==null) {
                 loginResult = "没有该用户！";
             }
+            //普通用户测试是否超时登录
+            if (auther.Auth_OfflineTime < DateTime.Now)
+            {
+                loginResult = "您的使用时间已经用尽，请联系宝德龙管理员";
+            }
             //超管监测权限监测是否插入U盾
             if (auther.Auth_Level == Auther.AUTH_LEVEL_ADMIN)
             {

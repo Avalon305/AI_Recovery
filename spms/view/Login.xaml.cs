@@ -89,18 +89,17 @@ namespace spms.view
             }
             
         }
-        //打开设置页面
-        private void Design(object sender, RoutedEventArgs e)
-        {
-            DesignPage1 designPage = new DesignPage1();
-           this.Content = designPage;
-        }
+       
         //重置登录表单
         private void Resetting_Button(object sender, RoutedEventArgs e)
         {
             User_Name.Clear();
             User_Password.Clear();
         }
- 
+
+        private void EndBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
