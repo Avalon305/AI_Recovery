@@ -198,11 +198,11 @@
                         <DataGridTextColumn Binding="{Binding User_Namepinyin}" Header="使用者名称（拼音）" Width="150"/>
                         <DataGridTextColumn Binding="{Binding User_Sex, Converter={StaticResource sexconverter}}" Header="性别" Width="50"/>
                         <DataGridTextColumn Binding="{Binding User_Birth, Converter={StaticResource ageconverter}}" Header="年龄" Width="50"/>
-                        <DataGridTextColumn Binding="{Binding User_Groupname}" Header="小组名称" Width="140"/>
-                        <DataGridTextColumn Binding="{Binding User_Initcare}" Header="初期要介护程度" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding User_Nowtcare}" Header="现在要介护程度" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding User_Illnessname}" Header="疾病名称" Width="173"/>
-                        <DataGridTextColumn Binding="{Binding User_Physicaildisabilities}" Header="残障名称" Width="163"/>
+                        <DataGridTextColumn Binding="{Binding User_GroupName}" Header="小组名称" Width="140"/>
+                        <DataGridTextColumn Binding="{Binding User_InitCare}" Header="初期要介护程度" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding User_NowtCare}" Header="现在要介护程度" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding User_IllnessName}" Header="疾病名称" Width="173"/>
+                        <DataGridTextColumn Binding="{Binding User_PhysicailDisabilities}" Header="残障名称" Width="163"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Border>
@@ -279,19 +279,19 @@
                             <Label Grid.Row="4" Grid.Column="2" Content="{Binding User_GroupName}" Margin="0,0,0,-6"></Label>
                             <Label Grid.Row="5" Grid.Column="0" Margin="0,0,0,-6">小组名称</Label>
                             <Label Grid.Row="5" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                            <Label Grid.Row="5" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_Groupname}"></Label>
+                            <Label Grid.Row="5" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_GroupName}"></Label>
                             <Label Grid.Row="6" Grid.Column="0" Margin="0,0,0,-6">初期要介护程度</Label>
                             <Label Grid.Row="6" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                            <Label Grid.Row="6" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_Initcare}"></Label>
+                            <Label Grid.Row="6" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_InitCare}"></Label>
                             <Label Grid.Row="7" Grid.Column="0" Margin="0,0,0,-6">现在要介护程度</Label>
                             <Label Grid.Row="7" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                            <Label Grid.Row="7" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_Nowtcare}"></Label>
+                            <Label Grid.Row="7" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_NowtCare}"></Label>
                             <Label Grid.Row="8" Grid.Column="0" Margin="0,0,0,-6">疾病名称</Label>
                             <Label Grid.Row="8" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                            <Label Grid.Row="8" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_Illnessname}"></Label>
+                            <Label Grid.Row="8" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_IllnessName}"></Label>
                             <Label Grid.Row="9" Grid.Column="0" Margin="0,0,0,-6">残障名称</Label>
                             <Label Grid.Row="9" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                            <Label Grid.Row="9" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_Physicaildisabilities}"></Label>
+                            <Label Grid.Row="9" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_PhysicailDisabilities}"></Label>
                         </Grid>
                     </StackPanel>
                 </Border>
