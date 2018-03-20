@@ -10,7 +10,8 @@
         Icon="/view/Images/icon2.png"
         Title="宝德龙" Height="332.975" Width="470"
            ResizeMode = "NoResize"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+         LocationChanged="windowmove">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
         <Style x:Key="EntryFieldStyle" TargetType="Grid" >

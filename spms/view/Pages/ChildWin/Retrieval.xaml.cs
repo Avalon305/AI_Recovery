@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -185,6 +186,15 @@ namespace spms.view.Pages.ChildWin
             {
                 bubble_phone.IsOpen = false;
             }
+        }
+        //解决气泡不随着窗体移动问题
+        private void windowmove(object sender, EventArgs e)
+        {
+
+            var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            mi.Invoke(bubble_phone, null);
+            mi.Invoke(bubble_IDCard, null);
+
         }
     }
 }
