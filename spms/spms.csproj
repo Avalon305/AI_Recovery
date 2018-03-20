@@ -151,7 +151,6 @@
     <Compile Include="dao\app\SetterDAO.cs" />
     <Compile Include="dao\DataCodeDAO.cs" />
     <Compile Include="dao\PhysicalPowerDAO.cs" />
-    <Compile Include="dao\SymptomInfoChildDAO.cs" />
     <Compile Include="dao\UploadManagementDAO.cs" />
     <Compile Include="dao\UserDAO.cs" />
     <Compile Include="dao\SymptomInfoDAO.cs" />
@@ -170,7 +169,6 @@
     <Compile Include="http\dto\DevicePrescriptionDTO.cs" />
     <Compile Include="http\dto\PhysicalPowerDTO.cs" />
     <Compile Include="http\dto\PrescriptionResultDTO.cs" />
-    <Compile Include="http\dto\SymptomInfoChildDTO.cs" />
     <Compile Include="http\dto\SymptomInfoDTO.cs" />
     <Compile Include="http\dto\TrainInfoDTO.cs" />
     <Compile Include="http\dto\UserDTO.cs" />

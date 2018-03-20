@@ -112,8 +112,7 @@ namespace spms.view.Pages.ChildWin
 
             //构建对象
             SymptomInfo symptomInfo = new SymptomInfo();
-            SymptomInfoChild preSymptomInfoChild = new SymptomInfoChild();
-            SymptomInfoChild sufSymptomInfoChild = new SymptomInfoChild();
+            
             //症状信息
             symptomInfo.Fk_User_Id = user.Pk_User_Id;
             symptomInfo.Gmt_Create = DateTime.Now;
@@ -122,27 +121,22 @@ namespace spms.view.Pages.ChildWin
             symptomInfo.SI_Inquiry = inquiryStr;
             symptomInfo.SI_IsJoin = isJoin;
             symptomInfo.SI_WaterInput = waterInput;
+            //TODO 获取训练信息
             //康复前
-            preSymptomInfoChild.Gmt_Create = DateTime.Now;
-            preSymptomInfoChild.Gmt_Modified = DateTime.Now;
-            preSymptomInfoChild.SIC_AnimalHeat = preAnimalheat;
-            preSymptomInfoChild.SIC_HeartRate = preHeartRate;
-            preSymptomInfoChild.SIC_HighPressure = preHighPressure;
-            preSymptomInfoChild.SIC_LowPressure = preLowPressure;
-            preSymptomInfoChild.SIC_Pulse = prePulse;
-            preSymptomInfoChild.Status = 1;
+            symptomInfo.SI_Pre_AnimalHeat = preAnimalheat;
+            symptomInfo.SI_Pre_HeartRate = preHeartRate;
+            symptomInfo.SI_Pre_HighPressure = preHighPressure;
+            symptomInfo.SI_Pre_LowPressure = preLowPressure;
+            symptomInfo.SI_Pre_Pulse = prePulse;
             //康复后
-            sufSymptomInfoChild.Gmt_Create = DateTime.Now;
-            sufSymptomInfoChild.Gmt_Modified = DateTime.Now;
-            sufSymptomInfoChild.SIC_AnimalHeat = sufAnimalheat;
-            sufSymptomInfoChild.SIC_HeartRate = sufHeartRate;
-            sufSymptomInfoChild.SIC_HighPressure = sufHighPressure;
-            sufSymptomInfoChild.SIC_LowPressure = sufLowPressure;
-            sufSymptomInfoChild.SIC_Pulse = sufPulse;
-            sufSymptomInfoChild.Status = 2;
+            symptomInfo.SI_Suf_AnimalHeat = sufAnimalheat;
+            symptomInfo.SI_Suf_HeartRate = sufHeartRate;
+            symptomInfo.SI_Suf_HighPressure = sufHighPressure;
+            symptomInfo.SI_Suf_LowPressure = sufLowPressure;
+            symptomInfo.SI_Suf_Pulse = sufPulse;
 
             //存储
-            new SymptomService().AddSymptomnInfo(symptomInfo, preSymptomInfoChild, sufSymptomInfoChild);
+            new SymptomService().AddSymptomnInfo(symptomInfo);
             MessageBox.Show("已存储");
             this.Close();
         }
