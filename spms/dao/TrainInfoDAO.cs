@@ -106,9 +106,6 @@ namespace spms.dao
                 return conn.QueryFirstOrDefault<DeviceSort>(query, new { DS_name = name });
             }
         }
-    }
-    public class DeviceSortDAO : BaseDAO<DeviceSort>
-    {
         public List<DeviceSort> GetDeviceSortBySet(int Dset_Id)
         {
             using (var conn = DbUtil.getConn())
@@ -119,4 +116,5 @@ namespace spms.dao
             }
         }
     }
+
 }
