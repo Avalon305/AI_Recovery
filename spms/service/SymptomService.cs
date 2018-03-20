@@ -28,5 +28,11 @@ namespace spms.service
                 ts.Complete();
             }
         }
+
+        public List<SymptomInfo> GetByUserId(User user)
+        {
+            List <SymptomInfo> symptomInfos =  new SymptomInfoDao().GetByUserId(user.Pk_User_Id);
+            return symptomInfos;
+        }
     }
 }

@@ -20,7 +20,10 @@ using spms.http;
 using spms.http.entity;
 using spms.service;
 using spms.util;
+using spms.view.dto;
 using spms.view.Pages.ChildWin;
+using spms.view.Pages.Frame;
+
 namespace spms.view.Pages
 {
     /// <summary>
@@ -30,22 +33,25 @@ namespace spms.view.Pages
     {
         ///病人信息一览表
         public List<User> users = new List<User>();
+
         //当前选择的User
         public User selectUser = null;
+
         //用到的业务层实例
         UserService userService = new UserService();
 
 
         //大数据线程，主要上传除心跳之外的所有数据信息
         Thread bigDataThread;
+
         //后台心跳更新UI线程
         public System.Timers.Timer timerNotice = null;
+
         /// <summary>
         /// 启动时的构造函数
         /// </summary>
         public MainPage()
         {
-
             InitializeComponent();
             //启动大数据线程,切换界面记得关闭该线程
             bigDataThread = new Thread(new ThreadStart(UploadDataToWEB));
@@ -69,10 +75,12 @@ namespace spms.view.Pages
                 record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
             }
         }
+
         /// <summary>
         /// 上传的方法，参数为秒
         /// </summary>
-        public static void UploadDataToWEB() {
+        public static void UploadDataToWEB()
+        {
             //300秒-5分钟一次上传
             BigDataOfficer bigDataOfficer = new BigDataOfficer(300 * 1000);
         }
@@ -84,7 +92,7 @@ namespace spms.view.Pages
         /// <param name="e"></param>
         private void Grid_Click(object sender, MouseButtonEventArgs e)
         {
-            selectUser = (User)UsersInfo.SelectedItem;
+            selectUser = (User) UsersInfo.SelectedItem;
             UserInfo.DataContext = selectUser;
 
             string path = CommUtil.GetUserPic(selectUser.User_IDCard);
@@ -103,6 +111,7 @@ namespace spms.view.Pages
                 UserPhoto.Source = new BitmapImage(new Uri(path));
             }
         }
+
         /// <summary>
         /// 定时器心跳间隔，load时设置
         /// </summary>
@@ -114,26 +123,24 @@ namespace spms.view.Pages
             users = userService.GetAllUsers();
             UsersInfo.ItemsSource = users;
             UsersInfo.SelectedIndex = 0;
-            selectUser = (User)UsersInfo.SelectedItem;
+            selectUser = (User) UsersInfo.SelectedItem;
             ///心跳部分
+
             #region 通知公告
+
             if (timerNotice == null)
             {
                 BindNotice();
 
                 timerNotice = new System.Timers.Timer();
-                timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) =>
-                {
-                    BindNotice();
-                });
+                timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) => { BindNotice(); });
                 timerNotice.Interval = 60 * 1000;
                 timerNotice.Start();
             }
-            #endregion
-           
 
+            #endregion
         }
-      
+
         //按钮：添加
         private void Register(object sender, RoutedEventArgs e)
         {
@@ -152,6 +159,7 @@ namespace spms.view.Pages
             users = userService.GetAllUsers();
             UsersInfo.ItemsSource = users;
         }
+
         //按钮：条件检索
         private void Retrieval(object sender, RoutedEventArgs e)
         {
@@ -170,11 +178,13 @@ namespace spms.view.Pages
             //检索后设置无用户被选中
             selectUser = null;
         }
+
         //按钮：更新
         private void UserUpdata(object sender, RoutedEventArgs e)
         {
             //检查是否选中
-            if (selectUser == null) {
+            if (selectUser == null)
+            {
                 MessageBox.Show("请选择用户再进行操作！");
                 return;
             }
@@ -187,12 +197,13 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             //类中使用
-            User user = (User)UsersInfo.SelectedItem;
+            User user = (User) UsersInfo.SelectedItem;
             userUpdata.SelectUser = user;
             //UI中使用
             userUpdata.selectUser.DataContext = user;
             userUpdata.ShowDialog();
         }
+
         //按钮：删除
         private void Delete_User(object sender, RoutedEventArgs e)
         {
@@ -203,7 +214,8 @@ namespace spms.view.Pages
                 return;
             }
 
-            MessageBoxResult dr = MessageBox.Show("您确定删除该使用者信息？\n 使用者：" + ((User)UsersInfo.SelectedItem).User_Name, "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            MessageBoxResult dr = MessageBox.Show("您确定删除该使用者信息？\n 使用者：" + ((User) UsersInfo.SelectedItem).User_Name,
+                "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (dr == MessageBoxResult.OK)
             {
                 //删除
@@ -213,6 +225,7 @@ namespace spms.view.Pages
                 //刷新界面
                 users = userService.GetAllUsers();
                 UsersInfo.ItemsSource = users;
+
             }
         }
 
@@ -227,14 +240,14 @@ namespace spms.view.Pages
             else if (is_trainingrecord.IsChecked == true)
             {
                 record.Source = new Uri("/view/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
-
             }
             else
             {
                 record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
             }
+            
         }
-       
+
         //按钮：文档输出
         private void Output_Document(object sender, RoutedEventArgs e)
         {
@@ -285,6 +298,7 @@ namespace spms.view.Pages
                 }
             }
         }
+
         //按钮：制作报告
         private void MakeReport(object sender, RoutedEventArgs e)
         {
@@ -350,16 +364,15 @@ namespace spms.view.Pages
                 list.Add(trainInfo);
                 physicalAssessmentReport.datalist.DataContext = list;
                 physicalAssessmentReport.ShowDialog();
-
             }
+
             ////List<String> list = new List<string>();
             ////for (int i = 0; i < 100; i++)
             ////{
             ////    list.Add("sas" + i);
             ////}
-
-
         }
+
         //按钮：输入训练结果
         private void InputTrainingResults(object sender, RoutedEventArgs e)
         {
@@ -370,10 +383,11 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            User user = (User)UsersInfo.SelectedItem;
+            User user = (User) UsersInfo.SelectedItem;
             inputTrainingResults.DataContext = user;
             inputTrainingResults.ShowDialog();
         }
+
         //按钮：查看详细信息
         private void ViewDetails(object sender, RoutedEventArgs e)
         {
@@ -439,7 +453,6 @@ namespace spms.view.Pages
                 list.Add(trainInfo);
                 physicalAssessmentReport.datalist.DataContext = list;
                 physicalAssessmentReport.ShowDialog();
-
             }
         }
 
@@ -450,10 +463,11 @@ namespace spms.view.Pages
             //window.Show();
             //window.Content = new MainWindow();
         }
-        
+
         /// <summary>
         /// 异步进程与UI更新
         /// </summary>
+
         #region 绑定通知公告
         private void BindNotice()
         {
@@ -463,17 +477,20 @@ namespace spms.view.Pages
                 {
                     HeartBeatOffice heartBeatOffice = new HeartBeatOffice();
                     HttpHeartBeat result = heartBeatOffice.GetHeartBeatByCurrent();
-                    HttpSender httpSender = new HttpSender("/communicationController/analysisJson", JsonTools.Obj2JSONStrNew<HttpHeartBeat>(result));
+                    HttpSender httpSender = new HttpSender("/communicationController/analysisJson",
+                        JsonTools.Obj2JSONStrNew<HttpHeartBeat>(result));
                     string jsonStr = httpSender.sendDataToWebPlatform();
                     HttpHeartBeat webResult = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(jsonStr);
                     //本地数据更改
                     heartBeatOffice.SolveHeartbeat(webResult);
                     Dispatcher.Invoke(new Action(() =>
                     {
-                        if (webResult.authStatus == 0) {
+                        if (webResult.authStatus == 0)
+                        {
                             //正常心跳不处理
-
-                        } else if (webResult.authStatus == 1) {
+                        }
+                        else if (webResult.authStatus == 1)
+                        {
                             //冻结，弹窗，然后关闭窗口
                             // 程序强制退出
                             MessageBox.Show("用户被冻结，即将退出，请联系宝德龙管理员解冻！");
@@ -497,16 +514,15 @@ namespace spms.view.Pages
                 }
                 catch
                 {
-
                 }
             });
         }
+
         #endregion
 
         //按钮：输入征状信息
         private void InputSymptomInformation(object sender, RoutedEventArgs e)
         {
-
             InputSymptomInformation w2 = new InputSymptomInformation
             {
                 Owner = Window.GetWindow(this),
@@ -514,11 +530,11 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            User user = (User)UsersInfo.SelectedItem;
+            User user = (User) UsersInfo.SelectedItem;
             w2.DataContext = user;
             w2.ShowDialog();
-
         }
+
         //按钮：输入训练
         private void InputTraining(object sender, RoutedEventArgs e)
         {
@@ -533,6 +549,7 @@ namespace spms.view.Pages
             inputTraining.DataContext = user;
             inputTraining.ShowDialog();
         }
+
         //按钮：输入体力评价
         private void InputManualMvaluation(object sender, RoutedEventArgs e)
         {
@@ -548,10 +565,63 @@ namespace spms.view.Pages
 
         private void BtnSetting_Click(object sender, RoutedEventArgs e)
         {
-            Window window = (Window)this.Parent;
+            Window window = (Window) this.Parent;
             window.Content = new DesignPage1();
+        }
 
+        private void UsersInfo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh_RecordFrame();
+        }
+        /// <summary>
+        /// 刷新右下角frame
+        /// </summary>
+        private void Refresh_RecordFrame()
+        {
+            User user = (User)UsersInfo.SelectedItem;
 
+            Object o = record.Content;
+            if (o is SignInformationRecord_Frame)
+            {
+                //获取用户症状信息
+                List<SymptomInfo> symptomInfos = new SymptomService().GetByUserId(user);
+                List<SymptomInfoDTO> symptomInfoDtos = new List<SymptomInfoDTO>();
+                foreach (SymptomInfo symptomInfo in symptomInfos)
+                {
+                    symptomInfoDtos.Add(new SymptomInfoDTO(symptomInfo));
+                }
+
+                //展示在frame
+                SignInformationRecord_Frame signInformationRecordFrame = (SignInformationRecord_Frame)o;
+                signInformationRecordFrame.SignInformationRecord.ItemsSource = symptomInfoDtos;
+            }
+            else if (o is TrainingRecord_Frame)
+            {
+                Dictionary<string, List<TrainDTO>> dic = new TrainService().getTrainDTOByUser(user);
+                TrainingRecord_Frame trainingRecordFrame = (TrainingRecord_Frame)o;
+                List<TrainDTO> trainDtos = new List<TrainDTO>();
+                dic.TryGetValue("水平腿部推蹬机", out trainDtos);
+                trainingRecordFrame.TrainingRecord1.ItemsSource = trainDtos;
+                dic.TryGetValue("坐姿划船机", out trainDtos);
+                trainingRecordFrame.TrainingRecord2.ItemsSource = trainDtos;
+                dic.TryGetValue("身体伸展弯曲机", out trainDtos);
+                trainingRecordFrame.TrainingRecord3.ItemsSource = trainDtos;
+                dic.TryGetValue("腿部伸展弯曲机", out trainDtos);
+                trainingRecordFrame.TrainingRecord4.ItemsSource = trainDtos;
+                dic.TryGetValue("臀部外展内收机", out trainDtos);
+                trainingRecordFrame.TrainingRecord5.ItemsSource = trainDtos;
+                dic.TryGetValue("胸部推举机", out trainDtos);
+                trainingRecordFrame.TrainingRecord6.ItemsSource = trainDtos;
+            }
+            else
+            {
+                MessageBox.Show("3");
+            }
+        }
+
+        private void record_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+            Refresh_RecordFrame();
         }
     }
 }
