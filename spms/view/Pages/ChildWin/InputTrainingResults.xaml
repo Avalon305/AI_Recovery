@@ -78,10 +78,10 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Height="20" Width="50" Margin="46,154,200,141.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="34,208,212,87.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="61,102,185,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="154,228,92,67.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="HLPAttr1" Height="20" Width="50" Margin="46,154,200,141.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox  Name="HLPAttr2" Height="20" Width="50" Margin="34,208,212,87.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="HLPAttr3" Height="20" Width="50" Margin="61,102,185,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="HLPAttr4" Height="20" Width="50" Margin="154,228,92,67.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -186,10 +186,10 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-010.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Height="20" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="55,191,191,104.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr1" Height="20" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr2" Height="20" Width="50" Margin="55,191,191,104.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr3" Height="20" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr4" Height="20" Width="50" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -295,10 +295,10 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Height="20" Width="50" Margin="66,115,180,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="50,202,196,93.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="174,182,72,113.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="147,238,99,57.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr1" Height="20" Width="50" Margin="66,115,180,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr2" Height="20" Width="50" Margin="50,202,196,93.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr3" Height="20" Width="50" Margin="174,182,72,113.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr4" Height="20" Width="50" Margin="147,238,99,57.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -403,11 +403,11 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Height="20" Width="50" Margin="107,58,139,237.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="24,189,222,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="24,102,222,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="144,240,102,55.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="174,189,72,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="LEAttr1" Height="20" Width="50" Margin="107,58,139,237.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="LEAttr2" Height="20" Width="50" Margin="24,189,222,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="LEAttr3" Height="20" Width="50" Margin="24,102,222,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="LEAttr4" Height="20" Width="50" Margin="144,240,102,55.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="LEAttr5" Height="20" Width="50" Margin="174,189,72,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -512,9 +512,9 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Height="20" Width="50" Margin="160,66,86,229.2" RenderTransformOrigin="-0.096,-0.43" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="78,169,168,126.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                                <TextBox Height="20" Width="50" Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="HAAttr1" Height="20" Width="50" Margin="160,66,86,229.2" RenderTransformOrigin="-0.096,-0.43" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="HAAttr2" Height="20" Width="50" Margin="78,169,168,126.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Name="HAAttr3" Height="20" Width="50" Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -623,9 +623,9 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Height="20" Width="50" Margin="130,66,116,229.2" RenderTransformOrigin="-0.188,-0.34" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Height="20" Width="50" Margin="47,171,199,124.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Width="50" Height="20" Margin="150,204,96,94.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Name="CPAttr1" Height="20" Width="50" Margin="130,66,116,229.2" RenderTransformOrigin="-0.188,-0.34" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="CPAttr2" Height="20" Width="50" Margin="47,171,199,124.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="CPAttr3" Width="50" Height="20" Margin="150,204,96,94.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -735,7 +735,7 @@
         <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="335" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2" Margin="0,0,9.6,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
 
-                <Button Width="140"    Content="保存" Margin="2,0,0,-0.2" Style="{StaticResource Btn}" RenderTransformOrigin="0.5,0.504" />
+                <Button Width="140"  Click="ButtonBase_OnClick"  Content="保存" Margin="2,0,0,-0.2" Style="{StaticResource Btn}" RenderTransformOrigin="0.5,0.504" />
                 <Button Width="140"     Content="取消"  Style="{StaticResource Btn}" Margin="2,0,2,-0.2" Click="Cancel"/>
             </StackPanel>
         </Border>

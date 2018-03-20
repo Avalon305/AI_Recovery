@@ -97,6 +97,7 @@ namespace spms.view.Pages
             users = userService.GetAllUsers();
             UsersInfo.ItemsSource = users;
             UsersInfo.SelectedIndex = 0;
+            selectUser = (User)UsersInfo.SelectedItem;
             ///心跳部分
             #region 通知公告
             if (timerNotice == null)
@@ -149,10 +150,18 @@ namespace spms.view.Pages
             //刷新界面
             users = retrieval.QueryResult;
             UsersInfo.ItemsSource = users;
+            //检索后设置无用户被选中
+            selectUser = null;
         }
         //按钮：更新
         private void UserUpdata(object sender, RoutedEventArgs e)
         {
+            //检查是否选中
+            if (selectUser == null) {
+                MessageBox.Show("请选择用户再进行操作！");
+                return;
+            }
+
             UserUpdata userUpdata = new UserUpdata
             {
                 Owner = Window.GetWindow(this),
@@ -170,6 +179,13 @@ namespace spms.view.Pages
         //按钮：删除
         private void Delete_User(object sender, RoutedEventArgs e)
         {
+            //检查是否选中
+            if (selectUser == null)
+            {
+                MessageBox.Show("请选择用户再进行操作！");
+                return;
+            }
+
             MessageBoxResult dr = MessageBox.Show("您确定删除该使用者信息？\n 使用者：" + ((User)UsersInfo.SelectedItem).User_Name, "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (dr == MessageBoxResult.OK)
             {
