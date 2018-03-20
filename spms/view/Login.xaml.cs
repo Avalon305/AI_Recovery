@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,7 +45,14 @@ namespace spms.view
         }
         //登录操作
         private void Button_Click(object sender, RoutedEventArgs e)
-        {   
+        {
+            if ("true" == ConfigurationManager.AppSettings["Debug"])
+            {
+                //成功登陆，跳转
+                MainPage mainpage = new MainPage();
+                this.Content = mainpage;
+                return;
+            }
             //获取用户名
             String name = this.User_Name.Text;
             //获取密码
