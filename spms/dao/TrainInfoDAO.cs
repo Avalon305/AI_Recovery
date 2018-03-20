@@ -50,13 +50,13 @@ namespace spms.dao
         /// <param name="idcard"></param>
         /// <param name="deviceType"></param>
         /// <returns></returns>
-        public DevicePrescription GetByUserIdDeviceType(string idcard,DeviceType deviceType)
+        public DevicePrescription GetByUserIdDeviceType(string idcard, DeviceType deviceType)
         {
             using (var conn = DbUtil.getConn())
             {
                 const string query = "select d.* from bdl_user u join bdl_traininfo t on u.pk_user_id = t.fk_user_id join bdl_deviceprescription d on d.fk_ti_id = t.pk_ti_id where u.user_idcard = @Idcard and d.fk_ds_id = @DeviceType";
 
-                return conn.QueryFirstOrDefault<DevicePrescription>(query, new { Idcard = idcard, DeviceType=(byte)deviceType });
+                return conn.QueryFirstOrDefault<DevicePrescription>(query, new { Idcard = idcard, DeviceType = (byte)deviceType });
             }
         }
     }
@@ -66,5 +66,16 @@ namespace spms.dao
     public class DeviceSetDAO : BaseDAO<DeviceSet>
     {
     }
+    public class DeviceSortDAO : BaseDAO<DeviceSort>
+    {
+        public List<DeviceSort> GetDeviceSortBySet(int Dset_Id)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select * from bdl_devicesort where fk_dset_id = @Fk_Dset_Id";
 
+                return (List<DeviceSort>)conn.Query<DeviceSort>(query, new { Fk_Dset_Id = Dset_Id });
+            }
+        }
+    }
 }

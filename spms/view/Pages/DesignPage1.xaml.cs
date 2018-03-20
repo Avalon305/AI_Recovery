@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -124,6 +124,37 @@ namespace spms.view.Pages
             group = (CustomData)DataGrid2.SelectedItem;
             DataGrid2.DataContext = group;
         }
+        private void Grid_Disease_Click(object sender, MouseButtonEventArgs e)
+        {
+            disease = (CustomData)DataGrid3.SelectedItem;
+            DataGrid3.DataContext = disease;
+        }
+        private void Grid_Diagnosis_Click(object sender, MouseButtonEventArgs e)
+        {
+            diagnosis = (CustomData)DataGrid4.SelectedItem;
+            DataGrid4.DataContext = diagnosis;
+        }
+        private void FlushGroup()
+        {
+            group = null;
+            groupList = customDataService.GetAllObjectByType(CustomDataEnum.Group);
+            groupCollection = new ObservableCollection<CustomData>(groupList);
+            ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = groupCollection;
+        }
+        private void FlushDisease()
+        {
+            disease = null;
+            diseaseList = customDataService.GetAllObjectByType(CustomDataEnum.Disease);
+            diseaseCollection = new ObservableCollection<CustomData>(diseaseList);
+            ((this.FindName("DataGrid3")) as DataGrid).ItemsSource = diseaseCollection;
+        }
+        private void FlushDiagnosis()
+        {
+            diagnosis = null;
+            diagnosisList = customDataService.GetAllObjectByType(CustomDataEnum.Diagiosis);
+            diagnosisCollection = new ObservableCollection<CustomData>(diagnosisList);
+            ((this.FindName("DataGrid4")) as DataGrid).ItemsSource = diagnosisCollection;
+        }
         private void Add_Group(object sender, RoutedEventArgs e)
         {
             InputGroupName inputGroupName = new InputGroupName
@@ -134,20 +165,9 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             inputGroupName.ShowDialog();
-            //添加之后，flush界面
-            //致空
-            group = null;
-            //刷新界面
-            groupList = customDataService.GetAllObjectByType(CustomDataEnum.Group);
-            groupCollection = new ObservableCollection<CustomData>(groupList);
-            ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = groupCollection;
+            FlushGroup();
+        }
 
-        }
-        private void Grid_Disease_Click(object sender, MouseButtonEventArgs e)
-        {
-            disease = (CustomData)DataGrid3.SelectedItem;
-            DataGrid3.DataContext = disease;
-        }
         private void Add_Disease(object sender, RoutedEventArgs e)
         {
             InputDiseaseName inputDiseaseName = new InputDiseaseName
@@ -158,20 +178,10 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             inputDiseaseName.ShowDialog();
-            //添加之后，flush界面
-            //致空
-            disease = null;
-            //刷新界面
-            diseaseList = customDataService.GetAllObjectByType(CustomDataEnum.Disease);
-            diseaseCollection = new ObservableCollection<CustomData>(diseaseList);
-            ((this.FindName("DataGrid3")) as DataGrid).ItemsSource = diseaseCollection;
+            FlushDisease();
 
         }
-        private void Grid_Diagnosis_Click(object sender, MouseButtonEventArgs e)
-        {
-            diagnosis = (CustomData)DataGrid4.SelectedItem;
-            DataGrid4.DataContext = diagnosis;
-        }
+
         private void Add_Diagnosis(object sender, RoutedEventArgs e)
         {
             InputDisabilityName inputDiagnosisName = new InputDisabilityName
@@ -182,13 +192,8 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             inputDiagnosisName.ShowDialog();
-            //添加之后，flush界面
-            //致空
-            diagnosis = null;
-            //刷新界面
-            diagnosisList = customDataService.GetAllObjectByType(CustomDataEnum.Diagiosis);
-            diagnosisCollection = new ObservableCollection<CustomData>(diagnosisList);
-            ((this.FindName("DataGrid4")) as DataGrid).ItemsSource = diagnosisCollection;
+            FlushDiagnosis();
+
         }
 
         private void Group_Update(object sender, RoutedEventArgs e)
@@ -206,12 +211,7 @@ namespace spms.view.Pages
             //UI中使用
             groupUpdata.GroupName.Text = group.CD_CustomName;
             groupUpdata.ShowDialog();
-            //致空
-            group = null;
-            //刷新界面
-            groupList = customDataService.GetAllObjectByType(CustomDataEnum.Group);
-            groupCollection = new ObservableCollection<CustomData>(groupList);
-            ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = groupCollection;
+            FlushGroup();
 
 
         }
@@ -230,12 +230,7 @@ namespace spms.view.Pages
             //UI中使用
             diseaseUpdata.DiseaseName.Text = disease.CD_CustomName;
             diseaseUpdata.ShowDialog();
-            //致空
-            disease = null;
-            //刷新界面
-            diseaseList = customDataService.GetAllObjectByType(CustomDataEnum.Disease);
-            diseaseCollection = new ObservableCollection<CustomData>(diseaseList);
-            ((this.FindName("DataGrid3")) as DataGrid).ItemsSource = diseaseCollection;
+            FlushDisease();
         }
         private void Diagnosis_Update(object sender, RoutedEventArgs e)
         {
@@ -252,100 +247,22 @@ namespace spms.view.Pages
             //UI中使用
             diagnosisUpdata.DiagnosisName.Text = diagnosis.CD_CustomName;
             diagnosisUpdata.ShowDialog();
-            //致空
-            diagnosis = null;
-            //刷新界面
-            diagnosisList = customDataService.GetAllObjectByType(CustomDataEnum.Diagiosis);
-            diagnosisCollection = new ObservableCollection<CustomData>(diagnosisList);
-            ((this.FindName("DataGrid4")) as DataGrid).ItemsSource = diagnosisCollection;
-        }
-        private void CheckBox1_Click(object sender, RoutedEventArgs e)//单击CheckBox触发事件
-        {
-            CheckBox checkBox = sender as CheckBox;
-            int ID = int.Parse(checkBox.Tag.ToString());   //获取该行的FID  
-            var IsChecked = checkBox.IsChecked;
-            if (IsChecked == true)
-            {
-                selectID.Add(ID);         //如果选中就保存FID  
-            }
-            else
-            {
-                selectID.Remove(ID);  //如果选中取消就删除里面的FID  
-            }
-        }
-        private void CheckBox2_Click(object sender, RoutedEventArgs e)//单击CheckBox触发事件
-        {
-            CheckBox checkBox = sender as CheckBox;
-            int ID = int.Parse(checkBox.Tag.ToString());   //获取该行的FID  
-            var IsChecked = checkBox.IsChecked;
-            if (IsChecked == true)
-            {
-                selectID.Add(ID);         //如果选中就保存FID  
-            }
-            else
-            {
-                selectID.Remove(ID);  //如果选中取消就删除里面的FID  
-            }
-        }
-        private void CheckBox3_Click(object sender, RoutedEventArgs e)//单击CheckBox触发事件
-        {
-            CheckBox checkBox = sender as CheckBox;
-            int ID = int.Parse(checkBox.Tag.ToString());   //获取该行的FID  
-            var IsChecked = checkBox.IsChecked;
-            if (IsChecked == true)
-            {
-                selectID.Add(ID);         //如果选中就保存FID  
-            }
-            else
-            {
-                selectID.Remove(ID);  //如果选中取消就删除里面的FID  
-            }
+            FlushDiagnosis();
         }
         private void Group_Delete(object sender, RoutedEventArgs e)
         {
-            foreach (int ID in selectID)
-            {
-                CustomData group = (CustomData)DataGrid2.SelectedItem;
-                group.Pk_CD_Id = ID;
-                group.Is_Deleted = 1;
-                //customDataDAO.DeleteByPrimaryKey(group);//在数据库中删除
-                customDataDAO.UpdateByPrimaryKey(group);
-                for (int i = 0; i < groupCollection.Count; i++)
-                {
-                    if (groupCollection[i].Pk_CD_Id == ID) groupCollection.RemoveAt(i);//在collection中删除
-                }
-
-            }
+            customDataDAO.DeleteCustomDataByPrimaryKey(group.Pk_CD_Id);//在数据库中删除
+            FlushGroup();
         }
         private void Disease_Delete(object sender, RoutedEventArgs e)
         {
-            foreach (int ID in selectID)
-            {
-                CustomData disease = (CustomData)DataGrid3.SelectedItem;
-                disease.Pk_CD_Id = ID;
-                disease.Is_Deleted = 1;
-                customDataDAO.UpdateByPrimaryKey(disease);//isDeleted变为1
-                for (int i = 0; i < diseaseCollection.Count; i++)
-                {
-                    if (diseaseCollection[i].Pk_CD_Id == ID) diseaseCollection.RemoveAt(i);//在collection中删除
-                }
-
-            }
+            customDataDAO.DeleteCustomDataByPrimaryKey(disease.Pk_CD_Id);//在数据库中删除
+            FlushDisease();
         }
         private void Diagnosis_Delete(object sender, RoutedEventArgs e)
         {
-            foreach (int ID in selectID)
-            {
-                CustomData diagnosis = (CustomData)DataGrid4.SelectedItem;
-                diagnosis.Pk_CD_Id = ID;
-                diagnosis.Is_Deleted = 1;
-                customDataDAO.UpdateByPrimaryKey(diagnosis);//isDeleted变为1
-                for (int i = 0; i < diagnosisCollection.Count; i++)
-                {
-                    if (diagnosisCollection[i].Pk_CD_Id == ID) diagnosisCollection.RemoveAt(i);//在collection中删除
-                }
-
-            }
+            customDataDAO.DeleteCustomDataByPrimaryKey(diagnosis.Pk_CD_Id);//在数据库中删除
+            FlushDiagnosis();
         }
 
     }

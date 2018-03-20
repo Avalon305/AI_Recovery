@@ -121,7 +121,7 @@
                     <Button Style="{StaticResource Btn}">打开文档</Button>
                 </Border>
                 <!--结束：照片保存文档-->
-                <Label  Grid.Row="2" Grid.Column="3" Foreground="Red"> （路径一旦设置不建议改变）</Label>
+                <Label  Grid.Row="2" Grid.Column="3" Foreground="Red">（路径一旦设置不建议改变）</Label>
                 <!--语言-->
                 <Border Grid.Row="3" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,0,0,2">
                     <Label Foreground="White" Background="Black">语言</Label>
@@ -146,6 +146,7 @@
             <!--结束：高级设置按钮-->
             <!--
             <Grid Margin="100,10" VerticalAlignment="Top" >
+
                 <Grid.ColumnDefinitions >
                     <ColumnDefinition Width="140"/>
                     <ColumnDefinition Width="140"/>
@@ -167,6 +168,7 @@
                 </Border>
                 <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="200">
                     <StackPanel Margin="10" >
+
                         <CheckBox>水平腿部推蹬机</CheckBox>
                         <CheckBox>坐姿划船机</CheckBox>
                         <CheckBox>身体伸展弯曲机</CheckBox>
@@ -175,60 +177,40 @@
                         <CheckBox>胸部推举机</CheckBox>
                     </StackPanel>
                 </Border>
+
             </Grid>-->
         </StackPanel>
         <!--结束：基础设置及其高级设置按钮-->
 
         <StackPanel Orientation="Horizontal" >
             <!--小组名称-->
-            <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" AlternatingRowBackground="LightBlue">
-                
+            <DataGrid x:Name="DataGrid2"  DataGridRow.MouseUp="Grid_Group_Click" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
                 <DataGrid.Columns>
-                    <!--<DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <CheckBox  Click="CheckBox2_Click" Tag="{Binding User_GroupName}"></CheckBox>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>-->
-                    <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="小组名称" Width="410"/>
+                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="小组名称" Width="400"/>
                 </DataGrid.Columns>
             </DataGrid>
             <!--结束小组名称-->
             <!--疾病名称-->
-            <DataGrid x:Name="DataGrid3" HorizontalAlignment="Left" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" AlternatingRowBackground="LightBlue">
+            <DataGrid x:Name="DataGrid3" DataGridRow.MouseUp="Grid_Disease_Click" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
                 <DataGrid.Columns>
-                    <!--<DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
-<DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <CheckBox  Click="CheckBox2_Click" Tag="{Binding Pk_CD_Id}"></CheckBox>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>-->
-                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="疾病名称" Width="410"/>
+                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="疾病名称" Width="400"/>
                 </DataGrid.Columns>
             </DataGrid>
             <!--结束：疾病名称-->
             <!--残障名称-->
-            <DataGrid x:Name="DataGrid4" HorizontalAlignment="Left" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" AlternatingRowBackground="LightBlue">
+            <DataGrid x:Name="DataGrid4"  DataGridRow.MouseUp="Grid_Diagnosis_Click" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
                 <DataGrid.Columns>
-                   <!--<DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <CheckBox  Click="CheckBox3_Click" Tag="{Binding Pk_CD_Id}"></CheckBox>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>-->
-                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="残障名称" Width="410"/>
-                </DataGrid.Columns>            </DataGrid>
+                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="残障名称" Width="400"/>
+                </DataGrid.Columns>
+            </DataGrid>
             <!--结束：残障名称-->
         </StackPanel>
         <!--小组名称——添加、更新、删除按钮-->
         <StackPanel Orientation="Horizontal">
             <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="10,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >
-                    <Border CornerRadius="5" Margin="40,0,50,0">
-                        <Button Height="25" Width="50" Style="{StaticResource Btn}" Click="Add_Group" >添加</Button>
+                    <Border CornerRadius="5" Margin="40,0,50,-0.277" Height="39" VerticalAlignment="Bottom">
+                        <Button Width="50" Style="{StaticResource Btn}" Click="Add_Group" Margin="0,7,0,6.723" >添加</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0"  Height="25" Width="50">
                         <Button Height="25" Width="50" Style="{StaticResource Btn}">更新</Button>
@@ -286,9 +268,8 @@
         <Border CornerRadius="5,0,0,0"  HorizontalAlignment="Right"  VerticalAlignment="Center" Padding="0,2,0,2" Height="73" Margin="0,0,-4,10">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0.4,0,0.2" Width="312">
                 <Button Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,4,3,-0.2"  Foreground="Black" Content="确定更改" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
-                <Button Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right"  Foreground="Black" Content="返回" Margin="0,4,0,0" Click="GoBack" Style="{StaticResource Btn}"/>
+                <Button Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right"  Foreground="Black" Content="取消" Margin="0,4,0,0" Click="GoBack" Style="{StaticResource Btn}"/>
             </StackPanel>
         </Border>
     </StackPanel>
 </Page>
-
