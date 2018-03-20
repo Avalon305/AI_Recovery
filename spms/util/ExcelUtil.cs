@@ -34,7 +34,15 @@ namespace spms.util
             }
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(dataTable.TableName);
+                ExcelWorksheet worksheet = null;
+                if (dataTable != null)
+                {
+                    worksheet = package.Workbook.Worksheets.Add(dataTable.TableName);
+                }
+                else
+                {
+                    worksheet = package.Workbook.Worksheets.Add("默认");
+                }
 
                 worksheet.Cells.Style.WrapText = true;
                 worksheet.Cells.Style.ShrinkToFit = false;//单元格自动适应大小
@@ -71,72 +79,121 @@ namespace spms.util
                 worksheet.Cells[2, 9].Value = user.User_IllnessName;
                 worksheet.Cells[2, 10].Value = user.User_PhysicalDisabilities;
 
-
-                //设置列名和格式
-                foreach (DataColumn col in dataTable.Columns)
-                {
-                    worksheet.Cells[4, col.Ordinal + 1].Value = col.Caption;
-                }
-
-                for (int i = 0; i < dataTable.Rows.Count; i++)
-                {
-                    for (int j = 0; j < dataTable.Columns.Count; j++)
-                    {
-                        worksheet.Cells[i + 5, j + 1].Value = dataTable.Rows[i][j].ToString();
-                    }
-                }
-
-                //统一设置表格的内容
-                int maxCol = 10;
-                if (dataTable.Columns.Count > 10)
-                {
-                    maxCol = dataTable.Columns.Count;
-                }
-                using (ExcelRange range = worksheet.Cells[1, 1, dataTable.Rows.Count + 4, maxCol])
-                {
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                }
-
-                //设置所有的行高
-                int maxRow = dataTable.Rows.Count + 4;
-                for (int i = 0; i < maxRow; i++)
-                {
-                    worksheet.Row(i + 1).Height = 25;
-                }
-
+                //设置用户信息的样式
                 using (ExcelRange range = worksheet.Cells[1, 1, 1, 10])
                 {
                     range.Style.Font.Bold = true;
                     range.Style.Font.Name = "微软雅黑";
                     range.Style.Font.Size = 11;
-                    //range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                 }
                 using (ExcelRange range = worksheet.Cells[2, 1, 2, 10])
                 {
                     range.Style.Font.Name = "微软雅黑";
                     range.Style.Font.Size = 11;
-                }
-                using (ExcelRange range = worksheet.Cells[4, 1, 4, dataTable.Columns.Count])
-                {
-                    range.Style.Font.Bold = true;
-                    range.Style.Font.Name = "微软雅黑";
-                    range.Style.Font.Size = 11;
-                    //range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                 }
 
-                //统一设置表格的内容
-                using (ExcelRange range = worksheet.Cells[2, 1, dataTable.Rows.Count + 1, dataTable.Columns.Count])
+                //设置用户信息的行高
+                for (int i = 0; i < 2; i++)
                 {
-                    //range.Style.Font.Bold = true;
-                    range.Style.Font.Name = "微软雅黑";
-                    range.Style.Font.Size = 11;
-                    //range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    worksheet.Row(i + 1).Height = 25;
+                }
+
+                if (dataTable != null)
+                {
+                    //设置列名和格式
+                    foreach (DataColumn col in dataTable.Columns)
+                    {
+                        worksheet.Cells[4, col.Ordinal + 1].Value = col.Caption;
+                    }
+
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dataTable.Columns.Count; j++)
+                        {
+                            worksheet.Cells[i + 5, j + 1].Value = dataTable.Rows[i][j].ToString();
+                        }
+                    }
+
+                    //统一设置表格的内容
+                    int maxCol = 10;
+                    if (dataTable.Columns.Count > 10)
+                    {
+                        maxCol = dataTable.Columns.Count;
+                    }
+                    using (ExcelRange range = worksheet.Cells[3, 1, dataTable.Rows.Count + 4, maxCol])
+                    {
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                    }
+
+                    //设置所有的行高
+                    int maxRow = dataTable.Rows.Count + 4;
+                    for (int i = 2; i < maxRow; i++)
+                    {
+                        worksheet.Row(i + 1).Height = 25;
+                    }
+
+                    using (ExcelRange range = worksheet.Cells[4, 1, 4, dataTable.Columns.Count])
+                    {
+                        range.Style.Font.Bold = true;
+                        range.Style.Font.Name = "微软雅黑";
+                        range.Style.Font.Size = 11;
+                        //range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    }
+
+                    //统一设置表格的内容
+                    using (ExcelRange range = worksheet.Cells[2, 1, dataTable.Rows.Count + 1, dataTable.Columns.Count])
+                    {
+                        //range.Style.Font.Bold = true;
+                        range.Style.Font.Name = "微软雅黑";
+                        range.Style.Font.Size = 11;
+                        //range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    }
                 }
 
                 //保存
                 package.Save();
             }
+        }
+
+
+        /// <summary>
+        /// 将数据转换成datatable
+        /// </summary>
+        /// <param name="sheetName">sheet表名</param>
+        /// <param name="columnNames">顶部列名（标题名）</param>
+        /// <param name="list">数据集合</param>
+        /// <returns></returns>
+        public static DataTable ToDataTable(string sheetName, string[] columnNames, List<object> list)
+        {
+            DataTable dataTable = null;
+            if (list != null)
+            {
+                dataTable = new DataTable();
+                dataTable.TableName = sheetName;
+                PropertyInfo[] propertys = list[0].GetType().GetProperties();
+                for (int i = 0; i < propertys.Length; i++)
+                {
+                    dataTable.Columns.Add(columnNames[i], propertys[i].PropertyType);
+                }
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                    ArrayList tempList = new ArrayList();
+                    foreach (PropertyInfo pi in propertys)
+                    {
+                        object obj = pi.GetValue(list[i], null);
+                        tempList.Add(obj);
+                    }
+                    object[] array = tempList.ToArray();
+                    dataTable.LoadDataRow(array, true);
+                }
+            }
+            return dataTable;
         }
 
         public static int ConvertAge(Object value)
