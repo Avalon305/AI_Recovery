@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -93,6 +94,22 @@ namespace spms.view.Pages
         {
             selectUser = (User) UsersInfo.SelectedItem;
             UserInfo.DataContext = selectUser;
+
+            string path = CommUtil.GetUserPic(selectUser.User_IDCard);
+            path += ".jpg";
+
+            //看照片是否存在
+            if (!File.Exists(path))
+            {
+                UserPhoto.Source = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+                Console.WriteLine("~~~~~~~~~该用户的照片不存在~~~~~~~" + path);
+                return;
+                //提示文件不存在
+            }
+            else
+            {
+                UserPhoto.Source = new BitmapImage(new Uri(path));
+            }
         }
 
         /// <summary>
@@ -234,14 +251,51 @@ namespace spms.view.Pages
         //按钮：文档输出
         private void Output_Document(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog
+            Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog
             {
-                DefaultExt = ".xml",
-                Filter = "xml file|*.xml"
+                Filter = "Excel表格（*.xlsx）|*.xlsx"
             };
-            if (ofd.ShowDialog() == true)
+            //设置默认文件类型显示顺序
+            sfd.FilterIndex = 1;
+            //保存对话框是否记忆上次打开的目录
+            sfd.RestoreDirectory = true;
+            if (sfd.ShowDialog() == true)
             {
                 //此处做你想做的事 ...=ofd.FileName; 
+                //获取当前
+                if (is_signinformationrecord.IsChecked == true)
+                {
+                    //导出症状信息记录
+                    if (selectUser != null)
+                    {
+                        //存放信息导出的列名
+                        string[] colNames = { };
+                        //TODO 如果页面数据展示完成，可以继续完成
+                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("症状信息记录", colNames, null));
+                    }
+                }
+                else if (is_trainingrecord.IsChecked == true)
+                {
+                    //导出训练记录
+                    if (selectUser != null)
+                    {
+                        //存放信息导出的列名
+                        string[] colNames = { };
+                        //TODO 如果页面数据展示完成，可以继续完成
+                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("训练记录", colNames, null));
+                    }
+                }
+                else if (is_physicalevaluation.IsChecked == true)
+                {
+                    //导出体力评价记录
+                    if (selectUser != null)
+                    {
+                        //存放信息导出的列名
+                        string[] colNames = { };
+                        //TODO 如果页面数据展示完成，可以继续完成
+                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("体力评价记录", colNames, null));
+                    }
+                }
             }
         }
 

@@ -1,8 +1,11 @@
 ﻿
+using Microsoft.Win32;
 using spms.entity;
 using spms.service;
+using spms.util;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +26,8 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class Register : Window
     {
-         
+        //保存用户照片的路径
+        string userPhotoPath = null;
 
         //service层初始化
         UserService userService = new UserService();
@@ -143,6 +147,14 @@ namespace spms.view.Pages.ChildWin
             User user = new User();
             user.User_Birth = Convert.ToDateTime(brithday);
             user.User_GroupName = groupName;
+
+            if (IDCard == "")
+            {
+
+                System.Windows.MessageBox.Show("没有填写IDCard", "信息提示");
+                return;
+            }
+
             user.User_IDCard = IDCard;
             user.User_IllnessName = sicknessName;
             user.User_InitCare = initial;
@@ -155,7 +167,12 @@ namespace spms.view.Pages.ChildWin
             user.User_Phone = phone;
             ///补齐照片的部分
 
-
+            // 如果用户是自己选择现成的图片，将图片保存在安装目录下
+            string sourcePic = userPhotoPath;
+            string targetPic = CommUtil.GetUserPic(IDCard);
+            targetPic += ".jpg";
+            bool isrewrite = true; // true=覆盖已存在的同名文件,false则反之
+            System.IO.File.Copy(sourcePic, targetPic, isrewrite);
 
             userService.InsertUser(user);
             this.Close();
@@ -169,8 +186,76 @@ namespace spms.view.Pages.ChildWin
 
         private void Photograph(object sender, RoutedEventArgs e)
         {
+            string IDCard = this.IDCard.Text;
+            string name = IDCard.ToString();
 
+            if (IDCard == "")
+            {
+                System.Windows.MessageBox.Show("没有填写IDCard,请继续填写", "信息提示");
+                return;
+            }
+
+            Photograph photograph = new Photograph
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            photograph.getIdCard = IDCard;
+
+            photograph.ShowDialog();
         }
+
+        // 用户自主选择照片
+        private void Select_Picture_Show(object sender, RoutedEventArgs e)
+        {
+            string IDCard = this.IDCard.Text;
+
+            if (IDCard == "")
+            {
+                System.Windows.MessageBox.Show("没有填写IDCard,请继续填写", "信息提示");
+                return;
+            }
+
+            using (System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog())
+            {
+                ofd.Title = "请选择要插入的图片";
+                ofd.Filter = "JPG图片|*.jpg|BMP图片|*.bmp|Gif图片|*.gif";
+                ofd.CheckFileExists = true;
+                ofd.CheckPathExists = true;
+                ofd.Multiselect = false;
+
+                if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    // 获取图片路径
+                    string picPath = ofd.FileName;
+
+                    long picLen = 0;
+
+                    FileInfo di = new FileInfo(picPath);
+                    picLen = di.Length;
+                    picLen /= 1024;
+                    Console.WriteLine("~~~~~~~~ 图片的大小" + picLen + "~~~~~~~~");
+
+                    if (picLen > 40)
+                    {
+                        System.Windows.MessageBox.Show("图片过大，请重新选择", "信息提示");
+                        return;
+                    }
+
+                    BitmapImage image = new BitmapImage(new Uri(ofd.FileName, UriKind.Absolute));//打开图片
+                    pic.Source = image;//将控件和图片绑定
+
+                    userPhotoPath = ofd.FileName;
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("你没有选择图片", "信息提示");
+                }
+            }
+        }
+
         //设置手机号输入框只能输入数字
         private void OnlyInputNumbers(object sender, TextCompositionEventArgs e)
         {
