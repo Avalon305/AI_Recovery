@@ -139,6 +139,8 @@ namespace spms.view.Pages.ChildWin
                 //重复弹框提示
             }
 
+            string IdCard = this.IDCard.Text;
+            string name = t3.Text;
             //获取小组名称的内容
             string groupName = c2.Text;
             //获取初期要介护度的内容
@@ -157,10 +159,9 @@ namespace spms.view.Pages.ChildWin
             user.User_Birth = Convert.ToDateTime(brithday);
             user.User_GroupName = groupName;
 
-            if (IDCard == "")
+            if (IdCard == null || name == null || IDCard == "" || name == "")
             {
-
-                System.Windows.MessageBox.Show("没有填写IDCard", "信息提示");
+                System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
                 return;
             }
 
@@ -174,14 +175,25 @@ namespace spms.view.Pages.ChildWin
             user.User_PhysicalDisabilities = disabilityName;
             user.User_Sex = (byte?)(usersex.Equals("男") ? 1 : 0);
             user.User_Phone = phone;
-            ///补齐照片的部分
 
-            // 如果用户是自己选择现成的图片，将图片保存在安装目录下
-            string sourcePic = userPhotoPath;
-            string targetPic = CommUtil.GetUserPic(IDCard);
-            targetPic += ".jpg";
-            bool isrewrite = true; // true=覆盖已存在的同名文件,false则反之
-            System.IO.File.Copy(sourcePic, targetPic, isrewrite);
+            
+
+            if (IdCard != null && name != null && IDCard != "" && name != "")
+            {
+                // 如果用户是自己选择现成的图片，将图片保存在安装目录下
+                string sourcePic = userPhotoPath;
+                string targetPic = CommUtil.GetUserPic(usernamePY + IDCard);
+                targetPic += ".jpg";
+                bool isrewrite = true; // true=覆盖已存在的同名文件,false则反之
+                System.IO.File.Copy(sourcePic, targetPic, isrewrite);
+                
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
+                return;
+            }
+            
 
             userService.InsertUser(user);
             this.Close();
@@ -195,14 +207,6 @@ namespace spms.view.Pages.ChildWin
 
         private void Photograph(object sender, RoutedEventArgs e)
         {
-            string IDCard = this.IDCard.Text;
-            string name = IDCard.ToString();
-
-            if (IDCard == "")
-            {
-                System.Windows.MessageBox.Show("没有填写IDCard,请继续填写", "信息提示");
-                return;
-            }
 
             Photograph photograph = new Photograph
             {
@@ -211,7 +215,8 @@ namespace spms.view.Pages.ChildWin
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            photograph.getIdCard = IDCard;
+            photograph.getIdCard = IDCard.Text;
+            photograph.getName = t3.Text;
 
             photograph.ShowDialog();
         }
@@ -219,13 +224,6 @@ namespace spms.view.Pages.ChildWin
         // 用户自主选择照片
         private void Select_Picture_Show(object sender, RoutedEventArgs e)
         {
-            string IDCard = this.IDCard.Text;
-
-            if (IDCard == "")
-            {
-                System.Windows.MessageBox.Show("没有填写IDCard,请继续填写", "信息提示");
-                return;
-            }
 
             using (System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog())
             {

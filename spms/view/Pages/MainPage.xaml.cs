@@ -94,9 +94,18 @@ namespace spms.view.Pages
         {
             selectUser = (User) UsersInfo.SelectedItem;
             UserInfo.DataContext = selectUser;
+            string path = null;
 
-            string path = CommUtil.GetUserPic(selectUser.User_IDCard);
-            path += ".jpg";
+            if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null && selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
+            {
+                path = CommUtil.GetUserPic(selectUser.User_Namepinyin+selectUser.User_IDCard);
+                path += ".jpg";
+            }
+            else
+            {
+                Console.WriteLine("~~~~~~~~~该用户的照片不存在~~~~~~~" + path);
+                return;
+            }
 
             //看照片是否存在
             if (!File.Exists(path))
