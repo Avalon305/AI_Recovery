@@ -169,7 +169,6 @@
     <Compile Include="http\dto\DevicePrescriptionDTO.cs" />
     <Compile Include="http\dto\PhysicalPowerDTO.cs" />
     <Compile Include="http\dto\PrescriptionResultDTO.cs" />
-    <Compile Include="http\dto\SymptomInfoChildDTO.cs" />
     <Compile Include="http\dto\SymptomInfoDTO.cs" />
     <Compile Include="http\dto\TrainInfoDTO.cs" />
     <Compile Include="http\dto\UserDTO.cs" />
