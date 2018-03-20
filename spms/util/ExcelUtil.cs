@@ -10,6 +10,7 @@ using System.IO;
 using System.Reflection;
 using System.Collections;
 using spms.entity;
+using System.Drawing;
 
 namespace spms.util
 {
@@ -203,6 +204,221 @@ namespace spms.util
             Console.WriteLine(DateTime.Now.Year - revalue.Year);
             int age = DateTime.Now.Year - revalue.Year;
             return age;
+        }
+
+
+        /// <summary>
+        /// 将用户基本信息插入转pdf的Excel
+        /// </summary>
+        /// <param name="worksheet"></param>
+        /// <param name="userRow">用户基本信息的起始行</param>
+        /// <param name="userBaseInfo"></param>
+        public static void GenerateUserBaseInfoToExcel(ref ExcelWorksheet worksheet, int userRow, string title, User user)
+        {
+            /*
+                0.设置头部信息
+             */
+            worksheet.Cells.Style.WrapText = true;
+            //worksheet.View.ShowGridLines = false;//去掉sheet的网格线
+            worksheet.PrinterSettings.TopMargin = 0;
+            worksheet.PrinterSettings.RightMargin = 0;
+            worksheet.PrinterSettings.LeftMargin = 0.28M;
+            worksheet.PrinterSettings.BottomMargin = 0;
+            worksheet.PrinterSettings.HeaderMargin = 0;
+            worksheet.PrinterSettings.FooterMargin = 0;
+            worksheet.Cells.Style.ShrinkToFit = true;//单元格自动适应大小
+
+            //设置列宽
+            worksheet.Column(1).Width = 5;
+            worksheet.Column(5).Width = 10;
+            worksheet.Column(7).Width = 10;
+            worksheet.Column(8).Width = 10;
+            worksheet.Column(11).Width = 14;
+
+            /*
+                0.头部部分
+                */
+            //插入图片
+            //string fn = System.IO.Path.Combine((Application.StartupPath + @"\..\..\图片\"),"1.jpg");
+            //Console.WriteLine(fn);
+            int henderRow = 0;
+            OfficeOpenXml.Drawing.ExcelPicture picture = worksheet.Drawings.AddPicture("logo", System.Drawing.Image.FromFile(@"e:/logo.png"));//插入图片
+            picture.SetPosition(8, 5);//设置图片的位置
+            picture.SetSize(120, 47);//设置图片的大小
+
+            //标题
+            worksheet.Cells[henderRow + 1, 5, henderRow + 2, 8].Merge = true;//合并单元格
+            worksheet.Cells[henderRow + 1, 5].Value = title;
+            worksheet.Cells[henderRow + 1, 5].Style.Font.Bold = true;
+            worksheet.Cells[henderRow + 1, 5].Style.Font.Name = "微软雅黑";
+            worksheet.Cells[henderRow + 1, 5].Style.Font.Size = 27;
+
+            worksheet.Cells[henderRow + 1, 5].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            worksheet.Cells[henderRow + 1, 5].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+
+            //时间
+            worksheet.Cells[henderRow + 2, 10, henderRow + 2, 11].Merge = true;//合并单元格
+            worksheet.Cells[henderRow + 2, 10].Value = "作成日期：" + DateTime.Now.ToString("yyyy-MM-dd");
+            worksheet.Cells[henderRow + 2, 10].Style.Font.Name = "等线";
+            worksheet.Cells[henderRow + 2, 10].Style.Font.Bold = true;
+            worksheet.Cells[henderRow + 2, 10].Style.Font.Size = 10;
+            worksheet.Cells[henderRow + 2, 10].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            worksheet.Cells[henderRow + 2, 10].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+            /*
+                  1.用户的基本信息
+                 */
+            //int userRow = 4;
+            worksheet.Cells[userRow, 1, userRow, 2].Merge = true;//合并单元格
+            worksheet.Cells[userRow, 3, userRow, 5].Merge = true;
+            worksheet.Cells[userRow + 1, 1, userRow + 1, 2].Merge = true;
+            worksheet.Cells[userRow + 1, 3, userRow + 1, 5].Merge = true;
+            worksheet.Cells[userRow + 1, 6, userRow + 1, 7].Merge = true;
+            worksheet.Cells[userRow + 1, 8, userRow + 1, 9].Merge = true;
+
+            worksheet.Cells[userRow + 2, 1, userRow + 2, 2].Merge = true;
+            worksheet.Cells[userRow + 2, 6, userRow + 2, 7].Merge = true;
+            worksheet.Cells[userRow + 2, 3, userRow + 2, 5].Merge = true;
+            worksheet.Cells[userRow + 2, 8, userRow + 2, 9].Merge = true;
+            worksheet.Cells[userRow + 3, 1, userRow + 3, 9].Merge = true;
+
+            worksheet.Cells[userRow + 4, 1, userRow + 4, 3].Merge = true;
+            worksheet.Cells[userRow + 4, 4, userRow + 4, 5].Merge = true;
+            worksheet.Cells[userRow + 4, 6, userRow + 4, 7].Merge = true;
+            worksheet.Cells[userRow + 4, 8, userRow + 4, 9].Merge = true;
+            worksheet.Cells[userRow + 5, 1, userRow + 5, 3].Merge = true;
+            worksheet.Cells[userRow + 5, 4, userRow + 5, 5].Merge = true;
+            worksheet.Cells[userRow + 5, 6, userRow + 5, 7].Merge = true;
+            worksheet.Cells[userRow + 5, 8, userRow + 5, 9].Merge = true;
+
+            worksheet.Cells[userRow, 1].Value = "姓名";
+            worksheet.Cells[userRow, 3].Value = user.User_Name;
+            worksheet.Cells[userRow, 6].Value = "性别";
+            if (user.User_Sex == 0x01)
+            {
+                worksheet.Cells[userRow, 7].Value = "男";
+            }
+            else
+            {
+                worksheet.Cells[userRow, 7].Value = "女";
+            }
+
+            worksheet.Cells[userRow, 8].Value = "年龄";
+            worksheet.Cells[userRow, 9].Value = ConvertAge(user.User_Birth);
+            worksheet.Cells[userRow + 1, 3].Value = user.User_Namepinyin;
+            worksheet.Cells[userRow + 1, 6].Value = "出生年月日";
+            worksheet.Cells[userRow + 1, 8].Value = string.Format("{0:d}", user.User_Birth);
+            worksheet.Cells[userRow + 2, 1].Value = "利用者ID";
+            worksheet.Cells[userRow + 2, 3].Value = user.Pk_User_Id;
+            worksheet.Cells[userRow + 2, 6].Value = "小组名称";
+            worksheet.Cells[userRow + 2, 8].Value = user.User_GroupName;
+            worksheet.Cells[userRow + 4, 1].Value = "初期要介护度";
+            worksheet.Cells[userRow + 4, 4].Value = user.User_InitCare;
+            worksheet.Cells[userRow + 4, 6].Value = "疾病名称";
+            worksheet.Cells[userRow + 4, 8].Value = user.User_IllnessName;
+            worksheet.Cells[userRow + 5, 1].Value = "现在要介护度";
+            worksheet.Cells[userRow + 5, 4].Value = user.User_Nowcare;
+            worksheet.Cells[userRow + 5, 6].Value = "残障名称";
+            worksheet.Cells[userRow + 5, 8].Value = user.User_PhysicalDisabilities;
+
+            //插入用户图片
+            //OfficeOpenXml.Drawing.ExcelPicture userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(user.User_PhotoLocation));//插入图片
+            OfficeOpenXml.Drawing.ExcelPicture userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(@"e:/timg.jpg"));//插入图片
+            userPicture.SetPosition(userRow - 1, 0, 9, 8);//设置图片的位置
+            userPicture.SetSize(150, 145);//设置图片的大小
+                                          //userPicture.Border.LineStyle = eLineStyle.Solid;
+                                          //userPicture.Fill.Style = eFillStyle.NoFill;//设置形状的填充样式
+                                          //userPicture.Border.Fill.Style = eFillStyle.NoFill;//边框样式
+
+            //设置用户基本信息的基本样式
+            string cellRange1 = String.Format("{0}{1}{2}{3}", "A", userRow, ":I", userRow + 5);
+            using (ExcelRange range = worksheet.Cells[cellRange1])
+            {
+                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                range.Style.Font.Bold = true;
+                //range.Style.Font.Color.SetColor(Color.White);
+                range.Style.Font.Name = "等线";
+                range.Style.Font.Size = 11;
+                //设置边框
+                range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+            }
+
+            //设置用户信息某些特别的边框
+            worksheet.Cells[userRow, 1].Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 1, 1].Style.Border.Top.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow, 2].Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 1, 2].Style.Border.Top.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow, 6].Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 1, 6].Style.Border.Top.Color.SetColor(Color.FromArgb(255, 255, 255));
+
+            worksheet.Cells[userRow + 1, 6].Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 2, 6].Style.Border.Top.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 1, 7].Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 2, 7].Style.Border.Top.Color.SetColor(Color.FromArgb(255, 255, 255));
+
+            worksheet.Cells[userRow + 4, 1].Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 5, 1].Style.Border.Top.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 4, 2].Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 5, 2].Style.Border.Top.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 4, 3].Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 5, 3].Style.Border.Top.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 4, 6].Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 5, 6].Style.Border.Top.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 4, 7].Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
+            worksheet.Cells[userRow + 5, 7].Style.Border.Top.Color.SetColor(Color.FromArgb(255, 255, 255));
+
+            //设置比较特别的样式
+            //string cellRange2 = "A4:B4,F4,H4,F5:G5,A7:C7,F7:G7,A8:C8,F8:G8,A6:B6,F6:G6";
+            string cellRange2 = "A" + userRow + ":B" + userRow + ",F" + userRow + ",H" + userRow + ",F" + (userRow + 1) + ":G" + (userRow + 1) + ",A" + (userRow + 4) + ":C" + (userRow + 4) + ",F" + (userRow + 4) + ":G" + (userRow + 4) + ",A" + (userRow + 5) + ":C" + (userRow + 5) + ",F" + (userRow + 5) + ":G" + (userRow + 5) + ",A" + (userRow + 2) + ":B" + (userRow + 2) + ",F" + (userRow + 2) + ":G" + (userRow + 2);
+            Console.WriteLine(cellRange2);
+            using (ExcelRange range = worksheet.Cells[cellRange2.ToString()])
+            {
+                range.Style.Font.Color.SetColor(Color.White);
+                range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                range.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(0, 0, 139));
+            }
+            //设置第七行的格式
+            worksheet.Row(userRow + 3).Height = 5;
+            worksheet.Row(userRow + 3).Style.Border.Left.Style = ExcelBorderStyle.None;
+            worksheet.Row(userRow + 3).Style.Border.Right.Style = ExcelBorderStyle.None;
+        }
+
+        public static void GenerateRemark(ref ExcelWorksheet worksheet, int remarkRow, string remark)
+        {
+            worksheet.Cells[remarkRow, 1, remarkRow, 2].Merge = true;
+            worksheet.Cells[remarkRow, 1].Value = "备注";
+            using (ExcelRange range = worksheet.Cells["A" + remarkRow + ":B" + remarkRow])
+            {
+                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                range.Style.Font.Bold = true;
+                range.Style.Font.Color.SetColor(Color.White);
+                range.Style.Font.Name = "等线";
+                range.Style.Font.Size = 11;
+                //设置边框
+                range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                range.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(0, 0, 139));
+            }
+            worksheet.Cells["C" + remarkRow + ":K" + remarkRow + ",A" + (remarkRow + 1) + ":K" + (remarkRow + 4)].Merge = true;
+            worksheet.Cells[remarkRow + 1, 1].Value = "     " + remark;
+            using (ExcelRange range = worksheet.Cells["A" + remarkRow + ":K" + (remarkRow + 4)])
+            {
+                range.Style.Font.Bold = true;
+                range.Style.Font.Name = "等线";
+                range.Style.Font.Size = 11;
+                //设置边框
+                //range.Style.Border. = ExcelBorderStyle.Thin;
+                //range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                range.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
+                range.Style.Border.BorderAround(ExcelBorderStyle.Thin);
+            }
         }
 
     }

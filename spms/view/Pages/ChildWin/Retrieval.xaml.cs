@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -151,23 +152,49 @@ namespace spms.view.Pages.ChildWin
         {
             inputlimited.InputLimited.OnlyInputNumbers(e);
         }
-
+        //身份证号验证和查重
         private void IsIDCard(object sender, RoutedEventArgs e)
         {
             UserService userService = new UserService();
             if (!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
             {
-                Error_Info.Content = "请输入正确的身份证号码";
-                bubble.IsOpen = true;
+                Error_Info_IDCard.Content = "请输入正确的身份证号码";
+                bubble_IDCard.IsOpen = true;
             }
             else if(userService.GetByIdCard(IDCard.Text) !=null)
             {
-                Error_Info.Content = "该身份证已注册";
-                bubble.IsOpen = true;
+                Error_Info_IDCard.Content = "该身份证已注册";
+                bubble_IDCard.IsOpen = true;
             }else
             {
-                bubble.IsOpen = false;
+                bubble_IDCard.IsOpen = false;
             }
+        }
+        //手机号验证和查重
+        private void IsPhone(object sender, RoutedEventArgs e)
+        {
+            if(!inputlimited.InputLimited.IsHandset(phone.Text) && !String.IsNullOrEmpty(phone.Text)){
+                Error_Info_Phone.Content = "请输入正确的手机号";
+                bubble_phone.IsOpen = true;
+            }
+            else if (userService.GetByPhone(phone.Text) != null)
+            {
+                Error_Info_Phone.Content = "该手机号已注册";
+                bubble_phone.IsOpen = true;
+            }
+            else
+            {
+                bubble_phone.IsOpen = false;
+            }
+        }
+        //解决气泡不随着窗体移动问题
+        private void windowmove(object sender, EventArgs e)
+        {
+
+            var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            mi.Invoke(bubble_phone, null);
+            mi.Invoke(bubble_IDCard, null);
+
         }
     }
 }

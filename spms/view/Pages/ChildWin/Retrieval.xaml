@@ -10,7 +10,8 @@
         Icon="/view/Images/icon2.png"
         Title="宝德龙" Height="332.975" Width="470"
            ResizeMode = "NoResize"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+         LocationChanged="windowmove">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
         <Style x:Key="EntryFieldStyle" TargetType="Grid" >
@@ -108,13 +109,20 @@
                 <ComboBoxItem Content="女"></ComboBoxItem>
             </ComboBox>
             <Label Content="手机号" Grid.Row="6" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <TextBox Name="phone" Grid.Row="6" Grid.Column="2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-            <Label Content="身份证号" Grid.Row="8" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <TextBox Name="IDCard" Grid.Row="8" Grid.Column="2" LostFocus="IsIDCard" VerticalContentAlignment="Center"/>
-            <bubble:CCPopup x:Name="bubble" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=IDCard}" Placement="Right" >
+            <TextBox Name="phone" Grid.Row="6" Grid.Column="2" LostFocus="IsPhone" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+            <bubble:CCPopup x:Name="bubble_phone" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=phone}" Placement="Right" >
                 <Label Style="{StaticResource tipLable}">
                     <StackPanel Orientation="Horizontal">
-                        <Label Foreground="Red" Name="Error_Info" Content=""/>
+                        <Label Foreground="Red" Name="Error_Info_Phone" Content=""/>
+                    </StackPanel>
+                </Label>
+            </bubble:CCPopup>
+            <Label Content="身份证号" Grid.Row="8" Grid.Column="0" Background="Gray" Foreground="White"/>
+            <TextBox Name="IDCard" Grid.Row="8" Grid.Column="2" LostFocus="IsIDCard" VerticalContentAlignment="Center"/>
+            <bubble:CCPopup x:Name="bubble_IDCard" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=IDCard}" Placement="Right" >
+                <Label Style="{StaticResource tipLable}">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Foreground="Red" Name="Error_Info_IDCard" Content=""/>
                     </StackPanel>
                 </Label>
             </bubble:CCPopup>

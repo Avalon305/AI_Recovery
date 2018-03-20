@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using spms.bean;
 using spms.entity;
 using spms.http;
 using spms.http.entity;
@@ -39,6 +40,8 @@ namespace spms.view.Pages
 
         //用到的业务层实例
         UserService userService = new UserService();
+         //报表的Excel业务层实例
+        ExcelService excelService = new ExcelService();
 
 
         //大数据线程，主要上传除心跳之外的所有数据信息
@@ -321,14 +324,28 @@ namespace spms.view.Pages
                     ShowInTaskbar = false,
                     WindowStartupLocation = WindowStartupLocation.CenterScreen
                 };
-                List<TrainInfo> list = new List<TrainInfo>();
-                TrainInfo trainInfo = new TrainInfo
+
+                //设置用户信息
+                if (selectUser != null)
                 {
-                    Gmt_Create = DateTime.Parse("2010-2-12")
-                };
-                list.Add(trainInfo);
-                Console.WriteLine(trainInfo.Gmt_Create);
-                list.Add(trainInfo);
+                    trainingReport.Pk_User_Id.Content = selectUser.Pk_User_Id;
+                    trainingReport.User_Name.Content = selectUser.User_Name;
+                    trainingReport.Current_User = selectUser;
+                }
+
+                //ExcelDao excelDao = new ExcelDao();
+                //excelDao.GetComprehensiveReportByUser(1);
+
+
+                //List<TrainInfo> list = new List<TrainInfo>();
+                //TrainInfo trainInfo = new TrainInfo
+                //{
+                //    Gmt_Create = DateTime.Parse("2010-2-12")
+                //};
+                //list.Add(trainInfo);
+                //Console.WriteLine(trainInfo.Gmt_Create);
+                //list.Add(trainInfo);
+                List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(1);
                 trainingReport.datalist.DataContext = list;
                 trainingReport.ShowDialog();
             }
