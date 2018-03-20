@@ -56,7 +56,7 @@ namespace spms.view.Pages.ChildWin
             c3.ItemsSource = diagnosisList;
         }
 
-        private void B1_Click(object sender, RoutedEventArgs e)
+        private void BtnQuery_Click(object sender, RoutedEventArgs e)
         {
             //获取用户ID的内容
             string userID = t1.Text;
@@ -99,7 +99,7 @@ namespace spms.view.Pages.ChildWin
             user.User_PhysicalDisabilities = disabilityName;
 
             QueryResult = userService.SelectByCondition(user);
-            Console.WriteLine(JsonTools.Obj2JSONStrNew<User>(user));
+            //Console.WriteLine(JsonTools.Obj2JSONStrNew<User>(user));
             this.Close();
         }
 
