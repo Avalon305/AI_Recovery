@@ -33,7 +33,7 @@ namespace spms.entity
         //问诊票
         public string SI_Inquiry { get; set; }
         //训练信息id
-        public int Pk_TI_Id { get; set; }
+        public int Fk_TI_Id { get; set; }
         //高血压（康复前）
         public string SI_Pre_HighPressure { get; set; }
         //低血压（康复前）
@@ -57,7 +57,7 @@ namespace spms.entity
 
         public override string ToString()
         {
-            return $"{nameof(Pk_SI_Id)}: {Pk_SI_Id}, {nameof(Gmt_Create)}: {Gmt_Create}, {nameof(Gmt_Modified)}: {Gmt_Modified}, {nameof(Fk_User_Id)}: {Fk_User_Id}, {nameof(SI_IsJoin)}: {SI_IsJoin}, {nameof(SI_WaterInput)}: {SI_WaterInput}, {nameof(SI_CareInfo)}: {SI_CareInfo}, {nameof(SI_Inquiry)}: {SI_Inquiry}, {nameof(Pk_TI_Id)}: {Pk_TI_Id}, {nameof(SI_Pre_HighPressure)}: {SI_Pre_HighPressure}, {nameof(SI_Pre_LowPressure)}: {SI_Pre_LowPressure}, {nameof(SI_Pre_HeartRate)}: {SI_Pre_HeartRate}, {nameof(SI_Pre_AnimalHeat)}: {SI_Pre_AnimalHeat}, {nameof(SI_Pre_Pulse)}: {SI_Pre_Pulse}, {nameof(SI_Suf_HighPressure)}: {SI_Suf_HighPressure}, {nameof(SI_Suf_LowPressure)}: {SI_Suf_LowPressure}, {nameof(SI_Suf_HeartRate)}: {SI_Suf_HeartRate}, {nameof(SI_Suf_AnimalHeat)}: {SI_Suf_AnimalHeat}, {nameof(SI_Suf_Pulse)}: {SI_Suf_Pulse}";
+            return $"{nameof(Pk_SI_Id)}: {Pk_SI_Id}, {nameof(Gmt_Create)}: {Gmt_Create}, {nameof(Gmt_Modified)}: {Gmt_Modified}, {nameof(Fk_User_Id)}: {Fk_User_Id}, {nameof(SI_IsJoin)}: {SI_IsJoin}, {nameof(SI_WaterInput)}: {SI_WaterInput}, {nameof(SI_CareInfo)}: {SI_CareInfo}, {nameof(SI_Inquiry)}: {SI_Inquiry}, {nameof(Fk_TI_Id)}: {Fk_TI_Id}, {nameof(SI_Pre_HighPressure)}: {SI_Pre_HighPressure}, {nameof(SI_Pre_LowPressure)}: {SI_Pre_LowPressure}, {nameof(SI_Pre_HeartRate)}: {SI_Pre_HeartRate}, {nameof(SI_Pre_AnimalHeat)}: {SI_Pre_AnimalHeat}, {nameof(SI_Pre_Pulse)}: {SI_Pre_Pulse}, {nameof(SI_Suf_HighPressure)}: {SI_Suf_HighPressure}, {nameof(SI_Suf_LowPressure)}: {SI_Suf_LowPressure}, {nameof(SI_Suf_HeartRate)}: {SI_Suf_HeartRate}, {nameof(SI_Suf_AnimalHeat)}: {SI_Suf_AnimalHeat}, {nameof(SI_Suf_Pulse)}: {SI_Suf_Pulse}";
         }
     }
 }
