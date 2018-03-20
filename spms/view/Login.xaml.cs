@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -48,29 +49,15 @@ namespace spms.view
             String name = this.User_Name.Text;
             //获取密码
             String password = this.User_Password.Password;
-            //Console.WriteLine("name:" + name);
-            //Console.WriteLine("password:" + password);
-            ////对用户名密码进行判断
-            //if(name.Equals("123") && password.Equals("123")) {
-            //    //用户名密码正确进入主页面
-            //MainPage mainpage = new MainPage();
-            //this.Content = mainpage;
-            //}
-            //else
-            //{
-            //    //用户名密码错误进行提示
-            //    Name_ErrorInfo.Content = "用户名错误";
-            //    Password_ErrorInfo.Content = "密码错误";
-            //    Console.WriteLine(Name_ErrorInfo.Content);
-            //    Color color = Color.FromArgb(255, 255, 0, 0);
-            //    Name_ErrorInfo.Foreground = new SolidColorBrush(color);
-            //    Password_ErrorInfo.Foreground = new SolidColorBrush(color);
-
-            //}
+            
             ///登录逻辑
             AuthService authService = new AuthService();
             string loginResult = authService.Login(name, password);
             Console.WriteLine("loginResult:" + loginResult);
+           
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(password)) {
+                loginResult = "用户名或者密码不能为空";
+            }
             //U盾监测，无误后登录
             if (loginResult.Equals("check_U"))
             {
@@ -86,21 +73,32 @@ namespace spms.view
             }
             else {
                 //问题登录  在登录提示框内显示信息
+                bubble.IsOpen = true;
+                Error_Info.Content = loginResult;
+                
             }
             
         }
-        //打开设置页面
-        private void Design(object sender, RoutedEventArgs e)
-        {
-            DesignPage1 designPage = new DesignPage1();
-           this.Content = designPage;
-        }
+       
         //重置登录表单
         private void Resetting_Button(object sender, RoutedEventArgs e)
         {
             User_Name.Clear();
             User_Password.Clear();
         }
- 
+
+        private void EndBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        //解决气泡不随着窗体移动问题
+        private void windowmove(object sender, EventArgs e)
+        {
+
+            var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            mi.Invoke(bubble, null);
+
+        }
+
     }
 }

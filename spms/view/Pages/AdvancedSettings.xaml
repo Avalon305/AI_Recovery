@@ -112,21 +112,27 @@
             <!--结束：器械选择-->
             <!--用户表-->
             <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Margin="30,35,20,0">
-                <DataGrid x:Name="DataGrid1" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="209" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" BorderBrush="Black" BorderThickness="1" Width="883">
+                <DataGrid x:Name="DataGrid1" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="209" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0"  Width="883">
                     <DataGrid.Columns >
 
-                        <DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
+                        <!--<DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  Click="CheckBox_Click" Tag="{Binding Pk_Auth_Id}"></CheckBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>-->
+                        <DataGridTextColumn Binding="{Binding Auth_UserName}" Header="用户名" Width="140" />
+                        <DataGridTextColumn Binding="{Binding Gmt_Create}" Header="创建时间" Width="160"/>
+                        <DataGridTextColumn Binding="{Binding Gmt_Modified}" Header="更新时间" Width="160"/>
+                        <DataGridTextColumn Binding="{Binding Auth_OfflineTime}" Header="离线使用时间" Width="160"/>
+                        <DataGridTemplateColumn Header="是否永久离线" Width="270" DisplayIndex="5" >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <CheckBox  Click="CheckBox_Click" Tag="{Binding Pk_Auth_Id}"></CheckBox>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Binding="{Binding Auth_UserName}" Header="用户名" Width="140" />
-                        <DataGridTextColumn Binding="{Binding Auth_UserPass}" Header="密码" Width="140" />
-                        <DataGridTextColumn Binding="{Binding Gmt_Create}" Header="创建时间" Width="160"/>
-                        <DataGridTextColumn Binding="{Binding Gmt_Modified}" Header="更新时间" Width="160"/>
-                        <DataGridTextColumn Binding="{Binding Auth_OfflineTime}" Header="离线使用时间" Width="160"/>
 
                     </DataGrid.Columns>
                 </DataGrid>
@@ -156,7 +162,7 @@
         <Border CornerRadius="5,50,0,0"  HorizontalAlignment="Right" Width="339" VerticalAlignment="Bottom" Padding="0,2,0,2" Margin="0,0,25,0" Height="40">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Width="140" Height="25"    Foreground="Black" Margin="2,0,0,0"  Style="{StaticResource Btn}" Click="Btn_Confirm">确定更改</Button>
-                <Button Width="140" Height="25"    Foreground="Black"  Margin="2,0,0,0"  Style="{StaticResource Btn}" Click="GoBack">取消</Button>
+                <Button Width="140" Height="25"    Foreground="Black"  Margin="2,0,0,0"  Style="{StaticResource Btn}" Click="GoBack">返回</Button>
             </StackPanel>
         </Border>
     </StackPanel>

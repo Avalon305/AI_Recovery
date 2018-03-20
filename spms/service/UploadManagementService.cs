@@ -71,16 +71,8 @@ namespace spms.service
                 serviceResult.URL = "/bigData/SymptomInfo";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<SymptomInfoDTO>(symptomInfoDTO);
             }
-            //症状子表
-            else if (uploadManagement.UM_DataTable == "bdl_symptominfochild")
-            {
-                SymptomInfoChildDao symptomInfoChildDao = new SymptomInfoChildDao();
-                var result = symptomInfoChildDao.Load(uploadManagement.UM_DataId);
-                //TODO SymptomInfoDTO
-                SymptomInfoChildDTO symptomInfoChildDTO = new SymptomInfoChildDTO(result, setter);
-                serviceResult.URL = "/bigData/SymptomInfoChild";
-                serviceResult.Data = JsonTools.Obj2JSONStrNew<SymptomInfoChildDTO>(symptomInfoChildDTO);
-            }
+            
+             
             //训练处方总表
             else if (uploadManagement.UM_DataTable == "bdl_traininfo")
             {

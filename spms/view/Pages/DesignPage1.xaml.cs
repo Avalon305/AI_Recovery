@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -86,10 +86,8 @@ namespace spms.view.Pages
         {
             //NavigationService.GetNavigationService(this).GoForward(); //向后转
 
-            if (this.NavigationService.CanGoForward)
-            {
-                this.NavigationService.GoForward();
-            }
+            Window window = (Window)this.Parent;
+            window.Content = new MainPage();
 
 
         }

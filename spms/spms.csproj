@@ -151,7 +151,6 @@
     <Compile Include="dao\app\SetterDAO.cs" />
     <Compile Include="dao\DataCodeDAO.cs" />
     <Compile Include="dao\PhysicalPowerDAO.cs" />
-    <Compile Include="dao\SymptomInfoChildDAO.cs" />
     <Compile Include="dao\UploadManagementDAO.cs" />
     <Compile Include="dao\UserDAO.cs" />
     <Compile Include="dao\SymptomInfoDAO.cs" />
@@ -170,7 +169,6 @@
     <Compile Include="http\dto\DevicePrescriptionDTO.cs" />
     <Compile Include="http\dto\PhysicalPowerDTO.cs" />
     <Compile Include="http\dto\PrescriptionResultDTO.cs" />
-    <Compile Include="http\dto\SymptomInfoChildDTO.cs" />
     <Compile Include="http\dto\SymptomInfoDTO.cs" />
     <Compile Include="http\dto\TrainInfoDTO.cs" />
     <Compile Include="http\dto\UserDTO.cs" />
@@ -213,6 +211,8 @@
     <Compile Include="util\ProtocolUtil.cs" />
     <Compile Include="util\SerialPortUtil.cs" />
     <Compile Include="util\SystemInfo.cs" />
+    <Compile Include="view\bubblemove\CCPopup.cs" />
+    <Compile Include="view\bubblemove\PopopHelper.cs" />
     <Compile Include="view\converter\AgeConverter.cs" />
     <Compile Include="view\converter\SexConverter.cs" />
     <Compile Include="view\inputlimited\InputLimited.cs" />
@@ -284,6 +284,9 @@
     </Compile>
     <Compile Include="view\Pages\ChildWin\UserUpdata.xaml.cs">
       <DependentUpon>UserUpdata.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\ViewManualMvaluation.xaml.cs">
+      <DependentUpon>ViewManualMvaluation.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\ViewSymptomInformation.xaml.cs">
       <DependentUpon>ViewSymptomInformation.xaml</DependentUpon>
@@ -438,6 +441,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\Pages\ChildWin\ViewManualMvaluation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\Pages\ChildWin\ViewSymptomInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -485,6 +492,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\body3.png" />
     <Resource Include="view\fonts\MAGNETOB.TTF" />
     <Resource Include="view\fonts\MSYH.TTC" />
     <Resource Include="view\fonts\MSYHBD.TTC" />

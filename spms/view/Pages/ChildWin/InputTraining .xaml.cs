@@ -236,13 +236,7 @@ namespace spms.view.Pages.ChildWin
             string attr3; //3
             string attr4; //4
             string attr5; //5
-            int groupCount; //组数
-            int groupNum; //个数
-            int relaxTime; //间隔时间
-            double weight; //砝码
-            int moveWay; //移乘方式
-            string memo; //注意点
-
+            
             if (checkbox1.IsChecked == true)
             {
                 //水平腿部推蹬机
