@@ -579,6 +579,10 @@ namespace spms.view.Pages
         private void Refresh_RecordFrame()
         {
             User user = (User)UsersInfo.SelectedItem;
+            if (user == null)
+            {
+                return;
+            }
 
             Object o = record.Content;
             if (o is SignInformationRecord_Frame)
