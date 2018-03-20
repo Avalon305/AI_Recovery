@@ -18,7 +18,18 @@
             </Grid>
 
 
-            <DataGrid x:Name="SignInformationRecord" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="280" Width="942" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False"  AutoGenerateColumns="False" IsReadOnly="true" >
+            <DataGrid x:Name="SignInformationRecord" RowHeaderWidth="0" SelectionMode="Single" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="280" Width="942" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False"  AutoGenerateColumns="False" IsReadOnly="true" >
+                <!--选中行失去焦点时的颜色-->
+                <DataGrid.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
+
+                </DataGrid.Resources>
+                <!--固定行高，取消拉伸-->
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Height" Value="18" />
+                    </Style>
+                </DataGrid.RowStyle>
                 <!--去掉选中单元格的框线-->
                 <DataGrid.CellStyle>
                     <Style TargetType="DataGridCell" >
@@ -42,7 +53,7 @@
                     <DataGridTextColumn Binding="{Binding WaterInput}" Header="水分摄取" Width="60"/>
                     <DataGridTextColumn Binding="{Binding Inquiry}" Header="问诊确认单" Width="80"/>
                     <DataGridTextColumn Binding="{Binding Join}" Header="参加/不参加" Width="80"/>
-                    <DataGridTextColumn Binding="{Binding CareInfo}" Header="看护记录" Width="180"/>
+                    <DataGridTextColumn Binding="{Binding CareInfo}" Header="看护记录" Width="150"/>
                 </DataGrid.Columns>
             </DataGrid>
         </WrapPanel>
