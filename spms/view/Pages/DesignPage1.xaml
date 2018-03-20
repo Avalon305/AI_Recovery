@@ -184,23 +184,74 @@
 
         <StackPanel Orientation="Horizontal" >
             <!--小组名称-->
-            <DataGrid x:Name="DataGrid2"  DataGridRow.MouseUp="Grid_Group_Click" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
+            <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+                <!--选中行失去焦点-->
+                <DataGrid.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>
+                </DataGrid.Resources>
+                <!--固定行高，取消拉伸-->
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Height" Value="18" />
+                    </Style>
+                </DataGrid.RowStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="小组名称" Width="400"/>
+                    <!--<DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox  Click="CheckBox2_Click" Tag="{Binding User_GroupName}"></CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="小组名称" Width="408"/>
                 </DataGrid.Columns>
             </DataGrid>
             <!--结束小组名称-->
             <!--疾病名称-->
-            <DataGrid x:Name="DataGrid3" DataGridRow.MouseUp="Grid_Disease_Click" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
+            <DataGrid x:Name="DataGrid3" HorizontalAlignment="Left"  RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+                <!--选中行失去焦点-->
+                <DataGrid.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>
+                </DataGrid.Resources>
+                <!--固定行高，取消拉伸-->
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Height" Value="18" />
+                    </Style>
+                </DataGrid.RowStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="疾病名称" Width="400"/>
+                    <!--<DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
+<DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox  Click="CheckBox2_Click" Tag="{Binding Pk_CD_Id}"></CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="疾病名称" Width="408"/>
                 </DataGrid.Columns>
             </DataGrid>
             <!--结束：疾病名称-->
             <!--残障名称-->
-            <DataGrid x:Name="DataGrid4"  DataGridRow.MouseUp="Grid_Diagnosis_Click" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
+            <DataGrid x:Name="DataGrid4" HorizontalAlignment="Left"  RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+                <!--选中行失去焦点-->
+                <DataGrid.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>
+                </DataGrid.Resources>
+                <!--固定行高，取消拉伸-->
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Height" Value="18" />
+                    </Style>
+                </DataGrid.RowStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="残障名称" Width="400"/>
+                    <!--<DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox  Click="CheckBox3_Click" Tag="{Binding Pk_CD_Id}"></CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+                    <DataGridTextColumn Binding="{Binding CD_CustomName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="残障名称" Width="408"/>
                 </DataGrid.Columns>
             </DataGrid>
             <!--结束：残障名称-->
