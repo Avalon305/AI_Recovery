@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-          
+        xmlns:bubble="clr-namespace:spms.view.bubblemove"
         xmlns:local="clr-namespace:spms.view"
         mc:Ignorable="d"
         ResizeMode="NoResize"
@@ -11,6 +11,7 @@
         Icon="/view/Images/icon2.png"
         Title="宝德龙" Height="720" Width="1290"
         Loaded="Window_Loaded"
+        LocationChanged="windowmove"
         >
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
@@ -147,13 +148,13 @@
                 <Label Content="用户名:" HorizontalAlignment="Right" FontSize="30" Foreground="DimGray" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Margin="332,290,785.2,328.4" />
                 <TextBlock  Margin="500,307,380,340.4" FontSize="20" Text="  请在此输入管理用户名"  FontFamily="{StaticResource   LiSu}" Foreground="Gray" FontStyle="Italic"/>
                 <TextBox Name="User_Name" Margin="500,300,380,340.4"  FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Foreground="DimGray" FontSize="25" Style="{StaticResource watermark}" />
-                <Popup Name="bubble" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=User_Name}" Placement="Right" >
+                <bubble:CCPopup x:Name="bubble" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=User_Name}" Placement="Right" >
                     <Label Style="{StaticResource tipLable}">
                         <StackPanel Orientation="Horizontal">
                             <Label Foreground="Red" Name="Error_Info" Content="用户名或密码错误"/>
                         </StackPanel>
                     </Label>
-                </Popup>
+                </bubble:CCPopup>
 
                 <Label  Content="密   码:" HorizontalAlignment="Right" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="30"   Foreground="DimGray" Margin="380,345,785.2,270" />
                 <TextBlock  Margin="500,363,380.2,285.4" FontSize="20" Text="  请在此输入管理密码"  Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic" />
