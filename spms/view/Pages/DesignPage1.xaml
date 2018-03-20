@@ -184,17 +184,20 @@
 
         <StackPanel Orientation="Horizontal" >
             <!--小组名称-->
-            <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
+            <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" CanUserAddRows="False" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="小组名称" Width="410"/>
+                  
+                    <DataGridTextColumn Binding="{Binding Pk_CD_Id}" Visibility="Hidden" Width="410"/>
+
+                    <DataGridTextColumn Binding="{Binding CD_CustomName}" Header="小组名称" Width="410"/>
                 </DataGrid.Columns>
             </DataGrid>
             <!--结束小组名称-->
             <!--疾病名称-->
-            <DataGrid x:Name="DataGrid3" HorizontalAlignment="Left" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
+            <DataGrid x:Name="DataGrid3" HorizontalAlignment="Left" CanUserAddRows="False" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
-<DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <CheckBox  Click="CheckBox2_Click" Tag="{Binding Pk_CD_Id}"></CheckBox>
                             </DataTemplate>
@@ -205,7 +208,7 @@
             </DataGrid>
             <!--结束：疾病名称-->
             <!--残障名称-->
-            <DataGrid x:Name="DataGrid4" HorizontalAlignment="Left" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
+            <DataGrid x:Name="DataGrid4" HorizontalAlignment="Left" Margin="12,5,0,0" CanUserAddRows="False" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AlternatingRowBackground="LightBlue">
                 <DataGrid.Columns>
                    <DataGridTemplateColumn Header="选中" Width="40" DisplayIndex="0" >
                         <DataGridTemplateColumn.CellTemplate>
@@ -251,7 +254,7 @@
                         <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
                                 <Hyperlink Name="delete_group"    NavigateUri=" http://www.google.com/" Foreground="White"> 删除 </Hyperlink>
                             </TextBlock>-->
-                        <Button Height="25" Width="50" Style="{StaticResource Btn}" Click="Disease_Delete">删除</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource Btn}" Click="Disease_Delete" VerticalAlignment="Top">删除</Button>
                     </Border>
 
                 </StackPanel>

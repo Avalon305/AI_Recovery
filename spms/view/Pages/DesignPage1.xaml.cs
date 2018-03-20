@@ -79,12 +79,10 @@ namespace spms.view.Pages
             window.Content = new AdvancedSettings();
 
         }
-        List<int> selectID = new List<int>();  //保存选中要删除行的FID值  
 
         //返回上一页
         private void GoBack(object sender, RoutedEventArgs e)
         {
-            //NavigationService.GetNavigationService(this).GoForward(); //向后转
 
             Window window = (Window)this.Parent;
             window.Content = new MainPage();
@@ -140,7 +138,7 @@ namespace spms.view.Pages
             //刷新界面
             groupList = customDataService.GetAllObjectByType(CustomDataEnum.Group);
             groupCollection = new ObservableCollection<CustomData>(groupList);
-            ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = groupCollection;
+           DataGrid2.ItemsSource = groupCollection;
 
         }
         private void Grid_Disease_Click(object sender, MouseButtonEventArgs e)
@@ -259,69 +257,42 @@ namespace spms.view.Pages
             diagnosisCollection = new ObservableCollection<CustomData>(diagnosisList);
             ((this.FindName("DataGrid4")) as DataGrid).ItemsSource = diagnosisCollection;
         }
-        private void CheckBox1_Click(object sender, RoutedEventArgs e)//单击CheckBox触发事件
-        {
-            CheckBox checkBox = sender as CheckBox;
-            int ID = int.Parse(checkBox.Tag.ToString());   //获取该行的FID  
-            var IsChecked = checkBox.IsChecked;
-            if (IsChecked == true)
-            {
-                selectID.Add(ID);         //如果选中就保存FID  
-            }
-            else
-            {
-                selectID.Remove(ID);  //如果选中取消就删除里面的FID  
-            }
-        }
+  
         private void CheckBox2_Click(object sender, RoutedEventArgs e)//单击CheckBox触发事件
         {
             CheckBox checkBox = sender as CheckBox;
             int ID = int.Parse(checkBox.Tag.ToString());   //获取该行的FID  
             var IsChecked = checkBox.IsChecked;
-            if (IsChecked == true)
-            {
-                selectID.Add(ID);         //如果选中就保存FID  
-            }
-            else
-            {
-                selectID.Remove(ID);  //如果选中取消就删除里面的FID  
-            }
+      
         }
         private void CheckBox3_Click(object sender, RoutedEventArgs e)//单击CheckBox触发事件
         {
             CheckBox checkBox = sender as CheckBox;
             int ID = int.Parse(checkBox.Tag.ToString());   //获取该行的FID  
             var IsChecked = checkBox.IsChecked;
-            if (IsChecked == true)
-            {
-                selectID.Add(ID);         //如果选中就保存FID  
-            }
-            else
-            {
-                selectID.Remove(ID);  //如果选中取消就删除里面的FID  
-            }
+       
         }
         private void Group_Delete(object sender, RoutedEventArgs e)
         {
-            foreach (int ID in selectID)
+          var selects = DataGrid2.SelectedItems ;
+            foreach (CustomData item in selects)
             {
-                CustomData group = (CustomData)DataGrid2.SelectedItem;
-                group.Pk_CD_Id = ID;
-                group.Is_Deleted = 1;
+               
+                item.Is_Deleted = 1;
                 //customDataDAO.DeleteByPrimaryKey(group);//在数据库中删除
-                customDataDAO.UpdateByPrimaryKey(group);
+                customDataDAO.UpdateByPrimaryKey(item);
                 for (int i = 0; i < groupCollection.Count; i++)
                 {
-                    if (groupCollection[i].Pk_CD_Id == ID) groupCollection.RemoveAt(i);//在collection中删除
+                    if (groupCollection[i].Pk_CD_Id == item.Pk_CD_Id) groupCollection.RemoveAt(i);//在collection中删除
                 }
 
             }
         }
+        
         private void Disease_Delete(object sender, RoutedEventArgs e)
         {
-            foreach (int ID in selectID)
-            {
-                CustomData disease = (CustomData)DataGrid3.SelectedItem;
+          
+            /*    CustomData disease = (CustomData)DataGrid3.SelectedItem;
                 disease.Pk_CD_Id = ID;
                 disease.Is_Deleted = 1;
                 customDataDAO.UpdateByPrimaryKey(disease);//isDeleted变为1
@@ -329,11 +300,12 @@ namespace spms.view.Pages
                 {
                     if (diseaseCollection[i].Pk_CD_Id == ID) diseaseCollection.RemoveAt(i);//在collection中删除
                 }
-
-            }
+*/
+            
         }
         private void Diagnosis_Delete(object sender, RoutedEventArgs e)
         {
+            /*
             foreach (int ID in selectID)
             {
                 CustomData diagnosis = (CustomData)DataGrid4.SelectedItem;
@@ -346,7 +318,13 @@ namespace spms.view.Pages
                 }
 
             }
+
+    */
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
