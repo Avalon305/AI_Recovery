@@ -154,9 +154,19 @@ namespace spms.view.Pages.ChildWin
 
         private void IsIDCard(object sender, RoutedEventArgs e)
         {
+            UserService userService = new UserService();
             if (!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
             {
+                Error_Info.Content = "请输入正确的身份证号码";
                 bubble.IsOpen = true;
+            }
+            else if(userService.GetByIdCard(IDCard.Text) !=null)
+            {
+                Error_Info.Content = "该身份证已注册";
+                bubble.IsOpen = true;
+            }else
+            {
+                bubble.IsOpen = false;
             }
         }
     }
