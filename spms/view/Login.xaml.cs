@@ -59,24 +59,24 @@ namespace spms.view
                 loginResult = "用户名或者密码不能为空";
             }
             //U盾监测，无误后登录
-            //if (loginResult.Equals("check_U"))
-            //{
-            //    //验证U盾后跳转
+            if (loginResult.Equals("check_U"))
+            {
+                //验证U盾后跳转
 
-            //}
-            //else if (loginResult.Equals("success"))
-            //{
+            }
+            else if (loginResult.Equals("success"))
+            {
               
                 //成功登陆，跳转
                 MainPage mainpage = new MainPage();
                 this.Content = mainpage;
-            //}
-            //else {
-            //    //问题登录  在登录提示框内显示信息
-            //    bubble.IsOpen = true;
-            //    Error_Info.Content = loginResult;
+            }
+            else {
+                //问题登录  在登录提示框内显示信息
+                bubble.IsOpen = true;
+                Error_Info.Content = loginResult;
                 
-            //}
+            }
             
         }
        
