@@ -1,0 +1,213 @@
+﻿<Window x:Class="spms.view.Pages.ChildWin.PdfViewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mpp="clr-namespace:MoonPdfLib;assembly=MoonPdfLib"
+        xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
+        mc:Ignorable="d"
+        Title="宝德龙" Height="900" Width="950" ContentRendered="WPFPdfViewerWindow_Activated" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#f0f0f0">
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <Button x:Name="btn_print" HorizontalAlignment="Left" Width="30" Height="20" Click="Print_Click" Margin="5,5,5,0" VerticalAlignment="Top">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Image Name="btnbg" Source="/view/Images/excel/print.png" />
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Source"  Value="/view/Images/excel/print.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Source" Value="/view/Images/excel/print.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Source" Value="/view/Images/excel/print.png" TargetName="btnbg" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btn_zoomin" HorizontalAlignment="Left" Width="30" Height="20" Click="ZoomInButton_Click" Margin="5">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Image Name="btnbg" Source="/view/Images/excel/zoom-in.png" />
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Source"  Value="/view/Images/excel/zoom-in.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Source" Value="/view/Images/excel/zoom-in.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Source" Value="/view/Images/excel/zoom-in.png" TargetName="btnbg" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btn_zoomout" HorizontalAlignment="Left" Width="30" Height="20" Click="ZoomOutButton_Click" Margin="5">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Image Name="btnbg" Source="/view/Images/excel/zoom-out.png" />
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Source"  Value="/view/Images/excel/zoom-out.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Source" Value="/view/Images/excel/zoom-out.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Source" Value="/view/Images/excel/zoom-out.png" TargetName="btnbg" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btn_singlepage" HorizontalAlignment="Left" Width="30" Height="20" Click="SinglePageButton_Click" Margin="5">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Image Name="btnbg" Source="/view/Images/excel/single.png" />
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Source"  Value="/view/Images/excel/single.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Source" Value="/view/Images/excel/single.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Source" Value="/view/Images/excel/single.png" TargetName="btnbg" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btn_facing" HorizontalAlignment="Left" Width="30" Height="20" Click="FacingButton_Click" Margin="5">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Image Name="btnbg" Source="/view/Images/excel/template.png" />
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Source"  Value="/view/Images/excel/template.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Source" Value="/view/Images/excel/template.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Source" Value="/view/Images/excel/template.png" TargetName="btnbg" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btn_100" HorizontalAlignment="Left" Width="30" Height="20" Click="NormalButton_Click" Margin="5">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Image Name="btnbg" Source="/view/Images/excel/100%.png" />
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Source"  Value="/view/Images/excel/100%.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Source" Value="/view/Images/excel/100%.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Source" Value="/view/Images/excel/100%.png" TargetName="btnbg" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btn_FitToHeight" HorizontalAlignment="Left" Width="30" Height="20" Click="FitToHeightButton_Click" Margin="5">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Image Name="btnbg" Source="/view/Images/excel/document.png" />
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Source"  Value="/view/Images/excel/document.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Source" Value="/view/Images/excel/document.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Source" Value="/view/Images/excel/document.png" TargetName="btnbg" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <!--<Button Content="100%" Width="50" Click="NormalButton_Click" Margin="0,5"/>-->
+
+                <!--<Button Content="整页" Width="50" Click="FitToHeightButton_Click" Margin="5,5"/>-->
+                <!--<Button Content="文件" Width="50" Click="FileButton_Click" Margin="5"/>
+
+                <Button Content="放大" Width="50" Click="ZoomInButton_Click" Margin="0,5"/>
+
+                <Button Content="缩小" Width="50" Click="ZoomOutButton_Click" Margin="5,5"/>
+
+                <Button Content="100%" Width="50" Click="NormalButton_Click" Margin="0,5"/>
+
+                <Button Content="整页" Width="50" Click="FitToHeightButton_Click" Margin="5,5"/>
+
+                <Button Content="单页" Width="50" Click="SinglePageButton_Click" Margin="0,5"/>
+
+                <Button Content="双页" Width="50" Click="FacingButton_Click" Margin="5,5"/>
+                <Button Content="打印" Width="50" Click="Print_Click" Margin="5"/>
+                <Button Content="excel转pdf" Width="50" Click="Test_Click" Margin="5"/>-->
+
+            </StackPanel>
+        </Border>
+
+        <Border Background="#d3d3d3" Grid.Row="1">
+            <mpp:MoonPdfPanel x:Name="moonPdfPanel" Background="LightGray"  ViewType="SinglePage" PageRowDisplay="ContinuousPageRows" PageMargin="0,2,4,2" AllowDrop="True"/>
+        </Border>
+    </Grid>
+</Window>
+
