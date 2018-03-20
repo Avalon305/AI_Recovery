@@ -213,6 +213,8 @@
     <Compile Include="util\SystemInfo.cs" />
     <Compile Include="view\converter\AgeConverter.cs" />
     <Compile Include="view\converter\SexConverter.cs" />
+    <Compile Include="view\dto\SymptomInfoDTO.cs" />
+    <Compile Include="view\dto\TrainDTO.cs" />
     <Compile Include="view\inputlimited\InputLimited.cs" />
     <Compile Include="view\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>

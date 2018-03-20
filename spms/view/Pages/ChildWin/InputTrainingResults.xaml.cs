@@ -59,10 +59,12 @@ namespace spms.view.Pages.ChildWin
             trainInfo.FK_User_Id = user.Pk_User_Id;
             trainInfo.Gmt_Create = da;
             trainInfo.Gmt_Modified = DateTime.Now;
-
+            DeviceSortDAO deviceSortDao = new DeviceSortDAO();
+            string devName;
             if (HLPGroupcount.Text != "")
             {
                 //水平腿部推蹬机
+                devName = "水平腿部推蹬机";
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = HLPAttr1.Text;
@@ -82,7 +84,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_weight = Convert.ToDouble(HLPWeight.Text);
                 devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, HLPMoveway.Text)); //移乘方式
-                //TODO 类型没有获取
+                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -104,6 +106,7 @@ namespace spms.view.Pages.ChildWin
             if (ROWGroupcount.Text != "")
             {
                 //坐姿划船机
+                devName = "坐姿划船机";
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = RowAttr1.Text;
@@ -123,7 +126,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_weight = Convert.ToDouble(ROWWeight.Text);
                 devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, ROWMoveway.Text)); //移乘方式
-                //TODO 类型没有获取
+                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -145,6 +148,7 @@ namespace spms.view.Pages.ChildWin
             if (TFGroupcount.Text != "")
             {
                 //身体伸展弯曲机
+                devName = "身体伸展弯曲机";
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = TFAttr1.Text;
@@ -164,7 +168,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_weight = Convert.ToDouble(TFWeight.Text);
                 devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, TFMoveway.Text)); //移乘方式
-                //TODO 类型没有获取
+                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -186,6 +190,7 @@ namespace spms.view.Pages.ChildWin
             if (LEGroupcount.Text != "")
             {
                 //腿部伸展弯曲机
+                devName = "腿部伸展弯曲机";
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = LEAttr1.Text;
@@ -207,7 +212,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_weight = Convert.ToDouble(LEWeight.Text);
                 devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, LEMoveway.Text)); //移乘方式
-                //TODO 类型没有获取
+                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -228,13 +233,14 @@ namespace spms.view.Pages.ChildWin
             }
             if (HAGroupcount.Text != "")
             {
-                //臂部外展内收机
+                //臀部外展内收机
+                devName = "臀部外展内收机";
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = HAAttr1.Text;
                 string attr2 = HAAttr2.Text;
                 string attr3 = HAAttr3.Text;
-                devicePrescription.DP_Attrs = "臂部外展内收机*" +
+                devicePrescription.DP_Attrs = "臀部外展内收机*" +
                                               "attr1-" + attr1 + "*" +
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*";
@@ -246,7 +252,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_weight = Convert.ToDouble(HAWeight.Text);
                 devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, HAMoveway.Text)); //移乘方式
-                //TODO 类型没有获取
+                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -268,6 +274,7 @@ namespace spms.view.Pages.ChildWin
             if (CPGroupcount.Text != "")
             {
                 //胸部推举机
+                devName = "胸部推举机";
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = CPAttr1.Text;
@@ -285,7 +292,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_weight = Convert.ToDouble(CPWeight.Text);
                 devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, CPMoveway.Text)); //移乘方式
-                //TODO 类型没有获取
+                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;

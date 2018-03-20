@@ -18,7 +18,7 @@
             </Grid>
 
 
-            <DataGrid x:Name="SignInformationRecord" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="280" Width="942" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" >
+            <DataGrid x:Name="SignInformationRecord" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="280" Width="942" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False"  AutoGenerateColumns="False" IsReadOnly="true" >
                 <!--去掉选中单元格的框线-->
                 <DataGrid.CellStyle>
                     <Style TargetType="DataGridCell" >
@@ -30,19 +30,19 @@
                     </Style>
                 </DataGrid.CellStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Gmt_Create}" Header="训练日期" Width="110"/>
-                    <DataGridTextColumn  Header="血压" Width="80"/>
-                    <DataGridTextColumn Binding="{Binding SIC_Pulse}" Header="脉搏" Width="50"/>
-                    <DataGridTextColumn  Header="脉" Width="50"/>
-                    <DataGridTextColumn Binding="{Binding SIC_AnimalHeat}" Header="体温" Width="50"/>
-                    <DataGridTextColumn  Header="血压" Width="80"/>
-                    <DataGridTextColumn Binding="{Binding SIC_Pulse}" Header="脉搏" Width="50"/>
-                    <DataGridTextColumn  Header="脉" Width="50"/>
-                    <DataGridTextColumn Binding="{Binding SIC_AnimalHeat}" Header="体温" Width="50"/>
-                    <DataGridTextColumn Binding="{Binding SI_WaterInput}" Header="水分摄取" Width="60"/>
-                    <DataGridTextColumn Binding="{Binding SI_Inquiry}" Header="问诊确认单" Width="80"/>
-                    <DataGridTextColumn Binding="{Binding  SI_IsJoin}" Header="参加/不参加" Width="80"/>
-                    <DataGridTextColumn Binding="{Binding SI_CareInfo}" Header="看护记录" Width="180"/>
+                    <DataGridTextColumn Binding="{Binding Create}" Header="训练日期" Width="110"/>
+                    <DataGridTextColumn Binding="{Binding Pre_Pressure}" Header="血压" Width="80"/>
+                    <DataGridTextColumn Binding="{Binding Pre_Pulse}" Header="脉搏" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding Pre_HeartRate}"  Header="心率" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding Pre_AnimalHeat}" Header="体温" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding Suf_Pressure}"  Header="血压" Width="80"/>
+                    <DataGridTextColumn Binding="{Binding Suf_Pulse}" Header="脉搏" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding Suf_HeartRate}"  Header="心率" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding Suf_AnimalHeat}" Header="体温" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding WaterInput}" Header="水分摄取" Width="60"/>
+                    <DataGridTextColumn Binding="{Binding Inquiry}" Header="问诊确认单" Width="80"/>
+                    <DataGridTextColumn Binding="{Binding Join}" Header="参加/不参加" Width="80"/>
+                    <DataGridTextColumn Binding="{Binding CareInfo}" Header="看护记录" Width="180"/>
                 </DataGrid.Columns>
             </DataGrid>
         </WrapPanel>

@@ -176,7 +176,7 @@
             <!--结束：使用者一览表_按钮-->
             <!--使用者一览表_数据-->
             <Border>
-                <DataGrid x:Name="UsersInfo" HorizontalAlignment="Left" DataGridRow.MouseUp="Grid_Click"   IsReadOnly="true" Margin="11,5,0,0" VerticalAlignment="Top"  Height="150" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" Width="1254"  >
+                <DataGrid x:Name="UsersInfo" HorizontalAlignment="Left" DataGridRow.MouseUp="Grid_Click"   IsReadOnly="true" Margin="11,5,0,0" VerticalAlignment="Top"  Height="150" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" Width="1254" SelectionChanged="UsersInfo_SelectionChanged"  >
                     <DataGrid.RowStyle>
                         <Style TargetType="DataGridRow">
                             <Setter Property="Height" Value="18" />
@@ -300,7 +300,7 @@
                 <Border BorderBrush="Black" BorderThickness="1" Margin="0,5,0,0" Height="360" VerticalAlignment="Top" Width="948">
                     <WrapPanel Orientation="Vertical" Height="360" VerticalAlignment="Top" Margin="0,0.2,0,-0.8" >
                         <WrapPanel Orientation="Vertical">
-                            <Frame Width="946" Height="315"  Name="record" NavigationUIVisibility="Hidden"></Frame>
+                            <Frame Width="946" Height="315"  Name="record" NavigationUIVisibility="Hidden" SourceUpdated="record_SourceUpdated"></Frame>
                             <!--<Grid Margin="0,14,0,0">
                             <Border Background="Gray" Margin="117,3,607.6,-3.4" BorderBrush="Black" BorderThickness="1">
                                 <Label HorizontalAlignment="Center" Margin="94.2,-4.8,85.2,-4.6" VerticalAlignment="Center" Height="24" Width="51" RenderTransformOrigin="0.562,0.656">康复前</Label>
