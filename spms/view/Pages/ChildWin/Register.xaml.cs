@@ -112,7 +112,11 @@ namespace spms.view.Pages.ChildWin
         {
             this.Close();
         }
-
+        /// <summary>
+        /// 添加按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_OK(object sender, RoutedEventArgs e)
         {
 
@@ -130,6 +134,11 @@ namespace spms.view.Pages.ChildWin
             string IDCard = this.IDCard.Text;
             //获得手机号
             string phone = this.phoneNum.Text;
+            //获取身份证与手机号之后马上查重
+            if (userService.CheckExistByPhoneAndIDCard(IDCard,phone)) {
+                //重复弹框提示
+            }
+
             //获取小组名称的内容
             string groupName = c2.Text;
             //获取初期要介护度的内容

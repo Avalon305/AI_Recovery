@@ -57,9 +57,29 @@ namespace spms.service
              
             userDAO.UpdateByPrimaryKey(user);
         }
-
+        /// <summary>
+        /// 模糊查询
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public List<User> SelectByCondition(User user) {
             return userDAO.SelectByCondition(user);
+        }
+        /// <summary>
+        /// 查重，若存在重复，返回false
+        /// </summary>
+        /// <param name="idCard"></param>
+        /// <param name="phoneNum"></param>
+        /// <returns></returns>
+        public bool CheckExistByPhoneAndIDCard(string idCard,string phoneNum) {
+            var userByIDCard = userDAO.GetByIdCard(idCard);
+            var userByPhone = userDAO.GetByIdCard(phoneNum);
+            var checkResult = false;
+            //如果有一个不为空，则说明存在重复，返回false
+            if (userByIDCard!=null || userByPhone!=null) {
+                checkResult = true;
+            }
+            return checkResult;
         }
     }
 }

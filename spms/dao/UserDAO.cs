@@ -20,9 +20,24 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "select * from bdl_user where user_idcard = @IdCard";
+                const string query = "select * from bdl_user where user_idcard = @IdCard and Is_Deleted = 0";
 
                 return conn.QueryFirstOrDefault<User>(query, new { IdCard = idCard });
+
+            }
+        }
+        /// <summary>
+        /// 根据手机号获取用户
+        /// </summary>
+        /// <param name="phoneNum">手机号</param>
+        /// <returns></returns>
+        public User GetByPhone(string phoneNum)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select * from bdl_user where User_Phone = @User_Phone and Is_Deleted = 0";
+
+                return conn.QueryFirstOrDefault<User>(query, new { User_Phone = phoneNum });
 
             }
         }
@@ -38,7 +53,11 @@ namespace spms.dao
                 return (List<User>)conn.Query<User>(query);
             }
         }
-
+        /// <summary>
+        /// 模糊查询
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public List<User> SelectByCondition(User user)
         {
             using (var conn = DbUtil.getConn())
