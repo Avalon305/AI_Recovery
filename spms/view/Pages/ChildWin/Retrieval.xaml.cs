@@ -152,5 +152,12 @@ namespace spms.view.Pages.ChildWin
             inputlimited.InputLimited.OnlyInputNumbers(e);
         }
 
+        private void IsIDCard(object sender, RoutedEventArgs e)
+        {
+            if (!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
+            {
+                bubble.IsOpen = true;
+            }
+        }
     }
 }

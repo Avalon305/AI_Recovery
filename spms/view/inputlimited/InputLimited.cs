@@ -19,5 +19,12 @@ namespace spms.view.inputlimited
 
             e.Handled = re.IsMatch(e.Text);
         }
+        public static bool IsIDcard(String e)
+
+        {
+
+            return System.Text.RegularExpressions.Regex.IsMatch(e, @"(^\d{17}(?:\d|x)$)|(^\d{15}$)");
+
+        }
     }
 }
