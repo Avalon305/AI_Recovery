@@ -59,7 +59,7 @@ namespace spms.view.Pages.ChildWin
         private void BtnQuery_Click(object sender, RoutedEventArgs e)
         {
             //获取用户ID的内容
-            string userID = t1.Text;
+            //string userID = t1.Text;
             //获取用户姓名的内容
             string userName = t2.Text;
             //获取用户姓名拼音的内容
@@ -84,7 +84,7 @@ namespace spms.view.Pages.ChildWin
 
             //将用户ID转成整型，如果转换失败，说明有非数字
             //int i = Convert.ToInt32(t1.Text);
-            user.Pk_User_Id = (!string.IsNullOrEmpty(userID)) ? Convert.ToInt32(userID) : 0;
+            //user.Pk_User_Id = (!string.IsNullOrEmpty(userID)) ? Convert.ToInt32(userID) : 0;
 
 
             user.User_Name = userName;
@@ -119,7 +119,7 @@ namespace spms.view.Pages.ChildWin
             entity.User user = new entity.User();
             Retrieval_Conditon.DataContext = user;
 
-            t1.Text = "";
+            //t1.Text = "";
             t2.Text = "";
             t3.Text = "";
             comboBox1.Text = "";
