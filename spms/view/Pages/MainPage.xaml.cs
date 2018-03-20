@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -85,6 +86,22 @@ namespace spms.view.Pages
         {
             selectUser = (User)UsersInfo.SelectedItem;
             UserInfo.DataContext = selectUser;
+
+            string path = CommUtil.GetUserPic(selectUser.User_IDCard);
+            path += ".jpg";
+
+            //看照片是否存在
+            if (!File.Exists(path))
+            {
+                UserPhoto.Source = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+                Console.WriteLine("~~~~~~~~~该用户的照片不存在~~~~~~~" + path);
+                return;
+                //提示文件不存在
+            }
+            else
+            {
+                UserPhoto.Source = new BitmapImage(new Uri(path));
+            }
         }
         /// <summary>
         /// 定时器心跳间隔，load时设置

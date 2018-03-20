@@ -242,7 +242,7 @@
                     </Border.Background>
                     <StackPanel Orientation="Vertical">
                         <Border BorderBrush="Black" BorderThickness="1" Width="250" Height="145" VerticalAlignment="Top" Margin="0,6,0,0" Background="White">
-                            <Label VerticalAlignment="Center" HorizontalAlignment="Center">没有图象数据</Label>
+                            <Image Name="UserPhoto" Width="250" Height="145" />
                         </Border>
                         <Grid Margin="20,0,0,0" Name="UserInfo">
                             <Grid.ColumnDefinitions >
