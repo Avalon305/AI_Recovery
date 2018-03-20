@@ -238,14 +238,51 @@ namespace spms.view.Pages
         //按钮：文档输出
         private void Output_Document(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog
+            Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog
             {
-                DefaultExt = ".xml",
-                Filter = "xml file|*.xml"
+                Filter = "Excel表格（*.xlsx）|*.xlsx"
             };
-            if (ofd.ShowDialog() == true)
+            //设置默认文件类型显示顺序
+            sfd.FilterIndex = 1;
+            //保存对话框是否记忆上次打开的目录
+            sfd.RestoreDirectory = true;
+            if (sfd.ShowDialog() == true)
             {
                 //此处做你想做的事 ...=ofd.FileName; 
+                //获取当前
+                if (is_signinformationrecord.IsChecked == true)
+                {
+                    //导出症状信息记录
+                    if (selectUser != null)
+                    {
+                        //存放信息导出的列名
+                        string[] colNames = { };
+                        //TODO 如果页面数据展示完成，可以继续完成
+                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("症状信息记录", colNames, null));
+                    }
+                }
+                else if (is_trainingrecord.IsChecked == true)
+                {
+                    //导出训练记录
+                    if (selectUser != null)
+                    {
+                        //存放信息导出的列名
+                        string[] colNames = { };
+                        //TODO 如果页面数据展示完成，可以继续完成
+                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("训练记录", colNames, null));
+                    }
+                }
+                else if (is_physicalevaluation.IsChecked == true)
+                {
+                    //导出体力评价记录
+                    if (selectUser != null)
+                    {
+                        //存放信息导出的列名
+                        string[] colNames = { };
+                        //TODO 如果页面数据展示完成，可以继续完成
+                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("体力评价记录", colNames, null));
+                    }
+                }
             }
         }
         //按钮：制作报告
