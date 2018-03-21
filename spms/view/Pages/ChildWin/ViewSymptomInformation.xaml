@@ -111,7 +111,7 @@
                     <ColumnDefinition Width="63"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBox Grid.Row="0" Grid.Column="0" Margin="10,0,80.4,23.6" Grid.RowSpan="2" Name="bloodlow_1"/>
+                <TextBox Grid.Row="0" Grid.Column="0" Margin="10,0,80.4,23.6" Grid.RowSpan="2" Name="bloodlow_1" IsEnabled="False"/>
                 <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="37,0,57.4,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
                 <TextBox Grid.Row="0" Grid.Column="0" Margin="65,0,26.4,23.6" Grid.RowSpan="2"  Name="bloodhight_1" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0.6,0,0.2,23.6" Grid.RowSpan="2" Name="heartRate_1" IsEnabled="False" VerticalContentAlignment="Center"/>
@@ -124,7 +124,7 @@
                 <TextBox Grid.Row="0" Grid.Column="3" Margin="0.2,0,94.4,23.6" Grid.RowSpan="2" Grid.ColumnSpan="2"  Name="heat_1" IsEnabled="False" VerticalContentAlignment="Center"/>
 
 
-                <TextBox Grid.Row="1" Grid.Column="0" Margin="10,0.2,80.4,0.6"  Name="bloodlow_2"/>
+                <TextBox Grid.Row="1" Grid.Column="0" Margin="10,0.2,80.4,0.6"  Name="bloodlow_2" IsEnabled="False"/>
                 <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="37,0,57.4,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
                 <TextBox Grid.Row="1" Grid.Column="0" Margin="65,0.2,26.4,0.6" Name="bloodhight_2" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0.6,0.2,0.2,-0.4" Name="heartRate_2" IsEnabled="False" VerticalContentAlignment="Center"/>
@@ -205,13 +205,14 @@
             <Grid Margin="0,0,0,0.4" >
                 <Label Content="看护记录"  Background="Gray" Foreground="White" Width="80" Margin="0,0,0,136" Height="30"/>
             </Grid>
-            <RichTextBox  AcceptsReturn="True" Margin="3,0,0,0.4" Width="461" Name="Record" IsEnabled="False">
-                <!--行间距-->
-                <RichTextBox.Document>
-                    <FlowDocument Focusable="True" LineHeight="1" >
-                    </FlowDocument>
-                </RichTextBox.Document>
-            </RichTextBox>
+<!--            <RichTextBox  AcceptsReturn="True" Margin="3,0,0,0.4" Width="461" Name="Record" IsEnabled="False">-->
+<!--                ~1~行间距@1@-->
+<!--                <RichTextBox.Document>-->
+<!--                    <FlowDocument Focusable="True" LineHeight="1" >-->
+<!--                    </FlowDocument>-->
+<!--                </RichTextBox.Document>-->
+<!--            </RichTextBox>-->
+            <TextBox Margin="3,0,0,0.4" Width="461" Name="Record" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
         </StackPanel>
         <!--结束：看护记录-->
         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="128" Height="27" VerticalAlignment="Bottom"  Margin="0,15,11,0">
@@ -222,3 +223,4 @@
         </Border>
     </StackPanel>
 </Window>
+

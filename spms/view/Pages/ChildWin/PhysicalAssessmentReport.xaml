@@ -72,9 +72,9 @@
                 <ColumnDefinition Width="72"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="用户姓名: " Margin="-6,11,69.8,-1.4" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Label Grid.Column="1"  Margin="2,11,-9.2,-1.4" Name="l1" Grid.RowSpan="2"/>
+            <Label Grid.Column="1"  Margin="2,11,-9.2,-1.4" Name="User_Name" Grid.RowSpan="2"/>
             <Label Grid.Row="0" Grid.Column="0" Content="用户ID:" Margin="-6,-6,69.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Label Grid.Row="0" Grid.Column="1"  Margin="2,-6,-9.2,15.6" Name="l2" Grid.RowSpan="2"/>
+            <Label Grid.Row="0" Grid.Column="1"  Margin="2,-6,-9.2,15.6" Name="Pk_User_Id" Grid.RowSpan="2"/>
         </Grid>
         <!--结束：用户ID和姓名-->
 
@@ -89,7 +89,7 @@
                     <ListBox ItemsSource="{Binding}" x:Name="datalist" Margin="0,0,0.2,0">
                         <ListBox.ItemTemplate>
                             <DataTemplate >
-                                <CheckBox Content="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" ContentStringFormat="{}{0:yyyy-MM-dd HH:mm}"></CheckBox>
+                                <CheckBox Content="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" ContentStringFormat="{}{0:yyyy-MM-dd HH:mm}" Checked="List_CheckBox_Checked" Unchecked="List_CheckBox_UnChecked"></CheckBox>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
@@ -130,7 +130,7 @@
         <!--按钮部分-->
         <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="150" Height="29" VerticalAlignment="Bottom"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0" Margin="0,0,9.6,0">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,-0.2"  >
-                <Button Width="62" Height="25" VerticalAlignment="Bottom"     Content="保存" Margin="4,0,0,0" Style="{StaticResource Btn}"/>
+                <Button Width="62" Height="25" VerticalAlignment="Bottom"     Content="打印" Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Button_Click_Print"/>
                 <Button Width="72" Height="25" VerticalAlignment="Bottom"    Content="返回"  Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>
             </StackPanel>
         </Border>

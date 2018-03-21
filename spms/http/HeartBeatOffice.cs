@@ -35,13 +35,15 @@ namespace spms.http
                 //不属于未注册状态
                 SetterDAO setterDAO = new SetterDAO();
                 Setter setter = setterDAO.getSetter();
+                //需要加入解密逻辑
+                string mac = setter.Set_Unique_Id;
                 if (setter.Set_Unique_Id != null && setter.Set_Unique_Id.Equals(""))
                 {
                     AuthDAO authDAO = new AuthDAO();
                     var result = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
                     //注册用户设置mac与用户名
                     //TODO设置mac地址不能从本地拿，必须实时获取
-                    sendHeartBeat = new HttpHeartBeat(result.Auth_UserName,setter.Set_Unique_Id);
+                    sendHeartBeat = new HttpHeartBeat(result.Auth_UserName, mac);
                     
                     if (result.User_Status == Auther.USER_STATUS_FREEZE)
                     {

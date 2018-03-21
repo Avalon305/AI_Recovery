@@ -56,7 +56,11 @@ namespace spms.view.Pages.ChildWin
             c4.ItemsSource = diseaseList;
             c3.ItemsSource = diagnosisList;
         }
-
+        /// <summary>
+        /// 查询按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnQuery_Click(object sender, RoutedEventArgs e)
         {
             //获取用户ID的内容
@@ -110,6 +114,7 @@ namespace spms.view.Pages.ChildWin
         private void GoBack(object sender, RoutedEventArgs e)
 
         {
+            QueryResult = userService.SelectByCondition(null);
             this.Close();
             //Window window = (Window)this.Parent;
             //window.Content = new DesignPage1();
@@ -158,14 +163,10 @@ namespace spms.view.Pages.ChildWin
             UserService userService = new UserService();
             if (!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
             {
-                Error_Info_IDCard.Content = "请输入正确的身份证号码";
+                Error_Info_IDCard.Content = "请输入正确的身份证号";
                 bubble_IDCard.IsOpen = true;
             }
-            else if(userService.GetByIdCard(IDCard.Text) !=null)
-            {
-                Error_Info_IDCard.Content = "该身份证已注册";
-                bubble_IDCard.IsOpen = true;
-            }else
+           else
             {
                 bubble_IDCard.IsOpen = false;
             }
@@ -175,11 +176,6 @@ namespace spms.view.Pages.ChildWin
         {
             if(!inputlimited.InputLimited.IsHandset(phone.Text) && !String.IsNullOrEmpty(phone.Text)){
                 Error_Info_Phone.Content = "请输入正确的手机号";
-                bubble_phone.IsOpen = true;
-            }
-            else if (userService.GetByPhone(phone.Text) != null)
-            {
-                Error_Info_Phone.Content = "该手机号已注册";
                 bubble_phone.IsOpen = true;
             }
             else
@@ -194,7 +190,37 @@ namespace spms.view.Pages.ChildWin
             var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             mi.Invoke(bubble_phone, null);
             mi.Invoke(bubble_IDCard, null);
+            mi.Invoke(bubble_disease, null);
+            mi.Invoke(bubble_Diagnosis, null);
+        }
 
+        //疾病名称是否存在
+        private void IsDisease(object sender, RoutedEventArgs e)
+        {
+
+            Console.WriteLine(c4.Text);
+            if (!diseaseList.Contains(c4.Text) && !String.IsNullOrEmpty(c4.Text))
+            {
+                Error_Info_disease.Content = "不存在该疾病名称";
+                bubble_disease.IsOpen = true;
+            }
+            else
+            {
+                bubble_disease.IsOpen = false;
+            }
+        }
+        //残障名称是否存在
+        private void IsDiagnosis(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (!diagnosisList.Contains(c3.Text) && !String.IsNullOrEmpty(c3.Text))
+            {
+                Error_Info_Diagnosis.Content = "不存在该残障名称";
+                bubble_Diagnosis.IsOpen = true;
+            }
+            else
+            {
+                bubble_Diagnosis.IsOpen = false;
+            }
         }
     }
 }

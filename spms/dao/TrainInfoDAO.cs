@@ -40,6 +40,19 @@ namespace spms.dao
                 return conn.Query<TrainInfo>(query, new { FK_User_Id = userPkUserId }).ToList();
             }
         }
+        /// <summary>
+        /// 通过训练结果表的时间获取
+        /// </summary>
+        /// <returns></returns>
+        public int GetTIIdByPRCreate(DateTime? date)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "SELECT pk_ti_id FROM bdl_traininfo JOIN bdl_deviceprescription ON bdl_traininfo.pk_ti_id = bdl_deviceprescription.fk_ti_id JOIN bdl_prescriptionresult ON bdl_deviceprescription.pk_dp_id = bdl_prescriptionresult.fk_dp_id WHERE bdl_prescriptionresult.gmt_create = @Gmt_Create;";
+
+                return conn.QueryFirstOrDefault<int>(query, new { Gmt_Create = date });
+            }
+        }
     }
 
     public class DevicePrescriptionDAO : BaseDAO<DevicePrescription>

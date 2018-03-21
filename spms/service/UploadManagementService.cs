@@ -41,12 +41,14 @@ namespace spms.service
             //提前载入唯一Setter
             SetterDAO setterDAO = new SetterDAO();
             Setter setter = setterDAO.getSetter();
-            //if识别出表,设置发送路径，select出实体，转化至DTO，json打成string,返回
+            //需要加入解密逻辑
+            string mac = setter.Set_Unique_Id;
+            ///if识别出表,设置发送路径，select出实体，转化至DTO，json打成string,返回
             //识别是否是权限用户添加
             if (uploadManagement.UM_DataTable== "bdl_auth") {
                 AuthDAO authDAO = new AuthDAO();
                 Auther auther = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
-                AutherDTO autherDTO = new AutherDTO(setter, auther);
+                AutherDTO autherDTO = new AutherDTO(setter,auther,mac);
                 serviceResult.URL = "/clientController/addClient.action";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<AutherDTO>(autherDTO);
             }
@@ -56,7 +58,7 @@ namespace spms.service
                 UserDAO userDAO = new UserDAO();
                 User user = userDAO.Load(uploadManagement.UM_DataId);
                 //TODO 编写entityDTO
-                UserDTO userDTO = new UserDTO(user,setter);
+                UserDTO userDTO = new UserDTO(user, mac);
                 serviceResult.URL = "/bigData/BodyStrongUser";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<UserDTO>(userDTO);
             }
@@ -67,7 +69,7 @@ namespace spms.service
                 SymptomInfoDao symptomInfoDao = new SymptomInfoDao();
                 var result = symptomInfoDao.Load(uploadManagement.UM_DataId);
                 //TODO SymptomInfoDTO
-                SymptomInfoDTO symptomInfoDTO = new SymptomInfoDTO(result,setter);
+                SymptomInfoDTO symptomInfoDTO = new SymptomInfoDTO(result, mac);
                 serviceResult.URL = "/bigData/SymptomInfo";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<SymptomInfoDTO>(symptomInfoDTO);
             }
@@ -79,7 +81,7 @@ namespace spms.service
                 TrainInfoDAO trainInfoDAO = new TrainInfoDAO();
                 var result = trainInfoDAO.Load(uploadManagement.UM_DataId);
                 //todo
-                TrainInfoDTO trainInfoDTO = new TrainInfoDTO(result,setter);
+                TrainInfoDTO trainInfoDTO = new TrainInfoDTO(result, mac);
                 serviceResult.URL = "/bigData/TrainInfo";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<TrainInfoDTO>(trainInfoDTO);
 
@@ -91,7 +93,7 @@ namespace spms.service
                 DevicePrescriptionDAO devicePrescriptionDAO = new DevicePrescriptionDAO();
                 var result = devicePrescriptionDAO.Load(uploadManagement.UM_DataId);
                 //todo
-                DevicePrescriptionDTO devicePrescriptionDTO = new DevicePrescriptionDTO(result, setter);
+                DevicePrescriptionDTO devicePrescriptionDTO = new DevicePrescriptionDTO(result, mac);
                 serviceResult.URL = "/bigData/DevicePrescription";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<DevicePrescriptionDTO>(devicePrescriptionDTO);
             }
@@ -101,7 +103,7 @@ namespace spms.service
                 PrescriptionResultDAO prescriptionResultDAO = new PrescriptionResultDAO();
                 var result = prescriptionResultDAO.Load(uploadManagement.UM_DataId);
                 //todo
-                PrescriptionResultDTO prescriptionResultDTO = new PrescriptionResultDTO(result, setter);
+                PrescriptionResultDTO prescriptionResultDTO = new PrescriptionResultDTO(result, mac);
                 serviceResult.URL = "/bigData/PrescriptionResult";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<PrescriptionResultDTO>(prescriptionResultDTO);
             }
@@ -109,7 +111,7 @@ namespace spms.service
             {
                 PhysicalPowerDAO physicalPowerDAO = new PhysicalPowerDAO();
                 var result = physicalPowerDAO.Load(uploadManagement.UM_DataId);
-                PhysicalPowerDTO physicalPowerDTO = new PhysicalPowerDTO(result, setter);
+                PhysicalPowerDTO physicalPowerDTO = new PhysicalPowerDTO(result, mac);
                 serviceResult.URL = "/bigData/PrescriptionResult";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<PhysicalPowerDTO>(physicalPowerDTO);
             }

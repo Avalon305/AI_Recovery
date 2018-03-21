@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -269,5 +270,101 @@ namespace spms.view.Pages.ChildWin
             inputlimited.InputLimited.OnlyInputNumbers(e);
         }
 
+        //身份证号验证和查重
+        private void IsIDCard(object sender, RoutedEventArgs e)
+        {
+            UserService userService = new UserService();
+            if (!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
+            {
+                Error_Info_IDCard.Content = "请输入正确的身份证号码";
+                bubble_IDCard.IsOpen = true;
+            }
+            else if (userService.GetByIdCard(IDCard.Text) != null)
+            {
+                Error_Info_IDCard.Content = "该身份证已注册";
+                bubble_IDCard.IsOpen = true;
+            }
+            else
+            {
+                bubble_IDCard.IsOpen = false;
+            }
+        }
+        //手机号验证和查重
+        private void IsPhone(object sender, RoutedEventArgs e)
+        {
+            if (!inputlimited.InputLimited.IsHandset(phoneNum.Text) && !String.IsNullOrEmpty(phoneNum.Text))
+            {
+                Error_Info_Phone.Content = "请输入正确的手机号";
+                bubble_phone.IsOpen = true;
+            }
+            else if (userService.GetByPhone(phoneNum.Text) != null)
+            {
+                Error_Info_Phone.Content = "该手机号已注册";
+                bubble_phone.IsOpen = true;
+            }
+            else
+            {
+                bubble_phone.IsOpen = false;
+            }
+        }
+        //解决气泡不随着窗体移动问题
+        private void windowmove(object sender, EventArgs e)
+        {
+
+            var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            mi.Invoke(bubble_phone, null);
+            mi.Invoke(bubble_IDCard, null);
+            mi.Invoke(bubble_name, null);
+            mi.Invoke(bubble_disease, null);
+            mi.Invoke(bubble_Diagnosis, null);
+
+        }
+        //验证用户是否存在
+        private void IsName(object sender, RoutedEventArgs e)
+        {
+            User user = new User
+            {
+                User_Name = t2.Text
+            };
+            UserService userService = new UserService();
+            userService.SelectByCondition(user);
+            if(userService.SelectByCondition(user).Count != 0)
+            {
+                Error_Info_Name.Content = "该用户名已注册";
+                bubble_name.IsOpen = true;
+            }
+            else
+            {
+                bubble_name.IsOpen = false;
+            }
+        }
+        //疾病名称是否存在
+        private void IsDisease(object sender, RoutedEventArgs e)
+        {
+
+            Console.WriteLine(c5.Text);
+            if (!diseaseList.Contains(c5.Text)&&!String.IsNullOrEmpty(c5.Text))
+            {
+                Error_Info_disease.Content = "不存在该疾病名称";
+                bubble_disease.IsOpen = true;
+            }
+            else
+            {
+                bubble_disease.IsOpen = false;
+            }
+        }
+        //残障名称是否存在
+        private void IsDiagnosis(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (!diagnosisList.Contains(c6.Text) && !String.IsNullOrEmpty(c6.Text))
+            {
+                Error_Info_Diagnosis.Content = "不存在该残障名称";
+                bubble_Diagnosis.IsOpen = true;
+            }
+            else
+            {
+                bubble_Diagnosis.IsOpen = false;
+            }
+        }
     }
 }
