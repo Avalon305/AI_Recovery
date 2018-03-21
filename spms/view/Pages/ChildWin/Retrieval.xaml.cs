@@ -163,7 +163,7 @@ namespace spms.view.Pages.ChildWin
             UserService userService = new UserService();
             if (!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
             {
-                Error_Info_IDCard.Content = "请输入正确的身份证号码";
+                Error_Info_IDCard.Content = "请输入正确的身份证号";
                 bubble_IDCard.IsOpen = true;
             }
            else

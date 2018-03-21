@@ -314,7 +314,23 @@ namespace spms.view.Pages.ChildWin
             var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             mi.Invoke(bubble_phone, null);
             mi.Invoke(bubble_IDCard, null);
+            mi.Invoke(bubble_name, null);
 
+        }
+        //验证用户是否存在
+        private void IsName(object sender, RoutedEventArgs e)
+        {
+            User user = new User
+            {
+                User_Name = t2.Text
+            };
+            UserService userService = new UserService();
+            userService.SelectByCondition(user);
+            if(userService.SelectByCondition(user).Count != 0)
+            {
+                Error_Info_Name.Content = "该用户名已注册";
+                bubble_name.IsOpen = true;
+            }
         }
     }
 }

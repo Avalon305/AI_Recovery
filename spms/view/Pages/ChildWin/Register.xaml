@@ -145,7 +145,15 @@
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
                         <Label Content="用户姓名"  VerticalAlignment="Center"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="0" Name="t2" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="0" Name="t2" Grid.Column="1" LostFocus="IsName" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                    <!--气泡-->
+                    <bubble:CCPopup x:Name="bubble_name" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=t2}" Placement="Right" >
+                        <Label Style="{StaticResource tipLable}">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Foreground="Red" Name="Error_Info_Name" Content=""/>
+                            </StackPanel>
+                        </Label>
+                    </bubble:CCPopup>
                     <Label  Grid.Row="0" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
 
                     <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
