@@ -136,8 +136,12 @@ namespace spms.view.Pages.ChildWin
             //获得手机号
             string phone = this.phoneNum.Text;
             //获取身份证与手机号之后马上查重
-            if (userService.CheckExistByPhoneAndIDCard(IDCard,phone)) {
-                //重复弹框提示
+            if (userService.GetByIdCard(IDCard) != null) {
+                //身份证重复气泡提示
+            }
+            if (userService.GetByPhone(phone) != null)
+            {
+                //手机重复气泡提示
             }
 
             string IdCard = this.IDCard.Text;
