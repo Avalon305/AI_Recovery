@@ -315,6 +315,8 @@ namespace spms.view.Pages.ChildWin
             mi.Invoke(bubble_phone, null);
             mi.Invoke(bubble_IDCard, null);
             mi.Invoke(bubble_name, null);
+            mi.Invoke(bubble_disease, null);
+            mi.Invoke(bubble_Diagnosis, null);
 
         }
         //验证用户是否存在

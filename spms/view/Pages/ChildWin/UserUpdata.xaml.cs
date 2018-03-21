@@ -254,7 +254,8 @@ namespace spms.view.Pages.ChildWin
             mi.Invoke(bubble_phone, null);
             mi.Invoke(bubble_IDCard, null);
             mi.Invoke(bubble_Name, null);
-
+            mi.Invoke(bubble_disease, null);
+            mi.Invoke(bubble_Diagnosis, null);
         }
 
         //验证用户是否存在
@@ -276,6 +277,34 @@ namespace spms.view.Pages.ChildWin
             else
             {
                 bubble_Name.IsOpen = false;
+            }
+        }
+        //疾病名称是否存在
+        private void IsDisease(object sender, RoutedEventArgs e)
+        {
+
+            Console.WriteLine(c5.Text);
+            if (!diseaseList.Contains(c5.Text) && !String.IsNullOrEmpty(c5.Text))
+            {
+                Error_Info_disease.Content = "不存在该疾病名称";
+                bubble_disease.IsOpen = true;
+            }
+            else
+            {
+                bubble_disease.IsOpen = false;
+            }
+        }
+        //残障名称是否存在
+        private void IsDiagnosis(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (!diagnosisList.Contains(c6.Text) && !String.IsNullOrEmpty(c6.Text))
+            {
+                Error_Info_Diagnosis.Content = "不存在该残障名称";
+                bubble_Diagnosis.IsOpen = true;
+            }
+            else
+            {
+                bubble_Diagnosis.IsOpen = false;
             }
         }
     }
