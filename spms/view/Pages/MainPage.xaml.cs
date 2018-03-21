@@ -344,33 +344,33 @@ namespace spms.view.Pages
                     trainingReport.Pk_User_Id.Content = selectUser.Pk_User_Id;
                     trainingReport.User_Name.Content = selectUser.User_Name;
                     trainingReport.Current_User = selectUser;
-                }
 
-                List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(selectUser.Pk_User_Id);
-                trainingReport.datalist.DataContext = list;
-                trainingReport.ShowDialog();
+                    List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(selectUser.Pk_User_Id);
+                    trainingReport.datalist.DataContext = list;
+                    trainingReport.ShowDialog();
+                }
             }
             //打开训练报告页面
-            else if (is_trainingrecord.IsChecked == true)
-            {
-                TrainingReport trainingReport = new TrainingReport
-                {
-                    Owner = Window.GetWindow(this),
-                    ShowActivated = true,
-                    ShowInTaskbar = false,
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen
-                };
-                List<TrainInfo> list = new List<TrainInfo>();
-                TrainInfo trainInfo = new TrainInfo
-                {
-                    Gmt_Create = new DateTime(2012, 01, 02)
-                };
-                list.Add(trainInfo);
-                Console.WriteLine(trainInfo.Gmt_Create);
-                list.Add(trainInfo);
-                trainingReport.datalist.DataContext = list;
-                trainingReport.ShowDialog();
-            }
+            //else if (is_trainingrecord.IsChecked == true)
+            //{
+            //    TrainingReport trainingReport = new TrainingReport
+            //    {
+            //        Owner = Window.GetWindow(this),
+            //        ShowActivated = true,
+            //        ShowInTaskbar = false,
+            //        WindowStartupLocation = WindowStartupLocation.CenterScreen
+            //    };
+            //    List<TrainInfo> list = new List<TrainInfo>();
+            //    TrainInfo trainInfo = new TrainInfo
+            //    {
+            //        Gmt_Create = new DateTime(2012, 01, 02)
+            //    };
+            //    list.Add(trainInfo);
+            //    Console.WriteLine(trainInfo.Gmt_Create);
+            //    list.Add(trainInfo);
+            //    trainingReport.datalist.DataContext = list;
+            //    trainingReport.ShowDialog();
+            //}
             //打开体力评价报告页面
             else
             {
@@ -381,16 +381,27 @@ namespace spms.view.Pages
                     ShowInTaskbar = false,
                     WindowStartupLocation = WindowStartupLocation.CenterScreen
                 };
-                List<TrainInfo> list = new List<TrainInfo>();
-                TrainInfo trainInfo = new TrainInfo
+
+                //设置用户信息
+                if (selectUser != null)
                 {
-                    Gmt_Create = new DateTime(2012, 01, 02)
-                };
-                list.Add(trainInfo);
-                Console.WriteLine(trainInfo.Gmt_Create);
-                list.Add(trainInfo);
-                physicalAssessmentReport.datalist.DataContext = list;
-                physicalAssessmentReport.ShowDialog();
+                    physicalAssessmentReport.Pk_User_Id.Content = selectUser.Pk_User_Id;
+                    physicalAssessmentReport.User_Name.Content = selectUser.User_Name;
+                    physicalAssessmentReport.Current_User = selectUser;
+
+                    List<PhysicalPowerExcekVO> list = excelService.ListPhysicalPowerExcekVOByUserId(selectUser.Pk_User_Id);
+                    physicalAssessmentReport.datalist.DataContext = list;
+                    physicalAssessmentReport.ShowDialog();
+                }
+                    //List<TrainInfo> list = new List<TrainInfo>();
+                    //TrainInfo trainInfo = new TrainInfo
+                    //{
+                    //    Gmt_Create = new DateTime(2012, 01, 02)
+                    //};
+                    //list.Add(trainInfo);
+                    //Console.WriteLine(trainInfo.Gmt_Create);
+                    //list.Add(trainInfo);
+                    
             }
 
             ////List<String> list = new List<string>();

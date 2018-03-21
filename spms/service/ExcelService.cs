@@ -20,5 +20,10 @@ namespace spms.service
             ExcelDao excelDao = new ExcelDao();
             return excelDao.ListTrainingDetailByUserId(userId);
         }
+        public List<PhysicalPowerExcekVO> ListPhysicalPowerExcekVOByUserId(int userId)
+        {
+            ExcelDao excelDao = new ExcelDao();
+            return excelDao.ListPhysicalPowerExcekVOByUserId(userId);
+        }
     }
 }

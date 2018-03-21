@@ -37,14 +37,29 @@ namespace spms.dao
         /// <returns></returns>
         public List<DevicePrescription> ListTrainingDetailByUserId(int userId)
         {
-
             using (var conn = DbUtil.getConn())
             {
                 const string query = "SELECT dp.* FROM bdl_traininfo ti, bdl_deviceprescription dp WHERE ti.pk_ti_id = dp.fk_ti_id AND ti.fk_user_id=@User_Id";
 
                 return conn.Query<DevicePrescription>(query, new { User_Id = userId }).ToList();
             }
-
         }
+
+        /// <summary>
+        /// 根据用户id查询体力评价记录
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public List<PhysicalPowerExcekVO> ListPhysicalPowerExcekVOByUserId(int userId)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "SELECT gmt_create,pp_high,pp_weight,pp_grip,pp_eyeopenstand,pp_functionprotract,pp_sitandreach FROM bdl_physicalpower pp WHERE pp.fk_user_id=@User_Id";
+
+                return conn.Query<PhysicalPowerExcekVO>(query, new { User_Id = userId }).ToList();
+            }
+        }
+
+
     }
 }

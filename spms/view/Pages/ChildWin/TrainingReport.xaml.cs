@@ -246,7 +246,6 @@ namespace spms.view.Pages.ChildWin
 
                 //保存
                 package.Save();
-                //package.SaveAs(new FileInfo(@"e:\1234.pdf"));
             }
         }
 
