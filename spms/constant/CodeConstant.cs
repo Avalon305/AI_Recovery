@@ -22,11 +22,16 @@ namespace spms.constant
         /// <summary>
         /// 移乘方式：与数据库严格对应5
         /// </summary>
-        MoveWay ,
+        MoveWay,
         /// <summary>
-        /// 设备类型
+        /// 机构类别
         /// </summary>
-        DeviceType 
- 
+        OrganizationSort,
+        /// <summary>
+        /// 语言
+        /// </summary>
+        Language
+
+
     }
 }

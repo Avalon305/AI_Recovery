@@ -87,14 +87,13 @@
                 <Border Grid.Row="0" Grid.Column="1" Margin="0,0,0,2" >
                     <TextBox x:Name="textBox1" VerticalContentAlignment="Center" Text="{Binding Set_OrganizationName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 </Border>
-                
                 <!--结束：机构团体名称-->
                 <!--机构区分-->
                 <Border Grid.Row="1" Grid.Column="0"  Width="140" HorizontalAlignment="Left" Margin="0,0,0,2">
                     <Label Foreground="White" Background="Black">机构区分</Label>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1"    Margin="0,0,0,2">
-                    <ComboBox VerticalContentAlignment="Center" x:Name="comboBox1" ItemsSource="{Binding}" SelectedIndex ="0"  SelectedValuePath="Pk_Set_Id" DisplayMemberPath="Set_Unique_Id" ></ComboBox>
+                    <ComboBox VerticalContentAlignment="Center" x:Name="comboBox1" ItemsSource="{Binding}" SelectedIndex ="0"  SelectedValuePath="Code_S_Value" DisplayMemberPath="Code_D_Value" ></ComboBox>
                 </Border>
                 <!--结束：机构区分-->
                 <!-- <Border Grid.Row="2" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,0,0,2">
@@ -136,7 +135,7 @@
                     <Label Foreground="White" Background="Black">语言</Label>
                 </Border>
                 <Border Grid.Row="3" Grid.Column="1"  Margin="0,0,0,2">
-                    <ComboBox VerticalContentAlignment="Center" x:Name="comboBox2" ItemsSource="{Binding}" SelectedIndex="0"  SelectedValuePath="Pk_Set_Id"  DisplayMemberPath="Set_Language" >
+                    <ComboBox VerticalContentAlignment="Center" x:Name="comboBox2" ItemsSource="{Binding}" SelectedIndex="0"  SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value" >
                     </ComboBox>
                 </Border>
                 <!--结束：语言-->
@@ -148,7 +147,7 @@
                     <Button>设定密码</Button>
                 </Border>-->
             </Grid>
-           
+
             <!--高级设置按钮-->
             <Border Margin="30,0,0,0" Width="423">
                 <StackPanel Orientation="Horizontal">
@@ -198,7 +197,7 @@
 
         <StackPanel Orientation="Horizontal" >
             <!--小组名称-->
-            <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+            <DataGrid DataGridRow.MouseUp="Grid_Group_Click" x:Name="DataGrid2" HorizontalAlignment="Left" RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
                 <!--选中行失去焦点-->
                 <DataGrid.Resources>
                     <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>
@@ -222,7 +221,7 @@
             </DataGrid>
             <!--结束小组名称-->
             <!--疾病名称-->
-            <DataGrid x:Name="DataGrid3" HorizontalAlignment="Left"  RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+            <DataGrid x:Name="DataGrid3"  DataGridRow.MouseUp="Grid_Disease_Click" HorizontalAlignment="Left"  RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
                 <!--选中行失去焦点-->
                 <DataGrid.Resources>
                     <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>
@@ -246,7 +245,7 @@
             </DataGrid>
             <!--结束：疾病名称-->
             <!--残障名称-->
-            <DataGrid x:Name="DataGrid4" HorizontalAlignment="Left"  RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+            <DataGrid x:Name="DataGrid4" DataGridRow.MouseUp="Grid_Diagnosis_Click" HorizontalAlignment="Left"  RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
                 <!--选中行失去焦点-->
                 <DataGrid.Resources>
                     <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>
@@ -278,7 +277,7 @@
                         <Button Width="50" Style="{StaticResource Btn}" Click="Add_Group" Margin="0,7,0,6.723" >添加</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0"  Height="25" Width="50">
-                        <Button Height="25" Width="50" Style="{StaticResource Btn}">更新</Button>
+                        <Button Height="25" Width="50" Click="Group_Update"  Style="{StaticResource Btn}">更新</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50" >
                         <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
@@ -330,6 +329,6 @@
             <!--结束：残障名称——添加、更新、删除按钮-->
 
         </StackPanel>
-        
+
     </StackPanel>
 </Page>

@@ -1,6 +1,8 @@
 ﻿using Dapper;
+using spms.constant;
 using spms.dao;
 using spms.entity;
+using spms.protocol;
 using spms.util;
 using spms.view.Pages.ChildWin;
 using System;
@@ -34,16 +36,16 @@ namespace spms.view.Pages
         AuthDAO authDAO = new AuthDAO();
         DeviceSortDAO deviceSortDAO = new DeviceSortDAO();
         DeviceSetDAO deviceSetDAO = new DeviceSetDAO();
+        SetterDAO SetterDAO = new SetterDAO();
         Auther auther = new Auther();
         DeviceSet deviceSet = new DeviceSet();
-        List<int> selectID = new List<int>();  //保存选中要删除行的FID值  
-        int judge = 0;
-        int checkchange = 0;
+        int selected = 0;
         public AdvancedSettings()
         {
             InitializeComponent();
-            AutherList = authDAO.ListAll();
-
+            byte auth_level = 0x01;
+            auther = authDAO.GetByAuthLevel(auth_level);
+            AutherList.Add(auther);
             DeviceSetList = deviceSetDAO.ListAll();
             ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
             ((this.FindName("ComboBox_Device")) as ComboBox).ItemsSource = DeviceSetList;//系列
@@ -60,6 +62,7 @@ namespace spms.view.Pages
         //datagrid单击一行事件
         private void Grid_Row_Click(object sender, RoutedEventArgs e)
         {
+            selected = 1;
             auther = (Auther)DataGrid1.SelectedItem;
             DataGrid1.DataContext = auther;
         }
@@ -72,27 +75,6 @@ namespace spms.view.Pages
             //刷新界面
             AutherList = authDAO.ListAll();
             ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
-        }
-        //单击复选框触发事件
-        private void CheckBox_Click(object sender, RoutedEventArgs e)//单击左侧CheckBox触发事件
-        {
-            CheckBox checkBox = sender as CheckBox;
-            int ID = int.Parse(checkBox.Tag.ToString());   //获取该行的FID  
-            var IsChecked = checkBox.IsChecked;
-            if (IsChecked == true)
-            {
-                selectID.Add(ID);         //如果选中就保存FID  
-            }
-            else
-            {
-                selectID.Remove(ID);  //如果选中取消就删除里面的FID  
-            }
-        }
-        private void Device_Checked(object sender, RoutedEventArgs e)//单击左侧CheckBox触发事件
-        {
-            checkchange = 1;
-
-
         }
         //添加按钮的事件
         private void Btn_Insert(object sender, RoutedEventArgs e)
@@ -110,33 +92,49 @@ namespace spms.view.Pages
         //删除按钮的事件
         private void Btn_Delete(object sender, RoutedEventArgs e) //单击删除按钮触发事件
         {
-            authDAO.DeleteByPrimaryKey(auther);//在数据库中删除
-            FlushAuther();
+            if (selected == 1)
+            {
+                authDAO.DeleteByPrimaryKey(auther);//在数据库中删除
+                FlushAuther();
+                selected = 0;
+            }
+            else
+            {
+                MessageBox.Show("请选择删除的一行");
+            }
 
         }
         //更新按钮的事件
         private void BTN_Update(object sender, RoutedEventArgs e)
         {
-            AutherUpdate autherUpdate = new AutherUpdate
+            if (selected == 1)
             {
-                Owner = Window.GetWindow(this),
-                ShowActivated = true,
-                ShowInTaskbar = false,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen
-            };
-            //自定义窗口更新使用
-            Auther auther = (Auther)DataGrid1.SelectedItem;
-            autherUpdate.selectedAuther = auther;
-            //UI中使用
-            autherUpdate.UserName.Text = auther.Auth_UserName;
-            autherUpdate.Pass.Password = auther.Auth_UserPass;
-            autherUpdate.Confirm_Pass.Password = auther.Auth_UserPass;
-            autherUpdate.ShowDialog();
-            FlushAuther();
+                AutherUpdate autherUpdate = new AutherUpdate
+                {
+                    Owner = Window.GetWindow(this),
+                    ShowActivated = true,
+                    ShowInTaskbar = false,
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen
+                };
+                //自定义窗口更新使用
+                Auther auther = (Auther)DataGrid1.SelectedItem;
+                autherUpdate.selectedAuther = auther;
+                //UI中使用
+                autherUpdate.UserName.Text = auther.Auth_UserName;
+                autherUpdate.Pass.Password = auther.Auth_UserPass;
+                autherUpdate.Confirm_Pass.Password = auther.Auth_UserPass;
+                autherUpdate.ShowDialog();
+                FlushAuther();
+                selected = 0;
+            }
+            else
+            {
+                MessageBox.Show("请选择更新的一行");
+            }
         }
         private void Btn_Confirm(object sender, RoutedEventArgs e)
         {
-            //保存复选框还没实现
+            deviceSortDAO.UpdateDeviceSorts(DeviceSortList);
 
         }
 
@@ -150,8 +148,26 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            passwordInput.ShowDialog();
-            Status.Content = "已激活";
+            passwordInput.ShowDialog();     
+            if (true)//是否和发送的数据体相等，相等则鉴权成功，向数据库中写入mac,没实现！！！
+            {   //获取mac地址
+                string strMac = CommUtil.GetMacAddress();
+                entity.Setter setter = new entity.Setter();
+                //mac地址先变为byte[]再aes加密
+                byte[] byteMac = Encoding.Default.GetBytes(strMac);
+                byte[] AesMac = AesUtil.Encrypt(byteMac, ProtocolConstant.USB_DOG_PASSWORD);
+                //变为16进制字符串存入数据库
+                setter.Set_Unique_Id = ProtocolUtil.BytesToString(AesMac);
+                SetterDAO.InsertOneMacAdress(setter);
+                //注释的部分为添加多个mac地址
+                // List<entity.Setter> ListMac = CommUtil.GetMacByWMI();
+                // SetterDAO.InsertMacAdress(ListMac);
+            }
+            else
+            {
+                MessageBox.Show("激活失败");
+            }
+            Status.Content = "已激活";//如果激活成功记录状态，激活按钮变为不能点击 没实现！！！
             Color color = Color.FromArgb(255, 2, 200, 5);
             Status.Foreground = new SolidColorBrush(color);
         }

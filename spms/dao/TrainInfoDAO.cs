@@ -128,6 +128,15 @@ namespace spms.dao
                 return (List<DeviceSort>)conn.Query<DeviceSort>(query, new { Fk_Dset_Id = Dset_Id });
             }
         }
+        public void UpdateDeviceSorts(List<DeviceSort> DeviceSetList)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string Update = "update bdl_devicesort set DS_Status=@DS_Status where Pk_DS_Id = @Pk_DS_Id";
+
+                conn.Execute(Update, DeviceSetList);
+            }
+        }
     }
 
 }

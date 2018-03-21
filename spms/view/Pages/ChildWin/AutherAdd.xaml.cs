@@ -45,6 +45,17 @@ namespace spms.view.Pages.ChildWin
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
+        //用户名失去焦点触发事件进行姓名查重
+        private void Name_LostFocus(object sender, RoutedEventArgs e)
+        {
+            //获取文本框的值
+            string Name = UserName.Text;
+            Auther AutherTemp = authDAO.GetByName(Name);
+            if (AutherTemp != null)
+            {
+                MessageBox.Show("用户名已存在");
+            }
+        }
 
         private void Button_OK(object sender, RoutedEventArgs e)
         {

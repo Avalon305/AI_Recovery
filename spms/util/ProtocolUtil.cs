@@ -106,7 +106,7 @@ namespace spms.util
             string StringOut = "";
             foreach (byte InByte in InBytes)
             {
-                StringOut = StringOut + String.Format("{0:X2} ", InByte);
+                StringOut = StringOut + String.Format("{0:X2}", InByte);
             }
             return StringOut;
         }

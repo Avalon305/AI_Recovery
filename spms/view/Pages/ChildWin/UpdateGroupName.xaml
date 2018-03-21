@@ -20,6 +20,6 @@
             </Grid>
         </Border>
         <!--输入框-->
-        <TextBox Name="GroupName"  VerticalAlignment="Center" Margin="5,30,5,5" BorderBrush="Gray"></TextBox>
+        <TextBox Name="GroupName" LostFocus="Text_LostFocus"  VerticalAlignment="Center" Margin="5,30,5,5" BorderBrush="Gray"></TextBox>
     </StackPanel>
 </Window>
