@@ -166,13 +166,16 @@ namespace spms.view.Pages.ChildWin
             if (userService.GetByIdCard(IDCard) != null)
             {
                 //身份证重复气泡提示
-
+                Error_Info_IDCard.Content = "该身份证已注册";
+                bubble_IDCard.IsOpen = true;
                 return;
             }
             if (userService.GetByPhone(phone) != null)
             {
                 //手机重复气泡提示
-
+                Error_Info_Phone.Content = "该手机号已注册";
+                bubble_phone.IsOpen = true;
+               
                 return;
             }
 
