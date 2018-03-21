@@ -331,6 +331,10 @@ namespace spms.view.Pages.ChildWin
                 Error_Info_Name.Content = "该用户名已注册";
                 bubble_name.IsOpen = true;
             }
+            else
+            {
+                bubble_name.IsOpen = false;
+            }
         }
     }
 }

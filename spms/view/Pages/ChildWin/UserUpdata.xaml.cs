@@ -36,15 +36,32 @@ namespace spms.view.Pages.ChildWin
         List<string> diagnosisList;
         //护理度列表
         List<string> careList = new List<string> { "没有申请", "自理", "要支援一", "要支援二", "要介护1", "要介护2", "要介护3", "要介护4", "要介护5" };
-       
+        //最初的姓名
+        String origin_name;
         //service层初始化
         UserService userService = new UserService();
         CustomDataService customDataService = new CustomDataService();
 
+        //去除窗体叉号
+        private const int GWL_STYLE = -16;
+        private const int WS_SYSMENU = 0x80000;
+        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //获取最初姓名
+            origin_name = t2.Text;
+            var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+            SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+        }
         public UserUpdata()
         {
             InitializeComponent();
-
+            
+            
             groupList = customDataService.GetAllByType(CustomDataEnum.Group);
             diseaseList = customDataService.GetAllByType(CustomDataEnum.Disease);
             diagnosisList = customDataService.GetAllByType(CustomDataEnum.Diagiosis);
@@ -172,10 +189,7 @@ namespace spms.view.Pages.ChildWin
 
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
         private void Photograph(object sender, RoutedEventArgs e)
         {
@@ -231,8 +245,30 @@ namespace spms.view.Pages.ChildWin
             var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             mi.Invoke(bubble_phone, null);
             mi.Invoke(bubble_IDCard, null);
+            mi.Invoke(bubble_Name, null);
 
         }
 
+        //验证用户是否存在
+        private void IsName(object sender, RoutedEventArgs e)
+        {
+            User user = new User
+            {
+                User_Name = t2.Text
+            };
+            UserService userService = new UserService();
+            userService.SelectByCondition(user);
+            MainPage mainPage = new MainPage();
+            Console.WriteLine("最初姓名：" + origin_name + "现在值：" + t2.Text);
+            if (userService.SelectByCondition(user).Count != 0&& !origin_name.Equals(t2.Text))
+            {
+                Error_Info_Name.Content = "该用户名已注册";
+                bubble_Name.IsOpen = true;
+            }
+            else
+            {
+                bubble_Name.IsOpen = false;
+            }
+        }
     }
 }

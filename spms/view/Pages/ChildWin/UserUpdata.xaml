@@ -79,14 +79,22 @@
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
                         <Label Content="用户姓名"  VerticalAlignment="Center"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="0" Name="t2" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Name}" VerticalContentAlignment="Center"/>
-                    <Label  Grid.Row="0" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
+                    <TextBox Grid.Row="0" Name="t2" LostFocus="IsName" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Name}" VerticalContentAlignment="Center"/>
+                    <!--气泡-->
+                    <bubble:CCPopup x:Name="bubble_Name" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=t2}" Placement="Right" >
+                        <Label Style="{StaticResource tipLable}">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Foreground="Red" Name="Error_Info_Name" Content=""/>
+                            </StackPanel>
+                        </Label>
+                    </bubble:CCPopup>
+                   
 
                     <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="用户姓名(拼音)"  FontStyle="Normal"  Foreground="White"/>
                     </Border>
                     <TextBox Grid.Row="1" Name="t3" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Namepinyin}" VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="1" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
+                    
 
                     <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="性别" Grid.Row="2" Grid.Column="0" Foreground="White"/>
@@ -95,7 +103,7 @@
                         <ComboBoxItem Content="男" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                         <ComboBoxItem Content="女" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                     </ComboBox>
-                    <Label  Grid.Row="2" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
+                    
 
                     <Border Grid.Row="3" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="出生年月" Grid.Row="3" Grid.Column="0"  Foreground="White"/>
@@ -107,7 +115,7 @@
                         <Label Content="手机号" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
                     <TextBox Grid.Row="4"   Name ="phoneNum" Grid.Column="1" LostFocus="IsPhone"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding  User_Phone}" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                    <bubble:CCPopup x:Name="bubble_phone" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=phone}" Placement="Right" >
+                    <bubble:CCPopup x:Name="bubble_phone" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=phoneNum}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
                             <StackPanel Orientation="Horizontal">
                                 <Label Foreground="Red" Name="Error_Info_Phone" Content=""/>
@@ -145,7 +153,7 @@
                     </Border>
                     <ComboBox Name="c4" Grid.Row="8" Grid.Column="1"  Background="LightGray"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Nowcare }"/>
 
-                    <Label  Grid.Row="8" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
+                    
 
                     <Border Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="疾病名称" Grid.Row="9" Grid.Column="0"  Foreground="White"/>
