@@ -29,5 +29,22 @@ namespace spms.dao
             }
 
         }
+
+        /// <summary>
+        /// 根据用户id查询用户训练的详细记录
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public List<DevicePrescription> ListTrainingDetailByUserId(int userId)
+        {
+
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "SELECT dp.* FROM bdl_traininfo ti, bdl_deviceprescription dp WHERE ti.pk_ti_id = dp.fk_ti_id AND ti.fk_user_id=@User_Id";
+
+                return conn.Query<DevicePrescription>(query, new { User_Id = userId }).ToList();
+            }
+
+        }
     }
 }

@@ -34,7 +34,7 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding trainInfo.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
 
                             <DataGridTextColumn Binding="{Binding moveway}" Header="移乘方法" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="重量" Width="50"/>
@@ -77,7 +77,7 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding trainInfo.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
 
                             <DataGridTextColumn Binding="{Binding moveway}" Header="移乘方法" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="重量" Width="50"/>
@@ -120,7 +120,7 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding trainInfo.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
 
                             <DataGridTextColumn Binding="{Binding moveway}" Header="移乘方法" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="重量" Width="50"/>
@@ -166,7 +166,7 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding trainInfo.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
 
                             <DataGridTextColumn Binding="{Binding moveway}" Header="移乘方法" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="重量" Width="50"/>
@@ -209,7 +209,7 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding trainInfo.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
 
                             <DataGridTextColumn Binding="{Binding moveway}" Header="移乘方法" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="重量" Width="50"/>
@@ -252,7 +252,7 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding trainInfo.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
 
                             <DataGridTextColumn Binding="{Binding moveway}" Header="移乘方法" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="重量" Width="50"/>
