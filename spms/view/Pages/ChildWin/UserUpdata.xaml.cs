@@ -38,6 +38,10 @@ namespace spms.view.Pages.ChildWin
         List<string> careList = new List<string> { "没有申请", "自理", "要支援一", "要支援二", "要介护1", "要介护2", "要介护3", "要介护4", "要介护5" };
         //最初的姓名
         String origin_name;
+        //最初的手机号
+        String origin_phone;
+        //最初的身份证号
+        String origin_IDCard;
         //service层初始化
         UserService userService = new UserService();
         CustomDataService customDataService = new CustomDataService();
@@ -54,6 +58,10 @@ namespace spms.view.Pages.ChildWin
         {
             //获取最初姓名
             origin_name = t2.Text;
+            //获得最初的手机号
+            origin_phone = phoneNum.Text;
+            //获得最初的身份证号
+            origin_IDCard = IDCard.Text;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
@@ -210,7 +218,7 @@ namespace spms.view.Pages.ChildWin
                 Error_Info_IDCard.Content = "请输入正确的身份证号码";
                 bubble_IDCard.IsOpen = true;
             }
-            else if (userService.GetByIdCard(IDCard.Text) != null)
+            else if (userService.GetByIdCard(IDCard.Text) != null&&!origin_IDCard.Equals(IDCard.Text))
             {
                 Error_Info_IDCard.Content = "该身份证已注册";
                 bubble_IDCard.IsOpen = true;
@@ -228,7 +236,7 @@ namespace spms.view.Pages.ChildWin
                 Error_Info_Phone.Content = "请输入正确的手机号";
                 bubble_phone.IsOpen = true;
             }
-            else if (userService.GetByPhone(phoneNum.Text) != null)
+            else if (userService.GetByPhone(phoneNum.Text) != null && !phoneNum.Text.Equals(origin_phone))
             {
                 Error_Info_Phone.Content = "该手机号已注册";
                 bubble_phone.IsOpen = true;

@@ -125,7 +125,7 @@
                     <Border Grid.Row="5" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="身份证号" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="5" Name="IDCard" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IDCard}" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="5" Name="IDCard" Grid.Column="1" LostFocus="IsIDCard" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IDCard}" VerticalContentAlignment="Center"/>
                     <!--气泡-->
                     <bubble:CCPopup x:Name="bubble_IDCard" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=IDCard}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
