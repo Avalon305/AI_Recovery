@@ -26,25 +26,30 @@ namespace spms.view.Pages
     /// </summary>
     public partial class AdvancedSettings : Page
     {
+        //声明List
         List<Auther> AutherList = new List<Auther>();
+        List<DeviceSort> DeviceSortList = new List<DeviceSort>();
         List<DeviceSet> DeviceSetList = new List<DeviceSet>();
-        ObservableCollection<Auther> AutherCollection;
-        ObservableCollection<DeviceSet> DeviceSetCollection;
+        //创建DAO实例
         AuthDAO authDAO = new AuthDAO();
+        DeviceSortDAO deviceSortDAO = new DeviceSortDAO();
         DeviceSetDAO deviceSetDAO = new DeviceSetDAO();
         Auther auther = new Auther();
+        DeviceSet deviceSet = new DeviceSet();
+        List<int> selectID = new List<int>();  //保存选中要删除行的FID值  
         int judge = 0;
         int checkchange = 0;
         public AdvancedSettings()
         {
             InitializeComponent();
             AutherList = authDAO.ListAll();
-            DeviceSetList = deviceSetDAO.ListAll();
 
-            DeviceSetCollection = new ObservableCollection<DeviceSet>(DeviceSetList);
-            AutherCollection = new ObservableCollection<Auther>(AutherList);
-            ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherCollection;
-            ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = DeviceSetCollection;
+            DeviceSetList = deviceSetDAO.ListAll();
+            ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
+            ((this.FindName("ComboBox_Device")) as ComboBox).ItemsSource = DeviceSetList;//系列
+            int Dset_Id = (int)ComboBox_Device.SelectedValue;
+            DeviceSortList = deviceSortDAO.GetDeviceSortBySet(Dset_Id);
+            ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = DeviceSortList;//类型
         }
         //返回上一页
         private void GoBack(object sender, RoutedEventArgs e)
@@ -52,14 +57,24 @@ namespace spms.view.Pages
             Window window = (Window)this.Parent;
             window.Content = new DesignPage1();
         }
-        private void Device_Checked(object sender, RoutedEventArgs e)//单击左侧CheckBox触发事件
+        //datagrid单击一行事件
+        private void Grid_Row_Click(object sender, RoutedEventArgs e)
         {
-            checkchange = 1;
-
-
+            auther = (Auther)DataGrid1.SelectedItem;
+            DataGrid1.DataContext = auther;
         }
-        List<int> selectID = new List<int>();  //保存选中要删除行的FID值  
-        private void CheckBox_Click(object sender, RoutedEventArgs e)//单击右侧CheckBox触发事件
+        //刷新页面
+        private void FlushAuther()
+        {
+            //添加之后，flush界面
+            //致空
+            auther = null;
+            //刷新界面
+            AutherList = authDAO.ListAll();
+            ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
+        }
+        //单击复选框触发事件
+        private void CheckBox_Click(object sender, RoutedEventArgs e)//单击左侧CheckBox触发事件
         {
             CheckBox checkBox = sender as CheckBox;
             int ID = int.Parse(checkBox.Tag.ToString());   //获取该行的FID  
@@ -73,24 +88,13 @@ namespace spms.view.Pages
                 selectID.Remove(ID);  //如果选中取消就删除里面的FID  
             }
         }
-        private void Btn_Delete(object sender, RoutedEventArgs e) //单击删除按钮触发事件
+        private void Device_Checked(object sender, RoutedEventArgs e)//单击左侧CheckBox触发事件
         {
-            foreach (int ID in selectID)
-            {
-                auther.Pk_Auth_Id = ID;
-                authDAO.DeleteByPrimaryKey(auther);//在数据库中删除
-                for (int i = 0; i < AutherCollection.Count; i++)
-                {
-                    if (AutherCollection[i].Pk_Auth_Id == ID) AutherCollection.RemoveAt(i);//在collection中删除
-                }
+            checkchange = 1;
 
-            }
+
         }
-        private void Grid_Row_Click(object sender, MouseButtonEventArgs e)
-        {
-            auther = (Auther)DataGrid2.SelectedItem;
-            DataGrid2.DataContext = auther;
-        }
+        //添加按钮的事件
         private void Btn_Insert(object sender, RoutedEventArgs e)
         {
             AutherAdd addAuther = new AutherAdd
@@ -101,14 +105,16 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             addAuther.ShowDialog();
-            //添加之后，flush界面
-            //致空
-            auther = null;
-            //刷新界面
-            AutherList = authDAO.ListAll();
-            AutherCollection = new ObservableCollection<Auther>(AutherList);
-            ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherCollection;
+            FlushAuther();
         }
+        //删除按钮的事件
+        private void Btn_Delete(object sender, RoutedEventArgs e) //单击删除按钮触发事件
+        {
+            authDAO.DeleteByPrimaryKey(auther);//在数据库中删除
+            FlushAuther();
+
+        }
+        //更新按钮的事件
         private void BTN_Update(object sender, RoutedEventArgs e)
         {
             AutherUpdate autherUpdate = new AutherUpdate
@@ -126,16 +132,11 @@ namespace spms.view.Pages
             autherUpdate.Pass.Password = auther.Auth_UserPass;
             autherUpdate.Confirm_Pass.Password = auther.Auth_UserPass;
             autherUpdate.ShowDialog();
-            //致空
-            auther = null;
-            //刷新界面
-            AutherList = authDAO.ListAll();
-            AutherCollection = new ObservableCollection<Auther>(AutherList);
-            ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherCollection;
+            FlushAuther();
         }
         private void Btn_Confirm(object sender, RoutedEventArgs e)
         {
-
+            //保存复选框还没实现
 
         }
 

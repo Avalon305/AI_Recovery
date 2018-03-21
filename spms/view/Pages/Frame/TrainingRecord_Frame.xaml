@@ -17,7 +17,7 @@
                             </Style>
                         </DataGrid.RowStyle>
                         <!--去掉选中单元格的框线-->
-                        
+
                         <DataGrid.CellStyle>
                             <Style TargetType="DataGridCell" >
                                 <Style.Triggers>
@@ -28,15 +28,17 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
-                            <DataGridTextColumn Binding="{Binding dp_moveway}" Header="移乘方法" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding dp_weight}" Header="重量" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding dp_groupcount}" Header="组数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding  dp_groupnum}" Header="个数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding PR_SportStrength}" Header="自觉运动强度" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding PR_Evaluate}" Header="运动时机、姿势等" Width="110"/>
-                            <DataGridTextColumn Binding="{Binding PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+                            <DataGridTextColumn Binding="{Binding trainInfo.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+
+                            <DataGridTextColumn Binding="{Binding moveway}" Header="移乘方法" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="重量" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="组数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="个数" Width="50"/>
+
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="自觉运动强度" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding evaluate}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>
 
                         </DataGrid.Columns>
                     </DataGrid>
@@ -63,15 +65,17 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130"/>
-                            <DataGridTextColumn Binding="{Binding dp_moveway}" Header="移乘方法" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding dp_weight}" Header="重量" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding dp_groupcount}" Header="组数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding  dp_groupnum}" Header="个数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding PR_SportStrength}" Header="自觉运动强度" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding PR_Evaluate}" Header="运动时机、姿势等" Width="110"/>
-                            <DataGridTextColumn Binding="{Binding PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+                            <DataGridTextColumn Binding="{Binding trainInfo.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+
+                            <DataGridTextColumn Binding="{Binding moveway}" Header="移乘方法" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="重量" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="组数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="个数" Width="50"/>
+
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="自觉运动强度" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding evaluate}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>
 
                         </DataGrid.Columns>
                     </DataGrid>
@@ -98,15 +102,17 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130"/>
-                            <DataGridTextColumn Binding="{Binding dp_moveway}" Header="移乘方法" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding dp_weight}" Header="重量" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding dp_groupcount}" Header="组数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding  dp_groupnum}" Header="个数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding PR_SportStrength}" Header="自觉运动强度" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding PR_Evaluate}" Header="运动时机、姿势等" Width="110"/>
-                            <DataGridTextColumn Binding="{Binding PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+                            <DataGridTextColumn Binding="{Binding trainInfo.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+
+                            <DataGridTextColumn Binding="{Binding moveway}" Header="移乘方法" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="重量" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="组数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="个数" Width="50"/>
+
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="自觉运动强度" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding evaluate}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>
 
                         </DataGrid.Columns>
                     </DataGrid>
@@ -115,7 +121,11 @@
             </TabItem>
             <TabItem Header="腿部伸展弯曲机" Width="95">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="TrainingRecord4" HorizontalAlignment="Left"  VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="440*"/>
+                        <ColumnDefinition Width="503*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="TrainingRecord4" HorizontalAlignment="Left"  VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="2" Margin="0,0,-12.6,0">
                         <DataGrid.RowStyle>
                             <Style TargetType="DataGridRow">
                                 <Setter Property="Height" Value="18" />
@@ -132,15 +142,18 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130"/>
-                            <DataGridTextColumn Binding="{Binding dp_moveway}" Header="移乘方法" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding dp_weight}" Header="重量" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding dp_groupcount}" Header="组数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding  dp_groupnum}" Header="个数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding PR_SportStrength}" Header="自觉运动强度" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding PR_Evaluate}" Header="运动时机、姿势等" Width="110"/>
-                            <DataGridTextColumn Binding="{Binding PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+                            <DataGridTextColumn Binding="{Binding trainInfo.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+
+                            <DataGridTextColumn Binding="{Binding moveway}" Header="移乘方法" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="重量" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="组数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="个数" Width="50"/>
+
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="自觉运动强度" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding evaluate}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -166,15 +179,17 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130"/>
-                            <DataGridTextColumn Binding="{Binding dp_moveway}" Header="移乘方法" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding dp_weight}" Header="重量" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding dp_groupcount}" Header="组数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding  dp_groupnum}" Header="个数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding PR_SportStrength}" Header="自觉运动强度" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding PR_Evaluate}" Header="运动时机、姿势等" Width="110"/>
-                            <DataGridTextColumn Binding="{Binding PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+                            <DataGridTextColumn Binding="{Binding trainInfo.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+
+                            <DataGridTextColumn Binding="{Binding moveway}" Header="移乘方法" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="重量" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="组数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="个数" Width="50"/>
+
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="自觉运动强度" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding evaluate}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>
 
                         </DataGrid.Columns>
                     </DataGrid>
@@ -201,15 +216,18 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130"/>
-                            <DataGridTextColumn Binding="{Binding dp_moveway}" Header="移乘方法" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding dp_weight}" Header="重量" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding dp_groupcount}" Header="组数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding  dp_groupnum}" Header="个数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding PR_SportStrength}" Header="自觉运动强度" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding PR_Evaluate}" Header="运动时机、姿势等" Width="110"/>
-                            <DataGridTextColumn Binding="{Binding PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+                            <DataGridTextColumn Binding="{Binding trainInfo.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+
+                            <DataGridTextColumn Binding="{Binding moveway}" Header="移乘方法" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="重量" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="组数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="个数" Width="50"/>
+
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="自觉运动强度" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding evaluate}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+
                         </DataGrid.Columns>
                     </DataGrid>
 

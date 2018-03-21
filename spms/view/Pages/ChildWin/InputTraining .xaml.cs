@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using spms.constant;
+using spms.dao;
 using spms.entity;
 using spms.service;
 using spms.util;
@@ -236,7 +237,7 @@ namespace spms.view.Pages.ChildWin
             string attr3; //3
             string attr4; //4
             string attr5; //5
-            
+            DeviceSortDAO deviceSortDao = new DeviceSortDAO();
             if (checkbox1.IsChecked == true)
             {
                 //水平腿部推蹬机
@@ -254,8 +255,7 @@ namespace spms.view.Pages.ChildWin
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*";
                 devicePrescription.DP_Memo = t1.Text; //注意点
-                //TODO 设置设备类型外键
-
+                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(combobox_01.Text); //组数;
@@ -284,8 +284,7 @@ namespace spms.view.Pages.ChildWin
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*";
                 devicePrescription.DP_Memo = t2.Text; //注意点
-                //TODO 设置设备类型外键
-
+                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(combobox_11.Text); //组数
@@ -313,8 +312,7 @@ namespace spms.view.Pages.ChildWin
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*";
                 devicePrescription.DP_Memo = t3.Text; //注意点
-                //TODO 设置设备类型外键
-
+                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(combobox_21.Text); //组数
@@ -345,8 +343,7 @@ namespace spms.view.Pages.ChildWin
                                               "attr4-" + attr4 + "*" +
                                               "attr5-" + attr5 + "*";
                 devicePrescription.DP_Memo = t4.Text; //注意点
-                //TODO 设置设备类型外键
-
+                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(combobox_31.Text); //组数
@@ -360,8 +357,8 @@ namespace spms.view.Pages.ChildWin
 
             if (checkbox5.IsChecked == true)
             {
-                //臂部外展内收机
-                devName = "臂部外展内收机";
+                //臀部外展内收机
+                devName = "臀部外展内收机";
                 attr1 = com_41.Text; //属性1
                 attr2 = com_42.Text; //2
                 attr3 = com_43.Text; //3
@@ -373,8 +370,7 @@ namespace spms.view.Pages.ChildWin
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*";
                 devicePrescription.DP_Memo = t5.Text; //注意点
-                //TODO 设置设备类型外键
-
+                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(combobox_41.Text); //组数
@@ -401,8 +397,7 @@ namespace spms.view.Pages.ChildWin
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*";
                 devicePrescription.DP_Memo = t6.Text; //注意点
-                //TODO 设置设备类型外键
-
+                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(combobox_51.Text); //组数
@@ -569,7 +564,7 @@ namespace spms.view.Pages.ChildWin
                         combobox_35.SelectedIndex = devicePrescription.dp_moveway;
                         t4.Text = devicePrescription.DP_Memo;
                         break;
-                    case "臂部外展内收机":
+                    case "臀部外展内收机":
                         checkbox5.IsChecked = true;
                         com_41.Text = attrs[1].Split(new char[] {'-'})[1];
                         com_42.Text = attrs[2].Split(new char[] {'-'})[1];

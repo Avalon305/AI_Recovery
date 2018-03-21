@@ -20,6 +20,11 @@ namespace spms.entity
         public DateTime? Gmt_Modified { get; set; }
         //关联的用户ID
         public int FK_User_Id { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(Pk_TI_Id)}: {Pk_TI_Id}, {nameof(Gmt_Create)}: {Gmt_Create}, {nameof(Gmt_Modified)}: {Gmt_Modified}, {nameof(FK_User_Id)}: {FK_User_Id}";
+        }
     }
     //单一设备处方
     [Table("bdl_deviceprescription")]
@@ -112,15 +117,14 @@ namespace spms.entity
     {
         //主键 自增
         [Key]
-        public int Pk_DSet_Id { get; set; }
+        public int Bdl_Dset_Id { get; set; }
         //数据创建时间
         public DateTime? Gmt_Create { get; set; }
         //数据更新时间
         public DateTime? Gmt_Modified { get; set; }
         //系列名称
         public string DSet_Name { get; set; }
-        //设备状态
-        public int DSet_Status { get; set; }
+
     }
     //设备类型
     [Table("bdl_devicesort")]
@@ -135,7 +139,9 @@ namespace spms.entity
         //设备名称
         public string DS_name { get; set; }
         //所属的设备系列ID
-        public int Fk_DSet_Id { get; set; }
+        public int? Fk_DSet_Id { get; set; }
+        //设备状态
+        public int? DS_Status { get; set; }
     }
 
 }
