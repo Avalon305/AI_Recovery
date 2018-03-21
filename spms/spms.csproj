@@ -206,6 +206,7 @@
     <Compile Include="service\CustomDataService.cs" />
     <Compile Include="service\DataCodeService.cs" />
     <Compile Include="service\ExcelService.cs" />
+    <Compile Include="service\PhysicaleValuationService.cs" />
     <Compile Include="service\UsbDogService.cs" />
     <Compile Include="service\AuthService.cs" />
     <Compile Include="service\SetterService.cs" />
@@ -515,6 +516,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="Spire.License.dll" />
+    <Content Include="Spire.Pdf.dll" />
+    <Content Include="Spire.XLS.dll" />
     <Resource Include="view\Images\excel\100%25.png" />
     <Resource Include="view\Images\excel\document.png" />
     <Resource Include="view\Images\excel\print.png" />
