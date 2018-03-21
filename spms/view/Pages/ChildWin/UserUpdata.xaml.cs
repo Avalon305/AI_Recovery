@@ -162,7 +162,22 @@ namespace spms.view.Pages.ChildWin
             string IDCard = this.IDCard.Text;
             //获得手机号
             string phone = this.phoneNum.Text;
-
+            //获取身份证与手机号之后马上查重
+            if (userService.GetByIdCard(IDCard) != null)
+            {
+                //身份证重复气泡提示
+                Error_Info_IDCard.Content = "该身份证已注册";
+                bubble_IDCard.IsOpen = true;
+                return;
+            }
+            if (userService.GetByPhone(phone) != null)
+            {
+                //手机重复气泡提示
+                Error_Info_Phone.Content = "该手机号已注册";
+                bubble_phone.IsOpen = true;
+               
+                return;
+            }
 
             SelectUser.User_Birth = Convert.ToDateTime(brithday);
             SelectUser.User_GroupName = groupName;
