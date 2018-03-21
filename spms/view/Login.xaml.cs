@@ -48,9 +48,9 @@ namespace spms.view
         {
             if ("true" == ConfigurationManager.AppSettings["Debug"])
             {
-                //成功登陆，跳转
-                MainPage mainpage = new MainPage();
-                this.Content = mainpage;
+                //Debug模式直接进系统 方便开发
+                MainPage mainpage1 = new MainPage();
+                this.Content = mainpage1;
                 return;
             }
             //获取用户名
@@ -74,7 +74,7 @@ namespace spms.view
             }
             else if (loginResult.Equals("success"))
             {
-              
+
                 //成功登陆，跳转
                 MainPage mainpage = new MainPage();
                 this.Content = mainpage;

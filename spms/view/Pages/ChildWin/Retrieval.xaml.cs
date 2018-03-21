@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -55,11 +56,15 @@ namespace spms.view.Pages.ChildWin
             c4.ItemsSource = diseaseList;
             c3.ItemsSource = diagnosisList;
         }
-
-        private void B1_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// 查询按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnQuery_Click(object sender, RoutedEventArgs e)
         {
             //获取用户ID的内容
-            string userID = t1.Text;
+            //string userID = t1.Text;
             //获取用户姓名的内容
             string userName = t2.Text;
             //获取用户姓名拼音的内容
@@ -84,7 +89,7 @@ namespace spms.view.Pages.ChildWin
 
             //将用户ID转成整型，如果转换失败，说明有非数字
             //int i = Convert.ToInt32(t1.Text);
-            user.Pk_User_Id = (!string.IsNullOrEmpty(userID)) ? Convert.ToInt32(userID) : 0;
+            //user.Pk_User_Id = (!string.IsNullOrEmpty(userID)) ? Convert.ToInt32(userID) : 0;
 
 
             user.User_Name = userName;
@@ -99,7 +104,7 @@ namespace spms.view.Pages.ChildWin
             user.User_PhysicalDisabilities = disabilityName;
 
             QueryResult = userService.SelectByCondition(user);
-            Console.WriteLine(JsonTools.Obj2JSONStrNew<User>(user));
+            //Console.WriteLine(JsonTools.Obj2JSONStrNew<User>(user));
             this.Close();
         }
 
@@ -109,6 +114,7 @@ namespace spms.view.Pages.ChildWin
         private void GoBack(object sender, RoutedEventArgs e)
 
         {
+            QueryResult = userService.SelectByCondition(null);
             this.Close();
             //Window window = (Window)this.Parent;
             //window.Content = new DesignPage1();
@@ -119,7 +125,7 @@ namespace spms.view.Pages.ChildWin
             entity.User user = new entity.User();
             Retrieval_Conditon.DataContext = user;
 
-            t1.Text = "";
+            //t1.Text = "";
             t2.Text = "";
             t3.Text = "";
             comboBox1.Text = "";
@@ -151,6 +157,70 @@ namespace spms.view.Pages.ChildWin
         {
             inputlimited.InputLimited.OnlyInputNumbers(e);
         }
+        //身份证号验证和查重
+        private void IsIDCard(object sender, RoutedEventArgs e)
+        {
+            UserService userService = new UserService();
+            if (!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
+            {
+                Error_Info_IDCard.Content = "请输入正确的身份证号";
+                bubble_IDCard.IsOpen = true;
+            }
+           else
+            {
+                bubble_IDCard.IsOpen = false;
+            }
+        }
+        //手机号验证和查重
+        private void IsPhone(object sender, RoutedEventArgs e)
+        {
+            if(!inputlimited.InputLimited.IsHandset(phone.Text) && !String.IsNullOrEmpty(phone.Text)){
+                Error_Info_Phone.Content = "请输入正确的手机号";
+                bubble_phone.IsOpen = true;
+            }
+            else
+            {
+                bubble_phone.IsOpen = false;
+            }
+        }
+        //解决气泡不随着窗体移动问题
+        private void windowmove(object sender, EventArgs e)
+        {
 
+            var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            mi.Invoke(bubble_phone, null);
+            mi.Invoke(bubble_IDCard, null);
+            mi.Invoke(bubble_disease, null);
+            mi.Invoke(bubble_Diagnosis, null);
+        }
+
+        //疾病名称是否存在
+        private void IsDisease(object sender, RoutedEventArgs e)
+        {
+
+            Console.WriteLine(c4.Text);
+            if (!diseaseList.Contains(c4.Text) && !String.IsNullOrEmpty(c4.Text))
+            {
+                Error_Info_disease.Content = "不存在该疾病名称";
+                bubble_disease.IsOpen = true;
+            }
+            else
+            {
+                bubble_disease.IsOpen = false;
+            }
+        }
+        //残障名称是否存在
+        private void IsDiagnosis(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (!diagnosisList.Contains(c3.Text) && !String.IsNullOrEmpty(c3.Text))
+            {
+                Error_Info_Diagnosis.Content = "不存在该残障名称";
+                bubble_Diagnosis.IsOpen = true;
+            }
+            else
+            {
+                bubble_Diagnosis.IsOpen = false;
+            }
+        }
     }
 }

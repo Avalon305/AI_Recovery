@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -112,7 +113,11 @@ namespace spms.view.Pages.ChildWin
         {
             this.Close();
         }
-
+        /// <summary>
+        /// 添加按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_OK(object sender, RoutedEventArgs e)
         {
 
@@ -130,6 +135,13 @@ namespace spms.view.Pages.ChildWin
             string IDCard = this.IDCard.Text;
             //获得手机号
             string phone = this.phoneNum.Text;
+            //获取身份证与手机号之后马上查重
+            if (userService.CheckExistByPhoneAndIDCard(IDCard,phone)) {
+                //重复弹框提示
+            }
+
+            string IdCard = this.IDCard.Text;
+            string name = t3.Text;
             //获取小组名称的内容
             string groupName = c2.Text;
             //获取初期要介护度的内容
@@ -148,10 +160,9 @@ namespace spms.view.Pages.ChildWin
             user.User_Birth = Convert.ToDateTime(brithday);
             user.User_GroupName = groupName;
 
-            if (IDCard == "")
+            if (IdCard == null || name == null || IDCard == "" || name == "")
             {
-
-                System.Windows.MessageBox.Show("没有填写IDCard", "信息提示");
+                System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
                 return;
             }
 
@@ -165,14 +176,25 @@ namespace spms.view.Pages.ChildWin
             user.User_PhysicalDisabilities = disabilityName;
             user.User_Sex = (byte?)(usersex.Equals("男") ? 1 : 0);
             user.User_Phone = phone;
-            ///补齐照片的部分
 
-            // 如果用户是自己选择现成的图片，将图片保存在安装目录下
-            string sourcePic = userPhotoPath;
-            string targetPic = CommUtil.GetUserPic(IDCard);
-            targetPic += ".jpg";
-            bool isrewrite = true; // true=覆盖已存在的同名文件,false则反之
-            System.IO.File.Copy(sourcePic, targetPic, isrewrite);
+            
+
+            if (IdCard != null && name != null && IDCard != "" && name != "")
+            {
+                // 如果用户是自己选择现成的图片，将图片保存在安装目录下
+                string sourcePic = userPhotoPath;
+                string targetPic = CommUtil.GetUserPic(usernamePY + IDCard);
+                targetPic += ".jpg";
+                bool isrewrite = true; // true=覆盖已存在的同名文件,false则反之
+                System.IO.File.Copy(sourcePic, targetPic, isrewrite);
+                
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
+                return;
+            }
+            
 
             userService.InsertUser(user);
             this.Close();
@@ -186,14 +208,6 @@ namespace spms.view.Pages.ChildWin
 
         private void Photograph(object sender, RoutedEventArgs e)
         {
-            string IDCard = this.IDCard.Text;
-            string name = IDCard.ToString();
-
-            if (IDCard == "")
-            {
-                System.Windows.MessageBox.Show("没有填写IDCard,请继续填写", "信息提示");
-                return;
-            }
 
             Photograph photograph = new Photograph
             {
@@ -202,7 +216,8 @@ namespace spms.view.Pages.ChildWin
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            photograph.getIdCard = IDCard;
+            photograph.getIdCard = IDCard.Text;
+            photograph.getName = t3.Text;
 
             photograph.ShowDialog();
         }
@@ -210,13 +225,6 @@ namespace spms.view.Pages.ChildWin
         // 用户自主选择照片
         private void Select_Picture_Show(object sender, RoutedEventArgs e)
         {
-            string IDCard = this.IDCard.Text;
-
-            if (IDCard == "")
-            {
-                System.Windows.MessageBox.Show("没有填写IDCard,请继续填写", "信息提示");
-                return;
-            }
 
             using (System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog())
             {
@@ -262,5 +270,101 @@ namespace spms.view.Pages.ChildWin
             inputlimited.InputLimited.OnlyInputNumbers(e);
         }
 
+        //身份证号验证和查重
+        private void IsIDCard(object sender, RoutedEventArgs e)
+        {
+            UserService userService = new UserService();
+            if (!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
+            {
+                Error_Info_IDCard.Content = "请输入正确的身份证号码";
+                bubble_IDCard.IsOpen = true;
+            }
+            else if (userService.GetByIdCard(IDCard.Text) != null)
+            {
+                Error_Info_IDCard.Content = "该身份证已注册";
+                bubble_IDCard.IsOpen = true;
+            }
+            else
+            {
+                bubble_IDCard.IsOpen = false;
+            }
+        }
+        //手机号验证和查重
+        private void IsPhone(object sender, RoutedEventArgs e)
+        {
+            if (!inputlimited.InputLimited.IsHandset(phoneNum.Text) && !String.IsNullOrEmpty(phoneNum.Text))
+            {
+                Error_Info_Phone.Content = "请输入正确的手机号";
+                bubble_phone.IsOpen = true;
+            }
+            else if (userService.GetByPhone(phoneNum.Text) != null)
+            {
+                Error_Info_Phone.Content = "该手机号已注册";
+                bubble_phone.IsOpen = true;
+            }
+            else
+            {
+                bubble_phone.IsOpen = false;
+            }
+        }
+        //解决气泡不随着窗体移动问题
+        private void windowmove(object sender, EventArgs e)
+        {
+
+            var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            mi.Invoke(bubble_phone, null);
+            mi.Invoke(bubble_IDCard, null);
+            mi.Invoke(bubble_name, null);
+            mi.Invoke(bubble_disease, null);
+            mi.Invoke(bubble_Diagnosis, null);
+
+        }
+        //验证用户是否存在
+        private void IsName(object sender, RoutedEventArgs e)
+        {
+            User user = new User
+            {
+                User_Name = t2.Text
+            };
+            UserService userService = new UserService();
+            userService.SelectByCondition(user);
+            if(userService.SelectByCondition(user).Count != 0)
+            {
+                Error_Info_Name.Content = "该用户名已注册";
+                bubble_name.IsOpen = true;
+            }
+            else
+            {
+                bubble_name.IsOpen = false;
+            }
+        }
+        //疾病名称是否存在
+        private void IsDisease(object sender, RoutedEventArgs e)
+        {
+
+            Console.WriteLine(c5.Text);
+            if (!diseaseList.Contains(c5.Text)&&!String.IsNullOrEmpty(c5.Text))
+            {
+                Error_Info_disease.Content = "不存在该疾病名称";
+                bubble_disease.IsOpen = true;
+            }
+            else
+            {
+                bubble_disease.IsOpen = false;
+            }
+        }
+        //残障名称是否存在
+        private void IsDiagnosis(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (!diagnosisList.Contains(c6.Text) && !String.IsNullOrEmpty(c6.Text))
+            {
+                Error_Info_Diagnosis.Content = "不存在该残障名称";
+                bubble_Diagnosis.IsOpen = true;
+            }
+            else
+            {
+                bubble_Diagnosis.IsOpen = false;
+            }
+        }
     }
 }

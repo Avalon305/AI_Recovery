@@ -71,9 +71,9 @@
                 <ColumnDefinition Width="72"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="用户姓名: " Margin="-6,11,69.8,-1.4" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Label Grid.Column="1"  Margin="2,11,-9.2,-1.4" Name="l1" Grid.RowSpan="2"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="用户ID:" Margin="-6,-6,69.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Label Grid.Row="0" Grid.Column="1"  Margin="2,-6,-9.2,15.6" Name="l2" Grid.RowSpan="2"/>
+            <Label Grid.Column="1"  Margin="2,11,-9.2,-1.4" Name="User_Name" Grid.RowSpan="2"/>
+            <Label Grid.Row="0" Grid.Column="0"  Content="用户ID:" Margin="-6,-6,69.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            <Label Grid.Row="0" Grid.Column="1" Margin="2,-6,-9.2,15.6" Name="Pk_User_Id" Grid.RowSpan="2"/>
         </Grid>
         <!--结束：用户ID和姓名-->
         <!--输入报告-->
@@ -88,9 +88,9 @@
                         <RowDefinition Height="20"></RowDefinition>
                         <RowDefinition Height="20"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <RadioButton Content="综合报告" Grid.Row="0"/>
-                    <RadioButton Content="详细报告" Grid.Row="1"/>
-                    <RadioButton Content="看护记录报告" Grid.Row="2"/>
+                    <RadioButton Name="is_comprehensiv" Checked="Document_Type_Checked" Content="综合报告" IsChecked="True"  Grid.Row="0"/>
+                    <RadioButton Name="is_detail" Checked="Document_Type_Checked" Content="详细报告" Grid.Row="1"/>
+                    <RadioButton Name="is_nurse" Checked="Document_Type_Checked" Content="看护记录报告" Grid.Row="2"/>
                 </Grid>
             </Border>
 
@@ -111,7 +111,7 @@
                                         <Binding Path="Gmt_Create" StringFormat="{}{0:yyyy-MM-dd HH:mm}"/>
                                     </TextBox.Text>
                                 </TextBox>-->
-                                <CheckBox Content="{Binding Gmt_Create}" ContentStringFormat="{}{0:yyyy-MM-dd HH:mm}"></CheckBox>
+                                <CheckBox Content="{Binding Gmt_Create}" ContentStringFormat="{}{0:yyyy-MM-dd HH:mm}" Unchecked="List_CheckBox_UnChecked" Checked="List_CheckBox_Checked"></CheckBox>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
@@ -152,7 +152,7 @@
         <!--按钮部分-->
         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="143" Height="45" VerticalAlignment="Bottom"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0" Margin="0,0,5,0">
             <StackPanel Orientation="Horizontal"  >
-                <Button Width="59" Height="25" VerticalAlignment="Bottom"    Foreground="Black" Content="保存" Margin="4,0,0,-0.2" Style="{StaticResource Btn}"/>
+                <Button Width="59" Height="25" VerticalAlignment="Bottom"    Foreground="Black" Content="打印" Margin="4,0,0,-0.2" Style="{StaticResource Btn}" Click="Button_Click_Print"/>
                 <Button Width="62" Height="25" VerticalAlignment="Bottom"    Content="返回"  Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>
             </StackPanel>
         </Border>

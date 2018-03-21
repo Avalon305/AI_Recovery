@@ -24,7 +24,15 @@
         <Grid>
             <Border Height="1" Margin="0,0,-0.4,0" >
                 <Grid>
-                    <Image Source="/view\Images\bdl.PNG" Stretch="UniformToFill" Height="180" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="-1,0,-0.4,-226.2"   />
+                    <!--<Border CornerRadius="5,0,0,0"  HorizontalAlignment="Right"  VerticalAlignment="Center" Padding="0,2,0,2" Height="73" Margin="0,0,-4,10">-->
+                        <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0.4,0,0.2" Width="312">-->
+                            <!--<Button Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,4,3,-0.2"  Foreground="Black" Content="确定更改" Click="Btn_Confirm" Style="{StaticResource Btn}"/>-->
+                            
+                        <!--</StackPanel>-->
+                    <!--</Border>-->
+                    <Image Source="/view\Images\bdl.PNG" Stretch="UniformToFill" Height="180" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,24.6,-179.2" Width="1255"   />
+                    <Button Width="80" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right"   Foreground="Black" Content="返回"  Click="GoBack" Style="{StaticResource Btn}" Margin="0,24,40,-58.2"/>
+                    
                 </Grid>
             </Border>
         </Grid>
@@ -79,6 +87,7 @@
                 <Border Grid.Row="0" Grid.Column="1" Margin="0,0,0,2" >
                     <TextBox x:Name="textBox1" VerticalContentAlignment="Center" Text="{Binding Set_OrganizationName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 </Border>
+                
                 <!--结束：机构团体名称-->
                 <!--机构区分-->
                 <Border Grid.Row="1" Grid.Column="0"  Width="140" HorizontalAlignment="Left" Margin="0,0,0,2">
@@ -139,9 +148,14 @@
                     <Button>设定密码</Button>
                 </Border>-->
             </Grid>
+           
             <!--高级设置按钮-->
-            <Border Margin="150,0,0,0" Width="223">
-                <Button Content="高级设置" Width="141"  Height="38" Click="AdvancedSettings" Style="{StaticResource Btn}"/>
+            <Border Margin="30,0,0,0" Width="423">
+                <StackPanel Orientation="Horizontal">
+                    <Button Width="141"  Height="38"  VerticalAlignment="Center" HorizontalAlignment="Center"   Foreground="Black" Content="确定更改" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
+                    <Button Content="高级设置" Width="141" Margin="10,0,0,0"  Height="38" Click="AdvancedSettings" Style="{StaticResource Btn}"/>
+                </StackPanel>
+               
             </Border>
             <!--结束：高级设置按钮-->
             <!--
@@ -316,11 +330,6 @@
             <!--结束：残障名称——添加、更新、删除按钮-->
 
         </StackPanel>
-        <Border CornerRadius="5,0,0,0"  HorizontalAlignment="Right"  VerticalAlignment="Center" Padding="0,2,0,2" Height="73" Margin="0,0,-4,10">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0.4,0,0.2" Width="312">
-                <Button Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,4,3,-0.2"  Foreground="Black" Content="确定更改" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
-                <Button Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right"  Foreground="Black" Content="取消" Margin="0,4,0,0" Click="GoBack" Style="{StaticResource Btn}"/>
-            </StackPanel>
-        </Border>
+        
     </StackPanel>
 </Page>

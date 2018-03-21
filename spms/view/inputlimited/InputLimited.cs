@@ -19,5 +19,16 @@ namespace spms.view.inputlimited
 
             e.Handled = re.IsMatch(e.Text);
         }
+        //身份证正则
+        public static bool IsIDcard(String e)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(e, @"(^\d{17}(?:\d|x)$)|(^\d{15}$)");
+        }
+        //手机号正则
+        public static bool IsHandset(String str_handset)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(str_handset, "^((13[0-9])|(14[579])|(15([0-3]|[5-9]))|16[6]|17[0135678]|(18[0-9])|19[8,9])\\d{8}$");
+            //return true;
+        }
     }
 }

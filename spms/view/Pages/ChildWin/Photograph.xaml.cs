@@ -26,6 +26,7 @@ namespace spms.view.Pages.ChildWin
 
     {
         public string getIdCard { get; set; }
+        public string getName { get; set; }
         // 照片保存
         byte[] Pic = null;
         //GWL_STYLE表示获得窗口风格
@@ -102,10 +103,19 @@ namespace spms.view.Pages.ChildWin
 
         private void SavePic(object sender, RoutedEventArgs e)
         {
-            String path = CommUtil.GetUserPic(getIdCard);
-            File.WriteAllBytes(path+".jpg", Pic);
+            if (getIdCard != null && getName != null && getIdCard != "" && getName != "")
+            {
+                String path = CommUtil.GetUserPic(getName + getIdCard);
+                File.WriteAllBytes(path + ".jpg", Pic);
+                System.Windows.MessageBox.Show("图片保存完成", "信息提示");
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
+                return;
+            }
 
-            System.Windows.MessageBox.Show("图片保存完成", "信息提示");
+            
 
             this.Close();
         }

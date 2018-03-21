@@ -40,5 +40,16 @@ namespace spms.http.dto
             this.organizationPhone = setter.Set_OrganizationPhone;
             this.offlineTime = auther.Auth_OfflineTime.ToString();
         }
+        public AutherDTO(Setter setter, Auther auther,string mac)
+        {
+            this.username = auther.Auth_UserName;
+            this.password = auther.Auth_UserPass;
+            this.organizationSort = setter.Set_OrganizationSort;
+            this.organizationName = setter.Set_OrganizationName;
+            this.organizationPhone = setter.Set_OrganizationPhone;
+            this.offlineTime = auther.Auth_OfflineTime.ToString();
+            this.clientId = mac;
+        }
+
     }
 }
