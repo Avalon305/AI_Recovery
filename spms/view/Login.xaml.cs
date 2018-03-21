@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,7 +45,14 @@ namespace spms.view
         }
         //登录操作
         private void Button_Click(object sender, RoutedEventArgs e)
-        {   
+        {
+            if ("true" == ConfigurationManager.AppSettings["Debug"])
+            {
+                //Debug模式直接进系统 方便开发
+                MainPage mainpage1 = new MainPage();
+                this.Content = mainpage1;
+                return;
+            }
             //获取用户名
             String name = this.User_Name.Text;
             //获取密码
@@ -59,24 +67,24 @@ namespace spms.view
                 loginResult = "用户名或者密码不能为空";
             }
             //U盾监测，无误后登录
-            //if (loginResult.Equals("check_U"))
-            //{
-            //    //验证U盾后跳转
+            if (loginResult.Equals("check_U"))
+            {
+                //验证U盾后跳转
 
-            //}
-            //else if (loginResult.Equals("success"))
-            //{
-              
+            }
+            else if (loginResult.Equals("success"))
+            {
+
                 //成功登陆，跳转
                 MainPage mainpage = new MainPage();
                 this.Content = mainpage;
-            //}
-            //else {
-            //    //问题登录  在登录提示框内显示信息
-            //    bubble.IsOpen = true;
-            //    Error_Info.Content = loginResult;
+            }
+            else {
+                //问题登录  在登录提示框内显示信息
+                bubble.IsOpen = true;
+                Error_Info.Content = loginResult;
                 
-            //}
+            }
             
         }
        

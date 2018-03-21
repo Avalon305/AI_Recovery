@@ -208,7 +208,7 @@
                         <DataGridTextColumn Binding="{Binding User_Birth, Converter={StaticResource ageconverter}}" Header="年龄" Width="50"/>
                         <DataGridTextColumn Binding="{Binding User_GroupName}" Header="小组名称" Width="140"/>
                         <DataGridTextColumn Binding="{Binding User_InitCare}" Header="初期护理程度" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding User_NowtCare}" Header="现在现在程度" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding User_NowtCare}" Header="现在护理程度" Width="120"/>
                         <DataGridTextColumn Binding="{Binding User_IllnessName}" Header="疾病名称" Width="173"/>
                         <DataGridTextColumn Binding="{Binding User_PhysicalDisabilities}" Header="残障名称" Width="170"/>
                     </DataGrid.Columns>

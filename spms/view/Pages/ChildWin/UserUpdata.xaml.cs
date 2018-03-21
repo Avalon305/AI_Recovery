@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -35,15 +36,40 @@ namespace spms.view.Pages.ChildWin
         List<string> diagnosisList;
         //护理度列表
         List<string> careList = new List<string> { "没有申请", "自理", "要支援一", "要支援二", "要介护1", "要介护2", "要介护3", "要介护4", "要介护5" };
-       
+        //最初的姓名
+        String origin_name;
+        //最初的手机号
+        String origin_phone;
+        //最初的身份证号
+        String origin_IDCard;
         //service层初始化
         UserService userService = new UserService();
         CustomDataService customDataService = new CustomDataService();
 
+        //去除窗体叉号
+        private const int GWL_STYLE = -16;
+        private const int WS_SYSMENU = 0x80000;
+        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //获取最初姓名
+            origin_name = t2.Text;
+            //获得最初的手机号
+            origin_phone = phoneNum.Text;
+            //获得最初的身份证号
+            origin_IDCard = IDCard.Text;
+            var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+            SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+        }
         public UserUpdata()
         {
             InitializeComponent();
-
+            
+            
             groupList = customDataService.GetAllByType(CustomDataEnum.Group);
             diseaseList = customDataService.GetAllByType(CustomDataEnum.Disease);
             diagnosisList = customDataService.GetAllByType(CustomDataEnum.Diagiosis);
@@ -171,10 +197,7 @@ namespace spms.view.Pages.ChildWin
 
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
         private void Photograph(object sender, RoutedEventArgs e)
         {
@@ -186,5 +209,103 @@ namespace spms.view.Pages.ChildWin
             inputlimited.InputLimited.OnlyInputNumbers(e);
         }
 
+        //身份证号验证和查重
+        private void IsIDCard(object sender, RoutedEventArgs e)
+        {
+            UserService userService = new UserService();
+            if (!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
+            {
+                Error_Info_IDCard.Content = "请输入正确的身份证号码";
+                bubble_IDCard.IsOpen = true;
+            }
+            else if (userService.GetByIdCard(IDCard.Text) != null&&!origin_IDCard.Equals(IDCard.Text))
+            {
+                Error_Info_IDCard.Content = "该身份证已注册";
+                bubble_IDCard.IsOpen = true;
+            }
+            else
+            {
+                bubble_IDCard.IsOpen = false;
+            }
+        }
+        //手机号验证和查重
+        private void IsPhone(object sender, RoutedEventArgs e)
+        {
+            if (!inputlimited.InputLimited.IsHandset(phoneNum.Text) && !String.IsNullOrEmpty(phoneNum.Text))
+            {
+                Error_Info_Phone.Content = "请输入正确的手机号";
+                bubble_phone.IsOpen = true;
+            }
+            else if (userService.GetByPhone(phoneNum.Text) != null && !phoneNum.Text.Equals(origin_phone))
+            {
+                Error_Info_Phone.Content = "该手机号已注册";
+                bubble_phone.IsOpen = true;
+            }
+            else
+            {
+                bubble_phone.IsOpen = false;
+            }
+        }
+        //解决气泡不随着窗体移动问题
+        private void windowmove(object sender, EventArgs e)
+        {
+
+            var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            mi.Invoke(bubble_phone, null);
+            mi.Invoke(bubble_IDCard, null);
+            mi.Invoke(bubble_Name, null);
+            mi.Invoke(bubble_disease, null);
+            mi.Invoke(bubble_Diagnosis, null);
+        }
+
+        //验证用户是否存在
+        private void IsName(object sender, RoutedEventArgs e)
+        {
+            User user = new User
+            {
+                User_Name = t2.Text
+            };
+            UserService userService = new UserService();
+            userService.SelectByCondition(user);
+            MainPage mainPage = new MainPage();
+            Console.WriteLine("最初姓名：" + origin_name + "现在值：" + t2.Text);
+            if (userService.SelectByCondition(user).Count != 0&& !origin_name.Equals(t2.Text))
+            {
+                Error_Info_Name.Content = "该用户名已注册";
+                bubble_Name.IsOpen = true;
+            }
+            else
+            {
+                bubble_Name.IsOpen = false;
+            }
+        }
+        //疾病名称是否存在
+        private void IsDisease(object sender, RoutedEventArgs e)
+        {
+
+            Console.WriteLine(c5.Text);
+            if (!diseaseList.Contains(c5.Text) && !String.IsNullOrEmpty(c5.Text))
+            {
+                Error_Info_disease.Content = "不存在该疾病名称";
+                bubble_disease.IsOpen = true;
+            }
+            else
+            {
+                bubble_disease.IsOpen = false;
+            }
+        }
+        //残障名称是否存在
+        private void IsDiagnosis(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (!diagnosisList.Contains(c6.Text) && !String.IsNullOrEmpty(c6.Text))
+            {
+                Error_Info_Diagnosis.Content = "不存在该残障名称";
+                bubble_Diagnosis.IsOpen = true;
+            }
+            else
+            {
+                bubble_Diagnosis.IsOpen = false;
+            }
+        }
     }
 }

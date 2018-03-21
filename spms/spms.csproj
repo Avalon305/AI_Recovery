@@ -107,14 +107,17 @@
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.4.13\lib\net45\NLog.dll</HintPath>
     </Reference>
-    <Reference Include="Spire.License">
-      <HintPath>C:\Users\Administrator\Desktop\宝德龙\Spire\Spire.License.dll</HintPath>
+    <Reference Include="Spire.Common, Version=1.2.787.14040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.XLS.8.3.5\lib\net40\Spire.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Spire.Pdf">
-      <HintPath>C:\Users\Administrator\Desktop\宝德龙\Spire\Spire.Pdf.dll</HintPath>
+    <Reference Include="Spire.License, Version=1.3.6.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.XLS.8.3.5\lib\net40\Spire.License.dll</HintPath>
     </Reference>
-    <Reference Include="Spire.XLS">
-      <HintPath>C:\Users\Administrator\Desktop\宝德龙\Spire\Spire.XLS.dll</HintPath>
+    <Reference Include="Spire.Pdf, Version=4.3.2.2040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.XLS.8.3.5\lib\net40\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.XLS, Version=8.3.5.6040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.XLS.8.3.5\lib\net40\Spire.XLS.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -271,9 +274,6 @@
     <Compile Include="view\Pages\ChildWin\NonPublicInformation.xaml.cs">
       <DependentUpon>NonPublicInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\Pages\ChildWin\PdfViewer.xaml.cs">
-      <DependentUpon>PdfViewer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="view\Pages\ChildWin\Photograph.xaml.cs">
       <DependentUpon>Photograph.xaml</DependentUpon>
     </Compile>
@@ -419,10 +419,6 @@
     <Page Include="view\Pages\ChildWin\NonPublicInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="view\Pages\ChildWin\PdfViewer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\ChildWin\Photograph.xaml">
       <Generator>MSBuild:Compile</Generator>

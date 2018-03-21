@@ -76,4 +76,25 @@ namespace spms.bean
             }
         }
     }
+
+    /// <summary>
+    /// 用于Excel的导出数据类
+    /// </summary>
+    public class PhysicalPowerExcekVO
+    {
+        //数据创建时间
+        public DateTime? Gmt_Create { get; set; }
+        //身高
+        public string PP_High { get; set; }
+        //体重
+        public string PP_Weight { get; set; }
+        //握力
+        public string PP_Grip { get; set; }
+        //睁眼单脚站立
+        public string PP_EyeOpenStand { get; set; }
+        //功能性前伸
+        public string PP_FunctionProtract { get; set; }
+        //坐姿体前屈
+        public string PP_SitandReach { get; set; }
+    }
 }

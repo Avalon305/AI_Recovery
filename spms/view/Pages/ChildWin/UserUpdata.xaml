@@ -6,12 +6,35 @@
         xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         xmlns:converter="clr-namespace:spms.view.converter"
+        xmlns:bubble="clr-namespace:spms.view.bubblemove"
+         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
         Title="宝德龙" Height="756.993" Width="600"
          ResizeMode = "NoResize"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+         LocationChanged="windowmove">
     <Window.Resources>
+        <Style TargetType="Label" x:Key="tipLable">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Label}">
+                        <Grid>
+                            <Border CornerRadius="4" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" Margin="8.5,0,0,0" Background="White" HorizontalAlignment="Left" Padding="5">
+                                <ContentPresenter />
+                            </Border>
+                            <Canvas Width="10" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0" Background="Transparent">
+                                <Path Stroke="Black" StrokeThickness="0.5" Fill="White">
+                                    <Path.Data>
+                                        <PathGeometry Figures="M 10,0 L 10,0,0,5  L 0,5,10,10"/>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <converter:SexConverter x:Key="sexconverter"/>
         <converter:AgeConverter x:Key="ageconverter"/>
     </Window.Resources>
@@ -56,14 +79,22 @@
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
                         <Label Content="用户姓名"  VerticalAlignment="Center"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="0" Name="t2" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Name}" VerticalContentAlignment="Center"/>
-                    <Label  Grid.Row="0" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
+                    <TextBox Grid.Row="0" Name="t2" LostFocus="IsName" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Name}" VerticalContentAlignment="Center"/>
+                    <!--气泡-->
+                    <bubble:CCPopup x:Name="bubble_Name" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=t2}" Placement="Right" >
+                        <Label Style="{StaticResource tipLable}">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Foreground="Red" Name="Error_Info_Name" Content=""/>
+                            </StackPanel>
+                        </Label>
+                    </bubble:CCPopup>
+                   
 
                     <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="用户姓名(拼音)"  FontStyle="Normal"  Foreground="White"/>
                     </Border>
                     <TextBox Grid.Row="1" Name="t3" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Namepinyin}" VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="1" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
+                    
 
                     <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="性别" Grid.Row="2" Grid.Column="0" Foreground="White"/>
@@ -72,21 +103,37 @@
                         <ComboBoxItem Content="男" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                         <ComboBoxItem Content="女" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                     </ComboBox>
-                    <Label  Grid.Row="2" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
+                    
 
                     <Border Grid.Row="3" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="出生年月" Grid.Row="3" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="3" Name="t4" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Birth,StringFormat='{}{0:yyyy/MM/dd}'}"  VerticalContentAlignment="Center"/>
-                    <Label Content="（yyyy/mm/dd）" Grid.Row="3" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="0.4,0.6,-71.6,1.2"/>
+                    <DatePicker Grid.Row="3" Name="t4" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center" SelectedDate="{x:Static sys:DateTime.Now}"></DatePicker>
+                    <!--<TextBox Grid.Row="3" Name="t4" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Birth,StringFormat='{}{0:yyyy/MM/dd}'}"  VerticalContentAlignment="Center"/>-->
+                    <!--<Label Content="（yyyy/mm/dd）" Grid.Row="3" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="0.4,0.6,-71.6,1.2"/>-->
                     <Border Grid.Row="4" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="手机号" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="4"   Name ="phoneNum" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding  User_Phone}" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                    <TextBox Grid.Row="4"   Name ="phoneNum" Grid.Column="1" LostFocus="IsPhone"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding  User_Phone}" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                    <bubble:CCPopup x:Name="bubble_phone" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=phoneNum}" Placement="Right" >
+                        <Label Style="{StaticResource tipLable}">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Foreground="Red" Name="Error_Info_Phone" Content=""/>
+                            </StackPanel>
+                        </Label>
+                    </bubble:CCPopup>
                     <Border Grid.Row="5" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="身份证号" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="5" Name="IDCard" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IDCard}" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="5" Name="IDCard" Grid.Column="1" LostFocus="IsIDCard" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IDCard}" VerticalContentAlignment="Center"/>
+                    <!--气泡-->
+                    <bubble:CCPopup x:Name="bubble_IDCard" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=IDCard}" Placement="Right" >
+                        <Label Style="{StaticResource tipLable}">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Foreground="Red" Name="Error_Info_IDCard" Content=""/>
+                            </StackPanel>
+                        </Label>
+                    </bubble:CCPopup>
                     <Border Grid.Row="6" Grid.Column="0" Background="Gray"  Margin="0,0,4,2" >
                         <Label Content="小组名称"   Foreground="White"/>
                     </Border>
@@ -106,20 +153,34 @@
                     </Border>
                     <ComboBox Name="c4" Grid.Row="8" Grid.Column="1"  Background="LightGray"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Nowcare }"/>
 
-                    <Label  Grid.Row="8" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
+                    
 
                     <Border Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="疾病名称" Grid.Row="9" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c5" Grid.Row="9" Grid.Column="1"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IllnessName}" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False"/>
-
+                    <ComboBox Name="c5" Grid.Row="9" Grid.Column="1" LostKeyboardFocus="IsDisease"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IllnessName}" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False"/>
+                    <!--气泡-->
+                    <bubble:CCPopup x:Name="bubble_disease" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=c5}" Placement="Right" >
+                        <Label Style="{StaticResource tipLable}">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Foreground="Red" Name="Error_Info_disease" Content=""/>
+                            </StackPanel>
+                        </Label>
+                    </bubble:CCPopup>
                     <Button Content="疾病名称添加"  Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" Style="{StaticResource Btn}"  Width="80" Click="DiseaseNameAddition"/>
 
                     <Border Grid.Row="10" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="残障名称" Grid.Row="10" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c6" Grid.Row="10" Grid.Column="1"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_PhysicalDisabilities}" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False"/>
-
+                    <ComboBox Name="c6" Grid.Row="10" Grid.Column="1" LostKeyboardFocus="IsDiagnosis" Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_PhysicalDisabilities}" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False"/>
+                    <!--气泡-->
+                    <bubble:CCPopup x:Name="bubble_Diagnosis" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=c6}" Placement="Right" >
+                        <Label Style="{StaticResource tipLable}">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Foreground="Red" Name="Error_Info_Diagnosis" Content=""/>
+                            </StackPanel>
+                        </Label>
+                    </bubble:CCPopup>
                     <Button Content="残障名称添加"  Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" Style="{StaticResource Btn}" Width="80" Click="DisabilityNameAddition"/>
 
                     <Border Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
