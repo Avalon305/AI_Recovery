@@ -40,7 +40,8 @@ namespace spms.view.Pages
 
         //用到的业务层实例
         UserService userService = new UserService();
-         //报表的Excel业务层实例
+
+        //报表的Excel业务层实例
         ExcelService excelService = new ExcelService();
 
 
@@ -99,9 +100,10 @@ namespace spms.view.Pages
             UserInfo.DataContext = selectUser;
             string path = null;
 
-            if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null && selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
+            if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null &&
+                selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
             {
-                path = CommUtil.GetUserPic(selectUser.User_Namepinyin+selectUser.User_IDCard);
+                path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
                 path += ".jpg";
             }
             else
@@ -237,7 +239,6 @@ namespace spms.view.Pages
                 //刷新界面
                 users = userService.GetAllUsers();
                 UsersInfo.ItemsSource = users;
-
             }
         }
 
@@ -257,7 +258,6 @@ namespace spms.view.Pages
             {
                 record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
             }
-            
         }
 
         //按钮：文档输出
@@ -283,7 +283,8 @@ namespace spms.view.Pages
                         //存放信息导出的列名
                         string[] colNames = { };
                         //TODO 如果页面数据展示完成，可以继续完成
-                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("症状信息记录", colNames, null));
+                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
+                            ExcelUtil.ToDataTable("症状信息记录", colNames, null));
                     }
                 }
                 else if (is_trainingrecord.IsChecked == true)
@@ -294,7 +295,8 @@ namespace spms.view.Pages
                         //存放信息导出的列名
                         string[] colNames = { };
                         //TODO 如果页面数据展示完成，可以继续完成
-                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("训练记录", colNames, null));
+                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
+                            ExcelUtil.ToDataTable("训练记录", colNames, null));
                     }
                 }
                 else if (is_physicalevaluation.IsChecked == true)
@@ -305,7 +307,8 @@ namespace spms.view.Pages
                         //存放信息导出的列名
                         string[] colNames = { };
                         //TODO 如果页面数据展示完成，可以继续完成
-                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("体力评价记录", colNames, null));
+                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
+                            ExcelUtil.ToDataTable("体力评价记录", colNames, null));
                     }
                 }
             }
@@ -436,6 +439,25 @@ namespace spms.view.Pages
                 Console.WriteLine(trainInfo.Gmt_Create);
                 list.Add(trainInfo);
 
+                DataGrid dataGrid = ((SignInformationRecord_Frame) record.Content).SignInformationRecord;
+                SymptomInfoDTO symptomInfoDto = (SymptomInfoDTO) dataGrid.SelectedItem;
+                User user = (User) UsersInfo.SelectedItem;
+                if (user == null)
+                {
+                    MessageBox.Show("请选择用户");
+                    return;
+                }
+
+                if (symptomInfoDto == null)
+                {
+                    MessageBox.Show("请选择症状信息");
+                    return;
+                }
+
+                Dictionary<string, Object> dictionary = new Dictionary<string, object>();
+                dictionary.Add("user", user);
+                dictionary.Add("symptomInfoDto", symptomInfoDto);
+                viewSymptomInformation.DataContext = dictionary;
                 viewSymptomInformation.ShowDialog();
             }
             //打开训练详细信息
@@ -549,6 +571,47 @@ namespace spms.view.Pages
         //按钮：输入征状信息
         private void InputSymptomInformation(object sender, RoutedEventArgs e)
         {
+            Object o = record.Content;
+            TrainDTO trainDto = null;
+            User user = (User)UsersInfo.SelectedItem;
+            if (o is TrainingRecord_Frame)
+            {
+                TrainingRecord_Frame trainingRecordFrame = (TrainingRecord_Frame)o;
+                int index = trainingRecordFrame.TabControl1.SelectedIndex;
+                switch (index)
+                {
+                    case 0:
+                        trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord1.SelectedItem;
+                        break;
+                    case 1:
+                        trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord2.SelectedItem;
+                        break;
+                    case 2:
+                        trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord3.SelectedItem;
+                        break;
+                    case 3:
+                        trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord4.SelectedItem;
+                        break;
+                    case 4:
+                        trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord5.SelectedItem;
+                        break;
+                    case 5:
+                        trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord6.SelectedItem;
+                        break;
+                }
+            }
+
+            if (user == null)
+            {
+                MessageBox.Show("请先选择用户");
+                return;
+            }
+            if (trainDto == null)
+            {//判断是否选择了训练信息
+                MessageBox.Show("请先选择训练信息");
+                return;
+            }
+
             InputSymptomInformation w2 = new InputSymptomInformation
             {
                 Owner = Window.GetWindow(this),
@@ -556,8 +619,10 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            User user = (User) UsersInfo.SelectedItem;
-            w2.DataContext = user;
+            Dictionary<string, Object> dic = new Dictionary<string, object>();
+            dic.Add("user", user);
+            dic.Add("trainDto", trainDto);
+            w2.DataContext = dic;
             w2.ShowDialog();
         }
 
@@ -599,12 +664,13 @@ namespace spms.view.Pages
         {
             Refresh_RecordFrame();
         }
+
         /// <summary>
         /// 刷新右下角frame
         /// </summary>
         private void Refresh_RecordFrame()
         {
-            User user = (User)UsersInfo.SelectedItem;
+            User user = (User) UsersInfo.SelectedItem;
             if (user == null)
             {
                 return;
@@ -622,13 +688,13 @@ namespace spms.view.Pages
                 }
 
                 //展示在frame
-                SignInformationRecord_Frame signInformationRecordFrame = (SignInformationRecord_Frame)o;
+                SignInformationRecord_Frame signInformationRecordFrame = (SignInformationRecord_Frame) o;
                 signInformationRecordFrame.SignInformationRecord.ItemsSource = symptomInfoDtos;
             }
             else if (o is TrainingRecord_Frame)
             {
                 Dictionary<string, List<TrainDTO>> dic = new TrainService().getTrainDTOByUser(user);
-                TrainingRecord_Frame trainingRecordFrame = (TrainingRecord_Frame)o;
+                TrainingRecord_Frame trainingRecordFrame = (TrainingRecord_Frame) o;
                 List<TrainDTO> trainDtos = new List<TrainDTO>();
                 dic.TryGetValue("水平腿部推蹬机", out trainDtos);
                 trainingRecordFrame.TrainingRecord1.ItemsSource = trainDtos;

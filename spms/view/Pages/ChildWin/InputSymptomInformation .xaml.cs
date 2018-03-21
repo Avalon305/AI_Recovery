@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using spms.dao;
 using spms.entity;
 using spms.service;
+using spms.view.dto;
 using spms.view.Pages.ChildWin;
 namespace spms.view.Pages.ChildWin
 {
@@ -24,6 +25,7 @@ namespace spms.view.Pages.ChildWin
     public partial class InputSymptomInformation : Window
     {
         private User user;
+        private TrainDTO trainDto;
         public InputSymptomInformation()
         {
             InitializeComponent();
@@ -104,11 +106,13 @@ namespace spms.view.Pages.ChildWin
                 isJoin = 1;
             }
 
+            int tiId = new TrainInfoDAO().GetTIIdByPRCreate(trainDto.prescriptionResult.Gmt_Create);
             //摄取水分量
             string waterInput = amunt.Text;
 
             //看护记录
             string careInfo = Record.Text;
+
 
             //构建对象
             SymptomInfo symptomInfo = new SymptomInfo();
@@ -121,7 +125,7 @@ namespace spms.view.Pages.ChildWin
             symptomInfo.SI_Inquiry = inquiryStr;
             symptomInfo.SI_IsJoin = isJoin;
             symptomInfo.SI_WaterInput = waterInput;
-            //TODO 获取训练信息
+            symptomInfo.Fk_TI_Id = tiId;
             //康复前
             symptomInfo.SI_Pre_AnimalHeat = preAnimalheat;
             symptomInfo.SI_Pre_HeartRate = preHeartRate;
@@ -143,7 +147,9 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            user = (User)DataContext;
+            Dictionary<string, Object> dictionary = (Dictionary<string, Object>)DataContext;
+            user = (User)dictionary["user"];
+            trainDto = (TrainDTO) dictionary["trainDto"];
             l1.Content = user.User_Name;
             user_id.Content = user.Pk_User_Id;
         }
