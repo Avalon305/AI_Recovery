@@ -280,11 +280,21 @@ namespace spms.view.Pages
                     //导出症状信息记录
                     if (selectUser != null)
                     {
+                        //获取用户症状信息
+                        List<SymptomInfo> symptomInfos = new SymptomService().GetByUserId(selectUser);
+                        List<object> symptomInfoDtos = new List<object>();
+                        foreach (SymptomInfo symptomInfo in symptomInfos)
+                        {
+                            symptomInfoDtos.Add(new SymptomInfoDTO(symptomInfo));
+                        }
+
                         //存放信息导出的列名
-                        string[] colNames = { };
+                        string[] colNames = { "训练日期", "血压(前)", "脉搏(前)", "心率(前)", "体温(前)", "血压(后)", "脉搏(后)", "心率(后)", "体温(后)", "水分摄取", "问诊确认单", "参加/不参加", "看护记录" };
                         //TODO 如果页面数据展示完成，可以继续完成
+
                         ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
                             ExcelUtil.ToDataTable("症状信息记录", colNames, null));
+
                     }
                 }
                 else if (is_trainingrecord.IsChecked == true)
