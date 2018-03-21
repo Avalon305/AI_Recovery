@@ -293,7 +293,7 @@ namespace spms.view.Pages
                         //TODO 如果页面数据展示完成，可以继续完成
 
                         ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
-                            ExcelUtil.ToDataTable("症状信息记录", colNames, null));
+                            ExcelUtil.ToDataTable("症状信息记录", colNames, symptomInfoDtos));
 
                     }
                 }

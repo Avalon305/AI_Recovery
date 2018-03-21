@@ -70,7 +70,7 @@ namespace spms.view.Pages.ChildWin
             {
                 GenerateDetailReport();
             }
-            else if (is_detail.IsChecked == true)//看护记录报告
+            else if (is_nurse.IsChecked == true)//看护记录报告
             {
                 GenerateNurseReport();
             }
@@ -98,7 +98,7 @@ namespace spms.view.Pages.ChildWin
                 //判断选中哪些时间
                 if (selectedDate.Contains((datalist.Items[i] as TrainingAndSymptomBean).Gmt_Create))
                 {
-                    Console.WriteLine("打印的内容" + datalist.Items[i].ToString());
+                    //Console.WriteLine("打印的内容" + datalist.Items[i].ToString());
                     list.Add((datalist.Items[i] as TrainingAndSymptomBean));
                 }
             }
@@ -261,7 +261,7 @@ namespace spms.view.Pages.ChildWin
                 //判断选中哪些时间
                 if (selectedDate.Contains((datalist.Items[i] as DevicePrescription).Gmt_Create))
                 {
-                    Console.WriteLine("打印的内容" + datalist.Items[i].ToString());
+                    //Console.WriteLine("打印的内容" + datalist.Items[i].ToString());
                     list.Add((datalist.Items[i] as DevicePrescription));
                 }
             }
@@ -350,7 +350,123 @@ namespace spms.view.Pages.ChildWin
         /// </summary>
         private void GenerateNurseReport()
         {
+            List<TrainingAndSymptomBean> list = new List<TrainingAndSymptomBean>();
+            for (int i = 0; i < datalist.Items.Count; i++)
+            {
+                //判断选中哪些时间
+                if (selectedDate.Contains((datalist.Items[i] as TrainingAndSymptomBean).Gmt_Create))
+                {
+                    //Console.WriteLine("打印的内容" + datalist.Items[i].ToString());
+                    list.Add((datalist.Items[i] as TrainingAndSymptomBean));
+                }
+            }
 
+            FileInfo newFile = new FileInfo(@"e:\test.xlsx");
+            if (newFile.Exists)
+            {
+
+                newFile.Delete();
+                newFile = new FileInfo(@"e:\test.xlsx");
+            }
+            using (ExcelPackage package = new ExcelPackage(newFile))
+            {
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("看护记录报告");
+
+                int tableRow = 12;
+                int length = list.Count;
+                //设置所有的行高
+                for (int i = 1; i <= tableRow + length*2+2; i++)
+                {
+                    worksheet.Row(i).Height = 20;
+                }
+
+                int userRow = 4;
+                ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, "看护记录报告", Current_User);
+
+
+                /*
+                   2.设置实施状况的表格
+                */
+                worksheet.Cells[userRow + 7, 1, userRow + 7, 2].Merge = true;
+                worksheet.Cells[userRow + 7, 1].Value = "实施状况";
+                using (ExcelRange range = worksheet.Cells[userRow + 7, 1, userRow + 7, 2])
+                {
+                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                    range.Style.Font.Bold = true;
+                    range.Style.Font.Name = "等线";
+                    range.Style.Font.Size = 11;
+                    range.Style.Font.Color.SetColor(System.Drawing.Color.White);
+                    range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(0, 0, 139));
+                    //设置边框
+                    worksheet.Cells[userRow + 7, 1, userRow + 7, 2].Style.Border.BorderAround(ExcelBorderStyle.Thin);
+                }
+                //设置表头
+                worksheet.Cells[tableRow, 1, tableRow + 1, 2].Merge = true;//试试日期
+                worksheet.Cells[tableRow, 3, tableRow, 4].Merge = true;//血压
+                worksheet.Cells[tableRow, 1, tableRow + 1, 2].Merge = true;
+                worksheet.Cells[tableRow, 5, tableRow + 1, 6].Merge = true;//水分摄取量
+                worksheet.Cells[tableRow, 7, tableRow + 1, 7].Merge = true;//平均指数
+                worksheet.Cells[tableRow, 8, tableRow + 1, 9].Merge = true;//总运动时间
+                worksheet.Cells[tableRow, 10, tableRow + 1, 11].Merge = true;//总消耗热量
+                worksheet.Cells[tableRow, 1].Value = "实施日期";
+                worksheet.Cells[tableRow, 3].Value = "血压";
+                worksheet.Cells[tableRow, 5].Value = "水分摄取量";
+                worksheet.Cells[tableRow, 7].Value = "平均指数";
+                worksheet.Cells[tableRow, 8].Value = "总运动时间";
+                worksheet.Cells[tableRow, 10].Value = "总消耗热量";
+                worksheet.Cells[tableRow + 1, 3].Value = "运动前";
+                worksheet.Cells[tableRow + 1, 4].Value = "运动后";
+
+                using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + 1, 11])
+                {
+                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                    //range.Style.Font.Bold = true;
+                    range.Style.Font.Name = "等线";
+                    range.Style.Font.Size = 11;
+                    range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(255, 240, 244));
+                }
+
+
+                for (int i = 0; i < length; i++)
+                {
+                    //表头行+两个表头
+                    int row = tableRow + 2 + i * 3;
+                    worksheet.Cells[row, 1, row, 2].Merge = true;//实施日期
+                    worksheet.Cells[row, 5, row, 6].Merge = true;//水分摄取量
+                    worksheet.Cells[row, 8, row, 9].Merge = true;//总运动时间
+                    worksheet.Cells[row, 10, row, 11].Merge = true;//总消耗热量
+                    worksheet.Cells[row + 1, 1, row + 2, 11].Merge = true;
+
+                    worksheet.Cells[row, 1].Value = list[i].Gmt_Create.ToString();
+                    worksheet.Cells[row, 3].Value = list[i].SI_Pre_HighPressure + "/" + list[i].SI_Pre_LowPressure;
+                    worksheet.Cells[row, 4].Value = list[i].SI_Suf_HighPressure + "/" + list[i].SI_Suf_LowPressure;
+                    worksheet.Cells[row, 5].Value = list[i].SI_WaterInput;
+                    worksheet.Cells[row, 7].Value = list[i].PR_Index;
+                    worksheet.Cells[row, 8].Value = list[i].PR_Time2 - list[i].PR_Time1;
+                    worksheet.Cells[row, 10].Value = list[i].PR_Cal;
+                    worksheet.Cells[row + 1, 1].Value = list[i].SI_CareInfo;
+                }
+
+                using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + 1 + length * 3, 11])
+                {
+                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                    range.Style.Font.Bold = true;
+                    range.Style.Font.Name = "等线";
+                    range.Style.Font.Size = 10;
+                    //设置边框
+                    range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                }
+
+                package.Save();
+            }
         }
 
         /// <summary>
@@ -385,7 +501,7 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Document_Type_Checked (object sender, RoutedEventArgs e)
         {
-            if (is_comprehensiv.IsChecked == true)//训练报告
+            if (is_comprehensiv.IsChecked == true || is_nurse.IsChecked == true)//训练报告或看护记录报告
             {
                 if (Current_User != null)
                 {
@@ -394,8 +510,6 @@ namespace spms.view.Pages.ChildWin
                     Console.WriteLine(list.ToString());
                 }
                 
-                //Console.WriteLine("进入了");
-                //Console.WriteLine(Current_User);
             }
             else if (is_detail.IsChecked == true)//详细报告
             {
@@ -405,9 +519,6 @@ namespace spms.view.Pages.ChildWin
                     Console.WriteLine(list.ToString());
                     datalist.DataContext = list;
                 }
-            }
-            else if (is_detail.IsChecked == true)//看护记录报告
-            {
             }
         }
     }
