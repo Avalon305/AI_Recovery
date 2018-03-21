@@ -108,13 +108,13 @@
       <HintPath>..\packages\NLog.4.4.13\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="Spire.License">
-      <HintPath>C:\Users\Administrator\Desktop\宝德龙\Spire\Spire.License.dll</HintPath>
+      <HintPath>..\..\..\..\项目\宝德龙康复训练器械系统\Spire\Spire.License.dll</HintPath>
     </Reference>
     <Reference Include="Spire.Pdf">
-      <HintPath>C:\Users\Administrator\Desktop\宝德龙\Spire\Spire.Pdf.dll</HintPath>
+      <HintPath>..\..\..\..\项目\宝德龙康复训练器械系统\Spire\Spire.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="Spire.XLS">
-      <HintPath>C:\Users\Administrator\Desktop\宝德龙\Spire\Spire.XLS.dll</HintPath>
+      <HintPath>..\..\..\..\项目\宝德龙康复训练器械系统\Spire\Spire.XLS.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
