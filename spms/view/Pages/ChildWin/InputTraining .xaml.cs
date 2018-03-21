@@ -521,7 +521,7 @@ namespace spms.view.Pages.ChildWin
                         combobox_02.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_03.Text = devicePrescription.dp_relaxtime.ToString();
                         combobox_04.Text = devicePrescription.dp_weight.ToString();
-                        combobox_05.SelectedIndex = devicePrescription.dp_moveway;
+                        combobox_05.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t1.Text = devicePrescription.DP_Memo;
                         break;
                     case "坐姿划船机":
@@ -534,7 +534,7 @@ namespace spms.view.Pages.ChildWin
                         combobox_12.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_13.Text = devicePrescription.dp_relaxtime.ToString();
                         combobox_14.Text = devicePrescription.dp_weight.ToString();
-                        combobox_15.SelectedIndex = devicePrescription.dp_moveway;
+                        combobox_15.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t2.Text = devicePrescription.DP_Memo;
                         break;
                     case "身体伸展弯曲机":
@@ -547,7 +547,7 @@ namespace spms.view.Pages.ChildWin
                         combobox_22.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_23.Text = devicePrescription.dp_relaxtime.ToString();
                         combobox_24.Text = devicePrescription.dp_weight.ToString();
-                        combobox_25.SelectedIndex = devicePrescription.dp_moveway;
+                        combobox_25.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t3.Text = devicePrescription.DP_Memo;
                         break;
                     case "腿部伸展弯曲机":
@@ -561,7 +561,7 @@ namespace spms.view.Pages.ChildWin
                         combobox_32.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_33.Text = devicePrescription.dp_relaxtime.ToString();
                         combobox_34.Text = devicePrescription.dp_weight.ToString();
-                        combobox_35.SelectedIndex = devicePrescription.dp_moveway;
+                        combobox_35.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t4.Text = devicePrescription.DP_Memo;
                         break;
                     case "臀部外展内收机":
@@ -573,7 +573,7 @@ namespace spms.view.Pages.ChildWin
                         combobox_42.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_43.Text = devicePrescription.dp_relaxtime.ToString();
                         combobox_44.Text = devicePrescription.dp_weight.ToString();
-                        combobox_45.SelectedIndex = devicePrescription.dp_moveway;
+                        combobox_45.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t5.Text = devicePrescription.DP_Memo;
                         break;
                     case "胸部推举机":
@@ -585,7 +585,7 @@ namespace spms.view.Pages.ChildWin
                         combobox_52.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_53.Text = devicePrescription.dp_relaxtime.ToString();
                         combobox_54.Text = devicePrescription.dp_weight.ToString();
-                        combobox_55.SelectedIndex = devicePrescription.dp_moveway;
+                        combobox_55.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t6.Text = devicePrescription.DP_Memo;
                         break;
                 }

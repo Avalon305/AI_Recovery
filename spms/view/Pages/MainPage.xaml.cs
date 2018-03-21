@@ -480,15 +480,51 @@ namespace spms.view.Pages
                     ShowInTaskbar = false,
                     WindowStartupLocation = WindowStartupLocation.CenterScreen
                 };
-                List<TrainInfo> list = new List<TrainInfo>();
-                TrainInfo trainInfo = new TrainInfo
-                {
-                    Gmt_Create = new DateTime(2012, 01, 02)
-                };
-                list.Add(trainInfo);
-                Console.WriteLine(trainInfo.Gmt_Create);
-                list.Add(trainInfo);
 
+                Object o = record.Content;
+                TrainDTO trainDto = null;
+                User user = (User)UsersInfo.SelectedItem;
+                if (o is TrainingRecord_Frame)
+                {
+                    TrainingRecord_Frame trainingRecordFrame = (TrainingRecord_Frame)o;
+                    int index = trainingRecordFrame.TabControl1.SelectedIndex;
+                    switch (index)
+                    {
+                        case 0:
+                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord1.SelectedItem;
+                            break;
+                        case 1:
+                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord2.SelectedItem;
+                            break;
+                        case 2:
+                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord3.SelectedItem;
+                            break;
+                        case 3:
+                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord4.SelectedItem;
+                            break;
+                        case 4:
+                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord5.SelectedItem;
+                            break;
+                        case 5:
+                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord6.SelectedItem;
+                            break;
+                    }
+                }
+
+                if (user == null)
+                {
+                    MessageBox.Show("请先选择用户");
+                    return;
+                }
+                if (trainDto == null)
+                {//判断是否选择了训练信息
+                    MessageBox.Show("请先选择训练信息");
+                    return;
+                }
+                Dictionary<string, Object> dic = new Dictionary<string, object>();
+                dic.Add("user", user);
+                dic.Add("trainDto", trainDto);
+                viewTrainingResults.DataContext = dic;
                 viewTrainingResults.ShowDialog();
             }
             //打开体力评价详细信息

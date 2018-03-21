@@ -164,5 +164,31 @@ namespace spms.service
             
             return dic;
         }
+        /// <summary>
+        /// 根据训练结果id获取扩展类
+        /// </summary>
+        /// <param name="prescriptionResultPkPrId"></param>
+        public List<TrainDTO> GetTrainDTOByPRId(int prId)
+        {
+            DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
+            PrescriptionResultDAO prescriptionResultDao = new PrescriptionResultDAO();
+
+            List<TrainDTO> trainDtos = new List<TrainDTO>();
+
+            //根据训练结果id查询所在处方id
+            int tiId = devicePrescriptionDao.GetTIIdByPRId(prId);
+
+            //根据处方id查询处方+结果
+            List<DevicePrescription> devicePrescriptions = devicePrescriptionDao.GetByTIId(tiId);
+            foreach (DevicePrescription devicePrescription in devicePrescriptions)
+            {
+                //根据处方查找训练结果
+                PrescriptionResult prescriptionResult = prescriptionResultDao.GetByDPId(devicePrescription.Pk_DP_Id);
+                
+                trainDtos.Add(new TrainDTO(null, devicePrescription, prescriptionResult));
+            }
+
+            return trainDtos;
+        }
     }
 }
