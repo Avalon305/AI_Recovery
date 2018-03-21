@@ -14,35 +14,35 @@ namespace spms.view.dto
     {
         
         //数据创建时间
-        public DateTime? Create { get; set; }
-        //饮水量
-        public string WaterInput { get; set; }
-        //看护记录
-        public string CareInfo { get; set; }
-        //问诊票
-        public string Inquiry { get; set; }
+        public DateTime Create { get; set; }
+        //血压（康复前）
+        public string Pre_Pressure { get; set; }
+        //脉搏（康复前）
+        public string Pre_Pulse { get; set; }
         //心率（康复前）
         public string Pre_HeartRate { get; set; }
         //体温（康复前）
         public string Pre_AnimalHeat { get; set; }
-        //脉搏（康复前）
-        public string Pre_Pulse { get; set; }
-        //血压（康复前）
-        public string Pre_Pressure { get; set; }
+        //血压（康复后）
+        public string Suf_Pressure { get; set; }
+        //脉搏（康复后）
+        public string Suf_Pulse { get; set; }
         //心率（康复后）
         public string Suf_HeartRate { get; set; }
         //体温（康复后）
         public string Suf_AnimalHeat { get; set; }
-        //脉搏（康复后）
-        public string Suf_Pulse { get; set; }
-        //血压（康复后）
-        public string Suf_Pressure { get; set; }
+        //饮水量
+        public string WaterInput { get; set; }
+        //问诊票
+        public string Inquiry { get; set; }
         //是否参加
         public string Join { get; set; }
-
+        //看护记录
+        public string CareInfo { get; set; }
+       
         public SymptomInfoDTO(SymptomInfo symptomInfo)
         {
-            this.Create = symptomInfo.Gmt_Create;
+            this.Create = symptomInfo.Gmt_Create.Value;
             this.CareInfo = symptomInfo.SI_CareInfo;
             this.Inquiry = symptomInfo.SI_Inquiry;
             this.WaterInput = symptomInfo.SI_WaterInput;

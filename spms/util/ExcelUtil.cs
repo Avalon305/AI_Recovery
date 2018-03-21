@@ -11,6 +11,8 @@ using System.Reflection;
 using System.Collections;
 using spms.entity;
 using System.Drawing;
+using System.Windows.Forms;
+using spms.view.dto;
 
 namespace spms.util
 {
@@ -50,7 +52,7 @@ namespace spms.util
 
                 worksheet.Cells[1, 1].Value = "利用者ID";
                 worksheet.Cells[1, 2].Value = "利用者名称";
-                worksheet.Cells[1, 3].Value = "利用者名称（拼音）";
+                worksheet.Cells[1, 3].Value = "利用者拼音";
                 worksheet.Cells[1, 4].Value = "性别";
                 worksheet.Cells[1, 5].Value = "年龄";
                 worksheet.Cells[1, 6].Value = "小组名称";
@@ -59,15 +61,20 @@ namespace spms.util
                 worksheet.Cells[1, 9].Value = "疾病名称";
                 worksheet.Cells[1, 10].Value = "残障名称";
 
-                //设置列宽
-                worksheet.Column(1).Width = 12;
-                worksheet.Column(2).Width = 14;
-                worksheet.Column(3).Width = 24;
-                worksheet.Column(6).Width = 15;
-                worksheet.Column(7).Width = 16;
-                worksheet.Column(8).Width = 16;
-                worksheet.Column(9).Width = 12;
-                worksheet.Column(10).Width = 12;
+                //设置用户基本信息的列宽
+                for (int i = 1; i <= 10; i++)
+                {
+                    worksheet.Column(i).Width = 16;
+                }
+                worksheet.Column(1).Width = 20;
+                //worksheet.Column(2).Width = 16;
+                //worksheet.Column(3).Width = 16;
+                //worksheet.Column(6).Width = 16;
+                //worksheet.Column(7).Width = 16;
+                //worksheet.Column(8).Width = 16;
+                //worksheet.Column(9).Width = 16;
+                //worksheet.Column(10).Width = 16;
+
 
                 worksheet.Cells[2, 1].Value = user.Pk_User_Id;
                 worksheet.Cells[2, 2].Value = user.User_Name;
@@ -103,19 +110,47 @@ namespace spms.util
                     worksheet.Row(i + 1).Height = 25;
                 }
 
+                int tableRow = 4;
+
                 if (dataTable != null)
                 {
+                    if (dataTable.TableName == "症状信息记录")
+                    {
+                        worksheet.Cells[tableRow , 2, tableRow, 5].Merge = true;
+                        worksheet.Cells[tableRow , 6, tableRow, 9].Merge = true;
+                        worksheet.Cells[tableRow, 2].Value = "康复前";
+                        worksheet.Cells[tableRow, 6].Value = "康复后";
+
+
+                        using (ExcelRange range = worksheet.Cells[tableRow, 2, tableRow, 9])
+                        {
+                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                            range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            range.Style.Font.Bold = true;
+                            range.Style.Font.Name = "微软雅黑";
+                            range.Style.Font.Size = 11;
+                        }
+
+                        tableRow += 1;
+
+                    }
                     //设置列名和格式
                     foreach (DataColumn col in dataTable.Columns)
                     {
-                        worksheet.Cells[4, col.Ordinal + 1].Value = col.Caption;
+                        worksheet.Cells[tableRow, col.Ordinal + 1].Value = col.Caption;
+                    }
+
+                    //设置超过数据的列宽
+                    for (int i=11; i<= dataTable.Columns.Count; i++)
+                    {
+                        worksheet.Column(i).Width = 16;
                     }
 
                     for (int i = 0; i < dataTable.Rows.Count; i++)
                     {
                         for (int j = 0; j < dataTable.Columns.Count; j++)
                         {
-                            worksheet.Cells[i + 5, j + 1].Value = dataTable.Rows[i][j].ToString();
+                            worksheet.Cells[i + tableRow +1, j + 1].Value = dataTable.Rows[i][j].ToString();
                         }
                     }
 
@@ -125,20 +160,20 @@ namespace spms.util
                     {
                         maxCol = dataTable.Columns.Count;
                     }
-                    using (ExcelRange range = worksheet.Cells[3, 1, dataTable.Rows.Count + 4, maxCol])
+                    using (ExcelRange range = worksheet.Cells[3, 1, dataTable.Rows.Count + tableRow, maxCol])
                     {
                         range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                         range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                     }
 
                     //设置所有的行高
-                    int maxRow = dataTable.Rows.Count + 4;
+                    int maxRow = dataTable.Rows.Count + tableRow;
                     for (int i = 2; i < maxRow; i++)
                     {
                         worksheet.Row(i + 1).Height = 25;
                     }
 
-                    using (ExcelRange range = worksheet.Cells[4, 1, 4, dataTable.Columns.Count])
+                    using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow, dataTable.Columns.Count])
                     {
                         range.Style.Font.Bold = true;
                         range.Style.Font.Name = "微软雅黑";
@@ -147,11 +182,11 @@ namespace spms.util
                     }
 
                     //统一设置表格的内容
-                    using (ExcelRange range = worksheet.Cells[2, 1, dataTable.Rows.Count + 1, dataTable.Columns.Count])
+                    using (ExcelRange range = worksheet.Cells[tableRow+1, 1, tableRow + 1+dataTable.Rows.Count, dataTable.Columns.Count])
                     {
                         //range.Style.Font.Bold = true;
                         range.Style.Font.Name = "微软雅黑";
-                        range.Style.Font.Size = 11;
+                        range.Style.Font.Size = 10;
                         //range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     }
                 }
@@ -242,7 +277,8 @@ namespace spms.util
             //string fn = System.IO.Path.Combine((Application.StartupPath + @"\..\..\图片\"),"1.jpg");
             //Console.WriteLine(fn);
             int henderRow = 0;
-            OfficeOpenXml.Drawing.ExcelPicture picture = worksheet.Drawings.AddPicture("logo", System.Drawing.Image.FromFile(@"e:/logo.png"));//插入图片
+            string Path = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0, Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
+            OfficeOpenXml.Drawing.ExcelPicture picture = worksheet.Drawings.AddPicture("logo", System.Drawing.Image.FromFile(Path+"//view//Images//logo.png"));//插入图片
             picture.SetPosition(8, 5);//设置图片的位置
             picture.SetSize(120, 47);//设置图片的大小
 
@@ -322,7 +358,8 @@ namespace spms.util
 
             //插入用户图片
             //OfficeOpenXml.Drawing.ExcelPicture userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(user.User_PhotoLocation));//插入图片
-            OfficeOpenXml.Drawing.ExcelPicture userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(@"e:/timg.jpg"));//插入图片
+            //TODO 临时用这张图片
+            OfficeOpenXml.Drawing.ExcelPicture userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(Path+"\\view\\Images\\excel\\timg.jpg"));//插入图片
             userPicture.SetPosition(userRow - 1, 0, 9, 8);//设置图片的位置
             userPicture.SetSize(150, 145);//设置图片的大小
                                           //userPicture.Border.LineStyle = eLineStyle.Solid;
