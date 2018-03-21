@@ -50,10 +50,10 @@ namespace spms.view.Pages.ChildWin
             {
                 using (Workbook workbook = new Workbook())
                 {
-                    workbook.LoadFromFile(@"e:\test_train.xlsx");
+                    workbook.LoadFromFile(@"e:\test.xlsx");
                     //workbook.SaveToFile(@"e:\123.pdf", FileFormat.PDF);
                     Worksheet sheet = workbook.Worksheets[0];
-                    sheet.SaveToPdf(@"e:\123.pdf");
+                    sheet.SaveToPdf(@"e:\test.pdf");
                     //Console.WriteLine("转换执行完成了");
                 }
                 PdfViewer.valueChange.Flag = true;
@@ -73,7 +73,7 @@ namespace spms.view.Pages.ChildWin
             valueChange.OnStringChangeEvent += (oo, ee) =>
             {
 
-                moonPdfPanel.OpenFile(@"e:\123.pdf");
+                moonPdfPanel.OpenFile(@"e:\test.pdf");
                 _isLoaded = true;
                 moonPdfPanel.ZoomIn();
             };

@@ -88,9 +88,9 @@
                         <RowDefinition Height="20"></RowDefinition>
                         <RowDefinition Height="20"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <RadioButton Name="is_comprehensiv" Content="综合报告" IsChecked="True"  Grid.Row="0"/>
-                    <RadioButton Name="is_detail" Content="详细报告" Grid.Row="1"/>
-                    <RadioButton Name="is_nurse" Content="看护记录报告" Grid.Row="2"/>
+                    <RadioButton Name="is_comprehensiv" Checked="Document_Type_Checked" Content="综合报告" IsChecked="True"  Grid.Row="0"/>
+                    <RadioButton Name="is_detail" Checked="Document_Type_Checked" Content="详细报告" Grid.Row="1"/>
+                    <RadioButton Name="is_nurse" Checked="Document_Type_Checked" Content="看护记录报告" Grid.Row="2"/>
                 </Grid>
             </Border>
 

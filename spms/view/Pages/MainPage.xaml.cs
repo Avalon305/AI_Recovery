@@ -341,19 +341,7 @@ namespace spms.view.Pages
                     trainingReport.Current_User = selectUser;
                 }
 
-                //ExcelDao excelDao = new ExcelDao();
-                //excelDao.GetComprehensiveReportByUser(1);
-
-
-                //List<TrainInfo> list = new List<TrainInfo>();
-                //TrainInfo trainInfo = new TrainInfo
-                //{
-                //    Gmt_Create = DateTime.Parse("2010-2-12")
-                //};
-                //list.Add(trainInfo);
-                //Console.WriteLine(trainInfo.Gmt_Create);
-                //list.Add(trainInfo);
-                List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(1);
+                List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(selectUser.Pk_User_Id);
                 trainingReport.datalist.DataContext = list;
                 trainingReport.ShowDialog();
             }
