@@ -218,12 +218,13 @@ namespace spms.view.Pages.ChildWin
             }
 
 
-
+            /*
             //打印
             PdfViewer pDF = new PdfViewer();
             pDF.Left = 200;
             pDF.Top = 10;
             pDF.Show();
+            */
         }
 
         private void List_CheckBox_Checked(object sender, RoutedEventArgs e)
