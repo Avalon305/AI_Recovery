@@ -63,6 +63,9 @@ namespace spms.service
         /// <param name="user"></param>
         /// <returns></returns>
         public List<User> SelectByCondition(User user) {
+            if (user==null) {
+                return userDAO.GetExistUsers();
+            }
             return userDAO.SelectByCondition(user);
         }
         /// <summary>

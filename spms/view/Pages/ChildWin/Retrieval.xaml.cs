@@ -56,7 +56,11 @@ namespace spms.view.Pages.ChildWin
             c4.ItemsSource = diseaseList;
             c3.ItemsSource = diagnosisList;
         }
-
+        /// <summary>
+        /// 查询按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnQuery_Click(object sender, RoutedEventArgs e)
         {
             //获取用户ID的内容
@@ -110,6 +114,7 @@ namespace spms.view.Pages.ChildWin
         private void GoBack(object sender, RoutedEventArgs e)
 
         {
+            QueryResult = userService.SelectByCondition(null);
             this.Close();
             //Window window = (Window)this.Parent;
             //window.Content = new DesignPage1();
