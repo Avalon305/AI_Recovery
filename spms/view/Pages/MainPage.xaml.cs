@@ -32,6 +32,8 @@ namespace spms.view.Pages
     /// </summary>
     public partial class MainPage : Page
     {
+        public bool ifSelecUser = false;
+
         ///病人信息一览表
         public List<User> users = new List<User>();
 
@@ -62,21 +64,31 @@ namespace spms.view.Pages
             //暂时先不启动
             //bigDataThread.Start();
             ///心跳线程部分-load方法启动
-            //初始显示的记录
-            if (is_signinformationrecord.IsChecked == true)
+
+            User user = (User)UsersInfo.SelectedItem;
+            if (user == null)
             {
-                //显示征状信息记录
-                record.Source = new Uri("/view/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
+                return;
             }
-            else if (is_trainingrecord.IsChecked == true)
+
+            if (user.User_Name != "" && user.User_Name != null)
             {
-                //显示训练信息记录
-                record.Source = new Uri("/view/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
-            }
-            else
-            {
-                //显示体力评价记录
-                record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
+                //初始显示的记录
+                if (is_signinformationrecord.IsChecked == true)
+                {
+                    //显示征状信息记录
+                    record.Source = new Uri("/view/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
+                }
+                else if (is_trainingrecord.IsChecked == true)
+                {
+                    //显示训练信息记录
+                    record.Source = new Uri("/view/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
+                }
+                else
+                {
+                    //显示体力评价记录
+                    record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
+                }
             }
         }
 
@@ -96,12 +108,22 @@ namespace spms.view.Pages
         /// <param name="e"></param>
         private void Grid_Click(object sender, MouseButtonEventArgs e)
         {
+            ifSelecUser = true;
             selectUser = (User) UsersInfo.SelectedItem;
             UserInfo.DataContext = selectUser;
             string path = null;
 
+<<<<<<< HEAD
+            //选中用户时展示 症状 训练 体力的记录框的frame
+            Radio_Check_Action();
+            // 给frame加入数据
+            Refresh_RecordFrame_Action();
+
+            if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null && selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
+=======
             if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null &&
                 selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
+>>>>>>> 9246b95763ba3ef94d192df7a5b46a713b77df87
             {
                 path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
                 path += ".jpg";
@@ -221,6 +243,7 @@ namespace spms.view.Pages
         //按钮：删除
         private void Delete_User(object sender, RoutedEventArgs e)
         {
+            
             //检查是否选中
             if (selectUser == null)
             {
@@ -242,24 +265,43 @@ namespace spms.view.Pages
             }
         }
 
-        //记录类型切换
         private void Radio_Check(object sender, RoutedEventArgs e)
         {
-            if (is_signinformationrecord.IsChecked == true)
-            {
-                //record.Source = new Uri("/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
-                record.Source = new Uri("/view/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
-            }
-            else if (is_trainingrecord.IsChecked == true)
-            {
-                record.Source = new Uri("/view/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
-            }
-            else
-            {
-                record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
-            }
+            Radio_Check_Action();
         }
 
+        //记录类型切换
+        private void Radio_Check_Action()
+        {
+            
+            User user = (User)UsersInfo.SelectedItem;
+            if (user == null)
+            {
+                MessageBox.Show("没选中用户哇 5555");
+                return;
+            }
+
+            if (user.User_Name != "" && user.User_Name != null)
+            {
+                if (is_signinformationrecord.IsChecked == true)
+                {
+                    //MessageBox.Show("界面1");
+                    //record.Source = new Uri("/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
+                    record.Source = new Uri("/view/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
+                }
+                else if (is_trainingrecord.IsChecked == true)
+                {
+                    //MessageBox.Show("界面2");
+                    record.Source = new Uri("/view/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
+                }
+                else if(is_physicalevaluation.IsChecked == true)
+                {
+                    //MessageBox.Show("界面3");
+                    record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
+                }
+            }
+        }
+        
         //按钮：文档输出
         private void Output_Document(object sender, RoutedEventArgs e)
         {
@@ -677,25 +719,69 @@ namespace spms.view.Pages
         /// <summary>
         /// 刷新右下角frame
         /// </summary>
+        /// 
         private void Refresh_RecordFrame()
         {
+<<<<<<< HEAD
+            Refresh_RecordFrame_Action();
+        }
+
+        private void Refresh_RecordFrame_Action()
+        {
+            User user = (User)UsersInfo.SelectedItem;
+=======
             User user = (User) UsersInfo.SelectedItem;
+>>>>>>> 9246b95763ba3ef94d192df7a5b46a713b77df87
             if (user == null)
             {
                 return;
             }
 
             Object o = record.Content;
-            if (o is SignInformationRecord_Frame)
-            {
-                //获取用户症状信息
-                List<SymptomInfo> symptomInfos = new SymptomService().GetByUserId(user);
-                List<SymptomInfoDTO> symptomInfoDtos = new List<SymptomInfoDTO>();
-                foreach (SymptomInfo symptomInfo in symptomInfos)
-                {
-                    symptomInfoDtos.Add(new SymptomInfoDTO(symptomInfo));
-                }
 
+            if (user.User_Name != "" && user.User_Name != null)
+            {
+                if (o is SignInformationRecord_Frame)
+                {
+                    //MessageBox.Show("frame1");
+                    //获取用户症状信息
+                    List<SymptomInfo> symptomInfos = new SymptomService().GetByUserId(user);
+                    List<SymptomInfoDTO> symptomInfoDtos = new List<SymptomInfoDTO>();
+                    foreach (SymptomInfo symptomInfo in symptomInfos)
+                    {
+                        symptomInfoDtos.Add(new SymptomInfoDTO(symptomInfo));
+                    }
+
+                    //展示在frame
+                    SignInformationRecord_Frame signInformationRecordFrame = (SignInformationRecord_Frame)o;
+                    signInformationRecordFrame.SignInformationRecord.ItemsSource = symptomInfoDtos;
+                }
+                else if (o is TrainingRecord_Frame)
+                {
+                    //MessageBox.Show("frame2");
+                    Dictionary<string, List<TrainDTO>> dic = new TrainService().getTrainDTOByUser(user);
+                    TrainingRecord_Frame trainingRecordFrame = (TrainingRecord_Frame)o;
+                    List<TrainDTO> trainDtos = new List<TrainDTO>();
+                    dic.TryGetValue("水平腿部推蹬机", out trainDtos);
+                    trainingRecordFrame.TrainingRecord1.ItemsSource = trainDtos;
+                    dic.TryGetValue("坐姿划船机", out trainDtos);
+                    trainingRecordFrame.TrainingRecord2.ItemsSource = trainDtos;
+                    dic.TryGetValue("身体伸展弯曲机", out trainDtos);
+                    trainingRecordFrame.TrainingRecord3.ItemsSource = trainDtos;
+                    dic.TryGetValue("腿部伸展弯曲机", out trainDtos);
+                    trainingRecordFrame.TrainingRecord4.ItemsSource = trainDtos;
+                    dic.TryGetValue("臀部外展内收机", out trainDtos);
+                    trainingRecordFrame.TrainingRecord5.ItemsSource = trainDtos;
+                    dic.TryGetValue("胸部推举机", out trainDtos);
+                    trainingRecordFrame.TrainingRecord6.ItemsSource = trainDtos;
+                }
+                else if (o is PhysicaleValuation_Frame)
+                {
+
+<<<<<<< HEAD
+                    //MessageBox.Show("frame3");
+                }
+=======
                 //展示在frame
                 SignInformationRecord_Frame signInformationRecordFrame = (SignInformationRecord_Frame) o;
                 signInformationRecordFrame.SignInformationRecord.ItemsSource = symptomInfoDtos;
@@ -721,6 +807,7 @@ namespace spms.view.Pages
             else
             {
                 MessageBox.Show("3");
+>>>>>>> 9246b95763ba3ef94d192df7a5b46a713b77df87
             }
         }
 

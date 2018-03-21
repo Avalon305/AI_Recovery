@@ -265,6 +265,15 @@ namespace spms.view.Pages.ChildWin
                 }
             }
 
+<<<<<<< HEAD
+            /*
+            //打印
+            PdfViewer pDF = new PdfViewer();
+            pDF.Left = 200;
+            pDF.Top = 10;
+            pDF.Show();
+            */
+=======
             FileInfo newFile = new FileInfo(@"e:\test.xlsx");
             if (newFile.Exists)
             {
@@ -342,6 +351,7 @@ namespace spms.view.Pages.ChildWin
 
                 package.Save();
             }
+>>>>>>> 9246b95763ba3ef94d192df7a5b46a713b77df87
         }
 
         /// <summary>

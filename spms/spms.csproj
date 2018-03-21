@@ -274,9 +274,6 @@
     <Compile Include="view\Pages\ChildWin\NonPublicInformation.xaml.cs">
       <DependentUpon>NonPublicInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\Pages\ChildWin\PdfViewer.xaml.cs">
-      <DependentUpon>PdfViewer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="view\Pages\ChildWin\Photograph.xaml.cs">
       <DependentUpon>Photograph.xaml</DependentUpon>
     </Compile>
@@ -422,10 +419,6 @@
     <Page Include="view\Pages\ChildWin\NonPublicInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="view\Pages\ChildWin\PdfViewer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\ChildWin\Photograph.xaml">
       <Generator>MSBuild:Compile</Generator>
