@@ -1,15 +1,17 @@
-﻿using Spire.Xls;
+﻿using Spire.Pdf;
+using Spire.Xls;
 using spms.bean;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -50,10 +52,10 @@ namespace spms.view.Pages.ChildWin
             {
                 using (Workbook workbook = new Workbook())
                 {
-                    workbook.LoadFromFile(@"e:\test_train.xlsx");
+                    workbook.LoadFromFile(@"e:\test.xlsx");
                     //workbook.SaveToFile(@"e:\123.pdf", FileFormat.PDF);
                     Worksheet sheet = workbook.Worksheets[0];
-                    sheet.SaveToPdf(@"e:\123.pdf");
+                    sheet.SaveToPdf(@"e:\test.pdf");
                     //Console.WriteLine("转换执行完成了");
                 }
                 PdfViewer.valueChange.Flag = true;
@@ -73,7 +75,7 @@ namespace spms.view.Pages.ChildWin
             valueChange.OnStringChangeEvent += (oo, ee) =>
             {
 
-                moonPdfPanel.OpenFile(@"e:\123.pdf");
+                moonPdfPanel.OpenFile(@"e:\test.pdf");
                 _isLoaded = true;
                 moonPdfPanel.ZoomIn();
             };
@@ -124,6 +126,31 @@ namespace spms.view.Pages.ChildWin
 
         private void Print_Click(object sender, RoutedEventArgs e)
         {
+            PdfDocument doc = new PdfDocument();
+            doc.LoadFromFile("e:/test.pdf");
+            PrintDialog dialogPrint = new PrintDialog();
+            dialogPrint.AllowPrintToFile = true;
+            dialogPrint.AllowSomePages = true;
+            dialogPrint.PrinterSettings.MinimumPage = 1;
+            dialogPrint.PrinterSettings.MaximumPage = doc.Pages.Count;
+            dialogPrint.PrinterSettings.FromPage = 1;
+            dialogPrint.PrinterSettings.ToPage = doc.Pages.Count;
+
+            if (dialogPrint.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                //设置打印的起始页码
+                doc.PrintFromPage = dialogPrint.PrinterSettings.FromPage;
+
+                //设置打印的终止页码
+                doc.PrintToPage = dialogPrint.PrinterSettings.ToPage;
+
+                //选择打印机
+                doc.PrinterName = dialogPrint.PrinterSettings.PrinterName;
+
+                PrintDocument printDoc = doc.PrintDocument;
+                dialogPrint.Document = printDoc;
+                printDoc.Print();
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ namespace spms.service
     class UserService
     {
         private UserDAO userDAO = new UserDAO();
-
+        UploadManagementDAO uploadManagementDAO = new UploadManagementDAO();
         /// <summary>
         /// 根据身份证号获取用户
         /// </summary>
@@ -38,13 +38,19 @@ namespace spms.service
             userDAO.UpdateByPrimaryKey(user);
         }
         /// <summary>
-        ///  插入一个新用户，业务层添加
+        ///  插入一个新用户，业务层添加，同时增加上传表中数据
         /// </summary>
         public void InsertUser(User user) {
             user.Gmt_Create = DateTime.Now;
             user.Gmt_Modified = DateTime.Now;
             user.Is_Deleted = 0;
             userDAO.Insert(user);
+            //插入大数据上传表
+            var result = SelectByCondition(user);
+            foreach (var i in result) {
+                UploadManagement uploadManagement = new UploadManagement(i.Pk_User_Id, "bdl_user");
+                uploadManagementDAO.Insert(uploadManagement);
+            }
         }
         /// <summary>
         /// 更新用户，根据主键

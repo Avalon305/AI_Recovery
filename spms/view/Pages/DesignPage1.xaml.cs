@@ -57,6 +57,7 @@ namespace spms.view.Pages
             ObservableCollection<entity.Setter> LanguageCollection = new ObservableCollection<entity.Setter>(LanguageList);
             textBox1.DataContext = DataCollection;//设置机构团体名称
             textBox2.DataContext = DataCollection;//设置照片保存文档
+           
             comboBox1.ItemsSource = UniqueIdCollection;//绑定到combobox
             comboBox2.ItemsSource = LanguageCollection;
             //-------------------------------------------------------------------
@@ -265,5 +266,17 @@ namespace spms.view.Pages
             FlushDiagnosis();
         }
 
+        private void Output_Document(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                //此处做你想做的事 ...=openFileDialog1.FileName; 
+            }
+        }
     }
 }

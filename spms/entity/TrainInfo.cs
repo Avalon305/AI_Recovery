@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace spms.entity
 {
-    //训练信息
+    //训练处方单
     [Table("bdl_traininfo")]
     public class TrainInfo
     {

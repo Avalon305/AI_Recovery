@@ -129,10 +129,25 @@
             <ComboBox IsTextSearchEnabled="False"  Name="comboBox1"  Grid.Row="10"  Grid.Column="2" KeyUp="comboBox1_KeyUp" SelectionChanged="comboBox1_SelectionChanged"   />
             <Label Content="小组名称" Grid.Row="10" Grid.Column="0" Background="Gray" Foreground="White"/>
             <Label Content="疾病名称" Grid.Row="12" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <ComboBox Name="c4" Grid.Row="12" Grid.Column="2" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False"/>
-
+            <ComboBox Name="c4" Grid.Row="12" Grid.Column="2"  LostKeyboardFocus="IsDisease" IsEditable="True" VerticalContentAlignment="Center" />
+            <!--气泡-->
+            <bubble:CCPopup x:Name="bubble_disease" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=c4}" Placement="Right" >
+                <Label Style="{StaticResource tipLable}">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Foreground="Red" Name="Error_Info_disease" Content=""/>
+                    </StackPanel>
+                </Label>
+            </bubble:CCPopup>
             <Label Content="残障名称" Grid.Row="14" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <ComboBox Name="c3" Grid.Row="14" Grid.Column="2" Background="LightGray" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False"/>
+            <ComboBox Name="c3" Grid.Row="14" Grid.Column="2" Background="LightGray"  LostKeyboardFocus="IsDiagnosis" IsEditable="True" VerticalContentAlignment="Center" />
+            <!--气泡-->
+            <bubble:CCPopup x:Name="bubble_Diagnosis" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=c3}" Placement="Right" >
+                <Label Style="{StaticResource tipLable}">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Foreground="Red" Name="Error_Info_Diagnosis" Content=""/>
+                    </StackPanel>
+                </Label>
+            </bubble:CCPopup>
         </Grid>
         <Border CornerRadius="5,0,0,0" DockPanel.Dock="Right" Background="White" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="208" Margin="0,3,10,10" BorderBrush="White" BorderThickness="0">
             <DockPanel  VerticalAlignment="Top">
