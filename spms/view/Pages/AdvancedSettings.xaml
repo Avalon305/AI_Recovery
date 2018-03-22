@@ -77,7 +77,7 @@
                 <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="200">
                     <StackPanel Margin="10" >
 
-                        <DataGrid x:Name="DataGrid2" GridLinesVisibility="None" HeadersVisibility="None"  Margin="5,10,5,10" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top"  Height="165" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
+                        <DataGrid x:Name="DataGrid2" GridLinesVisibility="None" HeadersVisibility="None" Margin="5,10,5,10" CanUserDeleteRows="False"  CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top"  Height="165" CanUserSortColumns="False" CanUserResizeColumns="False" BorderBrush="White" BorderThickness="0" CanUserReorderColumns="False">
                             <DataGrid.Columns >
                                 <DataGridTemplateColumn Header="选中" Width="50" DisplayIndex="0" >
                                     <DataGridTemplateColumn.HeaderStyle>
@@ -112,7 +112,7 @@
             <!--结束：器械选择-->
             <!--用户表-->
             <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Margin="30,35,20,0">
-                <DataGrid x:Name="DataGrid1" DataGridRow.MouseUp="Grid_Row_Click" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="209" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" BorderBrush="Black" BorderThickness="1" Width="883">
+                <DataGrid x:Name="DataGrid1" DataGridRow.MouseUp="Grid_Row_Click" CanUserAddRows="False" RowHeaderWidth="0" SelectionMode="Single" GridLinesVisibility="None"   AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="209" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" BorderBrush="White" BorderThickness="0" Width="883">
                     <DataGrid.Columns >
                         <DataGridTextColumn Binding="{Binding Auth_UserName}" Header="用户名" Width="140" />
                         <DataGridTextColumn Binding="{Binding Gmt_Create}" Header="创建时间" Width="200"/>

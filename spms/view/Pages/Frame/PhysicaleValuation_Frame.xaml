@@ -33,12 +33,12 @@
                 </Style>
             </DataGrid.CellStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="训练日期" Width="110"/>
-                <DataGridTextColumn Binding="{Binding User_Name}" Header="身高" Width="80"/>
-                <DataGridTextColumn Binding="{Binding User_Namepinyin}" Header="体重" Width="80"/>
-                <DataGridTextColumn Binding="{Binding User_Sex}" Header="睁眼单脚站立" Width="100"/>
-                <DataGridTextColumn Binding="{Binding User_Age}" Header="Time Up &amp; go" Width="100"/>
-                <DataGridTextColumn Binding="{Binding User_Groupname}" Header="使用者感想" Width="240"/>
+                <DataGridTextColumn Binding="{Binding Gmt_Create}" Header="训练日期" Width="110"/>
+                <DataGridTextColumn Binding="{Binding PP_High}" Header="身高" Width="80"/>
+                <DataGridTextColumn Binding="{Binding PP_Weight}" Header="体重" Width="80"/>
+                <DataGridTextColumn Binding="{Binding PP_EyeOpenStand}" Header="睁眼单脚站立" Width="100"/>
+                <DataGridTextColumn Binding="{Binding PP_TimeUpGo}" Header="Time Up &amp; go" Width="100"/>
+                <DataGridTextColumn Binding="{Binding PP_UserMemo}" Header="使用者感想" Width="240"/>
                 <DataGridTextColumn Binding="{Binding User_Initcare}" Header="工作人员感想" Width="240"/>
             </DataGrid.Columns>
         </DataGrid>
