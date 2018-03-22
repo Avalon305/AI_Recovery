@@ -226,6 +226,7 @@
     <Compile Include="util\ProtocolUtil.cs" />
     <Compile Include="util\SerialPortUtil.cs" />
     <Compile Include="util\SystemInfo.cs" />
+    <Compile Include="constant\TrainInfoStatus.cs" />
     <Compile Include="view\bubblemove\CCPopup.cs" />
     <Compile Include="view\bubblemove\PopopHelper.cs" />
     <Compile Include="view\converter\AgeConverter.cs" />

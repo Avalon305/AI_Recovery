@@ -20,10 +20,12 @@ namespace spms.entity
         public DateTime? Gmt_Modified { get; set; }
         //关联的用户ID
         public int FK_User_Id { get; set; }
+        //状态
+        public int Status { get; set; }
 
         public override string ToString()
         {
-            return $"{nameof(Pk_TI_Id)}: {Pk_TI_Id}, {nameof(Gmt_Create)}: {Gmt_Create}, {nameof(Gmt_Modified)}: {Gmt_Modified}, {nameof(FK_User_Id)}: {FK_User_Id}";
+            return $"{nameof(Pk_TI_Id)}: {Pk_TI_Id}, {nameof(Gmt_Create)}: {Gmt_Create}, {nameof(Gmt_Modified)}: {Gmt_Modified}, {nameof(FK_User_Id)}: {FK_User_Id}, {nameof(Status)}: {Status}";
         }
     }
     //单一设备处方
