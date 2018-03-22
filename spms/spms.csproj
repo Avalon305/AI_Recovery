@@ -289,6 +289,9 @@
     <Compile Include="view\Pages\ChildWin\Retrieval.xaml.cs">
       <DependentUpon>Retrieval.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\Pages\ChildWin\SerialPortSelection .xaml.cs">
+      <DependentUpon>SerialPortSelection .xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\ChildWin\TrainingReport.xaml.cs">
       <DependentUpon>TrainingReport.xaml</DependentUpon>
     </Compile>
@@ -442,6 +445,10 @@
     <Page Include="view\Pages\ChildWin\Retrieval.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\SerialPortSelection .xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\ChildWin\TrainingReport.xaml">
       <Generator>MSBuild:Compile</Generator>

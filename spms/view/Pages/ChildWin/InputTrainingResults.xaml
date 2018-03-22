@@ -184,7 +184,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-010.jpg" Stretch="Fill"  />
+                                    <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
                                 </Grid.Background>
                                 <TextBox Name="RowAttr1" Height="20" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                                 <TextBox Name="RowAttr2" Height="20" Width="50" Margin="55,191,191,104.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>

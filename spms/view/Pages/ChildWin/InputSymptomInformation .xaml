@@ -97,7 +97,7 @@
                     <ColumnDefinition Width="207.4"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBox Grid.Row="0" Grid.Column="0" Margin="10,2,85,2" Name="bloodlow_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Grid.Row="0" Grid.Column="0" Margin="10,2,85,2" Name="bloodlow_1" VerticalContentAlignment="Center"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="37,0,57.4,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
                 <TextBox Grid.Row="0" Grid.Column="0" Margin="65,2,30,2"  Name="bloodhight_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0.6,0,0.2,23.6" Grid.RowSpan="2" Name="heartRate_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -107,10 +107,10 @@
                         <RadioButton VerticalAlignment="Center"  Width="70" Name="irregular_1">脉率不齐</RadioButton>
                     </StackPanel>
                 </GroupBox>
-                <TextBox Grid.Row="0" Grid.Column="3" Grid.RowSpan="2"   Name="heat_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Grid.Row="0" Grid.Column="3" Grid.RowSpan="2"   Name="heat_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Margin="0.2,0,87,24.6"/>
 
 
-                <TextBox Grid.Row="1" Grid.Column="0" Margin="10,2,85,2"  Name="bloodlow_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Grid.Row="1" Grid.Column="0" Margin="10,2,85,2"  Name="bloodlow_2" VerticalContentAlignment="Center"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="37,0,57.4,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
                 <TextBox Grid.Row="1" Grid.Column="0" Margin="65,0.2,30,2" Name="bloodhight_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0.6,0.2,0.2,-0.4" Name="heartRate_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
