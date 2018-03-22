@@ -1,4 +1,5 @@
 ﻿
+using spms.dao.app;
 using spms.entity;
 using spms.service;
 using System;
@@ -27,7 +28,7 @@ namespace spms.view.Pages.ChildWin
         /// 自定义三项service
         /// </summary>
         CustomDataService customDataService = new CustomDataService();
-
+        CustomDataDAO CustomDataDAO = new CustomDataDAO();
         public InputGroupName()
         {
             InitializeComponent();
@@ -37,7 +38,16 @@ namespace spms.view.Pages.ChildWin
         {
             this.Close();
         }
-
+        private void Text_LostFocus(object sender, RoutedEventArgs e)
+        {
+            //获取文本框的值
+            string Name = GroupName.Text;
+            CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Group, Name);
+            if (CustomData != null)
+            {
+                MessageBox.Show("小组名称已存在");
+            }
+        }
         private void Button_SaveClick(object sender, RoutedEventArgs e)
         {
             string value = this.GroupName.Text;

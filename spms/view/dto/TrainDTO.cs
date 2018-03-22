@@ -28,10 +28,11 @@ namespace spms.view.dto
             this.trainInfo = trainInfo;
             this.devicePrescription = devicePrescription;
             this.prescriptionResult = prescriptionResult;
-            moveway = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
+            moveway = prescriptionResult != null ? DataCodeCache.GetInstance()
+                .GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString()) : "";
 
-            evaluate = DataCodeCache.GetInstance()
-                .GetCodeDValue(DataCodeTypeEnum.Evaluate, prescriptionResult.PR_Evaluate.ToString());
+            evaluate = prescriptionResult != null ? DataCodeCache.GetInstance()
+                .GetCodeDValue(DataCodeTypeEnum.Evaluate, prescriptionResult.PR_Evaluate.ToString()) : "";
 
         }
     }

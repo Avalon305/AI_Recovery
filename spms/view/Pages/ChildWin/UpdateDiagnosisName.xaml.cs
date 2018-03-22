@@ -1,5 +1,6 @@
 ﻿
 using Dapper;
+using spms.dao.app;
 using spms.entity;
 using spms.service;
 using spms.util;
@@ -30,7 +31,7 @@ namespace spms.view.Pages.ChildWin
         /// 自定义三项service
         /// </summary>
         CustomDataService customDataService = new CustomDataService();
-
+        CustomDataDAO CustomDataDAO = new CustomDataDAO();
         public UpdateDiagnosisName()
         {
             InitializeComponent();
@@ -40,7 +41,16 @@ namespace spms.view.Pages.ChildWin
         {
             this.Close();
         }
-
+        private void Text_LostFocus(object sender, RoutedEventArgs e)
+        {
+            //获取文本框的值
+            string Name = DiagnosisName.Text;
+            CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Diagiosis, Name);
+            if (CustomData != null)
+            {
+                MessageBox.Show("残障名称已存在");
+            }
+        }
         private void Button_SaveClick(object sender, RoutedEventArgs e)
         {
             string value = this.DiagnosisName.Text;

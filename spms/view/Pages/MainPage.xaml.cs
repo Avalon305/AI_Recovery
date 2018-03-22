@@ -113,17 +113,12 @@ namespace spms.view.Pages
             UserInfo.DataContext = selectUser;
             string path = null;
 
-<<<<<<< HEAD
             //选中用户时展示 症状 训练 体力的记录框的frame
             Radio_Check_Action();
             // 给frame加入数据
             Refresh_RecordFrame_Action();
 
             if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null && selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
-=======
-            if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null &&
-                selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
->>>>>>> 9246b95763ba3ef94d192df7a5b46a713b77df87
             {
                 path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
                 path += ".jpg";
@@ -521,15 +516,51 @@ namespace spms.view.Pages
                     ShowInTaskbar = false,
                     WindowStartupLocation = WindowStartupLocation.CenterScreen
                 };
-                List<TrainInfo> list = new List<TrainInfo>();
-                TrainInfo trainInfo = new TrainInfo
-                {
-                    Gmt_Create = new DateTime(2012, 01, 02)
-                };
-                list.Add(trainInfo);
-                Console.WriteLine(trainInfo.Gmt_Create);
-                list.Add(trainInfo);
 
+                Object o = record.Content;
+                TrainDTO trainDto = null;
+                User user = (User)UsersInfo.SelectedItem;
+                if (o is TrainingRecord_Frame)
+                {
+                    TrainingRecord_Frame trainingRecordFrame = (TrainingRecord_Frame)o;
+                    int index = trainingRecordFrame.TabControl1.SelectedIndex;
+                    switch (index)
+                    {
+                        case 0:
+                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord1.SelectedItem;
+                            break;
+                        case 1:
+                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord2.SelectedItem;
+                            break;
+                        case 2:
+                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord3.SelectedItem;
+                            break;
+                        case 3:
+                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord4.SelectedItem;
+                            break;
+                        case 4:
+                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord5.SelectedItem;
+                            break;
+                        case 5:
+                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord6.SelectedItem;
+                            break;
+                    }
+                }
+
+                if (user == null)
+                {
+                    MessageBox.Show("请先选择用户");
+                    return;
+                }
+                if (trainDto == null)
+                {//判断是否选择了训练信息
+                    MessageBox.Show("请先选择训练信息");
+                    return;
+                }
+                Dictionary<string, Object> dic = new Dictionary<string, object>();
+                dic.Add("user", user);
+                dic.Add("trainDto", trainDto);
+                viewTrainingResults.DataContext = dic;
                 viewTrainingResults.ShowDialog();
             }
             //打开体力评价详细信息
@@ -722,16 +753,12 @@ namespace spms.view.Pages
         /// 
         private void Refresh_RecordFrame()
         {
-<<<<<<< HEAD
             Refresh_RecordFrame_Action();
         }
 
         private void Refresh_RecordFrame_Action()
         {
             User user = (User)UsersInfo.SelectedItem;
-=======
-            User user = (User) UsersInfo.SelectedItem;
->>>>>>> 9246b95763ba3ef94d192df7a5b46a713b77df87
             if (user == null)
             {
                 return;
@@ -777,37 +804,8 @@ namespace spms.view.Pages
                 }
                 else if (o is PhysicaleValuation_Frame)
                 {
-
-<<<<<<< HEAD
                     //MessageBox.Show("frame3");
                 }
-=======
-                //展示在frame
-                SignInformationRecord_Frame signInformationRecordFrame = (SignInformationRecord_Frame) o;
-                signInformationRecordFrame.SignInformationRecord.ItemsSource = symptomInfoDtos;
-            }
-            else if (o is TrainingRecord_Frame)
-            {
-                Dictionary<string, List<TrainDTO>> dic = new TrainService().getTrainDTOByUser(user);
-                TrainingRecord_Frame trainingRecordFrame = (TrainingRecord_Frame) o;
-                List<TrainDTO> trainDtos = new List<TrainDTO>();
-                dic.TryGetValue("水平腿部推蹬机", out trainDtos);
-                trainingRecordFrame.TrainingRecord1.ItemsSource = trainDtos;
-                dic.TryGetValue("坐姿划船机", out trainDtos);
-                trainingRecordFrame.TrainingRecord2.ItemsSource = trainDtos;
-                dic.TryGetValue("身体伸展弯曲机", out trainDtos);
-                trainingRecordFrame.TrainingRecord3.ItemsSource = trainDtos;
-                dic.TryGetValue("腿部伸展弯曲机", out trainDtos);
-                trainingRecordFrame.TrainingRecord4.ItemsSource = trainDtos;
-                dic.TryGetValue("臀部外展内收机", out trainDtos);
-                trainingRecordFrame.TrainingRecord5.ItemsSource = trainDtos;
-                dic.TryGetValue("胸部推举机", out trainDtos);
-                trainingRecordFrame.TrainingRecord6.ItemsSource = trainDtos;
-            }
-            else
-            {
-                MessageBox.Show("3");
->>>>>>> 9246b95763ba3ef94d192df7a5b46a713b77df87
             }
         }
 

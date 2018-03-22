@@ -39,7 +39,16 @@ namespace spms.view.Pages.ChildWin
         {
             this.Close();
         }
-
+        private void Name_LostFocus(object sender, RoutedEventArgs e)
+        {
+            //获取文本框的值
+            string Name = UserName.Text;
+            Auther AutherTemp = authDAO.GetByName(Name);
+            if (AutherTemp != null)
+            {
+                MessageBox.Show("用户名已存在");
+            }
+        }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;

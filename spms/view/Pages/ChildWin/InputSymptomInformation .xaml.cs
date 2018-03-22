@@ -39,7 +39,7 @@ namespace spms.view.Pages.ChildWin
         private void Button_Save(object sender, RoutedEventArgs e)
         {
             //获取日期
-            string da = date.SelectedDate.ToString();
+            DateTime? da = date.SelectedDate;
             
             //康复前血压
             string preLowPressure = bloodlow_1.Text;
@@ -106,7 +106,7 @@ namespace spms.view.Pages.ChildWin
                 isJoin = 1;
             }
 
-            int tiId = new TrainInfoDAO().GetTIIdByPRCreate(trainDto.prescriptionResult.Gmt_Create);
+            int tiId = new DevicePrescriptionDAO().GetTIIdByPRId(trainDto.prescriptionResult.Pk_PR_Id);
             //摄取水分量
             string waterInput = amunt.Text;
 
@@ -119,7 +119,7 @@ namespace spms.view.Pages.ChildWin
             
             //症状信息
             symptomInfo.Fk_User_Id = user.Pk_User_Id;
-            symptomInfo.Gmt_Create = DateTime.Now;
+            symptomInfo.Gmt_Create = da;
             symptomInfo.Gmt_Modified = DateTime.Now;
             symptomInfo.SI_CareInfo = careInfo;
             symptomInfo.SI_Inquiry = inquiryStr;

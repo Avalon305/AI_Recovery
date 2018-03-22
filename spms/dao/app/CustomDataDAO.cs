@@ -28,7 +28,18 @@ namespace spms.dao.app
                 return (List<CustomData>)conn.Query<CustomData>(query, new { CD_Type = typeId });
             }
         }
-        public void DeleteCustomDataByPrimaryKey(int ID)//
+        public CustomData GetListByTypeIDAndName(CustomDataEnum typeId, string Name)
+        {
+
+            using (var conn = DbUtil.getConn())
+            {
+
+                const string query = "select * from bdl_customdata where is_deleted = 0 and CD_Type = @CD_Type and CD_CustomName=@CD_CustomName";
+
+                return conn.QueryFirstOrDefault<CustomData>(query, new { CD_Type = typeId, CD_CustomName = Name });
+            }
+        }
+        public void DeleteCustomDataByPrimaryKey(int ID)
         {
 
             using (var conn = DbUtil.getConn())

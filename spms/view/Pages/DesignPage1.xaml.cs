@@ -41,9 +41,12 @@ namespace spms.view.Pages
         List<entity.Setter> UniqueIdList = new List<entity.Setter>();
         List<entity.Setter> LanguageList = new List<entity.Setter>();
         SetterDAO setterDao = new SetterDAO();
+        DataCodeDAO DataCodeDAO = new DataCodeDAO();
+        List<DataCode> ListDataCode = new List<DataCode>();
         ObservableCollection<CustomData> groupCollection;
         ObservableCollection<CustomData> diseaseCollection;
         ObservableCollection<CustomData> diagnosisCollection;
+        int[] Selected = { 0, 0, 0 };
         public DesignPage1()
         {
             InitializeComponent();
@@ -53,14 +56,15 @@ namespace spms.view.Pages
             UniqueIdList = setterDao.ListAll();
             LanguageList = setterDao.ListAll();
             ObservableCollection<entity.Setter> DataCollection = new ObservableCollection<entity.Setter>(setterList);
-            ObservableCollection<entity.Setter> UniqueIdCollection = new ObservableCollection<entity.Setter>(UniqueIdList);
+            //ObservableCollection<entity.Setter> UniqueIdCollection = new ObservableCollection<entity.Setter>(UniqueIdList);
             ObservableCollection<entity.Setter> LanguageCollection = new ObservableCollection<entity.Setter>(LanguageList);
             textBox1.DataContext = DataCollection;//设置机构团体名称
             textBox2.DataContext = DataCollection;//设置照片保存文档
-           
-            comboBox1.ItemsSource = UniqueIdCollection;//绑定到combobox
-            comboBox2.ItemsSource = LanguageCollection;
-            //-------------------------------------------------------------------
+            ListDataCode = DataCodeDAO.ListByTypeId("OrganizationSort");//绑定组织区分
+            comboBox1.ItemsSource = ListDataCode;
+            ListDataCode = DataCodeDAO.ListByTypeId("Language");//绑定语言
+            comboBox2.ItemsSource = ListDataCode;
+            //下方三个datagrid的实现
             groupList = customDataService.GetAllObjectByType(CustomDataEnum.Group);
             groupCollection = new ObservableCollection<CustomData>(groupList);
             diseaseList = customDataService.GetAllObjectByType(CustomDataEnum.Disease);
@@ -122,16 +126,19 @@ namespace spms.view.Pages
         }
         private void Grid_Group_Click(object sender, MouseButtonEventArgs e)
         {
+            Selected[0] = 1;
             group = (CustomData)DataGrid2.SelectedItem;
             DataGrid2.DataContext = group;
         }
         private void Grid_Disease_Click(object sender, MouseButtonEventArgs e)
         {
+            Selected[1] = 1;
             disease = (CustomData)DataGrid3.SelectedItem;
             DataGrid3.DataContext = disease;
         }
         private void Grid_Diagnosis_Click(object sender, MouseButtonEventArgs e)
         {
+            Selected[2] = 1;
             diagnosis = (CustomData)DataGrid4.SelectedItem;
             DataGrid4.DataContext = diagnosis;
         }
@@ -199,73 +206,120 @@ namespace spms.view.Pages
 
         private void Group_Update(object sender, RoutedEventArgs e)
         {
-            UpdateGroupName groupUpdata = new UpdateGroupName
+            if (Selected[0] == 1)
             {
-                Owner = Window.GetWindow(this),
-                ShowActivated = true,
-                ShowInTaskbar = false,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen
-            };
-            //类中使用
-            CustomData group = (CustomData)DataGrid2.SelectedItem;
-            groupUpdata.selectedGroup = group;
-            //UI中使用
-            groupUpdata.GroupName.Text = group.CD_CustomName;
-            groupUpdata.ShowDialog();
-            FlushGroup();
+                UpdateGroupName groupUpdata = new UpdateGroupName
+                {
+                    Owner = Window.GetWindow(this),
+                    ShowActivated = true,
+                    ShowInTaskbar = false,
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen
+                };
+                //类中使用
+                CustomData group = (CustomData)DataGrid2.SelectedItem;
+                groupUpdata.selectedGroup = group;
+                //UI中使用
+                groupUpdata.GroupName.Text = group.CD_CustomName;
+                groupUpdata.ShowDialog();
+                FlushGroup();
+                Selected[0] = 0;
+            }
+            else
+            {
+                MessageBox.Show("请选择更新的一行");
+            }
 
 
         }
         private void Disease_Update(object sender, RoutedEventArgs e)
         {
-            UpdateDiseaseName diseaseUpdata = new UpdateDiseaseName
+            if (Selected[1] == 1)
             {
-                Owner = Window.GetWindow(this),
-                ShowActivated = true,
-                ShowInTaskbar = false,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen
-            };
-            //类中使用
-            CustomData disease = (CustomData)DataGrid3.SelectedItem;
-            diseaseUpdata.selectedDisease = disease;
-            //UI中使用
-            diseaseUpdata.DiseaseName.Text = disease.CD_CustomName;
-            diseaseUpdata.ShowDialog();
-            FlushDisease();
+                UpdateDiseaseName diseaseUpdata = new UpdateDiseaseName
+                {
+                    Owner = Window.GetWindow(this),
+                    ShowActivated = true,
+                    ShowInTaskbar = false,
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen
+                };
+                //类中使用
+                CustomData disease = (CustomData)DataGrid3.SelectedItem;
+                diseaseUpdata.selectedDisease = disease;
+                //UI中使用
+                diseaseUpdata.DiseaseName.Text = disease.CD_CustomName;
+                diseaseUpdata.ShowDialog();
+                FlushDisease();
+                Selected[1] = 0;
+            }
+            else
+            {
+                MessageBox.Show("请选择更新的一行");
+            }
         }
         private void Diagnosis_Update(object sender, RoutedEventArgs e)
         {
-            UpdateDiagnosisName diagnosisUpdata = new UpdateDiagnosisName
+            if (Selected[2] == 1)
             {
-                Owner = Window.GetWindow(this),
-                ShowActivated = true,
-                ShowInTaskbar = false,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen
-            };
-            //类中使用
-            CustomData diagnosis = (CustomData)DataGrid4.SelectedItem;
-            diagnosisUpdata.selectedDiagnosis = diagnosis;
-            //UI中使用
-            diagnosisUpdata.DiagnosisName.Text = diagnosis.CD_CustomName;
-            diagnosisUpdata.ShowDialog();
-            FlushDiagnosis();
+                UpdateDiagnosisName diagnosisUpdata = new UpdateDiagnosisName
+                {
+                    Owner = Window.GetWindow(this),
+                    ShowActivated = true,
+                    ShowInTaskbar = false,
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen
+                };
+                //类中使用
+                CustomData diagnosis = (CustomData)DataGrid4.SelectedItem;
+                diagnosisUpdata.selectedDiagnosis = diagnosis;
+                //UI中使用
+                diagnosisUpdata.DiagnosisName.Text = diagnosis.CD_CustomName;
+                diagnosisUpdata.ShowDialog();
+                FlushDiagnosis();
+                Selected[2] = 0;
+            }
+            else
+            {
+                MessageBox.Show("请选择更新的一行");
+            }
         }
         private void Group_Delete(object sender, RoutedEventArgs e)
         {
-            customDataDAO.DeleteCustomDataByPrimaryKey(group.Pk_CD_Id);//在数据库中删除
-            FlushGroup();
+            if (Selected[0] == 1)
+            {
+                customDataDAO.DeleteCustomDataByPrimaryKey(group.Pk_CD_Id);//在数据库中删除
+                FlushGroup();
+                Selected[0] = 0;
+            }
+            else
+            {
+                MessageBox.Show("请选择删除的一行");
+            }
         }
         private void Disease_Delete(object sender, RoutedEventArgs e)
         {
-            customDataDAO.DeleteCustomDataByPrimaryKey(disease.Pk_CD_Id);//在数据库中删除
-            FlushDisease();
+            if (Selected[1] == 1)
+            {
+                customDataDAO.DeleteCustomDataByPrimaryKey(disease.Pk_CD_Id);//在数据库中删除
+                FlushDisease();
+                Selected[1] = 0;
+            }
+            else
+            {
+                MessageBox.Show("请选择删除的一行");
+            }
         }
         private void Diagnosis_Delete(object sender, RoutedEventArgs e)
         {
-            customDataDAO.DeleteCustomDataByPrimaryKey(diagnosis.Pk_CD_Id);//在数据库中删除
-            FlushDiagnosis();
+            if (Selected[2] == 1)
+            {
+                customDataDAO.DeleteCustomDataByPrimaryKey(diagnosis.Pk_CD_Id);//在数据库中删除
+                FlushDiagnosis();
+                Selected[2] = 0;
+            }
+            else
+            {
+                MessageBox.Show("请选择删除的一行");
+            }
         }
-
         private void Output_Document(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -278,5 +332,6 @@ namespace spms.view.Pages
                 //此处做你想做的事 ...=openFileDialog1.FileName; 
             }
         }
+
     }
 }

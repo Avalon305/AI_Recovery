@@ -40,19 +40,6 @@ namespace spms.dao
                 return conn.Query<TrainInfo>(query, new { FK_User_Id = userPkUserId }).ToList();
             }
         }
-        /// <summary>
-        /// 通过训练结果表的时间获取
-        /// </summary>
-        /// <returns></returns>
-        public int GetTIIdByPRCreate(DateTime? date)
-        {
-            using (var conn = DbUtil.getConn())
-            {
-                const string query = "SELECT pk_ti_id FROM bdl_traininfo JOIN bdl_deviceprescription ON bdl_traininfo.pk_ti_id = bdl_deviceprescription.fk_ti_id JOIN bdl_prescriptionresult ON bdl_deviceprescription.pk_dp_id = bdl_prescriptionresult.fk_dp_id WHERE bdl_prescriptionresult.gmt_create = @Gmt_Create;";
-
-                return conn.QueryFirstOrDefault<int>(query, new { Gmt_Create = date });
-            }
-        }
     }
 
     public class DevicePrescriptionDAO : BaseDAO<DevicePrescription>
@@ -84,6 +71,19 @@ namespace spms.dao
                 const string query = "select d.* from bdl_user u join bdl_traininfo t on u.pk_user_id = t.fk_user_id join bdl_deviceprescription d on d.fk_ti_id = t.pk_ti_id where u.user_idcard = @Idcard and d.fk_ds_id = @DeviceType";
 
                 return conn.QueryFirstOrDefault<DevicePrescription>(query, new { Idcard = idcard, DeviceType = (byte)deviceType });
+            }
+        }
+        /// <summary>
+        /// 通过训练结果表的id获取关联的训练信息id外键
+        /// </summary>
+        /// <returns></returns>
+        public int GetTIIdByPRId(int id)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "SELECT fk_ti_id FROM bdl_deviceprescription JOIN bdl_prescriptionresult ON bdl_deviceprescription.pk_dp_id = bdl_prescriptionresult.fk_dp_id WHERE bdl_prescriptionresult.pk_pr_id = @Pk_PR_Id";
+
+                return conn.QueryFirstOrDefault<int>(query, new { Pk_PR_Id = id });
             }
         }
     }
@@ -126,6 +126,15 @@ namespace spms.dao
                 const string query = "select * from bdl_devicesort where fk_dset_id = @Fk_Dset_Id";
 
                 return (List<DeviceSort>)conn.Query<DeviceSort>(query, new { Fk_Dset_Id = Dset_Id });
+            }
+        }
+        public void UpdateDeviceSorts(List<DeviceSort> DeviceSetList)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string Update = "update bdl_devicesort set DS_Status=@DS_Status where Pk_DS_Id = @Pk_DS_Id";
+
+                conn.Execute(Update, DeviceSetList);
             }
         }
     }

@@ -87,7 +87,7 @@
                                     </DataGridTemplateColumn.HeaderStyle>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <CheckBox  Click="CheckBox_Click" IsChecked="{Binding DS_Status,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource IntToBoolConverter}}"></CheckBox>
+                                            <CheckBox  IsChecked="{Binding DS_Status,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource IntToBoolConverter}}"></CheckBox>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

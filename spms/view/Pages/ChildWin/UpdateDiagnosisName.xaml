@@ -20,6 +20,6 @@
             </Grid>
         </Border>
         <!--输入框-->
-        <TextBox Name="DiagnosisName"  VerticalAlignment="Center" Margin="5,30,5,5" BorderBrush="Gray"></TextBox>
+        <TextBox Name="DiagnosisName" LostFocus="Text_LostFocus" VerticalAlignment="Center" Margin="5,30,5,5" BorderBrush="Gray"></TextBox>
     </StackPanel>
 </Window>
