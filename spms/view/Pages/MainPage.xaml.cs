@@ -64,32 +64,7 @@ namespace spms.view.Pages
             //暂时先不启动
             //bigDataThread.Start();
             ///心跳线程部分-load方法启动
-
-            User user = (User)UsersInfo.SelectedItem;
-            if (user == null)
-            {
-                return;
-            }
-
-            if (user.User_Name != "" && user.User_Name != null)
-            {
-                //初始显示的记录
-                if (is_signinformationrecord.IsChecked == true)
-                {
-                    //显示征状信息记录
-                    record.Source = new Uri("/view/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
-                }
-                else if (is_trainingrecord.IsChecked == true)
-                {
-                    //显示训练信息记录
-                    record.Source = new Uri("/view/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
-                }
-                else
-                {
-                    //显示体力评价记录
-                    record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
-                }
-            }
+            
         }
 
         /// <summary>
@@ -259,10 +234,13 @@ namespace spms.view.Pages
                 UsersInfo.ItemsSource = users;
             }
         }
-
+        
+        // 切换frame
         private void Radio_Check(object sender, RoutedEventArgs e)
         {
+            //MessageBox.Show("加载frame1");
             Radio_Check_Action();
+            Refresh_RecordFrame_Action();
         }
 
         //记录类型切换
@@ -272,22 +250,24 @@ namespace spms.view.Pages
             User user = (User)UsersInfo.SelectedItem;
             if (user == null)
             {
-                MessageBox.Show("没选中用户哇 5555");
+                //MessageBox.Show("没选中用户");
                 return;
             }
 
             if (user.User_Name != "" && user.User_Name != null)
             {
+                //MessageBox.Show("界面1 之前");
                 if (is_signinformationrecord.IsChecked == true)
                 {
                     //MessageBox.Show("界面1");
-                    //record.Source = new Uri("/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
                     record.Source = new Uri("/view/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
+                    return;
                 }
                 else if (is_trainingrecord.IsChecked == true)
                 {
                     //MessageBox.Show("界面2");
                     record.Source = new Uri("/view/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
+                    return;
                 }
                 else if(is_physicalevaluation.IsChecked == true)
                 {
@@ -689,7 +669,8 @@ namespace spms.view.Pages
                 return;
             }
             if (trainDto == null)
-            {//判断是否选择了训练信息
+            {
+                //判断是否选择了训练信息
                 MessageBox.Show("请先选择训练信息");
                 return;
             }
@@ -744,34 +725,29 @@ namespace spms.view.Pages
 
         private void UsersInfo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Refresh_RecordFrame();
+            Refresh_RecordFrame_Action();
         }
 
         /// <summary>
         /// 刷新右下角frame
         /// </summary>
         /// 
-        private void Refresh_RecordFrame()
-        {
-            Refresh_RecordFrame_Action();
-        }
 
         private void Refresh_RecordFrame_Action()
         {
-            User user = (User)UsersInfo.SelectedItem;
+
+            User user = selectUser;
+
             if (user == null)
             {
+                //MessageBox.Show("没获取到选择的用户");
                 return;
             }
 
-            Object o = record.Content;
-
             if (user.User_Name != "" && user.User_Name != null)
             {
-                if (o is SignInformationRecord_Frame)
+                if (is_signinformationrecord.IsFocused)
                 {
-                    //MessageBox.Show("frame1");
-                    //获取用户症状信息
                     List<SymptomInfo> symptomInfos = new SymptomService().GetByUserId(user);
                     List<SymptomInfoDTO> symptomInfoDtos = new List<SymptomInfoDTO>();
                     foreach (SymptomInfo symptomInfo in symptomInfos)
@@ -780,14 +756,15 @@ namespace spms.view.Pages
                     }
 
                     //展示在frame
-                    SignInformationRecord_Frame signInformationRecordFrame = (SignInformationRecord_Frame)o;
+                    SignInformationRecord_Frame signInformationRecordFrame = new SignInformationRecord_Frame();//(SignInformationRecord_Frame)o;
                     signInformationRecordFrame.SignInformationRecord.ItemsSource = symptomInfoDtos;
+                    record.Content = signInformationRecordFrame;
                 }
-                else if (o is TrainingRecord_Frame)
+                else if (is_trainingrecord.IsFocused)
                 {
-                    //MessageBox.Show("frame2");
+
                     Dictionary<string, List<TrainDTO>> dic = new TrainService().getTrainDTOByUser(user);
-                    TrainingRecord_Frame trainingRecordFrame = (TrainingRecord_Frame)o;
+                    TrainingRecord_Frame trainingRecordFrame = new TrainingRecord_Frame();
                     List<TrainDTO> trainDtos = new List<TrainDTO>();
                     dic.TryGetValue("水平腿部推蹬机", out trainDtos);
                     trainingRecordFrame.TrainingRecord1.ItemsSource = trainDtos;
@@ -801,17 +778,29 @@ namespace spms.view.Pages
                     trainingRecordFrame.TrainingRecord5.ItemsSource = trainDtos;
                     dic.TryGetValue("胸部推举机", out trainDtos);
                     trainingRecordFrame.TrainingRecord6.ItemsSource = trainDtos;
+
+                    record.Content = trainingRecordFrame;
                 }
-                else if (o is PhysicaleValuation_Frame)
+                else if (is_physicalevaluation.IsFocused)
                 {
-                    //MessageBox.Show("frame3");
+                    List<PhysicalPower> physicalPowers = new PhysicaleValuationService().GetByUserId(user);
+                    List<PhysicaleDTO> physicaleDTOs = new List<PhysicaleDTO>();
+                    foreach (PhysicalPower physicalPower in physicalPowers)
+                    {
+                        physicaleDTOs.Add(new PhysicaleDTO(physicalPower));
+                    }
+
+                    //展示在frame
+                    PhysicaleValuation_Frame physicaleValuation_Frame = new PhysicaleValuation_Frame();
+                    physicaleValuation_Frame.PhysicaleValuation.ItemsSource = physicaleDTOs;
+                    record.Content = physicaleValuation_Frame;
                 }
             }
         }
 
         private void record_SourceUpdated(object sender, DataTransferEventArgs e)
         {
-            Refresh_RecordFrame();
+            //Refresh_RecordFrame_Action();
         }
     }
 }
