@@ -14,6 +14,10 @@ namespace spms.service
 {
     class PhysicaleValuationService
     {
-
+        public List<PhysicalPower> GetByUserId(User user)
+        {
+            List<PhysicalPower> symptomInfos = new PhysicalPowerDAO().GetByUserId(user.Pk_User_Id);
+            return symptomInfos;
+        }
     }
 }
