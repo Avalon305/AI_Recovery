@@ -521,6 +521,9 @@
     <Content Include="Spire.License.dll" />
     <Content Include="Spire.Pdf.dll" />
     <Content Include="Spire.XLS.dll" />
+    <Resource Include="view\Images\KFA-10.jpg" />
+    <Resource Include="view\Images\3-1.png" />
+    <Resource Include="view\Images\5-5.png" />
     <Resource Include="view\Images\excel\100%25.png" />
     <Resource Include="view\Images\excel\document.png" />
     <Resource Include="view\Images\excel\print.png" />
@@ -546,7 +549,6 @@
     <Resource Include="view\Images\back.jpg" />
     <Resource Include="view\Images\bdl_login1.PNG" />
     <Resource Include="view\Images\KFA-01.jpg" />
-    <Resource Include="view\Images\KFA-010.jpg" />
     <Resource Include="view\Images\KFA-04.jpg" />
     <Resource Include="view\Images\KFA-14.jpg" />
     <Resource Include="view\Images\KFA-15.jpg" />
