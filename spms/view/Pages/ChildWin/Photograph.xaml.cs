@@ -105,7 +105,22 @@ namespace spms.view.Pages.ChildWin
         {
             if (getIdCard != null && getName != null && getIdCard != "" && getName != "")
             {
+
                 String path = CommUtil.GetUserPic(getName + getIdCard);
+                String dirPath = CommUtil.GetUserPic();
+
+                Console.WriteLine(dirPath);
+
+                if (Directory.Exists(dirPath))//判断是否存在
+                {
+                    //Response.Write("已存在");
+                }
+                else
+                {
+                    //Response.Write("不存在，正在创建");
+                    Directory.CreateDirectory(dirPath);//创建新路径
+                }
+
                 File.WriteAllBytes(path + ".jpg", Pic);
                 System.Windows.MessageBox.Show("图片保存完成", "信息提示");
             }
@@ -114,8 +129,6 @@ namespace spms.view.Pages.ChildWin
                 System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
                 return;
             }
-
-            
 
             this.Close();
         }
