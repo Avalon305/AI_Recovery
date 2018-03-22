@@ -8,12 +8,17 @@ using System.Windows.Documents;
 using spms.constant;
 using spms.dao;
 using spms.entity;
+using spms.util;
 using spms.view.dto;
 
 namespace spms.service
 {
     class TrainService
     {
+        static UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+        static DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
+        static TrainInfoDAO trainInfoDao = new TrainInfoDAO();
+
         /// <summary>
         /// 保存训练信息
         /// </summary>
@@ -23,22 +28,26 @@ namespace spms.service
         {
             using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
             {
-                UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
-                DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
-                TrainInfoDAO trainInfoDao = new TrainInfoDAO();
-
-                //删除原有保存的记录
-                TrainInfo saveInfo = trainInfoDao.GetSaveDPByUserId(trainInfo.FK_User_Id);
-                if (saveInfo != null)
+                TrainInfo trainInfoFromDB = GetTrainInfoByUserIdAndStatus(trainInfo.FK_User_Id, trainInfo.Status);
+                if (trainInfoFromDB != null)
                 {
-                    //如果存在保存的记录，删除
-                    trainInfoDao.DeleteByPrimaryKey(saveInfo);
-                    //删除关联的处方
-                    devicePrescriptionDao.DeleteByTiId(saveInfo.Pk_TI_Id);
+                    switch (trainInfo.Status)
+                    {
+                        case (int)TrainInfoStatus.Save:
+                            //如果保存处方，删除原来的记录和关联的处方
+                            trainInfoDao.DeleteByPrimaryKey(trainInfoFromDB);
+                            devicePrescriptionDao.DeleteByTiId(trainInfoFromDB.Pk_TI_Id);
+                            break;
+                        case (int)TrainInfoStatus.Normal:
+                            //如果是写卡后的插入，废弃原来的记录
+                            trainInfoFromDB.Status = (int)TrainInfoStatus.Abandon;
+                            trainInfoDao.UpdateByPrimaryKey(trainInfoFromDB);
+                            break;
+                    }
                 }
-                
+
                 //插入症状信息、插入上传表
-                int tiId = (int) trainInfoDao.Insert(trainInfo);
+                int tiId = (int)trainInfoDao.Insert(trainInfo);
                 uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo"));
 
                 int dpId;
@@ -48,7 +57,7 @@ namespace spms.service
                     foreach (DevicePrescription devicePrescription in devicePrescriptions)
                     {
                         devicePrescription.Fk_TI_Id = tiId;
-                        dpId = (int) devicePrescriptionDao.Insert(devicePrescription);
+                        dpId = (int)devicePrescriptionDao.Insert(devicePrescription);
                         //插入至上传表
                         uploadManagementDao.Insert(new UploadManagement(dpId, "bdl_deviceprescription"));
                     }
@@ -56,6 +65,16 @@ namespace spms.service
 
                 ts.Complete();
             }
+        }
+        /// <summary>
+        /// 根据用户id和状态查询训练信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        public TrainInfo GetTrainInfoByUserIdAndStatus(int userId, int status)
+        {
+            return trainInfoDao.GetTrainInfoByUserIdAndStatus(userId, status);
         }
 
         /// <summary>
@@ -106,8 +125,7 @@ namespace spms.service
         /// <returns></returns>
         public List<DevicePrescription> GetSaveDevicePrescriptionsByUser(User user)
         {
-            TrainInfoDAO trainInfoDao = new TrainInfoDAO();
-            TrainInfo trainInfoFromDB = trainInfoDao.GetSaveDPByUserId(user.Pk_User_Id);
+            TrainInfo trainInfoFromDB = GetTrainInfoByUserIdAndStatus(user.Pk_User_Id, (int)TrainInfoStatus.Save);
             List<DevicePrescription> devicePrescriptions = null;
             if (trainInfoFromDB != null)
             {

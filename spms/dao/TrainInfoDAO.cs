@@ -13,17 +13,17 @@ namespace spms.dao
     public class TrainInfoDAO : BaseDAO<TrainInfo>
     {
         /// <summary>
-        /// 根据病人id获取保存的训练信息
+        /// 根据病人id和状态获取训练信息
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public TrainInfo GetSaveDPByUserId(int userId)
+        public TrainInfo GetTrainInfoByUserIdAndStatus(int userId, int status)
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "SELECT * FROM bdl_traininfo WHERE fk_user_id = @FK_User_Id AND status = 1;";
+                const string query = "SELECT * FROM bdl_traininfo WHERE fk_user_id = @FK_User_Id AND status = @Status;";
 
-                return conn.QueryFirstOrDefault<TrainInfo>(query, new { FK_User_Id = userId });
+                return conn.QueryFirstOrDefault<TrainInfo>(query, new { FK_User_Id = userId, Status = status });
             }
         }
         /// <summary>

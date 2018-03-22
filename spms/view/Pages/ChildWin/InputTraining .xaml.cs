@@ -592,5 +592,21 @@ namespace spms.view.Pages.ChildWin
 
             }
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            //TODO 写卡
+            TrainInfo trainInfo = new TrainService().GetTrainInfoByUserIdAndStatus(user.Pk_User_Id, (int)TrainInfoStatus.Normal);
+            if (trainInfo != null)
+            {
+                MessageBox.Show("是否覆盖");
+            }
+
+
+            //保存到数据库
+            SaveTrainInfo2DB(TrainInfoStatus.Normal);
+            MessageBox.Show("已写卡");
+            this.Close();
+        }
     }
 }
