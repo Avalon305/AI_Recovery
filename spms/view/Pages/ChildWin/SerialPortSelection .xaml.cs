@@ -38,5 +38,15 @@ namespace spms.view.Pages.ChildWin
         {
             InitializeComponent();
         }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Determine(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
