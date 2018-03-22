@@ -134,5 +134,10 @@ namespace spms
             CustomDataDAO customDataDAO = new CustomDataDAO();
             MessageBox.Show(JsonTools.Obj2JSONStrNew(customDataDAO.GetExistByValue(CustomDataEnum.Group,"C")));
         }
+
+        private void Button_Click_13(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("123123123".IndexOf("123").ToString());
+        }
     }
 }

@@ -41,22 +41,13 @@ namespace spms.service
         public string Login(string username,string password) {
             string loginResult = "success";
             AuthDAO authDAO = new AuthDAO();
-
-            
             Auther autherCN = authDAO.GetByName(username);
-
-             
-             
-
             //密码错误
             if (autherCN == null)
             {
                 loginResult = "没有该用户";
                 return loginResult;
             }
-
-
-
             Auther auther = authDAO.Login(username, password);
             //没有该用户
             if (autherCN!=null && auther == null) {
@@ -79,7 +70,9 @@ namespace spms.service
             //登录mac与激活mac不对应
             SetterDAO setterDAO = new SetterDAO();
             Setter setter = setterDAO.getSetter();
-            if (setter.Set_Unique_Id != SystemInfo.GetMacAddress())
+            string mac = System.Text.Encoding.Default.GetString(AesUtil.Decrypt(System.Text.Encoding.Default.GetBytes(setter.Set_Unique_Id), ProtocolConstant.USB_DOG_PASSWORD));
+            //如果解密后的setter中的mac不包含现在获得的mac
+            if (mac.IndexOf(SystemInfo.GetMacAddress())==0 )
             {
                 loginResult = "登录异常";
                 return loginResult;

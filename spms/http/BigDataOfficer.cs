@@ -43,7 +43,7 @@ namespace spms.http
                 //不属于未注册状态
                 SetterDAO setterDAO = new SetterDAO();
                 Setter setter = setterDAO.getSetter();
-                if (setter.Set_Unique_Id!=null&& setter.Set_Unique_Id .Equals("")) {
+                if (!string.IsNullOrEmpty(setter.Set_Unique_Id)) {
                     Upload();
                 }
             }

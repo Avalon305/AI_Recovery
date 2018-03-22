@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using spms.http.entity;
 using spms.http.dto;
 using spms.util;
+using spms.constant;
 
 namespace spms.service
 {
@@ -42,7 +43,7 @@ namespace spms.service
             SetterDAO setterDAO = new SetterDAO();
             Setter setter = setterDAO.getSetter();
             //需要加入解密逻辑
-            string mac = setter.Set_Unique_Id;
+            string mac = System.Text.Encoding.Default.GetString(AesUtil.Decrypt(System.Text.Encoding.Default.GetBytes(setter.Set_Unique_Id), ProtocolConstant.USB_DOG_PASSWORD));
             ///if识别出表,设置发送路径，select出实体，转化至DTO，json打成string,返回
             //识别是否是权限用户添加
             if (uploadManagement.UM_DataTable== "bdl_auth") {

@@ -1,4 +1,5 @@
-﻿using spms.dao;
+﻿using spms.constant;
+using spms.dao;
 using spms.entity;
 using spms.http.entity;
 using spms.util;
@@ -36,8 +37,8 @@ namespace spms.http
                 SetterDAO setterDAO = new SetterDAO();
                 Setter setter = setterDAO.getSetter();
                 //需要加入解密逻辑
-                string mac = setter.Set_Unique_Id;
-                if (setter.Set_Unique_Id != null && setter.Set_Unique_Id.Equals(""))
+                string mac = System.Text.Encoding.Default.GetString(AesUtil.Decrypt(System.Text.Encoding.Default.GetBytes(setter.Set_Unique_Id), ProtocolConstant.USB_DOG_PASSWORD)); ;
+                if (!string.IsNullOrEmpty(setter.Set_Unique_Id))
                 {
                     AuthDAO authDAO = new AuthDAO();
                     var result = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
