@@ -17,13 +17,13 @@ namespace spms.dao
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public TrainInfo GetTrainInfoByUserIdAndStatus(int userId, int status)
+        public List<TrainInfo> GetTrainInfoByUserIdAndStatus(int userId, int status)
         {
             using (var conn = DbUtil.getConn())
             {
                 const string query = "SELECT * FROM bdl_traininfo WHERE fk_user_id = @FK_User_Id AND status = @Status;";
 
-                return conn.QueryFirstOrDefault<TrainInfo>(query, new { FK_User_Id = userId, Status = status });
+                return conn.Query<TrainInfo>(query, new { FK_User_Id = userId, Status = status }).ToList();
             }
         }
         /// <summary>
@@ -31,14 +31,9 @@ namespace spms.dao
         /// </summary>
         /// <param name="userPkUserId"></param>
         /// <returns></returns>
-        public List<TrainInfo> GetByUserId(int userPkUserId)
+        public List<TrainInfo> GetFinishTrainInfoByUserId(int userId)
         {
-            using (var conn = DbUtil.getConn())
-            {
-                const string query = "select * from bdl_traininfo where fk_user_id=@FK_User_Id";
-
-                return conn.Query<TrainInfo>(query, new { FK_User_Id = userPkUserId }).ToList();
-            }
+            return GetTrainInfoByUserIdAndStatus(userId, (int) TrainInfoStatus.Finish);
         }
     }
 

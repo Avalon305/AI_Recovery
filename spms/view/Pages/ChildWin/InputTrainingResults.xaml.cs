@@ -59,6 +59,7 @@ namespace spms.view.Pages.ChildWin
             trainInfo.FK_User_Id = user.Pk_User_Id;
             trainInfo.Gmt_Create = da;
             trainInfo.Gmt_Modified = DateTime.Now;
+            trainInfo.Status = (int) TrainInfoStatus.Finish;//手动输入的结果状态为已完成
             DeviceSortDAO deviceSortDao = new DeviceSortDAO();
             string devName;
             if (HLPGroupcount.Text != "")
@@ -71,8 +72,7 @@ namespace spms.view.Pages.ChildWin
                 string attr2 = HLPAttr2.Text;
                 string attr3 = HLPAttr3.Text;
                 string attr4 = HLPAttr4.Text;
-                devicePrescription.DP_Attrs = "水平腿部推蹬机*" +
-                                              "attr1-" + attr1 + "*" +
+                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*";
@@ -82,7 +82,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_groupnum = Convert.ToInt32(HLPGroupnum.Text);
                 devicePrescription.dp_relaxtime = Convert.ToInt32(HLPRelaxTime.Text);
                 devicePrescription.dp_weight = Convert.ToDouble(HLPWeight.Text);
-                devicePrescription.Dp_status = 1;
+                devicePrescription.Dp_status = 1;//TODO
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, HLPMoveway.Text)); //移乘方式
                 devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
 
@@ -113,8 +113,7 @@ namespace spms.view.Pages.ChildWin
                 string attr2 = RowAttr1.Text;
                 string attr3 = RowAttr1.Text;
                 string attr4 = RowAttr1.Text;
-                devicePrescription.DP_Attrs = "坐姿划船机*" +
-                                              "attr1-" + attr1 + "*" +
+                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*";
@@ -155,8 +154,7 @@ namespace spms.view.Pages.ChildWin
                 string attr2 = TFAttr2.Text;
                 string attr3 = TFAttr3.Text;
                 string attr4 = TFAttr4.Text;
-                devicePrescription.DP_Attrs = "身体伸展弯曲机*" +
-                                              "attr1-" + attr1 + "*" +
+                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*";
@@ -198,8 +196,7 @@ namespace spms.view.Pages.ChildWin
                 string attr3 = LEAttr3.Text;
                 string attr4 = LEAttr4.Text;
                 string attr5 = LEAttr5.Text;
-                devicePrescription.DP_Attrs = "腿部伸展弯曲机*" +
-                                              "attr1-" + attr1 + "*" +
+                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*" +
                                               "attr4-" + attr4 + "*" +
@@ -240,8 +237,7 @@ namespace spms.view.Pages.ChildWin
                 string attr1 = HAAttr1.Text;
                 string attr2 = HAAttr2.Text;
                 string attr3 = HAAttr3.Text;
-                devicePrescription.DP_Attrs = "臀部外展内收机*" +
-                                              "attr1-" + attr1 + "*" +
+                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*";
                 devicePrescription.Gmt_Create = da;
@@ -280,8 +276,7 @@ namespace spms.view.Pages.ChildWin
                 string attr1 = CPAttr1.Text;
                 string attr2 = CPAttr2.Text;
                 string attr3 = CPAttr3.Text;
-                devicePrescription.DP_Attrs = "胸部推举机*" +
-                                              "attr1-" + attr1 + "*" +
+                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
                                               "attr2-" + attr2 + "*" +
                                               "attr3-" + attr3 + "*";
                 devicePrescription.Gmt_Create = da;

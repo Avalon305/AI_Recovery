@@ -74,7 +74,15 @@ namespace spms.service
         /// <returns></returns>
         public TrainInfo GetTrainInfoByUserIdAndStatus(int userId, int status)
         {
-            return trainInfoDao.GetTrainInfoByUserIdAndStatus(userId, status);
+            List<TrainInfo> trainInfos = trainInfoDao.GetTrainInfoByUserIdAndStatus(userId, status);
+            if (trainInfos == null || trainInfos.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return trainInfos[0];
+            }
         }
 
         /// <summary>
@@ -160,8 +168,8 @@ namespace spms.service
 
             Dictionary<string, List<TrainDTO>> dic = new Dictionary<string, List<TrainDTO>>();
 
-            //找到该用户所有训练记录
-            List<TrainInfo> trainInfos = trainInfoDao.GetByUserId(user.Pk_User_Id);
+            //找到该用户所有已训练记录
+            List<TrainInfo> trainInfos = trainInfoDao.GetFinishTrainInfoByUserId(user.Pk_User_Id);
             foreach (TrainInfo trainInfo in trainInfos)
             {
                 //根据训练信息id查找处方
@@ -175,6 +183,7 @@ namespace spms.service
                         prescriptionResultDao.GetByDPId(devicePrescription.Pk_DP_Id);
                     if (prescriptionResult == null)
                     {
+                        //如果没有训练结果，
                         continue;
                     }
 
@@ -184,7 +193,7 @@ namespace spms.service
                         List<TrainDTO> trainDtos = new List<TrainDTO>();
                         dic.Add(devName, trainDtos);
                     }
-                    Console.WriteLine(prescriptionResult.PR_Evaluate);
+//                    Console.WriteLine(prescriptionResult.PR_Evaluate);
                     //PR_Evaluate 总是1？？？？
                     dic[devName].Add(new TrainDTO(trainInfo, devicePrescription, prescriptionResult));
                     
