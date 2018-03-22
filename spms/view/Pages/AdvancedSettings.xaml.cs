@@ -154,10 +154,10 @@ namespace spms.view.Pages
                 string strMac = CommUtil.GetMacAddress();
                 entity.Setter setter = new entity.Setter();
                 //mac地址先变为byte[]再aes加密
-                byte[] byteMac = Encoding.Default.GetBytes(strMac);
+                byte[] byteMac = Encoding.GetEncoding("GBK").GetBytes(strMac);
                 byte[] AesMac = AesUtil.Encrypt(byteMac, ProtocolConstant.USB_DOG_PASSWORD);
-                //变为16进制字符串存入数据库
-                setter.Set_Unique_Id = ProtocolUtil.BytesToString(AesMac);
+                //存入数据库
+                setter.Set_Unique_Id = Encoding.GetEncoding("GBK").GetString(AesMac);
                 SetterDAO.InsertOneMacAdress(setter);
                 //注释的部分为添加多个mac地址
                 // List<entity.Setter> ListMac = CommUtil.GetMacByWMI();
