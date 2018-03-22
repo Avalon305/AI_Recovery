@@ -39,7 +39,7 @@
                 <DataGridTextColumn Binding="{Binding PP_EyeOpenStand}" Header="睁眼单脚站立" Width="100"/>
                 <DataGridTextColumn Binding="{Binding PP_TimeUpGo}" Header="Time Up &amp; go" Width="100"/>
                 <DataGridTextColumn Binding="{Binding PP_UserMemo}" Header="使用者感想" Width="240"/>
-                <DataGridTextColumn Binding="{Binding User_Initcare}" Header="工作人员感想" Width="240"/>
+                <DataGridTextColumn Binding="{Binding PP_WorkerMemo}" Header="工作人员感想" Width="240"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
