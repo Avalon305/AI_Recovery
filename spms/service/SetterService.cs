@@ -9,8 +9,9 @@ using spms.entity;
 
 namespace spms.service
 {
-    class SetterService
+    public class SetterService
     {
+        SetterDAO setterDAO = new SetterDAO();
 
         public void updateTest()
         {
@@ -28,8 +29,14 @@ namespace spms.service
         }
 
         public Setter getSetter() {
-            SetterDAO setterDAO = new SetterDAO();
+           
             return setterDAO.getSetter();
+        }
+        /// <summary>
+        /// 激活时插入setter
+        /// </summary>
+        public void InsertSetter(Setter setter) {
+            setterDAO.Insert(setter);
         }
     }
 }

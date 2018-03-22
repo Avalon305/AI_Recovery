@@ -137,7 +137,29 @@ namespace spms
 
         private void Button_Click_13(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("123123123".IndexOf("123").ToString());
+            MessageBox.Show("ba123123".IndexOf("a123").ToString());
+        }
+        //获得aes加密insert
+        private void Button_Click_14(object sender, RoutedEventArgs e)
+        {
+            string mac = System.Text.Encoding.Default.GetString(AesUtil.Encrypt(System.Text.Encoding.Default.GetBytes("E4:02:9B:55:8E:30"), ProtocolConstant.USB_DOG_PASSWORD));
+            //string mac = AesUtil.AesEncrypt("E4:02:9B:55:8E:30", "E4:02:9B:55:8E:30");
+            SetterService setterService = new SetterService();
+            entity.Setter setter = new entity.Setter();
+            setter.Set_Unique_Id = mac;
+            setterService.InsertSetter(setter);
+            
+            //MessageBox.Show(mac);
+        }
+        //获得AES加密
+        private void Button_Click_15(object sender, RoutedEventArgs e)
+        {
+            SetterService setterService = new SetterService();
+            entity.Setter setter = setterService.getSetter();
+
+
+
+            MessageBox.Show(setter.Set_Unique_Id);
         }
     }
 }

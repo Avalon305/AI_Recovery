@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using spms.util;
+using spms.constant;
 
 namespace spms.service
 {
@@ -70,9 +71,11 @@ namespace spms.service
             //登录mac与激活mac不对应
             SetterDAO setterDAO = new SetterDAO();
             Setter setter = setterDAO.getSetter();
-            string mac = System.Text.Encoding.Default.GetString(AesUtil.Decrypt(System.Text.Encoding.Default.GetBytes(setter.Set_Unique_Id), ProtocolConstant.USB_DOG_PASSWORD));
-            //如果解密后的setter中的mac不包含现在获得的mac
-            if (mac.IndexOf(SystemInfo.GetMacAddress())==0 )
+            //解密逻辑再看
+            //string mac = System.Text.Encoding.Default.GetString(AesUtil.Decrypt(System.Text.Encoding.Default.GetBytes(setter.Set_Unique_Id), ProtocolConstant.USB_DOG_PASSWORD));
+            string mac = "";
+            //如果解密后的setter中的mac不包含现在获得的mac   -1为没有找到索引位置     修改完毕设置为等于负一
+            if (mac.IndexOf(SystemInfo.GetMacAddress())!= -1 )
             {
                 loginResult = "登录异常";
                 return loginResult;
