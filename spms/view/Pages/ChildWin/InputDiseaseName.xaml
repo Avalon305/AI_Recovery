@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
+        Loaded="Window_Loaded"
         Title="宝德龙" Height="145" Width="380"
         >
     <StackPanel Orientation="Vertical">
