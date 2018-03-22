@@ -13,15 +13,15 @@ namespace spms.dao
     public class TrainInfoDAO : BaseDAO<TrainInfo>
     {
         /// <summary>
-        /// 根据病人id获取最后一次训练信息
+        /// 根据病人id获取保存的训练信息
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public TrainInfo GetLastByUserId(int userId)
+        public TrainInfo GetSaveDPByUserId(int userId)
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "SELECT * FROM bdl_traininfo WHERE fk_user_id = @FK_User_Id ORDER BY gmt_modified DESC LIMIT 1";
+                const string query = "SELECT * FROM bdl_traininfo WHERE fk_user_id = @FK_User_Id AND status = 1;";
 
                 return conn.QueryFirstOrDefault<TrainInfo>(query, new { FK_User_Id = userId });
             }
@@ -84,6 +84,20 @@ namespace spms.dao
                 const string query = "SELECT fk_ti_id FROM bdl_deviceprescription JOIN bdl_prescriptionresult ON bdl_deviceprescription.pk_dp_id = bdl_prescriptionresult.fk_dp_id WHERE bdl_prescriptionresult.pk_pr_id = @Pk_PR_Id";
 
                 return conn.QueryFirstOrDefault<int>(query, new { Pk_PR_Id = id });
+            }
+        }
+        /// <summary>
+        /// 根据训练信息id删除
+        /// </summary>
+        /// <param name="tiId"></param>
+        public void DeleteByTiId(int tiId)
+        {
+            
+            using (var conn = DbUtil.getConn())
+            {
+                const string sql = "DELETE FROM bdl_deviceprescription WHERE fk_ti_id = @FK_Ti_Id";
+
+                conn.Execute(sql, new { FK_Ti_Id = tiId });
             }
         }
     }

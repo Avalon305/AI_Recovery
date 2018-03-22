@@ -15,17 +15,28 @@ namespace spms.service
     class TrainService
     {
         /// <summary>
-        /// 添加训练信息
+        /// 保存训练信息
         /// </summary>
         /// <param name="trainInfo"></param>
         /// <param name="devicePrescriptions"></param>
-        public void AddTraininfo(TrainInfo trainInfo, List<DevicePrescription> devicePrescriptions)
+        public void SaveTraininfo(TrainInfo trainInfo, List<DevicePrescription> devicePrescriptions)
         {
-            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
-            DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
-            TrainInfoDAO trainInfoDao = new TrainInfoDAO();
             using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
             {
+                UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+                DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
+                TrainInfoDAO trainInfoDao = new TrainInfoDAO();
+
+                //删除原有保存的记录
+                TrainInfo saveInfo = trainInfoDao.GetSaveDPByUserId(trainInfo.FK_User_Id);
+                if (saveInfo != null)
+                {
+                    //如果存在保存的记录，删除
+                    trainInfoDao.DeleteByPrimaryKey(saveInfo);
+                    //删除关联的处方
+                    devicePrescriptionDao.DeleteByTiId(saveInfo.Pk_TI_Id);
+                }
+                
                 //插入症状信息、插入上传表
                 int tiId = (int) trainInfoDao.Insert(trainInfo);
                 uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo"));
@@ -89,14 +100,14 @@ namespace spms.service
 
 
         /// <summary>
-        /// 获取该用户最后一次训练处方
+        /// 获取该用户保存的训练处方
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public List<DevicePrescription> GetLastDevicePrescriptionsByUser(User user)
+        public List<DevicePrescription> GetSaveDevicePrescriptionsByUser(User user)
         {
             TrainInfoDAO trainInfoDao = new TrainInfoDAO();
-            TrainInfo trainInfoFromDB = trainInfoDao.GetLastByUserId(user.Pk_User_Id);
+            TrainInfo trainInfoFromDB = trainInfoDao.GetSaveDPByUserId(user.Pk_User_Id);
             List<DevicePrescription> devicePrescriptions = null;
             if (trainInfoFromDB != null)
             {
