@@ -72,5 +72,17 @@ namespace spms
             new MakerTCPFrame.MakePrescription().Make8008Frame("222", DeviceType.X02);
             
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            byte[] content = Encoding.ASCII.GetBytes("abcdrfghijklmnopqrstuvwxyz12345678901");
+
+            byte[] jiamihou = AesUtil.Encrypt(content, ProtocolConstant.USB_DOG_AUTH_PASSWORD);
+
+            var jiemihou = AesUtil.Decrypt(jiamihou, ProtocolConstant.USB_DOG_PASSWORD);
+
+            var str = Encoding.ASCII.GetString(jiemihou);
+            MessageBox.Show(str);
+        }
     }
 }

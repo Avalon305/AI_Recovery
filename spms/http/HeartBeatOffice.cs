@@ -37,8 +37,18 @@ namespace spms.http
                 SetterDAO setterDAO = new SetterDAO();
                 Setter setter = setterDAO.getSetter();
                 //需要加入解密逻辑
-                string mac = System.Text.Encoding.Default.GetString(AesUtil.Decrypt(System.Text.Encoding.Default.GetBytes(setter.Set_Unique_Id), ProtocolConstant.USB_DOG_PASSWORD)); ;
-                if (!string.IsNullOrEmpty(setter.Set_Unique_Id))
+                string mac = "";
+                try
+                {
+                    byte[] deBytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id), ProtocolConstant.USB_DOG_PASSWORD);
+                    mac = Encoding.GetEncoding("GBK").GetString(deBytes);
+                }
+                catch (Exception ex)
+                {
+                    //TODO 解密失败的处理
+                    throw ex;
+                }
+                if (!string.IsNullOrEmpty(setter.Set_Unique_Id))//TODO 这个判断是否应该提前？否则Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id)可能有异常
                 {
                     AuthDAO authDAO = new AuthDAO();
                     var result = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
