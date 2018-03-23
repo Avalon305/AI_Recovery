@@ -6,6 +6,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="宝德龙" Height="145" Width="380"
+        Loaded="Window_Loaded"
         >
     <StackPanel Orientation="Vertical">
         <Border Height="37" CornerRadius="5,5,0,0"  Margin="5,0,5,0">

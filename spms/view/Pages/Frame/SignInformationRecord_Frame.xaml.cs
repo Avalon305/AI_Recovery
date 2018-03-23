@@ -24,5 +24,7 @@ namespace spms.view.Pages.Frame
         {
             InitializeComponent();
         }
+
+        
     }
 }

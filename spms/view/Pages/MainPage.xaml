@@ -69,7 +69,7 @@
                 --><!--结束：logo-->
                  <!-- logo -->
                 <Border Margin="10,0,1034.6,0">
-                    <Image  x:Name="DesignerHead3"  RenderTransformOrigin="0.4,0.5" Source="/view/images/3.png" Stretch="Fill" Width="245" Height="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-0.2,0" >
+                    <Image  x:Name="DesignerHead3"  RenderTransformOrigin="0.4,0.5" Source="/view/images/3-1.png" Stretch="Fill" Width="245" Height="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-0.2,0" >
                         <Image.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="1" ScaleY="1"  />

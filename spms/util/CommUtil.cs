@@ -26,6 +26,15 @@ namespace spms.util
 
             return basePath + path + picName;
         }
+
+        public static string GetUserPic()
+        {
+            string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
+            string path = ConfigurationManager.AppSettings["PicPath"];
+
+            return basePath + path;
+        }
+
         //mac地址的list 但是都相同??
         public static List<entity.Setter> GetMacByWMI()
         {
