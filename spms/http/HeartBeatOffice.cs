@@ -25,36 +25,53 @@ namespace spms.http
             //不属于未注册状态
             SetterDAO setterDAO = new SetterDAO();
             Setter setter = setterDAO.getSetter();
-            //需要加入解密逻辑
-            string mac = setter.Set_Unique_Id;
-//                string mac = System.Text.Encoding.Default.GetString(AesUtil.Decrypt(System.Text.Encoding.Default.GetBytes(setter.Set_Unique_Id), ProtocolConstant.USB_DOG_PASSWORD)); ;
             if (!string.IsNullOrEmpty(setter.Set_Unique_Id))
             {
-                AuthDAO authDAO = new AuthDAO();
-                var result = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
-                //注册用户设置mac与用户名
-                //TODO设置mac地址不能从本地拿，必须实时获取
-                sendHeartBeat = new HttpHeartBeat(result.Auth_UserName, mac);
-
-                if (result.User_Status == Auther.USER_STATUS_FREEZE)
-                {
-                    //是否为冻结状态的心跳
-                    sendHeartBeat.heartbeatType = 1;
-                    sendHeartBeat.authStatus = 1;
-                }
-                else if (result.User_Status == Auther.USER_STATUS_FREE)
-                {
-                    //是否完全离线
-                    sendHeartBeat.heartbeatType = 2;
-                    sendHeartBeat.authStatus = 3;
-                }
-                else
-                {
-                    //默认为正常心跳
-                    sendHeartBeat.heartbeatType = 0;
-                    sendHeartBeat.authStatus = 0;
-                }
+                //设置表没有唯一标识，直接返回
+                return null;
             }
+
+            //需要加入解密逻辑
+            string mac = "";
+            try
+            {
+                byte[] deBytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id),
+                    ProtocolConstant.USB_DOG_PASSWORD);
+                mac = Encoding.GetEncoding("GBK").GetString(deBytes);
+            }
+            catch (Exception ex)
+            {
+                //TODO 解密失败的处理:把冒号去掉?
+                mac = setter.Set_Unique_Id.Replace(":", "");
+                throw ex;
+            }
+
+            AuthDAO authDAO = new AuthDAO();
+            var result = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
+            //注册用户设置mac与用户名
+            //TODO设置mac地址不能从本地拿，必须实时获取
+            sendHeartBeat = new HttpHeartBeat(result.Auth_UserName, mac);
+
+            if (result.User_Status == Auther.USER_STATUS_FREEZE)
+            {
+                //是否为冻结状态的心跳
+                sendHeartBeat.heartbeatType = 1;
+                sendHeartBeat.authStatus = 1;
+            }
+            else if (result.User_Status == Auther.USER_STATUS_FREE)
+
+            {
+                //是否完全离线
+                sendHeartBeat.heartbeatType = 2;
+                sendHeartBeat.authStatus = 3;
+            }
+            else
+            {
+                //默认为正常心跳
+                sendHeartBeat.heartbeatType = 0;
+                sendHeartBeat.authStatus = 0;
+            }
+
 
             return sendHeartBeat;
         }

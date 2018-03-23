@@ -46,7 +46,7 @@ namespace spms.view
         //登录操作
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if ("false" == ConfigurationManager.AppSettings["Debug"])
+            if ("true" == ConfigurationManager.AppSettings["Debug"])
             {
                 //Debug模式直接进系统 方便开发
                 MainPage mainpage1 = new MainPage();

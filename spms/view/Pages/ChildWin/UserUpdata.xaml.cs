@@ -162,22 +162,56 @@ namespace spms.view.Pages.ChildWin
             string IDCard = this.IDCard.Text;
             //获得手机号
             string phone = this.phoneNum.Text;
-            //获取身份证与手机号之后马上查重
-            if (userService.GetByIdCard(IDCard) != null)
+            ///2018.3.22添加内容
+            if (!inputlimited.InputLimited.IsIDcard(IDCard) && !String.IsNullOrEmpty(IDCard))
             {
-                //身份证重复气泡提示
+                Error_Info_IDCard.Content = "请输入正确的身份证号码";
+                bubble_IDCard.IsOpen = true;
+                return;
+            }
+            else if (userService.GetByIdCard(IDCard) != null && !origin_IDCard.Equals(IDCard))
+            {
                 Error_Info_IDCard.Content = "该身份证已注册";
                 bubble_IDCard.IsOpen = true;
                 return;
             }
-            if (userService.GetByPhone(phone) != null)
+            else
             {
-                //手机重复气泡提示
-                Error_Info_Phone.Content = "该手机号已注册";
+                bubble_IDCard.IsOpen = false;
+            }
+            if (!inputlimited.InputLimited.IsHandset(phone) && !String.IsNullOrEmpty(phone))
+            {
+                Error_Info_Phone.Content = "请输入正确的手机号";
                 bubble_phone.IsOpen = true;
-               
                 return;
             }
+            else if (userService.GetByPhone(phone) != null && !phoneNum.Text.Equals(origin_phone))
+            {
+                Error_Info_Phone.Content = "该手机号已注册";
+                bubble_phone.IsOpen = true;
+                return;
+            }
+            else
+            {
+                bubble_phone.IsOpen = false;
+            }  
+            ////2018.3.22:修改了下方的两个if条件，加上了&&后的内容：李仲浩
+            ////获取身份证与手机号之后马上查重
+            //if (userService.GetByIdCard(IDCard) != null && !origin_IDCard.Equals(IDCard))
+            //{
+            //    //身份证重复气泡提示
+            //    Error_Info_IDCard.Content = "该身份证已注册";
+            //    bubble_IDCard.IsOpen = true;
+            //    return;
+            //}
+            //if (userService.GetByPhone(phone) != null && !origin_name.Equals(origin_name))
+            //{
+            //    //手机重复气泡提示
+            //    Error_Info_Phone.Content = "该手机号已注册";
+            //    bubble_phone.IsOpen = true;
+
+            //    return;
+            //}
 
             SelectUser.User_Birth = Convert.ToDateTime(brithday);
             SelectUser.User_GroupName = groupName;
@@ -227,7 +261,7 @@ namespace spms.view.Pages.ChildWin
         //身份证号验证和查重
         private void IsIDCard(object sender, RoutedEventArgs e)
         {
-            UserService userService = new UserService();
+            
             if (!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
             {
                 Error_Info_IDCard.Content = "请输入正确的身份证号码";

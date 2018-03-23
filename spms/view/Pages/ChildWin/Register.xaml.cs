@@ -27,13 +27,21 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class Register : Window
     {
+        //用户是否自己选择照片
+        private bool userIfSelectPic = false;
+        //去除窗体叉号
+        private const int GWL_STYLE = -16;
+        private const int WS_SYSMENU = 0x80000;
+        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+        
         //保存用户照片的路径
         string userPhotoPath = null;
-
         //service层初始化
         UserService userService = new UserService();
         CustomDataService customDataService = new CustomDataService();
-
         //小组的名称列表
         List<string> groupList;
         //疾病名称列表
@@ -42,6 +50,8 @@ namespace spms.view.Pages.ChildWin
         List<string> diagnosisList;
         //护理度列表
         List<string> careList = new List<string> { "没有申请", "自理", "要支援一", "要支援二", "要介护1", "要介护2", "要介护3", "要介护4", "要介护5" };
+
+
         public Register()
         {
             InitializeComponent();
@@ -56,6 +66,12 @@ namespace spms.view.Pages.ChildWin
             //护理程度下拉框
             c3.ItemsSource = careList;
             c4.ItemsSource = careList;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+            SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
 
         private void c1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -108,13 +124,16 @@ namespace spms.view.Pages.ChildWin
             //调整该窗体宽度
             this.Width = 710;
         }
+
         //取消操作，关闭窗体
         private void Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+
         /// <summary>
-        /// 添加按钮事件
+        /// 确定保存添加按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -187,33 +206,41 @@ namespace spms.view.Pages.ChildWin
 
             
 
-            if (IdCard != null && name != null && IDCard != "" && name != "")
+            if (IdCard != null && name != null && IDCard != "" && name != "" && userIfSelectPic != false)
             {
                 // 如果用户是自己选择现成的图片，将图片保存在安装目录下
                 string sourcePic = userPhotoPath;
                 string targetPic = CommUtil.GetUserPic(usernamePY + IDCard);
                 targetPic += ".jpg";
+
+                String dirPath = CommUtil.GetUserPic();
+
+                Console.WriteLine(dirPath);
+                if (Directory.Exists(dirPath))//判断是否存在
+                {
+                    //Response.Write("已存在");
+                }
+                else
+                {
+                    //Response.Write("不存在，正在创建");
+                    Directory.CreateDirectory(dirPath);//创建新路径
+                }
+
                 bool isrewrite = true; // true=覆盖已存在的同名文件,false则反之
                 System.IO.File.Copy(sourcePic, targetPic, isrewrite);
-                
             }
-            else
+            else if(userIfSelectPic != false)
             {
-                System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
+                MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
                 return;
             }
             
-
             userService.InsertUser(user);
             this.Close();
-
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
 
-        }
-
+        // 摄像
         private void Photograph(object sender, RoutedEventArgs e)
         {
 
@@ -228,6 +255,18 @@ namespace spms.view.Pages.ChildWin
             photograph.getName = t3.Text;
 
             photograph.ShowDialog();
+
+            MessageBox.Show("hi");
+
+            string path = CommUtil.GetUserPic(t3.Text + IDCard.Text);
+            path += ".jpg";
+
+            if (File.Exists(path))
+            {
+                MessageBox.Show("hi open!");
+                BitmapImage image = new BitmapImage(new Uri(path, UriKind.Absolute));//打开图片
+                pic.Source = image;//将控件和图片绑定
+            }
         }
 
         // 用户自主选择照片
@@ -263,10 +302,12 @@ namespace spms.view.Pages.ChildWin
                     BitmapImage image = new BitmapImage(new Uri(ofd.FileName, UriKind.Absolute));//打开图片
                     pic.Source = image;//将控件和图片绑定
 
+                    userIfSelectPic = true;
                     userPhotoPath = ofd.FileName;
                 }
                 else
                 {
+                    userIfSelectPic = false;
                     System.Windows.MessageBox.Show("你没有选择图片", "信息提示");
                 }
             }

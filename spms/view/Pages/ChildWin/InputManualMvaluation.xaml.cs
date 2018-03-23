@@ -95,6 +95,7 @@ namespace spms.view.Pages.ChildWin
 
         private void Stand_support_Checked(object sender, RoutedEventArgs e)
         {
+           
             stand_nosupport.IsChecked = false;
             stand_toolsupport.IsChecked = false;
 
@@ -273,12 +274,12 @@ namespace spms.view.Pages.ChildWin
 
         private void c31_Checked(object sender, RoutedEventArgs e)
         {
-            c32.IsEnabled = false;
+            c32.IsChecked = false;
         }
 
         private void c32_Checked(object sender, RoutedEventArgs e)
         {
-            c31.IsEnabled = false;
+            c31.IsChecked = false;
         }
 
         private void c33_Checked(object sender, RoutedEventArgs e)

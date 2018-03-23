@@ -125,7 +125,7 @@
                         </EventTrigger>
                     </Border.Triggers>
 
-                    <Image  x:Name="DesignerHead2"  RenderTransformOrigin="0.4,0.5" Source="/view/images/5-4.png" Stretch="Fill" Width="120" Height="21" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,-11.2,29">
+                    <Image  x:Name="DesignerHead2"  RenderTransformOrigin="0.4,0.5" Source="/view/images/5-5.png" Stretch="Fill" Width="120" Height="21" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,-11.2,29">
                         <Image.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="1" ScaleY="1"  />

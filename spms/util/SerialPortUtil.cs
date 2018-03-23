@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO.Ports;
+using spms.view.Pages.ChildWin;
 
 namespace spms.util
 {
@@ -13,6 +14,11 @@ namespace spms.util
     class SerialPortUtil
     {
         private static SerialPort serialPort;
+        //当前的串口号
+        public static string portName = "";
+        //定义可以操作当前串口的方法
+        public static SerialPort SerialPort { get => serialPort; set => serialPort = value; }
+
         public delegate void OnPortDataReceived(Object sender, SerialDataReceivedEventArgs e);
 
         /// <summary>
@@ -21,17 +27,44 @@ namespace spms.util
         /// <param name="portName">串口名</param>
         /// <param name="onPortDataReceived">串口监听方法</param>
         /// <returns></returns>
-        public static SerialPort ConnectSerialPort(string portName, OnPortDataReceived onPortDataReceived)
+        public static SerialPort ConnectSerialPort(OnPortDataReceived onPortDataReceived)
         {
-            serialPort = new SerialPort();
-            serialPort.PortName = portName;
-            serialPort.BaudRate = 115200;
-            serialPort.ReadTimeout = 3000; //单位毫秒
-            serialPort.WriteTimeout = 3000; //单位毫秒
-            serialPort.ReceivedBytesThreshold = 1;
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(onPortDataReceived);
+            if (SerialPort == null)
+            {
+                if (portName != "")
+                {
+                    SerialPort = new SerialPort();
+                    SerialPort.PortName = portName;
+                    SerialPort.BaudRate = 115200;
+                    SerialPort.ReadTimeout = 3000; //单位毫秒
+                    SerialPort.WriteTimeout = 3000; //单位毫秒
+                    SerialPort.ReceivedBytesThreshold = 1;
+                    SerialPort.DataReceived += new SerialDataReceivedEventHandler(onPortDataReceived);
+                }
+            }
+     
+            return SerialPort;
+        }
 
-            return serialPort;
+
+        /// <summary>
+        /// 检查当前是否有多个串口
+        /// </summary>
+        public static void CheckPort()
+        {
+            string[] names = SerialPort.GetPortNames();
+            if (names.Length == 1)
+            {
+                SerialPortUtil.portName = names[0];
+            }
+            else
+            {
+                SerialPortSelection serialPortSelection = new SerialPortSelection();
+                serialPortSelection.datalist.DataContext = names;
+                serialPortSelection.Top = 200;
+                serialPortSelection.Left = 500;
+                serialPortSelection.ShowDialog();
+            }
         }
     }
 }
