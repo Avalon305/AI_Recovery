@@ -1,39 +1,135 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using spms.http.entity;
+using spms.util;
 
 namespace spms.http
 {
     //负责发送http请求的发送者对象
     public class HttpSender
     {
-        public const string URLBASE = "http://";
-        //发送地址
-        public string Uri { get; set; }
-        //发送的json数据体
-        public string Data { get; set; }
+        public const string URLBASE = "http://192.168.9.218:8080/cloud/";
+
+//        //发送地址
+//        public string Uri { get; set; }
+//        //发送的json数据体
+//        public string Data { get; set; }
         //有参构造
-        public HttpSender(string UriTarget, string DataBody) {
-            this.Uri = URLBASE+UriTarget;
-            this.Data = DataBody;
-        }
+//        public HttpSender(string UriTarget, string DataBody) {
+//            this.Uri = URLBASE+UriTarget;
+//            this.Data = DataBody;
+//        }
         //私有化空构造
         private HttpSender()
         {
         }
+
         /// <summary>
-        /// 发送数据至平台的默认方法-post
+        /// 测试网络是否通畅
         /// </summary>
-        /// <returns>返回web响应的string串</returns>
-        public string sendDataToWebPlatform() {
-            return POSTByJsonStr(this.Uri, this.Data);
+        public static bool Ping()
+        {
+            string pingResult = POSTByJsonStr("communicationController/analysisJson",
+                JsonTools.Obj2JSONStrNew(new HttpHeartBeat("ping")));
+
+            HttpHeartBeat httpHeartBeat = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(pingResult);
+            if (httpHeartBeat != null && httpHeartBeat.username.Equals("pong"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        
+
+        //post方式，参数为json串
+        public static string POSTByJsonStr(string url, string jsonStr)
+        {
+            try
+            {
+                Console.WriteLine("====================================发数据啦" + jsonStr);
+                HttpWebRequest request = WebRequest.Create(URLBASE + url) as HttpWebRequest; //创建请求
+                CookieContainer cookieContainer = new CookieContainer();
+                request.Timeout = 10 * 1000; //10s超时
+                request.CookieContainer = cookieContainer;
+                request.AllowAutoRedirect = true;
+                //request.AllowReadStreamBuffering = true;
+                request.MaximumResponseHeadersLength = 1024;
+                request.Method = "POST"; //请求方式为post
+                request.AllowAutoRedirect = true;
+                request.MaximumResponseHeadersLength = 1024;
+                request.ContentType = "application/json";
+
+                // string jsonstring = json.ToString();//获得参数的json字符串
+                byte[] jsonbyte = Encoding.UTF8.GetBytes(jsonStr);
+                Stream postStream = request.GetRequestStream();
+                postStream.Write(jsonbyte, 0, jsonbyte.Length);
+                postStream.Close();
+                //发送请求并获取相应回应数据       
+                HttpWebResponse res;
+                try
+                {
+                    res = (HttpWebResponse)request.GetResponse();
+                }
+                catch (WebException ex)
+                {
+                    res = (HttpWebResponse)ex.Response;
+                }
+
+                StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
+                string content = sr.ReadToEnd(); //获得响应字符串
+                return content;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return "";
+            }
+            
+        }
+
+
+        //url为请求的网址，param参数为需要查询的条件（服务端接收的参数，没有则为null）
+        //返回该次请求的响应
+        public static string GET(string url, Dictionary<String, String> param)
+        {
+            if (param != null) //有参数的情况下，拼接url
+            {
+                url = url + "?";
+                foreach (var item in param)
+                {
+                    url = url + item.Key + "=" + item.Value + "&";
+                }
+
+                url = url.Substring(0, url.Length - 1);
+            }
+
+            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest; //创建请求
+            request.Method = "GET"; //请求方法为GET
+            HttpWebResponse res; //定义返回的response
+            try
+            {
+                res = (HttpWebResponse) request.GetResponse(); //此处发送了请求并获得响应
+            }
+            catch (WebException ex)
+            {
+                res = (HttpWebResponse) ex.Response;
+            }
+
+            StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
+            string content = sr.ReadToEnd(); //响应转化为String字符串
+            return content;
+        }
+
+
         //url为请求的网址，param为需要传递的参数
         //返回服务端的响应
         public static string POST(string url, Dictionary<String, String> param)
@@ -41,7 +137,7 @@ namespace spms.http
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest; //创建请求
             CookieContainer cookieContainer = new CookieContainer();
             request.CookieContainer = cookieContainer;
-            request.Timeout = 10 * 1000;//10s超时
+            request.Timeout = 10 * 1000; //10s超时
             request.AllowAutoRedirect = true;
             //request.AllowReadStreamBuffering = true;
             request.MaximumResponseHeadersLength = 1024;
@@ -57,7 +153,8 @@ namespace spms.http
                     json.Add(item.Key, item.Value);
                 }
             }
-            string jsonstring = json.ToString();//获得参数的json字符串
+
+            string jsonstring = json.ToString(); //获得参数的json字符串
             byte[] jsonbyte = Encoding.UTF8.GetBytes(jsonstring);
             Stream postStream = request.GetRequestStream();
             postStream.Write(jsonbyte, 0, jsonbyte.Length);
@@ -66,78 +163,15 @@ namespace spms.http
             HttpWebResponse res;
             try
             {
-                res = (HttpWebResponse)request.GetResponse();
+                res = (HttpWebResponse) request.GetResponse();
             }
             catch (WebException ex)
             {
-                res = (HttpWebResponse)ex.Response;
+                res = (HttpWebResponse) ex.Response;
             }
+
             StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
             string content = sr.ReadToEnd(); //获得响应字符串
-            return content;
-        }
-        //post方式，参数为json串
-        public static string POSTByJsonStr(string url, string jsonStr)
-        {
-            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest; //创建请求
-            CookieContainer cookieContainer = new CookieContainer();
-            request.Timeout = 10 * 1000;//10s超时
-            request.CookieContainer = cookieContainer;
-            request.AllowAutoRedirect = true;
-            //request.AllowReadStreamBuffering = true;
-            request.MaximumResponseHeadersLength = 1024;
-            request.Method = "POST"; //请求方式为post
-            request.AllowAutoRedirect = true;
-            request.MaximumResponseHeadersLength = 1024;
-            request.ContentType = "application/json";
-             
-           // string jsonstring = json.ToString();//获得参数的json字符串
-            byte[] jsonbyte = Encoding.UTF8.GetBytes(jsonStr);
-            Stream postStream = request.GetRequestStream();
-            postStream.Write(jsonbyte, 0, jsonbyte.Length);
-            postStream.Close();
-            //发送请求并获取相应回应数据       
-            HttpWebResponse res;
-            try
-            {
-                res = (HttpWebResponse)request.GetResponse();
-            }
-            catch (WebException ex)
-            {
-                res = (HttpWebResponse)ex.Response;
-            }
-            StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
-            string content = sr.ReadToEnd(); //获得响应字符串
-            return content;
-        }
-
-
-        //url为请求的网址，param参数为需要查询的条件（服务端接收的参数，没有则为null）
-        //返回该次请求的响应
-        public static string GET(string url, Dictionary<String, String> param)
-        {
-            if (param != null) //有参数的情况下，拼接url
-            {
-                url = url + "?";
-                foreach (var item in param)
-                {
-                    url = url + item.Key + "=" + item.Value + "&";
-                }
-                url = url.Substring(0, url.Length - 1);
-            }
-            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;//创建请求
-            request.Method = "GET"; //请求方法为GET
-            HttpWebResponse res; //定义返回的response
-            try
-            {
-                res = (HttpWebResponse)request.GetResponse(); //此处发送了请求并获得响应
-            }
-            catch (WebException ex)
-            {
-                res = (HttpWebResponse)ex.Response;
-            }
-            StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
-            string content = sr.ReadToEnd(); //响应转化为String字符串
             return content;
         }
     }

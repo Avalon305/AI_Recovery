@@ -27,5 +27,6 @@
             </wpfmedia:VideoCaptureElement>
         <Button Content="选择路径" HorizontalAlignment="Left" Margin="231,124,0,0" VerticalAlignment="Top" Width="75" Click="Select_Path_Click" />
         <Button Content="U盘加密狗协议" HorizontalAlignment="Left" Margin="533,124,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="75,178,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
     </Grid>
 </Window>
