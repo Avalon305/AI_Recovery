@@ -182,5 +182,47 @@ namespace spms.util
 
             return (byte)(b1 * 10 + b2);
         }
+
+        /// <summary>
+        ///  打包发卡数据
+        /// </summary>
+        /// <param name="cmd">命令字</param>
+        /// <param name="data">数据</param>
+        /// <returns></returns>
+        public static byte[] packHairpinData(byte cmd, byte[] data)
+        {
+            int len = data.Length;
+
+            byte[] result = new byte[len + 5];
+
+            result[0] = 0xAA;
+            result[1] = cmd;
+            result[2] = (byte)data.Length;
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                result[3 + i] = data[i];
+            }
+
+            //异或校检
+            byte xor = XorByByte(result.Skip(1).Take(len + 2).ToArray());
+            result[result.Length - 2] = xor;
+            Console.WriteLine(ByteToStringOk(result));
+
+            //协议尾
+            result[result.Length - 1] = 0xCC;
+
+            return result;
+        }
+
+        public static string ByteToStringOk(byte[] InBytes)
+        {
+            string StringOut = "";
+            foreach (byte InByte in InBytes)
+            {
+                StringOut = StringOut + String.Format("{0:X2} ", InByte);
+            }
+            return StringOut;
+        }
     }
 }

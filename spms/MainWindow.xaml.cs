@@ -81,7 +81,7 @@ namespace spms
             byte[] data = new byte[2] { 0x11, 0x12 };
             if (serialPort == null)
             {
-                serialPort = util.SerialPortUtil.ConnectSerialPort("COM3", OnPortDataReceived);
+                serialPort = util.SerialPortUtil.ConnectSerialPort(OnPortDataReceived);
                 serialPort.Open();
             }
 

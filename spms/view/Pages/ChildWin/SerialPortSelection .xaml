@@ -35,7 +35,7 @@
                                         <Binding Path="Gmt_Create" StringFormat="{}{0:yyyy-MM-dd HH:mm}"/>
                                     </TextBox.Text>
                                 </TextBox>-->
-                    <CheckBox Content="{Binding Port_Name}"  ></CheckBox>
+                    <RadioButton Content="{Binding}" GroupName="Port_Names"  Checked="Port_Checked" ></RadioButton>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
