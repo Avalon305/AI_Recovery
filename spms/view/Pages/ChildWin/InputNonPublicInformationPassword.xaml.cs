@@ -268,6 +268,7 @@ namespace spms.view.Pages.ChildWin
                     if (SerialPortUtil.SerialPort != null)
                     {
                         SerialPortUtil.SerialPort = null;
+                        ProtocolConstant.USB_SUCCESS = 1;
                     }
 
                     this.Close();
