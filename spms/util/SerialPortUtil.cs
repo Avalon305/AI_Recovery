@@ -13,7 +13,8 @@ namespace spms.util
     class SerialPortUtil
     {
         private static SerialPort serialPort;
-
+        //当前的串口号
+        public static string portName = "";
         //定义可以操作当前串口的方法
         public static SerialPort SerialPort { get => serialPort; set => serialPort = value; }
 
@@ -25,17 +26,20 @@ namespace spms.util
         /// <param name="portName">串口名</param>
         /// <param name="onPortDataReceived">串口监听方法</param>
         /// <returns></returns>
-        public static SerialPort ConnectSerialPort(string portName, OnPortDataReceived onPortDataReceived)
+        public static SerialPort ConnectSerialPort(OnPortDataReceived onPortDataReceived)
         {
             if (SerialPort == null)
             {
-                SerialPort = new SerialPort();
-                SerialPort.PortName = portName;
-                SerialPort.BaudRate = 115200;
-                SerialPort.ReadTimeout = 3000; //单位毫秒
-                SerialPort.WriteTimeout = 3000; //单位毫秒
-                SerialPort.ReceivedBytesThreshold = 1;
-                SerialPort.DataReceived += new SerialDataReceivedEventHandler(onPortDataReceived);
+                if (portName != "")
+                {
+                    SerialPort = new SerialPort();
+                    SerialPort.PortName = portName;
+                    SerialPort.BaudRate = 115200;
+                    SerialPort.ReadTimeout = 3000; //单位毫秒
+                    SerialPort.WriteTimeout = 3000; //单位毫秒
+                    SerialPort.ReceivedBytesThreshold = 1;
+                    SerialPort.DataReceived += new SerialDataReceivedEventHandler(onPortDataReceived);
+                }
             }
      
             return SerialPort;

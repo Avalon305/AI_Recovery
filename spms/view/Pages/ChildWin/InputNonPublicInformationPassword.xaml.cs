@@ -67,13 +67,19 @@ namespace spms.view.Pages.ChildWin
                 //Console.WriteLine("测试:"+CRC16Util.ByteToStringOk(test));
 
                 //2.判断当前是否已经连接过串口
+                CheckPort();
+                if (SerialPortUtil.portName == "")
+                {
+                    MessageBox.Show("请选择串口号");
+                    return;
+                }
                 if (SerialPortUtil.SerialPort != null)
                 {
                     SerialPortUtil.SerialPort = null;
                 }
                 if (serialPort == null)
                 {
-                    serialPort = SerialPortUtil.ConnectSerialPort("COM5", OnPortDataReceived);
+                    serialPort = SerialPortUtil.ConnectSerialPort(OnPortDataReceived);
                     if (!serialPort.IsOpen)
                     {
                         serialPort.Open();
@@ -84,6 +90,26 @@ namespace spms.view.Pages.ChildWin
                     //发送的定时器
                     threadTimer = new System.Threading.Timer(new System.Threading.TimerCallback(ReissueThreeTimes), send, 500, 500);
                 }
+            }
+        }
+
+        /// <summary>
+        /// 检查当前是否有多个串口
+        /// </summary>
+        private void CheckPort()
+        {
+            string[] names = SerialPort.GetPortNames();
+            if (names.Length == 1)
+            {
+                SerialPortUtil.portName = names[0];
+            }
+            else
+            {
+                SerialPortSelection serialPortSelection = new SerialPortSelection();
+                serialPortSelection.datalist.DataContext = names;
+                serialPortSelection.Top = 200;
+                serialPortSelection.Left = 500;
+                serialPortSelection.ShowDialog();
             }
         }
 
