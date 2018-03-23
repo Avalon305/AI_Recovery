@@ -241,6 +241,9 @@
     <Compile Include="view\Pages\AdvancedSettings.xaml.cs">
       <DependentUpon>AdvancedSettings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\Pages\ChildWin\AdvancedSettingPassWord.xaml.cs">
+      <DependentUpon>AdvancedSettingPassWord.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\ChildWin\AutherAdd.xaml.cs">
       <DependentUpon>AutherAdd.xaml</DependentUpon>
     </Compile>
@@ -381,6 +384,10 @@
     <Page Include="view\Pages\AdvancedSettings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\AdvancedSettingPassWord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\ChildWin\AutherAdd.xaml">
       <SubType>Designer</SubType>

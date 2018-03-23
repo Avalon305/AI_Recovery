@@ -31,14 +31,15 @@ namespace spms.dao
                 conn.Execute(sql, setter);
             }
         }
-        public void InsertMacAdress(List<entity.Setter> list)
+        public void UpdateOneSet(entity.Setter setter)
         {
             using (var conn = DbUtil.getConn())
             {
-                const string sql = "insert into bdl_set(set_unique_id) values(@Set_Unique_Id)";
-                conn.Execute(sql, list);
+                const string sql = "update bdl_set set Set_Unique_Id=@Set_Unique_Id where Pk_Set_Id = @Pk_Set_Id";
+                conn.Execute(sql, setter);
             }
         }
+
 
     }
 }
