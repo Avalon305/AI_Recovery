@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO.Ports;
+using spms.view.Pages.ChildWin;
 
 namespace spms.util
 {
@@ -43,6 +44,27 @@ namespace spms.util
             }
      
             return SerialPort;
+        }
+
+
+        /// <summary>
+        /// 检查当前是否有多个串口
+        /// </summary>
+        public static void CheckPort()
+        {
+            string[] names = SerialPort.GetPortNames();
+            if (names.Length == 1)
+            {
+                SerialPortUtil.portName = names[0];
+            }
+            else
+            {
+                SerialPortSelection serialPortSelection = new SerialPortSelection();
+                serialPortSelection.datalist.DataContext = names;
+                serialPortSelection.Top = 200;
+                serialPortSelection.Left = 500;
+                serialPortSelection.ShowDialog();
+            }
         }
     }
 }

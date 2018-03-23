@@ -38,26 +38,22 @@ namespace spms.view.Pages
         CustomData diagnosis = new CustomData();
         CustomDataDAO customDataDAO = new CustomDataDAO();
         List<entity.Setter> setterList = new List<entity.Setter>();
-        List<entity.Setter> UniqueIdList = new List<entity.Setter>();
-        List<entity.Setter> LanguageList = new List<entity.Setter>();
         SetterDAO setterDao = new SetterDAO();
         DataCodeDAO DataCodeDAO = new DataCodeDAO();
         List<DataCode> ListDataCode = new List<DataCode>();
-        ObservableCollection<CustomData> groupCollection;
-        ObservableCollection<CustomData> diseaseCollection;
-        ObservableCollection<CustomData> diagnosisCollection;
         int[] Selected = { 0, 0, 0 };
+        int Pk_Set_Id;
         public DesignPage1()
         {
             InitializeComponent();
             entity.Setter setter = new entity.Setter();
-            setter.Pk_Set_Id = 1;
-            setterList.Add(setterDao.Load(setter.Pk_Set_Id));
-            UniqueIdList = setterDao.ListAll();
-            LanguageList = setterDao.ListAll();
+            //setter.Pk_Set_Id = 5;
+            //setterList.Add(setterDao.Load(setter.Pk_Set_Id));
+            setterList = setterDao.ListAll();
+            Pk_Set_Id = setterList[0].Pk_Set_Id;
+            comboBox2.SelectedIndex = (int)setterList[0].Set_Language;
+            comboBox1.SelectedIndex = int.Parse(setterList[0].Set_OrganizationSort);
             ObservableCollection<entity.Setter> DataCollection = new ObservableCollection<entity.Setter>(setterList);
-            //ObservableCollection<entity.Setter> UniqueIdCollection = new ObservableCollection<entity.Setter>(UniqueIdList);
-            ObservableCollection<entity.Setter> LanguageCollection = new ObservableCollection<entity.Setter>(LanguageList);
             textBox1.DataContext = DataCollection;//设置机构团体名称
             textBox2.DataContext = DataCollection;//设置照片保存文档
             ListDataCode = DataCodeDAO.ListByTypeId("OrganizationSort");//绑定组织区分
@@ -66,20 +62,28 @@ namespace spms.view.Pages
             comboBox2.ItemsSource = ListDataCode;
             //下方三个datagrid的实现
             groupList = customDataService.GetAllObjectByType(CustomDataEnum.Group);
-            groupCollection = new ObservableCollection<CustomData>(groupList);
             diseaseList = customDataService.GetAllObjectByType(CustomDataEnum.Disease);
-            diseaseCollection = new ObservableCollection<CustomData>(diseaseList);
             diagnosisList = customDataService.GetAllObjectByType(CustomDataEnum.Diagiosis);
-            diagnosisCollection = new ObservableCollection<CustomData>(diagnosisList);
-            ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = groupCollection;
-            ((this.FindName("DataGrid3")) as DataGrid).ItemsSource = diseaseCollection;
-            ((this.FindName("DataGrid4")) as DataGrid).ItemsSource = diagnosisCollection;
+
+            ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = groupList;
+            ((this.FindName("DataGrid3")) as DataGrid).ItemsSource = diseaseList;
+            ((this.FindName("DataGrid4")) as DataGrid).ItemsSource = diagnosisList;
 
 
         }
         //按钮：高级设置
         private void AdvancedSettings(object sender, RoutedEventArgs e)
         {
+            //Window window = (Window)this.Parent;
+            //window.Content = new AdvancedSettingPassWord();
+            AdvancedSettingPassWord advancedSettingPassWord = new AdvancedSettingPassWord
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            advancedSettingPassWord.ShowDialog();
             Window window = (Window)this.Parent;
             window.Content = new AdvancedSettings();
 
@@ -103,24 +107,17 @@ namespace spms.view.Pages
             string textValue2 = textBox2.Text;//照片保存文档
             int comboBox1Selected = comboBox1.SelectedIndex;//机构区分被选择的index
             int comboBox2Selected = comboBox2.SelectedIndex;//语言被选择的index
-            string comboBox1Value = comboBox1.Text;//机构区分被选择的index
-            string scomboBox2Value = comboBox2.Text;//语言被选择的index
-            int comboBox2Value = Convert.ToInt32(scomboBox2Value);//当前值
             entity.Setter setter = new entity.Setter();
-            setter.Pk_Set_Id = 1;
+            setter.Pk_Set_Id = Pk_Set_Id;
             setter.Set_OrganizationName = textValue1;
             setter.Set_PhotoLocation = textValue2;
-            using (var conn = DbUtil.getConn())//更新机构团体和照片保存文档
-            {
-                conn.Execute("update bdl_set set Set_OrganizationName=@Set_OrganizationName,Set_PhotoLocation=@Set_PhotoLocation where Pk_Set_Id=@Pk_Set_Id", setter);
-            }
-            entity.Setter setterCombo1 = new entity.Setter();
-            setterCombo1.Set_Language = comboBox2Value;
-            setterCombo1.Pk_Set_Id = (int)comboBox2.SelectedValue;
-            using (var conn = DbUtil.getConn())//更新语言
-            {
-                conn.Execute("update bdl_set set Set_Language=@Set_Language where Pk_Set_Id=@Pk_Set_Id", setterCombo1);
-            }
+            setter.Set_Language = comboBox2Selected;
+            setter.Set_OrganizationSort = comboBox1Selected.ToString();
+            /* using (var conn = DbUtil.getConn())//更新机构团体和照片保存文档
+             {
+                 conn.Execute("update bdl_set set Set_OrganizationName=@Set_OrganizationName,Set_Language=@Set_Language，Set_OrganizationSort=@Set_OrganizationSort，Set_PhotoLocation=@Set_PhotoLocation where Pk_Set_Id=@Pk_Set_Id", setter);
+             }*/
+            setterDao.UpdateByPrimaryKey(setter);
 
 
         }
@@ -146,22 +143,22 @@ namespace spms.view.Pages
         {
             group = null;
             groupList = customDataService.GetAllObjectByType(CustomDataEnum.Group);
-            groupCollection = new ObservableCollection<CustomData>(groupList);
-            ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = groupCollection;
+            //groupCollection = new ObservableCollection<CustomData>(groupList);
+            ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = groupList;
         }
         private void FlushDisease()
         {
             disease = null;
             diseaseList = customDataService.GetAllObjectByType(CustomDataEnum.Disease);
-            diseaseCollection = new ObservableCollection<CustomData>(diseaseList);
-            ((this.FindName("DataGrid3")) as DataGrid).ItemsSource = diseaseCollection;
+            //diseaseCollection = new ObservableCollection<CustomData>(diseaseList);
+            ((this.FindName("DataGrid3")) as DataGrid).ItemsSource = diseaseList;
         }
         private void FlushDiagnosis()
         {
             diagnosis = null;
             diagnosisList = customDataService.GetAllObjectByType(CustomDataEnum.Diagiosis);
-            diagnosisCollection = new ObservableCollection<CustomData>(diagnosisList);
-            ((this.FindName("DataGrid4")) as DataGrid).ItemsSource = diagnosisCollection;
+            //diagnosisCollection = new ObservableCollection<CustomData>(diagnosisList);
+            ((this.FindName("DataGrid4")) as DataGrid).ItemsSource = diagnosisList;
         }
         private void Add_Group(object sender, RoutedEventArgs e)
         {
@@ -322,7 +319,7 @@ namespace spms.view.Pages
         }
         private void Output_Document(object sender, RoutedEventArgs e)
         {
-            System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            /*System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             openFileDialog1.InitialDirectory = "c:\\";
             openFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             openFileDialog1.FilterIndex = 2;
@@ -330,7 +327,17 @@ namespace spms.view.Pages
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 //此处做你想做的事 ...=openFileDialog1.FileName; 
+                textBox2.Text = System.IO.Path.GetFullPath(openFileDialog1.FileName);
+            }*/
+            System.Windows.Forms.FolderBrowserDialog m_Dialog = new System.Windows.Forms.FolderBrowserDialog();
+            System.Windows.Forms.DialogResult result = m_Dialog.ShowDialog();
+
+            if (result == System.Windows.Forms.DialogResult.Cancel)
+            {
+                return;
             }
+            string m_Dir = m_Dialog.SelectedPath.Trim();
+            this.textBox2.Text = m_Dir;
         }
 
     }

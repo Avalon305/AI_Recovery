@@ -23,23 +23,23 @@ namespace spms.http.dto
         //训练信息id
         public string fkTIId;
         //高血压（康复前）
-        public string siPreHighPressure;
+        public string siPreHighpressure;
         //低血压（康复前）
-        public string siPreLowPressure;
+        public string siPreLowpressure;
         //心率（康复前）
-        public string siPreHeartRate;
+        public string siPreHeartrate;
         //体温（康复前）
-        public string siPreAnimalHeat;
+        public string siPreAnimalheat;
         //脉搏（康复前）
         public string siPrePulse;
         //高血压（康复后）
-        public string siSufHighPressure;
+        public string siSufHighpressure;
         //低血压（康复后）
-        public string siSufLowPressure;
+        public string siSufLowpressure;
         //心率（康复后）
-        public string siSufHeartRate;
+        public string siSufHeartrate;
         //体温（康复后）
-        public string siSufAnimalHeat;
+        public string siSufAnimalheat;
         //脉搏（康复后）
         public string siSufPulse; 
 
@@ -69,15 +69,15 @@ namespace spms.http.dto
             this.siWaterinput = symptomInfo.SI_WaterInput.ToString();
             //V2表信息
             this.fkTIId = symptomInfo.Fk_TI_Id.ToString();
-            this.siPreAnimalHeat= symptomInfo.SI_Pre_AnimalHeat.ToString();
-            this.siPreHeartRate= symptomInfo.SI_Pre_HeartRate.ToString();
-            this.siPreHighPressure= symptomInfo.SI_Pre_HighPressure.ToString();
-            this.siPreLowPressure= symptomInfo.SI_Pre_LowPressure.ToString();
+            this.siPreAnimalheat= symptomInfo.SI_Pre_AnimalHeat.ToString();
+            this.siPreHeartrate= symptomInfo.SI_Pre_HeartRate.ToString();
+            this.siPreHighpressure= symptomInfo.SI_Pre_HighPressure.ToString();
+            this.siPreLowpressure= symptomInfo.SI_Pre_LowPressure.ToString();
             this.siPrePulse= symptomInfo.SI_Pre_LowPressure.ToString();
-            this.siSufAnimalHeat= symptomInfo.SI_Suf_AnimalHeat.ToString();
-            this.siSufHeartRate= symptomInfo.SI_Suf_HeartRate.ToString();
-            this.siSufHighPressure = symptomInfo.SI_Suf_HighPressure.ToString();
-            this.siSufLowPressure= symptomInfo.SI_Suf_LowPressure.ToString();
+            this.siSufAnimalheat= symptomInfo.SI_Suf_AnimalHeat.ToString();
+            this.siSufHeartrate= symptomInfo.SI_Suf_HeartRate.ToString();
+            this.siSufHighpressure = symptomInfo.SI_Suf_HighPressure.ToString();
+            this.siSufLowpressure= symptomInfo.SI_Suf_LowPressure.ToString();
             this.siSufPulse= symptomInfo.SI_Suf_Pulse.ToString();
         }
     }

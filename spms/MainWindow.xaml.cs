@@ -23,6 +23,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFMediaKit.DirectShow.Controls;
 using spms.constant;
+using spms.http;
 using spms.protocol;
 
 namespace spms
@@ -33,11 +34,12 @@ namespace spms
     public partial class MainWindow : Window
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
+        private BigDataOfficer bigDataOfficer;
         private string path = null;
         public MainWindow()
         {
             InitializeComponent();
-
+            bigDataOfficer = new BigDataOfficer(12);
             // 初始化摄像头
             Camera_CB.ItemsSource = MultimediaUtil.VideoInputNames;
             if (MultimediaUtil.VideoInputNames.Length > 0)
@@ -220,6 +222,11 @@ namespace spms
             //是否和发送的数据体相等
             MessageBox.Show(ProtocolUtil.ArrayEqual((byte[])rr, ProtocolConstant.USB_DOG_CONTENT).ToString());
 
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            bigDataOfficer.Run();
         }
     }
 }

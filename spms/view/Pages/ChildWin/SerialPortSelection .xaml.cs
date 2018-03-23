@@ -25,7 +25,7 @@ namespace spms.view.Pages.ChildWin
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
 
-        private string portName;
+        private string portName = "";
 
         [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
@@ -45,6 +45,8 @@ namespace spms.view.Pages.ChildWin
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
+            //如果点击取消，则相当于没有选择串口
+            SerialPortUtil.portName = "";
             this.Close();
         }
 

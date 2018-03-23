@@ -69,7 +69,7 @@ namespace spms
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            new MakerTCPFrame.MakePrescription().Make8008Frame("222", DeviceType.X02);
+            new Login().Show();
             
         }
 
@@ -77,12 +77,19 @@ namespace spms
         {
             byte[] content = Encoding.ASCII.GetBytes("abcdrfghijklmnopqrstuvwxyz12345678901");
 
-            byte[] jiamihou = AesUtil.Encrypt(content, ProtocolConstant.USB_DOG_AUTH_PASSWORD);
+            byte[] jiamihou = AesUtil.Encrypt(content, ProtocolConstant.USB_DOG_PASSWORD);
 
             var jiemihou = AesUtil.Decrypt(jiamihou, ProtocolConstant.USB_DOG_PASSWORD);
 
             var str = Encoding.ASCII.GetString(jiemihou);
             MessageBox.Show(str);
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            var u = new UserDAO().GetByIdCard("370111111111111115");
+
+            MessageBox.Show(u.User_Name);
         }
     }
 }

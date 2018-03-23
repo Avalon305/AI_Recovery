@@ -35,6 +35,8 @@
                                         <Setter Property="BorderThickness" Value="0"/>
                                     </Trigger>
                                 </Style.Triggers>
+                                <!--单元格tooltip效果-->
+                                <Setter Property="ToolTipService.ToolTip"  Value="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content.Text}" />
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
@@ -48,9 +50,46 @@
 
                             <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="自觉运动强度" Width="90"/>
                             <DataGridTextColumn Binding="{Binding evaluate}" Header="运动时机、姿势等" Width="110"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>
-
+                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>-->
+                            <DataGridTemplateColumn Header="备忘" Width="185" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo}" TextTrimming="WordEllipsis"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
+                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
+                            <DataGridTemplateColumn Header="使用者感想" Width="198">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts}" TextTrimming="WordEllipsis"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -71,14 +110,17 @@
                                 <Setter Property="Height" Value="18" />
                             </Style>
                         </DataGrid.RowStyle>
-                        <!--去掉选中单元格的框线-->
+                        
                         <DataGrid.CellStyle>
                             <Style TargetType="DataGridCell" >
+                                <!--去掉选中单元格的框线-->
                                 <Style.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
                                         <Setter Property="BorderThickness" Value="0"/>
                                     </Trigger>
                                 </Style.Triggers>
+                                <!--单元格tooltip效果-->
+                                <Setter Property="ToolTipService.ToolTip"  Value="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content.Text}" />
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
@@ -92,9 +134,48 @@
 
                             <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="自觉运动强度" Width="90"/>
                             <DataGridTextColumn Binding="{Binding evaluate}" Header="运动时机、姿势等" Width="110"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>
-
+                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
+                            
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
+                            <DataGridTemplateColumn Header="备忘" Width="185" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo}" TextTrimming="WordEllipsis"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
+                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
+                            <DataGridTemplateColumn Header="使用者感想" Width="198">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts}" TextTrimming="WordEllipsis"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -123,6 +204,8 @@
                                         <Setter Property="BorderThickness" Value="0"/>
                                     </Trigger>
                                 </Style.Triggers>
+                                <!--单元格tooltip效果-->
+                                <Setter Property="ToolTipService.ToolTip"  Value="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content.Text}" />
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
@@ -136,9 +219,47 @@
 
                             <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="自觉运动强度" Width="90"/>
                             <DataGridTextColumn Binding="{Binding evaluate}" Header="运动时机、姿势等" Width="110"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>
-
+                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
+                            <DataGridTemplateColumn Header="备忘" Width="185" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo}" TextTrimming="WordEllipsis"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
+                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
+                            <DataGridTemplateColumn Header="使用者感想" Width="198">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts}" TextTrimming="WordEllipsis"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -171,6 +292,8 @@
                                         <Setter Property="BorderThickness" Value="0"/>
                                     </Trigger>
                                 </Style.Triggers>
+                                <!--单元格tooltip效果-->
+                                <Setter Property="ToolTipService.ToolTip"  Value="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content.Text}" />
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
@@ -184,9 +307,47 @@
 
                             <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="自觉运动强度" Width="90"/>
                             <DataGridTextColumn Binding="{Binding evaluate}" Header="运动时机、姿势等" Width="110"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>
-
+                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
+                            <DataGridTemplateColumn Header="备忘" Width="185" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo}" TextTrimming="WordEllipsis"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
+                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
+                            <DataGridTemplateColumn Header="使用者感想" Width="198">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts}" TextTrimming="WordEllipsis"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -215,6 +376,8 @@
                                         <Setter Property="BorderThickness" Value="0"/>
                                     </Trigger>
                                 </Style.Triggers>
+                                <!--单元格tooltip效果-->
+                                <Setter Property="ToolTipService.ToolTip"  Value="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content.Text}" />
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
@@ -228,8 +391,47 @@
 
                             <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="自觉运动强度" Width="90"/>
                             <DataGridTextColumn Binding="{Binding evaluate}" Header="运动时机、姿势等" Width="110"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
+                            <DataGridTemplateColumn Header="备忘" Width="185" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo}" TextTrimming="WordEllipsis"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
+                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
+                            <DataGridTemplateColumn Header="使用者感想" Width="198">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts}" TextTrimming="WordEllipsis"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
 
                         </DataGrid.Columns>
                     </DataGrid>
@@ -259,6 +461,8 @@
                                         <Setter Property="BorderThickness" Value="0"/>
                                     </Trigger>
                                 </Style.Triggers>
+                                <!--单元格tooltip效果-->
+                                <Setter Property="ToolTipService.ToolTip"  Value="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content.Text}" />
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
@@ -272,8 +476,47 @@
 
                             <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="自觉运动强度" Width="90"/>
                             <DataGridTextColumn Binding="{Binding evaluate}" Header="运动时机、姿势等" Width="110"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>
+                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
+                            <DataGridTemplateColumn Header="备忘" Width="185" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo}" TextTrimming="WordEllipsis"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
+                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
+                            <DataGridTemplateColumn Header="使用者感想" Width="198">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts}" TextTrimming="WordEllipsis"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
 
                         </DataGrid.Columns>
                     </DataGrid>
