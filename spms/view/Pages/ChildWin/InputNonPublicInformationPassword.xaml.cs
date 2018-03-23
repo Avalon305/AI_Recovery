@@ -3,6 +3,7 @@ using spms.protocol;
 using spms.util;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Management;
@@ -67,7 +68,7 @@ namespace spms.view.Pages.ChildWin
                 //Console.WriteLine("测试:"+CRC16Util.ByteToStringOk(test));
 
                 //2.判断当前是否已经连接过串口
-                CheckPort();
+                SerialPortUtil.CheckPort();
                 if (SerialPortUtil.portName == "")
                 {
                     MessageBox.Show("请选择串口号");
@@ -80,9 +81,21 @@ namespace spms.view.Pages.ChildWin
                 if (serialPort == null)
                 {
                     serialPort = SerialPortUtil.ConnectSerialPort(OnPortDataReceived);
-                    if (!serialPort.IsOpen)
+
+                    try
                     {
                         serialPort.Open();
+                    }
+                    catch (UnauthorizedAccessException ex)
+                    {
+                        MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        this.Close();
+                        return;
                     }
 
                     serialPort.Write(send, 0, send.Length);
@@ -90,26 +103,26 @@ namespace spms.view.Pages.ChildWin
                     //发送的定时器
                     threadTimer = new System.Threading.Timer(new System.Threading.TimerCallback(ReissueThreeTimes), send, 500, 500);
                 }
-            }
-        }
-
-        /// <summary>
-        /// 检查当前是否有多个串口
-        /// </summary>
-        private void CheckPort()
-        {
-            string[] names = SerialPort.GetPortNames();
-            if (names.Length == 1)
-            {
-                SerialPortUtil.portName = names[0];
-            }
-            else
-            {
-                SerialPortSelection serialPortSelection = new SerialPortSelection();
-                serialPortSelection.datalist.DataContext = names;
-                serialPortSelection.Top = 200;
-                serialPortSelection.Left = 500;
-                serialPortSelection.ShowDialog();
+                else
+                {
+                    if (!serialPort.IsOpen)
+                    {
+                        try
+                        {
+                            serialPort.Open();
+                        }
+                        catch (UnauthorizedAccessException ex)
+                        {
+                            MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
+                        }
+                        catch (IOException ex)
+                        {
+                            MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
+                        }
+                    }
+                }
             }
         }
 
@@ -126,7 +139,20 @@ namespace spms.view.Pages.ChildWin
                 {
                     if (!serialPort.IsOpen)
                     {
-                        serialPort.Open();
+                        try
+                        {
+                            serialPort.Open();
+                        }
+                        catch (UnauthorizedAccessException ex)
+                        {
+                            MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
+                        }
+                        catch (IOException ex)
+                        {
+                            MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
+                        }
                     }
                     serialPort.Write(send, 0, send.Length);
                 }

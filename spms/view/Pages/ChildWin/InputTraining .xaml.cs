@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -683,7 +684,8 @@ namespace spms.view.Pages.ChildWin
                 byte[] send = ProtocolUtil.packHairpinData(0x01, data);
 
                 //检查当前是否有多个串口
-                CheckPort();
+                SerialPortUtil.CheckPort();
+                
                 if (SerialPortUtil.portName == "")
                 {
                     MessageBox.Show("请选择串口号");
@@ -693,22 +695,42 @@ namespace spms.view.Pages.ChildWin
                 if (serialPort == null)
                 {
                     serialPort = SerialPortUtil.ConnectSerialPort(OnPortDataReceived);
-                    if (!serialPort.IsOpen)
+                    try
                     {
                         serialPort.Open();
                     }
-
-                    serialPort.Write(send, 0, send.Length);
+                    catch (UnauthorizedAccessException ex)
+                    {
+                        MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
                 }
                 else
                 {
                     if (!serialPort.IsOpen)
                     {
-                        serialPort.Open();
+                        try {
+                            serialPort.Open();
+                        }
+                        catch (UnauthorizedAccessException ex)
+                        {
+                            MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
+                        }
+                        catch (IOException ex)
+                        {
+                            MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
+                        }
                     }
-
-                    serialPort.Write(send, 0, send.Length);
                 }
+
+                serialPort.Write(send, 0, send.Length);
 
                 //发送的定时器
                 times = 0;//发送之前次数至空
@@ -720,26 +742,6 @@ namespace spms.view.Pages.ChildWin
             //SaveTrainInfo2DB(TrainInfoStatus.Normal);
             //MessageBox.Show("已写卡");
             //this.Close();
-        }
-
-        /// <summary>
-        /// 检查当前是否有多个串口
-        /// </summary>
-        private void CheckPort()
-        {
-            string[] names = SerialPort.GetPortNames();
-            if (names.Length == 1)
-            {
-                SerialPortUtil.portName = names[0];
-            }
-            else
-            {
-                SerialPortSelection serialPortSelection = new SerialPortSelection();
-                serialPortSelection.datalist.DataContext = names;
-                serialPortSelection.Top = 200;
-                serialPortSelection.Left = 500;
-                serialPortSelection.ShowDialog();
-            }
         }
 
         /// <summary>
@@ -755,7 +757,18 @@ namespace spms.view.Pages.ChildWin
                 {
                     if (!serialPort.IsOpen)
                     {
-                        serialPort.Open();
+                        try
+                        {
+                            serialPort.Open();
+                        }
+                        catch (UnauthorizedAccessException ex)
+                        {
+                            MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+                        catch (IOException ex)
+                        {
+                            MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
                     }
 
                     serialPort.Write(send, 0, send.Length);
