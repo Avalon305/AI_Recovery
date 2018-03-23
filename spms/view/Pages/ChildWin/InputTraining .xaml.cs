@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -604,6 +606,11 @@ namespace spms.view.Pages.ChildWin
             }
         }
 
+        //定时任务
+        Timer threadTimer;
+        int times = 0;//发送次数
+        bool isReceive = false;//是否收到回执
+        private SerialPort serialPort;
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             //TODO 写卡
@@ -613,11 +620,211 @@ namespace spms.view.Pages.ChildWin
                 MessageBox.Show("是否覆盖");
             }
 
+            if (user != null)
+            {
+                byte[] data = new byte[90];
+                //用户id
+                string str = user.Pk_User_Id + "";
+                byte[] idBytes = Encoding.ASCII.GetBytes(str);
+                Array.Copy(idBytes, 0, data, 0, idBytes.Length);
 
-            //保存到数据库
-            SaveTrainInfo2DB(TrainInfoStatus.Normal);
-            MessageBox.Show("已写卡");
-            this.Close();
+                //用户名
+                byte[] nameBytes = Encoding.Default.GetBytes(user.User_Name);
+                Array.Copy(nameBytes, 0, data, 32, nameBytes.Length);
+                //拼音
+                byte[] pingYinBytes = Encoding.ASCII.GetBytes(user.User_Namepinyin);
+                Array.Copy(pingYinBytes, 0, data, 52, pingYinBytes.Length);
+
+                int position = 84;
+                //设备
+                if (checkbox1.IsChecked == true)
+                {
+                    //水平腿部推蹬机 0x06
+                    data[position] = 0x06;
+                    position += 1;
+                }
+
+                if (checkbox2.IsChecked == true)
+                {
+                    //坐姿划船机 0x05
+                    data[position] = 0x05;
+                    position += 1;
+                }
+
+                if (checkbox3.IsChecked == true)
+                {
+                    //身体伸展弯曲机 0x04
+                    data[position] = 0x04;
+                    position += 1;
+                }
+
+                if (checkbox4.IsChecked == true)
+                {
+                    //腿部伸展弯曲机 0x03
+                    data[position] = 0x03;
+                    position += 1;
+                }
+
+                if (checkbox5.IsChecked == true)
+                {
+                    //臀部外展内收机 0x02
+                    data[position] = 0x02;
+                    position += 1;
+                }
+
+                if (checkbox6.IsChecked == true)
+                {
+                    //胸部推举机 0x01
+                    data[position] = 0x01;
+                }
+
+                Console.WriteLine("发卡的内容：" + ProtocolUtil.ByteToStringOk(data));
+
+                byte[] send = ProtocolUtil.packHairpinData(0x01, data);
+
+                if (serialPort == null)
+                {
+                    serialPort = SerialPortUtil.ConnectSerialPort("COM5", OnPortDataReceived);
+                    if (!serialPort.IsOpen)
+                    {
+                        serialPort.Open();
+                    }
+
+                    serialPort.Write(send, 0, send.Length);
+                }
+                else
+                {
+                    if (!serialPort.IsOpen)
+                    {
+                        serialPort.Open();
+                    }
+
+                    serialPort.Write(send, 0, send.Length);
+                }
+
+                //发送的定时器
+                threadTimer = new Timer(new System.Threading.TimerCallback(ReissueThreeTimes), send, 500, 500);
+
+            }
+
+            //保存到数据库,在接收数据方法中
+            //SaveTrainInfo2DB(TrainInfoStatus.Normal);
+            //MessageBox.Show("已写卡");
+            //this.Close();
+        }
+
+        /// <summary>
+        /// 定时任务的回调方法
+        /// </summary>
+        /// <param name="state"></param>
+        public void ReissueThreeTimes(Object state)
+        {
+            if (times < 3 && !isReceive)
+            {
+                byte[] send = (byte[])state;
+                if (serialPort != null)
+                {
+                    if (!serialPort.IsOpen)
+                    {
+                        serialPort.Open();
+                    }
+
+                    serialPort.Write(send, 0, send.Length);
+                }
+
+                times++;
+            }
+            else
+            {
+                threadTimer.Dispose();
+            }
+
+        }
+
+        /// <summary>
+        /// 接收数据的监听方法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnPortDataReceived(Object sender, SerialDataReceivedEventArgs e)
+        {
+            try
+            {
+                Thread.Sleep(50);
+                isReceive = true;//收到消息
+
+                byte[] buffer = null; ;
+                int len = serialPort.BytesToRead;
+
+                byte[] receiveData = new byte[len];
+                serialPort.Read(receiveData, 0, len);
+
+                int offset = 0;
+
+                if (len > 0 && receiveData[0] == 0xAA)//第一包数据
+                {
+                    buffer = new byte[6];
+
+                    for (int i = 0; i < receiveData.Length; i++)
+                    {
+                        buffer[i] = receiveData[i];
+                    }
+                    offset = receiveData.Length;
+                }
+                else
+                {
+                    return;
+                }
+
+
+                while (buffer != null && buffer[buffer.Length - 1] != 0xCC)
+                {
+
+                    Thread.Sleep(50);
+                    int len2 = serialPort.BytesToRead;
+
+                    if (len2 <= 0)
+                    {
+                        return;
+                    }
+
+                    serialPort.Read(buffer, offset, len2);
+                    offset += len2;
+
+                    if (offset > buffer.Length)
+                    {
+                        return;
+                    }
+                }
+
+                //下面是完整数据
+                if (buffer != null)
+                {
+                    byte[] data = new byte[3];
+                    Array.Copy(buffer, 1, data, 0, 3);
+                    if (buffer[buffer.Length - 2] == ProtocolUtil.XorByByte(data))
+                    {
+                        //Console.WriteLine("校验成功");
+                        if (buffer[buffer.Length - 3] == 0x00)
+                        {
+                            //Console.WriteLine("发卡失败");
+                            MessageBox.Show("写卡失败");
+                        }
+                        else if (buffer[buffer.Length - 3] == 0x01)
+                        {
+                            //Console.WriteLine("发卡成功");
+
+                            //保存到数据库 TODO
+                            //SaveTrainInfo2DB(TrainInfoStatus.Normal);
+                            MessageBox.Show("写卡成功");
+                            //this.Close();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
         }
     }
 }

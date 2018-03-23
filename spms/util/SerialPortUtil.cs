@@ -13,6 +13,10 @@ namespace spms.util
     class SerialPortUtil
     {
         private static SerialPort serialPort;
+
+        //定义可以操作当前串口的方法
+        public static SerialPort SerialPort { get => serialPort; set => serialPort = value; }
+
         public delegate void OnPortDataReceived(Object sender, SerialDataReceivedEventArgs e);
 
         /// <summary>
@@ -23,15 +27,18 @@ namespace spms.util
         /// <returns></returns>
         public static SerialPort ConnectSerialPort(string portName, OnPortDataReceived onPortDataReceived)
         {
-            serialPort = new SerialPort();
-            serialPort.PortName = portName;
-            serialPort.BaudRate = 115200;
-            serialPort.ReadTimeout = 3000; //单位毫秒
-            serialPort.WriteTimeout = 3000; //单位毫秒
-            serialPort.ReceivedBytesThreshold = 1;
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(onPortDataReceived);
-
-            return serialPort;
+            if (SerialPort == null)
+            {
+                SerialPort = new SerialPort();
+                SerialPort.PortName = portName;
+                SerialPort.BaudRate = 115200;
+                SerialPort.ReadTimeout = 3000; //单位毫秒
+                SerialPort.WriteTimeout = 3000; //单位毫秒
+                SerialPort.ReceivedBytesThreshold = 1;
+                SerialPort.DataReceived += new SerialDataReceivedEventHandler(onPortDataReceived);
+            }
+     
+            return SerialPort;
         }
     }
 }
