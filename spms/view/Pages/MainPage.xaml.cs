@@ -24,6 +24,7 @@ using spms.util;
 using spms.view.dto;
 using spms.view.Pages.ChildWin;
 using spms.view.Pages.Frame;
+using static spms.bean.TrainExcelVO;
 
 namespace spms.view.Pages
 {
@@ -338,11 +339,18 @@ namespace spms.view.Pages
                     //导出体力评价记录
                     if (selectUser != null)
                     {
+                        List<SymptomInfo> lists = new SymptomService().GetByUserId(selectUser);
+                        List<object> excelLists = new List<object>();
+                        foreach (SymptomInfo symptomInfo in lists)
+                        {
+                            excelLists.Add(new SymptomInfoExcelVO(symptomInfo));
+                        }
                         //存放信息导出的列名
-                        string[] colNames = { };
+                        string[] colNames = { "实施日期", "血压（前）", "心率（前）", "脉搏（前）", "体温（前）", "血压（后）", "心率（后）", "脉搏（后）", "体温（后）", "身体倦怠", "腹泻", "摇晃", "心跳、气喘", "咳嗽、有痰", "发烧", "胸部、肚子痛", "没有食欲", "持续便秘", "感到头晕", "头痛", "其他", "没有相关症状", "是否参加", "水分摄取", "看护记录" };
+
                         //TODO 如果页面数据展示完成，可以继续完成
                         ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
-                            ExcelUtil.ToDataTable("体力评价记录", colNames, null));
+                            ExcelUtil.ToDataTable("体力评价记录", colNames, excelLists));
                     }
                 }
             }
