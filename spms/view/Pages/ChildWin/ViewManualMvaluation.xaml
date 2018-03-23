@@ -64,7 +64,7 @@
                 <Label Grid.Row="0" Grid.Column="0" Content="用户姓名: " Margin="0,-6,34.4,15.6" Grid.RowSpan="2"/>
                 <Label Grid.Row="0"  Margin="65,-6,-0.2,15.6" Name="l1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 <!--用户ID-->
-                <Label Grid.Column="0" Content="用户   ID:" Margin="0,11,34.4,-1.4" Grid.RowSpan="2"/>
+                <Label Grid.Column="0" Content="用户编号:" Margin="0,11,34.4,-1.4" Grid.RowSpan="2"/>
                 <Label  Margin="65,11,-0.2,-1.4" Name="l2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
             </Grid>
             <!--实施日期-->
