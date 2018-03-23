@@ -88,6 +88,9 @@ namespace spms.view.Pages
             UserInfo.DataContext = selectUser;
             string path = null;
 
+            // 选中用户的时候初始化
+            is_signinformationrecord.Focus();
+
             //选中用户时展示 症状 训练 体力的记录框的frame
             Radio_Check_Action();
             // 给frame加入数据
@@ -238,7 +241,6 @@ namespace spms.view.Pages
         // 切换frame
         private void Radio_Check(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("加载frame1");
             Radio_Check_Action();
             Refresh_RecordFrame_Action();
         }
@@ -745,12 +747,11 @@ namespace spms.view.Pages
 
         private void Refresh_RecordFrame_Action()
         {
-
+            
             User user = selectUser;
 
             if (user == null)
             {
-                //MessageBox.Show("没获取到选择的用户");
                 return;
             }
 
@@ -810,7 +811,7 @@ namespace spms.view.Pages
 
         private void record_SourceUpdated(object sender, DataTransferEventArgs e)
         {
-            //Refresh_RecordFrame_Action();
+            Refresh_RecordFrame_Action();
         }
     }
 }
