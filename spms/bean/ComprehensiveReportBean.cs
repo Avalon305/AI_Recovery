@@ -97,4 +97,141 @@ namespace spms.bean
         //坐姿体前屈
         public string PP_SitandReach { get; set; }
     }
+
+    public  class TrainComprehensive
+    {
+        public DateTime? Gmt_Create { get; set; }
+        //设备名称
+        public string DS_name { get; set; }
+        //组数
+        public int dp_groupcount { get; set; }
+        //每组个数
+        public int dp_groupnum { get; set; }
+        //休息时间
+        public int dp_relaxtime { get; set; }
+        //砝码
+        public double dp_weight { get; set; }
+        //移乘方式
+        public int dp_moveway { get; set; }
+        //自觉运动强度,1-10代表轻松->剧烈
+        public byte? PR_SportStrength { get; set; }
+        //第一个时间
+        public double PR_Time1 { get; set; }
+        //第二个时间 
+        public double PR_Time2 { get; set; }
+        //距离
+        public int PR_Distance { get; set; }
+        //总工作量
+        public double PR_CountWorkQuantity { get; set; }
+        //热量
+        public double PR_Cal { get; set; }
+        //指数
+        public double PR_Index { get; set; }
+        //完成组数
+        public int PR_FinishGroup { get; set; }
+        //时机，姿势，评价 0没问题 1 有些许问题 2 有问题
+        public byte? PR_Evaluate { get; set; }
+        //备忘
+        public string PR_Memo { get; set; }
+        //注意点
+        public string PR_AttentionPoint { get; set; }
+        //病人感想
+        public string PR_UserThoughts { get; set; }
+    }
+
+    public class TrainExcelVO
+    {
+        public DateTime Gmt_Create { get; set; }
+        //设备名称
+        public string DS_name { get; set; }
+        //组数
+        public int dp_groupcount { get; set; }
+        //每组个数
+        public int dp_groupnum { get; set; }
+        //休息时间
+        public int dp_relaxtime { get; set; }
+        //砝码
+        public double dp_weight { get; set; }
+        //移乘方式
+        public int dp_moveway { get; set; }
+        //自觉运动强度,1-10代表轻松->剧烈
+        public string PR_SportStrength { get; set; }
+        //第一个时间
+        public double PR_Time { get; set; }
+        //距离
+        public int PR_Distance { get; set; }
+        //总工作量
+        public double PR_CountWorkQuantity { get; set; }
+        //热量
+        public double PR_Cal { get; set; }
+        //指数
+        public double PR_Index { get; set; }
+        //完成组数
+        public int PR_FinishGroup { get; set; }
+        //时机，姿势，评价 0没问题 1 有些许问题 2 有问题
+        public string PR_Evaluate { get; set; }
+        //备忘
+        public string PR_Memo { get; set; }
+        //注意点
+        public string PR_AttentionPoint { get; set; }
+        //病人感想
+        public string PR_UserThoughts { get; set; }
+
+        public TrainExcelVO(TrainComprehensive tc)
+        {
+            this.Gmt_Create = (DateTime)tc.Gmt_Create;
+            this.DS_name = tc.DS_name;
+            this.dp_groupcount = tc.dp_groupcount;
+            this.dp_groupnum = tc.dp_groupnum;
+            this.dp_relaxtime = tc.dp_relaxtime;
+            this.dp_weight = tc.dp_weight;
+            this.dp_moveway = tc.dp_moveway;
+            if (tc.PR_SportStrength == 10 || tc.PR_SportStrength == 9)
+            {
+                this.PR_SportStrength = "困难";
+            }
+            else if (tc.PR_SportStrength == 8 || tc.PR_SportStrength == 7)
+            {
+                this.PR_SportStrength = "有点困难";
+            }
+            else if (tc.PR_SportStrength == 6 || tc.PR_SportStrength == 5)
+            {
+                this.PR_SportStrength = "轻松";
+            }
+            else if (tc.PR_SportStrength == 4 || tc.PR_SportStrength == 3)
+            {
+                this.PR_SportStrength = "很轻松";
+            }
+            else if (tc.PR_SportStrength == 2 || tc.PR_SportStrength == 1)
+            {
+                this.PR_SportStrength = "非常轻松";
+            }
+
+            this.PR_Time = tc.PR_Time2 - tc.PR_Time1;
+            this.PR_Distance = tc.PR_Distance;
+            this.PR_CountWorkQuantity = tc.PR_CountWorkQuantity;
+            this.PR_Cal = tc.PR_Cal;
+            this.PR_Index = tc.PR_Index;
+            this.PR_FinishGroup = tc.PR_FinishGroup;
+
+            if (tc.PR_Evaluate == 0)
+            {
+                this.PR_Evaluate = "没问题";
+            }
+            else if (tc.PR_Evaluate == 1)
+            {
+                this.PR_Evaluate = "有些许问题";
+            }
+            else if (tc.PR_Evaluate == 2)
+            {
+                this.PR_Evaluate = "有问题";
+            }
+            
+
+            this.PR_Memo = tc.PR_Memo;
+            this.PR_AttentionPoint = tc.PR_AttentionPoint;
+            this.PR_UserThoughts = tc.PR_UserThoughts;
+
+        }
+    }
 }
