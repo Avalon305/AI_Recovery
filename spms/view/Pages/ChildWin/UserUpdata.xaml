@@ -208,7 +208,7 @@
 
                     <Grid Margin="0,0,0,0.2" Width="86" >
                         <Button Content="摄影" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Width="75" Height="25" RenderTransformOrigin="0.004,-0.462" Style="{StaticResource Btn}" Click="Photograph"/>
-                        <Button Content="打开文档" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="75"  Height="25" RenderTransformOrigin="0.049,0.799"  Style="{StaticResource Btn}"/>
+                        <Button Content="打开文档" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="75"  Height="25" RenderTransformOrigin="0.049,0.799"  Style="{StaticResource Btn}" Click="Select_Picture_Show" />
                     </Grid>
                     <DockPanel Margin="22,0,0,0" Name="Non_Public_Information"  Visibility="Hidden">
                         <Border Height="20" Width="270" Background="Red" DockPanel.Dock="Top" >
