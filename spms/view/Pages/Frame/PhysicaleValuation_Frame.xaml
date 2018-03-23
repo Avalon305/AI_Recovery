@@ -50,10 +50,16 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                     <DataGridTemplateColumn.CellStyle>
-                        <Style>
+                        <Style TargetType="DataGridCell" >
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Trigger>
+                            </Style.Triggers>
                             <!--加tooltip，显示单元格内容-->
                             <Setter Property="ToolTipService.ToolTip" Value="{Binding PP_UserMemo}"/>
                         </Style>
+                       
                     </DataGridTemplateColumn.CellStyle>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="工作人员感想" Width="225">
@@ -64,7 +70,12 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                     <DataGridTemplateColumn.CellStyle>
-                        <Style>
+                        <Style TargetType="DataGridCell" >
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Trigger>
+                            </Style.Triggers>
                             <!--加tooltip，显示单元格内容-->
                             <Setter Property="ToolTipService.ToolTip" Value="{Binding PP_WorkerMemo}"/>
                         </Style>

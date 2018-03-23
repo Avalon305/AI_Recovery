@@ -43,7 +43,7 @@
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="用户姓名: " Margin="0,11,69.8,-1.4" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
             <Label Grid.Column="1"  Margin="2,11,-9.2,-1.4" Name="l1" Content="{Binding User_Name}" Grid.RowSpan="2"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="用户ID:" Margin="0,-6,69.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="用户编号:" Margin="0,-6,69.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
             <Label Grid.Row="0" Grid.Column="1"  Margin="2,-6,-9.2,15.6" Name="user_id" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2"/>
         </Grid>
         <!--结束：用户ID和姓名-->
