@@ -29,7 +29,6 @@ namespace spms.view.Pages
     public partial class AdvancedSettings : Page
     {
         //声明List
-        List<Auther> AutherList = new List<Auther>();
         List<DeviceSort> DeviceSortList = new List<DeviceSort>();
         List<DeviceSet> DeviceSetList = new List<DeviceSet>();
         //创建DAO实例
@@ -39,11 +38,18 @@ namespace spms.view.Pages
         SetterDAO SetterDAO = new SetterDAO();
         Auther auther = new Auther();
         DeviceSet deviceSet = new DeviceSet();
+        List<entity.Setter> setterList = new List<entity.Setter>();
+        SetterDAO setterDao = new SetterDAO();
         int selected = 0;
+        byte auth_level = 0x01;
+        int Pk_Set_Id;
+
         public AdvancedSettings()
         {
+            setterList = setterDao.ListAll();
+            Pk_Set_Id = setterList[0].Pk_Set_Id;
+            List<Auther> AutherList = new List<Auther>();
             InitializeComponent();
-            byte auth_level = 0x01;
             auther = authDAO.GetByAuthLevel(auth_level);
             AutherList.Add(auther);
             DeviceSetList = deviceSetDAO.ListAll();
@@ -73,7 +79,9 @@ namespace spms.view.Pages
             //致空
             auther = null;
             //刷新界面
-            AutherList = authDAO.ListAll();
+            Auther AutherTemp = authDAO.GetByAuthLevel(auth_level);
+            List<Auther> AutherList = new List<Auther>();
+            AutherList.Add(AutherTemp);
             ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
         }
         //添加按钮的事件
@@ -148,8 +156,8 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            passwordInput.ShowDialog();     
-            if (true)//是否和发送的数据体相等，相等则鉴权成功，向数据库中写入mac,没实现！！！
+            passwordInput.ShowDialog();
+            if (passwordInput.NonPublicInformationPassword.Text=="111")//u盘成功读取
             {   //获取mac地址
                 string strMac = CommUtil.GetMacAddress();
                 entity.Setter setter = new entity.Setter();
@@ -158,18 +166,21 @@ namespace spms.view.Pages
                 byte[] AesMac = AesUtil.Encrypt(byteMac, ProtocolConstant.USB_DOG_PASSWORD);
                 //存入数据库
                 setter.Set_Unique_Id = Encoding.GetEncoding("GBK").GetString(AesMac);
-                SetterDAO.InsertOneMacAdress(setter);
+                setter.Pk_Set_Id = Pk_Set_Id;
+                MessageBox.Show(Pk_Set_Id.ToString());
+                SetterDAO.UpdateOneSet(setter);
                 //注释的部分为添加多个mac地址
                 // List<entity.Setter> ListMac = CommUtil.GetMacByWMI();
                 // SetterDAO.InsertMacAdress(ListMac);
+                Status.Content = "已激活";//如果激活成功记录状态，激活按钮变为不能点击 没实现！！！
+                Color color = Color.FromArgb(255, 2, 200, 5);
+                Status.Foreground = new SolidColorBrush(color);
             }
             else
             {
                 MessageBox.Show("激活失败");
             }
-            Status.Content = "已激活";//如果激活成功记录状态，激活按钮变为不能点击 没实现！！！
-            Color color = Color.FromArgb(255, 2, 200, 5);
-            Status.Foreground = new SolidColorBrush(color);
+            
         }
     }
 }

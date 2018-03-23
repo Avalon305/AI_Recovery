@@ -62,7 +62,7 @@ namespace spms.view.Pages.ChildWin
                 //获取电脑的uuid字节数组-即加密狗的内容
                 ProtocolConstant.USB_DOG_CONTENT = Encoding.UTF8.GetBytes(Get_UUID());
                 new MakerUSBDogFrame().PackData(ref send, new byte[] { 0xF0 }, ProtocolConstant.USB_DOG_CONTENT);
-                Console.WriteLine("加密后的报文"+ ProtocolUtil.ByteToStringOk(send));
+                Console.WriteLine("加密后的报文" + ProtocolUtil.ByteToStringOk(send));
                 //byte[] test = null;
                 //new MakerUSBDogFrame().PackData(ref test, new byte[] { 0xF0 }, Encoding.UTF8.GetBytes("hello"));
                 //Console.WriteLine("测试:"+CRC16Util.ByteToStringOk(test));
@@ -123,6 +123,9 @@ namespace spms.view.Pages.ChildWin
                         }
                     }
                 }
+            }
+            else {
+                MessageBox.Show("密码错误，请重新输入");
             }
         }
 
