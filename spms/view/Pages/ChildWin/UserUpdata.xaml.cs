@@ -451,9 +451,6 @@ namespace spms.view.Pages.ChildWin
             }
         }
 
-        private void Select_Picture_Show(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }
