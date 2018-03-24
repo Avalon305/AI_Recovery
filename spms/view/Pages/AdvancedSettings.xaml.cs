@@ -157,7 +157,7 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             passwordInput.ShowDialog();
-            if (passwordInput.NonPublicInformationPassword.Text=="111")//u盘成功读取
+            if (ProtocolConstant.USB_SUCCESS==1)//u盘成功读取
             {   //获取mac地址
                 string strMac = CommUtil.GetMacAddress();
                 entity.Setter setter = new entity.Setter();

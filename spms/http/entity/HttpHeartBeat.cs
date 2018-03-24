@@ -21,6 +21,16 @@ namespace spms.http.entity
             this.username = UserID;
             this.clientId = DeviceID;
         }
+
+        public override string ToString()
+        {
+            return $"{nameof(username)}: {username}, {nameof(clientId)}: {clientId}, {nameof(authStatus)}: {authStatus}, {nameof(heartbeatType)}: {heartbeatType}";
+        }
+
+        public HttpHeartBeat()
+        {
+
+        }
         //ping/pang测试构造函数
         public HttpHeartBeat(string ping)
         {

@@ -23,8 +23,8 @@
         <StackPanel Orientation="Vertical" >
             <!--图片-->
             <Grid>
-            <!--<StackPanel Orientation="Horizontal" Margin="5,0,25,0">-->
-                
+                <!--<StackPanel Orientation="Horizontal" Margin="5,0,25,0">-->
+
                 <!--图片及按钮-->
                 <Grid>
                     <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left">
@@ -32,14 +32,15 @@
                     </Border>
                     <Border Margin="0,20,40,19" HorizontalAlignment="Right" Width="160">
                         <StackPanel Orientation="Horizontal">
-                            
+
                             <Button Name="BtnSetting" Style="{StaticResource Btn}" Height="25" Width="75" Click="BtnSetting_Click" >设置</Button>
                             <Button Name="BtnClose" Style="{StaticResource Btn}" Click="GoBack" Height="25" Width="75" Margin="10,0,0,0">关闭</Button>
                         </StackPanel>
-                      
+
                     </Border>
                 </Grid>
-                <!-- logo --><!--
+                <!-- logo -->
+                <!--
                 <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="11,0,0,0">
                     <Border.Resources>
 
@@ -66,8 +67,9 @@
                         </Image.RenderTransform>
                     </Image>
                 </Border>
-                --><!--结束：logo-->
-                 <!-- logo -->
+                -->
+                <!--结束：logo-->
+                <!-- logo -->
                 <Border Margin="10,0,1034.6,0">
                     <Image  x:Name="DesignerHead3"  RenderTransformOrigin="0.4,0.5" Source="/view/images/3-1.png" Stretch="Fill" Width="245" Height="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-0.2,0" >
                         <Image.RenderTransform>
@@ -149,7 +151,7 @@
                 </Border>
                 <!--结束：logo-->
                 <!--结束：图片及按钮-->
-            <!--</StackPanel>-->
+                <!--</StackPanel>-->
             </Grid>
             <!--结束：图片-->
             <!--使用者一览表_按钮-->
@@ -180,7 +182,7 @@
                     <!--选中行失去焦点时的颜色-->
                     <DataGrid.Resources>
                         <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DodgerBlue"/>
-                        
+
                     </DataGrid.Resources>
                     <!--固定行高，取消拉伸-->
                     <DataGrid.RowStyle>
@@ -198,7 +200,7 @@
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
-                       
+
                     </DataGrid.CellStyle>
                     <DataGrid.Columns >
                         <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="使用者编号" Width="140" />
@@ -338,7 +340,16 @@
                         </DataGrid>-->
                         </WrapPanel>
                         <StackPanel Orientation="Horizontal" Height="25" Margin="30,7,0,0" HorizontalAlignment="Left" Width="916">
-                            <RadioButton VerticalAlignment="Center" IsChecked="True"  GroupName="record_radio" Name="is_signinformationrecord" Click="Radio_Check" >征状信息记录</RadioButton>
+                            <RadioButton VerticalAlignment="Center" IsChecked="True"  GroupName="record_radio" Name="is_signinformationrecord" Click="Radio_Check" RenderTransformOrigin="0.5,0.5" >
+                                <RadioButton.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-1.431"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </RadioButton.RenderTransform> 征状信息记录
+                            </RadioButton>
                             <RadioButton VerticalAlignment="Center" GroupName="record_radio" Name="is_trainingrecord" Click="Radio_Check">训练记录</RadioButton>
                             <RadioButton VerticalAlignment="Center" GroupName="record_radio" Name="is_physicalevaluation" Click="Radio_Check">体力评价记录</RadioButton>
                             <Button Content="输入训练结果" Margin="240,0,0,0" Style="{StaticResource Btn}" Width="140" Click="InputTrainingResults"/>

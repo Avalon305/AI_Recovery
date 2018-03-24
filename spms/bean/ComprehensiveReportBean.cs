@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace spms.bean
@@ -98,7 +99,7 @@ namespace spms.bean
         public string PP_SitandReach { get; set; }
     }
 
-    public  class TrainComprehensive
+    public class TrainComprehensive
     {
         public DateTime? Gmt_Create { get; set; }
         //设备名称
@@ -226,12 +227,140 @@ namespace spms.bean
             {
                 this.PR_Evaluate = "有问题";
             }
-            
+
 
             this.PR_Memo = tc.PR_Memo;
             this.PR_AttentionPoint = tc.PR_AttentionPoint;
             this.PR_UserThoughts = tc.PR_UserThoughts;
 
+        }
+
+        public class SymptomInfoExcelVO
+        {
+            //数据创建时间
+            public DateTime Gmt_Create { get; set; }
+            //血压（康复前）
+            public string SI_Pre_Pressure { get; set; }
+            //心率（康复前）
+            public string SI_Pre_HeartRate { get; set; }
+            //脉搏（康复前）
+            public string SI_Pre_Pulse { get; set; }
+            //体温（康复前）
+            public string SI_Pre_AnimalHeat { get; set; }
+            //高血压（康复后）
+            public string SI_Suf_Pressure { get; set; }
+            //心率（康复后）
+            public string SI_Suf_HeartRate { get; set; }
+            //脉搏（康复后）
+            public string SI_Suf_Pulse { get; set; }
+            //体温（康复后）
+            public string SI_Suf_AnimalHeat { get; set; }
+            //１．身体倦怠
+            private int SI_Tired { get; set; }
+            //２．腹泻
+            private int SI_Diarrhoea { get; set; }
+            //３．摇晃
+            private int SI_Shake { get; set; }
+            //４．心跳、气喘
+            private int SI_Asthma { get; set; }
+            //５．咳嗽、有痰
+            private int SI_Phlegm { get; set; }
+            //６．发烧
+            private int SI_Fever { get; set; }
+            //７．胸部、肚子痛
+            private int SI_Stomach { get; set; }
+            //８．没有食欲
+            private int SI_NoAppetite { get; set; }
+            //９．持续便秘
+            private int SI_Constipation { get; set; }
+            //１０．感到头晕
+            private int SI_Dizzy { get; set; }
+            //１１．头痛
+            private int SI_Headache { get; set; }
+            //１２．其他
+            private int SI_Other { get; set; }
+            //１３．没有相关症状
+            private int SI_NoSymptoms { get; set; }
+
+            //是否参加
+            public string SI_IsJoin { get; set; }
+            //饮水量
+            public string SI_WaterInput { get; set; }
+            //看护记录
+            public string SI_CareInfo { get; set; }
+
+            public SymptomInfoExcelVO(SymptomInfo si)
+            {
+                this.Gmt_Create = (DateTime)si.Gmt_Create;
+                this.SI_Pre_Pressure = si.SI_Pre_HighPressure+"/"+ si.SI_Pre_LowPressure;
+                this.SI_Pre_HeartRate = si.SI_Pre_HeartRate;
+                this.SI_Pre_Pulse = si.SI_Pre_Pulse == 0 ?"规律脉":"脉率不齐";
+                this.SI_Pre_AnimalHeat = si.SI_Pre_AnimalHeat;
+                this.SI_Suf_Pressure = si.SI_Suf_HighPressure + "/" + si.SI_Suf_LowPressure;
+                this.SI_Suf_HeartRate = si.SI_Suf_HeartRate;
+                this.SI_Suf_Pulse = si.SI_Suf_Pulse == 0 ? "规律脉" : "脉率不齐";
+                this.SI_Suf_AnimalHeat = si.SI_Suf_AnimalHeat;
+                string[] inquirys = Regex.Split(si.SI_Inquiry,",");
+                foreach (string str in inquirys)
+                {
+                    if (str == "1. 身体疲倦")
+                    {
+                        this.SI_Tired = 1;
+                    }
+                    else if (str == "2. 腹泻")
+                    {
+                        this.SI_Diarrhoea = 1;
+                    }
+                    else if (str == "3. 摇晃")
+                    {
+                        this.SI_Shake = 1;
+                    }
+                    else if (str == "4. 心跳、气喘")
+                    {
+                        this.SI_Asthma = 1;
+                    }
+                    else if (str == "5. 咳嗽、有痰")
+                    {
+                        this.SI_Phlegm = 1;
+                    }
+                    else if (str == "6. 发烧")
+                    {
+                        this.SI_Fever = 1;
+                    }
+                    else if (str == "7. 胸部、肚子痛")
+                    {
+                        this.SI_Stomach = 1;
+                    }
+                    else if (str == "8. 没有食欲")
+                    {
+                        this.SI_NoAppetite = 1;
+                    }
+                    else if (str == "9. 持续便秘")
+                    {
+                        this.SI_Constipation = 1;
+                    }
+                    else if (str == "10. 感到头晕")
+                    {
+                        this.SI_Dizzy = 1;
+                    }
+                    else if (str == "11. 头痛")
+                    {
+                        this.SI_Headache = 1;
+                    }
+                    else if (str == "12. 其他")
+                    {
+                        this.SI_Other = 1;
+                    }
+                    else if (str == "13. 没有相关症状")
+                    {
+                        this.SI_NoSymptoms = 1;
+                    }
+                   
+                }
+                this.SI_IsJoin = si.SI_IsJoin == 0? "不参加":"参加";
+                this.SI_WaterInput = si.SI_WaterInput;
+                this.SI_CareInfo = si.SI_CareInfo;
+            }
         }
     }
 }

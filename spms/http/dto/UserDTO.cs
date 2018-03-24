@@ -53,7 +53,7 @@ namespace spms.http.dto
             this.userPhotolocation = user.User_PhotoLocation;
             //残障名称
             this.userPhysicaldisabilities = user.User_PhysicalDisabilities;
-            this.userSex = user.User_Sex== 1?"true":"false";
+            this.userSex = user.User_Sex.ToString();
         }
         public UserDTO(User user, string mac)
         {
@@ -77,7 +77,7 @@ namespace spms.http.dto
             this.userPhotolocation = user.User_PhotoLocation;
             //残障名称
             this.userPhysicaldisabilities = user.User_PhysicalDisabilities;
-            this.userSex = user.User_Sex == 1 ? "true" : "false";
+            this.userSex = user.User_Sex.ToString();
         }
     }
 }
