@@ -46,10 +46,15 @@ namespace spms.view.Pages
 
         public AdvancedSettings()
         {
+          
+            InitializeComponent();
+           
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
             setterList = setterDao.ListAll();
             Pk_Set_Id = setterList[0].Pk_Set_Id;
             List<Auther> AutherList = new List<Auther>();
-            InitializeComponent();
             auther = authDAO.GetByAuthLevel(auth_level);
             AutherList.Add(auther);
             DeviceSetList = deviceSetDAO.ListAll();
