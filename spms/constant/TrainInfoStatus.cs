@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace spms.util
 {
-    public enum TrainInfoStatus
+    public enum TrainInfoStatus : byte
     {
         //正常
         Normal = 0,

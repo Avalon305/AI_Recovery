@@ -14,6 +14,11 @@
         <Button Content="进登陆界面" HorizontalAlignment="Left" Margin="126,72,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click_3"/>
         <Button Content="测试AES" HorizontalAlignment="Left" Margin="470,45,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
         <Button Content="测试数据库" HorizontalAlignment="Left" Margin="530,150,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
+        <Button Content="测试按主键更新" HorizontalAlignment="Left" Margin="202,150,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_6"/>
+        
+        <ComboBox x:Name="TestCombox" Loaded="TestCombox_Loaded" SelectionChanged="TestCombox_SelectionChanged"
+                  HorizontalAlignment="Left" SelectedValuePath="Code_S_Value" DisplayMemberPath="Code_D_Value" Margin="202,214,0,0" VerticalAlignment="Top" Width="120"/>
+
 
     </Grid>
 </Window>

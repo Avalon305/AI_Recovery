@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Documents;
+using spms.bean;
 using spms.constant;
 using spms.dao;
 using spms.entity;
@@ -18,7 +19,8 @@ namespace spms.service
         static UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
         static DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
         static TrainInfoDAO trainInfoDao = new TrainInfoDAO();
-
+        static DevicePrescriptionDAO devicePrescriptionDAO = new DevicePrescriptionDAO();
+        static PrescriptionResultDAO prescriptionResultDAO = new PrescriptionResultDAO();
         /// <summary>
         /// 保存训练信息
         /// </summary>
@@ -84,6 +86,40 @@ namespace spms.service
                 return trainInfos[0];
             }
         }
+        /// <summary>
+        /// 添加训练结果，设备上报上来的结果
+        /// </summary>
+        /// <param name="idCard"></param>
+        /// <param name="result"></param>
+        public void AddPrescriptionResult(string idCard, PrescriptionResult result,DeviceType deviceType)
+        {
+            using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
+            {
+                DevicePrescription p = GetDevicePrescriptionByIdCardDeviceType(idCard, deviceType);
+                //插入训练结果
+                result.Fk_DP_Id = p.Pk_DP_Id;
+                prescriptionResultDAO.Insert(result);
+
+                //查询是否还有没完成的训练处方，如果都完成了就更新TrinInfo
+                var unDoItemList = devicePrescriptionDAO.ListUnDoByTIId(p.Fk_TI_Id);
+                if (unDoItemList.Count == 1)
+                {
+                    if (unDoItemList[0].Pk_DP_Id == p.Pk_DP_Id)//未完成的项目恰好是一个且为上报上来的这个项目就说明该大处方已经完成了，更新状态
+                    {
+                        var t = trainInfoDao.Load(p.Pk_DP_Id);
+                        t.Pk_TI_Id = p.Fk_TI_Id;
+                        t.Status = (byte)TrainInfoStatus.Finish;
+                        trainInfoDao.UpdateByPrimaryKey(t);
+                    }
+                }
+
+                //更新该设备处方已完成状态
+                p.Dp_status = DevicePrescription.DOWN;
+                devicePrescriptionDAO.UpdateByPrimaryKey(p);
+
+                ts.Complete();
+            }
+        }
 
         /// <summary>
         /// 添加训练结果，返回主键
@@ -144,7 +180,7 @@ namespace spms.service
         }
 
         /// <summary>
-        /// 根据用户身份证号和设备类型查询处方
+        /// 根据用户身份证号和设备类型查询处方,Normol状态的
         /// </summary>
         /// <param name="idcard"></param>
         /// <param name="deviceType"></param>
