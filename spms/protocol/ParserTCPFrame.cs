@@ -34,15 +34,16 @@ namespace spms.protocol
             byte calcXor = ProtocolUtil.XorByByte(buffer, 0, 12 + data_len);
 
             TcpFrameBean frameBean = new TcpFrameBean();
-            if (xor != calcXor)
-            {
-                frameBean.AppendErrorMsg( "校验码不符合预期");
-                return response;
-            }
             frameBean.DataBody = data;
             frameBean.SerialNo = serialNo;
             frameBean.TerminalId = terminalId;
             frameBean.MsgId = msgId;
+            if (xor != calcXor)
+            {
+                frameBean.AppendErrorMsg( "校验码不符合预期");
+                response = MakerTCPFrame.GetInstance().Make8001Frame((byte)(serialNo + 1), MsgId.X0001, CommResponse.MistakeMsg);
+                return response;
+            }
 
             switch (msgId)
             {
@@ -68,6 +69,7 @@ namespace spms.protocol
                     break;
                 default:
                     frameBean.AppendErrorMsg("未知的消息ID");
+                    response = MakerTCPFrame.GetInstance().Make8001Frame((byte)(serialNo + 1), MsgId.X0001, CommResponse.UnSupport);
                     break;
             }
 
@@ -133,10 +135,12 @@ namespace spms.protocol
             byte[] body = frameBean.DataBody;
             //设备类型
             DeviceType deviceType = (DeviceType)body[0];
+           
             switch (deviceType)
             {
                 case DeviceType.X01://胸部推举机
-                    paser.PaserX01(body);
+                    //TODO 设备应该上报用户ID
+                    paser.PaserX01(body,"370111111111111115");
                     break;
                 case DeviceType.X02:
                     break;
@@ -208,7 +212,7 @@ namespace spms.protocol
             /// 胸部推举机上报解析
             /// </summary>
             /// <param name="body"></param>
-            public void PaserX01(byte[] body)
+            public void PaserX01(byte[] body, string idCard)
             {
                 //运动强度
                 byte strength = ProtocolUtil.BcdToInt(body[1]);
@@ -241,7 +245,9 @@ namespace spms.protocol
                 result.PR_UserThoughts = think;
 
                 TrainService trainService = new TrainService();
-                 //TODO 存数据库
+
+                // 存数据库
+                trainService.AddPrescriptionResult(idCard, result, DeviceType.X01);
 
 
             }

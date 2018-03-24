@@ -203,13 +203,14 @@ namespace spms.view.Pages.ChildWin
 
                 byte[] receiveData = new byte[len];
                 serialPort.Read(receiveData, 0, len);
-
+                Console.WriteLine("收到的数据：" + ProtocolUtil.ByteToStringOk(receiveData));
                 int offset = 0;
 
+                Int32 datalen = 0;
                 if (len > 0 && receiveData[0] == 0xAA)//第一包数据
                 {
-                    Int32 datalen = Convert.ToInt32((receiveData[2].ToString("X2") + receiveData[3].ToString("X2")), 16);
-                    Console.WriteLine("数据的长度："+datalen);
+                    datalen = Convert.ToInt32((receiveData[2].ToString("X2") + receiveData[3].ToString("X2")), 16);
+                    Console.WriteLine("数据的长度：" + datalen);
                     buffer = new byte[datalen + 6];
 
                     for (int i = 0; i < receiveData.Length; i++)
@@ -248,29 +249,40 @@ namespace spms.view.Pages.ChildWin
                 //下面是完整数据
                 if (buffer != null)
                 {
-                    //    Console.WriteLine("接受的U盘的完整数据："+CRC16Util.ByteToStringOk(buffer));
-
-                    //    byte[] uuidBytesEncrypt = new byte[buffer.Length-6];
-                    //    Array.Copy(buffer, 0, uuidBytesEncrypt, 3, buffer.Length - 6);
-
-                    //    Console.WriteLine("接受的U盘鉴权加密数据："+CRC16Util.ByteToStringOk(uuidBytesEncrypt));
-                    //解析这个协议
-                    object result = null;//用于存放uuid的鉴权加密
-                    new ParserUSBDogFrame().Parser(ref result, buffer);
-                    string b = ProtocolUtil.BytesToString((byte[])result);
-                    Console.WriteLine("解密通讯加密后的数据："+b);
-
-                    byte[] uuidBytes = null;
-                    AesUtil.Decrypt(uuidBytes, ProtocolConstant.USB_DOG_AUTH_PASSWORD);
-                    Console.WriteLine("解密鉴权加密后的数据：" + ProtocolUtil.ByteToStringOk(uuidBytes));
-
-                    //收到消息后至空串口
-                    if (SerialPortUtil.SerialPort != null)
+                    byte[] data = new byte[datalen + 3];
+                    Array.Copy(buffer, 1, data, 0, data.Length);
+                    if (buffer[buffer.Length - 2] == ProtocolUtil.XorByByte(data))
                     {
-                        SerialPortUtil.SerialPort = null;
-                    }
+                        object result = null;//用于存放uuid的鉴权加密
+                        new ParserUSBDogFrame().Parser(ref result, buffer);
+                        string b = ProtocolUtil.BytesToString((byte[])result);
+                        Console.WriteLine("解密通讯加密后的数据：" + b);
 
-                    this.Close();
+                        byte[] uuidBytes = null;
+                        uuidBytes = AesUtil.Decrypt((byte[])result, ProtocolConstant.USB_DOG_AUTH_PASSWORD);
+                        Console.WriteLine("解密鉴权加密后的数据：" + ProtocolUtil.ByteToStringOk(uuidBytes));
+
+                        string strUUID = System.Text.Encoding.ASCII.GetString(uuidBytes);
+
+                        if (strUUID == Get_UUID())
+                        {
+                            MessageBox.Show("激活成功");
+                        }
+                        else
+                        {
+                            MessageBox.Show("激活失败");
+                        }
+                        //收到消息后至空串口
+                        if (SerialPortUtil.SerialPort != null)
+                        {
+                            SerialPortUtil.SerialPort = null;
+                        }
+                        this.Close();
+                    }
+                    else
+                    {
+                        Console.WriteLine("校验失败");
+                    }
                 }
             }
             catch (Exception ex)
@@ -278,7 +290,7 @@ namespace spms.view.Pages.ChildWin
             }
         }
 
-       
+
 
         private void Cancel(object sender, RoutedEventArgs e)
         {

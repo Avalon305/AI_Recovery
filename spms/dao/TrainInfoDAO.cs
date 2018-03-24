@@ -54,7 +54,21 @@ namespace spms.dao
             }
         }
         /// <summary>
-        /// 根据用户身份证号和设备类型查询处方信息
+        /// 根据训练信息id查询处方
+        /// </summary>
+        /// <param name="tiId"></param>
+        /// <returns></returns>
+        public List<DevicePrescription> ListUnDoByTIId(int tiId)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select * from bdl_deviceprescription where fk_ti_id = @Fk_TI_Id and dp_status = 0";
+
+                return conn.Query<DevicePrescription>(query, new { Fk_TI_Id = tiId }).ToList();
+            }
+        }
+        /// <summary>
+        /// 根据用户身份证号和设备类型查询处方信息，Normal状态
         /// </summary>
         /// <param name="idcard"></param>
         /// <param name="deviceType"></param>
@@ -63,9 +77,9 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "select d.* from bdl_user u join bdl_traininfo t on u.pk_user_id = t.fk_user_id join bdl_deviceprescription d on d.fk_ti_id = t.pk_ti_id where u.user_idcard = @Idcard and d.fk_ds_id = @DeviceType";
+                const string query = "select d.* from bdl_user u join bdl_traininfo t on u.pk_user_id = t.fk_user_id join bdl_deviceprescription d on d.fk_ti_id = t.pk_ti_id where u.user_idcard = @Idcard and d.fk_ds_id = @DeviceType and t.status = @TrainInfoStatus order by t.gmt_create desc";
 
-                return conn.QueryFirstOrDefault<DevicePrescription>(query, new { Idcard = idcard, DeviceType = (byte)deviceType });
+                return conn.QueryFirstOrDefault<DevicePrescription>(query, new { Idcard = idcard, DeviceType = (byte)deviceType, TrainInfoStatus=(byte)TrainInfoStatus.Normal });
             }
         }
         /// <summary>

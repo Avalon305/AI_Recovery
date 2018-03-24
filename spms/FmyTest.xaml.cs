@@ -91,5 +91,27 @@ namespace spms
 
             MessageBox.Show(u.User_Name);
         }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            var u = new UserDAO().Load(1);
+            User u1 = new User();
+            u1.Pk_User_Id = 1;
+            u1.User_IDCard = "23456789";
+            new UserDAO().UpdateByPrimaryKey(u1);
+        }
+
+        //载入时从数据库加载数据源
+        private void TestCombox_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<DataCode> list = DataCodeCache.GetInstance().GetDateCodeList(DataCodeTypeEnum.MoveWay);
+
+            TestCombox.ItemsSource = list;
+        }
+        //选中时直接获取编码值
+        private void TestCombox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show(TestCombox.SelectedValue.ToString());
+        }
     }
 }

@@ -73,22 +73,7 @@ namespace spms.protocol
             arr[4] = (byte)respType;
             return arr;
         }
-        /// <summary>
-        /// 响应处方
-        /// </summary>
-        /// <param name="serialNo"></param>
-        /// <param name="msgId"></param>
-        /// <param name="respType"></param>
-        /// <returns></returns>
-        public byte[] Make8008Frame(Int16 serialNo, MsgId msgId, CommResponse respType)
-        {
-            //TODO 备忘
-            string notes = "别忘了吃药";
-            int len = notes.Length * 2;
-            byte[] arr = new byte[66 + len];
-
-            return arr;
-        }
+  
         /// <summary>
         /// 响应照片包数
         /// </summary>
@@ -235,16 +220,16 @@ namespace spms.protocol
                 arr[59] = 3;
                 //TODO 砝码移动距离1/10厘米,单位是啥
                 Int16 move = Int16.Parse(attrs[0]);
-                arr[60] = Convert.ToByte(move & 0x00FF);//包序号高字节
-                arr[61] = Convert.ToByte((move & 0xFF00) >> 8);//包序号，低字节
+                arr[60] = Convert.ToByte(move & 0x00FF);//高字节
+                arr[61] = Convert.ToByte((move & 0xFF00) >> 8);//低字节
                 //TODO 砝码重量 单位是啥
                 Int16 weight = Int16.Parse(attrs[1]);
-                arr[62] = Convert.ToByte(weight & 0x00FF);//包序号高字节
-                arr[63] = Convert.ToByte((weight & 0xFF00) >> 8);//包序号，低字节
+                arr[62] = Convert.ToByte(weight & 0x00FF);//高字节
+                arr[63] = Convert.ToByte((weight & 0xFF00) >> 8);//低字节
                 //TODO 辅助砝码重量 单位是啥
                 Int16 helpWeight = Int16.Parse(attrs[1]);
-                arr[64] = Convert.ToByte(helpWeight & 0x00FF);//包序号高字节
-                arr[65] = Convert.ToByte((helpWeight & 0xFF00) >> 8);//包序号，低字节
+                arr[64] = Convert.ToByte(helpWeight & 0x00FF);//高字节
+                arr[65] = Convert.ToByte((helpWeight & 0xFF00) >> 8);//低字节
                  //备忘
                 byte[] noteBytes = Encoding.GetEncoding("GBK").GetBytes(notes);
                 Array.Copy(noteBytes, 0, arr, 66, noteBytes.Length);

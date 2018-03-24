@@ -24,10 +24,15 @@ namespace spms.constant
         /// 图片每包数据多少字节
         /// </summary>
         public static readonly int PIC_PACK_SIZE = 512;
+        /// <summary>
+        /// USB鉴权成功
+        /// </summary>
+        public static int USB_SUCCESS=0;
 
 
 
     }
+    
     class TCPConstant
     {
          

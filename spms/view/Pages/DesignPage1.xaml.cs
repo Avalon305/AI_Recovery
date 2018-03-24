@@ -46,6 +46,9 @@ namespace spms.view.Pages
         public DesignPage1()
         {
             InitializeComponent();
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
             entity.Setter setter = new entity.Setter();
             //setter.Pk_Set_Id = 5;
             //setterList.Add(setterDao.Load(setter.Pk_Set_Id));
@@ -68,8 +71,6 @@ namespace spms.view.Pages
             ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = groupList;
             ((this.FindName("DataGrid3")) as DataGrid).ItemsSource = diseaseList;
             ((this.FindName("DataGrid4")) as DataGrid).ItemsSource = diagnosisList;
-
-
         }
         //按钮：高级设置
         private void AdvancedSettings(object sender, RoutedEventArgs e)

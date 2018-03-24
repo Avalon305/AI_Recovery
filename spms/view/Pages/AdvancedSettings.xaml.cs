@@ -46,10 +46,15 @@ namespace spms.view.Pages
 
         public AdvancedSettings()
         {
+          
+            InitializeComponent();
+           
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
             setterList = setterDao.ListAll();
             Pk_Set_Id = setterList[0].Pk_Set_Id;
             List<Auther> AutherList = new List<Auther>();
-            InitializeComponent();
             auther = authDAO.GetByAuthLevel(auth_level);
             AutherList.Add(auther);
             DeviceSetList = deviceSetDAO.ListAll();
@@ -157,7 +162,7 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             passwordInput.ShowDialog();
-            if (passwordInput.NonPublicInformationPassword.Text=="111")//u盘成功读取
+            if (ProtocolConstant.USB_SUCCESS==1)//u盘成功读取
             {   //获取mac地址
                 string strMac = CommUtil.GetMacAddress();
                 entity.Setter setter = new entity.Setter();
