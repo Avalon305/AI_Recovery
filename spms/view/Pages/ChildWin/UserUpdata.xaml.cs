@@ -356,5 +356,10 @@ namespace spms.view.Pages.ChildWin
                 bubble_Diagnosis.IsOpen = false;
             }
         }
+
+        private void Select_Picture_Show(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
