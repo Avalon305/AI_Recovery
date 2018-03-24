@@ -85,6 +85,7 @@ namespace spms.view.Pages
         {
             ifSelecUser = true;
             selectUser = (User) UsersInfo.SelectedItem;
+            //UserInfo
             UserInfo.DataContext = selectUser;
             string path = null;
 
@@ -111,6 +112,7 @@ namespace spms.view.Pages
             if (!File.Exists(path))
             {
                 UserPhoto.Source = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+                
                 Console.WriteLine("~~~~~~~~~该用户的照片不存在~~~~~~~" + path);
                 return;
                 //提示文件不存在
@@ -472,7 +474,14 @@ namespace spms.view.Pages
                 Console.WriteLine(trainInfo.Gmt_Create);
                 list.Add(trainInfo);
 
-                DataGrid dataGrid = ((SignInformationRecord_Frame) record.Content).SignInformationRecord;
+                if (record.Content == null)
+                {
+                    MessageBox.Show("没有选择用户");
+                    return;
+                }
+
+                DataGrid dataGrid = ((SignInformationRecord_Frame)record.Content).SignInformationRecord;
+                
                 SymptomInfoDTO symptomInfoDto = (SymptomInfoDTO) dataGrid.SelectedItem;
                 User user = (User) UsersInfo.SelectedItem;
                 if (user == null)
@@ -551,7 +560,7 @@ namespace spms.view.Pages
                 viewTrainingResults.ShowDialog();
             }
             //打开体力评价详细信息
-            else
+            else if (is_physicalevaluation.IsChecked == true)
             {
                 PhysicalAssessmentReport physicalAssessmentReport = new PhysicalAssessmentReport
                 {
@@ -729,12 +738,13 @@ namespace spms.view.Pages
             inputManualMvaluation.ShowDialog();
         }
 
+        //设置按钮
         private void BtnSetting_Click(object sender, RoutedEventArgs e)
         {
             Window window = (Window) this.Parent;
             window.Content = new DesignPage1();
         }
-
+        
         private void UsersInfo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Refresh_RecordFrame_Action();
@@ -752,6 +762,8 @@ namespace spms.view.Pages
 
             if (user == null)
             {
+                //MessageBox.Show("请选择用户");
+                
                 return;
             }
 

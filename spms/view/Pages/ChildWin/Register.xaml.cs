@@ -228,6 +228,7 @@ namespace spms.view.Pages.ChildWin
 
                 bool isrewrite = true; // true=覆盖已存在的同名文件,false则反之
                 System.IO.File.Copy(sourcePic, targetPic, isrewrite);
+
             }
             else if(userIfSelectPic != false)
             {
@@ -256,16 +257,19 @@ namespace spms.view.Pages.ChildWin
 
             photograph.ShowDialog();
 
-            MessageBox.Show("hi");
+            photograph.Close();
+
+            //MessageBox.Show("hi");
 
             string path = CommUtil.GetUserPic(t3.Text + IDCard.Text);
             path += ".jpg";
 
             if (File.Exists(path))
             {
-                MessageBox.Show("hi open!");
+                //MessageBox.Show("hi open!");
                 BitmapImage image = new BitmapImage(new Uri(path, UriKind.Absolute));//打开图片
                 pic.Source = image;//将控件和图片绑定
+                
             }
         }
 
@@ -304,6 +308,7 @@ namespace spms.view.Pages.ChildWin
 
                     userIfSelectPic = true;
                     userPhotoPath = ofd.FileName;
+                    
                 }
                 else
                 {
@@ -338,6 +343,7 @@ namespace spms.view.Pages.ChildWin
                 bubble_IDCard.IsOpen = false;
             }
         }
+
         //手机号验证和查重
         private void IsPhone(object sender, RoutedEventArgs e)
         {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,18 +26,22 @@ namespace spms.view.Pages.ChildWin
     public partial class Photograph : Window
 
     {
+        //得到用户的身份证
         public string getIdCard { get; set; }
+        //得到用户的名字
         public string getName { get; set; }
         // 照片保存
         byte[] Pic = null;
         //GWL_STYLE表示获得窗口风格
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
+
         [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         //SetWindowLong：更改指定窗口的属性。
-        //
+        
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
        
         //取消按钮，关闭此窗体
@@ -45,12 +50,15 @@ namespace spms.view.Pages.ChildWin
             this.Close();
         }
 
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //获得窗口句柄
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
+
+        // 获取摄像头
         public Photograph()
         {
             InitializeComponent();
@@ -67,6 +75,7 @@ namespace spms.view.Pages.ChildWin
 
         }
 
+        //拍照按钮
         private void btn_photo(object sender, RoutedEventArgs e)
         {
             //vce是前台wpfmedia控件的name
@@ -88,7 +97,7 @@ namespace spms.view.Pages.ChildWin
             BitmapEncoder encoder = new JpegBitmapEncoder();
             // 获取图像的帧
             encoder.Frames.Add(BitmapFrame.Create(bmp));
-
+            
             //System.Console.WriteLine(path);
 
             using (MemoryStream ms = new MemoryStream())
@@ -96,11 +105,13 @@ namespace spms.view.Pages.ChildWin
                 encoder.Save(ms);
                 byte[] captureData = ms.ToArray();
                 Pic = ms.ToArray();
+                ms.Close();
                 //File.WriteAllBytes("/1" + Guid.NewGuid().ToString().Substring(0, 5) + ".jpg", captureData);
             }
 
         }
 
+        // 保存图片按钮
         private void SavePic(object sender, RoutedEventArgs e)
         {
             if (getIdCard != null && getName != null && getIdCard != "" && getName != "")
@@ -120,9 +131,17 @@ namespace spms.view.Pages.ChildWin
                     //Response.Write("不存在，正在创建");
                     Directory.CreateDirectory(dirPath);//创建新路径
                 }
+                
+                //string fileName = System.IO.Path.GetDirectoryName(path + ".jpg");
+                //MessageBox.Show("!!!!!!!!!!"+ fileName +"!!!!!!!!!!!!!");
+
+                //Thread.Sleep(2000);
 
                 File.WriteAllBytes(path + ".jpg", Pic);
-                System.Windows.MessageBox.Show("图片保存完成", "信息提示");
+
+                //System.IO.FileStream fs = new System.IO.FileStream(fileName,System.IO.FileMode.Open, System.IO.FileAccess.Read, FileShare.ReadWrite);
+
+                //System.Windows.MessageBox.Show("图片保存完成", "信息提示");
             }
             else
             {
@@ -133,6 +152,7 @@ namespace spms.view.Pages.ChildWin
             this.Close();
         }
 
+        // 加载摄像头按钮
         private void cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             vce.VideoCaptureSource = (string)cb.SelectedItem;

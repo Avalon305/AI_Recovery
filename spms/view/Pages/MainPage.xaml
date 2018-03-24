@@ -182,7 +182,6 @@
                     <!--选中行失去焦点时的颜色-->
                     <DataGrid.Resources>
                         <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DodgerBlue"/>
-
                     </DataGrid.Resources>
                     <!--固定行高，取消拉伸-->
                     <DataGrid.RowStyle>
@@ -251,8 +250,8 @@
 
                     </Border.Background>
                     <StackPanel Orientation="Vertical">
-                        <Border BorderBrush="Black" BorderThickness="1" Width="250" Height="145" VerticalAlignment="Top" Margin="0,6,0,0" Background="White">
-                            <Image Name="UserPhoto" Width="250" Height="145" />
+                        <Border BorderBrush="Black" BorderThickness="1" Width="250" Height="145" VerticalAlignment="Top" Margin="0,0,0,0" Background="White">
+                            <Image Name="UserPhoto" Width="250" Height="143" Margin="0,0,0,0" />
                         </Border>
                         <Grid Margin="20,0,0,0" Name="UserInfo">
                             <Grid.ColumnDefinitions >
