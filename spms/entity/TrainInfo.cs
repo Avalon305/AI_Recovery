@@ -88,7 +88,7 @@ namespace spms.entity
         public double PR_Time1 { get; set; }
         //第二个时间
         public double PR_Time2 { get; set; }
-        //距离
+        //距离 毫米
         public int PR_Distance { get; set; }
         //总工作量
         public double PR_CountWorkQuantity { get; set; }

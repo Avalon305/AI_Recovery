@@ -8,6 +8,7 @@ namespace spms.constant
 {
     class ProtocolConstant
     {
+        
         /// <summary>
         /// 加密狗通讯加密密钥
         /// </summary>
@@ -79,51 +80,47 @@ namespace spms.constant
         /// <summary>
         /// 通用应答
         /// </summary>
-        X0001=0x0001,
+        X0001= 0x0100,
         /// <summary>
         /// 通用应答
         /// </summary>
-        X8001 = 0x8001,
+        X8001 = 0x0180,
         /// <summary>
         /// 终端心跳
         /// </summary>
-        X0002 = 0x0002,
+        X0002 = 0x0200,
         /// <summary>
         /// 开始训练
         /// </summary>
-        X0008 = 0x0008,
+        X0008 = 0x0800,
         /// <summary>
         /// 开始训练应答
         /// </summary>
-        X8008 = 0x8008,
+        X8008 = 0x0880,
         /// <summary>
         /// 训练结果上报（胸部推举机）
         /// </summary>
-        X0009 = 0x0009,
+        X0009 = 0x0900,
         /// <summary>
         /// 请求使用者信息
         /// </summary>
-        X000A = 0x000A,
+        X000A = 0x0A00,
         /// <summary>
         /// 响应使用者信息
         /// </summary>
-        X800A = 0x800A,
-        /// <summary>
-        /// 请求照片总包数
-        /// </summary>
-        X0006 = 0x0006,
+        X800A = 0x0A80,
         /// <summary>
         /// 响应照片总包数
         /// </summary>
-        X8006 = 0x8006,
+        X8006 = 0x0680,
         /// <summary>
         /// 请求照片数据
         /// </summary>
-        X0007 = 0x0007,
+        X0007 = 0x0700,
         /// <summary>
         /// 响应照片数据
         /// </summary>
-        X8007 = 0x8007,
+        X8007 = 0x0780,
 
 
 

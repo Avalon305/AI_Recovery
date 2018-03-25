@@ -13,6 +13,21 @@ namespace spms.service
     class UserPicService
     {
 
+        public byte[] GetPictureData(string idCard)
+        {
+            UserService userService = new UserService();
+            User u = userService.GetByIdCard(idCard);
+            string path = CommUtil.GetUserPic(u.User_PhotoLocation);
+            using (FileStream fs = new FileStream(path, FileMode.Open))
+            {
+                byte[] byteData = new byte[fs.Length];
+                fs.Read(byteData, 0, byteData.Length);
+                
+                
+                return byteData;
+            }
+        }
+
         public byte[] GetPictureData(string idCard, int packNum)
         {
             UserService userService = new UserService();

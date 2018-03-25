@@ -12,6 +12,15 @@ namespace spms.util
     /// </summary>
     class ProtocolUtil
     {
+        private static Int16 serialNo = 0;
+        public static Int16 GetSerialNo()
+        {
+            if (serialNo == Int16.MaxValue)
+            {
+                serialNo = 0;
+            }
+            return serialNo++;
+        }
         /// <summary>
         /// string转为BCD码，若string有奇数个字符，byte[]长度为len/2+1,左侧补零
         /// </summary>
