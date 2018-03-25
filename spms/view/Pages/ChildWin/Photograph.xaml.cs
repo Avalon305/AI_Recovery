@@ -134,10 +134,23 @@ namespace spms.view.Pages.ChildWin
                     //Response.Write("不存在，正在创建");
                     Directory.CreateDirectory(dirPath);//创建新路径
                 }
-                File.WriteAllBytes(path + "temp.gif", Pic);
+                
                 // 压缩图片
+                File.WriteAllBytes(path + "temp.gif", Pic);
                 GetPicThumbnail(path + "temp.gif", path + ".gif", 300, 300, 10);
                 File.Delete(path + "temp.gif");
+                // 判断一下压缩后的大小
+                long picLen = 0;
+                FileInfo di = new FileInfo(path + ".gif");
+                picLen = di.Length;
+                picLen /= 1024;
+
+                if (picLen > 15)
+                {
+                    MessageBox.Show("图片过大，请重新拍摄");
+                    File.Delete(path + ".gif");
+                    return;
+                }
             }
             else
             {
@@ -147,8 +160,7 @@ namespace spms.view.Pages.ChildWin
 
             this.Close();
         }
-
-        /// 无损压缩图片    
+   
         /// <param name="sFile">原图片</param>    
         /// <param name="dFile">压缩后保存位置</param>    
         /// <param name="dHeight">高度</param>    
@@ -235,52 +247,6 @@ namespace spms.view.Pages.ChildWin
                 ob.Dispose();
             }
         }
-
-        // 压缩图片   （原路径，压缩后的路径，压缩比例）
-        /*public static bool GetPicThumbnail(string sFile, string outPath, int flag)
-        {
-            System.Drawing.Image iSource = System.Drawing.Image.FromFile(sFile);
-            ImageFormat tFormat = iSource.RawFormat;
-
-            //以下代码为保存图片时，设置压缩质量  
-            EncoderParameters ep = new EncoderParameters();
-            long[] qy = new long[1];
-            qy[0] = flag;//设置压缩的比例1-100  
-            EncoderParameter eParam = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, qy);
-            ep.Param[0] = eParam;
-            try
-            {
-                ImageCodecInfo[] arrayICI = ImageCodecInfo.GetImageEncoders();
-                ImageCodecInfo jpegICIinfo = null;
-                for (int x = 0; x < arrayICI.Length; x++)
-                {
-                    if (arrayICI[x].FormatDescription.Equals("JPEG"))
-                    {
-                        jpegICIinfo = arrayICI[x];
-                        break;
-                    }
-                }
-                if (jpegICIinfo != null)
-                {
-                    iSource.Save(outPath, jpegICIinfo, ep);//outFile是压缩后的新路径  
-                }
-                else
-                {
-                    iSource.Save(outPath, tFormat);
-                }
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-            finally
-            {
-                iSource.Dispose();
-                iSource.Dispose();
-            }
-        }
-        */
 
         // 加载摄像头按钮
         private void cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
