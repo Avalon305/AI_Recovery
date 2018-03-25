@@ -266,12 +266,12 @@ namespace spms.view.Pages.ChildWin
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
-                                              "attr2-" + attr2 + "*" +
-                                              "attr3-" + attr3 + "*" +
-                                              "attr4-" + attr4 + "*";
+                devicePrescription.DP_Attrs = attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr3 + "*" +
+                                              attr4 + "*";
                 devicePrescription.DP_Memo = t1.Text; //注意点
-                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(combobox_01.Text); //组数;
@@ -294,12 +294,12 @@ namespace spms.view.Pages.ChildWin
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
-                                              "attr2-" + attr2 + "*" +
-                                              "attr3-" + attr3 + "*" +
-                                              "attr4-" + attr4 + "*";
+                devicePrescription.DP_Attrs = attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr3 + "*" +
+                                              attr4 + "*";
                 devicePrescription.DP_Memo = t2.Text; //注意点
-                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X05;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(combobox_11.Text); //组数
@@ -321,12 +321,12 @@ namespace spms.view.Pages.ChildWin
                 attr4 = com_24.Text; //4
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
-                                              "attr2-" + attr2 + "*" +
-                                              "attr3-" + attr3 + "*" +
-                                              "attr4-" + attr4 + "*";
+                devicePrescription.DP_Attrs = attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr3 + "*" +
+                                              attr4 + "*";
                 devicePrescription.DP_Memo = t3.Text; //注意点
-                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(combobox_21.Text); //组数
@@ -350,13 +350,13 @@ namespace spms.view.Pages.ChildWin
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
-                                              "attr2-" + attr2 + "*" +
-                                              "attr3-" + attr3 + "*" +
-                                              "attr4-" + attr4 + "*" +
-                                              "attr5-" + attr5 + "*";
+                devicePrescription.DP_Attrs = attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr3 + "*" +
+                                              attr4 + "*" +
+                                              attr5 + "*";
                 devicePrescription.DP_Memo = t4.Text; //注意点
-                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(combobox_31.Text); //组数
@@ -378,11 +378,11 @@ namespace spms.view.Pages.ChildWin
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
-                                              "attr2-" + attr2 + "*" +
-                                              "attr3-" + attr3 + "*";
+                devicePrescription.DP_Attrs = attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr3 + "*";
                 devicePrescription.DP_Memo = t5.Text; //注意点
-                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(combobox_41.Text); //组数
@@ -404,11 +404,11 @@ namespace spms.view.Pages.ChildWin
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
-                                              "attr2-" + attr2 + "*" +
-                                              "attr3-" + attr3 + "*";
+                devicePrescription.DP_Attrs = attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr3 + "*";
                 devicePrescription.DP_Memo = t6.Text; //注意点
-                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X01;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(combobox_51.Text); //组数
@@ -520,16 +520,16 @@ namespace spms.view.Pages.ChildWin
                     continue;
                 }
                 string[] attrs = devicePrescription.DP_Attrs.Split(new char[] {'*'});
-                string devName = new DeviceSortDAO().Load(devicePrescription.Fk_DS_Id).DS_name;
+                int devName = devicePrescription.Fk_DS_Id;
                 switch (devName)
                 {
-                    case "水平腿部推蹬机":
+                    case (int)DeviceType.X06:
                         checkbox1.IsChecked = true;
                         //设置属性
-                        com_01.Text = attrs[0].Split(new char[] {'-'})[1];
-                        com_02.Text = attrs[1].Split(new char[] {'-'})[1];
-                        com_03.Text = attrs[2].Split(new char[] {'-'})[1];
-                        com_04.Text = attrs[3].Split(new char[] {'-'})[1];
+                        com_01.Text = attrs[0];
+                        com_02.Text = attrs[1];
+                        com_03.Text = attrs[2];
+                        com_04.Text = attrs[3];
                         //设置处方信息
                         combobox_01.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_02.Text = devicePrescription.dp_groupnum.ToString();
@@ -538,12 +538,12 @@ namespace spms.view.Pages.ChildWin
                         combobox_05.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t1.Text = devicePrescription.DP_Memo;
                         break;
-                    case "坐姿划船机":
+                    case (int)DeviceType.X05:
                         checkbox2.IsChecked = true;
-                        com_11.Text = attrs[0].Split(new char[] {'-'})[1];
-                        com_12.Text = attrs[1].Split(new char[] {'-'})[1];
-                        com_13.Text = attrs[2].Split(new char[] {'-'})[1];
-                        com_14.Text = attrs[3].Split(new char[] {'-'})[1];
+                        com_11.Text = attrs[0];
+                        com_12.Text = attrs[1];
+                        com_13.Text = attrs[2];
+                        com_14.Text = attrs[3];
                         combobox_11.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_12.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_13.Text = devicePrescription.dp_relaxtime.ToString();
@@ -551,12 +551,12 @@ namespace spms.view.Pages.ChildWin
                         combobox_15.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t2.Text = devicePrescription.DP_Memo;
                         break;
-                    case "身体伸展弯曲机":
+                    case (int)DeviceType.X04:
                         checkbox3.IsChecked = true;
-                        com_21.Text = attrs[0].Split(new char[] {'-'})[1];
-                        com_22.Text = attrs[1].Split(new char[] {'-'})[1];
-                        com_23.Text = attrs[2].Split(new char[] {'-'})[1];
-                        com_24.Text = attrs[3].Split(new char[] {'-'})[1];
+                        com_21.Text = attrs[0];
+                        com_22.Text = attrs[1];
+                        com_23.Text = attrs[2];
+                        com_24.Text = attrs[3];
                         combobox_21.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_22.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_23.Text = devicePrescription.dp_relaxtime.ToString();
@@ -564,13 +564,13 @@ namespace spms.view.Pages.ChildWin
                         combobox_25.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t3.Text = devicePrescription.DP_Memo;
                         break;
-                    case "腿部伸展弯曲机":
+                    case (int)DeviceType.X03:
                         checkbox4.IsChecked = true;
-                        com_31.Text = attrs[0].Split(new char[] {'-'})[1];
-                        com_32.Text = attrs[1].Split(new char[] {'-'})[1];
-                        com_33.Text = attrs[2].Split(new char[] {'-'})[1];
-                        com_34.Text = attrs[3].Split(new char[] {'-'})[1];
-                        com_35.Text = attrs[4].Split(new char[] {'-'})[1];
+                        com_31.Text = attrs[0];
+                        com_32.Text = attrs[1];
+                        com_33.Text = attrs[2];
+                        com_34.Text = attrs[3];
+                        com_35.Text = attrs[4];
                         combobox_31.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_32.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_33.Text = devicePrescription.dp_relaxtime.ToString();
@@ -578,11 +578,11 @@ namespace spms.view.Pages.ChildWin
                         combobox_35.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t4.Text = devicePrescription.DP_Memo;
                         break;
-                    case "臀部外展内收机":
+                    case (int)DeviceType.X02:
                         checkbox5.IsChecked = true;
-                        com_41.Text = attrs[0].Split(new char[] {'-'})[1];
-                        com_42.Text = attrs[1].Split(new char[] {'-'})[1];
-                        com_43.Text = attrs[2].Split(new char[] {'-'})[1];
+                        com_41.Text = attrs[0];
+                        com_42.Text = attrs[1];
+                        com_43.Text = attrs[2];
                         combobox_41.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_42.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_43.Text = devicePrescription.dp_relaxtime.ToString();
@@ -590,11 +590,11 @@ namespace spms.view.Pages.ChildWin
                         combobox_45.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t5.Text = devicePrescription.DP_Memo;
                         break;
-                    case "胸部推举机":
+                    case (int)DeviceType.X01:
                         checkbox6.IsChecked = true;
-                        com_51.Text = attrs[0].Split(new char[] {'-'})[1];
-                        com_52.Text = attrs[1].Split(new char[] {'-'})[1];
-                        com_53.Text = attrs[2].Split(new char[] {'-'})[1];
+                        com_51.Text = attrs[0];
+                        com_52.Text = attrs[1];
+                        com_53.Text = attrs[2];
                         combobox_51.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_52.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_53.Text = devicePrescription.dp_relaxtime.ToString();

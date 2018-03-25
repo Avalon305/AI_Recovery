@@ -72,10 +72,10 @@ namespace spms.view.Pages.ChildWin
                 string attr2 = HLPAttr2.Text;
                 string attr3 = HLPAttr3.Text;
                 string attr4 = HLPAttr4.Text;
-                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
-                                              "attr2-" + attr2 + "*" +
-                                              "attr3-" + attr3 + "*" +
-                                              "attr4-" + attr4 + "*";
+                devicePrescription.DP_Attrs = attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr3 + "*" +
+                                              attr4 + "*";
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(HLPGroupcount.Text);
@@ -84,7 +84,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_weight = Convert.ToDouble(HLPWeight.Text);
                 devicePrescription.Dp_status = 1;//TODO
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, HLPMoveway.Text)); //移乘方式
-                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
+                devicePrescription.Fk_DS_Id = (int) DeviceType.X06;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -113,10 +113,10 @@ namespace spms.view.Pages.ChildWin
                 string attr2 = RowAttr1.Text;
                 string attr3 = RowAttr1.Text;
                 string attr4 = RowAttr1.Text;
-                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
-                                              "attr2-" + attr2 + "*" +
-                                              "attr3-" + attr3 + "*" +
-                                              "attr4-" + attr4 + "*";
+                devicePrescription.DP_Attrs = attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr3 + "*" +
+                                              attr4 + "*";
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(ROWGroupcount.Text);
@@ -125,7 +125,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_weight = Convert.ToDouble(ROWWeight.Text);
                 devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, ROWMoveway.Text)); //移乘方式
-                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X05;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -154,10 +154,10 @@ namespace spms.view.Pages.ChildWin
                 string attr2 = TFAttr2.Text;
                 string attr3 = TFAttr3.Text;
                 string attr4 = TFAttr4.Text;
-                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
-                                              "attr2-" + attr2 + "*" +
-                                              "attr3-" + attr3 + "*" +
-                                              "attr4-" + attr4 + "*";
+                devicePrescription.DP_Attrs = attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr3 + "*" +
+                                              attr4 + "*";
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(TFGroupcount.Text);
@@ -166,7 +166,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_weight = Convert.ToDouble(TFWeight.Text);
                 devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, TFMoveway.Text)); //移乘方式
-                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -196,11 +196,11 @@ namespace spms.view.Pages.ChildWin
                 string attr3 = LEAttr3.Text;
                 string attr4 = LEAttr4.Text;
                 string attr5 = LEAttr5.Text;
-                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
-                                              "attr2-" + attr2 + "*" +
-                                              "attr3-" + attr3 + "*" +
-                                              "attr4-" + attr4 + "*" +
-                                              "attr5-" + attr5 + "*";
+                devicePrescription.DP_Attrs = attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr3 + "*" +
+                                              attr4 + "*" +
+                                              attr5 + "*";
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(LEGroupcount.Text);
@@ -209,7 +209,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_weight = Convert.ToDouble(LEWeight.Text);
                 devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, LEMoveway.Text)); //移乘方式
-                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -237,9 +237,9 @@ namespace spms.view.Pages.ChildWin
                 string attr1 = HAAttr1.Text;
                 string attr2 = HAAttr2.Text;
                 string attr3 = HAAttr3.Text;
-                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
-                                              "attr2-" + attr2 + "*" +
-                                              "attr3-" + attr3 + "*";
+                devicePrescription.DP_Attrs = attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr3 + "*";
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(HAGroupcount.Text);
@@ -248,7 +248,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_weight = Convert.ToDouble(HAWeight.Text);
                 devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, HAMoveway.Text)); //移乘方式
-                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -276,9 +276,9 @@ namespace spms.view.Pages.ChildWin
                 string attr1 = CPAttr1.Text;
                 string attr2 = CPAttr2.Text;
                 string attr3 = CPAttr3.Text;
-                devicePrescription.DP_Attrs = "attr1-" + attr1 + "*" +
-                                              "attr2-" + attr2 + "*" +
-                                              "attr3-" + attr3 + "*";
+                devicePrescription.DP_Attrs = attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr3 + "*";
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 devicePrescription.dp_groupcount = Convert.ToInt32(CPGroupcount.Text);
@@ -287,7 +287,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.dp_weight = Convert.ToDouble(CPWeight.Text);
                 devicePrescription.Dp_status = 1;
                 devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, CPMoveway.Text)); //移乘方式
-                devicePrescription.Fk_DS_Id = deviceSortDao.GetByName(devName).Pk_DS_Id;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X01;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;

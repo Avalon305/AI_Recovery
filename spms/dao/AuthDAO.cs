@@ -56,5 +56,14 @@ namespace spms.dao
             }
         }
 
+        public void UpdateByUserName(string username, int status)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "UPDATE bdl_auth SET user_status = @User_Status WHERE auth_username = @Auth_UserName";
+
+                conn.Execute(query, new { User_Status = status, Auth_UserName = username });
+            }
+        }
     }
 }

@@ -90,6 +90,11 @@ namespace spms.service
                 loginResult = "登录异常";
                 return loginResult;
             }
+            if (autherCN.User_Status == Auther.USER_STATUS_FREEZE)
+            {
+                loginResult = "用户已被冻结";
+                return loginResult;
+            }
             return loginResult;
         }
     }
