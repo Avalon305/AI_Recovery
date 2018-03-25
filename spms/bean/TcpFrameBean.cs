@@ -10,7 +10,7 @@ namespace spms.bean
     class TcpFrameBean
     {
         public string TerminalId { get; set; }
-        public byte SerialNo { get; set; }
+        public Int16 SerialNo { get; set; }
         public MsgId MsgId { get; set; }
         public byte[] DataBody { get; set; }
         public Boolean Success { get; set; } = true;

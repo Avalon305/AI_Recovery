@@ -7,6 +7,7 @@ using spms.util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,9 +23,10 @@ namespace spms.protocol
             byte[] buffer = ProtocolUtil.UnTransfer(source);
             MsgId msgId = ProtocolUtil.BytesToMsgId(buffer, 0);
             Int16 data_len = BitConverter.ToInt16(buffer, 2);
+            data_len = IPAddress.NetworkToHostOrder(data_len);
             string terminalId = ProtocolUtil.BcdToString(buffer, 4, 6);
-            byte serialNo = buffer[10];
-
+            Int16 serialNo = BitConverter.ToInt16(buffer, 10);
+            serialNo = IPAddress.NetworkToHostOrder(serialNo);
             byte xor = buffer[12 + data_len];
             //数据体
             byte[] data = new byte[data_len];
@@ -40,8 +42,11 @@ namespace spms.protocol
             frameBean.MsgId = msgId;
             if (xor != calcXor)
             {
-                frameBean.AppendErrorMsg( "校验码不符合预期");
-                response = MakerTCPFrame.GetInstance().Make8001Frame((byte)(serialNo + 1), MsgId.X0001, CommResponse.MistakeMsg);
+                logger.Error("校验码不符合预期：" + ProtocolUtil.BytesToString(source));
+
+                frameBean.AppendErrorMsg("校验码不符合预期");
+                byte[] d = MakerTCPFrame.GetInstance().Make8001Frame(serialNo, MsgId.X0001, CommResponse.MistakeMsg);
+                response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, frameBean.TerminalId, d);
                 return response;
             }
 
@@ -50,29 +55,35 @@ namespace spms.protocol
                 case MsgId.X0001://设备通用应答
                     break;
                 case MsgId.X0002://心跳OK
+                    logger.Info("收到心跳：" + ProtocolUtil.BytesToString(source));
                     HandleHeartBeat(ref response, frameBean);
                     break;
                 case MsgId.X0008://开始训练
+                    logger.Info("收到开始训练请求：" + ProtocolUtil.BytesToString(source));
                     HandleStartPrictice(ref response, frameBean);
                     break;
                 case MsgId.X0009://训练结果上报
+                    logger.Info("收到训练结果上报：" + ProtocolUtil.BytesToString(source));
+
                     HandlePricticeResult(ref response, frameBean);
                     break;
                 case MsgId.X000A://请求使用者信息
+                    logger.Info("收到请求使用者信息：" + ProtocolUtil.BytesToString(source));
+
                     HandleRequestUserInfo(ref response, frameBean);
                     break;
-                case MsgId.X0006://请求照片包数OK
-                    HandleRequestImageCount(ref response, frameBean);
-                    break;
                 case MsgId.X0007://请求照片数据OK
+                    logger.Info("收到请求照片数据OK：" + ProtocolUtil.BytesToString(source));
                     HandleRequestImageData(ref response, frameBean);
                     break;
                 default:
+                    logger.Error("收到未知消息：" + ProtocolUtil.BytesToString(source));
                     frameBean.AppendErrorMsg("未知的消息ID");
-                    response = MakerTCPFrame.GetInstance().Make8001Frame((byte)(serialNo + 1), MsgId.X0001, CommResponse.UnSupport);
+                    byte[] d = MakerTCPFrame.GetInstance().Make8001Frame(serialNo, MsgId.X0001, CommResponse.UnSupport);
+                    response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, frameBean.TerminalId, d);
                     break;
             }
-
+            logger.Info("响应的报文：" + ProtocolUtil.BytesToString(response));
             return response;
         }
         /// <summary>
@@ -84,31 +95,15 @@ namespace spms.protocol
         {
             byte[] body = frameBean.DataBody;
             string idcard = Encoding.GetEncoding("GBK").GetString(body, 0, 18);
-            Int16 packNum = BitConverter.ToInt16(body, 32);
 
-            byte[] data = MakerTCPFrame.GetInstance().Make8007Frame(packNum, idcard);
+            byte[] data = MakerTCPFrame.GetInstance().Make8007Frame(idcard);
             logger.Error(ProtocolUtil.BytesToString(data));
-            byte nextSerialNo = (byte)(frameBean.SerialNo + 1);
-            response = MakerTCPFrame.GetInstance().PackData(MsgId.X8007, nextSerialNo, frameBean.TerminalId, data);
+
+            response = MakerTCPFrame.GetInstance().PackData(MsgId.X8007, frameBean.TerminalId, data);
 
         }
 
-       /// <summary>
-       /// 处理请求图片包数
-       /// </summary>
-       /// <param name="response"></param>
-       /// <param name="frameBean"></param>
-        private void HandleRequestImageCount(ref byte[] response, TcpFrameBean frameBean)
-        {
-            byte[] idBytes = frameBean.DataBody;
-            string idcard = Encoding.GetEncoding("GBK").GetString(idBytes, 0, 18);
-         
 
-            byte[] data = MakerTCPFrame.GetInstance().Make8006Frame(idcard);
-            Int16 nextSerialNo = (Int16)(frameBean.SerialNo + 1);
-            response = MakerTCPFrame.GetInstance().PackData(MsgId.X8006, nextSerialNo, frameBean.TerminalId, data);
-
-        }
 
         /// <summary>
         /// 处理请求用户信息
@@ -121,8 +116,7 @@ namespace spms.protocol
             string idcard = Encoding.GetEncoding("GBK").GetString(body, 0, 18);
             byte[] data = MakerTCPFrame.GetInstance().Make800AFrame(idcard);
             logger.Error(ProtocolUtil.BytesToString(data));
-            Int16 nextSerialNo = (Int16)(frameBean.SerialNo + 1);
-            MakerTCPFrame.GetInstance().PackData(MsgId.X800A, nextSerialNo, frameBean.TerminalId, data);
+            response = MakerTCPFrame.GetInstance().PackData(MsgId.X800A, frameBean.TerminalId, data);
         }
         /// <summary>
         /// 处理训练结果上报
@@ -133,14 +127,16 @@ namespace spms.protocol
         {
             ParserPricticeResult paser = new ParserPricticeResult();
             byte[] body = frameBean.DataBody;
+            string idCard = Encoding.GetEncoding("GBK").GetString(body, 0, 18);
+            byte[] d = new byte[body.Length - 32];
+            Array.Copy(body, 32, d, 0, d.Length);
             //设备类型
-            DeviceType deviceType = (DeviceType)body[0];
-           
+            DeviceType deviceType = (DeviceType)d[0];
             switch (deviceType)
             {
                 case DeviceType.X01://胸部推举机
                     //TODO 设备应该上报用户ID
-                    paser.PaserX01(body,"370111111111111115");
+                    paser.PaserX01(d, idCard);
                     break;
                 case DeviceType.X02:
                     break;
@@ -155,8 +151,7 @@ namespace spms.protocol
             }
             //数据上报响应通用应答
             byte[] data = MakerTCPFrame.GetInstance().Make8001Frame(frameBean.SerialNo, frameBean.MsgId, CommResponse.Success);
-            byte nextSerialNo = (byte)(frameBean.SerialNo + 1);
-            response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, nextSerialNo, frameBean.TerminalId, data);
+            response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, frameBean.TerminalId, data);
 
         }
 
@@ -175,7 +170,8 @@ namespace spms.protocol
             switch (deviceType)
             {
                 case DeviceType.X01://胸部推举机
-                    maker.Make8008Frame(userId, deviceType);
+                    byte[] d = maker.Make8008Frame(userId, deviceType);
+                    response = MakerTCPFrame.GetInstance().PackData(MsgId.X8008, frameBean.TerminalId, d);
                     break;
                 case DeviceType.X02:
                     break;
@@ -195,11 +191,10 @@ namespace spms.protocol
         /// </summary>
         /// <param name="response"></param>
         /// <param name="frameBean"></param>
-        public void HandleHeartBeat(ref byte[] response,TcpFrameBean frameBean)
+        public void HandleHeartBeat(ref byte[] response, TcpFrameBean frameBean)
         {
             byte[] data = MakerTCPFrame.GetInstance().Make8001Frame(frameBean.SerialNo, frameBean.MsgId, CommResponse.Success);
-            byte nextSerialNo = (byte)(frameBean.SerialNo + 1);
-            response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, nextSerialNo, frameBean.TerminalId, data);
+            response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, frameBean.TerminalId, data);
 
         }
 
@@ -218,15 +213,21 @@ namespace spms.protocol
                 byte strength = ProtocolUtil.BcdToInt(body[1]);
                 //运动时间 1/100秒
                 Int32 time = BitConverter.ToInt32(body, 2);
+                time = IPAddress.NetworkToHostOrder(time);
                 //总移动距离 毫米
                 Int32 distance = BitConverter.ToInt32(body, 6);
+                distance = IPAddress.NetworkToHostOrder(distance);
                 //总功 1/100 焦耳
                 Int32 energy = BitConverter.ToInt32(body, 10);
+                energy = IPAddress.NetworkToHostOrder(energy);
+
                 //消耗热量 1/100 卡路里
                 Int32 heat = BitConverter.ToInt32(body, 14);
+                heat = IPAddress.NetworkToHostOrder(heat);
                 //指数标识 0 正数 1 负数
                 //指数值 1/100
                 Int32 singer = BitConverter.ToInt32(body, 19);
+                singer = IPAddress.NetworkToHostOrder(singer);
                 singer = body[18] == 0x00 ? singer : -1 * singer;
                 //动作节奏 0没问题 1 有些许问题 2 有问题
                 byte rhythem = body[23];
@@ -237,13 +238,17 @@ namespace spms.protocol
                 //自觉运动强度
                 result.PR_SportStrength = (byte)(strength - 5);
                 result.PR_Time1 = time / 100.0;
-                result.PR_Distance = distance ;
+                result.PR_Distance = distance;
                 result.PR_CountWorkQuantity = energy / 100.0;
                 result.PR_Cal = heat / 100.0;
                 result.PR_Index = singer / 100.0;
                 result.PR_Evaluate = rhythem;
                 result.PR_UserThoughts = think;
 
+                StringBuilder sb = new StringBuilder();
+                sb.Append("运动强度：").Append(strength).Append("运动时间：").Append(time).Append("总移动距离：").Append(distance).Append("总功：").Append(energy)
+                    .Append("消耗热量").Append(heat).Append("指数值：").Append(singer).Append("动作节奏：").Append(rhythem);
+                logger.Info("训练上报的解析结果：" + sb.ToString());
                 TrainService trainService = new TrainService();
 
                 // 存数据库
@@ -254,5 +259,5 @@ namespace spms.protocol
         }
     }
 
-    
+
 }

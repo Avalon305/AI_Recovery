@@ -20,7 +20,7 @@ namespace spms.protocol
             return instance;
         }
 
-        public byte[] PackData(MsgId msgId, Int16 serialNo, string terminalId, byte[] data)
+        public byte[] PackData(MsgId msgId, string terminalId, byte[] data)
         {
             int pos = 0;
             int data_len = data.Length;
@@ -30,8 +30,8 @@ namespace spms.protocol
             arr[1] = Convert.ToByte(((int)msgId) & 0x00FF);//消息ID高字节
             arr[2] = Convert.ToByte((((int)msgId) & 0xFF00) >> 8);//消息ID，低字节
             // 消息体长度
-            arr[3] = Convert.ToByte(data_len & 0x00FF);
-            arr[4] = Convert.ToByte((data_len & 0xFF00) >> 8);
+            arr[3] = Convert.ToByte((data_len & 0xFF00) >> 8);
+            arr[4] = Convert.ToByte(data_len & 0x00FF);
             //终端号码
             terminalId.PadLeft(12, '0');
             arr[5] = Convert.ToByte(terminalId.Substring(0 * 2, 2), 16);
@@ -41,8 +41,9 @@ namespace spms.protocol
             arr[9] = Convert.ToByte(terminalId.Substring(4 * 2, 2), 16);
             arr[10] = Convert.ToByte(terminalId.Substring(5 * 2, 2), 16);
             // 消息流水号
-            arr[11] = Convert.ToByte(serialNo & 0x00FF);//流水号高字节
-            arr[12] = Convert.ToByte((serialNo & 0xFF00) >> 8);//流水号，低字节
+            Int16 serialNo = ProtocolUtil.GetSerialNo();
+            arr[11] = Convert.ToByte((serialNo & 0xFF00) >> 8);//流水号，低字节
+            arr[12] = Convert.ToByte(serialNo & 0x00FF);//流水号高字节
             //数据体填充
             Array.Copy(data, 0, arr, 13, data_len);
             pos += 12 + data_len;
@@ -66,46 +67,26 @@ namespace spms.protocol
         public byte[] Make8001Frame(Int16 serialNo, MsgId msgId, CommResponse respType)
         {
             byte[] arr = new byte[5];
-            arr[0] = Convert.ToByte(serialNo & 0x00FF);//流水号高字节
-            arr[1] = Convert.ToByte((serialNo & 0xFF00) >> 8);//流水号，低字节
+            arr[0] = Convert.ToByte((serialNo & 0xFF00) >> 8);//流水号，低字节
+            arr[1] = Convert.ToByte(serialNo & 0x00FF);//流水号高字节
             arr[2] = Convert.ToByte(((int)msgId) & 0x00FF);//消息ID高字节
             arr[3] = Convert.ToByte((((int)msgId) & 0xFF00) >> 8);//消息ID，低字节
             arr[4] = (byte)respType;
             return arr;
         }
-  
-        /// <summary>
-        /// 响应照片包数
-        /// </summary>
-        /// <param name="idcard"></param>
-        /// <returns></returns>
-        public byte[] Make8006Frame(string idcard)
-        {
-            UserPicService picService = new UserPicService();
-            Int16 count = picService.GetPicturePackCount(idcard);
 
-            byte[] arr = new byte[2];
-            arr[0] = Convert.ToByte(count & 0x00FF);//照片包数高字节
-            arr[1] = Convert.ToByte((count & 0xFF00) >> 8);//照片包数，低字节
-            return arr;
-        }
 
         /// <summary>
         /// 响应照片数据
         /// </summary>
-        /// <param name="packNum"></param>
         /// <param name="idcard"></param>
         /// <returns></returns>
-        public byte[] Make8007Frame(Int16 packNum, string idcard)
+        public byte[] Make8007Frame( string idcard)
         {
-            byte[] arr = new byte[514];
-            arr[0] = Convert.ToByte(packNum & 0x00FF);//包序号高字节
-            arr[1] = Convert.ToByte((packNum & 0xFF00) >> 8);//包序号，低字节
-
             UserPicService picService = new UserPicService();
-            byte[] picData = picService.GetPictureData(idcard, packNum);
-
-            Array.Copy(picData, 0, arr, 2, picData.Length);
+            byte[] picData = picService.GetPictureData(idcard);
+            byte[] arr = new byte[picData.Length];
+            Array.Copy(picData, 0, arr, 0, picData.Length);
             return arr;
         }
 
@@ -117,8 +98,14 @@ namespace spms.protocol
         {
             UserService userService = new UserService();
             User u = userService.GetByIdCard(idcard);
+            byte[] group = Encoding.GetEncoding("GBK").GetBytes(u.User_GroupName);
+            byte[] initCare = Encoding.GetEncoding("GBK").GetBytes(u.User_InitCare);
+            byte[] nowCare = Encoding.GetEncoding("GBK").GetBytes(u.User_Nowcare);
+            byte[] illnessName = Encoding.GetEncoding("GBK").GetBytes(u.User_IllnessName);
+            byte[] disabilitiesName = Encoding.GetEncoding("GBK").GetBytes(u.User_PhysicalDisabilities);
+            int pos = 89;
 
-            byte[] arr = new byte[729];
+            byte[] arr = new byte[89 + group.Length + initCare.Length + nowCare.Length + illnessName.Length + disabilitiesName.Length + 5];
             //用户ID32个字节
             byte[] idBytes = Encoding.GetEncoding("GBK").GetBytes(idcard);
             Array.Copy(idBytes, 0, arr, 0, idBytes.Length);
@@ -136,20 +123,25 @@ namespace spms.protocol
             byte[] birth = ProtocolUtil.StringToBcd(birthStr);
             Array.Copy(birth, 0, arr, 85, birth.Length);
             //组 128字节
-            byte[] group = Encoding.GetEncoding("GBK").GetBytes(u.User_GroupName);
             Array.Copy(group, 0, arr, 89, group.Length);
+            arr[89 + group.Length] = 0x00;
+            pos += group.Length + 1;
             //开始时的要护理程度 128 字节
-            byte[] initCare = Encoding.GetEncoding("GBK").GetBytes(u.User_InitCare);
-            Array.Copy(initCare, 0, arr, 217, initCare.Length);
+            Array.Copy(initCare, 0, arr, pos, initCare.Length);
+            arr[pos + initCare.Length] = 0x00;
+            pos += initCare.Length + 1;
             //现在的要护理程度
-            byte[] nowCare = Encoding.GetEncoding("GBK").GetBytes(u.User_Nowcare);
-            Array.Copy(nowCare, 0, arr, 345, nowCare.Length);
+            Array.Copy(nowCare, 0, arr, pos, nowCare.Length);
+            arr[pos + nowCare.Length] = 0x00;
+            pos += nowCare.Length + 1;
             //诊断名称
-            byte[] illnessName = Encoding.GetEncoding("GBK").GetBytes(u.User_IllnessName);
-            Array.Copy(illnessName, 0, arr, 473, illnessName.Length);
+            Array.Copy(illnessName, 0, arr, pos, illnessName.Length);
+            arr[pos + illnessName.Length] = 0x00;
+            pos += illnessName.Length + 1;
             //伤残名称
-            byte[] disabilitiesName = Encoding.GetEncoding("GBK").GetBytes(u.User_PhysicalDisabilities);
-            Array.Copy(disabilitiesName, 0, arr, 601, disabilitiesName.Length);
+            Array.Copy(disabilitiesName, 0, arr, pos, disabilitiesName.Length);
+            arr[pos + disabilitiesName.Length] = 0x00;
+            pos += disabilitiesName.Length + 1;
             return arr;
 
         }
@@ -193,8 +185,8 @@ namespace spms.protocol
                 }
                 //备忘
                 string notes = prescription.DP_Memo;
-
-                arr = new byte[23+notes.Length];
+                byte[] noteBytes = Encoding.GetEncoding("GBK").GetBytes(notes);
+                arr = new byte[67 + noteBytes.Length];
                 arr[0] = 0x00;
 
                 // 姓名20个字节
@@ -220,19 +212,19 @@ namespace spms.protocol
                 arr[59] = 3;
                 //TODO 砝码移动距离1/10厘米,单位是啥
                 Int16 move = Int16.Parse(attrs[0]);
-                arr[60] = Convert.ToByte(move & 0x00FF);//高字节
-                arr[61] = Convert.ToByte((move & 0xFF00) >> 8);//低字节
+                arr[60] = Convert.ToByte((move & 0xFF00) >> 8);//低字节
+                arr[61] = Convert.ToByte(move & 0x00FF);//高字节
                 //TODO 砝码重量 单位是啥
                 Int16 weight = Int16.Parse(attrs[1]);
-                arr[62] = Convert.ToByte(weight & 0x00FF);//高字节
-                arr[63] = Convert.ToByte((weight & 0xFF00) >> 8);//低字节
+                arr[62] = Convert.ToByte((weight & 0xFF00) >> 8);//低字节
+                arr[63] = Convert.ToByte(weight & 0x00FF);//高字节
                 //TODO 辅助砝码重量 单位是啥
-                Int16 helpWeight = Int16.Parse(attrs[1]);
-                arr[64] = Convert.ToByte(helpWeight & 0x00FF);//高字节
-                arr[65] = Convert.ToByte((helpWeight & 0xFF00) >> 8);//低字节
-                 //备忘
-                byte[] noteBytes = Encoding.GetEncoding("GBK").GetBytes(notes);
+                Int16 helpWeight = Int16.Parse(attrs[2]);
+                arr[64] = Convert.ToByte((helpWeight & 0xFF00) >> 8);//低字节
+                arr[65] = Convert.ToByte(helpWeight & 0x00FF);//高字节
+                                                              //备忘
                 Array.Copy(noteBytes, 0, arr, 66, noteBytes.Length);
+                arr[66 + noteBytes.Length] = 0x00;
                 return arr;
             }
 

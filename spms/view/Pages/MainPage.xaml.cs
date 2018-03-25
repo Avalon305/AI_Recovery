@@ -105,7 +105,7 @@ namespace spms.view.Pages
             if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null && selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
             {
                 path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
-                path += ".jpg";
+                path += ".gif";
             }
             else
             {
@@ -116,9 +116,15 @@ namespace spms.view.Pages
             //看照片是否存在
             if (!File.Exists(path))
             {
-                UserPhoto.Source = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+
+                BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+                BitmapImage bitmap1 = bitmap; //new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+
+                UserPhoto.Source = bitmap1;//new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
                 
-                Console.WriteLine("~~~~~~~~~该用户的照片不存在~~~~~~~" + path);
+                
+
+                //Console.WriteLine("~~~~~~~~~该用户的照片不存在~~~~~~~" + path);
                 return;
                 //提示文件不存在
             }

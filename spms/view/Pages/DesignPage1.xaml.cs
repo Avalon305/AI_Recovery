@@ -47,6 +47,7 @@ namespace spms.view.Pages
         {
             InitializeComponent();
         }
+
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             entity.Setter setter = new entity.Setter();

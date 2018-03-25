@@ -1,6 +1,9 @@
 ﻿using spms.util;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -132,16 +135,22 @@ namespace spms.view.Pages.ChildWin
                     Directory.CreateDirectory(dirPath);//创建新路径
                 }
                 
-                //string fileName = System.IO.Path.GetDirectoryName(path + ".jpg");
-                //MessageBox.Show("!!!!!!!!!!"+ fileName +"!!!!!!!!!!!!!");
+                // 压缩图片
+                File.WriteAllBytes(path + "temp.gif", Pic);
+                GetPicThumbnail(path + "temp.gif", path + ".gif", 300, 300, 22);
+                File.Delete(path + "temp.gif");
+                // 判断一下压缩后的大小
+                long picLen = 0;
+                FileInfo di = new FileInfo(path + ".gif");
+                picLen = di.Length;
+                picLen /= 1024;
 
-                //Thread.Sleep(2000);
-
-                File.WriteAllBytes(path + ".jpg", Pic);
-
-                //System.IO.FileStream fs = new System.IO.FileStream(fileName,System.IO.FileMode.Open, System.IO.FileAccess.Read, FileShare.ReadWrite);
-
-                //System.Windows.MessageBox.Show("图片保存完成", "信息提示");
+                if (picLen > 10)
+                {
+                    MessageBox.Show("图片过大，请重新拍摄");
+                    File.Delete(path + ".gif");
+                    return;
+                }
             }
             else
             {
@@ -150,6 +159,93 @@ namespace spms.view.Pages.ChildWin
             }
 
             this.Close();
+        }
+   
+        /// <param name="sFile">原图片</param>    
+        /// <param name="dFile">压缩后保存位置</param>    
+        /// <param name="dHeight">高度</param>    
+        /// <param name="dWidth"></param>    
+        /// <param name="flag">压缩质量(数字越小压缩率越高) 1-100</param>    
+        /// <returns></returns>    
+        /// (源文件，目标文件，高度，宽度，压缩比例)
+        public static bool GetPicThumbnail(string sFile, string dFile, int dHeight, int dWidth, int flag)
+        {
+            System.Drawing.Image iSource = System.Drawing.Image.FromFile(sFile);
+            ImageFormat tFormat = iSource.RawFormat;
+            int sW = 0, sH = 0;
+
+            //按比例缩放  
+            System.Drawing.Size tem_size = new System.Drawing.Size(iSource.Width, iSource.Height);
+
+            if (tem_size.Width > dHeight || tem_size.Width > dWidth)
+            {
+                if ((tem_size.Width * dHeight) > (tem_size.Width * dWidth))
+                {
+                    sW = dWidth;
+                    sH = (dWidth * (int)tem_size.Height) / (int)tem_size.Width;
+                }
+                else
+                {
+                    sH = dHeight;
+                    sW = ((int)tem_size.Width * dHeight) / (int)tem_size.Height;
+                }
+            }
+            else
+            {
+                sW = (int)tem_size.Width;
+                sH = (int)tem_size.Height;
+            }
+
+            Bitmap ob = new Bitmap(dWidth, dHeight);
+            Graphics g = Graphics.FromImage(ob);
+
+            g.Clear(System.Drawing.Color.WhiteSmoke);
+            g.CompositingQuality = CompositingQuality.HighQuality;
+            g.SmoothingMode = SmoothingMode.HighQuality;
+            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+
+            g.DrawImage(iSource, new System.Drawing.Rectangle((dWidth - sW) / 2, (dHeight - sH) / 2, sW, sH), 0, 0, iSource.Width, iSource.Height, GraphicsUnit.Pixel);
+
+            g.Dispose();
+            //以下代码为保存图片时，设置压缩质量    
+            EncoderParameters ep = new EncoderParameters();
+            long[] qy = new long[1];
+            qy[0] = flag;//设置压缩的比例1-100    
+            EncoderParameter eParam = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, qy);
+            ep.Param[0] = eParam;
+            try
+            {
+                ImageCodecInfo[] arrayICI = ImageCodecInfo.GetImageEncoders();
+                ImageCodecInfo jpegICIinfo = null;
+                for (int x = 0; x < arrayICI.Length; x++)
+                {
+                    if (arrayICI[x].FormatDescription.Equals("JPEG"))
+                    {
+                        jpegICIinfo = arrayICI[x];
+                        break;
+                    }
+                }
+                if (jpegICIinfo != null)
+                {
+                    //MessageBox.Show("保存1");
+                    ob.Save(dFile, jpegICIinfo, ep);//dFile是压缩后的新路径    
+                }
+                else
+                {
+                    //MessageBox.Show("保存2");
+                    ob.Save(dFile, tFormat);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                iSource.Dispose();
+                ob.Dispose();
+            }
         }
 
         // 加载摄像头按钮

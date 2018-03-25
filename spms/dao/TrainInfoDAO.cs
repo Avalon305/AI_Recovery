@@ -75,6 +75,7 @@ namespace spms.dao
         /// <returns></returns>
         public DevicePrescription GetByUserIdDeviceType(string idcard, DeviceType deviceType)
         {
+      
             using (var conn = DbUtil.getConn())
             {
                 const string query = "select d.* from bdl_user u join bdl_traininfo t on u.pk_user_id = t.fk_user_id join bdl_deviceprescription d on d.fk_ti_id = t.pk_ti_id where u.user_idcard = @Idcard and d.fk_ds_id = @DeviceType and t.status = @TrainInfoStatus order by t.gmt_create desc";
