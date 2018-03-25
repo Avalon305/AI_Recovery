@@ -78,6 +78,7 @@ namespace spms.view.Pages.ChildWin
         {
 
         }
+
         //添加疾病名称
         private void DiseaseNameAddition(object sender, RoutedEventArgs e)
         {
@@ -108,6 +109,7 @@ namespace spms.view.Pages.ChildWin
             diagnosisList = customDataService.GetAllByType(CustomDataEnum.Diagiosis);
             c6.ItemsSource = diagnosisList;
         }
+        
         //输入非公开信息
         private void InputNonPublicInformationPassword(object sender, RoutedEventArgs e)
         {
@@ -211,7 +213,7 @@ namespace spms.view.Pages.ChildWin
                 // 如果用户是自己选择现成的图片，将图片保存在安装目录下
                 string sourcePic = userPhotoPath;
                 string targetPic = CommUtil.GetUserPic(usernamePY + IDCard);
-                targetPic += ".jpg";
+                targetPic += ".gif";
 
                 String dirPath = CommUtil.GetUserPic();
 
@@ -240,7 +242,6 @@ namespace spms.view.Pages.ChildWin
             this.Close();
         }
 
-
         // 摄像
         private void Photograph(object sender, RoutedEventArgs e)
         {
@@ -261,12 +262,13 @@ namespace spms.view.Pages.ChildWin
 
             //MessageBox.Show("hi");
 
+            //展示摄像的时候的图片
             string path = CommUtil.GetUserPic(t3.Text + IDCard.Text);
-            path += ".jpg";
+            path += ".gif";
 
             if (File.Exists(path))
             {
-                //MessageBox.Show("hi open!");
+                MessageBox.Show("hi open!");
                 BitmapImage image = new BitmapImage(new Uri(path, UriKind.Absolute));//打开图片
                 pic.Source = image;//将控件和图片绑定
                 
