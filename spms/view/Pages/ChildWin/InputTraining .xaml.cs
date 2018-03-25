@@ -630,7 +630,7 @@ namespace spms.view.Pages.ChildWin
                 Array.Copy(idBytes, 0, data, 0, idBytes.Length);
 
                 //用户名
-                byte[] nameBytes = Encoding.Default.GetBytes(user.User_Name);
+                byte[] nameBytes = Encoding.GetEncoding("GBK").GetBytes(user.User_Name);
                 Array.Copy(nameBytes, 0, data, 32, nameBytes.Length);
                 //拼音
                 byte[] pingYinBytes = Encoding.ASCII.GetBytes(user.User_Namepinyin);

@@ -50,9 +50,15 @@ namespace spms.view.Pages.ChildWin
             comBox3.ItemsSource = list;
         }
 
-        //保存
+        /// <summary>
+        /// 保存按钮的操作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Save(object sender, RoutedEventArgs e)
         {
+            //1.拼接身高
+            //height_first.DataContext();
 
         }
         //取消操作，关闭窗口

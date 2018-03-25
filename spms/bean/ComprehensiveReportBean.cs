@@ -256,31 +256,31 @@ namespace spms.bean
             //体温（康复后）
             public string SI_Suf_AnimalHeat { get; set; }
             //１．身体倦怠
-            private int SI_Tired { get; set; }
+            public int SI_Tired { get; set; }
             //２．腹泻
-            private int SI_Diarrhoea { get; set; }
+            public int SI_Diarrhoea { get; set; }
             //３．摇晃
-            private int SI_Shake { get; set; }
+            public int SI_Shake { get; set; }
             //４．心跳、气喘
-            private int SI_Asthma { get; set; }
+            public int SI_Asthma { get; set; }
             //５．咳嗽、有痰
-            private int SI_Phlegm { get; set; }
+            public int SI_Phlegm { get; set; }
             //６．发烧
-            private int SI_Fever { get; set; }
+            public int SI_Fever { get; set; }
             //７．胸部、肚子痛
-            private int SI_Stomach { get; set; }
+            public int SI_Stomach { get; set; }
             //８．没有食欲
-            private int SI_NoAppetite { get; set; }
+            public int SI_NoAppetite { get; set; }
             //９．持续便秘
-            private int SI_Constipation { get; set; }
+            public int SI_Constipation { get; set; }
             //１０．感到头晕
-            private int SI_Dizzy { get; set; }
+            public int SI_Dizzy { get; set; }
             //１１．头痛
-            private int SI_Headache { get; set; }
+            public int SI_Headache { get; set; }
             //１２．其他
-            private int SI_Other { get; set; }
+            public int SI_Other { get; set; }
             //１３．没有相关症状
-            private int SI_NoSymptoms { get; set; }
+            public int SI_NoSymptoms { get; set; }
 
             //是否参加
             public string SI_IsJoin { get; set; }
