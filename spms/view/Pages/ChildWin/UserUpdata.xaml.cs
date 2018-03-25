@@ -1,8 +1,10 @@
 ﻿
 using spms.entity;
 using spms.service;
+using spms.util;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +28,10 @@ namespace spms.view.Pages.ChildWin
     {
         ///传递过来的User
         public User SelectUser { get; set; }
-         
-
+        //保存用户照片的路径
+        string userPhotoPath = null;
+        //用户是否自己选择照片
+        private bool userIfSelectPic = false;
         //小组的名称列表
         List<string> groupList;
         //疾病名称列表
@@ -215,6 +219,14 @@ namespace spms.view.Pages.ChildWin
 
             SelectUser.User_Birth = Convert.ToDateTime(brithday);
             SelectUser.User_GroupName = groupName;
+
+            
+            if (IDCard == null || usernamePY == null || IDCard == "" || usernamePY == "")
+            {
+                System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
+                return;
+            }
+
             SelectUser.User_IDCard = IDCard;
             SelectUser.User_IllnessName = sicknessName;
             SelectUser.User_InitCare = initial;
@@ -227,31 +239,113 @@ namespace spms.view.Pages.ChildWin
             SelectUser.User_Phone = phone;
             ///补齐照片的部分
 
+            if (IDCard != null && usernamePY != null && IDCard != "" && usernamePY != "" && userIfSelectPic != false)
+            {
+                // 如果用户是自己选择现成的图片，将图片保存在安装目录下
+                string sourcePic = userPhotoPath;
+                string targetPic = CommUtil.GetUserPic(usernamePY + IDCard);
+                targetPic += ".jpg";
 
+                String dirPath = CommUtil.GetUserPic();
+
+                Console.WriteLine(dirPath);
+                if (Directory.Exists(dirPath))//判断是否存在
+                {
+                    //Response.Write("已存在");
+                }
+                else
+                {
+                    //Response.Write("不存在，正在创建");
+                    Directory.CreateDirectory(dirPath);//创建新路径
+                }
+
+                bool isrewrite = true; // true=覆盖已存在的同名文件,false则反之
+                System.IO.File.Copy(sourcePic, targetPic, isrewrite);
+            }
+            else if (userIfSelectPic != false)
+            {
+                MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
+                return;
+            }
 
             userService.UpdateUser(SelectUser);
             this.Close();
-
-
-
+            
         }
-        //摄影按钮
-        private void Button_TakePhoto(object sender, RoutedEventArgs e)
-        {
-
-        }
-        //参照按钮
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
        
-
+        // 摄像按钮
         private void Photograph(object sender, RoutedEventArgs e)
         {
+            Photograph photograph = new Photograph
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            photograph.getIdCard = IDCard.Text;
+            photograph.getName = t3.Text;
 
+            photograph.ShowDialog();
+
+            //MessageBox.Show("hi");
+
+            string path = CommUtil.GetUserPic(t3.Text + IDCard.Text);
+            path += ".jpg";
+
+            if (File.Exists(path))
+            {
+                //MessageBox.Show("hi open!");
+                BitmapImage image = new BitmapImage(new Uri(path, UriKind.Absolute));//打开图片
+                pic.Source = image;//将控件和图片绑定
+            }
         }
+
+        // 用户自主选择照片
+        private void Select_Picture_Show(object sender, RoutedEventArgs e)
+        {
+
+            using (System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog())
+            {
+                ofd.Title = "请选择要插入的图片";
+                ofd.Filter = "JPG图片|*.jpg|BMP图片|*.bmp|Gif图片|*.gif";
+                ofd.CheckFileExists = true;
+                ofd.CheckPathExists = true;
+                ofd.Multiselect = false;
+
+                if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    // 获取图片路径
+                    string picPath = ofd.FileName;
+
+                    long picLen = 0;
+
+                    FileInfo di = new FileInfo(picPath);
+                    picLen = di.Length;
+                    picLen /= 1024;
+                    Console.WriteLine("~~~~~~~~ 图片的大小" + picLen + "~~~~~~~~");
+
+                    if (picLen > 40)
+                    {
+                        System.Windows.MessageBox.Show("图片过大，请重新选择", "信息提示");
+                        return;
+                    }
+
+                    BitmapImage image = new BitmapImage(new Uri(ofd.FileName, UriKind.Absolute));//打开图片
+                    pic.Source = image;//将控件和图片绑定
+
+                    userIfSelectPic = true;
+                    userPhotoPath = ofd.FileName;
+                }
+                else
+                {
+                    userIfSelectPic = false;
+                    System.Windows.MessageBox.Show("你没有选择图片", "信息提示");
+                }
+                
+            }
+        }
+
         //设置手机号输入框只能输入数字
         private void OnlyInputNumbers(object sender, TextCompositionEventArgs e)
         {
@@ -357,9 +451,6 @@ namespace spms.view.Pages.ChildWin
             }
         }
 
-        private void Select_Picture_Show(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }

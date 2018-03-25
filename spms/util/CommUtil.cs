@@ -21,6 +21,8 @@ namespace spms.util
         /// <returns></returns>
         public static string GetUserPic(string picName)
         {
+
+
             string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
             string path = ConfigurationManager.AppSettings["PicPath"];
 

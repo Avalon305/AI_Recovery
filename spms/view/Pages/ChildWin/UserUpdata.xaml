@@ -203,7 +203,7 @@
 
                 <StackPanel Height="211" Orientation="Horizontal" Margin="10,0,0,0">
                     <Border BorderThickness="2" BorderBrush="Silver">
-                        <TextBlock   Opacity="5" Margin="0,-1.6,0,-2.2" Width="301" Text="没有图像数据" FontSize="30"/>
+                        <Image Name="pic" Opacity="5" Margin="0,0,0,0" Width="301" Source="/view/Images/NoPhoto.png" />
                     </Border>
 
                     <Grid Margin="0,0,0,0.2" Width="86" >
