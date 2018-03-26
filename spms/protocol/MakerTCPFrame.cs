@@ -27,8 +27,8 @@ namespace spms.protocol
             byte[] arr = new byte[15 + data_len];
 
             arr[0] = 0x7E;
-            arr[1] = Convert.ToByte(((int)msgId) & 0x00FF);//消息ID高字节
-            arr[2] = Convert.ToByte((((int)msgId) & 0xFF00) >> 8);//消息ID，低字节
+            arr[1] = Convert.ToByte((((int)msgId) & 0xFF00) >> 8);//消息ID，低字节
+            arr[2] = Convert.ToByte(((int)msgId) & 0x00FF);//消息ID高字节
             // 消息体长度
             arr[3] = Convert.ToByte((data_len & 0xFF00) >> 8);
             arr[4] = Convert.ToByte(data_len & 0x00FF);
@@ -60,7 +60,7 @@ namespace spms.protocol
         /// <summary>
         /// 组帧，通用应答
         /// </summary>
-        /// <param name="serialNo">流水号</param>
+        /// <param name="serialNo">流水号，这个流水号是Host字节序</param>
         /// <param name="msgId">回应的请求消息ID</param>
         /// <param name="respType"></param>
         /// <returns></returns>
@@ -69,8 +69,8 @@ namespace spms.protocol
             byte[] arr = new byte[5];
             arr[0] = Convert.ToByte((serialNo & 0xFF00) >> 8);//流水号，低字节
             arr[1] = Convert.ToByte(serialNo & 0x00FF);//流水号高字节
-            arr[2] = Convert.ToByte(((int)msgId) & 0x00FF);//消息ID高字节
-            arr[3] = Convert.ToByte((((int)msgId) & 0xFF00) >> 8);//消息ID，低字节
+            arr[2] = Convert.ToByte((((int)msgId) & 0xFF00) >> 8);//消息ID，低字节
+            arr[3] = Convert.ToByte(((int)msgId) & 0x00FF);//消息ID高字节
             arr[4] = (byte)respType;
             return arr;
         }

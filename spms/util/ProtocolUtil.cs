@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,11 +46,13 @@ namespace spms.util
         public static MsgId BytesToMsgId(byte[] source, int startIndex)
         {
             byte[] temp = new byte[4];
-            temp[0] = source[startIndex];
-            temp[1] = source[startIndex + 1];
-            temp[2] = 0;
-            temp[3] = 0;
-            return (MsgId)BitConverter.ToInt32(temp, 0);
+            temp[0] = 0;
+            temp[1] = 0;
+            temp[2] = source[startIndex];
+            temp[3] = source[startIndex + 1];
+            Int32 msgid = BitConverter.ToInt32(temp, 0);
+            
+            return (MsgId)IPAddress.NetworkToHostOrder(msgid);
         }
         /// <summary>
         /// 将0x7D 0x02,0x7D 0x01转回0x7E和0x7D

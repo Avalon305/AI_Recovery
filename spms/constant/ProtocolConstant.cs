@@ -80,47 +80,47 @@ namespace spms.constant
         /// <summary>
         /// 通用应答
         /// </summary>
-        X0001= 0x0100,
+        X0001= 0x0001,
         /// <summary>
         /// 通用应答
         /// </summary>
-        X8001 = 0x0180,
+        X8001 = 0x8001,
         /// <summary>
         /// 终端心跳
         /// </summary>
-        X0002 = 0x0200,
+        X0002 = 0x0002,
         /// <summary>
         /// 开始训练
         /// </summary>
-        X0008 = 0x0800,
+        X0008 = 0x0008,
         /// <summary>
         /// 开始训练应答
         /// </summary>
-        X8008 = 0x0880,
+        X8008 = 0x8008,
         /// <summary>
         /// 训练结果上报（胸部推举机）
         /// </summary>
-        X0009 = 0x0900,
+        X0009 = 0x0009,
         /// <summary>
         /// 请求使用者信息
         /// </summary>
-        X000A = 0x0A00,
+        X000A = 0x000A,
         /// <summary>
         /// 响应使用者信息
         /// </summary>
-        X800A = 0x0A80,
+        X800A = 0x800A,
         /// <summary>
         /// 响应照片总包数
         /// </summary>
-        X8006 = 0x0680,
+        X8006 = 0x8006,
         /// <summary>
         /// 请求照片数据
         /// </summary>
-        X0007 = 0x0700,
+        X0007 = 0x0007,
         /// <summary>
         /// 响应照片数据
         /// </summary>
-        X8007 = 0x0780,
+        X8007 = 0x8007,
 
 
 
