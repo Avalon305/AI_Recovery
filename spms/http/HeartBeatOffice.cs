@@ -25,7 +25,7 @@ namespace spms.http
             //不属于未注册状态
             SetterDAO setterDAO = new SetterDAO();
             Setter setter = setterDAO.getSetter();
-            if (!string.IsNullOrEmpty(setter.Set_Unique_Id))
+            if (string.IsNullOrEmpty(setter.Set_Unique_Id))
             {
                 //设置表没有唯一标识，直接返回
                 return null;
@@ -43,7 +43,6 @@ namespace spms.http
             {
                 //TODO 解密失败的处理:把冒号去掉?
                 mac = setter.Set_Unique_Id.Replace(":", "");
-                throw ex;
             }
 
             AuthDAO authDAO = new AuthDAO();
@@ -54,9 +53,9 @@ namespace spms.http
 
             if (result.User_Status == Auther.USER_STATUS_FREEZE)
             {
-                //是否为冻结状态的心跳
-                sendHeartBeat.heartbeatType = 1;
-                sendHeartBeat.authStatus = 1;
+                //是否为冻结状态的心跳,这里不能从数据库取，否则，云通知本地锁死，本地改状态后，会再次通知云锁死本机，陷入死循环
+                sendHeartBeat.heartbeatType = 0;
+                sendHeartBeat.authStatus = 0;
             }
             else if (result.User_Status == Auther.USER_STATUS_FREE)
 

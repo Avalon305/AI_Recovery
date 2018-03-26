@@ -195,14 +195,14 @@ namespace spms.service
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public Dictionary<string, List<TrainDTO>> getTrainDTOByUser(User user)
+        public Dictionary<int, List<TrainDTO>> getTrainDTOByUser(User user)
         {
             TrainInfoDAO trainInfoDao = new TrainInfoDAO();
             DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
             PrescriptionResultDAO prescriptionResultDao = new PrescriptionResultDAO();
             DeviceSortDAO deviceSortDao = new DeviceSortDAO();
 
-            Dictionary<string, List<TrainDTO>> dic = new Dictionary<string, List<TrainDTO>>();
+            Dictionary<int, List<TrainDTO>> dic = new Dictionary<int, List<TrainDTO>>();
 
             //找到该用户所有已训练记录
             List<TrainInfo> trainInfos = trainInfoDao.GetFinishTrainInfoByUserId(user.Pk_User_Id);
@@ -212,8 +212,8 @@ namespace spms.service
                 List<DevicePrescription> devicePrescriptions = devicePrescriptionDao.GetByTIId(trainInfo.Pk_TI_Id);
                 foreach (DevicePrescription devicePrescription in devicePrescriptions)
                 {
-                    string devName = deviceSortDao.Load(devicePrescription.Fk_DS_Id).DS_name;
-                    
+                    int devId = devicePrescription.Fk_DS_Id;
+
                     //根据处方查找训练结果
                     PrescriptionResult prescriptionResult =
                         prescriptionResultDao.GetByDPId(devicePrescription.Pk_DP_Id);
@@ -224,14 +224,14 @@ namespace spms.service
                     }
 
                     //查找字典是否有以此设备名字命名的key,不存在则先创建
-                    if (!dic.ContainsKey(devName))
+                    if (!dic.ContainsKey(devId))
                     {
                         List<TrainDTO> trainDtos = new List<TrainDTO>();
-                        dic.Add(devName, trainDtos);
+                        dic.Add(devId, trainDtos);
                     }
 //                    Console.WriteLine(prescriptionResult.PR_Evaluate);
                     //PR_Evaluate 总是1？？？？
-                    dic[devName].Add(new TrainDTO(trainInfo, devicePrescription, prescriptionResult));
+                    dic[devId].Add(new TrainDTO(trainInfo, devicePrescription, prescriptionResult));
                     
                 }
             }

@@ -16,6 +16,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using spms.bean;
+using spms.constant;
+using spms.dao;
 using spms.entity;
 using spms.http;
 using spms.http.entity;
@@ -47,6 +49,8 @@ namespace spms.view.Pages
         //报表的Excel业务层实例
         ExcelService excelService = new ExcelService();
 
+        private AuthDAO authDao = new AuthDAO();
+
 
         //大数据线程，主要上传除心跳之外的所有数据信息
         Thread bigDataThread;
@@ -63,7 +67,7 @@ namespace spms.view.Pages
             //启动大数据线程,切换界面记得关闭该线程
             bigDataThread = new Thread(new ThreadStart(UploadDataToWEB));
             //暂时先不启动
-            //bigDataThread.Start();
+            bigDataThread.Start();
             ///心跳线程部分-load方法启动
             
         }
@@ -152,7 +156,7 @@ namespace spms.view.Pages
 
                 timerNotice = new System.Timers.Timer();
                 timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) => { BindNotice(); });
-                timerNotice.Interval = 60 * 1000;
+                timerNotice.Interval = 60 * 1000 * 5;
                 timerNotice.Start();
             }
 
@@ -615,6 +619,7 @@ namespace spms.view.Pages
             {
                 try
                 {
+                    
                     HeartBeatOffice heartBeatOffice = new HeartBeatOffice();
                     HttpHeartBeat result = heartBeatOffice.GetHeartBeatByCurrent();
                     if (!HttpSender.Ping() || result == null)
@@ -622,7 +627,6 @@ namespace spms.view.Pages
                         //如果ping不同 或 没有取到值
                         return;
                     }
-
                     string jsonStr = HttpSender.POSTByJsonStr("communicationController/analysisJson",
                         JsonTools.Obj2JSONStrNew<HttpHeartBeat>(result));
                     HttpHeartBeat webResult = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(jsonStr);
@@ -638,20 +642,27 @@ namespace spms.view.Pages
                         {
                             //冻结，弹窗，然后关闭窗口
                             // 程序强制退出
+                            authDao.UpdateByUserName(webResult.username, 1);
+                            // 停止定时器
+                            timerNotice.Stop();
                             MessageBox.Show("用户被冻结，即将退出，请联系宝德龙管理员解冻！");
                             Environment.Exit(0);
                         }
                         else if (webResult.authStatus == 2)
                         {
                             //解冻，只需要更改数据库。界面无反馈，不处理
+                            authDao.UpdateByUserName(webResult.username, 2);
                         }
                         else if (webResult.authStatus == 3)
                         {
                             //永久离线，只需要更改数据库。界面无反馈，不处理
+                            authDao.UpdateByUserName(webResult.username, 3);
                         }
                         else if (webResult.authStatus == 4)
                         {
                             //已删除，按照冻结处理
+                            authDao.UpdateByUserName(webResult.username, 1);
+                            timerNotice.Stop();
                             MessageBox.Show("用户被删除，即将退出，请联系宝德龙管理员恢复！");
                             Environment.Exit(0);
                         }
@@ -800,20 +811,20 @@ namespace spms.view.Pages
                 else if (is_trainingrecord.IsFocused)
                 {
 
-                    Dictionary<string, List<TrainDTO>> dic = new TrainService().getTrainDTOByUser(user);
+                    Dictionary<int, List<TrainDTO>> dic = new TrainService().getTrainDTOByUser(user);
                     TrainingRecord_Frame trainingRecordFrame = new TrainingRecord_Frame();
                     List<TrainDTO> trainDtos = new List<TrainDTO>();
-                    dic.TryGetValue("水平腿部推蹬机", out trainDtos);
+                    dic.TryGetValue((int)DeviceType.X06, out trainDtos);
                     trainingRecordFrame.TrainingRecord1.ItemsSource = trainDtos;
-                    dic.TryGetValue("坐姿划船机", out trainDtos);
+                    dic.TryGetValue((int)DeviceType.X05, out trainDtos);
                     trainingRecordFrame.TrainingRecord2.ItemsSource = trainDtos;
-                    dic.TryGetValue("身体伸展弯曲机", out trainDtos);
+                    dic.TryGetValue((int)DeviceType.X04, out trainDtos);
                     trainingRecordFrame.TrainingRecord3.ItemsSource = trainDtos;
-                    dic.TryGetValue("腿部伸展弯曲机", out trainDtos);
+                    dic.TryGetValue((int)DeviceType.X03, out trainDtos);
                     trainingRecordFrame.TrainingRecord4.ItemsSource = trainDtos;
-                    dic.TryGetValue("臀部外展内收机", out trainDtos);
+                    dic.TryGetValue((int)DeviceType.X02, out trainDtos);
                     trainingRecordFrame.TrainingRecord5.ItemsSource = trainDtos;
-                    dic.TryGetValue("胸部推举机", out trainDtos);
+                    dic.TryGetValue((int)DeviceType.X01, out trainDtos);
                     trainingRecordFrame.TrainingRecord6.ItemsSource = trainDtos;
 
                     record.Content = trainingRecordFrame;

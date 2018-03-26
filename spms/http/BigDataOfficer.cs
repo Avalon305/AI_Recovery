@@ -27,8 +27,8 @@ namespace spms.http
         //2. 构造函数中初始化定时器,新建即开始工作,参数为间隔时间
         public BigDataOfficer(int disTime)
         {
-            //实例化Timer类  TODO
-//            bigDataTimer = new Timer(Run, null, 0, disTime);
+            //实例化Timer类
+            bigDataTimer = new Timer(Run, null, 0, disTime);
         }
 
         //指挥官停止工作
@@ -38,17 +38,8 @@ namespace spms.http
             bigDataTimer.Dispose();
         }
 
-        /// <summary>
-        /// 测试是否通顺
-        /// </summary>
-        /// <returns></returns>
-        public bool isConnected()
-        {
-            return HttpSender.Ping();
-        }
-
-        //定时器轮询方法 TODO
-        public void Run()
+        //定时器轮询方法
+        public void Run(object state)
         {
             if (!HttpSender.Ping() || string.IsNullOrEmpty(setterDao.getSetter().Set_Unique_Id))
             {

@@ -236,13 +236,13 @@ namespace spms.view.Pages.ChildWin
 
                 //压缩一下
                 long picLen = 0;
-                GetPicThumbnail(sourcePic, targetPic,300,300,10);
+                GetPicThumbnail(sourcePic, targetPic,300,300,22);
                 FileInfo di = new FileInfo(targetPic);
                 picLen = di.Length;
                 picLen /= 1024;
                 Console.WriteLine("~~~~~~~~ 图片的大小" + picLen + "~~~~~~~~");
                 // 如果图片太大就重新选择
-                if (picLen > 15)
+                if (picLen > 10)
                 {
                     MessageBox.Show("图片过大，请重新选择");
                     File.Delete(targetPic);

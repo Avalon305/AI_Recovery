@@ -56,7 +56,6 @@ namespace spms.service
             {
                 //TODO 解密失败的处理:把冒号去掉?
                 mac = setter.Set_Unique_Id.Replace(":", "");
-                throw ex;
             }
             
             ///if识别出表,设置发送路径，select出实体，转化至DTO，json打成string,返回

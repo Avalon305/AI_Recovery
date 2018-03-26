@@ -97,11 +97,19 @@ namespace spms.util
         /// <returns>对象实体</returns>
         public static T DeserializeJsonToObject<T>(string json) where T : class
         {
-            JsonSerializer serializer = new JsonSerializer();
-            StringReader sr = new StringReader(json);
-            object o = serializer.Deserialize(new JsonTextReader(sr), typeof(T));
-            T t = o as T;
-            return t;
+            try
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                StringReader sr = new StringReader(json);
+                object o = serializer.Deserialize(new JsonTextReader(sr), typeof(T));
+                T t = o as T;
+                return t;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            return null;
         }
     }
 }

@@ -137,7 +137,7 @@ namespace spms.view.Pages.ChildWin
                 
                 // 压缩图片
                 File.WriteAllBytes(path + "temp.gif", Pic);
-                GetPicThumbnail(path + "temp.gif", path + ".gif", 300, 300, 10);
+                GetPicThumbnail(path + "temp.gif", path + ".gif", 300, 300, 22);
                 File.Delete(path + "temp.gif");
                 // 判断一下压缩后的大小
                 long picLen = 0;
@@ -145,7 +145,7 @@ namespace spms.view.Pages.ChildWin
                 picLen = di.Length;
                 picLen /= 1024;
 
-                if (picLen > 15)
+                if (picLen > 10)
                 {
                     MessageBox.Show("图片过大，请重新拍摄");
                     File.Delete(path + ".gif");

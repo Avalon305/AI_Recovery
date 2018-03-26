@@ -15,17 +15,8 @@ namespace spms.http
     //负责发送http请求的发送者对象
     public class HttpSender
     {
-        public const string URLBASE = "http://192.168.9.218:8080/cloud/";
-
-//        //发送地址
-//        public string Uri { get; set; }
-//        //发送的json数据体
-//        public string Data { get; set; }
-        //有参构造
-//        public HttpSender(string UriTarget, string DataBody) {
-//            this.Uri = URLBASE+UriTarget;
-//            this.Data = DataBody;
-//        }
+        public const string URLBASE = "http://10.18.22.131:8080/cloud/";
+        
         //私有化空构造
         private HttpSender()
         {
@@ -86,6 +77,7 @@ namespace spms.http
 
                 StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
                 string content = sr.ReadToEnd(); //获得响应字符串
+                Console.WriteLine("====================================response:" + content);
                 return content;
             }
             catch (Exception e)
