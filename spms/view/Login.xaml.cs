@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -108,5 +109,13 @@ namespace spms.view
 
         }
 
+        private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                Button_Click(this, null);
+            }
+            
+        }
     }
 }
