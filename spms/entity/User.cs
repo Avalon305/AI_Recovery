@@ -50,6 +50,8 @@ namespace spms.entity
         public string User_Phone { get; set; }
         //是否删除  
         public byte? Is_Deleted { get; set; }
+        //非公开信息
+        public string User_Privateinfo { get; set; }
 
 
     }
