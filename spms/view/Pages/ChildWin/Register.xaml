@@ -11,6 +11,7 @@
         Icon="/view/Images/icon2.png"
         Title="宝德龙" Height="756.993" Width="600"
          ResizeMode = "NoResize"
+        PreviewKeyDown="key_dowm"
         Loaded="Window_Loaded"
         LocationChanged="windowmove">
     <Window.Resources>
@@ -234,7 +235,7 @@
                             </StackPanel>
                         </Label>
                     </bubble:CCPopup>
-                    <Button Content="疾病名称添加"  Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" Style="{StaticResource Btn}" Width="80" Click="DiseaseNameAddition"/>
+                    <Button Content="疾病名称添加"  Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" IsTabStop="False" Style="{StaticResource Btn}" Width="80" Click="DiseaseNameAddition"/>
 
                     <Border Grid.Row="10" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="残障名称" Grid.Row="10" Grid.Column="0"  Foreground="White"/>
@@ -248,7 +249,7 @@
                             </StackPanel>
                         </Label>
                     </bubble:CCPopup>
-                    <Button Content="残障名称添加"  Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" Style="{StaticResource Btn}" Width="80" Click="DisabilityNameAddition"/>
+                    <Button Content="残障名称添加"  Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" IsTabStop="False"  Height="25" Style="{StaticResource Btn}" Width="80" Click="DisabilityNameAddition"/>
 
                     <Border Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="备忘" Grid.Row="11" Grid.Column="0"  Foreground="White"/>
@@ -262,7 +263,7 @@
                         </RichTextBox.Document>
                     </RichTextBox>
                     <!--<TextBox Grid.Row="10" Name="t11" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>-->
-                    <Button Content="非公开信息"  Grid.Row="11" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25"  Style="{StaticResource Btn}" Width="80" Click="InputNonPublicInformationPassword"/>
+                    <Button Content="非公开信息"  Grid.Row="11" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" IsTabStop="False"  Style="{StaticResource Btn}" Width="80" Click="InputNonPublicInformationPassword"/>
                 </Grid>
 
                 <StackPanel Height="211" Orientation="Horizontal" Margin="10,0,0,0">
@@ -271,8 +272,8 @@
                     </Border>
 
                     <Grid Margin="0,0,0,0.2" Width="86" >
-                        <Button Content="摄影" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Width="75" Height="25" RenderTransformOrigin="0.004,-0.462" Style="{StaticResource Btn}" Click="Photograph"/>
-                        <Button Content="打开文档" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="75"  Height="25" RenderTransformOrigin="0.049,0.799"  Style="{StaticResource Btn}" Click="Select_Picture_Show" />
+                        <Button Content="摄影" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Width="75" IsTabStop="False"  Height="25" RenderTransformOrigin="0.004,-0.462" Style="{StaticResource Btn}" Click="Photograph"/>
+                        <Button Content="打开文档" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="75" IsTabStop="False"  Height="25" RenderTransformOrigin="0.049,0.799"  Style="{StaticResource Btn}" Click="Select_Picture_Show" />
                     </Grid>
                     <DockPanel Margin="22,0,0,0" Name="Non_Public_Information"  Visibility="Hidden">
                         <Border Height="20" Width="270" Background="Red" DockPanel.Dock="Top" >
@@ -283,8 +284,8 @@
                 </StackPanel>
                 <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="434" Height="47" VerticalAlignment="Bottom" BorderBrush="White" Margin="0,0,9.6,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,0"  Foreground="Black" Content="确定" Style="{StaticResource Btn}" Click="Button_OK"/>
-                        <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" Content="取消" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
+                        <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,0" IsTabStop="False"  Foreground="Black" Content="确定" Style="{StaticResource Btn}" Click="Button_OK"/>
+                        <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" IsTabStop="False"  Content="取消" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
                     </StackPanel>
                 </Border>
 

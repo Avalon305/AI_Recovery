@@ -108,7 +108,7 @@ namespace spms.view
             mi.Invoke(bubble, null);
 
         }
-
+        //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if(e.Key == Key.Enter)

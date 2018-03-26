@@ -531,6 +531,16 @@ namespace spms.view.Pages.ChildWin
                 ob.Dispose();
             }
         }
+        //回车按钮
+        private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Button_OK(this, null);
+            }
+
+        }
 
     }
+
 }

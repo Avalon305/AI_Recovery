@@ -232,5 +232,14 @@ namespace spms.view.Pages.ChildWin
                 bubble_Diagnosis.IsOpen = false;
             }
         }
+        //回车按钮
+        private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                BtnQuery_Click(this, null);
+            }
+
+        }
     }
 }
