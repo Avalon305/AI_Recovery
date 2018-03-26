@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.constant;
 using spms.dao;
 using spms.entity;
 using spms.service;
@@ -62,20 +63,19 @@ namespace spms.view.Pages.ChildWin
             //循环判断填充数据
             foreach (TrainDTO trainDto in trainDtos)
             {
-                string devName = deviceSortDao.Load(trainDto.devicePrescription.Fk_DS_Id).DS_name;
                 string[] attrs = trainDto.devicePrescription.DP_Attrs.Split(new char[]{'*'});
-                switch (devName)
+                switch (trainDto.devicePrescription.Fk_DS_Id)
                 {
-                    case "水平腿部推蹬机":
+                    case (int)DeviceType.X06:
                         HLPGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
                         HLPGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
                         HLPRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
                         HLPWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         HLPMoveway.Text = trainDto.moveway;
-                        HLPAttr1.Text = attrs[0].Split(new char[] { '-' })[1];
-                        HLPAttr2.Text = attrs[1].Split(new char[] { '-' })[1];
-                        HLPAttr3.Text = attrs[2].Split(new char[] { '-' })[1];
-                        HLPAttr4.Text = attrs[3].Split(new char[] { '-' })[1];
+                        HLPAttr1.Text = attrs[0];
+                        HLPAttr2.Text = attrs[1];
+                        HLPAttr3.Text = attrs[2];
+                        HLPAttr4.Text = attrs[3];
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -93,16 +93,16 @@ namespace spms.view.Pages.ChildWin
                         HLPUserthoughts.Text = trainDto.prescriptionResult.PR_UserThoughts;
                         HLPMemo.Text = trainDto.prescriptionResult.PR_Memo;
                         break;
-                    case "坐姿划船机":
+                    case (int)DeviceType.X05:
                         ROWGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
                         ROWGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
                         ROWRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
                         ROWWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         ROWMoveway.Text = trainDto.moveway;
-                        ROWAttr1.Text = attrs[0].Split(new char[] { '-' })[1];
-                        ROWAttr2.Text = attrs[1].Split(new char[] { '-' })[1];
-                        ROWAttr3.Text = attrs[2].Split(new char[] { '-' })[1];
-                        ROWAttr4.Text = attrs[3].Split(new char[] { '-' })[1];
+                        ROWAttr1.Text = attrs[0];
+                        ROWAttr2.Text = attrs[1];
+                        ROWAttr3.Text = attrs[2];
+                        ROWAttr4.Text = attrs[3];
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -121,16 +121,16 @@ namespace spms.view.Pages.ChildWin
                         ROWMemo.Text = trainDto.prescriptionResult.PR_Memo;
                         
                         break;
-                    case "身体伸展弯曲机":
+                    case (int)DeviceType.X04:
                         TFGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
                         TFGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
                         TFRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
                         TFWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         TFMoveway.Text = trainDto.moveway;
-                        TFAttr1.Text = attrs[0].Split(new char[] { '-' })[1];
-                        TFAttr2.Text = attrs[1].Split(new char[] { '-' })[1];
-                        TFAttr3.Text = attrs[2].Split(new char[] { '-' })[1];
-                        TFAttr4.Text = attrs[3].Split(new char[] { '-' })[1];
+                        TFAttr1.Text = attrs[0];
+                        TFAttr2.Text = attrs[1];
+                        TFAttr3.Text = attrs[2];
+                        TFAttr4.Text = attrs[3];
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -149,17 +149,17 @@ namespace spms.view.Pages.ChildWin
                         TFMemo.Text = trainDto.prescriptionResult.PR_Memo;
                         
                         break;
-                    case "腿部伸展弯曲机":
+                    case (int)DeviceType.X03:
                         LEGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
                         LEGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
                         LERelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
                         LEWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         LEMoveway.Text = trainDto.moveway;
-                        LEAttr1.Text = attrs[0].Split(new char[] { '-' })[1];
-                        LEAttr2.Text = attrs[1].Split(new char[] { '-' })[1];
-                        LEAttr3.Text = attrs[2].Split(new char[] { '-' })[1];
-                        LEAttr4.Text = attrs[3].Split(new char[] { '-' })[1];
-                        LEAttr5.Text = attrs[4].Split(new char[] { '-' })[1];
+                        LEAttr1.Text = attrs[0];
+                        LEAttr2.Text = attrs[1];
+                        LEAttr3.Text = attrs[2];
+                        LEAttr4.Text = attrs[3];
+                        LEAttr5.Text = attrs[4];
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -178,15 +178,15 @@ namespace spms.view.Pages.ChildWin
                         LEMemo.Text = trainDto.prescriptionResult.PR_Memo;
                         
                         break;
-                    case "臀部外展内收机":
+                    case (int)DeviceType.X02:
                         HAGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
                         HAGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
                         HARelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
                         HAWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         HAMoveway.Text = trainDto.moveway;
-                        HAAttr1.Text = attrs[0].Split(new char[] { '-' })[1];
-                        HAAttr2.Text = attrs[1].Split(new char[] { '-' })[1];
-                        HAAttr3.Text = attrs[2].Split(new char[] { '-' })[1];
+                        HAAttr1.Text = attrs[0];
+                        HAAttr2.Text = attrs[1];
+                        HAAttr3.Text = attrs[2];
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -205,15 +205,15 @@ namespace spms.view.Pages.ChildWin
                         HAMemo.Text = trainDto.prescriptionResult.PR_Memo;
                         
                         break;
-                    case "胸部推举机":
+                    case (int)DeviceType.X01:
                         CPGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
                         CPGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
                         CPRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
                         CPWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         CPMoveway.Text = trainDto.moveway;
-                        CPAttr1.Text = attrs[0].Split(new char[] { '-' })[1];
-                        CPAttr2.Text = attrs[1].Split(new char[] { '-' })[1];
-                        CPAttr3.Text = attrs[2].Split(new char[] { '-' })[1];
+                        CPAttr1.Text = attrs[0];
+                        CPAttr2.Text = attrs[1];
+                        CPAttr3.Text = attrs[2];
                         if (trainDto.prescriptionResult == null)
                         {
                             break;

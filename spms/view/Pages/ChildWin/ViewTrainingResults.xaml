@@ -76,10 +76,10 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="HLPAttr1" Height="20" Width="50" Margin="46,154,200,141.2"  ></TextBox>
-                                <TextBox  Name="HLPAttr2" Height="20" Width="50" Margin="34,208,212,87.2"  ></TextBox>
-                                <TextBox Name="HLPAttr3" Height="20" Width="50" Margin="61,102,185,193.2"  ></TextBox>
-                                <TextBox Name="HLPAttr4" Height="20" Width="50" Margin="154,228,92,67.2"  ></TextBox>
+                                <TextBox Name="HLPAttr1" Height="20" Width="50" Margin="46,154,200,141.2"  IsEnabled="False" ></TextBox>
+                                <TextBox  Name="HLPAttr2" Height="20" Width="50" Margin="34,208,212,87.2"  IsEnabled="False" ></TextBox>
+                                <TextBox Name="HLPAttr3" Height="20" Width="50" Margin="61,102,185,193.2"  IsEnabled="False" ></TextBox>
+                                <TextBox Name="HLPAttr4" Height="20" Width="50" Margin="154,228,92,67.2"  IsEnabled="False" ></TextBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -104,51 +104,51 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Label Background="Gray" Margin="0,0,10,0" Content="组数" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="HLPGroupcount" VerticalContentAlignment="Center"  />
+                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="HLPGroupcount" VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                 <Label Background="Gray" Margin="0,1,10,0" Content="1组的个数" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="HLPGroupnum" VerticalContentAlignment="Center"  />
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="HLPGroupnum" VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                 <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="组间隔休息时间" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="HLPRelaxTime" VerticalContentAlignment="Center"  />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="HLPRelaxTime" VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                 <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="HLPWeight" VerticalContentAlignment="Center"  />
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="HLPWeight" VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0"  Name="HLPMoveway" />
+                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0"  Name="HLPMoveway"  IsEnabled="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="HLPSportstrength" VerticalContentAlignment="Center"  />
+                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="HLPSportstrength" VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                 <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="HLPTime1" VerticalContentAlignment="Center"  />
+                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="HLPTime1" VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                 <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="HLPDistance" VerticalContentAlignment="Center"  />
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="HLPDistance" VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                 <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="HLPCountworkqu" VerticalContentAlignment="Center"  />
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="HLPCountworkqu" VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                 <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="HLPCal" VerticalContentAlignment="Center"  />
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="HLPCal" VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                 <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="HLPIndex" VerticalContentAlignment="Center"  />
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="HLPIndex" VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                 <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="HLPTime2" VerticalContentAlignment="Center"  />
+                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="HLPTime2" VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                 <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="已完成组数" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HLPFinishgroup" VerticalContentAlignment="Center"  />
+                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HLPFinishgroup" VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0"  Name="HLPEvaluate" />
+                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0"  Name="HLPEvaluate"  IsEnabled="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HLPAttentionpoint" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="HLPAttentionpoint" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
                                 <!--行间距-->
@@ -159,7 +159,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="使用者感想"  Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104"  Margin="0,2,26,0" Name="HLPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104"  Margin="0,2,26,0" Name="HLPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -170,7 +170,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HLPMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="HLPMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -188,12 +188,12 @@
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-010.jpg" Stretch="Fill"  />
+                                    <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="ROWAttr1" Height="20" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73"  ></TextBox>
-                                <TextBox Name="ROWAttr2" Height="20" Width="50" Margin="55,191,191,104.2"  ></TextBox>
-                                <TextBox Name="ROWAttr3" Height="20" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01"  ></TextBox>
-                                <TextBox Name="ROWAttr4" Height="20" Width="50" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01"  ></TextBox>
+                                <TextBox Name="ROWAttr1" Height="20" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73"  IsEnabled="False" ></TextBox>
+                                <TextBox Name="ROWAttr2" Height="20" Width="50" Margin="55,191,191,104.2"  IsEnabled="False" ></TextBox>
+                                <TextBox Name="ROWAttr3" Height="20" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01"  IsEnabled="False" ></TextBox>
+                                <TextBox Name="ROWAttr4" Height="20" Width="50" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01"  IsEnabled="False" ></TextBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -218,50 +218,50 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Label Background="Gray" Margin="0,0,10,0" Content="组数" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0"  Name="ROWGroupcount"  />
+                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0"  Name="ROWGroupcount"  IsEnabled="False" />
 
                                 <Label Background="Gray" Margin="0,1,10,0" Content="1组的个数" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="ROWGroupnum"  />
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="ROWGroupnum"  IsEnabled="False" />
 
                                 <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="组间隔休息时间" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="ROWRelaxTime"  />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="ROWRelaxTime"  IsEnabled="False" />
 
                                 <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="ROWWeight"  />
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="ROWWeight"  IsEnabled="False" />
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="ROWMoveway" />
+                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="ROWMoveway"  IsEnabled="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="ROWSportstrength"  />
+                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="ROWSportstrength"  IsEnabled="False" />
 
                                 <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="ROWTime1"  />
+                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="ROWTime1"  IsEnabled="False" />
 
                                 <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="ROWDistance"  />
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="ROWDistance"  IsEnabled="False" />
 
                                 <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="ROWCountworkqu"  />
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="ROWCountworkqu"  IsEnabled="False" />
 
                                 <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="ROWCal"  />
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="ROWCal"  IsEnabled="False" />
 
                                 <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="ROWIndex"  />
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="ROWIndex"  IsEnabled="False" />
 
                                 <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="ROWTime2"  />
+                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="ROWTime2"  IsEnabled="False" />
 
                                 <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="已完成组数" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="ROWFinishgroup"  />
+                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="ROWFinishgroup"  IsEnabled="False" />
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="ROWEvaluate"/>
+                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="ROWEvaluate" IsEnabled="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
+                                <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" IsEnabled="False" />
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -272,7 +272,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <TextBox Height="104" Margin="0,2,26,0" Name="ROWAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
+                                <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0"  IsEnabled="False"/>
                                 <TextBox Height="104" Margin="0,2,26,0" Name="ROWUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
@@ -284,7 +284,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="ROWMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="ROWMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -305,10 +305,10 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="TFAttr1" Height="20" Width="50" Margin="66,115,180,180.2"  ></TextBox>
-                                <TextBox Name="TFAttr2" Height="20" Width="50" Margin="50,202,196,93.2"  ></TextBox>
-                                <TextBox Name="TFAttr3" Height="20" Width="50" Margin="174,182,72,113.2"  ></TextBox>
-                                <TextBox Name="TFAttr4" Height="20" Width="50" Margin="147,238,99,57.2"  ></TextBox>
+                                <TextBox Name="TFAttr1" Height="20" Width="50" Margin="66,115,180,180.2"  IsEnabled="False" ></TextBox>
+                                <TextBox Name="TFAttr2" Height="20" Width="50" Margin="50,202,196,93.2"  IsEnabled="False" ></TextBox>
+                                <TextBox Name="TFAttr3" Height="20" Width="50" Margin="174,182,72,113.2"  IsEnabled="False" ></TextBox>
+                                <TextBox Name="TFAttr4" Height="20" Width="50" Margin="147,238,99,57.2"   IsEnabled="False"></TextBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -333,51 +333,51 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Label Background="Gray" Margin="0,0,10,0" Content="组数" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="TFGroupcount"  />
+                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="TFGroupcount"  IsEnabled="False" />
 
                                 <Label Background="Gray" Margin="0,1,10,0" Content="1组的个数" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="TFGroupnum"  />
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="TFGroupnum"  IsEnabled="False" />
 
                                 <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="组间隔休息时间" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="TFRelaxTime"  />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="TFRelaxTime"  IsEnabled="False" />
 
                                 <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="TFWeight"  />
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="TFWeight"   IsEnabled="False"/>
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="TFMoveway"  />
+                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="TFMoveway"   IsEnabled="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="TFSportstrength"  />
+                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="TFSportstrength"   IsEnabled="False"/>
 
                                 <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="TFTime1"  />
+                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="TFTime1"  IsEnabled="False" />
 
                                 <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="TFDistance"  />
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="TFDistance"   IsEnabled="False"/>
 
                                 <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="TFCountworkqu"  />
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="TFCountworkqu"  IsEnabled="False" />
 
                                 <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="TFCal"  />
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="TFCal" IsEnabled="False"  />
 
                                 <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="TFIndex"  />
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="TFIndex"  IsEnabled="False" />
 
                                 <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="TFTime2"  />
+                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="TFTime2"  IsEnabled="False" />
 
                                 <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="已完成组数" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="TFFinishgroup"  />
+                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="TFFinishgroup" IsEnabled="False"  />
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="TFEvaluate"/>
+                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="TFEvaluate" IsEnabled="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="TFAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="TFAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -388,7 +388,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="TFUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="TFUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -399,7 +399,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="TFMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="TFMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -419,11 +419,11 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="LEAttr1" Height="20" Width="50" Margin="107,58,139,237.2"  ></TextBox>
-                                <TextBox Name="LEAttr2" Height="20" Width="50" Margin="24,189,222,106.2"  ></TextBox>
-                                <TextBox Name="LEAttr3" Height="20" Width="50" Margin="24,102,222,193.2"  ></TextBox>
-                                <TextBox Name="LEAttr4" Height="20" Width="50" Margin="144,240,102,55.2"  ></TextBox>
-                                <TextBox Name="LEAttr5" Height="20" Width="50" Margin="174,189,72,106.2"  ></TextBox>
+                                <TextBox Name="LEAttr1" Height="20" Width="50" Margin="107,58,139,237.2"  IsEnabled="False" ></TextBox>
+                                <TextBox Name="LEAttr2" Height="20" Width="50" Margin="24,189,222,106.2"   IsEnabled="False"></TextBox>
+                                <TextBox Name="LEAttr3" Height="20" Width="50" Margin="24,102,222,193.2"   IsEnabled="False"></TextBox>
+                                <TextBox Name="LEAttr4" Height="20" Width="50" Margin="144,240,102,55.2"   IsEnabled="False"></TextBox>
+                                <TextBox Name="LEAttr5" Height="20" Width="50" Margin="174,189,72,106.2"   IsEnabled="False"></TextBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -448,51 +448,51 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Label Background="Gray" Margin="0,0,10,0" Content="组数" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="LEGroupcount"  />
+                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="LEGroupcount"  IsEnabled="False" />
 
                                 <Label Background="Gray" Margin="0,1,10,0" Content="1组的个数" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="LEGroupnum"  />
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="LEGroupnum"  IsEnabled="False" />
 
                                 <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="组间隔休息时间" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="LERelaxTime"  />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="LERelaxTime"   IsEnabled="False"/>
 
                                 <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="LEWeight"   />
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="LEWeight"   IsEnabled="False" />
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="LEMoveway"/>
+                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="LEMoveway" IsEnabled="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="LESportstrength"  />
+                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="LESportstrength"  IsEnabled="False" />
 
                                 <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="LETime1"  />
+                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="LETime1"  IsEnabled="False" />
 
                                 <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="LEDistance"  />
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="LEDistance" IsEnabled="False"  />
 
                                 <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="LECountworkqu"  />
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="LECountworkqu"   IsEnabled="False"/>
 
                                 <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="LECal"  />
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="LECal"  IsEnabled="False" />
 
                                 <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="LEIndex"  />
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="LEIndex"  IsEnabled="False" />
 
                                 <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="LETime2"  />
+                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="LETime2"  IsEnabled="False" />
 
                                 <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="已完成组数" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="LEFinishgroup"  />
+                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="LEFinishgroup"  IsEnabled="False" />
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="LEEvaluate"/>
+                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="LEEvaluate" IsEnabled="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="LEAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="LEAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -503,7 +503,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="LEUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="LEUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -514,7 +514,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="LEMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="LEMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -534,9 +534,9 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="HAAttr1" Height="20" Width="50" Margin="160,66,86,229.2" RenderTransformOrigin="-0.096,-0.43"  ></TextBox>
-                                <TextBox Name="HAAttr2" Height="20" Width="50" Margin="78,169,168,126.2"  />
-                                <TextBox Name="HAAttr3" Height="20" Width="50" Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47"  ></TextBox>
+                                <TextBox Name="HAAttr1" Height="20" Width="50" Margin="160,66,86,229.2" RenderTransformOrigin="-0.096,-0.43"  IsEnabled="False" ></TextBox>
+                                <TextBox Name="HAAttr2" Height="20" Width="50" Margin="78,169,168,126.2"   IsEnabled="False"/>
+                                <TextBox Name="HAAttr3" Height="20" Width="50" Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47"  IsEnabled="False" ></TextBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -561,51 +561,51 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Label Background="Gray" Margin="0,0,10,0" Content="组数" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="HAGroupcount"  />
+                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="HAGroupcount"  IsEnabled="False" />
 
                                 <Label Background="Gray" Margin="0,1,10,0" Content="1组的个数" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="HAGroupnum"   />
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="HAGroupnum"  IsEnabled="False"  />
 
                                 <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="组间隔休息时间" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="HARelaxTime"  />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="HARelaxTime"  IsEnabled="False" />
 
                                 <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="HAWeight"  />
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="HAWeight"  IsEnabled="False" />
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="HAMoveway"/>
+                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="HAMoveway" IsEnabled="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="HASportstrength"  />
+                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="HASportstrength"  IsEnabled="False" />
 
                                 <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="HATime1"  />
+                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="HATime1"  IsEnabled="False" />
 
                                 <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="HADistance"  />
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="HADistance"  IsEnabled="False" />
 
                                 <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="HACountworkqu"  />
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="HACountworkqu"  IsEnabled="False" />
 
                                 <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="HACal"  />
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="HACal"  IsEnabled="False" />
 
                                 <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="HAIndex"  />
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="HAIndex"   IsEnabled="False"/>
 
                                 <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="HATime2"  />
+                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="HATime2"  IsEnabled="False" />
 
                                 <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="已完成组数" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HAFinishgroup"  />
+                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HAFinishgroup"  IsEnabled="False" />
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="HAEvaluate"/>
+                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="HAEvaluate" IsEnabled="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HAAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="HAAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -616,7 +616,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HAUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="HAUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -627,7 +627,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HAMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="HAMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -647,9 +647,9 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="CPAttr1" Height="20" Width="50" Margin="130,66,116,229.2" RenderTransformOrigin="-0.188,-0.34"  ></TextBox>
-                                <TextBox Name="CPAttr2" Height="20" Width="50" Margin="47,171,199,124.2"  ></TextBox>
-                                <TextBox Name="CPAttr3" Width="50" Height="20" Margin="150,204,96,94.2"  />
+                                <TextBox Name="CPAttr1" Height="20" Width="50" Margin="130,66,116,229.2" RenderTransformOrigin="-0.188,-0.34"  IsEnabled="False" ></TextBox>
+                                <TextBox Name="CPAttr2" Height="20" Width="50" Margin="47,171,199,124.2" IsEnabled="False"  ></TextBox>
+                                <TextBox Name="CPAttr3" Width="50" Height="20" Margin="150,204,96,94.2"  IsEnabled="False" />
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -674,51 +674,51 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Label Background="Gray" Margin="0,0,10,0" Content="组数" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="CPGroupcount"  />
+                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="CPGroupcount"  IsEnabled="False" />
 
                                 <Label Background="Gray" Margin="0,1,10,0" Content="1组的个数" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="CPGroupnum"  />
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="CPGroupnum"  IsEnabled="False" />
 
                                 <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="组间隔休息时间" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="CPRelaxTime"  />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="CPRelaxTime" IsEnabled="False"  />
 
                                 <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="CPWeight"  />
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="CPWeight"  IsEnabled="False" />
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="CPMoveway"/>
+                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="CPMoveway" IsEnabled="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="CPSportstrength"  />
+                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="CPSportstrength"  IsEnabled="False" />
 
                                 <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="CPTime1"  />
+                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="CPTime1"  IsEnabled="False" />
 
                                 <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="CPDistance"  />
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="CPDistance"   IsEnabled="False"/>
 
                                 <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="CPCountworkqu"  />
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="CPCountworkqu"  IsEnabled="False" />
 
                                 <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="CPCal"   />
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="CPCal"   IsEnabled="False" />
 
                                 <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="CPIndex"  />
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="CPIndex"  IsEnabled="False" />
 
                                 <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="CPTime2"  />
+                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="CPTime2"  IsEnabled="False" />
 
                                 <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="已完成组数" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="CPFinishgroup"  />
+                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="CPFinishgroup"  IsEnabled="False" />
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="CPEvaluate"/>
+                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="CPEvaluate" IsEnabled="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="CPAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="CPAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
                                 <!--行间距-->
@@ -729,7 +729,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="CPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="CPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
                                 <!--行间距-->
@@ -740,7 +740,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="CPMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="CPMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
                                 <!--行间距-->
@@ -761,8 +761,7 @@
         <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="335" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2" Margin="0,0,9.6,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
 
-                <Button Width="140"    Background="Gray"   Content="保存" Margin="2,0,0,-0.2" Style="{StaticResource Btn}" RenderTransformOrigin="0.5,0.504" Foreground="Silver" IsEnabled="False" />
-                <Button Width="140"  Content="取消"  Style="{StaticResource Btn}" Margin="2,0,2,-0.2" Click="Cancel"/>
+                <Button Width="140"  Content="关闭"  Style="{StaticResource Btn}" Margin="2,0,2,-0.2" Click="Cancel"/>
             </StackPanel>
         </Border>
     </StackPanel>
