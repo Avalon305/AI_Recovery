@@ -12,6 +12,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
+using static spms.bean.TrainExcelVO;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -254,14 +255,14 @@ namespace spms.view.Pages.ChildWin
         /// </summary>
         private void GenerateDetailReport()
         {
-            List<DevicePrescription> list = new List<DevicePrescription>();
+            List<DevicePrescriptionExcel> list = new List<DevicePrescriptionExcel>();
             for (int i = 0; i < datalist.Items.Count; i++)
             {
                 //判断选中哪些时间
-                if (selectedDate.Contains((datalist.Items[i] as DevicePrescription).Gmt_Create))
+                if (selectedDate.Contains((datalist.Items[i] as DevicePrescriptionExcel).Gmt_Create))
                 {
                     //Console.WriteLine("打印的内容" + datalist.Items[i].ToString());
-                    list.Add((datalist.Items[i] as DevicePrescription));
+                    list.Add((datalist.Items[i] as DevicePrescriptionExcel));
                 }
             }
             FileInfo newFile = new FileInfo(@"e:\test.xlsx");
@@ -314,7 +315,7 @@ namespace spms.view.Pages.ChildWin
                     row = tableRow + 1 + i;
                     worksheet.Cells[row, 1, row, 3].Merge = true;
                     worksheet.Cells[row, 10, row, 11].Merge = true;
-                    worksheet.Cells[row, 1].Value = list[i].DP_Attrs.Substring(0,list[i].DP_Attrs.IndexOf("*"));
+                    worksheet.Cells[row, 1].Value = list[i].DS_name;
                     worksheet.Cells[row, 4].Value = string.Format("{0:d}", list[i].Gmt_Create);
                     worksheet.Cells[row, 5].Value = list[i].dp_moveway;
                     worksheet.Cells[row, 6].Value = list[i].dp_weight;
@@ -513,7 +514,7 @@ namespace spms.view.Pages.ChildWin
             {
                 if (Current_User != null)
                 {
-                    List<DevicePrescription> list = excelService.ListTrainingDetailByUserId(Current_User.Pk_User_Id);
+                    List<DevicePrescriptionExcel> list = excelService.ListTrainingDetailByUserId(Current_User.Pk_User_Id);
                     Console.WriteLine(list.ToString());
                     datalist.DataContext = list;
                 }

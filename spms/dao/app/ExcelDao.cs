@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static spms.bean.TrainExcelVO;
 
 namespace spms.dao
 {
@@ -35,13 +36,13 @@ namespace spms.dao
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public List<DevicePrescription> ListTrainingDetailByUserId(int userId)
+        public List<DevicePrescriptionExcel> ListTrainingDetailByUserId(int userId)
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "SELECT dp.* FROM bdl_traininfo ti, bdl_deviceprescription dp WHERE ti.pk_ti_id = dp.fk_ti_id AND ti.fk_user_id=@User_Id";
+                const string query = "SELECT dp.gmt_create,dp.dp_groupcount,dp.dp_groupnum,dp.dp_relaxtime,dp.dp_moveway,dp.dp_memo,dp.dp_weight,ds.ds_name FROM bdl_traininfo ti, bdl_deviceprescription dp, bdl_devicesort ds WHERE ti.pk_ti_id = dp.fk_ti_id AND dp.fk_ds_id = ds.pk_ds_id AND ti.fk_user_id=@User_Id";
 
-                return conn.Query<DevicePrescription>(query, new { User_Id = userId }).ToList();
+                return conn.Query<DevicePrescriptionExcel>(query, new { User_Id = userId }).ToList();
             }
         }
 
