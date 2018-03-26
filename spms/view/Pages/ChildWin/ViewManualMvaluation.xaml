@@ -74,7 +74,7 @@
 
             <!--日历-->
             <Border Margin="7,10,10,10" Width="114">
-                <DatePicker  Height="23" Margin="0,0,0,0" VerticalAlignment="Bottom" Width="115" IsEnabled="False"/>
+                <DatePicker Name="implementation_date"  Height="23" Margin="0,0,0,0" VerticalAlignment="Bottom" Width="115" IsEnabled="False"/>
             </Border>
 
         </StackPanel>
@@ -260,10 +260,8 @@
             <Label Background="LightGray" Content="5m步行&#13;（最快）" Grid.Row="9" Grid.Column="0" HorizontalContentAlignment="Center"/>
             <StackPanel Grid.Row="10" Grid.Column="0" Background="LightGray">
                 <Label  Content="10m步行"  HorizontalContentAlignment="Center"/>
-                <ComboBox Background="LightGray" Text="通常" Margin="10,-4,10,0" IsEnabled="False">
-                    <ComboBoxItem>通常</ComboBoxItem>
-                    <ComboBoxItem>最快</ComboBoxItem>
-                </ComboBox>
+                <TextBox Name="method" Background="LightGray" Margin="10,-4,10,0" IsEnabled="False">
+                </TextBox>
             </StackPanel>
             <Label Background="LightGray" Content="6分钟步行" Grid.Row="11" Grid.Column="0" HorizontalContentAlignment="Center"/>
             <Label Background="LightGray" Content="2分钟踏步" Grid.Row="12" Grid.Column="0" HorizontalContentAlignment="Center"/>
@@ -278,7 +276,7 @@
 
 
             <CheckBox Grid.Row="1" Grid.Column="4"  Name="height_condition" Margin="9.8,10.2,92.2,0.6" IsEnabled="False">照片（侧面、前面）</CheckBox>
-            <TextBox Grid.Row="1" Grid.Column="5" Name="height_duty"/>
+            <TextBox Grid.Row="1" Grid.Column="5" Name="height_duty" IsEnabled="False" />
             <!--第二行-->
             <Label Grid.Row="2" Grid.Column="1" Content="—"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
@@ -287,8 +285,8 @@
             </StackPanel>
             <Label Grid.Row="2" Grid.Column="3" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <CheckBox  Name="weight_condition" Grid.Row="2" Grid.Column="4" Margin="9.8,9.4,241.2,4.4" IsEnabled="False">服装</CheckBox>
-            <TextBox Grid.Row="2" Name="weight_condition_text" Grid.Column="4" Margin="77.8,9.4,58.2,5.4"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=weight_condition}"/>
-            <TextBox Grid.Row="2" Grid.Column="5" Name="weight_duty" />
+            <TextBox Grid.Row="2" Name="weight_condition_text" Grid.Column="4" Margin="77.8,9.4,58.2,5.4" IsEnabled="False"/>
+            <TextBox Grid.Row="2" Grid.Column="5" Name="weight_duty" IsEnabled="False" />
 
             <!--第三行-->
             <Label Grid.Row="3" Grid.Column="1"/>
@@ -309,7 +307,7 @@
                 <CheckBox Name="grid_sit"   FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">坐姿</CheckBox>
 
             </StackPanel>
-            <TextBox Grid.Row="3" Grid.Column="5" Name="grip_duty"/>
+            <TextBox Grid.Row="3" Grid.Column="5" Name="grip_duty" IsEnabled="False"/>
             <!--第四行-->
             <Label Grid.Row="4" Grid.Column="1" Content="支撑腿"/>
             <StackPanel Margin="50,5,0,1" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
@@ -329,9 +327,9 @@
                 <CheckBox Name="stand_toolsupport"   FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用支持用具</CheckBox>
                 <CheckBox Name="stand_support" FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">通过介助支持</CheckBox>
             </StackPanel>
-            <ComboBox Grid.Row="4" Grid.Column="4" Name="stand_comBox1" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=stand_toolsupport}" FontSize="8" Margin="124.6,13,115.2,15"/>
-            <ComboBox Grid.Row="4" Grid.Column="4" Name="stand_comBox2" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=stand_toolsupport}" Margin="205.6,13,35.2,15"/>
-            <TextBox Grid.Row="4" Grid.Column="5" Name="stand_duty"/>
+            <TextBox Grid.Row="4" Grid.Column="4" Name="stand_comBox1" FontSize="8" Margin="124.6,13,115.2,15" IsEnabled="False"/>
+            <ComboBox Grid.Row="4" Grid.Column="4" Name="stand_comBox2" Margin="205.6,13,35.2,15" IsEnabled="False"/>
+            <TextBox Grid.Row="4" Grid.Column="5" Name="stand_duty" IsEnabled="False" />
             <!--第五行-->
             <CheckBox Grid.Row="5" Name="protrack_twohands" Margin="1.2,0,1.2,32.6" Grid.RowSpan="2" Grid.Column="1" IsEnabled="False">两手</CheckBox>
             <StackPanel Margin="50,0,116.6,0.8" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" >
@@ -351,7 +349,7 @@
                 <CheckBox Name="protrack_sit"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">以坐姿确定</CheckBox>
 
             </StackPanel>
-            <TextBox Name="protrack_duty" Grid.Row="5" Grid.Column="5"/>
+            <TextBox Name="protrack_duty" Grid.Row="5" Grid.Column="5" IsEnabled="False"/>
             <!--第六行-->
             <Label Grid.Row="6" Grid.Column="1" Content="测定腿"/>
             <StackPanel Margin="50,0,0,0" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" >
@@ -359,29 +357,29 @@
                 <CheckBox Name="c18" Margin="5,0,118,0" IsEnabled="False" >右</CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="6" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="c_first" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="cm" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Grid.Row="6" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="c_second" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="cm" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="6" Grid.Column="4"   >
                 <CheckBox  Name="c19" FontSize="10"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False">膝弯曲（有）</CheckBox>
                 <CheckBox Name="c20"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">膝弯曲（无）</CheckBox>
             </StackPanel>
-            <TextBox Grid.Row="6" Grid.Column="5"/>
+            <TextBox Name="c_duty" Grid.Row="6" Grid.Column="5" IsEnabled="False"/>
             <!--第七行-->
             <StackPanel Margin="5,5,0,1" Grid.Row="7" Grid.Column="1" >
                 <CheckBox Name="c21" Margin="0,0,0,0" IsEnabled="False">基本方法</CheckBox>
                 <CheckBox Name="c22" Margin="0,0,0,0" IsEnabled="False">常规外方法</CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="time_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="秒" Margin="1,11,1,0" Height="24" VerticalAlignment="Top"/>
             </StackPanel>
             <StackPanel Grid.Row="7" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="time_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="秒" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="7" Grid.Column="4">
@@ -389,9 +387,9 @@
                 <CheckBox Name="c24"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用不行辅助工具</CheckBox>
                 <CheckBox Name="c25"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">其他</CheckBox>
             </StackPanel>
-            <ComboBox Grid.Row="7" Grid.Column="4" Name="comBox3" IsEnabled="False" FontSize="8" Margin="124.8,11,115.2,15" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c24}"/>
-            <TextBox Grid.Row="7" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text1" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c25}"/>
-            <TextBox Grid.Row="7" Grid.Column="5"/>
+            <TextBox Grid.Row="7" Grid.Column="4" Name="comBox3" IsEnabled="False" FontSize="8" Margin="124.8,11,115.2,15" />
+            <TextBox Grid.Row="7" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text1" IsEnabled="False"  />
+            <TextBox Name="time_duty" Grid.Row="7" Grid.Column="5" IsEnabled="False"/>
             <!--第八行-->
             <StackPanel Margin="5,5,0,1" Grid.Row="8" Grid.Column="1">
                 <CheckBox Name="c26" Margin="0,0,0,0" IsEnabled="False">基本方法</CheckBox>
@@ -399,115 +397,115 @@
             </StackPanel>
             <StackPanel Grid.Row="8
                         " Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="five1_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Grid.Row="8" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="five1_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="8" Grid.Column="4"   >
                 <CheckBox  Name="c28" FontSize="10"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0"  IsEnabled="False">独自步行</CheckBox>
-                <CheckBox Name="c29"   FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用不行辅助工具</CheckBox>
+                <CheckBox Name="c29"   FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用步行辅助工具</CheckBox>
                 <CheckBox Name="c30"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">其他</CheckBox>
             </StackPanel>
-            <ComboBox Grid.Row="8" Grid.Column="4" Name="comBox4" FontSize="8" Margin="124.8,11,115.2,15" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c29}"/>
-            <TextBox Grid.Row="8" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text2" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c30}"/>
-            <TextBox Grid.Row="8" Grid.Column="5"/>
+            <TextBox IsEnabled="False" Grid.Row="8" Grid.Column="4" Name="comBox4" FontSize="8" Margin="124.8,11,115.2,15" />
+            <TextBox Grid.Row="8" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text2" IsEnabled="False" />
+            <TextBox Name="five1_duty" Grid.Row="8" Grid.Column="5" IsEnabled="False"/>
             <!--第九行-->
             <StackPanel Margin="5,5,0,1" Grid.Row="9" Grid.Column="1">
                 <CheckBox Name="c31" Margin="0,0,0,0" IsEnabled="False">基本方法</CheckBox>
                 <CheckBox Name="c32" Margin="0,0,0,0" IsEnabled="False">常规外方法</CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="9" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="five2_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Grid.Row="9" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="five2_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="9" Grid.Column="4"   >
                 <CheckBox  Name="c33" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False">独自步行</CheckBox>
-                <CheckBox Name="c34"    FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用不行辅助工具</CheckBox>
+                <CheckBox Name="c34"    FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用步行辅助工具</CheckBox>
                 <CheckBox Name="c35" FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">其他</CheckBox>
             </StackPanel>
-            <ComboBox Grid.Row="9" Grid.Column="4" Name="comBox5"  FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c34}"/>
-            <TextBox Grid.Row="9" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text3"   Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c35}"/>
-            <TextBox Grid.Row="9" Grid.Column="5"/>
+            <TextBox IsEnabled="False" Grid.Row="9" Grid.Column="4" Name="comBox5"  FontSize="8" Margin="124.8,9.8,115.2,19.8" />
+            <TextBox Grid.Row="9" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text3" IsEnabled="False" />
+            <TextBox Name="five2_duty" Grid.Row="9" Grid.Column="5" IsEnabled="False"/>
             <!--第十行-->
             <StackPanel Margin="5,5,0,1" Grid.Row="10" Grid.Column="1">
                 <CheckBox Name="c36" Margin="0,0,0,0" IsEnabled="False">基本方法</CheckBox>
                 <CheckBox Name="c37" Margin="0,0,0,0" IsEnabled="False">常规外方法</CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="10" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="ten_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Grid.Row="10" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="ten_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="10" Grid.Column="4"   >
                 <CheckBox  Name="c38" FontSize="10"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False">独自步行</CheckBox>
-                <CheckBox Name="c39"    FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用不行辅助工具</CheckBox>
+                <CheckBox Name="c39"    FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用步行辅助工具</CheckBox>
                 <CheckBox Name="c40"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">其他</CheckBox>
             </StackPanel>
-            <ComboBox Grid.Row="10" Grid.Column="4" Name="comBox6" FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c39}"/>
-            <TextBox Grid.Row="10" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text4"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c40}"/>
-            <TextBox Grid.Row="10" Grid.Column="5"/>
+            <TextBox IsEnabled="False" Grid.Row="10" Grid.Column="4" Name="comBox6" FontSize="8" Margin="124.8,9.8,115.2,19.8" />
+            <TextBox Grid.Row="10" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text4"  IsEnabled="False" />
+            <TextBox Name="ten_duty" Grid.Row="10" Grid.Column="5" IsEnabled="False"/>
             <!--第十一行-->
             <Label  Grid.Row="11" Grid.Column="1" Content="—"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <StackPanel Grid.Row="11" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="six_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="秒" Margin="1,11,1,9.6" />
             </StackPanel>
             <StackPanel Grid.Row="11" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="six_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="11" Grid.Column="4"   >
                 <CheckBox  Name="c43" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False" >独自步行</CheckBox>
-                <CheckBox Name="c44"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用不行辅助工具</CheckBox>
+                <CheckBox Name="c44"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用步行辅助工具</CheckBox>
                 <CheckBox Name="c45"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">其他</CheckBox>
             </StackPanel>
-            <ComboBox Grid.Row="11" Grid.Column="4" Name="comBox7"  FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c44}"/>
-            <TextBox Grid.Row="11" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text5"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c45}"/>
-            <TextBox Grid.Row="11" Grid.Column="5"/>
+            <TextBox IsEnabled="False" Grid.Row="11" Grid.Column="4" Name="comBox7"  FontSize="8" Margin="124.8,9.8,115.2,19.8" />
+            <TextBox Grid.Row="11" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text5"  IsEnabled="False" />
+            <TextBox Name="six_duty" Grid.Row="11" Grid.Column="5" IsEnabled="False"/>
             <!--第十二行-->
             <Label  Grid.Row="12" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <StackPanel Grid.Row="12" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="two_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="次" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Grid.Row="12" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="two_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="次" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="12" Grid.Column="4"   >
                 <CheckBox  Name="c46" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False" >独自步行</CheckBox>
-                <CheckBox Name="c47"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用不行辅助工具</CheckBox>
+                <CheckBox Name="c47"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用步行辅助工具</CheckBox>
                 <CheckBox Name="c48"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">其他</CheckBox>
             </StackPanel>
-            <ComboBox Grid.Row="12" Grid.Column="4" Name="comBox8"  FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c47}"/>
-            <TextBox Grid.Row="12" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text6"   Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c48}"/>
-            <TextBox Grid.Row="12" Grid.Column="5"/>
+            <TextBox IsEnabled="False" Grid.Row="12" Grid.Column="4" Name="comBox8"  FontSize="8" Margin="124.8,9.8,115.2,19.8"/>
+            <TextBox Grid.Row="12" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text6" IsEnabled="False" />
+            <TextBox Name="two_duty" Grid.Row="12" Grid.Column="5" IsEnabled="False"/>
             <!--第十三行-->
             <Label  Grid.Row="13" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
             <StackPanel Grid.Row="13" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="twoleg_first" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="次" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Grid.Row="13" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Name="twoleg_second" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="次" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="13" Grid.Column="4"   >
                 <CheckBox  Name="c49" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False">站姿</CheckBox>
                 <CheckBox Name="c50" FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">坐姿</CheckBox>
             </StackPanel>
-            <TextBox Grid.Row="13" Grid.Column="5"/>
+            <TextBox Name="twoleg_duty" Grid.Row="13" Grid.Column="5" IsEnabled="False"/>
         </Grid>
         <!--使用者/工作人员感想-->
         <Grid Height="70" Margin="6,0,4.6,-4" >
@@ -545,6 +543,9 @@
                 <!--行间距-->
                 <RichTextBox.Document>
                     <FlowDocument Focusable="True" LineHeight="1" >
+                        <Paragraph>
+                            <Run Name="user_think"></Run>
+                        </Paragraph>
                     </FlowDocument>
                 </RichTextBox.Document>
             </RichTextBox>
@@ -553,6 +554,9 @@
                 <!--行间距-->
                 <RichTextBox.Document>
                     <FlowDocument Focusable="True" LineHeight="1" >
+                        <Paragraph>
+                            <Run Name="worker_think"></Run>
+                        </Paragraph>
                     </FlowDocument>
                 </RichTextBox.Document>
             </RichTextBox>
@@ -560,10 +564,9 @@
         <!-- 保存及取消按钮-->
         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="286" Height="29" VerticalAlignment="Bottom" BorderThickness="0" BorderBrush="White" Margin="0,13,10,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                <!--保存按钮-->
-                <Button Width="140"  Height="25"  Margin="3,0,0,0" Style="{StaticResource Btn}" VerticalAlignment="Bottom" >保存</Button>
+                
                 <!--取消按钮-->
-                <Button Width="140" Height="25" Content="取消" Margin="2,0,0,0" VerticalAlignment="Bottom"  Style="{StaticResource Btn}" Click="GoBack"/>
+                <Button Width="140" Height="25" Content="关闭" Margin="2,0,0,0" VerticalAlignment="Bottom"  Style="{StaticResource Btn}" Click="GoBack"/>
             </StackPanel>
         </Border>
     </StackPanel>

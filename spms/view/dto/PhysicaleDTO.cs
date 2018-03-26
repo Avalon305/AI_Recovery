@@ -9,6 +9,7 @@ namespace spms.view.dto
 {
     class PhysicaleDTO
     {
+        public int ID { get; set; }
         //数据创建时间
         public DateTime Gmt_Create { get; set; }
 
@@ -33,6 +34,7 @@ namespace spms.view.dto
 
         public PhysicaleDTO(PhysicalPower physicalPower)
         {
+            this.ID = physicalPower.Pk_PP_Id;
             this.Gmt_Create = physicalPower.Gmt_Create.Value;
             this.PP_High = physicalPower.PP_High;
             this.PP_Weight = physicalPower.PP_Weight;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.dao;
+using spms.entity;
+using spms.view.dto;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -19,6 +23,8 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class ViewManualMvaluation : Window
     {
+        private User user;
+        private PhysicaleDTO physicaleDto;
         public ViewManualMvaluation()
         {
             InitializeComponent();
@@ -42,6 +48,336 @@ namespace spms.view.Pages.ChildWin
         {
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+            //绑定数据
+            Dictionary<string, object> dic = (Dictionary<string, Object>)DataContext;
+            user = (User)dic["user"];
+            physicaleDto = (PhysicaleDTO)dic["physicaleDto"];
+            Load_Data();
+        }
+
+        private void Load_Data()
+        {
+            l1.Content = user.User_Name;
+            l2.Content = user.Pk_User_Id;
+            implementation_date.Text = physicaleDto.Gmt_Create.ToString();
+            PhysicalPower physicalPower = new PhysicalPowerDAO().Load(physicaleDto.ID);
+            //身高
+            string[] ppHigh = Regex.Replace(physicalPower.PP_High, @"param\d", "").Split(new char[] { ',' });
+            height_first.Text = ppHigh[1];
+            if (ppHigh[3] == "照片（侧面、前面）")
+            {
+                height_condition.IsChecked = true;
+            }
+            //TODO
+//            height_duty.Text = ppHigh[4];
+
+            //体重
+            string[] ppWeight = Regex.Replace(physicalPower.PP_Weight, @"param\d", "").Split(new char[] { ',' });
+            weight_first.Text = ppWeight[1];
+            if (ppWeight[3] != "")
+            {
+                weight_condition.IsChecked = true;
+                weight_condition_text.Text = ppWeight[3];
+            }
+            //TODO
+            //weight_duty.Text = ppWeight[4];
+
+            //握力
+            string[] ppGrip = Regex.Replace(physicalPower.PP_Grip, @"param\d", "").Split(new char[] { ',' });
+            if (ppGrip[0] == "左")
+            {
+                grip_left.IsChecked = true;
+            }
+            else if (ppGrip[0] == "右")
+            {
+                grit_right.IsChecked = true;
+            }
+
+            grip_first.Text = ppGrip[1];
+            grip_second.Text = ppGrip[2];
+            if (ppGrip[3] == "站姿")
+            {
+                grid_stand.IsChecked = true;
+            }
+            else if (ppGrip[3] == "坐姿")
+            {
+                grid_sit.IsChecked = true;
+            }
+
+            grip_duty.Text = ppGrip[4];
+
+
+            //睁眼单脚站立
+            string[] ppEyeOpenStand = Regex.Replace(physicalPower.PP_EyeOpenStand, @"param\d", "").Split(new char[] { ',' });
+            if (ppEyeOpenStand[0] == "左")
+            {
+                stand_left.IsChecked = true;
+            }
+            else if (ppEyeOpenStand[0] == "右")
+            {
+                stand_right.IsChecked = true;
+            }
+            stand_first.Text = ppEyeOpenStand[1];
+            stand_second.Text = ppEyeOpenStand[2];
+            if (ppEyeOpenStand[3] == "不需要支持")
+            {
+                stand_nosupport.IsChecked = true;
+            }
+            else if (ppEyeOpenStand[3] == "通过介助支持")
+            {
+                stand_support.IsChecked = true;
+            }
+            else if (ppEyeOpenStand[3] != "")
+            {
+                stand_toolsupport.IsChecked = true;
+                stand_comBox1.Text = ppEyeOpenStand[3];
+            }
+            
+            stand_duty.Text = ppEyeOpenStand[4];
+
+            //功能性前伸
+            string[] ppFunctionProtract = Regex.Replace(physicalPower.PP_FunctionProtract, @"param\d", "").Split(new char[] { ',' });
+            if (ppFunctionProtract[0] == "两手")
+            {
+                protrack_twohands.IsChecked = true;
+            }
+            else if (ppFunctionProtract[0] == "左")
+            {
+                protrack_left.IsChecked = true;
+            }
+            else if (ppFunctionProtract[0] == "右")
+            {
+                protrack_right.IsChecked = true;
+            }
+
+            protrack_first.Text = ppFunctionProtract[1];
+            protrack_second.Text = ppFunctionProtract[2];
+            if (ppFunctionProtract[3] == "胳膊不能举到肩的高度（肩关节弯曲度）")
+            {
+                protrack_curvature.IsChecked = true;
+            }
+            else if (ppFunctionProtract[3] == "以坐姿确定")
+            {
+                protrack_sit.IsChecked = true;
+            }
+
+            protrack_duty.Text = ppFunctionProtract[4];
+
+            //坐姿体前屈
+            string[] ppSitandReach = Regex.Replace(physicalPower.PP_SitandReach, @"param\d", "").Split(new char[] { ',' });
+            if (ppSitandReach[0] == "左")
+            {
+                c17.IsChecked = true;
+            }
+            else if (ppSitandReach[0] == "右")
+            {
+                c18.IsChecked = true;
+            }
+
+            c_first.Text = ppSitandReach[1];
+            c_second.Text = ppSitandReach[2];
+            if (ppSitandReach[3] == "膝弯曲（有）")
+            {
+                c19.IsChecked = true;
+            }
+            else if (ppSitandReach[3] == "膝弯曲（无）")
+            {
+                c20.IsChecked = true;
+            }
+            c_duty.Text = ppSitandReach[4];
+
+            //Time UP & GO
+            string[] ppTimeUpGo = Regex.Replace(physicalPower.PP_TimeUpGo, @"param\d", "").Split(new char[] { ',' });
+            if (ppTimeUpGo[0] == "基本方法")
+            {
+                c21.IsChecked = true;
+            }
+            else if (ppTimeUpGo[0] == "常规外方法")
+            {
+                c22.IsChecked = true;
+            }
+            time_first.Text = ppTimeUpGo[1];
+            time_second.Text = ppTimeUpGo[2];
+            if (ppTimeUpGo[3] == "独自步行")
+            {
+                c23.IsChecked = true;
+            }
+            else if (ppTimeUpGo[3] == "T字拐杖" || ppTimeUpGo[3] == "4字拐杖" || ppTimeUpGo[3] == "步行器" || ppTimeUpGo[3] == "其他")
+            {
+                c24.IsChecked = true;
+                comBox3.Text = ppTimeUpGo[3];
+            }
+            else if(ppTimeUpGo[3] != "")
+            {
+                c25.IsChecked = true;
+                text1.Text = ppTimeUpGo[3];
+
+            }
+            time_duty.Text = ppTimeUpGo[4];
+
+
+            //5m步行，通常
+            string[] ppWalk5MileGeneral = Regex.Replace(physicalPower.PP_Walk5MileGeneral, @"param\d", "").Split(new char[] { ',' });
+            if (ppWalk5MileGeneral[0] == "基本方法")
+            {
+                c26.IsChecked = true;
+            }
+            else if (ppWalk5MileGeneral[0] == "常规外方法")
+            {
+                c27.IsChecked = true;
+            }
+            five1_first.Text = ppWalk5MileGeneral[1];
+            five1_second.Text = ppWalk5MileGeneral[2];
+            if (ppWalk5MileGeneral[3] == "独自步行")
+            {
+                c28.IsChecked = true;
+            }
+            else if (ppWalk5MileGeneral[3] == "T字拐杖" || ppWalk5MileGeneral[3] == "4字拐杖" || ppWalk5MileGeneral[3] == "步行器" || ppWalk5MileGeneral[3] == "其他")
+            {
+                c29.IsChecked = true;
+                comBox4.Text = ppWalk5MileGeneral[3];
+            }
+            else if (ppWalk5MileGeneral[3] != "")
+            {
+                c30.IsChecked = true;
+                text2.Text = ppWalk5MileGeneral[3];
+            }
+            five1_duty.Text = ppWalk5MileGeneral[4];
+
+            //5m步行，最快
+            string[] ppWalk5MileFast = Regex.Replace(physicalPower.PP_Walk5MileFast, @"param\d", "").Split(new char[] { ',' });
+            if (ppWalk5MileFast[0] == "基本方法")
+            {
+                c31.IsChecked = true;
+            }
+            else if (ppWalk5MileFast[0] == "常规外方法")
+            {
+                c32.IsChecked = true;
+            }
+
+            five2_first.Text = ppWalk5MileFast[1];
+            five2_second.Text = ppWalk5MileFast[2];
+            if (ppWalk5MileFast[3] == "独自步行")
+            {
+                c33.IsChecked = true;
+            }
+            else if (ppWalk5MileFast[3] == "T字拐杖" || ppWalk5MileFast[3] == "4字拐杖" || ppWalk5MileFast[3] == "步行器" || ppWalk5MileFast[3] == "其他")
+            {
+                c34.IsChecked = true;
+                comBox5.Text = ppWalk5MileFast[3];
+            }
+            else if (ppWalk5MileFast[3] != "")
+            {
+                c35.IsChecked = true;
+                text3.Text = ppWalk5MileFast[3];
+            }
+
+            five2_duty.Text = ppWalk5MileFast[4];
+
+            //10m步行
+            string[] ppWalk10Mile = Regex.Replace(physicalPower.PP_Walk10Mile, @"param\d", "").Split(new char[] { ',' });
+            string methodStr = "";
+            if (ppWalk10Mile[0].Contains("通常"))
+            {
+                methodStr = "通常";
+            }else if (ppWalk10Mile[0].Contains("最快"))
+            {
+                methodStr = "最快";
+            }
+            method.Text = methodStr;
+            if (ppWalk10Mile[0].Contains("基本方法"))
+            {
+                c36.IsChecked = true;
+            }
+            else if (ppWalk10Mile[0].Contains("常规外方法"))
+            {
+                c37.IsChecked = true;
+            }
+
+            ten_first.Text = ppWalk10Mile[1];
+            ten_second.Text = ppWalk10Mile[2];
+            if (ppWalk10Mile[3] == "独自步行")
+            {
+                c38.IsChecked = true;
+            }
+            else if (ppWalk10Mile[3] == "T字拐杖" || ppWalk10Mile[3] == "4字拐杖" || ppWalk10Mile[3] == "步行器" || ppWalk10Mile[3] == "其他")
+            {
+                c39.IsChecked = true;
+                comBox6.Text = ppWalk10Mile[3];
+            }
+            else if (ppWalk10Mile[3] != "")
+            {
+                c40.IsChecked = true;
+                text4.Text = ppWalk10Mile[3];
+            }
+
+            ten_duty.Text = ppWalk10Mile[4];
+
+            //6分钟步行
+            string[] ppWalk6Minute = Regex.Replace(physicalPower.PP_Walk6Minute, @"param\d", "").Split(new char[] { ',' });
+            six_first.Text = ppWalk6Minute[1];
+            six_second.Text = ppWalk6Minute[2];
+            if (ppWalk6Minute[3] == "独自步行")
+            {
+                c43.IsChecked = true;
+            }
+            else if (ppWalk6Minute[3] == "T字拐杖" || ppWalk6Minute[3] == "4字拐杖" || ppWalk6Minute[3] == "步行器" || ppWalk6Minute[3] == "其他")
+            {
+                c44.IsChecked = true;
+                comBox7.Text = ppWalk6Minute[3];
+            }
+            else if (ppWalk6Minute[3] != "")
+            {
+                c45.IsChecked = true;
+                text5.Text = ppWalk6Minute[3];
+            }
+
+            six_duty.Text = ppWalk6Minute[4];
+
+            //2分钟踏步
+            string[] ppStep2Minute = Regex.Replace(physicalPower.PP_Step2Minute, @"param\d", "").Split(new char[] { ',' });
+            two_first.Text = ppStep2Minute[1];
+            two_second.Text = ppStep2Minute[2];
+            if (ppStep2Minute[3] == "独自步行")
+            {
+                c46.IsChecked = true;
+            }
+            else if (ppStep2Minute[3] == "T字拐杖" || ppStep2Minute[3] == "4字拐杖" || ppStep2Minute[3] == "步行器" || ppStep2Minute[3] == "其他")
+            {
+                c47.IsChecked = true;
+                comBox8.Text = ppStep2Minute[3];
+            }
+            else if (ppStep2Minute[3] != "")
+            {
+                c48.IsChecked = true;
+                text6.Text = ppStep2Minute[3];
+            }
+
+            two_duty.Text = ppStep2Minute[4];
+
+            //2分钟抬腿
+            string[] ppLegRaise2Minute = Regex.Replace(physicalPower.PP_LegRaise2Minute, @"param\d", "").Split(new char[] { ',' });
+            twoleg_first.Text = ppLegRaise2Minute[1];
+            twoleg_second.Text = ppLegRaise2Minute[2];
+            if (ppLegRaise2Minute[3] == "站姿")
+            {
+                c49.IsChecked = true;
+            }
+            else if (ppLegRaise2Minute[3] == "坐姿")
+            {
+                c50.IsChecked = true;
+            }
+
+            twoleg_duty.Text = ppLegRaise2Minute[4];
+
+            //使用者感想
+            string ppUserMemo = physicalPower.PP_UserMemo;
+            user_think.Text = ppUserMemo;
+
+            //工作人员感想
+            string ppWorkerMemo = physicalPower.PP_WorkerMemo;
+            worker_think.Text = ppWorkerMemo;
+
         }
     }
 }

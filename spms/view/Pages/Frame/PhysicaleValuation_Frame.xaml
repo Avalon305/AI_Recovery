@@ -35,6 +35,7 @@
                 </Style>
             </DataGrid.CellStyle>
             <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Header="ID" Width="130" Visibility="Hidden"/>
                 <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130"/>
                 <DataGridTextColumn Binding="{Binding PP_High}" Header="身高" Width="80"/>
                 <DataGridTextColumn Binding="{Binding PP_Weight}" Header="体重" Width="80"/>

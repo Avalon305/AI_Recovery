@@ -69,9 +69,7 @@ namespace spms.view.Pages
             //暂时先不启动
             bigDataThread.Start();
             ///心跳线程部分-load方法启动
-
-            //顯示表頭
-            Radio_Check_Action();
+            
         }
 
         /// <summary>
@@ -103,7 +101,7 @@ namespace spms.view.Pages
             Radio_Check_Action();
             // 给frame加入数据
             Refresh_RecordFrame_Action();
-            
+
             if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null && selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
             {
                 path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
@@ -120,7 +118,9 @@ namespace spms.view.Pages
             {
 
                 BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
-                UserPhoto.Source = bitmap;//new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+                BitmapImage bitmap1 = bitmap; //new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+
+                UserPhoto.Source = bitmap1;//new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
                 
                 
 
@@ -130,8 +130,7 @@ namespace spms.view.Pages
             }
             else
             {
-                BitmapImage bitmap = new BitmapImage(new Uri(path));
-                UserPhoto.Source = bitmap.Clone();
+                UserPhoto.Source = new BitmapImage(new Uri(path));
             }
         }
 
@@ -147,6 +146,7 @@ namespace spms.view.Pages
             UsersInfo.ItemsSource = users;
             UsersInfo.SelectedIndex = 0;
             selectUser = (User) UsersInfo.SelectedItem;
+            Refresh_RecordFrame_Action();
             ///心跳部分
 
             #region 通知公告
@@ -225,19 +225,6 @@ namespace spms.view.Pages
             //UI中使用
             userUpdata.selectUser.DataContext = user;
             userUpdata.ShowDialog();
-
-            //更新完用戶后刷新一下展示的tu片
-            selectUser = (User)UsersInfo.SelectedItem;
-            string path = null; // huo的用戶的tu片url
-            if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null && selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
-            {
-                path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
-                path += ".gif";
-            }
-
-            BitmapImage bitmap = new BitmapImage(new Uri(path));
-            UserPhoto.Source = bitmap.Clone();
-
         }
 
         //按钮：删除
@@ -280,30 +267,29 @@ namespace spms.view.Pages
             if (user == null)
             {
                 //MessageBox.Show("没选中用户");
-                //return;
+                return;
             }
 
-            //if (user.User_Name != "" && user.User_Name != null)
-            //{
-                //MessageBox.Show("界面1 之前");
-                if (is_signinformationrecord.IsChecked == true)
-                {
-                    //MessageBox.Show("界面1");
-                    record.Source = new Uri("/view/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
-                    return;
-                }
-                else if (is_trainingrecord.IsChecked == true)
-                {
-                    //MessageBox.Show("界面2");
-                    record.Source = new Uri("/view/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
-                    return;
-                }
-                else if(is_physicalevaluation.IsChecked == true)
-                {
-                    //MessageBox.Show("界面3");
-                    record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
-                }
-            //}
+
+            //MessageBox.Show("界面1 之前");
+            if (is_signinformationrecord.IsChecked == true)
+            {
+                //MessageBox.Show("界面1");
+                record.Source = new Uri("/view/Pages/Frame/SignInformationRecord_Frame.xaml", UriKind.Relative);
+                return;
+            }
+            else if (is_trainingrecord.IsChecked == true)
+            {
+                //MessageBox.Show("界面2");
+                record.Source = new Uri("/view/Pages/Frame/TrainingRecord_Frame.xaml", UriKind.Relative);
+                return;
+            }
+            else if (is_physicalevaluation.IsChecked == true)
+            {
+                //MessageBox.Show("界面3");
+                record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
+            }
+            
         }
         
         //按钮：文档输出
@@ -603,6 +589,29 @@ namespace spms.view.Pages
                     WindowStartupLocation = WindowStartupLocation.CenterScreen
                 };
 
+                Object o = record.Content;
+                PhysicaleDTO physicaleDto = null;
+                User user = (User)UsersInfo.SelectedItem;
+                if (o is PhysicaleValuation_Frame)
+                {
+                    PhysicaleValuation_Frame physicaleValuationFrame = (PhysicaleValuation_Frame)o;
+                    physicaleDto = (PhysicaleDTO)physicaleValuationFrame.PhysicaleValuation.SelectedItem;
+                }
+
+                if (user == null)
+                {
+                    MessageBox.Show("请先选择用户");
+                    return;
+                }
+                if (physicaleDto == null)
+                {//判断是否选择了训练信息
+                    MessageBox.Show("请先选择体力评价");
+                    return;
+                }
+                Dictionary<string, Object> dic = new Dictionary<string, object>();
+                dic.Add("user", user);
+                dic.Add("physicaleDto", physicaleDto);
+                viewManualMvaluation.DataContext = dic;
                 viewManualMvaluation.ShowDialog();
             }
         }
@@ -774,6 +783,7 @@ namespace spms.view.Pages
                 inputManualMvaluation.User_Name.Content = selectUser.User_Name;
                 inputManualMvaluation.Current_User = selectUser;
                 inputManualMvaluation.ShowDialog();
+                Refresh_RecordFrame_Action();
             }
             else
             {
@@ -813,7 +823,7 @@ namespace spms.view.Pages
 
             if (user.User_Name != "" && user.User_Name != null)
             {
-                if (is_signinformationrecord.IsFocused)
+                if (is_signinformationrecord.IsChecked == true)
                 {
                     List<SymptomInfo> symptomInfos = new SymptomService().GetByUserId(user);
                     List<SymptomInfoDTO> symptomInfoDtos = new List<SymptomInfoDTO>();
@@ -827,7 +837,7 @@ namespace spms.view.Pages
                     signInformationRecordFrame.SignInformationRecord.ItemsSource = symptomInfoDtos;
                     record.Content = signInformationRecordFrame;
                 }
-                else if (is_trainingrecord.IsFocused)
+                else if (is_trainingrecord.IsChecked == true)
                 {
 
                     Dictionary<int, List<TrainDTO>> dic = new TrainService().getTrainDTOByUser(user);
@@ -848,7 +858,7 @@ namespace spms.view.Pages
 
                     record.Content = trainingRecordFrame;
                 }
-                else if (is_physicalevaluation.IsFocused)
+                else if (is_physicalevaluation.IsChecked == true)
                 {
                     List<PhysicalPower> physicalPowers = new PhysicaleValuationService().GetByUserId(user);
                     List<PhysicaleDTO> physicaleDTOs = new List<PhysicaleDTO>();
