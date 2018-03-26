@@ -42,6 +42,8 @@ namespace spms.view.Pages.ChildWin
         List<string> careList = new List<string> { "没有申请", "自理", "要支援一", "要支援二", "要介护1", "要介护2", "要介护3", "要介护4", "要介护5" };
         //最初的姓名
         String origin_name;
+        //最初的姓名(拼音)
+        String origin_name_pinyin;
         //最初的手机号
         String origin_phone;
         //最初的身份证号
@@ -62,12 +64,28 @@ namespace spms.view.Pages.ChildWin
         {
             //获取最初姓名
             origin_name = t2.Text;
+            //获取最初姓名
+            origin_name_pinyin = t3.Text;
             //获得最初的手机号
             origin_phone = phoneNum.Text;
             //获得最初的身份证号
             origin_IDCard = IDCard.Text;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+
+            // 加zai用戶的照片
+            //更新完用戶后刷新一下展示的tu片
+            //selectUser = (User)UsersInfo.SelectedItem;
+            string path = null; // huo的用戶的tu片url
+            if (origin_name != null && origin_name != "")
+            {
+                path = CommUtil.GetUserPic(origin_name_pinyin + origin_IDCard);
+                path += ".gif";
+            }
+
+            BitmapImage bitmap = new BitmapImage(new Uri(path));
+            pic.Source = bitmap.Clone();
+
         }
         public UserUpdata()
         {
@@ -244,7 +262,7 @@ namespace spms.view.Pages.ChildWin
                 // 如果用户是自己选择现成的图片，将图片保存在安装目录下
                 string sourcePic = userPhotoPath;
                 string targetPic = CommUtil.GetUserPic(usernamePY + IDCard);
-                targetPic += ".jpg";
+                targetPic += ".gif";
 
                 String dirPath = CommUtil.GetUserPic();
 
@@ -291,13 +309,13 @@ namespace spms.view.Pages.ChildWin
             //MessageBox.Show("hi");
 
             string path = CommUtil.GetUserPic(t3.Text + IDCard.Text);
-            path += ".jpg";
+            path += ".gif";
 
             if (File.Exists(path))
             {
                 //MessageBox.Show("hi open!");
                 BitmapImage image = new BitmapImage(new Uri(path, UriKind.Absolute));//打开图片
-                pic.Source = image;//将控件和图片绑定
+                pic.Source = image.Clone();//将控件和图片绑定
             }
         }
 
