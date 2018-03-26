@@ -272,11 +272,9 @@ namespace spms.view.Pages.ChildWin
         /// <returns></returns>
         public int? SubstringParams(string value)
         {
-            Console.WriteLine(value);
             int startIndex = value.IndexOf(",") + 1;
             int endIndex = value.IndexOf(",", startIndex);
             string result = value.Substring(startIndex, endIndex - startIndex);
-            Console.WriteLine(result);
             
             if (result.Contains("param"))
             {

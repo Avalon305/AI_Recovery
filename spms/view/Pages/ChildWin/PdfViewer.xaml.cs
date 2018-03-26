@@ -53,9 +53,9 @@ namespace spms.view.Pages.ChildWin
                 using (Workbook workbook = new Workbook())
                 {
                     workbook.LoadFromFile(@"e:\test.xlsx");
-                    //workbook.SaveToFile(@"e:\123.pdf", FileFormat.PDF);
-                    Worksheet sheet = workbook.Worksheets[0];
-                    sheet.SaveToPdf(@"e:\test.pdf");
+                    workbook.SaveToFile(@"e:\test.pdf", Spire.Xls.FileFormat.PDF);
+                    //Worksheet sheet = workbook.Worksheets[0];
+                    //sheet.SaveToPdf(@"e:\test.pdf");
                     //Console.WriteLine("转换执行完成了");
                 }
                 PdfViewer.valueChange.Flag = true;
