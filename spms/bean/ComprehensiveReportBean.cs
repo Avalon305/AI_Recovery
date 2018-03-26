@@ -362,5 +362,26 @@ namespace spms.bean
                 this.SI_CareInfo = si.SI_CareInfo;
             }
         }
+
+        public class DevicePrescriptionExcel
+        {
+            //数据创建时间
+            public DateTime? Gmt_Create { get; set; }
+            //设备名称
+            public string DS_name { get; set; }
+            //组数
+            public int dp_groupcount { get; set; }
+            //每组个数
+            public int dp_groupnum { get; set; }
+            //休息时间
+            public int dp_relaxtime { get; set; }
+            //移乘方式
+            public int dp_moveway { get; set; }
+            //砝码
+            public double dp_weight { get; set; }
+            //注意点，指示
+            public string DP_Memo { get; set; }
+
+        }
     }
 }

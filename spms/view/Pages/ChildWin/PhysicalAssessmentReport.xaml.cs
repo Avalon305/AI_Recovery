@@ -150,12 +150,12 @@ namespace spms.view.Pages.ChildWin
                     col = i * 2 + 4;
                     //表头行+两个表头
                     worksheet.Cells[tableRow, col].Value = string.Format("{0:d}", list[i].Gmt_Create);////ToShortDateString().ToString();
-                    worksheet.Cells[tableRow + 1, col].Value = Convert.ToInt32(list[i].PP_High);
-                    worksheet.Cells[tableRow + 2, col].Value = Convert.ToInt32(list[i].PP_Weight);
-                    worksheet.Cells[tableRow + 3, col].Value = Convert.ToInt32(list[i].PP_Grip);
-                    worksheet.Cells[tableRow + 4, col].Value = Convert.ToInt32(list[i].PP_EyeOpenStand);
-                    worksheet.Cells[tableRow + 5, col].Value = Convert.ToInt32(list[i].PP_FunctionProtract);
-                    worksheet.Cells[tableRow + 6, col].Value = Convert.ToInt32(list[i].PP_SitandReach);
+                    worksheet.Cells[tableRow + 1, col].Value = SubstringParams(list[i].PP_High);
+                    worksheet.Cells[tableRow + 2, col].Value = SubstringParams(list[i].PP_Weight);
+                    worksheet.Cells[tableRow + 3, col].Value = SubstringParams(list[i].PP_Grip); 
+                    worksheet.Cells[tableRow + 4, col].Value = SubstringParams(list[i].PP_EyeOpenStand); 
+                    worksheet.Cells[tableRow + 5, col].Value = SubstringParams(list[i].PP_FunctionProtract);
+                    worksheet.Cells[tableRow + 6, col].Value = SubstringParams(list[i].PP_SitandReach);
 
                 }
 
@@ -263,6 +263,29 @@ namespace spms.view.Pages.ChildWin
             pDF.Left = 200;
             pDF.Top = 10;
             pDF.Show();
+        }
+
+        /// <summary>
+        /// 从字符串中截取第一个参数值
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public string SubstringParams(string value)
+        {
+            Console.WriteLine(value);
+            int startIndex = value.IndexOf(",") + 1;
+            int endIndex = value.IndexOf(",", startIndex);
+            string result = value.Substring(startIndex, endIndex - startIndex);
+            Console.WriteLine(result);
+            
+            if (result.Contains("param"))
+            {
+                return "";
+            }
+            else
+            {
+                return result;
+            }
         }
     }
 }

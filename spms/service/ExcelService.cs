@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static spms.bean.TrainExcelVO;
 
 namespace spms.service
 {
@@ -15,7 +16,7 @@ namespace spms.service
             ExcelDao excelDao = new ExcelDao();
             return excelDao.ListTrainingAndSymptomByUserId(userId);
         }
-        public List<DevicePrescription> ListTrainingDetailByUserId(int userId)
+        public List<DevicePrescriptionExcel> ListTrainingDetailByUserId(int userId)
         {
             ExcelDao excelDao = new ExcelDao();
             return excelDao.ListTrainingDetailByUserId(userId);

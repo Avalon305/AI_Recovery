@@ -20,7 +20,9 @@ namespace spms.entity
         public DateTime? Gmt_Modified { get; set; }
         //关联的用户ID
         public int FK_user_Id { get; set; }
-        //身高
+        //身高：分别对应的输入体力评价报告中的5列；格式（param1,param2,param3,param4,param5）-- 如果当前列没有值或者值为空，则用param表示；非空，则赋值
+        //例：身高 PP_High: param1,10,param3,照片（侧面、前面）, param5
+        //timeup & go PP_TimeUpGo: param1,70,param3,T字拐杖,70
         public string PP_High { get; set; }
         //体重
         public string PP_Weight { get; set; }
