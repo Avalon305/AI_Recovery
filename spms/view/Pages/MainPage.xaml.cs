@@ -468,6 +468,7 @@ namespace spms.view.Pages
             User user = (User) UsersInfo.SelectedItem;
             inputTrainingResults.DataContext = user;
             inputTrainingResults.ShowDialog();
+            Refresh_RecordFrame_Action();
         }
 
         //按钮：查看详细信息
@@ -733,6 +734,7 @@ namespace spms.view.Pages
             dic.Add("trainDto", trainDto);
             w2.DataContext = dic;
             w2.ShowDialog();
+            Refresh_RecordFrame_Action();
         }
 
         //按钮：输入训练
