@@ -148,7 +148,7 @@ namespace spms.view.Pages.ChildWin
                 for (int i = 0; i < list.Count; i++)
                 {
                     col = i * 2 + 4;
-                    //表头行+两个表头
+                    //表头行+两个表头，必须是数值
                     worksheet.Cells[tableRow, col].Value = string.Format("{0:d}", list[i].Gmt_Create);////ToShortDateString().ToString();
                     worksheet.Cells[tableRow + 1, col].Value = SubstringParams(list[i].PP_High);
                     worksheet.Cells[tableRow + 2, col].Value = SubstringParams(list[i].PP_Weight);
@@ -270,7 +270,7 @@ namespace spms.view.Pages.ChildWin
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public string SubstringParams(string value)
+        public int? SubstringParams(string value)
         {
             Console.WriteLine(value);
             int startIndex = value.IndexOf(",") + 1;
@@ -280,11 +280,11 @@ namespace spms.view.Pages.ChildWin
             
             if (result.Contains("param"))
             {
-                return "";
+                return null;
             }
             else
             {
-                return result;
+                return Convert.ToInt32(result);
             }
         }
     }
