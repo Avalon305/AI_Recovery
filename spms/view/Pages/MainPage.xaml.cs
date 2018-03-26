@@ -581,23 +581,15 @@ namespace spms.view.Pages
             //打开体力评价详细信息
             else if (is_physicalevaluation.IsChecked == true)
             {
-                PhysicalAssessmentReport physicalAssessmentReport = new PhysicalAssessmentReport
+                ViewManualMvaluation viewManualMvaluation = new ViewManualMvaluation
                 {
                     Owner = Window.GetWindow(this),
                     ShowActivated = true,
                     ShowInTaskbar = false,
                     WindowStartupLocation = WindowStartupLocation.CenterScreen
                 };
-                List<TrainInfo> list = new List<TrainInfo>();
-                TrainInfo trainInfo = new TrainInfo
-                {
-                    Gmt_Create = new DateTime(2012, 01, 02)
-                };
-                list.Add(trainInfo);
-                Console.WriteLine(trainInfo.Gmt_Create);
-                list.Add(trainInfo);
-                physicalAssessmentReport.datalist.DataContext = list;
-                physicalAssessmentReport.ShowDialog();
+
+                viewManualMvaluation.ShowDialog();
             }
         }
 
