@@ -126,6 +126,24 @@ namespace spms.view.Pages.ChildWin
 
         private void Print_Click(object sender, RoutedEventArgs e)
         {
+            //直接打印Excel文件
+            //Workbook workbook = new Workbook();
+            //workbook.LoadFromFile("e:/test.xlsx");
+            //PrintDialog dialog = new PrintDialog();
+            //dialog.AllowPrintToFile = true;
+            //dialog.AllowCurrentPage = true;
+            //dialog.AllowSomePages = true;
+            //dialog.AllowSelection = true;
+            //dialog.UseEXDialog = true;
+            //dialog.PrinterSettings.Duplex = Duplex.Simplex;
+            //dialog.PrinterSettings.FromPage = 0;
+            //dialog.PrinterSettings.ToPage = 8;
+            //dialog.PrinterSettings.PrintRange = PrintRange.SomePages;
+            //workbook.PrintDialog = dialog;
+            //PrintDocument pd = workbook.PrintDocument;
+            //if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //{ pd.Print(); }
+
             PdfDocument doc = new PdfDocument();
             doc.LoadFromFile("e:/test.pdf");
             PrintDialog dialogPrint = new PrintDialog();

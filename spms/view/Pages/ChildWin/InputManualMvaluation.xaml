@@ -69,10 +69,10 @@
                 </Grid.ColumnDefinitions>
                 <!--用户姓名-->
                 <Label Grid.Row="0" Grid.Column="0" Content="用户编号: "  Margin="0,-6,34.4,15.6" Grid.RowSpan="2"/>
-                <Label Grid.Row="0"  Margin="65,-6,-0.2,15.6" Name="l2" Content="{Binding User_Name}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Grid.Row="0"  Margin="65,-6,-0.2,15.6" Name="Pk_User_Id" Content="{Binding Pk_User_Id}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 <!--用户ID-->
                 <Label Grid.Column="0" Content="用户姓名:" Margin="0,11,34.4,-1.4" Grid.RowSpan="2"/>
-                <Label  Margin="65,11,-0.2,-1.4" Name="l1" Grid.ColumnSpan="2" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2"/>
+                <Label  Margin="65,11,-0.2,-1.4" Name="User_Name" Grid.ColumnSpan="2" Content="{Binding  User_Name}" Grid.RowSpan="2"/>
             </Grid>
             <!--实施日期-->
             <Border Margin="10,10,0,10" Background="LightGray" Height="23">
@@ -81,7 +81,7 @@
 
             <!--日历-->
             <Border Margin="7,10,0,10" Width="109">
-                <DatePicker  Height="23" Margin="0.2,0,-1,0" VerticalAlignment="Bottom" SelectedDate="{x:Static sys:DateTime.Now}"/>
+                <DatePicker Name="implementation_date" Height="23" Margin="0.2,0,-1,0" VerticalAlignment="Bottom" SelectedDate="{x:Static sys:DateTime.Now}"/>
             </Border>
 
         </StackPanel>
@@ -166,7 +166,7 @@
             <Label Background="LightGray" Content="5m步行&#13;（最快）" Grid.Row="9" Grid.Column="0" HorizontalContentAlignment="Center"/>
             <StackPanel Grid.Row="10" Grid.Column="0" Background="LightGray" Margin="1,0,1,44.6" Grid.RowSpan="2">
                 <Label  Content="10m步行"  HorizontalContentAlignment="Center" Margin="10,1,1,1"/>
-                <ComboBox Background="LightGray" Text="通常" Margin="10,-4,10,0">
+                <ComboBox Name="walk10_comboBox" Background="LightGray" Text="通常" Margin="10,-4,10,0">
                     <ComboBoxItem IsSelected="True">通常</ComboBoxItem>
                     <ComboBoxItem>最快</ComboBoxItem>
                 </ComboBox>
@@ -261,159 +261,159 @@
             <!--第六行-->
             <Label Grid.Row="6" Grid.Column="1" Content="测定腿"/>
             <StackPanel Margin="50,0,0,0" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" >
-                <CheckBox Name="c17" Margin="5,0,118,0" Checked="c17_Checked">左</CheckBox>
-                <CheckBox Name="c18" Margin="5,0,118,0" Checked="c18_Checked">右</CheckBox>
+                <CheckBox Name="measuring_leg_left" Margin="5,0,118,0" Checked="c17_Checked">左</CheckBox>
+                <CheckBox Name="measuring_leg_right" Margin="5,0,118,0" Checked="c18_Checked">右</CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="6" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,5,0,5" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,5,0,5" Name="sitand_reach_first" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="cm" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Grid.Row="6" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,5,0,5" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,5,0,5" Width="71" Name="sitand_reach_second" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="cm" VerticalAlignment="Center" />
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="6" Grid.Column="4"   >
-                <CheckBox  Name="c19" FontSize="10" Checked="c19_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >膝弯曲（有）</CheckBox>
-                <CheckBox Name="c20"  Checked="c20_Checked"   FontSize="10" Height="14" Margin="10,0,185.8,0">膝弯曲（无）</CheckBox>
+                <CheckBox  Name="knee_flexure_is" FontSize="10" Checked="c19_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >膝弯曲（有）</CheckBox>
+                <CheckBox Name="knee_flexure_not"  Checked="c20_Checked"   FontSize="10" Height="14" Margin="10,0,185.8,0">膝弯曲（无）</CheckBox>
             </StackPanel>
-            <TextBox Grid.Row="6" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
+            <TextBox Name="sitand_reach_duty" Grid.Row="6" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
             <!--第七行-->
             <StackPanel Margin="5,5,0,1" Grid.Row="7" Grid.Column="1" >
-                <CheckBox Name="c21" Margin="0,0,0,0" Checked="c21_Checked" >基本方法</CheckBox>
-                <CheckBox Name="c22" Margin="0,0,0,0" Checked="c22_Checked">常规外方法</CheckBox>
+                <CheckBox Name="time_up_base" Margin="0,0,0,0" Checked="c21_Checked" >基本方法</CheckBox>
+                <CheckBox Name="time_up_routine" Margin="0,0,0,0" Checked="c22_Checked">常规外方法</CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,11,0,11" Name="time_up_first" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="秒" Margin="1,11,1,0" Height="24" VerticalAlignment="Top" />
             </StackPanel>
             <StackPanel Grid.Row="7" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,11,0,11" Name="time_up_second" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="秒" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="7" Grid.Column="4">
-                <CheckBox  Name="c23" FontSize="10" Checked="c23_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >独自步行</CheckBox>
-                <CheckBox Name="c24"  Checked="c24_Checked" Unchecked="c24_Unchecked" FontSize="10" Height="14" Margin="10,0,185.8,0">使用不行辅助工具</CheckBox>
-                <CheckBox Name="c25"  Checked="c25_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14">其他</CheckBox>
+                <CheckBox  Name="time_up_walk" FontSize="10" Checked="c23_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >独自步行</CheckBox>
+                <CheckBox Name="time_up_tools"  Checked="c24_Checked" Unchecked="c24_Unchecked" FontSize="10" Height="14" Margin="10,0,185.8,0">使用步行辅助工具</CheckBox>
+                <CheckBox Name="time_up_other"  Checked="c25_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14">其他</CheckBox>
             </StackPanel>
-            <ComboBox Grid.Row="7" Grid.Column="4" Name="comBox3" IsEnabled="False" FontSize="8" Margin="124.8,11,115.2,15" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c24}"/>
-            <TextBox Grid.Row="7" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text1" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c25}"/>
-            <TextBox Grid.Row="7" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
+            <ComboBox Grid.Row="7" Grid.Column="4" Name="time_up_other_selected" IsEnabled="False" FontSize="8" Margin="124.8,11,115.2,15" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c24}"/>
+            <TextBox Grid.Row="7" Grid.Column="4" Margin="124.8,26,81.2,2" Name="time_up_other_content" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c25}"/>
+            <TextBox Name="time_up_duty" Grid.Row="7" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
             <!--第八行-->
             <StackPanel Margin="5,5,0,1" Grid.Row="8" Grid.Column="1">
-                <CheckBox Name="c26" Margin="0,0,0,0" Checked="c26_Checked">基本方法</CheckBox>
-                <CheckBox Name="c27" Margin="0,0,0,0" Checked="c27_Checked">常规外方法</CheckBox>
+                <CheckBox Name="walk5_base" Margin="0,0,0,0" Checked="c26_Checked">基本方法</CheckBox>
+                <CheckBox Name="walk5_routine" Margin="0,0,0,0" Checked="c27_Checked">常规外方法</CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="8
                         " Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,11,0,11" Name="walk5_first" Width="71" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Grid.Row="8" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,11,0,11" Width="71" Name="walk5_second" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="8" Grid.Column="4"   >
-                <CheckBox  Name="c28" FontSize="10" Checked="c28_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >独自步行</CheckBox>
-                <CheckBox Name="c29"   Checked="c29_Checked" Unchecked="c29_Unchecked"  FontSize="10" Height="14" Margin="10,0,185.8,0">使用不行辅助工具</CheckBox>
-                <CheckBox Name="c30"  Checked="c30_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14">其他</CheckBox>
+                <CheckBox  Name="walk5_walk" FontSize="10" Checked="c28_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >独自步行</CheckBox>
+                <CheckBox Name="walk5_tools"   Checked="c29_Checked" Unchecked="c29_Unchecked"  FontSize="10" Height="14" Margin="10,0,185.8,0">使用步行辅助工具</CheckBox>
+                <CheckBox Name="walk5_other"  Checked="c30_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14">其他</CheckBox>
             </StackPanel>
-            <ComboBox Grid.Row="8" Grid.Column="4" Name="comBox4" FontSize="8" Margin="124.8,11,115.2,15" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c29}"/>
-            <TextBox Grid.Row="8" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text2" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c30}"/>
-            <TextBox Grid.Row="8" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
+            <ComboBox Grid.Row="8" Grid.Column="4" Name="walk5_tools_selected" FontSize="8" Margin="124.8,11,115.2,15" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c29}"/>
+            <TextBox Grid.Row="8" Grid.Column="4" Margin="124.8,26,81.2,2" Name="walk5_other_content" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c30}"/>
+            <TextBox Name="walk5_duty" Grid.Row="8" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
             <!--第九行-->
             <StackPanel Margin="5,5,0,1" Grid.Row="9" Grid.Column="1">
-                <CheckBox Name="c31" Margin="0,0,0,0" Checked="c31_Checked">基本方法</CheckBox>
-                <CheckBox Name="c32" Margin="0,0,0,0" Checked="c32_Checked">常规外方法</CheckBox>
+                <CheckBox Name="walk5_fastest_base" Margin="0,0,0,0" Checked="c31_Checked">基本方法</CheckBox>
+                <CheckBox Name="walk5_fastest_routine" Margin="0,0,0,0" Checked="c32_Checked">常规外方法</CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="9" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,11,0,11" Name="walk5_fastest_first" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Grid.Row="9" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,11,0,11" Name="walk5_fastest_second" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="9" Grid.Column="4"   >
-                <CheckBox  Name="c33" FontSize="10" Checked="c33_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >独自步行</CheckBox>
-                <CheckBox Name="c34"   Checked="c34_Checked" Unchecked="c34_Unchecked"  FontSize="10" Height="14" Margin="10,0,185.8,0">使用不行辅助工具</CheckBox>
-                <CheckBox Name="c35"  Checked="c35_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14">其他</CheckBox>
+                <CheckBox  Name="walk5_fastest_walk" FontSize="10" Checked="c33_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >独自步行</CheckBox>
+                <CheckBox Name="walk5_fastest_tools"   Checked="c34_Checked" Unchecked="c34_Unchecked"  FontSize="10" Height="14" Margin="10,0,185.8,0">使用步行辅助工具</CheckBox>
+                <CheckBox Name="walk5_fastest_other"  Checked="c35_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14">其他</CheckBox>
             </StackPanel>
-            <ComboBox Grid.Row="9" Grid.Column="4" Name="comBox5"  FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c34}"/>
-            <TextBox Grid.Row="9" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text3"   Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c35}"/>
-            <TextBox Grid.Row="9" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
+            <ComboBox Grid.Row="9" Grid.Column="4" Name="walk5_fastest_tools_selected"  FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c34}"/>
+            <TextBox Grid.Row="9" Grid.Column="4" Margin="124.8,26,81.2,2" Name="walk5_fastest_other_content"   Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c35}"/>
+            <TextBox Name="walk5_fastest_duty" Grid.Row="9" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
             <!--第十行-->
             <StackPanel Margin="5,5,0,1" Grid.Row="10" Grid.Column="1">
-                <CheckBox Name="c36" Margin="0,0,0,0" Checked="c36_Checked">基本方法</CheckBox>
-                <CheckBox Name="c37" Margin="0,0,0,0" Checked="c37_Checked" >常规外方法</CheckBox>
+                <CheckBox Name="walk10_base" Margin="0,0,0,0" Checked="c36_Checked">基本方法</CheckBox>
+                <CheckBox Name="walk10_routine" Margin="0,0,0,0" Checked="c37_Checked" >常规外方法</CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="10" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,11,0,11" Name="walk10_first" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Grid.Row="10" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,11,0,11" Name="walk10_second" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="10" Grid.Column="4"   >
-                <CheckBox  Name="c38" FontSize="10" Checked="c38_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >独自步行</CheckBox>
-                <CheckBox Name="c39"  Checked="c39_Checked" Unchecked="c39_Unchecked"  FontSize="10" Height="14" Margin="10,0,185.8,0">使用不行辅助工具</CheckBox>
-                <CheckBox Name="c40"  Checked="c40_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14">其他</CheckBox>
+                <CheckBox  Name="walk10_walk" FontSize="10" Checked="c38_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >独自步行</CheckBox>
+                <CheckBox Name="walk10_tools"  Checked="c39_Checked" Unchecked="c39_Unchecked"  FontSize="10" Height="14" Margin="10,0,185.8,0">使用步行辅助工具</CheckBox>
+                <CheckBox Name="walk10_other"  Checked="c40_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14">其他</CheckBox>
             </StackPanel>
-            <ComboBox Grid.Row="10" Grid.Column="4" Name="comBox6" FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c39}"/>
-            <TextBox Grid.Row="10" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text4"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c40}"/>
-            <TextBox Grid.Row="10" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
+            <ComboBox Grid.Row="10" Grid.Column="4" Name="walk10_tools_selected" FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c39}"/>
+            <TextBox Grid.Row="10" Grid.Column="4" Margin="124.8,26,81.2,2" Name="walk10_other_content"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c40}"/>
+            <TextBox Name="walk10_duty" Grid.Row="10" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
             <!--第十一行-->
             <Label  Grid.Row="11" Grid.Column="1" Content="—"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <StackPanel Grid.Row="11" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,11,0,11" Name="walk6_first" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Grid.Row="11" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,11,0,11" Name="walk6_second" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="2" Margin="116.4,0.2,0.4,44.4" Grid.RowSpan="2"   >
-                <CheckBox  Name="c43" FontSize="10" Checked="c43_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >独自步行</CheckBox>
-                <CheckBox Name="c44"  Checked="c44_Checked" Unchecked="c44_Unchecked" FontSize="10" Height="14" Margin="10,0,185.8,0">使用不行辅助工具</CheckBox>
-                <CheckBox Name="c45"  Checked="c45_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14">其他</CheckBox>
+                <CheckBox  Name="walk6_walk" FontSize="10" Checked="c43_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >独自步行</CheckBox>
+                <CheckBox Name="walk6_tools"  Checked="c44_Checked" Unchecked="c44_Unchecked" FontSize="10" Height="14" Margin="10,0,185.8,0">使用步行辅助工具</CheckBox>
+                <CheckBox Name="walk6_other"  Checked="c45_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14">其他</CheckBox>
             </StackPanel>
-            <ComboBox Grid.Row="11" Grid.Column="4" Name="comBox7"  FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c44}"/>
-            <TextBox Grid.Row="11" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text5"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c45}"/>
-            <TextBox Grid.Row="11" Grid.Column="5" Margin="0.6,0.5,01,0.5"/>
+            <ComboBox Grid.Row="11" Grid.Column="4" Name="walk6_tools_selected"  FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c44}"/>
+            <TextBox Grid.Row="11" Grid.Column="4" Margin="124.8,26,81.2,2" Name="walk6_other_content"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c45}"/>
+            <TextBox Name="walk6_duty" Grid.Row="11" Grid.Column="5" Margin="0.6,0.5,01,0.5"/>
             <!--第十二行-->
             <Label  Grid.Row="12" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <StackPanel Grid.Row="12" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,11,0,11" Name="step2_first" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="次" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Grid.Row="12" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,11,0,11" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,11,0,11" Name="step2_second" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="次" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="2" Margin="116.4,0.4,1.4,0.4"   >
-                <CheckBox  Name="c46" FontSize="10" Checked="c46_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >独自步行</CheckBox>
-                <CheckBox Name="c47"  Checked="c47_Checked" Unchecked="c47_Unchecked" FontSize="10" Height="14" Margin="10,0,185.8,0">使用不行辅助工具</CheckBox>
-                <CheckBox Name="c48"  Checked="c48_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14">其他</CheckBox>
+                <CheckBox  Name="step2_walk" FontSize="10" Checked="c46_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >独自步行</CheckBox>
+                <CheckBox Name="step2_tools"  Checked="c47_Checked" Unchecked="c47_Unchecked" FontSize="10" Height="14" Margin="10,0,185.8,0">使用步行辅助工具</CheckBox>
+                <CheckBox Name="step2_other"  Checked="c48_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14">其他</CheckBox>
             </StackPanel>
-            <ComboBox Grid.Row="12" Grid.Column="4" Name="comBox8"  FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c47}"/>
-            <TextBox Grid.Row="12" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text6"   Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c48}"/>
-            <TextBox Grid.Row="12" Grid.Column="5" Margin="0.6,0.4,01,0.5"/>
+            <ComboBox Grid.Row="12" Grid.Column="4" Name="step2_tools_selected"  FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c47}"/>
+            <TextBox Grid.Row="12" Grid.Column="4" Margin="124.8,26,81.2,2" Name="step2_other_content"   Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c48}"/>
+            <TextBox Name="step2_duty" Grid.Row="12" Grid.Column="5" Margin="0.6,0.4,01,0.5"/>
             <!--第十三行-->
             <Label  Grid.Row="13" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
             <StackPanel Grid.Row="13" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,5,0,5" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,5,0,5" Name="leg2_first" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="次" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Grid.Row="13" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Margin="5,5,0,5" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="5,5,0,5" Name="leg2_second" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="次" VerticalAlignment="Center" />
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="2" Margin="116.4,44.4,1.4,-0.2" Grid.RowSpan="2"   >
-                <CheckBox  Name="c49" FontSize="10" Checked="c49_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >站姿</CheckBox>
-                <CheckBox Name="c50"  Checked="c50_Checked"  FontSize="10" Height="14" Margin="10,0,185.8,0">坐姿</CheckBox>
+                <CheckBox  Name="leg2_stand" FontSize="10" Checked="c49_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >站姿</CheckBox>
+                <CheckBox Name="leg2_sit"  Checked="c50_Checked"  FontSize="10" Height="14" Margin="10,0,185.8,0">坐姿</CheckBox>
             </StackPanel>
-            <TextBox Grid.Row="13" Grid.Column="5"  Margin="1,0,1,1" />
+            <TextBox Name="leg2_duty" Grid.Row="13" Grid.Column="5"  Margin="1,0,1,1" />
         </Grid>
         <!--使用者/工作人员感想-->
         <Grid Height="70" Margin="10,-1,10,-4" >
@@ -447,15 +447,15 @@
             <Label Content="工作人员感想"  Grid.Row="1" Grid.Column="0" Margin="1,1,1,1.5"/>
             <!-- 使用者、工作人员感想的两个文本输入框-->
             <!--<TextBox Grid.Row="0" Grid.Column="1"/>-->
-            <RichTextBox  AcceptsReturn="True"   Grid.Row="0" Grid.Column="1" Margin="0,0,1,0">
+            <RichTextBox Name="user_feel" AcceptsReturn="True"   Grid.Row="0" Grid.Column="1" Margin="0,0,1,0">
                 <!--行间距-->
                 <RichTextBox.Document>
-                    <FlowDocument Focusable="True" LineHeight="1" >
+                    <FlowDocument Focusable="True"  LineHeight="1" >
                     </FlowDocument>
                 </RichTextBox.Document>
             </RichTextBox>
             <!--<TextBox Grid.Row="1" Grid.Column="1"/>-->
-            <RichTextBox  AcceptsReturn="True"   Grid.Row="1" Grid.Column="1" Margin="0,0,1,1">
+            <RichTextBox Name="worker_feel"  AcceptsReturn="True"   Grid.Row="1" Grid.Column="1" Margin="0,0,1,1">
                 <!--行间距-->
                 <RichTextBox.Document>
                     <FlowDocument Focusable="True" LineHeight="1" >

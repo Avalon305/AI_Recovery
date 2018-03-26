@@ -22,5 +22,19 @@ namespace spms.dao
                 return conn.Query<PhysicalPower>(query, new { FK_User_Id = userId }).ToList();
             }
         }
+
+        /// <summary>
+        /// 插入体力评价报告
+        /// </summary>
+        /// <param name="physicalPower"></param>
+        public int AddPhysicalPower(PhysicalPower physicalPower)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string insert = "INSERT INTO bdl_physicalpower(gmt_create,gmt_modified,fk_user_id,pp_high,pp_weight,pp_grip,pp_eyeopenstand,pp_functionprotract,pp_sitandreach,pp_timeupgo,pp_walk5milegeneral,pp_walk5milefast,pp_walk10mile,pp_walk6minute,pp_step2minute,pp_legraise2minute,pp_usermemo,pp_workermemo) VALUES(@Gmt_Create,@Gmt_Modified,@FK_user_Id,@PP_High,@PP_Weight,@PP_Grip,@PP_EyeOpenStand,@PP_FunctionProtract,@PP_SitandReach,@PP_TimeUpGo,@PP_Walk5MileGeneral,@PP_Walk5MileFast,@PP_Walk10Mile,@PP_Walk6Minute,@PP_Step2Minute,@PP_LegRaise2Minute,@PP_UserMemo,@PP_WorkerMemo);";
+
+                return conn.Execute(insert, physicalPower);
+            }
+        }
     }
 }

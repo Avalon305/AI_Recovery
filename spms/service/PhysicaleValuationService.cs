@@ -19,5 +19,14 @@ namespace spms.service
             List<PhysicalPower> symptomInfos = new PhysicalPowerDAO().GetByUserId(user.Pk_User_Id);
             return symptomInfos;
         }
+
+        /// <summary>
+        /// 插入体力评价报告
+        /// </summary>
+        /// <param name="physicalPower"></param>
+        public int AddPhysicalPower(PhysicalPower physicalPower)
+        {
+            return new PhysicalPowerDAO().AddPhysicalPower(physicalPower);
+        }
     }
 }

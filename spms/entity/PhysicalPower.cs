@@ -50,5 +50,10 @@ namespace spms.entity
         public string PP_UserMemo { get; set; }
         //工作人员感想
         public string PP_WorkerMemo { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(Pk_PP_Id)}: {Pk_PP_Id}, {nameof(Gmt_Create)}: {Gmt_Create}, {nameof(Gmt_Modified)}: {Gmt_Modified}, {nameof(FK_user_Id)}: {FK_user_Id}, {nameof(PP_High)}: {PP_High}, {nameof(PP_Weight)}: {PP_Weight}, {nameof(PP_Grip)}: {PP_Grip}, {nameof(PP_EyeOpenStand)}: {PP_EyeOpenStand}, {nameof(PP_FunctionProtract)}: {PP_FunctionProtract}, {nameof(PP_SitandReach)}: {PP_SitandReach}, {nameof(PP_TimeUpGo)}: {PP_TimeUpGo}, {nameof(PP_Walk5MileGeneral)}: {PP_Walk5MileGeneral}, {nameof(PP_Walk5MileFast)}: {PP_Walk5MileFast}, {nameof(PP_Walk10Mile)}: {PP_Walk10Mile}, {nameof(PP_Walk6Minute)}: {PP_Walk6Minute}, {nameof(PP_Step2Minute)}: {PP_Step2Minute}, {nameof(PP_LegRaise2Minute)}: {PP_LegRaise2Minute}, {nameof(PP_UserMemo)}: {PP_UserMemo}, {nameof(PP_WorkerMemo)}: {PP_WorkerMemo}";
+        }
     }
 }

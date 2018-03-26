@@ -760,7 +760,18 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            inputManualMvaluation.ShowDialog();
+            if (selectUser != null)
+            {
+                inputManualMvaluation.Pk_User_Id.Content = selectUser.Pk_User_Id;
+                inputManualMvaluation.User_Name.Content = selectUser.User_Name;
+                inputManualMvaluation.Current_User = selectUser;
+                inputManualMvaluation.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("未选择用户");
+            }
+           
         }
 
         //设置按钮
