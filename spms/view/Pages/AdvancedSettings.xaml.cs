@@ -63,6 +63,13 @@ namespace spms.view.Pages
             int Dset_Id = (int)ComboBox_Device.SelectedValue;
             DeviceSortList = deviceSortDAO.GetDeviceSortBySet(Dset_Id);
             ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = DeviceSortList;//类型
+            if (SetterDAO.getSetter().Set_Unique_Id != "" && SetterDAO.getSetter().Set_Unique_Id != null)//判断是否激活
+            {
+                Status.Content = "已激活";
+                Color color = Color.FromArgb(255, 2, 200, 5);
+                Status.Foreground = new SolidColorBrush(color);
+                BtnActivite.IsEnabled = false;
+            }
         }
         //返回上一页
         private void GoBack(object sender, RoutedEventArgs e)
@@ -177,14 +184,17 @@ namespace spms.view.Pages
                 //注释的部分为添加多个mac地址
                 // List<entity.Setter> ListMac = CommUtil.GetMacByWMI();
                 // SetterDAO.InsertMacAdress(ListMac);
-                Status.Content = "已激活";//如果激活成功记录状态，激活按钮变为不能点击 没实现！！！
+                Status.Content = "已激活";
                 Color color = Color.FromArgb(255, 2, 200, 5);
                 Status.Foreground = new SolidColorBrush(color);
+                BtnActivite.IsEnabled = false;
             }
             else
             {
                 MessageBox.Show("激活失败");
             }
+           
+           
             
         }
     }
