@@ -173,7 +173,7 @@
         <!--激活状态-->
         <WrapPanel Width="279" HorizontalAlignment="Left" Margin="40,0,0,0" Height="90">
             <Label Content="激活产品配合产品密钥:" FontSize="20"></Label>
-            <Button Width="50" Height="25"  Style="{StaticResource Btn}" Click="Btn_Activate">激活</Button>
+            <Button Width="50" Height="25" x:Name="BtnActivite" Style="{StaticResource Btn}" Click="Btn_Activate">激活</Button>
             <Label FontSize="20">激活状态:</Label>
             <Label  Name="Status" Content="未激活"  FontSize="20"></Label>
         </WrapPanel>

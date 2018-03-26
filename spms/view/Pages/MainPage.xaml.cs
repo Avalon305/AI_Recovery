@@ -69,7 +69,9 @@ namespace spms.view.Pages
             //暂时先不启动
             bigDataThread.Start();
             ///心跳线程部分-load方法启动
-            
+
+            //顯示表頭
+            Radio_Check_Action();
         }
 
         /// <summary>
@@ -101,7 +103,7 @@ namespace spms.view.Pages
             Radio_Check_Action();
             // 给frame加入数据
             Refresh_RecordFrame_Action();
-
+            
             if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null && selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
             {
                 path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
@@ -118,9 +120,7 @@ namespace spms.view.Pages
             {
 
                 BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
-                BitmapImage bitmap1 = bitmap; //new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
-
-                UserPhoto.Source = bitmap1;//new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+                UserPhoto.Source = bitmap;//new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
                 
                 
 
@@ -130,7 +130,8 @@ namespace spms.view.Pages
             }
             else
             {
-                UserPhoto.Source = new BitmapImage(new Uri(path));
+                BitmapImage bitmap = new BitmapImage(new Uri(path));
+                UserPhoto.Source = bitmap.Clone();
             }
         }
 
@@ -224,6 +225,19 @@ namespace spms.view.Pages
             //UI中使用
             userUpdata.selectUser.DataContext = user;
             userUpdata.ShowDialog();
+
+            //更新完用戶后刷新一下展示的tu片
+            selectUser = (User)UsersInfo.SelectedItem;
+            string path = null; // huo的用戶的tu片url
+            if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null && selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
+            {
+                path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
+                path += ".gif";
+            }
+
+            BitmapImage bitmap = new BitmapImage(new Uri(path));
+            UserPhoto.Source = bitmap.Clone();
+
         }
 
         //按钮：删除
@@ -266,11 +280,11 @@ namespace spms.view.Pages
             if (user == null)
             {
                 //MessageBox.Show("没选中用户");
-                return;
+                //return;
             }
 
-            if (user.User_Name != "" && user.User_Name != null)
-            {
+            //if (user.User_Name != "" && user.User_Name != null)
+            //{
                 //MessageBox.Show("界面1 之前");
                 if (is_signinformationrecord.IsChecked == true)
                 {
@@ -289,7 +303,7 @@ namespace spms.view.Pages
                     //MessageBox.Show("界面3");
                     record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
                 }
-            }
+            //}
         }
         
         //按钮：文档输出
@@ -468,6 +482,7 @@ namespace spms.view.Pages
             User user = (User) UsersInfo.SelectedItem;
             inputTrainingResults.DataContext = user;
             inputTrainingResults.ShowDialog();
+            Refresh_RecordFrame_Action();
         }
 
         //按钮：查看详细信息
@@ -580,23 +595,15 @@ namespace spms.view.Pages
             //打开体力评价详细信息
             else if (is_physicalevaluation.IsChecked == true)
             {
-                PhysicalAssessmentReport physicalAssessmentReport = new PhysicalAssessmentReport
+                ViewManualMvaluation viewManualMvaluation = new ViewManualMvaluation
                 {
                     Owner = Window.GetWindow(this),
                     ShowActivated = true,
                     ShowInTaskbar = false,
                     WindowStartupLocation = WindowStartupLocation.CenterScreen
                 };
-                List<TrainInfo> list = new List<TrainInfo>();
-                TrainInfo trainInfo = new TrainInfo
-                {
-                    Gmt_Create = new DateTime(2012, 01, 02)
-                };
-                list.Add(trainInfo);
-                Console.WriteLine(trainInfo.Gmt_Create);
-                list.Add(trainInfo);
-                physicalAssessmentReport.datalist.DataContext = list;
-                physicalAssessmentReport.ShowDialog();
+
+                viewManualMvaluation.ShowDialog();
             }
         }
 
@@ -733,6 +740,7 @@ namespace spms.view.Pages
             dic.Add("trainDto", trainDto);
             w2.DataContext = dic;
             w2.ShowDialog();
+            Refresh_RecordFrame_Action();
         }
 
         //按钮：输入训练

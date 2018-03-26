@@ -288,9 +288,9 @@ namespace spms.view.Pages.ChildWin
 
             if (File.Exists(path))
             {
-                MessageBox.Show("hi open!");
-                BitmapImage image = new BitmapImage(new Uri(path, UriKind.Absolute));//打开图片
-                pic.Source = image;//将控件和图片绑定
+                //MessageBox.Show("hi open!");
+                BitmapImage bitmap = new BitmapImage(new Uri(path, UriKind.Absolute));//打开图片
+                pic.Source = bitmap.Clone();//将控件和图片绑定
                 
             }
         }
