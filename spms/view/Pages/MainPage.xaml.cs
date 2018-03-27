@@ -69,7 +69,10 @@ namespace spms.view.Pages
             //暂时先不启动
             bigDataThread.Start();
             ///心跳线程部分-load方法启动
-            
+
+            //加载表头
+            Radio_Check_Action();
+
         }
 
         /// <summary>
@@ -98,7 +101,7 @@ namespace spms.view.Pages
             is_signinformationrecord.Focus();
 
             //选中用户时展示 症状 训练 体力的记录框的frame
-            Radio_Check_Action();
+            //Radio_Check_Action();
             // 给frame加入数据
             Refresh_RecordFrame_Action();
 
@@ -118,12 +121,8 @@ namespace spms.view.Pages
             {
 
                 BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
-                BitmapImage bitmap1 = bitmap; //new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
-
-                UserPhoto.Source = bitmap1;//new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
-                
-                
-
+                UserPhoto.Source = bitmap;
+               
                 //Console.WriteLine("~~~~~~~~~该用户的照片不存在~~~~~~~" + path);
                 return;
                 //提示文件不存在
@@ -144,7 +143,7 @@ namespace spms.view.Pages
             ///载入时数据装填到list,默认选中第一个
             users = userService.GetAllUsers();
             UsersInfo.ItemsSource = users;
-            UsersInfo.SelectedIndex = 0;
+            UsersInfo.SelectedIndex = 1;
             selectUser = (User) UsersInfo.SelectedItem;
             Refresh_RecordFrame_Action();
             ///心跳部分
@@ -267,7 +266,7 @@ namespace spms.view.Pages
             if (user == null)
             {
                 //MessageBox.Show("没选中用户");
-                return;
+                //return;
             }
 
 
@@ -807,8 +806,7 @@ namespace spms.view.Pages
         /// <summary>
         /// 刷新右下角frame
         /// </summary>
-        /// 
-
+        /// 给frame加入数据
         private void Refresh_RecordFrame_Action()
         {
             
@@ -817,9 +815,8 @@ namespace spms.view.Pages
             if (user == null)
             {
                 //MessageBox.Show("请选择用户");
-                
                 return;
-            }
+            } 
 
             if (user.User_Name != "" && user.User_Name != null)
             {

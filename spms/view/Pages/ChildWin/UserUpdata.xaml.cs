@@ -83,8 +83,18 @@ namespace spms.view.Pages.ChildWin
                 path += ".gif";
             }
 
-            BitmapImage bitmap = new BitmapImage(new Uri(path));
-            pic.Source = bitmap.Clone();
+
+            if (File.Exists(path))
+            {
+                BitmapImage bitmap = new BitmapImage(new Uri(path));
+                pic.Source = bitmap.Clone();
+            } else
+            {
+                BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+                pic.Source = bitmap;
+            }
+
+            
 
         }
         public UserUpdata()
