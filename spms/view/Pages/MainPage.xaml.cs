@@ -75,8 +75,8 @@ namespace spms.view.Pages
             Radio_Check_Action();
 
             //启动初始化Excel转PDF的线程
-            initializationExcelToPdfThread = new Thread(new ThreadStart(InitializationExcelToPdf));
-            initializationExcelToPdfThread.Start();
+//            initializationExcelToPdfThread = new Thread(new ThreadStart(InitializationExcelToPdf));
+//            initializationExcelToPdfThread.Start();
 
         }
 

@@ -68,8 +68,7 @@ namespace spms.view.Pages.ChildWin
             {
                 height_condition.IsChecked = true;
             }
-            //TODO
-//            height_duty.Text = ppHigh[4];
+            height_duty.Text = ppHigh[4];
 
             //体重
             string[] ppWeight = Regex.Replace(physicalPower.PP_Weight, @"param\d", "").Split(new char[] { ',' });
@@ -77,10 +76,9 @@ namespace spms.view.Pages.ChildWin
             if (ppWeight[3] != "")
             {
                 weight_condition.IsChecked = true;
-                weight_condition_text.Text = ppWeight[3];
+                weight_condition_text.Text = ppWeight[3].Split(new char[]{':'})[1];
             }
-            //TODO
-            //weight_duty.Text = ppWeight[4];
+            weight_duty.Text = ppWeight[4];
 
             //握力
             string[] ppGrip = Regex.Replace(physicalPower.PP_Grip, @"param\d", "").Split(new char[] { ',' });
@@ -129,8 +127,10 @@ namespace spms.view.Pages.ChildWin
             }
             else if (ppEyeOpenStand[3] != "")
             {
+                string[] strings = ppEyeOpenStand[3].Split(new char[] { '(' });
                 stand_toolsupport.IsChecked = true;
-                stand_comBox1.Text = ppEyeOpenStand[3];
+                stand_comBox1.Text = strings[0];
+                stand_comBox2.Text = strings[1].Substring(0, strings[1].Length - 1);
             }
             
             stand_duty.Text = ppEyeOpenStand[4];

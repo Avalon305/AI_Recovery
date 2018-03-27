@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -53,6 +54,7 @@ namespace spms.view.Pages.ChildWin
             //康复前血压
             string preLowPressure = bloodlow_1.Text;
             string preHighPressure = bloodhight_1.Text;
+            
             //康复前心率
             string preHeartRate = heartRate_1.Text;
             //康复前脉
@@ -65,14 +67,30 @@ namespace spms.view.Pages.ChildWin
             {//脉律不齐
                 prePulse = 1;
             }
+            else
+            {
+                MessageBox.Show("请选择康复前脉症状");
+                return;
+            }
+
             //康复前体温
             string preAnimalheat = heat_1.Text;
             
             //康复后血压
             string sufLowPressure = bloodlow_2.Text;
             string sufHighPressure = bloodhight_2.Text;
+            if (sufLowPressure.Trim() == "" || sufHighPressure.Trim() == "" || preLowPressure.Trim() == "" || preHighPressure.Trim() == "" || !(Double.Parse(sufLowPressure) > 0 && Double.Parse(sufLowPressure) < 300) || !(Double.Parse(sufHighPressure) > 0 && Double.Parse(sufHighPressure) < 300) || !(Double.Parse(preHighPressure) > 0 && Double.Parse(preHighPressure) < 300) || !(Double.Parse(preLowPressure) > 0 && Double.Parse(preLowPressure) < 300))
+            {
+                MessageBox.Show("请输入正确的血压");
+                return;
+            }
             //康复后心率
             string sufHeartRate = heartRate_2.Text;
+            if (sufHeartRate.Trim() == "" || preHeartRate.Trim() == "" || !(Int32.Parse(sufHeartRate) > 0 && Int32.Parse(sufHeartRate) < 200) || !(Int32.Parse(preHeartRate) > 0 && Int32.Parse(preHeartRate) < 200))
+            {
+                MessageBox.Show("请输入正确的心率");
+                return;
+            }
             //康复后脉
             int sufPulse = 0;
             if (rule_2.IsChecked == true)
@@ -83,8 +101,19 @@ namespace spms.view.Pages.ChildWin
             {//脉律不齐
                 sufPulse = 1;
             }
+            else
+            {
+                MessageBox.Show("请选择康复后脉症状");
+                return;
+            }
+
             //康复后体温
             string sufAnimalheat = heat_2.Text;
+            if (sufAnimalheat.Trim() == "" || preAnimalheat.Trim() == "" || !(Double.Parse(sufAnimalheat) < 50 && Double.Parse(sufAnimalheat) > 30) || !(Double.Parse(preAnimalheat) < 50 && Double.Parse(preAnimalheat) > 30))
+            {
+                MessageBox.Show("请输入正确的体温");
+                return;
+            }
 
             //问诊票
             List<string> inquiryList = new List<string>();
@@ -114,10 +143,21 @@ namespace spms.view.Pages.ChildWin
             {
                 isJoin = 1;
             }
+            else
+            {
+                MessageBox.Show("请选择是否参加");
+                return;
+            }
 
             int tiId = new DevicePrescriptionDAO().GetTIIdByPRId(trainDto.prescriptionResult.Pk_PR_Id);
             //摄取水分量
             string waterInput = amunt.Text;
+            if (waterInput.Trim() == "" || Double.Parse(waterInput) < 0)
+            {
+                MessageBox.Show("请输入正确的摄水量");
+                return;
+            }
+
 
             //看护记录
             string careInfo = Record.Text;

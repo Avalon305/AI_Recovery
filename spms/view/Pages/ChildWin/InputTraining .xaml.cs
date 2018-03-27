@@ -239,7 +239,15 @@ namespace spms.view.Pages.ChildWin
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
-            SaveTrainInfo2DB(TrainInfoStatus.Save);
+            try
+            {
+                SaveTrainInfo2DB(TrainInfoStatus.Save);
+            }
+            catch (Exception exception)
+            {
+                return;
+            }
+            
             MessageBox.Show("已存储");
             this.Close();
         }
@@ -274,11 +282,55 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
-                devicePrescription.dp_groupcount = Convert.ToInt32(combobox_01.Text); //组数;
-                devicePrescription.dp_groupnum = Convert.ToInt32(combobox_02.Text); //个数;
-                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_05.Text)); //移乘方式
-                devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_03.Text); //间隔时间;
-                devicePrescription.dp_weight = Convert.ToDouble(combobox_04.Text); //砝码;
+                try
+                {
+                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_01.Text); //组数;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的组数");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_02.Text); //个数;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的个数");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_05.Text)); //移乘方式
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的移乘方式");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_03.Text); //间隔时间;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的间隔时间");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_weight = Convert.ToDouble(combobox_04.Text); //砝码;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的砝码");
+                    throw e;
+                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -302,11 +354,55 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X05;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
-                devicePrescription.dp_groupcount = Convert.ToInt32(combobox_11.Text); //组数
-                devicePrescription.dp_groupnum = Convert.ToInt32(combobox_12.Text); //个数
-                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_15.Text)); //移乘方式
-                devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_13.Text); //间隔时间
-                devicePrescription.dp_weight = Convert.ToDouble(combobox_14.Text); //砝码
+                try
+                {
+                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_11.Text); //组数
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的组数");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_12.Text); //个数
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的个数");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_15.Text)); //移乘方式
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的移乘方式");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_13.Text); //间隔时间
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的间隔时间");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_weight = Convert.ToDouble(combobox_14.Text); //砝码
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的砝码");
+                    throw e;
+                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -329,11 +425,55 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
-                devicePrescription.dp_groupcount = Convert.ToInt32(combobox_21.Text); //组数
-                devicePrescription.dp_groupnum = Convert.ToInt32(combobox_22.Text); //个数
-                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_25.Text)); //移乘方式
-                devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_23.Text); //间隔时间
-                devicePrescription.dp_weight = Convert.ToDouble(combobox_24.Text); //砝码
+                try
+                {
+                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_21.Text); //组数
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的组数");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_22.Text); //个数
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的个数");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_25.Text)); //移乘方式
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的移乘方式");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_23.Text); //间隔时间
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的间隔时间");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_weight = Convert.ToDouble(combobox_24.Text); //砝码
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的砝码");
+                    throw e;
+                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -359,11 +499,55 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
-                devicePrescription.dp_groupcount = Convert.ToInt32(combobox_31.Text); //组数
-                devicePrescription.dp_groupnum = Convert.ToInt32(combobox_32.Text); //个数
-                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_35.Text)); //移乘方式
-                devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_33.Text); //间隔时间
-                devicePrescription.dp_weight = Convert.ToDouble(combobox_34.Text); //砝码
+                try
+                {
+                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_31.Text); //组数
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的组数");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_32.Text); //个数
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的个数");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_35.Text)); //移乘方式
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的移乘方式");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_33.Text); //间隔时间
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的间隔时间");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_weight = Convert.ToDouble(combobox_34.Text); //砝码
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的砝码");
+                    throw e;
+                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -385,11 +569,55 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
-                devicePrescription.dp_groupcount = Convert.ToInt32(combobox_41.Text); //组数
-                devicePrescription.dp_groupnum = Convert.ToInt32(combobox_42.Text); //个数
-                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_45.Text)); //移乘方式
-                devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_43.Text); //间隔时间
-                devicePrescription.dp_weight = Convert.ToDouble(combobox_44.Text); //砝码
+                try
+                {
+                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_41.Text); //组数
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的组数");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_42.Text); //个数
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的个数");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_45.Text)); //移乘方式
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的移乘方式");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_43.Text); //间隔时间
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的间隔时间");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_weight = Convert.ToDouble(combobox_44.Text); //砝码
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的砝码");
+                    throw e;
+                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -411,11 +639,55 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X01;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
-                devicePrescription.dp_groupcount = Convert.ToInt32(combobox_51.Text); //组数
-                devicePrescription.dp_groupnum = Convert.ToInt32(combobox_52.Text); //个数
-                devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_55.Text)); //移乘方式
-                devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_53.Text); //间隔时间
-                devicePrescription.dp_weight = Convert.ToDouble(combobox_54.Text); //砝码
+                try
+                {
+                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_51.Text); //组数
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的组数");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_52.Text); //个数
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的个数");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_55.Text)); //移乘方式
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的移乘方式");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_53.Text); //间隔时间
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的间隔时间");
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.dp_weight = Convert.ToDouble(combobox_54.Text); //砝码
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的砝码");
+                    throw e;
+                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -869,5 +1141,21 @@ namespace spms.view.Pages.ChildWin
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            //保存到数据库,在接收数据方法中
+            try
+            {
+                SaveTrainInfo2DB(TrainInfoStatus.Normal);
+            }
+            catch (Exception exception)
+            {
+                return;
+            }
+            
+            MessageBox.Show("已写卡");
+            this.Close();
+        }
     }
 }
