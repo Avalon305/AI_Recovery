@@ -48,13 +48,30 @@ namespace spms.view.Pages.ChildWin
                 "步行器",
                 "其他"
             };
-            stand_comBox1.ItemsSource = list;
+            stand_tools_selected.ItemsSource = list;
             time_up_other_selected.ItemsSource = list;
             walk5_tools_selected.ItemsSource = list;
             walk5_fastest_tools_selected.ItemsSource = list;
             walk10_tools_selected.ItemsSource = list;
             walk6_tools_selected.ItemsSource = list;
             step2_tools_selected.ItemsSource = list;
+
+            stand_tools_selected2.ItemsSource = new List<string>
+            {
+                "右手前面支持",
+                "右手侧面支持",
+                "左手前面支持",
+                "左手侧面支持",
+                "两手前面支持",
+                "两手侧面支持"
+            };
+
+            walk10_comboBox.ItemsSource = new List<string>
+            {
+                "通常",
+                "最快"
+            };
+            walk10_comboBox.SelectedIndex = 0;
         }
 
         public User Current_User { set; get; }
@@ -76,9 +93,9 @@ namespace spms.view.Pages.ChildWin
             physicalPower.Gmt_Modified = implementation_date.SelectedDate;
 
             //1.拼接身高
-            physicalPower.PP_High = "param1,"+(height_first.Text != "" ? height_first.Text + "," : "param2,") + "param3,"+ (height_condition.IsChecked == true ? height_condition.Content : "param4," + (height_duty.Text.ToString() != "" ? height_duty.Text.ToString() + "," : "param5"));
+            physicalPower.PP_High = "param1,"+(height_first.Text != "" ? height_first.Text + "," : "param2,") + "param3,"+ (height_condition.IsChecked == true ? height_condition.Content+"," : "param4,") + (height_duty.Text.ToString() != "" ? height_duty.Text.ToString() : "param5");
             //2.拼接体重
-            physicalPower.PP_Weight = "param1," + (weight_first.Text != "" ? weight_first.Text + "," : "param2,") + "param3," + (weight_condition.IsChecked == true ? "服装:"+weight_condition_text.Text.ToString() : "param4," + (weight_duty.Text.ToString() != "" ? weight_duty.Text.ToString() + "," : "param5"));
+            physicalPower.PP_Weight = "param1," + (weight_first.Text != "" ? weight_first.Text + "," : "param2,") + "param3," + (weight_condition.IsChecked == true ? "服装:"+weight_condition_text.Text.ToString() + "," : "param4,") + (weight_duty.Text.ToString() != "" ? weight_duty.Text.ToString() : "param5");
             //3.拼接握力
             if (grip_left.IsChecked == true)
             {
@@ -130,7 +147,13 @@ namespace spms.view.Pages.ChildWin
             }
             else if (stand_toolsupport.IsChecked == true)
             {
-                builder.Append(stand_toolsupport.Content + ",");
+                //比较特别，拼接睁眼单脚站立的使用支持用具
+                IsCheckedTools(ref builder,stand_toolsupport, stand_tools_selected);
+                if (stand_tools_selected2.SelectedValue != null)
+                {
+                    builder.Append("(" + stand_tools_selected2.SelectedValue.ToString() + ")");
+                }
+                builder.Append(",");
             }
             else if (stand_support.IsChecked == true)
             {
@@ -228,7 +251,8 @@ namespace spms.view.Pages.ChildWin
             }
             else if (time_up_tools.IsChecked == true)
             {
-                builder.Append(time_up_other_selected.SelectedValue.ToString() + ",");
+                IsCheckedTools(ref builder, time_up_tools, time_up_other_selected);
+                builder.Append(",");
             }
             else if (time_up_other.IsChecked == true)
             {
@@ -262,7 +286,9 @@ namespace spms.view.Pages.ChildWin
             }
             else if (walk5_tools.IsChecked == true)
             {
-                builder.Append(walk5_tools_selected.SelectedValue.ToString() + ",");
+                IsCheckedTools(ref builder, walk5_tools, walk5_tools_selected);
+                builder.Append(",");
+                //builder.Append(walk5_tools_selected.SelectedValue.ToString() + ",");
             }
             else if (walk5_other.IsChecked == true)
             {
@@ -296,7 +322,8 @@ namespace spms.view.Pages.ChildWin
             }
             else if (walk5_fastest_tools.IsChecked == true)
             {
-                builder.Append(walk5_fastest_tools_selected.SelectedValue.ToString() + ",");
+                IsCheckedTools(ref builder, walk5_fastest_tools, walk5_fastest_tools_selected);
+                builder.Append(",");
             }
             else if (walk5_fastest_other.IsChecked == true)
             {
@@ -312,15 +339,15 @@ namespace spms.view.Pages.ChildWin
             //9.10m步行
             if (walk10_base.IsChecked == true)
             {
-                builder.Append(walk10_base.Content + "(" + walk10_comboBox.SelectedValue.ToString() + "),");
+                builder.Append(walk10_base.Content + "(" + walk10_comboBox.SelectedItem.ToString() + "),");
             }
             else if (walk10_routine.IsChecked == true)
             {
-                builder.Append(walk10_routine.Content + "(" + walk10_comboBox.SelectedValue.ToString() + "),");
+                builder.Append(walk10_routine.Content + "(" + walk10_comboBox.SelectedItem.ToString() + "),");
             }
             else
             {
-                builder.Append(walk10_comboBox.SelectedValue.ToString()+",");
+                builder.Append(walk10_comboBox.SelectedItem.ToString()+",");
             }
             builder.Append(walk10_first.Text != "" ? walk10_first.Text + "," : "param2,");
             builder.Append(walk10_second.Text != "" ? walk10_second.Text + "," : "param3,");
@@ -330,7 +357,8 @@ namespace spms.view.Pages.ChildWin
             }
             else if (walk10_tools.IsChecked == true)
             {
-                builder.Append(walk10_tools_selected.SelectedValue.ToString() + ",");
+                IsCheckedTools(ref builder, walk10_tools, walk10_tools_selected);
+                builder.Append(",");
             }
             else if (walk10_other.IsChecked == true)
             {
@@ -353,7 +381,8 @@ namespace spms.view.Pages.ChildWin
             }
             else if (walk6_tools.IsChecked == true)
             {
-                builder.Append(walk6_tools_selected.SelectedValue.ToString() + ",");
+                IsCheckedTools(ref builder, walk6_tools, walk6_tools_selected);
+                builder.Append(",");
             }
             else if (walk6_other.IsChecked == true)
             {
@@ -376,7 +405,8 @@ namespace spms.view.Pages.ChildWin
             }
             else if (step2_tools.IsChecked == true)
             {
-                builder.Append(step2_tools_selected.SelectedValue.ToString() + ",");
+                IsCheckedTools(ref builder, step2_tools, step2_tools_selected);
+                builder.Append(",");
             }
             else if (step2_other.IsChecked == true)
             {
@@ -452,13 +482,13 @@ namespace spms.view.Pages.ChildWin
         {
             stand_support.IsChecked = false;
             stand_nosupport.IsChecked = false;
-            stand_comBox1.IsEnabled = true;
-            stand_comBox2.IsEnabled = true;
+            stand_tools_selected.IsEnabled = true;
+            stand_tools_selected2.IsEnabled = true;
         }
         private void c6_Unchecked(object sender, RoutedEventArgs e)
         {
-            stand_comBox1.IsEnabled = false;
-            stand_comBox2.IsEnabled = false;
+            stand_tools_selected.IsEnabled = false;
+            stand_tools_selected2.IsEnabled = false;
         }
 
         private void Stand_support_Checked(object sender, RoutedEventArgs e)
@@ -567,18 +597,19 @@ namespace spms.view.Pages.ChildWin
         {
             time_up_base.IsChecked = false;
         }
-
+        //time up 独步步行
         private void c23_Checked(object sender, RoutedEventArgs e)
         {
             time_up_tools.IsChecked = false;
             time_up_other.IsChecked = false;
+            time_up_other_selected.IsEnabled = false;
         }
-
+        //time up 使用工具
         private void c24_Checked(object sender, RoutedEventArgs e)
         {
             time_up_walk.IsChecked = false;
             time_up_other.IsChecked = false;
-            time_up_other_selected.IsEnabled = IsEnabled;
+            time_up_other_selected.IsEnabled = true;
         }
 
 
@@ -591,6 +622,7 @@ namespace spms.view.Pages.ChildWin
         {
             time_up_walk.IsChecked = false;
             time_up_tools.IsChecked = false;
+            time_up_other_selected.IsEnabled = false;
             //text1.IsEnabled = IsEnabled;
         }
 
@@ -610,12 +642,14 @@ namespace spms.view.Pages.ChildWin
             walk5_base.IsChecked = false;
         }
 
+        //5米步行（通常）独步步行
         private void c28_Checked(object sender, RoutedEventArgs e)
         {
             walk5_tools.IsChecked = false;
             walk5_other.IsChecked = false;
+            walk5_tools_selected.IsEnabled = false;
         }
-
+       
         private void c29_Unchecked(object sender, RoutedEventArgs e)
         {
             walk5_tools_selected.IsEnabled = false;
@@ -625,18 +659,19 @@ namespace spms.view.Pages.ChildWin
         //{
         //    text2.IsEnabled = UnEnabled;
         //}
-
+        //5米步行（通常）工具
         private void c29_Checked(object sender, RoutedEventArgs e)
         {
             walk5_walk.IsChecked = false;
             walk5_other.IsChecked = false;
-            walk5_tools_selected.IsEnabled = IsEnabled;
+            walk5_tools_selected.IsEnabled = true;
         }
-
+        //5米步行（通常）其他
         private void c30_Checked(object sender, RoutedEventArgs e)
         {
             walk5_walk.IsChecked = false;
             walk5_tools.IsChecked = false;
+            walk5_tools_selected.IsEnabled = false;
             //text2.IsEnabled = IsEnabled;
         }
 
@@ -796,7 +831,17 @@ namespace spms.view.Pages.ChildWin
             inputlimited.InputLimited.OnlyInputNumbers(e);
         }
 
-
+        private void IsCheckedTools(ref StringBuilder builder, CheckBox checkBox, ComboBox comboBox)
+        {
+            if (comboBox.SelectedValue != null)
+            {
+                builder.Append(comboBox.SelectedValue.ToString());
+            }
+            else
+            {
+                builder.Append(checkBox.Content);
+            }
+        }
 
 
     }
