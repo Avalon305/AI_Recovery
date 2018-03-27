@@ -1,12 +1,14 @@
 ﻿using OfficeOpenXml;
 using OfficeOpenXml.Drawing.Chart;
 using OfficeOpenXml.Style;
+using Spire.Xls;
 using spms.bean;
 using spms.entity;
 using spms.service;
 using spms.util;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -83,7 +85,10 @@ namespace spms.view.Pages.ChildWin
             //Console.WriteLine("未选中："+cb.Content);
         }
 
-        private void Button_Click_Print(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// 生成Excel文件
+        /// </summary>
+        private void GeneralTrainEvaluate()
         {
             List<PhysicalPowerExcekVO> list = new List<PhysicalPowerExcekVO>();
             for (int i = 0; i < datalist.Items.Count; i++)
@@ -152,8 +157,8 @@ namespace spms.view.Pages.ChildWin
                     worksheet.Cells[tableRow, col].Value = string.Format("{0:d}", list[i].Gmt_Create);////ToShortDateString().ToString();
                     worksheet.Cells[tableRow + 1, col].Value = SubstringParams(list[i].PP_High);
                     worksheet.Cells[tableRow + 2, col].Value = SubstringParams(list[i].PP_Weight);
-                    worksheet.Cells[tableRow + 3, col].Value = SubstringParams(list[i].PP_Grip); 
-                    worksheet.Cells[tableRow + 4, col].Value = SubstringParams(list[i].PP_EyeOpenStand); 
+                    worksheet.Cells[tableRow + 3, col].Value = SubstringParams(list[i].PP_Grip);
+                    worksheet.Cells[tableRow + 4, col].Value = SubstringParams(list[i].PP_EyeOpenStand);
                     worksheet.Cells[tableRow + 5, col].Value = SubstringParams(list[i].PP_FunctionProtract);
                     worksheet.Cells[tableRow + 6, col].Value = SubstringParams(list[i].PP_SitandReach);
 
@@ -257,12 +262,35 @@ namespace spms.view.Pages.ChildWin
                 //保存
                 package.Save();
             }
+        }
 
-            //打印
-            PdfViewer pDF = new PdfViewer();
-            pDF.Left = 200;
-            pDF.Top = 10;
-            pDF.Show();
+        private void Button_Click_Print(object sender, RoutedEventArgs e)
+        {
+            GeneralTrainEvaluate();
+
+            //直接打印Excel文件
+            Workbook workbook = new Workbook();
+            workbook.LoadFromFile("e:/test.xlsx");
+            System.Windows.Forms.PrintDialog dialog = new System.Windows.Forms.PrintDialog();
+            dialog.AllowPrintToFile = true;
+            dialog.AllowCurrentPage = true;
+            dialog.AllowSomePages = true;
+            dialog.AllowSelection = true;
+            dialog.UseEXDialog = true;
+            dialog.PrinterSettings.Duplex = Duplex.Simplex;
+            dialog.PrinterSettings.FromPage = 0;
+            dialog.PrinterSettings.ToPage = 8;
+            dialog.PrinterSettings.PrintRange = PrintRange.SomePages;
+            workbook.PrintDialog = dialog;
+            PrintDocument pd = workbook.PrintDocument;
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            { pd.Print(); }
+
+            if (DocumentInput_Check.IsChecked == true)
+            {
+                workbook.LoadFromFile(@"e:\test.xlsx");
+                workbook.SaveToFile(@text_output_document.Text, FileFormat.PDF);
+            }
         }
 
         /// <summary>
@@ -284,6 +312,44 @@ namespace spms.view.Pages.ChildWin
             {
                 return Convert.ToInt32(result);
             }
+        }
+
+        /// <summary>
+        /// 文档输出
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_OutputDocument(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog();
+            sfd.Filter = "PDF文档（*.pdf）|*.pdf";
+            sfd.FileName = Current_User.User_Name + "-体力评价报告-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
+
+            //设置默认文件类型显示顺序
+            sfd.FilterIndex = 1;
+            //保存对话框是否记忆上次打开的目录
+            sfd.RestoreDirectory = true;
+            if (sfd.ShowDialog() == true)
+            {
+                text_output_document.Text = sfd.FileName;
+            }
+        }
+
+        /// <summary>
+        /// 打印预览
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_Print_View(object sender, RoutedEventArgs e)
+        {
+            GeneralTrainEvaluate();
+
+            //打印
+            PdfViewer pDF = new PdfViewer();
+            pDF.SaveToPath = text_output_document.Text;
+            pDF.Left = 200;
+            pDF.Top = 10;
+            pDF.Show();
         }
     }
 }

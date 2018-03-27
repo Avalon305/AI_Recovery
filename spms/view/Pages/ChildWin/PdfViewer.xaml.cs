@@ -4,6 +4,7 @@ using spms.bean;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -32,6 +33,8 @@ namespace spms.view.Pages.ChildWin
             //pDFViewer = this;
         }
 
+        public string SaveToPath { get; set; }
+
         public void WPFPdfViewerWindow_Activated(object sender, System.EventArgs e)
         {
             //moonPdfPanel.OpenFile(@"e:\123.pdf");
@@ -57,6 +60,17 @@ namespace spms.view.Pages.ChildWin
                     //Worksheet sheet = workbook.Worksheets[0];
                     //sheet.SaveToPdf(@"e:\test.pdf");
                     //Console.WriteLine("转换执行完成了");
+                    ////获取第一张工作表  
+                    //Worksheet sheet = workbook.Worksheets[0];
+                    ////设置打印区域（设置你想要转换的单元格范围）  
+                    //sheet.PageSetup.PrintArea = "A1:K48";
+                    ////将指定范围内的单元格保存为PDF              
+                    //sheet.SaveToPdf(@"e:\test.pdf");
+                    //文档输出
+                    if (SaveToPath != "")
+                    {
+                        File.Copy(@"e:\test.pdf", SaveToPath, true);
+                    }
                 }
                 PdfViewer.valueChange.Flag = true;
 
@@ -80,6 +94,7 @@ namespace spms.view.Pages.ChildWin
                 moonPdfPanel.ZoomIn();
             };
 
+           
             //valueChange.Flag = true;
 
         }

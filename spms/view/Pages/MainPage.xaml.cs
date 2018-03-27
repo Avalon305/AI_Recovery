@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Spire.Xls;
 using spms.bean;
 using spms.constant;
 using spms.dao;
@@ -73,6 +74,10 @@ namespace spms.view.Pages
             //加载表头
             Radio_Check_Action();
 
+            //启动初始化Excel转PDF的线程
+            initializationExcelToPdfThread = new Thread(new ThreadStart(InitializationExcelToPdf));
+            initializationExcelToPdfThread.Start();
+
         }
 
         /// <summary>
@@ -82,6 +87,19 @@ namespace spms.view.Pages
         {
             //300秒-5分钟一次上传
             BigDataOfficer bigDataOfficer = new BigDataOfficer(300 * 1000);
+        }
+
+        Thread initializationExcelToPdfThread;
+        /// <summary>
+        /// 作用：经过初步测试，第一次Excel转pdf相对较慢，所以在进入程序的时候，执行一次Excel转PDF
+        /// </summary>
+        public void InitializationExcelToPdf()
+        {
+            using (Workbook workbook = new Workbook())
+            {
+                workbook.LoadFromFile(@"e:\test1.xlsx");
+                workbook.SaveToFile(@"e:\test1.pdf", FileFormat.PDF);
+            }
         }
 
         /// <summary>
