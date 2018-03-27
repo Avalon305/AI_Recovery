@@ -105,7 +105,7 @@
             <Label Content="用户姓名（拼音）" Grid.Row="2" Grid.Column="0" Background="Gray" Foreground="White"/>
             <TextBox Grid.Row="2" Name="t3" Grid.Column="2"  VerticalContentAlignment="Center"/>
             <Label Content="性别" Grid.Row="4" Grid.Column="0" Background="Gray" Foreground="White" />
-            <ComboBox Name="c1" Grid.Row="4" Grid.Column="2"   Background="LightGray"     VerticalContentAlignment="Center">
+            <ComboBox Name="c1" Grid.Row="4" Grid.Column="2"   Background="LightGray"  IsTabStop="False"   VerticalContentAlignment="Center">
                 <ComboBoxItem Content="男"></ComboBoxItem>
                 <ComboBoxItem Content="女"></ComboBoxItem>
             </ComboBox>
@@ -127,7 +127,7 @@
                     </StackPanel>
                 </Label>
             </bubble:CCPopup>
-            <ComboBox IsTextSearchEnabled="False"  Name="comboBox1"  Grid.Row="10"  Grid.Column="2" KeyUp="comboBox1_KeyUp" SelectionChanged="comboBox1_SelectionChanged"   />
+            <ComboBox IsTextSearchEnabled="False"  Name="comboBox1"  Grid.Row="10"  Grid.Column="2" IsTabStop="False" KeyUp="comboBox1_KeyUp" SelectionChanged="comboBox1_SelectionChanged"   />
             <Label Content="小组名称" Grid.Row="10" Grid.Column="0" Background="Gray" Foreground="White"/>
             <Label Content="疾病名称" Grid.Row="12" Grid.Column="0" Background="Gray" Foreground="White"/>
             <ComboBox Name="c4" Grid.Row="12" Grid.Column="2"  LostKeyboardFocus="IsDisease" IsEditable="True" VerticalContentAlignment="Center" />

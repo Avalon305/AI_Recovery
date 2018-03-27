@@ -100,7 +100,7 @@
                     <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="性别" Grid.Row="2" Grid.Column="0" Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c1" Grid.Row="2" Grid.Column="1"  Background="Black" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Sex, Converter={StaticResource sexconverter}}" VerticalContentAlignment="Center">
+                    <ComboBox Name="c1" Grid.Row="2" Grid.Column="1"  Background="Black" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Sex, Converter={StaticResource sexconverter}}" VerticalContentAlignment="Center">
                         <ComboBoxItem Content="男" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                         <ComboBoxItem Content="女" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                     </ComboBox>
@@ -138,21 +138,21 @@
                     <Border Grid.Row="6" Grid.Column="0" Background="Gray"  Margin="0,0,4,2" >
                         <Label Content="小组名称"   Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c2" Grid.Row="6" Grid.Column="1"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_GroupName}" VerticalContentAlignment="Center"/>
+                    <ComboBox Name="c2" Grid.Row="6" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_GroupName}" VerticalContentAlignment="Center"/>
 
                     <Label Grid.Row="6" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="0.2,0.2,100.4,1.6"/>
 
                     <Border Grid.Row="7" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="初期要介护度"   Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c3" Grid.Row="7" Grid.Column="1"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_InitCare}" VerticalContentAlignment="Center"/>
+                    <ComboBox Name="c3" Grid.Row="7" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_InitCare}" VerticalContentAlignment="Center"/>
 
                     <Label  Grid.Row="7" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
 
                     <Border Grid.Row="8" Grid.Column="0" Background="Gray"  Margin="0,0,4,2" >
                         <Label Content="现在要介护度" Grid.Row="8" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c4" Grid.Row="8" Grid.Column="1"  Background="LightGray"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Nowcare }"/>
+                    <ComboBox Name="c4" Grid.Row="8" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Nowcare }"/>
 
                     
 

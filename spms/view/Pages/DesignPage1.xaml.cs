@@ -341,6 +341,16 @@ namespace spms.view.Pages
             string m_Dir = m_Dialog.SelectedPath.Trim();
             this.textBox2.Text = m_Dir;
         }
+        //回车按钮
+        private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Btn_Confirm(this, null);
+                //使键盘失去焦点，解决窗口反复出现
+                Keyboard.ClearFocus();
+            }
 
+        }
     }
 }
