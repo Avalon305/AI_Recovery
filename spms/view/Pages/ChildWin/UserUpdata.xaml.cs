@@ -474,6 +474,8 @@ namespace spms.view.Pages.ChildWin
             if (e.Key == Key.Enter)
             {
                 Button_OK(this, null);
+                //使键盘失去焦点，解决窗口反复出现
+                Keyboard.ClearFocus();
             }
 
         }
