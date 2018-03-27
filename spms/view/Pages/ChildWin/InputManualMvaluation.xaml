@@ -5,6 +5,7 @@
         xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages"
+        xmlns:my="clr-namespace:spms.view.controls"
         mc:Ignorable="d"
          xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Icon="/view/Images/icon2.png"
@@ -58,13 +59,13 @@
         <StackPanel  Orientation="Horizontal">
 
             <!--Grid 使用者信息展示-->
-            <Grid Height="34" Margin="10,10,18.6,0" Width="609">
+            <Grid Height="34" Margin="10,10,0,0" Width="583">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="30*"/>
                     <ColumnDefinition Width="82*"/>
                 </Grid.ColumnDefinitions>
                 <!--用户姓名-->
@@ -80,8 +81,9 @@
             </Border>
 
             <!--日历-->
-            <Border Margin="7,10,0,10" Width="109">
-                <DatePicker Name="implementation_date" Height="23" Margin="0.2,0,-1,0" VerticalAlignment="Bottom" SelectedDate="{x:Static sys:DateTime.Now}"/>
+            <Border Margin="7,10,0,10" Width="153">
+                <my:DateTimePicker HorizontalAlignment="Left"  x:Name="implementation_date" VerticalAlignment="Top" Height="25" Width="150" />
+                <!--<DatePicker Name="implementation_date" Height="23" Margin="0.2,0,-1,0" VerticalAlignment="Bottom" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
             </Border>
 
         </StackPanel>
