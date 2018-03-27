@@ -89,8 +89,8 @@ namespace spms.view.Pages.ChildWin
             //id
             physicalPower.FK_user_Id = Current_User.Pk_User_Id;
             //日期
-            //physicalPower.Gmt_Create = implementation_date.SelectedDate;
-            //physicalPower.Gmt_Modified = implementation_date.SelectedDate;
+            physicalPower.Gmt_Create = implementation_date.DateTime;
+            physicalPower.Gmt_Modified = implementation_date.DateTime;
 
             //1.拼接身高
             physicalPower.PP_High = "param1,"+(height_first.Text != "" ? height_first.Text + "," : "param2,") + "param3,"+ (height_condition.IsChecked == true ? height_condition.Content+"," : "param4,") + (height_duty.Text.ToString() != "" ? height_duty.Text.ToString() : "param5");
