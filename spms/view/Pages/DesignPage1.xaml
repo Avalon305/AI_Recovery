@@ -7,6 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
         Title="宝德龙"
+      PreviewKeyDown="key_dowm"
       Height="700" Width="1290" Loaded="Page_Loaded"
     >
 
@@ -31,7 +32,7 @@
                         <!--</StackPanel>-->
                     <!--</Border>-->
                     <Image Source="/view\Images\bdl.PNG" Stretch="UniformToFill" Height="180" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,24.6,-179.2" Width="1255"   />
-                    <Button Width="80" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right"   Foreground="Black" Content="返回"  Click="GoBack" Style="{StaticResource Btn}" Margin="0,24,40,-58.2"/>
+                    <Button Width="80" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" IsTabStop="False"  Foreground="Black" Content="返回"  Click="GoBack" Style="{StaticResource Btn}" Margin="0,24,40,-58.2"/>
                     
                 </Grid>
             </Border>
@@ -93,7 +94,7 @@
                     <Label Foreground="White" Background="Black">机构区分</Label>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1"    Margin="0,0,0,2">
-                    <ComboBox VerticalContentAlignment="Center" x:Name="comboBox1" ItemsSource="{Binding}" SelectedIndex ="0"  SelectedValuePath="Code_S_Value" DisplayMemberPath="Code_D_Value" ></ComboBox>
+                    <ComboBox VerticalContentAlignment="Center" x:Name="comboBox1" IsTabStop="False" ItemsSource="{Binding}" SelectedIndex ="0"  SelectedValuePath="Code_S_Value" DisplayMemberPath="Code_D_Value" ></ComboBox>
                 </Border>
                 <!--结束：机构区分-->
                 <!-- <Border Grid.Row="2" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,0,0,2">
@@ -126,7 +127,7 @@
                 </Border>
 
                 <Border Grid.Row="2" Grid.Column="2"  Margin="2,0,0,2">
-                    <Button Click="Output_Document" Style="{StaticResource Btn}">打开文档</Button>
+                    <Button Click="Output_Document" IsTabStop="False" Style="{StaticResource Btn}">打开文档</Button>
                 </Border>
                 <!--结束：照片保存文档-->
                 <Label  Grid.Row="2" Grid.Column="3" Foreground="Red">（路径一旦设置不建议改变）</Label>
@@ -135,7 +136,7 @@
                     <Label Foreground="White" Background="Black">语言</Label>
                 </Border>
                 <Border Grid.Row="3" Grid.Column="1"  Margin="0,0,0,2">
-                    <ComboBox VerticalContentAlignment="Center" x:Name="comboBox2" ItemsSource="{Binding}" SelectedIndex="0"  SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value" >
+                    <ComboBox VerticalContentAlignment="Center" x:Name="comboBox2" IsTabStop="False" ItemsSource="{Binding}" SelectedIndex="0"  SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value" >
                     </ComboBox>
                 </Border>
                 <!--结束：语言-->
@@ -151,8 +152,8 @@
             <!--高级设置按钮-->
             <Border Margin="30,0,0,0" Width="423">
                 <StackPanel Orientation="Horizontal">
-                    <Button Width="141"  Height="38"  VerticalAlignment="Center" HorizontalAlignment="Center"   Foreground="Black" Content="确定更改" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
-                    <Button Content="高级设置" Width="141" Margin="10,0,0,0"  Height="38" Click="AdvancedSettings" Style="{StaticResource Btn}"/>
+                    <Button Width="141"  Height="38" IsTabStop="False" VerticalAlignment="Center" HorizontalAlignment="Center"   Foreground="Black" Content="确定更改" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
+                    <Button Content="高级设置" Width="141" Margin="10,0,0,0" IsTabStop="False" Height="38" Click="AdvancedSettings" Style="{StaticResource Btn}"/>
                 </StackPanel>
                
             </Border>
@@ -197,7 +198,7 @@
 
         <StackPanel Orientation="Horizontal" >
             <!--小组名称-->
-            <DataGrid DataGridRow.MouseUp="Grid_Group_Click" x:Name="DataGrid2" HorizontalAlignment="Left" RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+            <DataGrid DataGridRow.MouseUp="Grid_Group_Click"  x:Name="DataGrid2" HorizontalAlignment="Left" RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
                 <!--选中行失去焦点-->
                 <DataGrid.Resources>
                     <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>
@@ -206,6 +207,7 @@
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Setter Property="Height" Value="18" />
+                        <Setter Property="IsTabStop" Value="False"/>
                     </Style>
                 </DataGrid.RowStyle>
                 <DataGrid.Columns>
@@ -230,6 +232,7 @@
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Setter Property="Height" Value="18" />
+                        <Setter Property="IsTabStop" Value="False"/>
                     </Style>
                 </DataGrid.RowStyle>
                 <DataGrid.Columns>
@@ -254,6 +257,7 @@
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Setter Property="Height" Value="18" />
+                        <Setter Property="IsTabStop" Value="False"/>
                     </Style>
                 </DataGrid.RowStyle>
                 <DataGrid.Columns>
@@ -274,16 +278,16 @@
             <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="10,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >
                     <Border CornerRadius="5" Margin="40,0,50,-0.277" Height="39" VerticalAlignment="Bottom">
-                        <Button Width="50" Style="{StaticResource Btn}" Click="Add_Group" Margin="0,7,0,6.723" >添加</Button>
+                        <Button Width="50" Style="{StaticResource Btn}" IsTabStop="False" Click="Add_Group" Margin="0,7,0,6.723" >添加</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0"  Height="25" Width="50">
-                        <Button Height="25" Width="50" Click="Group_Update"  Style="{StaticResource Btn}">更新</Button>
+                        <Button Height="25" Width="50" Click="Group_Update" IsTabStop="False"  Style="{StaticResource Btn}">更新</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50" >
                         <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
                                 <Hyperlink Name="delete_group"    NavigateUri=" http://www.google.com/" Foreground="White"> 删除 </Hyperlink>
                             </TextBlock>-->
-                        <Button Height="25" Width="50" Style="{StaticResource Btn}" Click="Group_Delete">删除</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource Btn}" IsTabStop="False" Click="Group_Delete">删除</Button>
                     </Border>
 
                 </StackPanel>
@@ -293,16 +297,16 @@
             <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="12,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >
                     <Border CornerRadius="5" Margin="40,0,50,0">
-                        <Button Height="25" Width="50" Style="{StaticResource Btn}" Click="Add_Disease">添加</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource Btn}" IsTabStop="False" Click="Add_Disease">添加</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0"  Height="25" Width="50">
-                        <Button Height="25" Width="50" Style="{StaticResource Btn}" Click="Disease_Update">更新</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource Btn}" IsTabStop="False" Click="Disease_Update">更新</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50" >
                         <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
                                 <Hyperlink Name="delete_group"    NavigateUri=" http://www.google.com/" Foreground="White"> 删除 </Hyperlink>
                             </TextBlock>-->
-                        <Button Height="25" Width="50" Style="{StaticResource Btn}" Click="Disease_Delete">删除</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource Btn}" IsTabStop="False" Click="Disease_Delete">删除</Button>
                     </Border>
 
                 </StackPanel>
@@ -312,16 +316,16 @@
             <Border  BorderBrush= "Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="12,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >
                     <Border CornerRadius="5" Margin="40,0,50,0">
-                        <Button Height="25" Width="50" Style="{StaticResource Btn}" Click="Add_Diagnosis">添加</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource Btn}" IsTabStop="False" Click="Add_Diagnosis">添加</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50">
-                        <Button Height="25" Width="50" Style="{StaticResource Btn}" Click="Diagnosis_Update">更新</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource Btn}" IsTabStop="False" Click="Diagnosis_Update">更新</Button>
                     </Border>
                     <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50" >
                         <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
                                 <Hyperlink Name="delete_group"    NavigateUri=" http://www.google.com/" Foreground="White"> 删除 </Hyperlink>
                             </TextBlock>-->
-                        <Button Height="25" Width="50" Style="{StaticResource Btn}"  Click="Diagnosis_Delete">删除</Button>
+                        <Button Height="25" Width="50" Style="{StaticResource Btn}" IsTabStop="False" Click="Diagnosis_Delete">删除</Button>
                     </Border>
 
                 </StackPanel>
