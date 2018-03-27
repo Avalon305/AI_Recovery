@@ -210,7 +210,6 @@ namespace spms.view.Pages.ChildWin
             if (ROWGroupcount.Text != "")
             {
                 //坐姿划船机
-                devName = "坐姿划船机";
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = RowAttr1.Text;
@@ -374,7 +373,6 @@ namespace spms.view.Pages.ChildWin
             if (TFGroupcount.Text != "")
             {
                 //身体伸展弯曲机
-                devName = "身体伸展弯曲机";
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = TFAttr1.Text;
@@ -538,7 +536,6 @@ namespace spms.view.Pages.ChildWin
             if (LEGroupcount.Text != "")
             {
                 //腿部伸展弯曲机
-                devName = "腿部伸展弯曲机";
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = LEAttr1.Text;
