@@ -8,6 +8,7 @@
         Icon="/view/Images/icon2.png"
         Title="宝德龙"
 ResizeMode="NoResize"
+         PreviewKeyDown="key_dowm"
         Height="763.2" Width="1300"
         Loaded="Window_Loaded">
     <Window.Resources>

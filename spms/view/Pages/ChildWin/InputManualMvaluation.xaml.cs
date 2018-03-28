@@ -842,7 +842,17 @@ namespace spms.view.Pages.ChildWin
                 builder.Append(checkBox.Content);
             }
         }
+        //回车按钮
+        private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Button_Save(this, null);
+                //使键盘失去焦点，解决窗口反复出现
+                Keyboard.ClearFocus();
+            }
 
+        }
 
     }
 }

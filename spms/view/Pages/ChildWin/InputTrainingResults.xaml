@@ -8,6 +8,7 @@
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
+         PreviewKeyDown="key_dowm"
         Title="宝德龙"
          ResizeMode = "NoResize" Height="744.8" Width="900"
         Loaded="Window_Loaded">

@@ -7,6 +7,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
+         PreviewKeyDown="key_dowm"
         Title="宝德龙"
         Height="739.2"
         Width="580"

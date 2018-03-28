@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:spms.view.Pages"
         xmlns:my="clr-namespace:spms.view.controls"
         mc:Ignorable="d"
+         PreviewKeyDown="key_dowm"
          xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Icon="/view/Images/icon2.png"
         Title="宝德龙"

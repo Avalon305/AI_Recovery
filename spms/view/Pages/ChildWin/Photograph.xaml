@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         xmlns:wpfmedia="clr-namespace:WPFMediaKit.DirectShow.Controls;assembly=WPFMediaKit"
         mc:Ignorable="d"
+         PreviewKeyDown="key_dowm"
         ResizeMode="NoResize"
 Icon="/view/Images/icon2.png"
         Title="宝德龙" Height="470" Width="750"
