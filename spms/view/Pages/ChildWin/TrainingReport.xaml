@@ -103,7 +103,7 @@
             </Border>
             <Border BorderBrush="Black" BorderThickness="1" Width="365" Height="300">
                 <Grid>
-                    <ListBox ItemsSource="{Binding}" x:Name="datalist" Height="320" >
+                    <ListBox ItemsSource="{Binding}" KeyboardNavigation.TabNavigation="None" x:Name="datalist" Height="320" >
                         <ListBox.ItemTemplate>
                             <DataTemplate >
                                 <!--<TextBox  Name="txtCreateTime" HorizontalAlignment="Left" Width="170" Height="24" VerticalAlignment="Top" Background="White">
@@ -145,7 +145,7 @@
             <CheckBox Content="文档输出" Name="DocumentInput_Check" IsTabStop="False"/>
             <StackPanel Orientation="Horizontal">
                 <Button Click="Button_Click_OutputDocument" Content="输出文档" Width="80" Height="25" IsTabStop="False"  HorizontalAlignment="Left" Margin="0,6,8,-3" Style="{StaticResource Btn}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"/>
-                <TextBox Name="text_output_document" Width="364" VerticalAlignment="Center" IsTabStop="False" Height="25"  Margin="0,8,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"></TextBox>
+                <TextBox Name="text_output_document" Width="364" VerticalAlignment="Center"  Height="25"  Margin="0,8,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"></TextBox>
             </StackPanel>
         </StackPanel>
         <!--结束：文档输出-->

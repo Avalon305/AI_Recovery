@@ -86,7 +86,7 @@
             </Border>
             <Border BorderBrush="Black" BorderThickness="1" Width="361" Margin="0,0,0,-0.4">
                 <Grid>
-                    <ListBox ItemsSource="{Binding}" x:Name="datalist" Margin="0,0,0.2,0">
+                    <ListBox ItemsSource="{Binding}" KeyboardNavigation.TabNavigation="None" x:Name="datalist" Margin="0,0,0.2,0">
                         <ListBox.ItemTemplate>
                             <DataTemplate >
                                 <CheckBox Content="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" ContentStringFormat="{}{0:yyyy-MM-dd HH:mm}" Checked="List_CheckBox_Checked" Unchecked="List_CheckBox_UnChecked"></CheckBox>
@@ -120,9 +120,9 @@
         <!--结束：评论-->
         <!--文档输出-->
         <StackPanel Orientation="Vertical" Height="48" Margin="10,10,10,0">
-            <CheckBox Content="文档输出" Name="DocumentInput_Check"/>
+            <CheckBox Content="文档输出" Name="DocumentInput_Check" IsTabStop="False"/>
             <StackPanel Orientation="Horizontal">
-                <Button Content="输出文档" Click="Button_Click_OutputDocument" Width="80" Height="25" HorizontalAlignment="Left" Margin="0,6,8,-3" Style="{StaticResource Btn}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"/>
+                <Button Content="输出文档" Click="Button_Click_OutputDocument" Width="80" IsTabStop="False" Height="25" HorizontalAlignment="Left" Margin="0,6,8,-3" Style="{StaticResource Btn}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"/>
                 <TextBox Width="355" Name="text_output_document"  VerticalAlignment="Center" Height="25" Margin="0,8,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"></TextBox>
             </StackPanel>
         </StackPanel>
@@ -130,9 +130,9 @@
         <!--按钮部分-->
         <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="150" Height="29" VerticalAlignment="Bottom"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0" Margin="0,0,9.6,0">
             <StackPanel Orientation="Horizontal" Margin="-52,0,0,0"  >
-                <Button Width="62" Height="25" VerticalAlignment="Bottom"     Content="打印" Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Button_Click_Print"/>
-                <Button Width="62" Height="25" VerticalAlignment="Bottom"     Content="打印预览" Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Button_Click_Print_View"/>
-                <Button Width="62" Height="25" VerticalAlignment="Bottom"    Content="返回"  Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>
+                <Button Width="62" Height="25" VerticalAlignment="Bottom"   IsTabStop="False"  Content="打印" Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Button_Click_Print"/>
+                <Button Width="62" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"   Content="打印预览" Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Button_Click_Print_View"/>
+                <Button Width="62" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"  Content="返回"  Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>
             </StackPanel>
         </Border>
         <!--结束：按钮-->
