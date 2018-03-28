@@ -59,7 +59,7 @@ namespace spms.view.Pages.ChildWin
         {
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
-            implementation_date.Text = physicaleDto.Gmt_Create.ToString();
+            implementation_date.Content = physicaleDto.Gmt_Create.ToString();
             PhysicalPower physicalPower = new PhysicalPowerDAO().Load(physicaleDto.ID);
             //身高
             string[] ppHigh = Regex.Replace(physicalPower.PP_High, @"param\d", "").Split(new char[] { ',' });

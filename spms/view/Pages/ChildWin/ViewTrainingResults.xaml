@@ -58,8 +58,14 @@
                 <Label Content="实施日期" FontSize="12" Margin="0,0,0,0.2"/>
             </Border>
             <!--日历-->
-            <Border Margin="10" Width="130" Height="28">
-                <DatePicker Name="da"  Height="25" Margin="0,3,-0.6,0" VerticalAlignment="Bottom" Width="125" IsEnabled="False"/>
+            <Border Margin="10" Width="153" Height="25" BorderThickness="1" BorderBrush="Gray">
+                <!--<Border BorderBrush="Gray" BorderThickness="1" Margin="3,0,0,0">-->
+                    <StackPanel Orientation="Horizontal"  >
+                        <Label x:Name="da" Width="125" VerticalContentAlignment="Center" IsEnabled="False" Height="23" BorderBrush="Gray" BorderThickness="0"></Label>
+                        <Image Source="/view/Images/date.png" Margin="5,5,0,5"></Image>
+                    </StackPanel>
+                <!--</Border>-->
+                <!--<DatePicker Name="da"  Height="25" Margin="0,3,-0.6,0" VerticalAlignment="Bottom" Width="125" IsEnabled="False"/>-->
             </Border>
         </StackPanel>
         <Grid Height="532" Margin="0,0,-0.4,0"  Name="grid">
@@ -262,7 +268,7 @@
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" IsEnabled="False" />
+                                <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0"  />
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -272,9 +278,9 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <TextBox Height="104" Margin="0,2,26,0" Name="ROWAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0"  IsEnabled="False"/>
-                                <TextBox Height="104" Margin="0,2,26,0" Name="ROWUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,26,0" Name="ROWAttentionpoint" AcceptsReturn="True" IsEnabled="False" TextWrapping="Wrap"/>
+                                <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0"  />
+                                <TextBox Height="104" Margin="0,2,26,0" Name="ROWUserthoughts" AcceptsReturn="True" IsEnabled="False" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->

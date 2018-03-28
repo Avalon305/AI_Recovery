@@ -55,7 +55,7 @@ namespace spms.view.Pages.ChildWin
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
             //训练日期
-            da.Text = trainDto.prescriptionResult.Gmt_Create.ToString();
+            da.Content = trainDto.prescriptionResult.Gmt_Create.ToString();
 
             //查询处方和结果
             List<TrainDTO> trainDtos = new TrainService().GetTrainDTOByPRId(trainDto.prescriptionResult.Pk_PR_Id);

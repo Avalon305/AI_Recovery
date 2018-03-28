@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages"
+        xmlns:my="clr-namespace:spms.view.controls"
         mc:Ignorable="d"
         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
@@ -52,7 +53,7 @@
         <StackPanel  Orientation="Horizontal">
 
             <!--Grid 使用者信息展示-->
-            <Grid Height="34" Margin="10,10,18.6,0" Width="609">
+            <Grid Height="34" Margin="10,10,0,0" Width="583">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -74,8 +75,13 @@
             </Border>
 
             <!--日历-->
-            <Border Margin="7,10,10,10" Width="114">
-                <DatePicker Name="implementation_date"  Height="23" Margin="0,0,0,0" VerticalAlignment="Bottom" Width="115" IsEnabled="False"/>
+            <Border Margin="7,10,10,10" Width="153">
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="implementation_date" VerticalContentAlignment="Center" IsEnabled="False" Width="125" Height="25"></Label>
+                    <Image Source="/view/Images/date.png" ></Image>
+                </StackPanel>
+                <!--<DatePicker Name="implementation_date"  Height="23" Margin="0,0,0,0" VerticalAlignment="Bottom" Width="115" IsEnabled="False"/>-->
+                <!--<my:DateTimePicker  Margin="0,0,0,0"   x:Name="implementation_date" VerticalAlignment="Top" Height="25" />-->
             </Border>
 
         </StackPanel>
