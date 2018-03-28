@@ -49,8 +49,8 @@ namespace spms.view.Pages.ChildWin
         private void Button_Save(object sender, RoutedEventArgs e)
         {
             //获取日期
-            DateTime? da = date.SelectedDate;
-            
+            //DateTime? da = date.SelectedDate;
+            DateTime? da = date.DateTime;
             //康复前血压
             string preLowPressure = bloodlow_1.Text;
             string preHighPressure = bloodhight_1.Text;
