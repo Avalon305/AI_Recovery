@@ -72,7 +72,7 @@
             </Grid.Resources>
             <Grid Margin="0,0,0,10">
                 <TabControl Name="TabControl1"  Margin="9,0,10,0"  >
-                    <TabItem Header="水平腿部推蹬机" Width="95">
+                    <TabItem Header="胸部推举机" Width="95">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -184,13 +184,14 @@
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
+                                    <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="RowAttr1" Height="20" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="RowAttr2" Height="20" Width="50" Margin="55,191,191,104.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="RowAttr3" Height="20" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="RowAttr4" Height="20" Width="50" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr1" Height="20" Width="50" Margin="66,115,180,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr2" Height="20" Width="50" Margin="50,202,196,93.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr3" Height="20" Width="50" Margin="174,182,72,113.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr4" Height="20" Width="50" Margin="147,238,99,57.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
+                           
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
                                 <Grid.RowDefinitions>
@@ -291,16 +292,16 @@
 
                     <TabItem Header="身体伸展弯曲机" Width="95">
                         <StackPanel Orientation="Horizontal">
+
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
+                                    <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="TFAttr1" Height="20" Width="50" Margin="66,115,180,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="TFAttr2" Height="20" Width="50" Margin="50,202,196,93.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="TFAttr3" Height="20" Width="50" Margin="174,182,72,113.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="TFAttr4" Height="20" Width="50" Margin="147,238,99,57.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr1" Height="20" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr2" Height="20" Width="50" Margin="55,191,191,104.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr3" Height="20" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr4" Height="20" Width="50" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
-
                             <Grid Margin="30,50,0,88.6" Width="286" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
@@ -506,7 +507,7 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="臀部外展内收机" Width="95">
+                    <TabItem Header="腿部推蹬机" Width="95">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -617,7 +618,7 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="胸部推举机" Width="95">
+                    <TabItem Header="腿部内外弯机" Width="95">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>

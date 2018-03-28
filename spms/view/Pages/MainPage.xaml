@@ -32,8 +32,8 @@
                     </Border>
                     <Border Margin="0,20,40,19" HorizontalAlignment="Right" Width="160">
                         <StackPanel Orientation="Horizontal">
-
-                            <Button Name="BtnSetting" Style="{StaticResource Btn}" Height="25" Width="75" Click="BtnSetting_Click" >设置</Button>
+ 
+                            <Button Name="BtnSetting" Style="{StaticResource Btn}" IsTabStop="False" Height="25" Width="75" Click="BtnSetting_Click" >设置</Button>
                             <Button Name="BtnClose" Style="{StaticResource Btn}" Click="GoBack" Height="25" Width="75" Margin="10,0,0,0">关闭</Button>
                         </StackPanel>
 
@@ -309,7 +309,7 @@
                 <Border BorderBrush="Black" BorderThickness="1" Margin="0,5,0,0" Height="360" VerticalAlignment="Top" Width="948">
                     <WrapPanel Orientation="Vertical" Height="360" VerticalAlignment="Top" Margin="0,0.2,0,-0.8" >
                         <WrapPanel Orientation="Vertical">
-                            <Frame Width="946" Height="315"  Name="record" NavigationUIVisibility="Hidden" SourceUpdated="record_SourceUpdated"></Frame>
+                            <Frame Width="946" Height="315" IsTabStop="False" Name="record" NavigationUIVisibility="Hidden" SourceUpdated="record_SourceUpdated"></Frame>
                             <!--<Grid Margin="0,14,0,0">
                             <Border Background="Gray" Margin="117,3,607.6,-3.4" BorderBrush="Black" BorderThickness="1">
                                 <Label HorizontalAlignment="Center" Margin="94.2,-4.8,85.2,-4.6" VerticalAlignment="Center" Height="24" Width="51" RenderTransformOrigin="0.562,0.656">康复前</Label>
@@ -339,7 +339,7 @@
                         </DataGrid>-->
                         </WrapPanel>
                         <StackPanel Orientation="Horizontal" Height="25" Margin="30,7,0,0" HorizontalAlignment="Left" Width="916">
-                            <RadioButton VerticalAlignment="Center" IsChecked="True"  GroupName="record_radio" Name="is_signinformationrecord" Click="Radio_Check" RenderTransformOrigin="0.5,0.5" >
+                            <RadioButton VerticalAlignment="Center" IsChecked="True" FocusVisualStyle="{x:Null}" IsTabStop="False" KeyboardNavigation.ControlTabNavigation="None" GroupName="record_radio" Name="is_signinformationrecord" Click="Radio_Check" RenderTransformOrigin="0.5,0.5" >
                                 <RadioButton.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
@@ -349,8 +349,8 @@
                                     </TransformGroup>
                                 </RadioButton.RenderTransform> 征状信息记录
                             </RadioButton>
-                            <RadioButton VerticalAlignment="Center" GroupName="record_radio" Name="is_trainingrecord" Click="Radio_Check">训练记录</RadioButton>
-                            <RadioButton VerticalAlignment="Center" GroupName="record_radio" Name="is_physicalevaluation" Click="Radio_Check">体力评价记录</RadioButton>
+                            <RadioButton VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Name="is_trainingrecord" Click="Radio_Check">训练记录</RadioButton>
+                            <RadioButton VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Name="is_physicalevaluation" Click="Radio_Check">体力评价记录</RadioButton>
                             <Button Content="输入训练结果" Margin="240,0,0,0" Style="{StaticResource Btn}" Width="140" Click="InputTrainingResults"/>
                             <Button Margin="2,0,0,0" Content="查看详细信息" Style="{StaticResource Btn}" Width="140" Click="ViewDetails"/>
                             <Button Content="文档输出" Margin="2,0,0,0"  Style="{StaticResource Btn}" Width="140" Click="Output_Document"/>
