@@ -175,7 +175,7 @@
                     <Border Grid.Row="3" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="出生年月" Grid.Row="3" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <DatePicker Grid.Row="3" Name="t4" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center" SelectedDate="{x:Static sys:DateTime.Now}"></DatePicker>
+                    <DatePicker Grid.Row="3" Name="t4" Grid.Column="1" KeyboardNavigation.TabNavigation="None" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center" SelectedDate="{x:Static sys:DateTime.Now}"></DatePicker>
                     <!--<TextBox Grid.Row="3" Name="t4" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>-->
                     <!--<Label Content="（yyyy/mm/dd）" Grid.Row="3" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="0.4,1.6,-71.6,0.2"/>-->
                     <Border Grid.Row="4" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">

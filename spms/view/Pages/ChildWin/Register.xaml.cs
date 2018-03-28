@@ -405,7 +405,7 @@ namespace spms.view.Pages.ChildWin
             };
             UserService userService = new UserService();
             userService.SelectByCondition(user);
-            if(userService.SelectByCondition(user).Count != 0)
+            if(userService.SelectByCondition(user).Count != 0 && !String.IsNullOrEmpty(t2.Text))
             {
                 Error_Info_Name.Content = "该用户名已注册";
                 bubble_name.IsOpen = true;
