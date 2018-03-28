@@ -53,7 +53,8 @@ namespace spms.view.Pages.ChildWin
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            DateTime? da = dp.SelectedDate;//实施日期
+            DateTime? da = dp.DateTime;
+            //DateTime? da = dp.SelectedDate;//实施日期
             Dictionary<DevicePrescription, PrescriptionResult> prescription = new Dictionary<DevicePrescription, PrescriptionResult>();
             
             TrainInfo trainInfo = new TrainInfo();
