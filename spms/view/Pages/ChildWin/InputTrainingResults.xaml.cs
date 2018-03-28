@@ -65,8 +65,7 @@ namespace spms.view.Pages.ChildWin
             string devName;
             if (HLPGroupcount.Text != "")
             {
-                //水平腿部推蹬机
-                devName = "水平腿部推蹬机";
+                //胸部推举机
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = HLPAttr1.Text;
@@ -76,7 +75,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.DP_Attrs = attr1 + "*" +
                                               attr2 + "*" +
                                               attr3 + "*" +
-                                              attr4 + "*";
+                                              attr4;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -126,7 +125,7 @@ namespace spms.view.Pages.ChildWin
                 catch (Exception exception)
                 {
                 }
-                devicePrescription.Fk_DS_Id = (int) DeviceType.X06;
+                devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -219,7 +218,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.DP_Attrs = attr1 + "*" +
                                               attr2 + "*" +
                                               attr3 + "*" +
-                                              attr4 + "*";
+                                              attr4;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -382,7 +381,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.DP_Attrs = attr1 + "*" +
                                               attr2 + "*" +
                                               attr3 + "*" +
-                                              attr4 + "*";
+                                              attr4;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -547,7 +546,7 @@ namespace spms.view.Pages.ChildWin
                                               attr2 + "*" +
                                               attr3 + "*" +
                                               attr4 + "*" +
-                                              attr5 + "*";
+                                              attr5;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -700,8 +699,7 @@ namespace spms.view.Pages.ChildWin
             }
             if (HAGroupcount.Text != "")
             {
-                //臀部外展内收机
-                devName = "臀部外展内收机";
+                //腿部腿蹬机
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = HAAttr1.Text;
@@ -709,7 +707,7 @@ namespace spms.view.Pages.ChildWin
                 string attr3 = HAAttr3.Text;
                 devicePrescription.DP_Attrs = attr1 + "*" +
                                               attr2 + "*" +
-                                              attr3 + "*";
+                                              attr3;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -761,7 +759,7 @@ namespace spms.view.Pages.ChildWin
                     
                     
                 }
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -862,8 +860,7 @@ namespace spms.view.Pages.ChildWin
             }
             if (CPGroupcount.Text != "")
             {
-                //胸部推举机
-                devName = "胸部推举机";
+                //腿部内外弯机
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = CPAttr1.Text;
@@ -871,7 +868,7 @@ namespace spms.view.Pages.ChildWin
                 string attr3 = CPAttr3.Text;
                 devicePrescription.DP_Attrs = attr1 + "*" +
                                               attr2 + "*" +
-                                              attr3 + "*";
+                                              attr3;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -923,7 +920,7 @@ namespace spms.view.Pages.ChildWin
                     
                     
                 }
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X01;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;

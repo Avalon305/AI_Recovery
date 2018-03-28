@@ -265,8 +265,7 @@ namespace spms.view.Pages.ChildWin
             DeviceSortDAO deviceSortDao = new DeviceSortDAO();
             if (checkbox1.IsChecked == true)
             {
-                //水平腿部推蹬机
-                devName = "水平腿部推蹬机";
+                //胸部推举机
                 attr1 = com_01.Text; //属性1
                 attr2 = com_02.Text; //2
                 attr3 = com_03.Text; //3
@@ -277,9 +276,9 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.DP_Attrs = attr1 + "*" +
                                               attr2 + "*" +
                                               attr3 + "*" +
-                                              attr4 + "*";
+                                              attr4;
                 devicePrescription.DP_Memo = t1.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X01;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -349,7 +348,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.DP_Attrs = attr1 + "*" +
                                               attr2 + "*" +
                                               attr3 + "*" +
-                                              attr4 + "*";
+                                              attr4;
                 devicePrescription.DP_Memo = t2.Text; //注意点
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X05;
                 devicePrescription.Gmt_Create = DateTime.Now;
@@ -420,7 +419,7 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.DP_Attrs = attr1 + "*" +
                                               attr2 + "*" +
                                               attr3 + "*" +
-                                              attr4 + "*";
+                                              attr4;
                 devicePrescription.DP_Memo = t3.Text; //注意点
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
                 devicePrescription.Gmt_Create = DateTime.Now;
@@ -494,7 +493,7 @@ namespace spms.view.Pages.ChildWin
                                               attr2 + "*" +
                                               attr3 + "*" +
                                               attr4 + "*" +
-                                              attr5 + "*";
+                                              attr5;
                 devicePrescription.DP_Memo = t4.Text; //注意点
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
                 devicePrescription.Gmt_Create = DateTime.Now;
@@ -554,8 +553,7 @@ namespace spms.view.Pages.ChildWin
 
             if (checkbox5.IsChecked == true)
             {
-                //臀部外展内收机
-                devName = "臀部外展内收机";
+                //腿部腿蹬机
                 attr1 = com_41.Text; //属性1
                 attr2 = com_42.Text; //2
                 attr3 = com_43.Text; //3
@@ -564,9 +562,9 @@ namespace spms.view.Pages.ChildWin
                 DevicePrescription devicePrescription = new DevicePrescription();
                 devicePrescription.DP_Attrs = attr1 + "*" +
                                               attr2 + "*" +
-                                              attr3 + "*";
+                                              attr3;
                 devicePrescription.DP_Memo = t5.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -624,8 +622,7 @@ namespace spms.view.Pages.ChildWin
 
             if (checkbox6.IsChecked == true)
             {
-                //胸部推举机
-                devName = "胸部推举机";
+                //腿部内外弯机
                 attr1 = com_51.Text; //属性1
                 attr2 = com_52.Text; //2
                 attr3 = com_53.Text; //3
@@ -634,9 +631,9 @@ namespace spms.view.Pages.ChildWin
                 DevicePrescription devicePrescription = new DevicePrescription();
                 devicePrescription.DP_Attrs = attr1 + "*" +
                                               attr2 + "*" +
-                                              attr3 + "*";
+                                              attr3;
                 devicePrescription.DP_Memo = t6.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X01;
+                devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -795,7 +792,7 @@ namespace spms.view.Pages.ChildWin
                 int devName = devicePrescription.Fk_DS_Id;
                 switch (devName)
                 {
-                    case (int)DeviceType.X06:
+                    case (int)DeviceType.X01:
                         checkbox1.IsChecked = true;
                         //设置属性
                         com_01.Text = attrs[0];
@@ -850,7 +847,7 @@ namespace spms.view.Pages.ChildWin
                         combobox_35.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t4.Text = devicePrescription.DP_Memo;
                         break;
-                    case (int)DeviceType.X02:
+                    case (int)DeviceType.X06:
                         checkbox5.IsChecked = true;
                         com_41.Text = attrs[0];
                         com_42.Text = attrs[1];
@@ -862,7 +859,7 @@ namespace spms.view.Pages.ChildWin
                         combobox_45.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t5.Text = devicePrescription.DP_Memo;
                         break;
-                    case (int)DeviceType.X01:
+                    case (int)DeviceType.X02:
                         checkbox6.IsChecked = true;
                         com_51.Text = attrs[0];
                         com_52.Text = attrs[1];

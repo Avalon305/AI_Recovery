@@ -66,7 +66,7 @@ namespace spms.view.Pages.ChildWin
                 string[] attrs = trainDto.devicePrescription.DP_Attrs.Split(new char[]{'*'});
                 switch (trainDto.devicePrescription.Fk_DS_Id)
                 {
-                    case (int)DeviceType.X06:
+                    case (int)DeviceType.X01:
                         HLPGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
                         HLPGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
                         HLPRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
@@ -178,7 +178,7 @@ namespace spms.view.Pages.ChildWin
                         LEMemo.Text = trainDto.prescriptionResult.PR_Memo;
                         
                         break;
-                    case (int)DeviceType.X02:
+                    case (int)DeviceType.X06:
                         HAGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
                         HAGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
                         HARelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
@@ -205,7 +205,7 @@ namespace spms.view.Pages.ChildWin
                         HAMemo.Text = trainDto.prescriptionResult.PR_Memo;
                         
                         break;
-                    case (int)DeviceType.X01:
+                    case (int)DeviceType.X02:
                         CPGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
                         CPGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
                         CPRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
