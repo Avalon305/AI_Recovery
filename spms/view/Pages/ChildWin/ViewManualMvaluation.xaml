@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages"
         mc:Ignorable="d"
+        PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
         Title="宝德龙"
          ResizeMode = "NoResize" Height="789.6" Width="850"

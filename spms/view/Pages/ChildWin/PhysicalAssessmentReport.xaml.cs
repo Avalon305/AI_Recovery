@@ -344,5 +344,16 @@ namespace spms.view.Pages.ChildWin
             pDF.Top = 10;
             pDF.Show();
         }
+        //回车按钮
+        private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+               Button_Click_Print(this, null);
+                //使键盘失去焦点，解决窗口反复出现
+                Keyboard.ClearFocus();
+            }
+
+        }
     }
 }

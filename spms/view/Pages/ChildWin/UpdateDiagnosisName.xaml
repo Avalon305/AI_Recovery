@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
+        PreviewKeyDown="key_dowm"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Title="修改残障名称" Height="145" Width="380" WindowStartupLocation="CenterScreen">
