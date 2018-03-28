@@ -359,9 +359,25 @@ namespace spms.util
             //插入用户图片
             //OfficeOpenXml.Drawing.ExcelPicture userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(user.User_PhotoLocation));//插入图片
             //TODO 临时用这张图片
-            OfficeOpenXml.Drawing.ExcelPicture userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(Path+"\\view\\Images\\excel\\timg.jpg"));//插入图片
+            OfficeOpenXml.Drawing.ExcelPicture userPicture = null;
+            try
+            {
+                userPicture = worksheet.Drawings.AddPicture("user", Image.FromFile(user.User_PhotoLocation));//插入图片
+                
+                //userPicture.Border.LineStyle = eLineStyle.Solid;
+                //userPicture.Fill.Style = eFillStyle.NoFill;//设置形状的填充样式
+                //userPicture.Border.Fill.Style = eFillStyle.NoFill;//边框样式
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("用户指定照片路径下没有图片，照片不存在");
+                userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(Path + "\\view\\Images\\excel\\none.png"));//插入图片
+            }
             userPicture.SetPosition(userRow - 1, 0, 9, 8);//设置图片的位置
             userPicture.SetSize(150, 145);//设置图片的大小
+                                          //OfficeOpenXml.Drawing.ExcelPicture userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(Path+"\\view\\Images\\excel\\timg.jpg"));//插入图片
+                                          //userPicture.SetPosition(userRow - 1, 0, 9, 8);//设置图片的位置
+                                          //userPicture.SetSize(150, 145);//设置图片的大小
                                           //userPicture.Border.LineStyle = eLineStyle.Solid;
                                           //userPicture.Fill.Style = eFillStyle.NoFill;//设置形状的填充样式
                                           //userPicture.Border.Fill.Style = eFillStyle.NoFill;//边框样式
@@ -456,6 +472,22 @@ namespace spms.util
                 range.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
                 range.Style.Border.BorderAround(ExcelBorderStyle.Thin);
             }
+        }
+
+
+        /// <summary>
+        /// 获取Excel文件
+        /// </summary>
+        /// <returns></returns>
+        public static FileInfo GetExcelFile()
+        {
+            FileInfo newFile = new FileInfo(CommUtil.GetDocPath("test.xlsx"));
+            if (newFile.Exists)
+            {
+                newFile.Delete();
+                newFile = new FileInfo(CommUtil.GetDocPath("test.xlsx"));
+            }
+            return newFile;
         }
 
     }

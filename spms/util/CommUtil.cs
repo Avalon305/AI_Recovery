@@ -28,6 +28,18 @@ namespace spms.util
 
             return basePath + path + picName;
         }
+        /// <summary>
+        /// 获取Excel和pdf的路径全路径
+        /// </summary>
+        /// <param name="picName"></param>
+        /// <returns></returns>
+        public static string GetDocPath(string docName)
+        {
+            string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
+            string path = ConfigurationManager.AppSettings["DocPath"];
+
+            return basePath + path + docName;
+        }
 
         public static string GetUserPic()
         {

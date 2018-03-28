@@ -100,14 +100,7 @@ namespace spms.view.Pages.ChildWin
                 }
             }
 
-
-            FileInfo newFile = new FileInfo(@"e:\test.xlsx");
-            if (newFile.Exists)
-            {
-
-                newFile.Delete();
-                newFile = new FileInfo(@"e:\test.xlsx");
-            }
+            FileInfo newFile = ExcelUtil.GetExcelFile();
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("体力评价报告");
@@ -270,7 +263,7 @@ namespace spms.view.Pages.ChildWin
 
             //直接打印Excel文件
             Workbook workbook = new Workbook();
-            workbook.LoadFromFile("e:/test.xlsx");
+            workbook.LoadFromFile(CommUtil.GetDocPath("test.xlsx"));
             System.Windows.Forms.PrintDialog dialog = new System.Windows.Forms.PrintDialog();
             dialog.AllowPrintToFile = true;
             dialog.AllowCurrentPage = true;
@@ -288,7 +281,7 @@ namespace spms.view.Pages.ChildWin
 
             if (DocumentInput_Check.IsChecked == true)
             {
-                workbook.LoadFromFile(@"e:\test.xlsx");
+                workbook.LoadFromFile(CommUtil.GetDocPath("test.xlsx"));
                 workbook.SaveToFile(@text_output_document.Text, FileFormat.PDF);
             }
         }

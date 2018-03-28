@@ -1,6 +1,7 @@
 ﻿using Spire.Pdf;
 using Spire.Xls;
 using spms.bean;
+using spms.util;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
@@ -55,8 +56,8 @@ namespace spms.view.Pages.ChildWin
             {
                 using (Workbook workbook = new Workbook())
                 {
-                    workbook.LoadFromFile(@"e:\test.xlsx");
-                    workbook.SaveToFile(@"e:\test.pdf", Spire.Xls.FileFormat.PDF);
+                    workbook.LoadFromFile(CommUtil.GetDocPath("test.xlsx"));
+                    workbook.SaveToFile(CommUtil.GetDocPath("test.pdf"), Spire.Xls.FileFormat.PDF);
                     //Worksheet sheet = workbook.Worksheets[0];
                     //sheet.SaveToPdf(@"e:\test.pdf");
                     //Console.WriteLine("转换执行完成了");
@@ -67,10 +68,12 @@ namespace spms.view.Pages.ChildWin
                     ////将指定范围内的单元格保存为PDF              
                     //sheet.SaveToPdf(@"e:\test.pdf");
                     //文档输出
-                    if (SaveToPath != "")
+                    Console.WriteLine("转换完成了");
+                    if (SaveToPath != "" && SaveToPath != null)
                     {
-                        File.Copy(@"e:\test.pdf", SaveToPath, true);
+                        File.Copy(CommUtil.GetDocPath("test.pdf"), SaveToPath, true);
                     }
+
                 }
                 PdfViewer.valueChange.Flag = true;
 
@@ -89,7 +92,7 @@ namespace spms.view.Pages.ChildWin
             valueChange.OnStringChangeEvent += (oo, ee) =>
             {
 
-                moonPdfPanel.OpenFile(@"e:\test.pdf");
+                moonPdfPanel.OpenFile(CommUtil.GetDocPath("test.pdf"));
                 _isLoaded = true;
                 moonPdfPanel.ZoomIn();
             };
@@ -141,26 +144,8 @@ namespace spms.view.Pages.ChildWin
 
         private void Print_Click(object sender, RoutedEventArgs e)
         {
-            //直接打印Excel文件
-            //Workbook workbook = new Workbook();
-            //workbook.LoadFromFile("e:/test.xlsx");
-            //PrintDialog dialog = new PrintDialog();
-            //dialog.AllowPrintToFile = true;
-            //dialog.AllowCurrentPage = true;
-            //dialog.AllowSomePages = true;
-            //dialog.AllowSelection = true;
-            //dialog.UseEXDialog = true;
-            //dialog.PrinterSettings.Duplex = Duplex.Simplex;
-            //dialog.PrinterSettings.FromPage = 0;
-            //dialog.PrinterSettings.ToPage = 8;
-            //dialog.PrinterSettings.PrintRange = PrintRange.SomePages;
-            //workbook.PrintDialog = dialog;
-            //PrintDocument pd = workbook.PrintDocument;
-            //if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            //{ pd.Print(); }
-
             PdfDocument doc = new PdfDocument();
-            doc.LoadFromFile("e:/test.pdf");
+            doc.LoadFromFile(CommUtil.GetDocPath("test.pdf"));
             PrintDialog dialogPrint = new PrintDialog();
             dialogPrint.AllowPrintToFile = true;
             dialogPrint.AllowSomePages = true;

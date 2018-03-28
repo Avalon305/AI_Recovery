@@ -595,6 +595,7 @@
     <Content Include="lib\Spire.XLS.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="view\Images\excel\none.png" />
     <Resource Include="view\Images\Date.bmp" />
     <Resource Include="view\Images\date.png" />
     <Resource Include="view\Images\date1.bmp" />
@@ -647,6 +648,12 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="doc\test.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="doc\test1.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>

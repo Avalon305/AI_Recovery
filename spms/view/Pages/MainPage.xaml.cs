@@ -97,8 +97,8 @@ namespace spms.view.Pages
         {
             using (Workbook workbook = new Workbook())
             {
-                workbook.LoadFromFile(@"e:\test1.xlsx");
-                workbook.SaveToFile(@"e:\test1.pdf", FileFormat.PDF);
+                workbook.LoadFromFile(CommUtil.GetDocPath("test1.xlsx"));
+                workbook.SaveToFile(CommUtil.GetDocPath("test1.pdf"), Spire.Xls.FileFormat.PDF);
             }
         }
 

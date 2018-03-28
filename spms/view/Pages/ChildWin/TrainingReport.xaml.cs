@@ -84,7 +84,7 @@ namespace spms.view.Pages.ChildWin
 
             //直接打印Excel文件
             Workbook workbook = new Workbook();
-            workbook.LoadFromFile("e:/test.xlsx");
+            workbook.LoadFromFile(CommUtil.GetDocPath("test.xlsx"));
             System.Windows.Forms.PrintDialog dialog = new System.Windows.Forms.PrintDialog();
             dialog.AllowPrintToFile = true;
             dialog.AllowCurrentPage = true;
@@ -102,7 +102,7 @@ namespace spms.view.Pages.ChildWin
 
             if (DocumentInput_Check.IsChecked == true)
             {
-                workbook.LoadFromFile(@"e:\test.xlsx");
+                workbook.LoadFromFile(CommUtil.GetDocPath("test.xlsx"));
                 workbook.SaveToFile(@text_output_document.Text, FileFormat.PDF);
             }
         }
@@ -124,12 +124,7 @@ namespace spms.view.Pages.ChildWin
                 }
             }
 
-            FileInfo newFile = new FileInfo(@"e:\test.xlsx");
-            if (newFile.Exists)
-            {
-                newFile.Delete();
-                newFile = new FileInfo(@"e:\test.xlsx");
-            }
+            FileInfo newFile = ExcelUtil.GetExcelFile();
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("训练报告");
@@ -285,12 +280,7 @@ namespace spms.view.Pages.ChildWin
                     list.Add((datalist.Items[i] as DevicePrescriptionExcel));
                 }
             }
-            FileInfo newFile = new FileInfo(@"e:\test.xlsx");
-            if (newFile.Exists)
-            {
-                newFile.Delete();
-                newFile = new FileInfo(@"e:\test.xlsx");
-            }
+            FileInfo newFile = ExcelUtil.GetExcelFile();
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("详细训练报告");
@@ -380,13 +370,14 @@ namespace spms.view.Pages.ChildWin
                 }
             }
 
-            FileInfo newFile = new FileInfo(@"e:\test.xlsx");
-            if (newFile.Exists)
-            {
+            FileInfo newFile = ExcelUtil.GetExcelFile();
+            //FileInfo newFile = new FileInfo(CommUtil.GetDocPath("test.xlsx"));
+            //if (newFile.Exists)
+            //{
 
-                newFile.Delete();
-                newFile = new FileInfo(@"e:\test.xlsx");
-            }
+            //    newFile.Delete();
+            //    newFile = new FileInfo(CommUtil.GetDocPath("test.xlsx"));
+            //}
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("看护记录报告");
