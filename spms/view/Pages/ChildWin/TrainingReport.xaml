@@ -88,9 +88,9 @@
                         <RowDefinition Height="20"></RowDefinition>
                         <RowDefinition Height="20"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <RadioButton Name="is_comprehensiv" Checked="Document_Type_Checked" Content="综合报告" IsChecked="True"  Grid.Row="0"/>
-                    <RadioButton Name="is_detail" Checked="Document_Type_Checked" Content="详细报告" Grid.Row="1"/>
-                    <RadioButton Name="is_nurse" Checked="Document_Type_Checked" Content="看护记录报告" Grid.Row="2"/>
+                    <RadioButton Name="is_comprehensiv" Checked="Document_Type_Checked" IsTabStop="False" Content="综合报告" IsChecked="True"  Grid.Row="0"/>
+                    <RadioButton Name="is_detail" Checked="Document_Type_Checked" IsTabStop="False" Content="详细报告" Grid.Row="1"/>
+                    <RadioButton Name="is_nurse" Checked="Document_Type_Checked" IsTabStop="False" Content="看护记录报告" Grid.Row="2"/>
                 </Grid>
             </Border>
 
@@ -142,19 +142,19 @@
         <!--结束：评论-->
         <!--文档输出-->
         <StackPanel Orientation="Vertical" Height="51" Margin="7,10,0,0">
-            <CheckBox Content="文档输出" Name="DocumentInput_Check"/>
+            <CheckBox Content="文档输出" Name="DocumentInput_Check" IsTabStop="False"/>
             <StackPanel Orientation="Horizontal">
-                <Button Click="Button_Click_OutputDocument" Content="输出文档" Width="80" Height="25" HorizontalAlignment="Left" Margin="0,6,8,-3" Style="{StaticResource Btn}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"/>
-                <TextBox Name="text_output_document" Width="364" VerticalAlignment="Center"  Height="25"  Margin="0,8,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"></TextBox>
+                <Button Click="Button_Click_OutputDocument" Content="输出文档" Width="80" Height="25" IsTabStop="False"  HorizontalAlignment="Left" Margin="0,6,8,-3" Style="{StaticResource Btn}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"/>
+                <TextBox Name="text_output_document" Width="364" VerticalAlignment="Center" IsTabStop="False" Height="25"  Margin="0,8,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"></TextBox>
             </StackPanel>
         </StackPanel>
         <!--结束：文档输出-->
         <!--按钮部分-->
         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="143" Height="34" VerticalAlignment="Bottom"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0" Margin="0,0,5,0">
             <StackPanel Orientation="Horizontal" Margin="-60,0,10,0"  >
-                <Button Width="59" Height="25" VerticalAlignment="Bottom"    Foreground="Black" Content="打印" Margin="4,0,0,-0.2" Style="{StaticResource Btn}" Click="Button_Click_Print"/>
-                <Button Width="59" Height="25" VerticalAlignment="Bottom"    Foreground="Black" Content="打印预览" Margin="4,0,0,-0.2" Style="{StaticResource Btn}" Click="Button_Click_Print_View"/>
-                <Button Width="62" Height="25" VerticalAlignment="Bottom"    Content="返回"  Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>
+                <Button Width="59" Height="25" VerticalAlignment="Bottom" IsTabStop="False"   Foreground="Black" Content="打印" Margin="4,0,0,-0.2" Style="{StaticResource Btn}" Click="Button_Click_Print"/>
+                <Button Width="59" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"  Foreground="Black" Content="打印预览" Margin="4,0,0,-0.2" Style="{StaticResource Btn}" Click="Button_Click_Print_View"/>
+                <Button Width="62" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"  Content="返回"  Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>
             </StackPanel>
         </Border>
     </StackPanel>
