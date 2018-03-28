@@ -51,7 +51,7 @@
                 <Label Grid.Row="0" Grid.Column="0" Content="用户编号: " Margin="0,-6,34.4,15.6" Grid.RowSpan="2"/>
                 <Label Grid.Row="0"  Margin="65,-6,-0.2,15.6" Name="l2" Content="{Binding User_Name}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 <Label Grid.Column="0" Content="用户姓名:" Margin="0,11,34.4,-1.4" Grid.RowSpan="2"/>
-                <Label  Margin="65,11,-0.2,-1.4" Name="l1" Grid.ColumnSpan="2" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2"/>
+                <Label  Margin="65,11,-0.2,-1.4" Name="l1" Grid.ColumnSpan="2" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2" />
             </Grid>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
@@ -60,7 +60,7 @@
             </Border>
             <!--日历-->
             <Border Margin="10" Width="130" Height="28">
-                <DatePicker Height="25" Margin="0,3,-0.6,0" VerticalAlignment="Bottom" Width="125" Name="dp" SelectedDate="{x:Static sys:DateTime.Now}"/>
+                <DatePicker Height="25" Margin="0,3,-0.6,0" KeyboardNavigation.TabNavigation="None" VerticalAlignment="Bottom" Width="125" Name="dp" SelectedDate="{x:Static sys:DateTime.Now}"/>
             </Border>
         </StackPanel>
         <Grid Height="532" Margin="0,0,-0.4,0"  Name="grid">
@@ -72,7 +72,7 @@
             </Grid.Resources>
             <Grid Margin="0,0,0,10">
                 <TabControl Name="TabControl1"  Margin="9,0,10,0"  >
-                    <TabItem Header="胸部推举机" Width="95">
+                    <TabItem Header="胸部推举机" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -118,7 +118,7 @@
                                 <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="HLPWeight" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0"  Name="HLPMoveway" />
+                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0"  Name="HLPMoveway" IsTabStop="False" />
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="HLPSportstrength" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -145,7 +145,7 @@
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HLPFinishgroup" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0"  Name="HLPEvaluate" />
+                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0"  Name="HLPEvaluate" IsTabStop="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -227,7 +227,7 @@
                                 <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="ROWWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="ROWMoveway" />
+                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="ROWMoveway" IsTabStop="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="ROWSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -254,7 +254,7 @@
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="ROWFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="ROWEvaluate"/>
+                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="ROWEvaluate" IsTabStop="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -336,7 +336,7 @@
                                 <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="TFWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="TFMoveway"  />
+                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="TFMoveway" IsTabStop="False" />
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="TFSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -363,7 +363,7 @@
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="TFFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="TFEvaluate"/>
+                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="TFEvaluate" IsTabStop="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -445,7 +445,7 @@
                                 <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="LEWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble" />
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="LEMoveway"/>
+                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="LEMoveway" IsTabStop="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="LESportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -472,7 +472,7 @@
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="LEFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="LEEvaluate"/>
+                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="LEEvaluate" IsTabStop="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -552,7 +552,7 @@
                                 <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="HAWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="HAMoveway"/>
+                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="HAMoveway" IsTabStop="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="HASportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -579,7 +579,7 @@
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HAFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="HAEvaluate"/>
+                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="HAEvaluate" IsTabStop="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -663,7 +663,7 @@
                                 <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="CPWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="CPMoveway"/>
+                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="CPMoveway" IsTabStop="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="CPSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -690,7 +690,7 @@
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="CPFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="CPEvaluate"/>
+                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="CPEvaluate" IsTabStop="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >

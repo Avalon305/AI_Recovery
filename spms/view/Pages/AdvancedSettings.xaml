@@ -77,7 +77,7 @@
                 <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="200">
                     <StackPanel Margin="0" >
 
-                        <DataGrid x:Name="DataGrid2" GridLinesVisibility="None" HeadersVisibility="None" Margin="0" SelectionMode="Single"  CanUserDeleteRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="200" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top"  CanUserResizeColumns="False" BorderBrush="White" BorderThickness="0" CanUserReorderColumns="False">
+                        <DataGrid x:Name="DataGrid2" GridLinesVisibility="None" KeyboardNavigation.TabNavigation="None" HeadersVisibility="None" Margin="0" SelectionMode="Single"  CanUserDeleteRows="False" IsReadOnly="True" CanUserSortColumns="False" Height="200" CanUserAddRows="False" AutoGenerateColumns="False" VerticalAlignment="Top"  CanUserResizeColumns="False" BorderBrush="White" BorderThickness="0" CanUserReorderColumns="False">
                             <!--选中行失去焦点时的颜色-->
                             <DataGrid.Resources>
                                 <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -136,7 +136,7 @@
             <!--结束：器械选择-->
             <!--用户表-->
             <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Margin="30,35,20,0">
-                <DataGrid x:Name="DataGrid1" DataGridRow.MouseUp="Grid_Row_Click" CanUserAddRows="False"  RowHeaderWidth="0" IsReadOnly="True" SelectionMode="Single" GridLinesVisibility="None" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="209" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" BorderBrush="Black" BorderThickness="1,1,1,0" Width="883">
+                <DataGrid x:Name="DataGrid1" DataGridRow.MouseUp="Grid_Row_Click" CanUserAddRows="False" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" IsReadOnly="True" SelectionMode="Single" GridLinesVisibility="None" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="209" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" BorderBrush="Black" BorderThickness="1,1,1,0" Width="883">
                     <!--选中行失去焦点时的颜色-->
                     <DataGrid.Resources>
                         <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>

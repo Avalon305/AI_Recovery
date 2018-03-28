@@ -128,5 +128,6 @@
         </Setter>
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
         <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
 </ResourceDictionary>
