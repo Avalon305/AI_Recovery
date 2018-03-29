@@ -203,23 +203,24 @@ namespace spms.protocol
                 arr[55] = (byte)prescription.dp_groupnum;
                 //休息时间，秒
                 arr[56] = (byte)prescription.dp_relaxtime;
-                //TODO 计数器是否有效，0有效，1无效，数据库没有该字段，暂时有效
-                arr[57] = 0x00;
+                //TODO 计数器是否有效，0有效，1无效，数据库没有该字段，暂时无效
+                arr[57] = 0x01;
                 string[] attrs = prescription.DP_Attrs.Split('*');
-                //TODO 把手位置对应的值需要确定，0x00：左竖  0x01：左横  0x02：右竖  0x03：右横
-                arr[58] = 1;
-                //调杆角度 取值 1-4
-                arr[59] = 3;
-                //TODO 砝码移动距离1/10厘米,单位是啥
+                //动臂位置对应的值需要确定 
+                arr[58] = byte.Parse(attrs[2]);
+                //座椅位置 取值 1-9
+                arr[59] = byte.Parse(attrs[3]);
+                // 砝码移动距离1/10厘米,存的单位也是毫米
                 Int16 move = Int16.Parse(attrs[0]);
                 arr[60] = Convert.ToByte((move & 0xFF00) >> 8);//低字节
                 arr[61] = Convert.ToByte(move & 0x00FF);//高字节
-                //TODO 砝码重量 单位是啥
-                Int16 weight = Int16.Parse(attrs[1]);
+               //砝码重量 单位是kg,发送的是0.1kg
+
+                Int16 weight = (Int16)(prescription.dp_weight * 10);
                 arr[62] = Convert.ToByte((weight & 0xFF00) >> 8);//低字节
                 arr[63] = Convert.ToByte(weight & 0x00FF);//高字节
-                //TODO 辅助砝码重量 单位是啥
-                Int16 helpWeight = Int16.Parse(attrs[2]);
+                //辅助砝码重量 数据库单位kg，发送的是0.1kg
+                Int16 helpWeight = (Int16)(float.Parse(attrs[1]) * 10);
                 arr[64] = Convert.ToByte((helpWeight & 0xFF00) >> 8);//低字节
                 arr[65] = Convert.ToByte(helpWeight & 0x00FF);//高字节
                                                               //备忘
