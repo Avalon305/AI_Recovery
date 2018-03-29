@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -82,7 +83,7 @@ namespace spms.util
 
         public static string Obj2JSONStrNew<T>(T obj)
         {
-            return JsonConvert.SerializeObject(obj);
+            return JsonConvert.SerializeObject(obj, new IsoDateTimeConverter { DateTimeFormat = "yyyy'年'MM'月'dd'日'" });
         }
         //list<obj>转化为string of json
         public static string List2JSONStrNew<T>(List<T> list)
