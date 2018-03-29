@@ -53,7 +53,7 @@ namespace spms.view.Pages.ChildWin
         //确定按钮
         private void Determine(object sender, RoutedEventArgs e)
         {
-            String password = NonPublicInformationPassword.Text;
+            String password = NonPublicInformationPassword.Password;
             if ("111" == password)
             {
                 //与U盘交互

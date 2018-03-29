@@ -39,7 +39,7 @@ namespace spms.view.Pages.ChildWin
         }
         private void Confirm(object sender, RoutedEventArgs e)
         {
-            string Password = PasswordText.Text;
+            string Password = PasswordText.Password;
             if (Password == "111")
             {
                 IsTrue = 1;
