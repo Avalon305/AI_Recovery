@@ -85,7 +85,7 @@ namespace spms.view.Pages.ChildWin
             combobox_05.IsEnabled = true;
             com_01.IsEnabled = true;
             com_04.IsEnabled = true;
-            com_02.IsEnabled = true;
+            //com_02.IsEnabled = true;
             com_03.IsEnabled = true;
         }
 
@@ -97,7 +97,7 @@ namespace spms.view.Pages.ChildWin
             combobox_14.IsEnabled = true;
             combobox_15.IsEnabled = true;
             com_11.IsEnabled = true;
-            com_12.IsEnabled = true;
+            //com_12.IsEnabled = true;
             com_13.IsEnabled = true;
             com_14.IsEnabled = true;
         }
@@ -112,7 +112,7 @@ namespace spms.view.Pages.ChildWin
             combobox_25.IsEnabled = true;
             com_21.IsEnabled = true;
             com_24.IsEnabled = true;
-            com_22.IsEnabled = true;
+            //com_22.IsEnabled = true;
             com_23.IsEnabled = true;
 
         }
@@ -126,7 +126,7 @@ namespace spms.view.Pages.ChildWin
             combobox_35.IsEnabled = true;
             com_31.IsEnabled = true;
             com_34.IsEnabled = true;
-            com_32.IsEnabled = true;
+            //com_32.IsEnabled = true;
             com_33.IsEnabled = true;
             com_35.IsEnabled = true;
         }
@@ -139,7 +139,7 @@ namespace spms.view.Pages.ChildWin
             combobox_44.IsEnabled = true;
             combobox_45.IsEnabled = true;
             com_41.IsEnabled = true;
-            com_42.IsEnabled = true;
+            //com_42.IsEnabled = true;
             com_43.IsEnabled = true;
 
 
@@ -153,7 +153,7 @@ namespace spms.view.Pages.ChildWin
             combobox_54.IsEnabled = true;
             combobox_55.IsEnabled = true;
             com_51.IsEnabled = true;
-            com_52.IsEnabled = true;
+            //com_52.IsEnabled = true;
             com_53.IsEnabled = true;
         }
 
@@ -166,7 +166,7 @@ namespace spms.view.Pages.ChildWin
             combobox_05.IsEnabled = false;
             com_01.IsEnabled = false;
             com_04.IsEnabled = false;
-            com_02.IsEnabled = false;
+            //com_02.IsEnabled = false;
             com_03.IsEnabled = false;
         }
 
@@ -178,7 +178,7 @@ namespace spms.view.Pages.ChildWin
             combobox_14.IsEnabled = false;
             combobox_15.IsEnabled = false;
             com_11.IsEnabled = false;
-            com_12.IsEnabled = false;
+            //com_12.IsEnabled = false;
             com_13.IsEnabled = false;
             com_14.IsEnabled = false;
         }
@@ -192,7 +192,7 @@ namespace spms.view.Pages.ChildWin
             combobox_25.IsEnabled = false;
             com_21.IsEnabled = false;
             com_24.IsEnabled = false;
-            com_22.IsEnabled = false;
+            //com_22.IsEnabled = false;
             com_23.IsEnabled = false;
 
 
@@ -207,7 +207,7 @@ namespace spms.view.Pages.ChildWin
             combobox_35.IsEnabled = false;
             com_31.IsEnabled = false;
             com_34.IsEnabled = false;
-            com_32.IsEnabled = false;
+            //com_32.IsEnabled = false;
             com_33.IsEnabled = false;
             com_35.IsEnabled = false;
         }
@@ -220,7 +220,7 @@ namespace spms.view.Pages.ChildWin
             combobox_44.IsEnabled = false;
             combobox_45.IsEnabled = false;
             com_41.IsEnabled = false;
-            com_42.IsEnabled = false;
+            //com_42.IsEnabled = false;
             com_43.IsEnabled = false;
 
         }
@@ -233,7 +233,7 @@ namespace spms.view.Pages.ChildWin
             combobox_54.IsEnabled = false;
             combobox_55.IsEnabled = false;
             com_51.IsEnabled = false;
-            com_52.IsEnabled = false;
+            //com_52.IsEnabled = false;
             com_53.IsEnabled = false;
         }
 
@@ -739,7 +739,7 @@ namespace spms.view.Pages.ChildWin
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
             com_01.ItemsSource = Add(0, 700, 2);
-            com_02.ItemsSource = Add(0, 30, 2);
+            //com_02.ItemsSource = Add(0, 30, 2);
             com_03.ItemsSource = Add(1, 5, 2);
             com_04.ItemsSource = Add(1, 9, 2);
             combobox_01.ItemsSource = Add(1, 3, 2);
@@ -749,7 +749,7 @@ namespace spms.view.Pages.ChildWin
             combobox_05.ItemsSource = dataItems;
 
             com_11.ItemsSource = Add(0, 400, 2);
-            com_12.ItemsSource = Add(0, 30, 1);
+            //com_12.ItemsSource = Add(0, 30, 1);
             com_13.ItemsSource = Add(1, 4, 2);
             com_14.ItemsSource = Add(1, 4, 2);
             combobox_11.ItemsSource = Add(1, 3, 2);
@@ -759,7 +759,7 @@ namespace spms.view.Pages.ChildWin
             combobox_15.ItemsSource = dataItems;
 
             com_21.ItemsSource = Add(0, 700, 2);
-            com_22.ItemsSource = Add(0, 30, 1);
+            //com_22.ItemsSource = Add(0, 30, 1);
             com_23.ItemsSource = Add(1, 6, 2);
             com_24.ItemsSource = Add(1, 9, 2);
             combobox_21.ItemsSource = Add(1, 3, 2);
@@ -769,7 +769,7 @@ namespace spms.view.Pages.ChildWin
             combobox_25.ItemsSource = dataItems;
 
             com_31.ItemsSource = Add(0, 260, 1);
-            com_32.ItemsSource = Add(0, 30, 1);
+            //com_32.ItemsSource = Add(0, 30, 1);
             com_33.ItemsSource = Add(1, 5, 2);
             com_34.ItemsSource = Add(1, 5, 2);
             com_35.ItemsSource = Add(1, 9, 2);
@@ -780,7 +780,7 @@ namespace spms.view.Pages.ChildWin
             combobox_35.ItemsSource = dataItems;
 
             com_41.ItemsSource = Add(0, 500, 2);
-            com_42.ItemsSource = Add(0, 30, 1);
+            //com_42.ItemsSource = Add(0, 30, 1);
             com_43.ItemsSource = Add(1, 9, 2);
             combobox_41.ItemsSource = Add(1, 3, 2);
             combobox_42.ItemsSource = Add(1, 20, 2);
@@ -789,7 +789,7 @@ namespace spms.view.Pages.ChildWin
             combobox_45.ItemsSource = dataItems;
 
             com_51.ItemsSource = Add(0, 180, 2);
-            com_52.ItemsSource = Add(0, 30, 1);
+            //com_52.ItemsSource = Add(0, 30, 1);
             com_53.ItemsSource = Add(1, 8, 2);
             combobox_51.ItemsSource = Add(1, 3, 2);
             combobox_52.ItemsSource = Add(1, 20, 2);
@@ -1185,6 +1185,157 @@ namespace spms.view.Pages.ChildWin
                 Keyboard.ClearFocus();
             }
 
+        }
+        private void select_change(object sender, EventArgs e)
+        {
+
+            if (combobox_06.Text.Equals("无效"))
+            {
+                border1.Background = Brushes.White;
+                border2.Background = Brushes.White;
+                combobox_07.Visibility = Visibility.Hidden;
+                border3.Background = Brushes.White;
+                border4.Background = Brushes.White;
+                combobox_08.Visibility = Visibility.Hidden;
+                stackpanel.Margin = new Thickness(0, 139.8, 0, 0);
+                t1.Height = 170;
+            }
+            else if (combobox_06.Text.Equals("有效"))
+            {
+                border1.Background = Brushes.Gray;
+                border2.Background = Brushes.Gray;
+                combobox_07.Visibility = Visibility.Visible;
+                border3.Background = Brushes.Gray;
+                border4.Background = Brushes.Gray;
+                combobox_08.Visibility = Visibility.Visible;
+                stackpanel.Margin = new Thickness(0, 179.8, 0, 0);
+                t1.Height = 130;
+            }
+        }
+        private void select_change2(object sender, EventArgs e)
+        {
+            if (combobox_16.Text.Equals("无效"))
+            {
+                border11.Background = Brushes.White;
+                border12.Background = Brushes.White;
+                combobox_17.Visibility = Visibility.Hidden;
+                border13.Background = Brushes.White;
+                border14.Background = Brushes.White;
+                combobox_18.Visibility = Visibility.Hidden;
+                stackpanel2.Margin = new Thickness(0, 139.8, 0, 0);
+                t2.Height = 170;
+            }
+            else if (combobox_16.Text.Equals("有效"))
+            {
+                border11.Background = Brushes.Gray;
+                border12.Background = Brushes.Gray;
+                combobox_17.Visibility = Visibility.Visible;
+                border13.Background = Brushes.Gray;
+                border14.Background = Brushes.Gray;
+                combobox_18.Visibility = Visibility.Visible;
+                stackpanel2.Margin = new Thickness(0, 179.8, 0, 0);
+                t2.Height = 130;
+            }
+        }
+        private void select_change3(object sender, EventArgs e)
+        {
+            if (combobox_26.Text.Equals("无效"))
+            {
+                border21.Background = Brushes.White;
+                border22.Background = Brushes.White;
+                combobox_27.Visibility = Visibility.Hidden;
+                border23.Background = Brushes.White;
+                border24.Background = Brushes.White;
+                combobox_28.Visibility = Visibility.Hidden;
+                stackpanel3.Margin = new Thickness(0, 139.8, 0, 0);
+                t3.Height = 170;
+            }
+            else if (combobox_26.Text.Equals("有效"))
+            {
+                border21.Background = Brushes.Gray;
+                border22.Background = Brushes.Gray;
+                combobox_27.Visibility = Visibility.Visible;
+                border23.Background = Brushes.Gray;
+                border24.Background = Brushes.Gray;
+                combobox_28.Visibility = Visibility.Visible;
+                stackpanel3.Margin = new Thickness(0, 179.8, 0, 0);
+                t3.Height = 130;
+            }
+        }
+        private void select_change4(object sender, EventArgs e)
+        {
+            if (combobox_36.Text.Equals("无效"))
+            {
+                border31.Background = Brushes.White;
+                border32.Background = Brushes.White;
+                combobox_37.Visibility = Visibility.Hidden;
+                border33.Background = Brushes.White;
+                border34.Background = Brushes.White;
+                combobox_38.Visibility = Visibility.Hidden;
+                stackpanel4.Margin = new Thickness(0, 139.8, 0, 0);
+                t4.Height = 170;
+            }
+            else if (combobox_36.Text.Equals("有效"))
+            {
+                border31.Background = Brushes.Gray;
+                border32.Background = Brushes.Gray;
+                combobox_37.Visibility = Visibility.Visible;
+                border33.Background = Brushes.Gray;
+                border34.Background = Brushes.Gray;
+                combobox_38.Visibility = Visibility.Visible;
+                stackpanel4.Margin = new Thickness(0, 179.8, 0, 0);
+                t4.Height = 130;
+            }
+        }
+        private void select_change5(object sender, EventArgs e)
+        {
+            if (combobox_46.Text.Equals("无效"))
+            {
+                border41.Background = Brushes.White;
+                border42.Background = Brushes.White;
+                combobox_47.Visibility = Visibility.Hidden;
+                border43.Background = Brushes.White;
+                border44.Background = Brushes.White;
+                combobox_48.Visibility = Visibility.Hidden;
+                stackpanel5.Margin = new Thickness(0, 139.8, 0, 0);
+                t5.Height = 170;
+            }
+            else if (combobox_46.Text.Equals("有效"))
+            {
+                border41.Background = Brushes.Gray;
+                border42.Background = Brushes.Gray;
+                combobox_47.Visibility = Visibility.Visible;
+                border43.Background = Brushes.Gray;
+                border44.Background = Brushes.Gray;
+                combobox_48.Visibility = Visibility.Visible;
+                stackpanel5.Margin = new Thickness(0, 179.8, 0, 0);
+                t5.Height = 130;
+            }
+        }
+        private void select_change6(object sender, EventArgs e)
+        {
+            if (combobox_56.Text.Equals("无效"))
+            {
+                border51.Background = Brushes.White;
+                border52.Background = Brushes.White;
+                combobox_57.Visibility = Visibility.Hidden;
+                border53.Background = Brushes.White;
+                border54.Background = Brushes.White;
+                combobox_58.Visibility = Visibility.Hidden;
+                stackpanel6.Margin = new Thickness(0, 139.8, 0, 0);
+                t6.Height = 130;
+            }
+            else if (combobox_56.Text.Equals("有效"))
+            {
+                border51.Background = Brushes.Gray;
+                border52.Background = Brushes.Gray;
+                combobox_57.Visibility = Visibility.Visible;
+                border53.Background = Brushes.Gray;
+                border54.Background = Brushes.Gray;
+                combobox_58.Visibility = Visibility.Visible;
+                stackpanel6.Margin = new Thickness(0, 179.8, 0, 0);
+                t6.Height = 130;
+            }
         }
     }
 }
