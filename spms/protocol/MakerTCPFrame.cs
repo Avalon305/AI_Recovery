@@ -210,15 +210,15 @@ namespace spms.protocol
                 arr[58] = 1;
                 //调杆角度 取值 1-4
                 arr[59] = 3;
-                //TODO 砝码移动距离1/10厘米,单位是啥
+                // 砝码移动距离1/10厘米,存的单位也是毫米
                 Int16 move = Int16.Parse(attrs[0]);
                 arr[60] = Convert.ToByte((move & 0xFF00) >> 8);//低字节
                 arr[61] = Convert.ToByte(move & 0x00FF);//高字节
-                //TODO 砝码重量 单位是啥
+                //TODO 砝码重量 单位是kg
                 Int16 weight = Int16.Parse(attrs[1]);
                 arr[62] = Convert.ToByte((weight & 0xFF00) >> 8);//低字节
                 arr[63] = Convert.ToByte(weight & 0x00FF);//高字节
-                //TODO 辅助砝码重量 单位是啥
+                //TODO 辅助砝码重量 单位kg
                 Int16 helpWeight = Int16.Parse(attrs[2]);
                 arr[64] = Convert.ToByte((helpWeight & 0xFF00) >> 8);//低字节
                 arr[65] = Convert.ToByte(helpWeight & 0x00FF);//高字节
