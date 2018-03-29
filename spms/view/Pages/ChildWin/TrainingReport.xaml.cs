@@ -1,16 +1,19 @@
 ﻿using OfficeOpenXml;
 using OfficeOpenXml.Drawing.Chart;
 using OfficeOpenXml.Style;
+using Spire.Xls;
 using spms.bean;
 using spms.entity;
 using spms.service;
 using spms.util;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Media;
 using static spms.bean.TrainExcelVO;
 
@@ -80,11 +83,29 @@ namespace spms.view.Pages.ChildWin
                 return;
             }
 
-            //打印
-            PdfViewer pDF = new PdfViewer();
-            pDF.Left = 200;
-            pDF.Top = 10;
-            pDF.Show();
+            //直接打印Excel文件
+            Workbook workbook = new Workbook();
+            workbook.LoadFromFile(CommUtil.GetDocPath("test.xlsx"));
+            System.Windows.Forms.PrintDialog dialog = new System.Windows.Forms.PrintDialog();
+            dialog.AllowPrintToFile = true;
+            dialog.AllowCurrentPage = true;
+            dialog.AllowSomePages = true;
+            dialog.AllowSelection = true;
+            dialog.UseEXDialog = true;
+            dialog.PrinterSettings.Duplex = Duplex.Simplex;
+            dialog.PrinterSettings.FromPage = 0;
+            dialog.PrinterSettings.ToPage = 8;
+            dialog.PrinterSettings.PrintRange = PrintRange.SomePages;
+            workbook.PrintDialog = dialog;
+            PrintDocument pd = workbook.PrintDocument;
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            { pd.Print(); }
+
+            if (DocumentInput_Check.IsChecked == true)
+            {
+                workbook.LoadFromFile(CommUtil.GetDocPath("test.xlsx"));
+                workbook.SaveToFile(@text_output_document.Text, FileFormat.PDF);
+            }
         }
 
 
@@ -104,12 +125,7 @@ namespace spms.view.Pages.ChildWin
                 }
             }
 
-            FileInfo newFile = new FileInfo(@"e:\test.xlsx");
-            if (newFile.Exists)
-            {
-                newFile.Delete();
-                newFile = new FileInfo(@"e:\test.xlsx");
-            }
+            FileInfo newFile = ExcelUtil.GetExcelFile();
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("训练报告");
@@ -265,12 +281,7 @@ namespace spms.view.Pages.ChildWin
                     list.Add((datalist.Items[i] as DevicePrescriptionExcel));
                 }
             }
-            FileInfo newFile = new FileInfo(@"e:\test.xlsx");
-            if (newFile.Exists)
-            {
-                newFile.Delete();
-                newFile = new FileInfo(@"e:\test.xlsx");
-            }
+            FileInfo newFile = ExcelUtil.GetExcelFile();
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("详细训练报告");
@@ -360,13 +371,14 @@ namespace spms.view.Pages.ChildWin
                 }
             }
 
-            FileInfo newFile = new FileInfo(@"e:\test.xlsx");
-            if (newFile.Exists)
-            {
+            FileInfo newFile = ExcelUtil.GetExcelFile();
+            //FileInfo newFile = new FileInfo(CommUtil.GetDocPath("test.xlsx"));
+            //if (newFile.Exists)
+            //{
 
-                newFile.Delete();
-                newFile = new FileInfo(@"e:\test.xlsx");
-            }
+            //    newFile.Delete();
+            //    newFile = new FileInfo(CommUtil.GetDocPath("test.xlsx"));
+            //}
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("看护记录报告");
@@ -506,7 +518,34 @@ namespace spms.view.Pages.ChildWin
                 {
                     List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(Current_User.Pk_User_Id);
                     datalist.DataContext = list;
-                    Console.WriteLine(list.ToString());
+                }
+
+                //修改输出文档的名称
+                if (DocumentInput_Check != null)
+                {
+                    if (DocumentInput_Check.IsChecked == true)
+                    {
+                        if (text_output_document.Text != "")
+                        {
+                            if (is_comprehensiv.IsChecked == true)
+                            {
+                                if (text_output_document.Text.IndexOf("综合报告") == -1)
+                                {
+                                    text_output_document.Text = text_output_document.Text.Replace("详细报告", "综合报告");
+                                    text_output_document.Text = text_output_document.Text.Replace("看护记录报告", "综合报告");
+                                }
+                            }
+                            if (is_nurse.IsChecked == true)
+                            {
+                                if (text_output_document.Text.IndexOf("看护记录报告") == -1)
+                                {
+                                    text_output_document.Text = text_output_document.Text.Replace("详细报告", "看护记录报告");
+                                    text_output_document.Text = text_output_document.Text.Replace("综合报告", "看护记录报告");
+                                }
+                            }
+
+                        }
+                    }
                 }
                 
             }
@@ -518,7 +557,106 @@ namespace spms.view.Pages.ChildWin
                     Console.WriteLine(list.ToString());
                     datalist.DataContext = list;
                 }
+
+                //修改输出文档的名称
+                if (DocumentInput_Check != null)
+                {
+                    if (DocumentInput_Check.IsChecked == true)
+                    {
+                        if (text_output_document.Text != "")
+                        {
+                            if (text_output_document.Text.IndexOf("详细报告") == -1)
+                            {
+                                text_output_document.Text = text_output_document.Text.Replace("综合报告", "详细报告");
+                                text_output_document.Text = text_output_document.Text.Replace("看护记录报告", "详细报告");
+                            }
+                        }
+                    }
+                }
             }
+        }
+
+        /// <summary>
+        /// 文档输出
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_OutputDocument(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog();
+            sfd.Filter = "PDF文档（*.pdf）|*.pdf";
+            if (is_comprehensiv.IsChecked == true)
+            {
+                sfd.FileName = Current_User.User_Name + "-综合报告-"+DateTime.Now.ToString("yyyyMMddHHmm")+".pdf";
+            }
+             if (is_detail.IsChecked == true)
+            {
+                sfd.FileName = Current_User.User_Name + "-详细报告-"+DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
+            }
+             if (is_nurse.IsChecked == true)
+            {
+                sfd.FileName = Current_User.User_Name + "-看护记录报告-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
+            }
+            
+            //设置默认文件类型显示顺序
+            sfd.FilterIndex = 1;
+            //保存对话框是否记忆上次打开的目录
+            sfd.RestoreDirectory = true;
+            if (sfd.ShowDialog() == true)
+            {
+                text_output_document.Text = sfd.FileName;
+            }
+        }
+
+        /// <summary>
+        /// 打印预览功能
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_Print_View(object sender, RoutedEventArgs e)
+        {
+            if (is_comprehensiv.IsChecked == true)//训练报告
+            {
+                GenerateTrainReport();
+            }
+            else if (is_detail.IsChecked == true)//详细报告
+            {
+                GenerateDetailReport();
+            }
+            else if (is_nurse.IsChecked == true)//看护记录报告
+            {
+                GenerateNurseReport();
+            }
+            else
+            {
+                return;
+            }
+
+            //打印
+            PdfViewer pDF = new PdfViewer();
+
+            if (DocumentInput_Check.IsChecked == true)
+            {
+                if (text_output_document.Text != "")
+                {
+                    pDF.SaveToPath = text_output_document.Text;
+                }
+            }
+
+            pDF.Left = 200;
+            pDF.Top = 10;
+            pDF.Show();
+        }
+        //回车按钮
+        private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Button_Click_Print(this, null);
+                //使键盘失去焦点，解决窗口反复出现
+                Keyboard.ClearFocus();
+            }
+
         }
     }
 }

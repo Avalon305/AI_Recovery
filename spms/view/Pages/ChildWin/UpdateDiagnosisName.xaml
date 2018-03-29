@@ -1,26 +1,46 @@
 ﻿<Window x:Class="spms.view.Pages.ChildWin.UpdateDiagnosisName"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
+        Icon="/view/Images/icon2.png"
         Loaded="Window_Loaded"
-        Title="修改残障名称" Height="145" Width="380" WindowStartupLocation="CenterScreen">
+         PreviewKeyDown="key_dowm"
+        Title="宝德龙" Height="145" Width="380"
+        >
     <StackPanel Orientation="Vertical">
-        <Border Height="37" CornerRadius="5,5,0,0" Background="Gray" Margin="5,0,5,0">
+        <Border Height="37" CornerRadius="5,5,0,0"  Margin="10,0,10,0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="silver" Offset="0.1"/>
+                    <GradientStop Color="gray" Offset="0.9"/>
+                </LinearGradientBrush>
+
+            </Border.Background>
             <Grid>
-                <Label VerticalAlignment="Bottom"  Foreground="White" FontSize="20" Height="37">残障名称</Label>
-                <!-- 保存及取消按钮-->
-                <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="106" Height="29" VerticalAlignment="Bottom"  BorderThickness="0">
+                <Label VerticalAlignment="Bottom"  Foreground="White" FontSize="20" Height="37">疾病名称</Label>
+                <!--保存及取消按钮-->
+
+                <!--<Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="106" Height="29" VerticalAlignment="Bottom"  BorderThickness="0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                        <Button Width="50"  Height="25"  Background="Gray"  Foreground="White" Margin="2,0,0,0" Style="{StaticResource myBtn}"  VerticalAlignment="Bottom" Click="Button_SaveClick">保存</Button>
-                        <Button Width="50" Height="25"  Background="Gray"  Foreground="White"  Content="取消"  Style="{StaticResource myBtn}" Margin="2,0,0,0" VerticalAlignment="Bottom" Click="Cancel"/>
+                        <Button Width="50"  Height="25"  Background="Gray"  Foreground="White" Margin="2,0,0,0" Style="{StaticResource Btn}"  IsEnabled="False" VerticalAlignment="Bottom">保存</Button>
+                        -->
+                <!--<Button Width="50" Height="25"  Background="Gray"  Foreground="White"  Content="取消"  Style="{StaticResource Btn}" Margin="2,0,0,0" VerticalAlignment="Bottom" Click="Cancel"/>-->
+                <!--
                     </StackPanel>
-                </Border>
+                </Border>-->
             </Grid>
         </Border>
         <!--输入框-->
-        <TextBox Name="DiagnosisName" LostFocus="Text_LostFocus" VerticalAlignment="Center" Margin="5,30,5,5" BorderBrush="Gray"></TextBox>
+        <TextBox Name="DiagnosisName"  LostFocus="Text_LostFocus" VerticalAlignment="Center" Margin="10,15,10,5" BorderBrush="Gray" VerticalContentAlignment="Center"></TextBox>
+        <!--保存及取消按钮-->
+        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="116" Height="29" VerticalAlignment="Bottom"  BorderThickness="0" Margin="0,0,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
+                <Button Width="50"  Height="25"   Margin="2,0,0,0" Style="{StaticResource Btn}"  IsTabStop="False"  VerticalAlignment="Bottom" Click="Button_SaveClick">保存</Button>
+                <Button Width="50" Height="25"    Content="取消"  Style="{StaticResource Btn}" IsTabStop="False"  Margin="2,0,0,0" VerticalAlignment="Bottom" Click="Cancel"/>
+            </StackPanel>
+        </Border>
     </StackPanel>
 </Window>

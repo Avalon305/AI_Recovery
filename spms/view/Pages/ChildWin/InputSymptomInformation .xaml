@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:my="clr-namespace:spms.view.controls"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
+         PreviewKeyDown="key_dowm"
         Title="宝德龙"
         Height="739.2"
         Width="580"
@@ -50,7 +52,8 @@
         <!--实施日期-->
         <StackPanel Height="23" Margin="10,15,-0.4,0" Orientation="Horizontal">
             <Label Content="实施日期" Height="25" Margin="0,0,0,0" Background="Gray" Foreground="White" Width="80"/>
-            <DatePicker Name="date"  Height="23"  KeyboardNavigation.TabNavigation="None" Margin="3,0,0,0" VerticalAlignment="Bottom" Width="155" SelectedDate="{x:Static sys:DateTime.Now}"/>
+            <my:DateTimePicker   Margin="3,0,0,0" KeyboardNavigation.TabNavigation="None"  x:Name="date" VerticalAlignment="Top" Height="25" />
+            <!--<DatePicker Name="date"  Height="23"  KeyboardNavigation.TabNavigation="None" Margin="3,0,0,0" VerticalAlignment="Bottom" Width="155" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
         </StackPanel>
         <!--结束：实施日期-->
         <!--康复前后信息对比-->

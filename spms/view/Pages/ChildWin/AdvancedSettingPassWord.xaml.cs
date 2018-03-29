@@ -19,6 +19,19 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class AdvancedSettingPassWord : Window
     {
+        private const int GWL_STYLE = -16;
+        private const int WS_SYSMENU = 0x80000;
+        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+       
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+            SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+        }
         public AdvancedSettingPassWord()
         {
             InitializeComponent();
@@ -39,6 +52,17 @@ namespace spms.view.Pages.ChildWin
         private void Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        //回车按钮
+        private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+               Confirm(this, null);
+                //使键盘失去焦点，解决窗口反复出现
+                Keyboard.ClearFocus();
+            }
+
         }
     }
 }

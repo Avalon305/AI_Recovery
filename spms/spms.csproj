@@ -245,6 +245,21 @@
     <Compile Include="constant\TrainInfoStatus.cs" />
     <Compile Include="view\bubblemove\CCPopup.cs" />
     <Compile Include="view\bubblemove\PopopHelper.cs" />
+    <Compile Include="view\controls\DateTimePicker.xaml.cs">
+      <DependentUpon>DateTimePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\controls\IconButton.xaml.cs">
+      <DependentUpon>IconButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\controls\TDateTimeView.xaml.cs">
+      <DependentUpon>TDateTimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\controls\THourView.xaml.cs">
+      <DependentUpon>THourView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\controls\TMinSexView.xaml.cs">
+      <DependentUpon>TMinSexView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\converter\AgeConverter.cs" />
     <Compile Include="view\converter\SexConverter.cs" />
     <Compile Include="view\dto\PhysicaleDTO.cs" />
@@ -384,6 +399,26 @@
     <Page Include="resources\zh-cn.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\controls\DateTimePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\controls\IconButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\controls\TDateTimeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\controls\THourView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\controls\TMinSexView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Dictionary\Btn.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -560,6 +595,18 @@
     <Content Include="lib\Spire.XLS.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="view\Images\excel\none.png" />
+    <Resource Include="view\Images\Date.bmp" />
+    <Resource Include="view\Images\date.png" />
+    <Resource Include="view\Images\date1.bmp" />
+    <Resource Include="view\Images\date2.ico" />
+    <Resource Include="view\Images\DateTimePicker.bmp" />
+    <Resource Include="view\Images\DateTimePicker1.bmp" />
+    <Resource Include="view\Images\ooopic_1501745970.ico" />
+    <Resource Include="view\Images\timer.bmp" />
+    <Resource Include="view\controls\DateTimePicker.bmp" />
+    <Resource Include="view\Images\close.png" />
+    <EmbeddedResource Include="view\Images\date.ico" />
     <Resource Include="view\Images\KFA-10.jpg" />
     <Resource Include="view\Images\3-1.png" />
     <Resource Include="view\Images\5-5.png" />
@@ -601,6 +648,12 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="doc\test.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="doc\test1.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>

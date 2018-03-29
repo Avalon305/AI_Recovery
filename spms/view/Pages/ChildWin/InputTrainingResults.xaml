@@ -6,8 +6,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
           xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
+        xmlns:my="clr-namespace:spms.view.controls"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
+         PreviewKeyDown="key_dowm"
         Title="宝德龙"
          ResizeMode = "NoResize" Height="744.8" Width="900"
         Loaded="Window_Loaded">
@@ -51,7 +53,7 @@
                 <Label Grid.Row="0" Grid.Column="0" Content="用户编号: " Margin="0,-6,34.4,15.6" Grid.RowSpan="2"/>
                 <Label Grid.Row="0"  Margin="65,-6,-0.2,15.6" Name="l2" Content="{Binding User_Name}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 <Label Grid.Column="0" Content="用户姓名:" Margin="0,11,34.4,-1.4" Grid.RowSpan="2"/>
-                <Label  Margin="65,11,-0.2,-1.4" Name="l1" Grid.ColumnSpan="2" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2"/>
+                <Label  Margin="65,11,-0.2,-1.4" Name="l1" Grid.ColumnSpan="2" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2" />
             </Grid>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
@@ -59,8 +61,9 @@
                 <Label Content="实施日期" FontSize="12" Margin="0,0,0,0.2"/>
             </Border>
             <!--日历-->
-            <Border Margin="10" Width="130" Height="28">
-                <DatePicker Height="25" Margin="0,3,-0.6,0" VerticalAlignment="Bottom" Width="125" Name="dp" SelectedDate="{x:Static sys:DateTime.Now}"/>
+            <Border Margin="10" Width="219" Height="28">
+                <my:DateTimePicker  Margin="0,3,61.2,0"   x:Name="dp" VerticalAlignment="Top" Height="25" />
+                <!--<DatePicker Height="25" Margin="0,3,-0.6,0" KeyboardNavigation.TabNavigation="None" VerticalAlignment="Bottom" Width="125" Name="dp" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
             </Border>
         </StackPanel>
         <Grid Height="532" Margin="0,0,-0.4,0"  Name="grid">
@@ -72,7 +75,7 @@
             </Grid.Resources>
             <Grid Margin="0,0,0,10">
                 <TabControl Name="TabControl1"  Margin="9,0,10,0"  >
-                    <TabItem Header="水平腿部推蹬机" Width="95">
+                    <TabItem Header="胸部推举机" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -115,10 +118,10 @@
                                 <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="HLPRelaxTime" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="HLPWeight" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="HLPWeight" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0"  Name="HLPMoveway" />
+                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0"  Name="HLPMoveway" IsTabStop="False" />
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="HLPSportstrength" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -127,16 +130,16 @@
                                 <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="HLPTime1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="HLPDistance" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="HLPDistance" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="HLPCountworkqu" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="HLPCountworkqu" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="HLPCal" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="HLPCal" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="HLPIndex" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="HLPIndex" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
                                 <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="HLPTime2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -145,14 +148,16 @@
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HLPFinishgroup" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0"  Name="HLPEvaluate" />
+                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0"  Name="HLPEvaluate" IsTabStop="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等" Background="Gray"  Margin="0,0,-0.4,0" />
                                 <TextBox Height="104" Margin="0,2,26,0" Name="HLPAttentionpoint" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
@@ -161,7 +166,9 @@
                                 <Label Content="使用者感想"  Background="Gray"  Margin="0,2,-0.4,0" />
                                 <TextBox Height="104"  Margin="0,2,26,0" Name="HLPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
@@ -170,7 +177,9 @@
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
                                 <TextBox Height="104" Margin="0,2,26,0" Name="HLPMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
@@ -184,13 +193,14 @@
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
+                                    <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="RowAttr1" Height="20" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="RowAttr2" Height="20" Width="50" Margin="55,191,191,104.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="RowAttr3" Height="20" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="RowAttr4" Height="20" Width="50" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr1" Height="20" Width="50" Margin="66,115,180,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr2" Height="20" Width="50" Margin="50,202,196,93.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr3" Height="20" Width="50" Margin="174,182,72,113.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr4" Height="20" Width="50" Margin="147,238,99,57.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
+
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
                                 <Grid.RowDefinitions>
@@ -223,10 +233,10 @@
                                 <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="ROWRelaxTime" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="ROWWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="ROWWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="ROWMoveway" />
+                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="ROWMoveway" IsTabStop="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="ROWSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -235,16 +245,16 @@
                                 <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="ROWTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="ROWDistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="ROWDistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="ROWCountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="ROWCountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="ROWCal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="ROWCal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="ROWIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="ROWIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
                                 <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="ROWTime2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -253,13 +263,15 @@
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="ROWFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="ROWEvaluate"/>
+                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="ROWEvaluate" IsTabStop="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
@@ -269,7 +281,9 @@
                                 <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
                                 <TextBox Height="104" Margin="0,2,26,0" Name="ROWUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
@@ -278,7 +292,9 @@
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
                                 <TextBox Height="104" Margin="0,2,26,0" Name="ROWMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
@@ -291,16 +307,16 @@
 
                     <TabItem Header="身体伸展弯曲机" Width="95">
                         <StackPanel Orientation="Horizontal">
+
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
+                                    <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="TFAttr1" Height="20" Width="50" Margin="66,115,180,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="TFAttr2" Height="20" Width="50" Margin="50,202,196,93.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="TFAttr3" Height="20" Width="50" Margin="174,182,72,113.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="TFAttr4" Height="20" Width="50" Margin="147,238,99,57.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr1" Height="20" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr2" Height="20" Width="50" Margin="55,191,191,104.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr3" Height="20" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr4" Height="20" Width="50" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
-
                             <Grid Margin="30,50,0,88.6" Width="286" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
@@ -332,10 +348,10 @@
                                 <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="TFRelaxTime" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="TFWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="TFWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="TFMoveway"  />
+                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="TFMoveway" IsTabStop="False" />
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="TFSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -344,16 +360,16 @@
                                 <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="TFTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="TFDistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="TFDistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="TFCountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="TFCountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="TFCal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="TFCal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="TFIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="TFIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
                                 <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="TFTime2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -362,14 +378,16 @@
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="TFFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="TFEvaluate"/>
+                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="TFEvaluate" IsTabStop="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
                                 <TextBox Height="104" Margin="0,2,26,0" Name="TFAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
@@ -378,7 +396,9 @@
                                 <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
                                 <TextBox Height="104" Margin="0,2,26,0" Name="TFUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
@@ -387,7 +407,9 @@
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
                                 <TextBox Height="104" Margin="0,2,26,0" Name="TFMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
@@ -441,10 +463,10 @@
                                 <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="LERelaxTime" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="LEWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" />
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="LEWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble" />
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="LEMoveway"/>
+                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="LEMoveway" IsTabStop="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="LESportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -453,16 +475,16 @@
                                 <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="LETime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="LEDistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="LEDistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="LECountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="LECountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="LECal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="LECal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="LEIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="LEIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
                                 <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="LETime2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -471,14 +493,16 @@
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="LEFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="LEEvaluate"/>
+                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="LEEvaluate" IsTabStop="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
                                 <TextBox Height="104" Margin="0,2,26,0" Name="LEAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
@@ -487,7 +511,9 @@
                                 <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
                                 <TextBox Height="104" Margin="0,2,26,0" Name="LEUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
@@ -496,7 +522,9 @@
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
                                 <TextBox Height="104" Margin="0,2,26,0" Name="LEMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
@@ -506,7 +534,7 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="臀部外展内收机" Width="95">
+                    <TabItem Header="腿部推蹬机" Width="95">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -548,10 +576,10 @@
                                 <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="HARelaxTime" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="HAWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="HAWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="HAMoveway"/>
+                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="HAMoveway" IsTabStop="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="HASportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -560,16 +588,16 @@
                                 <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="HATime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="HADistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="HADistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="HACountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="HACountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="HACal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="HACal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="HAIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="HAIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
                                 <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="HATime2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -578,14 +606,16 @@
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HAFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="HAEvaluate"/>
+                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="HAEvaluate" IsTabStop="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
                                 <TextBox Height="104" Margin="0,2,26,0" Name="HAAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
@@ -617,7 +647,7 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="胸部推举机" Width="95">
+                    <TabItem Header="腿部内外弯机" Width="95">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -659,10 +689,10 @@
                                 <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="CPRelaxTime" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="CPWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="CPWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="CPMoveway"/>
+                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="CPMoveway" IsTabStop="False"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="CPSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -671,16 +701,16 @@
                                 <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="CPTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="CPDistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="CPDistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="CPCountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="CPCountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="CPCal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" />
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="CPCal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble" />
 
                                 <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="CPIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="CPIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
                                 <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
                                 <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="CPTime2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -689,14 +719,16 @@
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="CPFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="CPEvaluate"/>
+                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="CPEvaluate" IsTabStop="False"/>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
                                 <TextBox Height="104" Margin="0,2,26,0" Name="CPAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
-                                    --><!--行间距--><!--
+                                    -->
+                                <!--行间距-->
+                                <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>

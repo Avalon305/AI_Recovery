@@ -51,9 +51,11 @@ namespace spms.view.Pages.ChildWin
             //用户信息
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
-
+            //date.DateTime = symptomInfoDTO.Create;
+;           
             //实施日期
-            date.Text = symptomInfoDTO.Create.ToString();
+            date.Content = symptomInfoDTO.Create.ToString();
+            
             bloodlow_1.Text = symptomInfoDTO.Pre_Pressure.Split(new char[] {'/'})[1].Trim();
             bloodhight_1.Text = symptomInfoDTO.Pre_Pressure.Split(new char[] {'/'})[0].Trim();
             heartRate_1.Text = symptomInfoDTO.Pre_HeartRate;
@@ -127,6 +129,17 @@ namespace spms.view.Pages.ChildWin
         private void Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        //回车按钮
+        private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+               Cancel(this, null);
+                //使键盘失去焦点，解决窗口反复出现
+                Keyboard.ClearFocus();
+            }
+
         }
     }
 }

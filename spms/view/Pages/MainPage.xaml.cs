@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Spire.Xls;
 using spms.bean;
 using spms.constant;
 using spms.dao;
@@ -73,6 +74,10 @@ namespace spms.view.Pages
             //加载表头
             Radio_Check_Action();
 
+            //启动初始化Excel转PDF的线程
+//            initializationExcelToPdfThread = new Thread(new ThreadStart(InitializationExcelToPdf));
+//            initializationExcelToPdfThread.Start();
+
         }
 
         /// <summary>
@@ -82,6 +87,19 @@ namespace spms.view.Pages
         {
             //300秒-5分钟一次上传
             BigDataOfficer bigDataOfficer = new BigDataOfficer(300 * 1000);
+        }
+
+        Thread initializationExcelToPdfThread;
+        /// <summary>
+        /// 作用：经过初步测试，第一次Excel转pdf相对较慢，所以在进入程序的时候，执行一次Excel转PDF
+        /// </summary>
+        public void InitializationExcelToPdf()
+        {
+            using (Workbook workbook = new Workbook())
+            {
+                workbook.LoadFromFile(CommUtil.GetDocPath("test1.xlsx"));
+                workbook.SaveToFile(CommUtil.GetDocPath("test1.pdf"), Spire.Xls.FileFormat.PDF);
+            }
         }
 
         /// <summary>
@@ -840,7 +858,7 @@ namespace spms.view.Pages
                     Dictionary<int, List<TrainDTO>> dic = new TrainService().getTrainDTOByUser(user);
                     TrainingRecord_Frame trainingRecordFrame = new TrainingRecord_Frame();
                     List<TrainDTO> trainDtos = new List<TrainDTO>();
-                    dic.TryGetValue((int)DeviceType.X06, out trainDtos);
+                    dic.TryGetValue((int)DeviceType.X01, out trainDtos);
                     trainingRecordFrame.TrainingRecord1.ItemsSource = trainDtos;
                     dic.TryGetValue((int)DeviceType.X05, out trainDtos);
                     trainingRecordFrame.TrainingRecord2.ItemsSource = trainDtos;
@@ -848,9 +866,9 @@ namespace spms.view.Pages
                     trainingRecordFrame.TrainingRecord3.ItemsSource = trainDtos;
                     dic.TryGetValue((int)DeviceType.X03, out trainDtos);
                     trainingRecordFrame.TrainingRecord4.ItemsSource = trainDtos;
-                    dic.TryGetValue((int)DeviceType.X02, out trainDtos);
+                    dic.TryGetValue((int)DeviceType.X06, out trainDtos);
                     trainingRecordFrame.TrainingRecord5.ItemsSource = trainDtos;
-                    dic.TryGetValue((int)DeviceType.X01, out trainDtos);
+                    dic.TryGetValue((int)DeviceType.X02, out trainDtos);
                     trainingRecordFrame.TrainingRecord6.ItemsSource = trainDtos;
 
                     record.Content = trainingRecordFrame;

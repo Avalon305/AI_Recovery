@@ -55,7 +55,7 @@ namespace spms.view.Pages.ChildWin
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
             //训练日期
-            da.Text = trainDto.prescriptionResult.Gmt_Create.ToString();
+            da.Content = trainDto.prescriptionResult.Gmt_Create.ToString();
 
             //查询处方和结果
             List<TrainDTO> trainDtos = new TrainService().GetTrainDTOByPRId(trainDto.prescriptionResult.Pk_PR_Id);
@@ -66,7 +66,7 @@ namespace spms.view.Pages.ChildWin
                 string[] attrs = trainDto.devicePrescription.DP_Attrs.Split(new char[]{'*'});
                 switch (trainDto.devicePrescription.Fk_DS_Id)
                 {
-                    case (int)DeviceType.X06:
+                    case (int)DeviceType.X01:
                         HLPGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
                         HLPGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
                         HLPRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
@@ -178,7 +178,7 @@ namespace spms.view.Pages.ChildWin
                         LEMemo.Text = trainDto.prescriptionResult.PR_Memo;
                         
                         break;
-                    case (int)DeviceType.X02:
+                    case (int)DeviceType.X06:
                         HAGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
                         HAGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
                         HARelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
@@ -205,7 +205,7 @@ namespace spms.view.Pages.ChildWin
                         HAMemo.Text = trainDto.prescriptionResult.PR_Memo;
                         
                         break;
-                    case (int)DeviceType.X01:
+                    case (int)DeviceType.X02:
                         CPGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
                         CPGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
                         CPRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
@@ -245,6 +245,17 @@ namespace spms.view.Pages.ChildWin
         private void Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        //回车按钮
+        private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Cancel(this, null);
+                //使键盘失去焦点，解决窗口反复出现
+                Keyboard.ClearFocus();
+            }
+
         }
     }
 }

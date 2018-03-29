@@ -198,7 +198,7 @@
 
         <StackPanel Orientation="Horizontal" >
             <!--小组名称-->
-            <DataGrid DataGridRow.MouseUp="Grid_Group_Click"  x:Name="DataGrid2" HorizontalAlignment="Left" RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+            <DataGrid DataGridRow.MouseUp="Grid_Group_Click" KeyboardNavigation.TabNavigation="None"  x:Name="DataGrid2" HorizontalAlignment="Left" RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
                 <!--选中行失去焦点-->
                 <DataGrid.Resources>
                     <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>
@@ -223,7 +223,7 @@
             </DataGrid>
             <!--结束小组名称-->
             <!--疾病名称-->
-            <DataGrid x:Name="DataGrid3"  DataGridRow.MouseUp="Grid_Disease_Click" HorizontalAlignment="Left"  RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+            <DataGrid x:Name="DataGrid3"  DataGridRow.MouseUp="Grid_Disease_Click" KeyboardNavigation.TabNavigation="None" HorizontalAlignment="Left"  RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
                 <!--选中行失去焦点-->
                 <DataGrid.Resources>
                     <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>
@@ -248,7 +248,7 @@
             </DataGrid>
             <!--结束：疾病名称-->
             <!--残障名称-->
-            <DataGrid x:Name="DataGrid4" DataGridRow.MouseUp="Grid_Diagnosis_Click" HorizontalAlignment="Left"  RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+            <DataGrid x:Name="DataGrid4" DataGridRow.MouseUp="Grid_Diagnosis_Click" KeyboardNavigation.TabNavigation="None" HorizontalAlignment="Left"  RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
                 <!--选中行失去焦点-->
                 <DataGrid.Resources>
                     <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>

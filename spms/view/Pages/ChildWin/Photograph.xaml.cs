@@ -29,6 +29,8 @@ namespace spms.view.Pages.ChildWin
     public partial class Photograph : Window
 
     {
+        //判断用户是否拍照
+        private bool ifUserTakePhoto = false;
         //得到用户的身份证
         public string getIdCard { get; set; }
         //得到用户的名字
@@ -112,6 +114,8 @@ namespace spms.view.Pages.ChildWin
                 //File.WriteAllBytes("/1" + Guid.NewGuid().ToString().Substring(0, 5) + ".jpg", captureData);
             }
 
+            ifUserTakePhoto = true;
+
         }
 
         // 保存图片按钮
@@ -123,8 +127,6 @@ namespace spms.view.Pages.ChildWin
                 String path = CommUtil.GetUserPic(getName + getIdCard);
                 String dirPath = CommUtil.GetUserPic();
 
-                Console.WriteLine(dirPath);
-
                 if (Directory.Exists(dirPath))//判断是否存在
                 {
                     //Response.Write("已存在");
@@ -134,7 +136,13 @@ namespace spms.view.Pages.ChildWin
                     //Response.Write("不存在，正在创建");
                     Directory.CreateDirectory(dirPath);//创建新路径
                 }
-                
+
+                if (!ifUserTakePhoto)
+                {
+                    MessageBox.Show("您还没有拍摄照片");
+                    return;
+                }
+
                 // 压缩图片
                 File.WriteAllBytes(path + "temp.gif", Pic);
                 GetPicThumbnail(path + "temp.gif", path + ".gif", 300, 300, 22);
@@ -252,6 +260,17 @@ namespace spms.view.Pages.ChildWin
         private void cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             vce.VideoCaptureSource = (string)cb.SelectedItem;
+        }
+        //回车按钮
+        private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+               SavePic(this, null);
+                //使键盘失去焦点，解决窗口反复出现
+                Keyboard.ClearFocus();
+            }
+
         }
     }
 }

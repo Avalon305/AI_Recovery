@@ -8,6 +8,7 @@
         Icon="/view/Images/icon2.png"
         Title="宝德龙"
 ResizeMode="NoResize"
+         PreviewKeyDown="key_dowm"
         Height="763.2" Width="1300"
         Loaded="Window_Loaded">
     <Window.Resources>
@@ -72,7 +73,7 @@ ResizeMode="NoResize"
             </Grid.ColumnDefinitions>
             <!--器材名称开始-->
             <Border Grid.Row="0"  Grid.Column="0" Background="Gray" Margin="11,0,10,0">
-                <CheckBox Name="checkbox1" IsTabStop="False"  Foreground="White"  Margin="0,3,0,0" >水平腿部推蹬机</CheckBox>
+                <CheckBox Name="checkbox1" IsTabStop="False"  Foreground="White"  Margin="0,3,0,0" >胸部推举机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="1" Background="Gray" Margin="10,0,10,0">
                 <CheckBox Name="checkbox2"  IsTabStop="False"   Foreground="White"  Margin="00,3,0,0"  >坐姿划船机</CheckBox>
@@ -84,10 +85,10 @@ ResizeMode="NoResize"
                 <CheckBox Name="checkbox4"  IsTabStop="False"  Foreground="White"  Margin="0,3,0,0"  >腿部伸展弯曲机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="4" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox5"  IsTabStop="False"  Foreground="White"  Margin="0,3,0,0"  >臀部外展内收机</CheckBox>
+                <CheckBox Name="checkbox5"  IsTabStop="False"  Foreground="White"  Margin="0,3,0,0"  >腿部推蹬机</CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="5" Background="Gray" Margin="10,0,10,0">
-                <CheckBox  Name="checkbox6" IsTabStop="False"  Foreground="White"  Margin="0,3,0,0"  >胸部推举机</CheckBox>
+                <CheckBox  Name="checkbox6" IsTabStop="False"  Foreground="White"  Margin="0,3,0,0"  >腿部内外弯机</CheckBox>
             </Border>
             <!--器材名称结束-->
 
@@ -111,24 +112,25 @@ ResizeMode="NoResize"
             <Border Grid.Row="1" Grid.Column="1" Margin="10,3,10,3">
                 <Grid Margin="0,0,-0.2,10.8">
                     <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
+                        <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_11" IsTabStop="False"  ToolTip="移动距离"  Height="20" Width="50" Margin="10,39,135.4,151" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
-                    <ComboBox Name="com_12" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="0,108,145.4,82" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
-                    <ComboBox Name="com_13" IsTabStop="False"  ToolTip="动臂位置1" Height="20" Width="50" Margin="122,79,23.4,111" IsEnabled="{Binding IsChecked, ElementName=checkbox2}" RenderTransformOrigin="0.34,1.49"></ComboBox>
-                    <ComboBox Name="com_14" IsTabStop="False"  ToolTip="动臂位置2" Height="20" Width="50" Margin="122,22,23.4,168" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
-
+                    <ComboBox Name="com_11" ToolTip="移动距离" IsTabStop="False"  Height="20" Width="50" Margin="11,64,133.6,126" IsEnabled="{Binding IsChecked, ElementName=checkbox3}" ></ComboBox>
+                    <ComboBox Name="com_12" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="0,126,144.6,64" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
+                    <ComboBox Name="com_13" ToolTip="胸垫位置" IsTabStop="False"  Height="20" Width="50" Margin="122,102,22.6,88" RenderTransformOrigin="1.002,-0.44" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
+                    <ComboBox Name="com_14" ToolTip="座椅位置" IsTabStop="False"  Height="20" Width="50" Margin="95,157,49.6,33" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
                 </Grid>
+
             </Border>
             <Border Grid.Row="1" Grid.Column="2" Margin="10,3,10,3">
                 <Grid Margin="0,0,-0.2,10.8">
                     <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
+                        <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_21" ToolTip="移动距离" IsTabStop="False"  Height="20" Width="50" Margin="11,64,133.6,126" IsEnabled="{Binding IsChecked, ElementName=checkbox3}" ></ComboBox>
-                    <ComboBox Name="com_22" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="0,126,144.6,64" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
-                    <ComboBox Name="com_23" ToolTip="胸垫位置" IsTabStop="False"  Height="20" Width="50" Margin="122,102,22.6,88" RenderTransformOrigin="1.002,-0.44" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
-                    <ComboBox Name="com_24" ToolTip="座椅位置" IsTabStop="False"  Height="20" Width="50" Margin="95,157,49.6,33" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
+                    <ComboBox Name="com_21" IsTabStop="False"  ToolTip="移动距离"  Height="20" Width="50" Margin="10,39,135.4,151" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+                    <ComboBox Name="com_22" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="0,108,145.4,82" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+                    <ComboBox Name="com_23" IsTabStop="False"  ToolTip="动臂位置1" Height="20" Width="50" Margin="122,79,23.4,111" IsEnabled="{Binding IsChecked, ElementName=checkbox2}" RenderTransformOrigin="0.34,1.49"></ComboBox>
+                    <ComboBox Name="com_24" IsTabStop="False"  ToolTip="动臂位置2" Height="20" Width="50" Margin="122,22,23.4,168" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+
                 </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="3" Margin="10,3,10,3">
@@ -522,12 +524,13 @@ ResizeMode="NoResize"
         </Grid>
         <!--Grid 使用器材选择 结束-->
         <!-- 按钮排放位置-->
-        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="686" Height="28" VerticalAlignment="Bottom" Margin="0,0,10,0" >
+        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="742" Height="28" VerticalAlignment="Bottom" Margin="0,0,9.6,0" >
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
                 <Button Width="140"  Height="25"  IsTabStop="False"  Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom">下一页</Button>
                 <Button Width="140"  Height="25" IsTabStop="False"   Margin="2,0,0,0"  RenderTransformOrigin="0.5,0.508" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Save">保存</Button>
                 <Button Width="140" Height="25"  IsTabStop="False"   Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="ButtonBase_OnClick">写入IC卡</Button>
                 <Button Width="140" Height="25"  IsTabStop="False"  Content="取消"  Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Cancel"/>
+                <Button Width="140" Height="25"  IsTabStop="False"  Content="模拟写卡"  Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Click"/>
             </StackPanel>
         </Border>
         <!-- 结束：按钮排放位置-->

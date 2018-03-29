@@ -7,6 +7,7 @@
         <Setter Property="Background" Value="Gray"/>
         <!--修改模板属性-->
         <Setter Property="Template">
+            
             <Setter.Value>
                 <!--控件模板-->
                 <ControlTemplate TargetType="Button">
@@ -125,5 +126,8 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
 </ResourceDictionary>

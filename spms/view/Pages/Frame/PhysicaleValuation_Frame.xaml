@@ -10,7 +10,7 @@
 
     <Grid>
 
-        <DataGrid x:Name="PhysicaleValuation" RowHeaderWidth="0" SelectionMode="Single" HorizontalAlignment="Left" Margin="5,11,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="302" Width="942" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
+        <DataGrid x:Name="PhysicaleValuation" RowHeaderWidth="0" SelectionMode="Single" KeyboardNavigation.TabNavigation="None" HorizontalAlignment="Left" Margin="5,11,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="302" Width="942" CanUserSortColumns="False" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
             <!--选中行失去焦点时的颜色-->
             <DataGrid.Resources>
                 <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
