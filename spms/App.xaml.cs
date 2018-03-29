@@ -45,7 +45,7 @@ namespace spms
                 //开启大数据上传
                 StartBigData();
             }
-            catch(Exception e)
+            catch(Exception ee)
             {
             }
             

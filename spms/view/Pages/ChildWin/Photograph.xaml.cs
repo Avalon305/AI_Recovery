@@ -153,7 +153,7 @@ namespace spms.view.Pages.ChildWin
 
                 // 压缩并且保存图片
                 File.WriteAllBytes(path + "temp.gif", Pic);
-                GetPicThumbnail(path + "temp.gif", path + ".gif", 300, 300, 10);
+                GetPicThumbnail(path + "temp.gif", path + ".gif", 300, 300, 20);
                 File.Delete(path + "temp.gif");
                 // 判断一下压缩后的大小
                 long picLen = 0;
@@ -241,7 +241,7 @@ namespace spms.view.Pages.ChildWin
                 for (int x = 0; x < arrayICI.Length; x++)
                 {
                     
-                    if (arrayICI[x].FormatDescription.Equals("GIF"))
+                    if (arrayICI[x].FormatDescription.Equals("JPEG"))
                     {
                         gifICIinfo = arrayICI[x];
                         break;
