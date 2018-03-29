@@ -173,6 +173,7 @@
     <Compile Include="bean\ComprehensiveReportBean.cs" />
     <Compile Include="bean\TcpFrameBean.cs" />
     <Compile Include="constant\CodeConstant.cs" />
+    <Compile Include="constant\DevConstants.cs" />
     <Compile Include="constant\ProtocolConstant.cs" />
     <Compile Include="dao\app\CustomDataDAO.cs" />
     <Compile Include="dao\app\ExcelDao.cs" />
