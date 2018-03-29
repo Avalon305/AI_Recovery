@@ -52,6 +52,13 @@ namespace spms.view.Pages
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            if (SetterDAO.getSetter().Set_Unique_Id != "" && SetterDAO.getSetter().Set_Unique_Id != null)//判断是否激活
+            {
+                Status.Content = "已激活";
+                Color color = Color.FromArgb(255, 2, 200, 5);
+                Status.Foreground = new SolidColorBrush(color);
+                BtnActivite.IsEnabled = false;
+            }
             setterList = setterDao.ListAll();
             Pk_Set_Id = setterList[0].Pk_Set_Id;
             List<Auther> AutherList = new List<Auther>();
@@ -63,13 +70,7 @@ namespace spms.view.Pages
             int Dset_Id = (int)ComboBox_Device.SelectedValue;
             DeviceSortList = deviceSortDAO.GetDeviceSortBySet(Dset_Id);
             ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = DeviceSortList;//类型
-            if (SetterDAO.getSetter().Set_Unique_Id != "" && SetterDAO.getSetter().Set_Unique_Id != null)//判断是否激活
-            {
-                Status.Content = "已激活";
-                Color color = Color.FromArgb(255, 2, 200, 5);
-                Status.Foreground = new SolidColorBrush(color);
-                BtnActivite.IsEnabled = false;
-            }
+            
         }
         //返回上一页
         private void GoBack(object sender, RoutedEventArgs e)
@@ -114,9 +115,12 @@ namespace spms.view.Pages
         {
             if (selected == 1)
             {
-                authDAO.DeleteByPrimaryKey(auther);//在数据库中删除
-                FlushAuther();
-                selected = 0;
+                if (MessageBox.Show("你确认要删除所选项吗", "提示：", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                {
+                    authDAO.DeleteByPrimaryKey(auther);//在数据库中删除
+                    FlushAuther();
+                    selected = 0;
+                }
             }
             else
             {
@@ -154,7 +158,10 @@ namespace spms.view.Pages
         }
         private void Btn_Confirm(object sender, RoutedEventArgs e)
         {
-            deviceSortDAO.UpdateDeviceSorts(DeviceSortList);
+            if (MessageBox.Show("你确认要保存更改吗", "提示：", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            {
+                deviceSortDAO.UpdateDeviceSorts(DeviceSortList);
+            }
 
         }
 

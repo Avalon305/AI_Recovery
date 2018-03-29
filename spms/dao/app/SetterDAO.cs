@@ -39,6 +39,13 @@ namespace spms.dao
                 conn.Execute(sql, setter);
             }
         }
+        public void UpdateSetter(entity.Setter setter)
+        {
+            using (var conn = DbUtil.getConn())//更新Setter
+            {
+                conn.Execute("update bdl_set set Set_Language=@Set_Language,Set_OrganizationSort=@Set_OrganizationSort,Set_OrganizationName=@Set_OrganizationName,Set_PhotoLocation=@Set_PhotoLocation where Pk_Set_Id=@Pk_Set_Id", setter);
+            }
+        }
 
 
     }

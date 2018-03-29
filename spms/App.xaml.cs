@@ -1,4 +1,5 @@
-﻿using spms.server;
+﻿using spms.http;
+using spms.server;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -39,6 +40,15 @@ namespace spms
                 }
             });
              th.Start();
+            try
+            {
+                //开启大数据上传
+                StartBigData();
+            }
+            catch(Exception e)
+            {
+            }
+            
             base.OnStartup(e);
         }
         /// <summary>
@@ -49,6 +59,25 @@ namespace spms
         {
             System.Environment.Exit(0);
             base.OnExit(e);
+        }
+
+        private void StartBigData()
+        {
+            //大数据线程，主要上传除心跳之外的所有数据信息
+            Thread bigDataThread;
+            //启动大数据线程,切换界面记得关闭该线程
+            bigDataThread = new Thread(new ThreadStart(UploadDataToWEB));
+            //暂时先不启动
+            bigDataThread.Start();
+        }
+
+        /// <summary>
+        /// 上传的方法，参数为秒
+        /// </summary>
+        public static void UploadDataToWEB()
+        {
+            //300秒-5分钟一次上传
+            BigDataOfficer bigDataOfficer = new BigDataOfficer(300 * 1000);
         }
     }
 }
