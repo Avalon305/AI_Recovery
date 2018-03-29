@@ -19,6 +19,7 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
+
                 conn.Open();
 
                 var result = conn.GetAll<T>().ToList();

@@ -55,8 +55,15 @@ namespace spms.view.Pages
             //setterList.Add(setterDao.Load(setter.Pk_Set_Id));
             setterList = setterDao.ListAll();
             Pk_Set_Id = setterList[0].Pk_Set_Id;
-            comboBox2.SelectedIndex = (int)setterList[0].Set_Language;
-            comboBox1.SelectedIndex = int.Parse(setterList[0].Set_OrganizationSort);
+            comboBox2.SelectedIndex = setterList[0].Set_Language;
+            try
+            {
+                comboBox1.SelectedIndex = int.Parse(setterList[0].Set_OrganizationSort);
+            }
+            catch(FormatException ee)
+            {
+                comboBox1.SelectedIndex = 0;
+            }
             ObservableCollection<entity.Setter> DataCollection = new ObservableCollection<entity.Setter>(setterList);
             textBox1.DataContext = DataCollection;//设置机构团体名称
             textBox2.DataContext = DataCollection;//设置照片保存文档
@@ -86,8 +93,11 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             advancedSettingPassWord.ShowDialog();
-            Window window = (Window)this.Parent;
-            window.Content = new AdvancedSettings();
+            if (advancedSettingPassWord.IsTrue == 1)
+            {
+                Window window = (Window)this.Parent;
+                window.Content = new AdvancedSettings();
+            }
 
         }
         List<int> selectID = new List<int>();  //保存选中要删除行的FID值  
@@ -105,21 +115,22 @@ namespace spms.view.Pages
 
         private void Btn_Confirm(object sender, RoutedEventArgs e)
         {
-            string textValue1 = textBox1.Text;//机构团体名称
-            string textValue2 = textBox2.Text;//照片保存文档
-            int comboBox1Selected = comboBox1.SelectedIndex;//机构区分被选择的index
-            int comboBox2Selected = comboBox2.SelectedIndex;//语言被选择的index
-            entity.Setter setter = new entity.Setter();
-            setter.Pk_Set_Id = Pk_Set_Id;
-            setter.Set_OrganizationName = textValue1;
-            setter.Set_PhotoLocation = textValue2;
-            setter.Set_Language = comboBox2Selected;
-            setter.Set_OrganizationSort = comboBox1Selected.ToString();
-            /* using (var conn = DbUtil.getConn())//更新机构团体和照片保存文档
-             {
-                 conn.Execute("update bdl_set set Set_OrganizationName=@Set_OrganizationName,Set_Language=@Set_Language，Set_OrganizationSort=@Set_OrganizationSort，Set_PhotoLocation=@Set_PhotoLocation where Pk_Set_Id=@Pk_Set_Id", setter);
-             }*/
-            setterDao.UpdateByPrimaryKey(setter);
+            if (MessageBox.Show("你确认要保存更改吗", "提示：", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            {
+                string textValue1 = textBox1.Text;//机构团体名称
+                string textValue2 = textBox2.Text;//照片保存文档
+                int comboBox1Selected = comboBox1.SelectedIndex;//机构区分被选择的index
+                int comboBox2Selected = comboBox2.SelectedIndex;//语言被选择的index
+                entity.Setter setter = new entity.Setter();
+                setter.Pk_Set_Id = Pk_Set_Id;
+                setter.Set_OrganizationName = textValue1;
+                setter.Set_PhotoLocation = textValue2;
+                setter.Set_Language = comboBox2Selected;
+                setter.Set_OrganizationSort = comboBox1Selected.ToString();
+                setterDao.UpdateSetter(setter);
+
+            }
+
 
 
         }
@@ -284,9 +295,12 @@ namespace spms.view.Pages
         {
             if (Selected[0] == 1)
             {
-                customDataDAO.DeleteCustomDataByPrimaryKey(group.Pk_CD_Id);//在数据库中删除
-                FlushGroup();
-                Selected[0] = 0;
+                if (MessageBox.Show("你确认要删除所选项吗", "提示：", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                {
+                    customDataDAO.DeleteCustomDataByPrimaryKey(group.Pk_CD_Id);//在数据库中删除
+                    FlushGroup();
+                    Selected[0] = 0;
+                }
             }
             else
             {
@@ -297,9 +311,12 @@ namespace spms.view.Pages
         {
             if (Selected[1] == 1)
             {
-                customDataDAO.DeleteCustomDataByPrimaryKey(disease.Pk_CD_Id);//在数据库中删除
-                FlushDisease();
-                Selected[1] = 0;
+                if (MessageBox.Show("你确认要删除所选项吗", "提示：", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                {
+                    customDataDAO.DeleteCustomDataByPrimaryKey(disease.Pk_CD_Id);//在数据库中删除
+                    FlushDisease();
+                    Selected[1] = 0;
+                }
             }
             else
             {
@@ -310,9 +327,12 @@ namespace spms.view.Pages
         {
             if (Selected[2] == 1)
             {
-                customDataDAO.DeleteCustomDataByPrimaryKey(diagnosis.Pk_CD_Id);//在数据库中删除
-                FlushDiagnosis();
-                Selected[2] = 0;
+                if (MessageBox.Show("你确认要删除所选项吗", "提示：", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                {
+                    customDataDAO.DeleteCustomDataByPrimaryKey(diagnosis.Pk_CD_Id);//在数据库中删除
+                    FlushDiagnosis();
+                    Selected[2] = 0;
+                }
             }
             else
             {
