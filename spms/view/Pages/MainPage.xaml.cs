@@ -53,8 +53,7 @@ namespace spms.view.Pages
         private AuthDAO authDao = new AuthDAO();
 
 
-        //大数据线程，主要上传除心跳之外的所有数据信息
-        Thread bigDataThread;
+        
 
         //后台心跳更新UI线程
         public System.Timers.Timer timerNotice = null;
@@ -65,10 +64,7 @@ namespace spms.view.Pages
         public MainPage()
         {
             InitializeComponent();
-            //启动大数据线程,切换界面记得关闭该线程
-            bigDataThread = new Thread(new ThreadStart(UploadDataToWEB));
-            //暂时先不启动
-            bigDataThread.Start();
+            
             ///心跳线程部分-load方法启动
 
             //加载表头
@@ -80,14 +76,7 @@ namespace spms.view.Pages
 
         }
 
-        /// <summary>
-        /// 上传的方法，参数为秒
-        /// </summary>
-        public static void UploadDataToWEB()
-        {
-            //300秒-5分钟一次上传
-            BigDataOfficer bigDataOfficer = new BigDataOfficer(300 * 1000);
-        }
+        
 
         Thread initializationExcelToPdfThread;
         /// <summary>
