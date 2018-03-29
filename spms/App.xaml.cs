@@ -40,8 +40,15 @@ namespace spms
                 }
             });
              th.Start();
-            //开启大数据上传
-            StartBigData();
+            try
+            {
+                //开启大数据上传
+                StartBigData();
+            }
+            catch(Exception e)
+            {
+            }
+            
             base.OnStartup(e);
         }
         /// <summary>
