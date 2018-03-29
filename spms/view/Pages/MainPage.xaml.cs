@@ -125,8 +125,9 @@ namespace spms.view.Pages
 
             if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null && selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
             {
-                path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
-                path += ".gif";
+                path = selectUser.User_PhotoLocation;
+                //path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
+                //path += ".gif";
             }
             else
             {
