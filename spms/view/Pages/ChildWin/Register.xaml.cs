@@ -236,7 +236,7 @@ namespace spms.view.Pages.ChildWin
 
                 //压缩一下并且储存图片
                 long picLen = 0;
-                GetPicThumbnail(sourcePic, targetPic,300,300,10);
+                GetPicThumbnail(sourcePic, targetPic,300,300,20);
                 FileInfo di = new FileInfo(targetPic);
                 picLen = di.Length;
                 picLen /= 1024;
@@ -444,7 +444,6 @@ namespace spms.view.Pages.ChildWin
             }
         }
 
-
         /// <param name="sFile">原图片</param>    
         /// <param name="dFile">压缩后保存位置</param>    
         /// <param name="dHeight">高度</param>    
@@ -503,7 +502,7 @@ namespace spms.view.Pages.ChildWin
                 ImageCodecInfo jpegICIinfo = null;
                 for (int x = 0; x < arrayICI.Length; x++)
                 {
-                    if (arrayICI[x].FormatDescription.Equals("GIF"))
+                    if (arrayICI[x].FormatDescription.Equals("BMP"))
                     {
                         jpegICIinfo = arrayICI[x];
                         break;
