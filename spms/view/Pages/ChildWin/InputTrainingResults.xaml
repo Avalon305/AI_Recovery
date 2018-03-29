@@ -13,6 +13,64 @@
         Title="宝德龙"
          ResizeMode = "NoResize" Height="744.8" Width="900"
         Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="ToolTip">
+            <Setter Property="Background" Value="Gray"/>
+            <Setter Property="Padding" Value="6"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="ArialMT"/>
+            <Setter Property="HorizontalOffset" Value="0"/>
+            <Setter Property="Placement" Value="Right"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToolTip">
+                        <Grid Width="{TemplateBinding Width}" Margin="15,0,0,0" Height="{TemplateBinding Height}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="5*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Viewbox Grid.Row="0" Grid.Column="0" Stretch="Uniform"  HorizontalAlignment="Left" Margin="-15,15,0,-35">
+                                <Path Data="M 0,0 0.5,1 0.5,30 Z" Fill="{TemplateBinding Background}" HorizontalAlignment="Left" Height="8.25"  Stretch="Fill" Stroke="{TemplateBinding Background}" VerticalAlignment="Top" Width="17.75"/>
+                            </Viewbox>
+                            <Border Grid.Row="1" x:Name="Root" Grid.ColumnSpan="2"  CornerRadius="6" Margin="0,-2,0,0"  
+                                    Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                                <Border.Resources>
+                                    <Storyboard x:Key="Visible State"/>
+                                    <Storyboard x:Key="Normal State"/>
+                                </Border.Resources>
+                                <ContentPresenter TextBlock.Foreground="White" TextBlock.FontFamily="ArialMT"  
+                              Content="{TemplateBinding Content}"  
+                              ContentTemplate="{TemplateBinding ContentTemplate}"  
+                              Cursor="{TemplateBinding Cursor}"  
+                              Margin="{TemplateBinding Padding}"/>
+                            </Border>
+                        </Grid>
+                        <!--<Border x:Name="Root" CornerRadius="2" BorderThickness="{TemplateBinding BorderThickness}" Background="#FFFFFFFF" BorderBrush="{TemplateBinding BorderBrush}">  
+                            <Border BorderBrush="#FFFFFFFF" BorderThickness="1" CornerRadius="1" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">  
+                                <Border.Resources>  
+                                    <Storyboard x:Key="Visible State"/>  
+                                    <Storyboard x:Key="Normal State"/>  
+                                </Border.Resources>  
+                                <ContentPresenter  
+                              Content="{TemplateBinding Content}"  
+                              ContentTemplate="{TemplateBinding ContentTemplate}"  
+                              Cursor="{TemplateBinding Cursor}"  
+                              Margin="{TemplateBinding Padding}"/>  
+                            </Border>  
+                        </Border>-->
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+    </Window.Resources>
     <StackPanel>
         <!--Border 使用者一览表以及按钮  开始-->
         <Border Height="40" CornerRadius="5,5,0,0"  Margin="10,5,10,0">
@@ -81,10 +139,10 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="HLPAttr1" Height="20" Width="50" Margin="46,154,200,141.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox  Name="HLPAttr2" Height="20" Width="50" Margin="34,208,212,87.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="HLPAttr3" Height="20" Width="50" Margin="61,102,185,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="HLPAttr4" Height="20" Width="50" Margin="154,228,92,67.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="HLPAttr1" Height="20" ToolTip="移动距离" Width="50" Margin="46,154,200,141.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox  Name="HLPAttr2" Height="20" ToolTip="砝码重量" Width="50" Margin="34,208,212,87.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="HLPAttr3" Height="20" ToolTip="动臂位置" Width="50" Margin="61,102,185,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="HLPAttr4" Height="20" ToolTip="座椅位置" Width="50" Margin="154,228,92,67.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -195,10 +253,10 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="RowAttr1" Height="20" Width="50" Margin="66,115,180,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="RowAttr2" Height="20" Width="50" Margin="50,202,196,93.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="RowAttr3" Height="20" Width="50" Margin="174,182,72,113.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="RowAttr4" Height="20" Width="50" Margin="147,238,99,57.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr1" ToolTip="移动距离" Height="20" Width="50" Margin="66,115,180,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr2" ToolTip="砝码重量" Height="20" Width="50" Margin="50,202,196,93.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr3" Height="20" ToolTip="胸垫位置" Width="50" Margin="174,182,72,113.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="RowAttr4" Height="20" Width="50" ToolTip="座椅位置" Margin="147,238,99,57.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
 
 
@@ -312,10 +370,10 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="TFAttr1" Height="20" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="TFAttr2" Height="20" Width="50" Margin="55,191,191,104.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="TFAttr3" Height="20" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="TFAttr4" Height="20" Width="50" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr1" Height="20" ToolTip="移动距离" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr2" Height="20" ToolTip="砝码重量" Width="50" Margin="55,191,191,104.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr3" Height="20" ToolTip="动臂位置1" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="TFAttr4" Height="20" Width="50" ToolTip="动臂位置2" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
                             <Grid Margin="30,50,0,88.6" Width="286" >
                                 <Grid.RowDefinitions>
@@ -425,11 +483,11 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="LEAttr1" Height="20" Width="50" Margin="107,58,139,237.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="LEAttr2" Height="20" Width="50" Margin="24,189,222,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="LEAttr3" Height="20" Width="50" Margin="24,102,222,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="LEAttr4" Height="20" Width="50" Margin="144,240,102,55.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="LEAttr5" Height="20" Width="50" Margin="174,189,72,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="LEAttr1" Height="20" Width="50" ToolTip="移动距离" Margin="107,58,139,237.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="LEAttr2" Height="20"  ToolTip="砝码重量"  Width="50" Margin="24,189,222,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="LEAttr3" Height="20"  ToolTip="动臂位置1" Width="50" Margin="24,102,222,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="LEAttr4" Height="20" ToolTip="动臂位置2"  Width="50" Margin="144,240,102,55.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="LEAttr5" Height="20"  ToolTip="座椅位置" Width="50" Margin="174,189,72,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -540,9 +598,9 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="HAAttr1" Height="20" Width="50" Margin="160,66,86,229.2" RenderTransformOrigin="-0.096,-0.43" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="HAAttr2" Height="20" Width="50" Margin="78,169,168,126.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                                <TextBox Name="HAAttr3" Height="20" Width="50" Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="HAAttr1" Height="20" ToolTip="移动距离" Width="50" Margin="160,66,86,229.2" RenderTransformOrigin="-0.096,-0.43" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="HAAttr2" Height="20" Width="50" ToolTip="砝码重量"  Margin="78,169,168,126.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Name="HAAttr3" Height="20" Width="50" ToolTip="座椅位置"  Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >
@@ -653,9 +711,9 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <TextBox Name="CPAttr1" Height="20" Width="50" Margin="130,66,116,229.2" RenderTransformOrigin="-0.188,-0.34" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="CPAttr2" Height="20" Width="50" Margin="47,171,199,124.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
-                                <TextBox Name="CPAttr3" Width="50" Height="20" Margin="150,204,96,94.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <TextBox Name="CPAttr1" Height="20"  ToolTip="移动距离" Width="50" Margin="130,66,116,229.2" RenderTransformOrigin="-0.188,-0.34" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="CPAttr2" ToolTip="砝码重量"  Height="20" Width="50" Margin="47,171,199,124.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>
+                                <TextBox Name="CPAttr3" ToolTip="动臂位置"  Width="50" Height="20" Margin="150,204,96,94.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                             </Grid>
 
                             <Grid Margin="30,50,0,88.6" Width="286" >

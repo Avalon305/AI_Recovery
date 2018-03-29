@@ -50,7 +50,7 @@
         </Grid>
         <!--结束：用户ID和姓名-->
         <!--实施日期-->
-        <StackPanel Height="23" Margin="10,15,-0.4,0" Orientation="Horizontal">
+        <StackPanel Height="25" Margin="10,15,-0.4,0" Orientation="Horizontal">
             <Label Content="实施日期" Height="25" Margin="0,0,0,0" Background="Gray" Foreground="White" Width="80"/>
             <my:DateTimePicker   Margin="3,0,0,0" KeyboardNavigation.TabNavigation="None"  x:Name="date" VerticalAlignment="Top" Height="25" />
             <!--<DatePicker Name="date"  Height="23"  KeyboardNavigation.TabNavigation="None" Margin="3,0,0,0" VerticalAlignment="Bottom" Width="155" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
@@ -97,42 +97,43 @@
                     <ColumnDefinition Width="118"/>
                     <ColumnDefinition Width="92.8"/>
                     <ColumnDefinition  Width="130"/>
-                    <ColumnDefinition Width="207.4"/>
+                    <ColumnDefinition Width="175.6"/>
+                    <ColumnDefinition Width="31.6"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBox Grid.Row="0" Grid.Column="0" Margin="10,2,85,2" Name="bloodlow_1" VerticalContentAlignment="Center"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="37,0,57.4,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
-                <TextBox Grid.Row="0" Grid.Column="0" Margin="65,2,30,2"  Name="bloodhight_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Margin="0.6,0,0.2,23.6" Grid.RowSpan="2" Name="heartRate_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Grid.Row="0" Grid.Column="0" Margin="17.2,2,72.2,1.8" Name="bloodlow_1" VerticalContentAlignment="Center"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="50.2,0,50.2,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
+                <TextBox Grid.Row="0" Grid.Column="0" Margin="72.2,2,17.4,1.8"  Name="bloodhight_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,129.8,23.6" Grid.RowSpan="2" Name="heartRate_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Grid.ColumnSpan="2"/>
                 <GroupBox Grid.Row="0" Grid.Column="2"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="2.8,2,0.8,0.8" Width="126" >
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="127" Margin="-8,0,-5.4,-6" >
                         <RadioButton VerticalAlignment="Center" Width="55" Margin="0,1" Name="rule_1"  IsTabStop="False" >规律脉</RadioButton>
                         <RadioButton VerticalAlignment="Center"  Width="70" Name="irregular_1" IsTabStop="False" >脉率不齐</RadioButton>
                     </StackPanel>
                 </GroupBox>
-                <TextBox Grid.Row="0" Grid.Column="3" Grid.RowSpan="2"   Name="heat_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Margin="0.2,0,87,24.6"/>
+                <TextBox Grid.Row="0" Grid.Column="3" Grid.RowSpan="2"   Name="heat_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Margin="0.2,0,55.4,24.6"/>
 
 
-                <TextBox Grid.Row="1" Grid.Column="0" Margin="10,2,85,2"  Name="bloodlow_2" VerticalContentAlignment="Center"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="37,0,57.4,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
-                <TextBox Grid.Row="1" Grid.Column="0" Margin="65,0.2,30,2" Name="bloodhight_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Margin="0.6,0.2,0.2,-0.4" Name="heartRate_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                <GroupBox Grid.Row="1" Grid.Column="2"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="2.8,2,0.8,0.8" Width="126" >
+                <TextBox Grid.Row="1" Grid.Column="0" Margin="17.2,2,72.2,1.8"  Name="bloodlow_2" VerticalContentAlignment="Center"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <Label Content="/" Grid.Row="1" Grid.Column="0" Margin="50,0.2,50,0.6"  HorizontalContentAlignment="Center" />
+                <TextBox Grid.Row="1" Grid.Column="0" Margin="72.2,2,17.4,1.8" Name="bloodhight_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="1,0.2,129.8,-0.4" Name="heartRate_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Grid.ColumnSpan="2"/>
+                <GroupBox Grid.Row="1" Grid.Column="2"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="2.8,2.2,0.8,0.6" Width="126" >
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="127" Margin="-8,0,-5.4,-6" >
                         <RadioButton VerticalAlignment="Center" Width="55" Margin="0,1" Name="rule_2"  IsTabStop="False"  >规律脉</RadioButton>
                         <RadioButton VerticalAlignment="Center"  Width="70" Name="irregular_2"  IsTabStop="False" >脉率不齐</RadioButton>
                     </StackPanel>
                 </GroupBox>
-                <TextBox Grid.Row="1" Grid.Column="3" Margin="0.2,0.2,87,-0.4" Name="heat_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                <Border Grid.Row="0" Grid.Column="0" BorderBrush="Silver" BorderThickness="1"  Margin="0,0.2,-1,-0.4"/>
-                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Silver" BorderThickness="1" />
-                <Border Grid.Row="0" Grid.Column="2" BorderBrush="Silver" BorderThickness="1"/>
-                <Border Grid.Row="0" Grid.Column="3" BorderBrush="Silver"  BorderThickness="1" Margin="0.2,0,87,24.6" Grid.RowSpan="2" />
+                <TextBox Grid.Row="1" Grid.Column="3" Margin="0.2,0.2,55.4,-0.4" Name="heat_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <Border Grid.Row="0" Grid.Column="0" BorderBrush="Silver" BorderThickness="1,1,0,1"  Margin="0,0,0,24.6" Grid.RowSpan="2"/>
+                <Border Grid.Row="0" BorderBrush="Silver" BorderThickness="1,1,0,1" Grid.ColumnSpan="2" Margin="1,0,129.8,24.6" Grid.RowSpan="2" Grid.Column="1" />
+                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Silver" BorderThickness="1" Grid.ColumnSpan="3" Margin="92.6,0,175.4,24.6" Grid.RowSpan="2"/>
+                <Border Grid.Row="0" Grid.Column="3" BorderBrush="Silver"  BorderThickness="1" Margin="0.2,0,55.4,24.6" Grid.RowSpan="2" />
 
-                <Border Grid.Row="1" Grid.Column="0" BorderBrush="Silver" BorderThickness="1" Margin="0,0.2,-1,-0.4"/>
+                <Border Grid.Row="1" Grid.Column="0" BorderBrush="Silver" BorderThickness="1" Margin="0,0.2,92.2,-0.4" Grid.ColumnSpan="2"/>
                 <Border Grid.Row="1" BorderBrush="Silver" BorderThickness="1" Margin="118,0.2,0.2,-0.4" Grid.ColumnSpan="2"/>
-                <Border Grid.Column="1" BorderBrush="Silver" BorderThickness="1" Margin="92.6,0.2,87,-0.4" Grid.Row="1" Grid.ColumnSpan="3"/>
-                <Border Grid.Row="1" Grid.Column="3" BorderBrush="Silver" BorderThickness="1" Margin="0.2,0.2,87,-0.4" />
+                <Border Grid.Column="1" BorderBrush="Silver" BorderThickness="1" Margin="92.6,0.2,55.4,-0.4" Grid.Row="1" Grid.ColumnSpan="3"/>
+                <Border Grid.Row="1" Grid.Column="3" BorderBrush="Silver" BorderThickness="1" Margin="0.2,0.2,55.4,-0.4" />
             </Grid>
         </Grid>
         <!--结束：康复前后信息对比-->
@@ -185,7 +186,7 @@
         <!--水分摄取-->
         <StackPanel Orientation="Horizontal" Margin="10,10,10,10">
             <Label Content=" 水分摄取" Background="Gray" Foreground="White"  Width="80"/>
-            <TextBox Margin="20,0" Width="31" x:Name="amunt" VerticalContentAlignment="Center" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+            <TextBox Margin="20,0" Width="41" x:Name="amunt" VerticalContentAlignment="Center" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
             <Label Content="(cc)"/>
         </StackPanel>
         <!--结束：水分摄取-->
