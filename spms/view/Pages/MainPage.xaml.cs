@@ -236,12 +236,17 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
+            
             //类中使用
             User user = (User) UsersInfo.SelectedItem;
             userUpdata.SelectUser = user;
             //UI中使用
             userUpdata.selectUser.DataContext = user;
             userUpdata.ShowDialog();
+            
+            //关闭后刷新界面
+            users = userService.GetAllUsers();
+            UsersInfo.ItemsSource = users;
         }
 
         //按钮：删除
