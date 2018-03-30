@@ -84,7 +84,7 @@ namespace spms.view.Pages.ChildWin
             string path = null; // huo的用戶的tu片url
             if (origin_name != null && origin_name != "")
             {
-                path = SelectUser.User_PhotoLocation;
+                path = CommUtil.GetUserPic(SelectUser.User_PhotoLocation);
                 //path = CommUtil.GetUserPic(origin_name_pinyin);
                 //path += ".gif";
             }
@@ -267,10 +267,20 @@ namespace spms.view.Pages.ChildWin
 
             if (IDCard != null && usernamePY != null && IDCard != "" && usernamePY != "" && userIfSelectPic != false)
             {
+                
 
                 //如果用户是自己选择现成的图片，将图片保存在安装目录下
                 string sourcePic = userPhotoPath;
-                string targetPic = CommUtil.GetUserPicTemp();
+                string targetPic = CommUtil.GetUserPicTemp(SelectUser.User_PhotoLocation);
+
+                // 如果用户更新之前没有照片的话 ，生成一个random
+                Random random = new Random();
+                int rd = random.Next(0, 100000);
+                if (SelectUser.User_PhotoLocation == null)
+                {
+                    targetPic = CommUtil.GetUserPicTemp(SelectUser.User_IDCard + rd.ToString()+".gif");
+                    photoName = SelectUser.User_IDCard + rd.ToString() + ".gif";
+                }
 
                 //判断要保存的temp文件夹是否存在
                 String dirPath = CommUtil.GetUserPicTemp();
@@ -283,16 +293,16 @@ namespace spms.view.Pages.ChildWin
                     //Response.Write("不存在，正在创建");
                     Directory.CreateDirectory(dirPath);//创建新路径
                 }
-
+                
                 //压缩一下并且储存图片
                 GetPicThumbnail(sourcePic, targetPic,184,259,20);
-                                
+
                 // 如果图片太大就重新选择
                 long picLen = 0;
                 FileInfo di = new FileInfo(targetPic);
                 picLen = di.Length;
                 picLen /= 1024;
-                if (picLen > 10)
+                if (picLen > 1000)
                 {
                     MessageBox.Show("图片过大，请重新选择");
                     
@@ -300,21 +310,37 @@ namespace spms.view.Pages.ChildWin
                     return;
                 }
 
-                // 将temp的照片拷贝过去
+                // 将temp的照片拷贝过去，并且判断一下用户更新前是否已经有照片
                 string userSelectFinalPic = CommUtil.GetUserPic();
+                if (SelectUser.User_PhotoLocation == null)
+                {
+                    userSelectFinalPic += photoName;
+                } else
+                {
+                    photoName = SelectUser.User_IDCard + rd.ToString() + ".gif";
+                    userSelectFinalPic = CommUtil.GetUserPic(photoName);
+                }
+                
+                // 将用户之前的照片删除
+                if (File.Exists(userSelectFinalPic))
+                {
+                    //File.Delete(userSelectFinalPic);
+                }
+
                 File.Copy(targetPic, userSelectFinalPic);
                 
             }
+
             // 如果是正常拍照得到了图片
             else if(photoName != null)
             {
                 // 判断 图片库里面是否存在 原来的头像,存在的话 删除
                 User user = userService.GetByIdCard(origin_IDCard);
                 string yuanPhoto = CommUtil.GetUserPic(user.User_PhotoLocation);
-                MessageBox.Show(yuanPhoto);
+                //MessageBox.Show(yuanPhoto);
                 if (File.Exists(yuanPhoto))
                 {
-                    File.Delete(yuanPhoto);
+                    //File.Delete(yuanPhoto);
                 }
 
                 //将新照片存到 图片库
@@ -324,7 +350,10 @@ namespace spms.view.Pages.ChildWin
             }
 
             //更新数据库的图片名称
-            SelectUser.User_PhotoLocation = photoName;
+            if (photoName != null)
+            {
+                SelectUser.User_PhotoLocation = photoName;
+            } 
 
             userService.UpdateUser(SelectUser);
             this.Close();            

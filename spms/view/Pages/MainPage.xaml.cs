@@ -241,7 +241,7 @@ namespace spms.view.Pages
 
             // 加载用户头像
             string photoUrl = CommUtil.GetUserPic(selectUser.User_PhotoLocation);
-            if (photoUrl != null)
+            if (selectUser.User_PhotoLocation != null)
             {
                 UserPhoto.Source = new BitmapImage(new Uri(photoUrl));
             }
