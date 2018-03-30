@@ -38,8 +38,55 @@ namespace spms.view.Pages.ChildWin
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             Load_Data();//载入数据
+            HLPAttr1.ItemsSource = Add(0, 700, 2);
+            //com_02.ItemsSource = Add(0, 30, 2);
+            HLPAttr3.ItemsSource = Add(1, 5, 2);
+            HLPAttr4.ItemsSource = Add(1, 9, 2);
+            RowAttr1.ItemsSource = Add(0, 400, 2);
+            //com_12.ItemsSource = Add(0, 30, 1);
+            RowAttr3.ItemsSource = Add(1, 4, 2);
+            RowAttr4.ItemsSource = Add(1, 4, 2);
+            TFAttr1.ItemsSource = Add(0, 700, 2);
+            //com_22.ItemsSource = Add(0, 30, 1);
+            TFAttr3.ItemsSource = Add(1, 6, 2);
+            TFAttr4.ItemsSource = Add(1, 9, 2);
+            LEAttr1.ItemsSource = Add(0, 260, 1);
+            //com_32.ItemsSource = Add(0, 30, 1);
+            LEAttr3.ItemsSource = Add(1, 5, 2);
+            LEAttr4.ItemsSource = Add(1, 5, 2);
+            LEAttr5.ItemsSource = Add(1, 9, 2);
+            HAAttr1.ItemsSource = Add(0, 500, 2);
+            //com_42.ItemsSource = Add(0, 30, 1);
+            HAAttr3.ItemsSource = Add(1, 9, 2);
+            CPAttr1.ItemsSource = Add(0, 180, 2);
+            //com_52.ItemsSource = Add(0, 30, 1);
+            CPAttr3.ItemsSource = Add(1, 8, 2);
         }
+        private List<double> Add(double start, double end, int type)
 
+        {
+            List<double> list = new List<double>();
+            switch (type)
+            {
+                case 1:
+                    for (double s = start; s <= end; s += 0.5)
+                    {
+                        list.Add(s);
+                    }
+
+                    break;
+                case 2:
+                    for (double s = start; s <= end; s++)
+                    {
+                        list.Add(s);
+                    }
+
+                    break;
+
+            }
+
+            return list;
+        }
         private User user;
         public InputTrainingResults()
         {
@@ -1103,6 +1150,132 @@ namespace spms.view.Pages.ChildWin
                 Keyboard.ClearFocus();
             }
 
+        }
+        private void HLPselect_change(object sender, EventArgs e)
+        {
+
+            if (HLPTimer.Text.Equals("无效"))
+            {
+                HLPTime_Label.Background = Brushes.White;
+                HLPTiming_Label.Background = Brushes.White;
+                HLPTiming.Visibility = Visibility.Hidden;
+                
+                HLPTime.Visibility = Visibility.Hidden;
+                
+            }
+            else if (HLPTimer.Text.Equals("有效"))
+            {
+                HLPTime_Label.Background = Brushes.Gray;
+                HLPTiming_Label.Background = Brushes.Gray;
+                HLPTiming.Visibility = Visibility.Visible;
+
+                HLPTime.Visibility = Visibility.Visible;
+            }
+        }
+        private void ROWselect_change(object sender, EventArgs e)
+        {
+
+            if (ROWTimer.Text.Equals("无效"))
+            {
+                ROWTime_Label.Background = Brushes.White;
+                ROWTiming_Label.Background = Brushes.White;
+                ROWTiming.Visibility = Visibility.Hidden;
+
+                ROWTime.Visibility = Visibility.Hidden;
+
+            }
+            else if (ROWTimer.Text.Equals("有效"))
+            {
+                ROWTime_Label.Background = Brushes.Gray;
+                ROWTiming_Label.Background = Brushes.Gray;
+                ROWTiming.Visibility = Visibility.Visible;
+
+                ROWTime.Visibility = Visibility.Visible;
+            }
+        }
+        private void TFselect_change(object sender, EventArgs e)
+        {
+
+            if (TFTimer.Text.Equals("无效"))
+            {
+                TFTime_Label.Background = Brushes.White;
+                TFTiming_Label.Background = Brushes.White;
+                TFTiming.Visibility = Visibility.Hidden;
+
+                TFTime.Visibility = Visibility.Hidden;
+
+            }
+            else if (TFTimer.Text.Equals("有效"))
+            {
+                TFTime_Label.Background = Brushes.Gray;
+                TFTiming_Label.Background = Brushes.Gray;
+                TFTiming.Visibility = Visibility.Visible;
+
+                TFTime.Visibility = Visibility.Visible;
+            }
+        }
+        private void LEselect_change(object sender, EventArgs e)
+        {
+
+            if (LETimer.Text.Equals("无效"))
+            {
+                LETime_Label.Background = Brushes.White;
+                LETiming_Label.Background = Brushes.White;
+                LETiming.Visibility = Visibility.Hidden;
+
+                LETime.Visibility = Visibility.Hidden;
+
+            }
+            else if (LETimer.Text.Equals("有效"))
+            {
+                LETime_Label.Background = Brushes.Gray;
+                LETiming_Label.Background = Brushes.Gray;
+                LETiming.Visibility = Visibility.Visible;
+
+                LETime.Visibility = Visibility.Visible;
+            }
+        }
+        private void HAselect_change(object sender, EventArgs e)
+        {
+
+            if (HATimer.Text.Equals("无效"))
+            {
+                HATime_Label.Background = Brushes.White;
+                HATiming_Label.Background = Brushes.White;
+                HATiming.Visibility = Visibility.Hidden;
+
+                HATime.Visibility = Visibility.Hidden;
+
+            }
+            else if (HATimer.Text.Equals("有效"))
+            {
+                HATime_Label.Background = Brushes.Gray;
+                HATiming_Label.Background = Brushes.Gray;
+                HATiming.Visibility = Visibility.Visible;
+
+                HATime.Visibility = Visibility.Visible;
+            }
+        }
+        private void CPselect_change(object sender, EventArgs e)
+        {
+
+            if (CPTimer.Text.Equals("无效"))
+            {
+                CPTime_Label.Background = Brushes.White;
+                CPTiming_Label.Background = Brushes.White;
+                CPTiming.Visibility = Visibility.Hidden;
+
+                CPTime.Visibility = Visibility.Hidden;
+
+            }
+            else if (CPTimer.Text.Equals("有效"))
+            {
+                CPTime_Label.Background = Brushes.Gray;
+                CPTiming_Label.Background = Brushes.Gray;
+                CPTiming.Visibility = Visibility.Visible;
+
+                CPTime.Visibility = Visibility.Visible;
+            }
         }
     }
 }
