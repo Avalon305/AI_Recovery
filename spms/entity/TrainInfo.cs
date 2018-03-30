@@ -68,7 +68,7 @@ namespace spms.entity
         //计时时间
         public int dp_timecount { get; set; }
         //计时方式
-        public int dp_timetype { get; set; }
+        public Byte? dp_timetype { get; set; }
 
         public override string ToString()
         {
