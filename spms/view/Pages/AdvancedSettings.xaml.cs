@@ -186,7 +186,7 @@ namespace spms.view.Pages
                 //存入数据库
                 setter.Set_Unique_Id = Encoding.GetEncoding("GBK").GetString(AesMac);
                 setter.Pk_Set_Id = Pk_Set_Id;
-                MessageBox.Show(Pk_Set_Id.ToString());
+                //MessageBox.Show(Pk_Set_Id.ToString());
                 SetterDAO.UpdateOneSet(setter);
                 //注释的部分为添加多个mac地址
                 // List<entity.Setter> ListMac = CommUtil.GetMacByWMI();
