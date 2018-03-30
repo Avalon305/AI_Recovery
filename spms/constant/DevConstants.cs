@@ -11,10 +11,20 @@ namespace spms.constant
         /// <summary>
         /// 计时器有效
         /// </summary>
-        public static byte TIMER_VALID;
+        public static readonly byte TIMER_VALID = 0x00;
         /// <summary>
         /// 计时器无效
         /// </summary>
-        public static byte TIMER_INVALID;
+        public static readonly byte TIMER_INVALID =0x01;
+        /// <summary>
+        /// 正计时
+        /// </summary>
+        public static readonly byte COUNT_FORWARD = 0x00;
+        /// <summary>
+        /// 倒计时
+        /// </summary>
+        public static readonly byte COUNT_REVERSE = 0x01;
+
+
     }
 }
