@@ -31,7 +31,7 @@ namespace spms.view.Pages.ChildWin
     public partial class Register : Window
     {
         //照片的url
-        public string photoUrl { get; set; }
+        public string photoName { get; set; }
         //用户是否自己选择照片
         private bool userIfSelectPic = false;
         //去除窗体叉号
@@ -259,7 +259,7 @@ namespace spms.view.Pages.ChildWin
             }
 
             //将图片的url传到数据库
-            user.User_PhotoLocation = photoUrl;
+            user.User_PhotoLocation = photoName;
             userService.InsertUser(user);
             //保存照片的路径
             this.Close();
@@ -276,20 +276,25 @@ namespace spms.view.Pages.ChildWin
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            
+
+            if(t3.Text == null)
+            {
+                MessageBox.Show("没有填写拼音名字");
+                return;
+            }
             photograph.getName = t3.Text;
 
             photograph.ShowDialog();
-            photoUrl = photograph.photoUrl;
+            photoName = photograph.photoName;
             photograph.Close();
 
             //MessageBox.Show("hi");
 
             //展示摄像的时候的图片
-            if (File.Exists(photoUrl))
+            if (File.Exists(CommUtil.GetUserPic() + photoName))
             {
                 //MessageBox.Show("hi open!");
-                BitmapImage bitmap = new BitmapImage(new Uri(photoUrl, UriKind.Absolute));//打开图片
+                BitmapImage bitmap = new BitmapImage(new Uri(CommUtil.GetUserPic() + photoName, UriKind.Absolute));//打开图片
                 pic.Source = bitmap.Clone();//将控件和图片绑定
                 
             }

@@ -28,6 +28,8 @@ namespace spms.view.Pages.ChildWin
 
     public partial class Photograph : Window
     {
+        //照片的名字
+        public string photoName = null;
         //照片的历经
         public string photoUrl = null;
         //判断用户是否拍照
@@ -153,15 +155,16 @@ namespace spms.view.Pages.ChildWin
 
                 // 压缩并且保存图片
                 File.WriteAllBytes(path + "temp.gif", Pic);
-                GetPicThumbnail(path + "temp.gif", path + ".gif", 300, 300, 20);
+                GetPicThumbnail(path + "temp.gif", path + ".gif", 184, 259, 20);
                 File.Delete(path + "temp.gif");
+                photoName = getName + random + ".gif";
                 // 判断一下压缩后的大小
                 long picLen = 0;
                 FileInfo di = new FileInfo(path + ".gif");
                 picLen = di.Length;
                 picLen /= 1024;
 
-                if (picLen > 10)
+                if (picLen > 100)
                 {
                     MessageBox.Show("图片过大，请重新拍摄");
                     File.Delete(path + ".gif");
@@ -241,7 +244,7 @@ namespace spms.view.Pages.ChildWin
                 for (int x = 0; x < arrayICI.Length; x++)
                 {
                     
-                    if (arrayICI[x].FormatDescription.Equals("JPEG"))
+                    if (arrayICI[x].FormatDescription.Equals("GIF"))
                     {
                         gifICIinfo = arrayICI[x];
                         break;
@@ -249,7 +252,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 if (gifICIinfo != null)
                 {
-                    MessageBox.Show("保存1");
+                    //MessageBox.Show("保存1");
                     ob.Save(dFile, gifICIinfo, ep);//dFile是压缩后的新路径    
                 }
                 else
