@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace spms.constant
 {
+    /// <summary>
+    /// 计时器常量类
+    /// </summary>
     class DevConstants
     {
         /// <summary>
@@ -25,6 +28,6 @@ namespace spms.constant
         /// </summary>
         public static readonly byte COUNT_REVERSE = 0x01;
 
-
+ 
     }
 }
