@@ -55,7 +55,7 @@ namespace spms.util
             string[] names = SerialPort.GetPortNames();
             if (names.Length == 1)
             {
-                SerialPortUtil.portName = names[0];
+                portName = names[0];
             }
             else
             {
@@ -66,5 +66,27 @@ namespace spms.util
                 serialPortSelection.ShowDialog();
             }
         }
+
+        public static void ClosePort(ref SerialPort serialPort)
+        {
+            if (serialPort != null)
+            {
+                try
+                {
+                    if (serialPort.IsOpen)
+                    {
+                        serialPort.Close();
+                        Console.WriteLine("串口正常关闭");
+                    }
+                    serialPort = null;
+                    SerialPort = null;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("串口关闭异常");
+                }
+            }
+        }
+
     }
 }

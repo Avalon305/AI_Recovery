@@ -1327,8 +1327,15 @@ namespace spms.view.Pages.ChildWin
                 byte[] send = ProtocolUtil.packHairpinData(0x01, data);
 
                 //检查当前是否有多个串口
-                SerialPortUtil.CheckPort();
-                
+                if (SerialPortUtil.SerialPort == null)
+                {
+                    SerialPortUtil.CheckPort();
+                }
+                else
+                {
+                    SerialPortUtil.portName = SerialPortUtil.SerialPort.PortName;
+                }
+
                 if (SerialPortUtil.portName == "")
                 {
                     MessageBox.Show("请选择串口号");
@@ -1340,16 +1347,24 @@ namespace spms.view.Pages.ChildWin
                     serialPort = SerialPortUtil.ConnectSerialPort(OnPortDataReceived);
                     try
                     {
-                        serialPort.Open();
+                        if (!serialPort.IsOpen)
+                        {
+                            serialPort.Open();
+                        }
                     }
                     catch (UnauthorizedAccessException ex)
                     {
                         MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        //清空缓存
+                        SerialPortUtil.SerialPort = null;
+                        serialPort = null;
                         return;
                     }
                     catch (IOException ex)
                     {
                         MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        SerialPortUtil.SerialPort = null;
+                        serialPort = null;
                         return;
                     }
                 }
@@ -1357,7 +1372,8 @@ namespace spms.view.Pages.ChildWin
                 {
                     if (!serialPort.IsOpen)
                     {
-                        try {
+                        try
+                        {
                             serialPort.Open();
                         }
                         catch (UnauthorizedAccessException ex)
@@ -1376,9 +1392,10 @@ namespace spms.view.Pages.ChildWin
                 serialPort.Write(send, 0, send.Length);
 
                 //发送的定时器
+                Button_Write.IsEnabled = false;
                 times = 0;//发送之前次数至空
                 threadTimer = new Timer(new System.Threading.TimerCallback(ReissueThreeTimes), send, 500, 500);
-
+                
             }
 
             //保存到数据库,在接收数据方法中
@@ -1407,10 +1424,12 @@ namespace spms.view.Pages.ChildWin
                         catch (UnauthorizedAccessException ex)
                         {
                             MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
                         }
                         catch (IOException ex)
                         {
                             MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
                         }
                     }
 
@@ -1419,9 +1438,25 @@ namespace spms.view.Pages.ChildWin
 
                 times++;
             }
+            else if (times >= 3 && !isReceive)
+            {
+                threadTimer.Dispose();
+                //关闭串口
+                SerialPortUtil.ClosePort(ref serialPort);
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    MessageBox.Show("设备长时间未应答，请查看是否选对串口，或设备未启动");
+                    Button_Write.IsEnabled = true;
+                }));
+               
+            }
             else
             {
                 threadTimer.Dispose();
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    Button_Write.IsEnabled = true;
+                }));
             }
 
         }
@@ -1490,25 +1525,34 @@ namespace spms.view.Pages.ChildWin
                     if (buffer[buffer.Length - 2] == ProtocolUtil.XorByByte(data))
                     {
                         //Console.WriteLine("校验成功");
-                        if (buffer[buffer.Length - 3] == 0x00)
-                        {
-                            //Console.WriteLine("发卡失败");
-                            MessageBox.Show("写卡失败");
-                        }
-                        else if (buffer[buffer.Length - 3] == 0x01)
+                        if (buffer[buffer.Length - 3] == 0x01)
                         {
                             //Console.WriteLine("发卡成功");
 
                             //保存到数据库 TODO
                             //SaveTrainInfo2DB(TrainInfoStatus.Normal);
                             MessageBox.Show("写卡成功");
+
+                        }
+                        else
+                        {
                             //this.Close();
+                            //Console.WriteLine("发卡失败");
+                            MessageBox.Show("写卡失败");
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
+            }
+            finally
+            {
+                isReceive = false;//处理完消息后
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    Button_Write.IsEnabled = true;
+                }));
             }
         }
 

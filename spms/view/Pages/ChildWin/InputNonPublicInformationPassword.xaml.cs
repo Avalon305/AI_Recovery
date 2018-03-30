@@ -103,26 +103,26 @@ namespace spms.view.Pages.ChildWin
                     //发送的定时器
                     threadTimer = new System.Threading.Timer(new System.Threading.TimerCallback(ReissueThreeTimes), send, 500, 500);
                 }
-                else
-                {
-                    if (!serialPort.IsOpen)
-                    {
-                        try
-                        {
-                            serialPort.Open();
-                        }
-                        catch (UnauthorizedAccessException ex)
-                        {
-                            MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
-                            return;
-                        }
-                        catch (IOException ex)
-                        {
-                            MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
-                            return;
-                        }
-                    }
-                }
+                //else
+                //{
+                //    if (!serialPort.IsOpen)
+                //    {
+                //        try
+                //        {
+                //            serialPort.Open();
+                //        }
+                //        catch (UnauthorizedAccessException ex)
+                //        {
+                //            MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                //            return;
+                //        }
+                //        catch (IOException ex)
+                //        {
+                //            MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                //            return;
+                //        }
+                //    }
+                //}
             }
             else {
                 MessageBox.Show("密码错误，请重新输入");
@@ -161,11 +161,21 @@ namespace spms.view.Pages.ChildWin
                 }
                 times++;
             }
+            else if (times >= 3 && !isReceive)
+            {
+                threadTimer.Dispose();
+                //关闭串口
+                SerialPortUtil.ClosePort(ref serialPort);
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    MessageBox.Show("设备长时间未应答，请查看是否选对串口，或设备未启动");
+                    this.Close();
+                }));
+            }
             else
             {
                 threadTimer.Dispose();
             }
-
         }
 
         /// <summary>
@@ -197,6 +207,7 @@ namespace spms.view.Pages.ChildWin
             try
             {
                 Thread.Sleep(50);
+                isReceive = true;//收到数据，取消重发
 
                 byte[] buffer = null; ;
                 int len = serialPort.BytesToRead;
@@ -266,18 +277,17 @@ namespace spms.view.Pages.ChildWin
 
                         if (strUUID == Get_UUID())
                         {
+                            //MessageBox.Show("激活成功");
+                            //todo 全局变量
+                            ProtocolConstant.USB_SUCCESS = 1;
                             MessageBox.Show("激活成功");
+                            Console.WriteLine("激活成功");
                         }
                         else
                         {
-                            MessageBox.Show("激活失败");
+                            //MessageBox.Show("激活失败");
+                            Console.WriteLine("激活失败");
                         }
-                        //收到消息后至空串口
-                        if (SerialPortUtil.SerialPort != null)
-                        {
-                            SerialPortUtil.SerialPort = null;
-                        }
-                        this.Close();
                     }
                     else
                     {
@@ -287,6 +297,15 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
+            }
+            finally
+            {
+                //收到消息后至空串口并关闭
+                SerialPortUtil.ClosePort(ref serialPort);
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    this.Close();
+                }));
             }
         }
 
