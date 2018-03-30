@@ -57,6 +57,10 @@ namespace spms.util
             {
                 portName = names[0];
             }
+            else if (names.Length == 0)
+            {
+                portName = "";
+            }
             else
             {
                 SerialPortSelection serialPortSelection = new SerialPortSelection();
