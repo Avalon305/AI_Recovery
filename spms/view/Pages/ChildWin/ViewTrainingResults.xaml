@@ -60,10 +60,10 @@
             <!--日历-->
             <Border Margin="10" Width="153" Height="25" BorderThickness="1" BorderBrush="Gray">
                 <!--<Border BorderBrush="Gray" BorderThickness="1" Margin="3,0,0,0">-->
-                    <StackPanel Orientation="Horizontal"  >
-                        <Label x:Name="da" Width="125" VerticalContentAlignment="Center" IsEnabled="False" Height="23" BorderBrush="Gray" BorderThickness="0"></Label>
-                        <Image Source="/view/Images/date.png" Margin="5,5,0,5"></Image>
-                    </StackPanel>
+                <StackPanel Orientation="Horizontal"  >
+                    <Label x:Name="da" Width="125" VerticalContentAlignment="Center" IsEnabled="False" Height="23" BorderBrush="Gray" BorderThickness="0"></Label>
+                    <Image Source="/view/Images/date.png" Margin="5,5,0,5"></Image>
+                </StackPanel>
                 <!--</Border>-->
                 <!--<DatePicker Name="da"  Height="25" Margin="0,3,-0.6,0" VerticalAlignment="Bottom" Width="125" IsEnabled="False"/>-->
             </Border>
@@ -89,8 +89,11 @@
                                 <TextBox Name="HLPAttr4" Height="20" Width="50" Margin="154,228,92,67.2"  IsEnabled="False" ></TextBox>
                             </Grid>
 
-                            <Grid Margin="30,50,0,88.6" Width="286" >
+                            <Grid Margin="30,50,0,22.6" Width="286" >
                                 <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -151,6 +154,18 @@
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
                                 <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0"  Name="HLPEvaluate"  IsEnabled="False"/>
+                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="计时器" />
+                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="HLPTimer" IsTabStop="False" IsEnabled="False"  >
+                                </TextBox>
+
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="HLPTime_Label" Margin="0,1,10,0" Content="时间（分）"  />
+                                <TextBox Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="HLPTime" IsTabStop="False" IsEnabled="False" Visibility="Hidden">
+                                   
+                                </TextBox>
+
+                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="HLPTiming_Label" Content="计时方式" />
+                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="HLPTiming" IsTabStop="False" IsEnabled="False" Visibility="Hidden">
+                                </TextBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -202,9 +217,12 @@
                                 <TextBox Name="ROWAttr3" Height="20" Width="50" Margin="174,182,72,113.2"  IsEnabled="False" ></TextBox>
                                 <TextBox Name="ROWAttr4" Height="20" Width="50" Margin="147,238,99,57.2"   IsEnabled="False"></TextBox>
                             </Grid>
-                           
-                            <Grid Margin="30,50,0,88.6" Width="286" >
+
+                            <Grid Margin="30,50,0,22.6" Width="286" >
                                 <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -265,6 +283,18 @@
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
                                 <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="ROWEvaluate" IsEnabled="False"/>
+
+                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="计时器" />
+                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="ROWTimer" IsTabStop="False"  >
+                                </TextBox>
+
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="ROWTime_Label" Margin="0,1,10,0" Content="时间（分）"  />
+                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="ROWTime" IsTabStop="False"  Visibility="Hidden">
+                                </TextBox>
+
+                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="ROWTiming_Label" Content="计时方式" />
+                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="ROWTiming" IsTabStop="False" Visibility="Hidden">
+                                </TextBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -318,9 +348,11 @@
                                 <TextBox Name="TFAttr4" Height="20" Width="50" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01"  IsEnabled="False" ></TextBox>
                             </Grid>
 
-
-                            <Grid Margin="30,50,0,88.6" Width="286" >
+                            <Grid Margin="30,50,0,22.6" Width="286" >
                                 <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -381,6 +413,18 @@
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
                                 <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="TFEvaluate" IsEnabled="False"/>
+
+                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="计时器" />
+                                <TextBox Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="TFTimer" IsTabStop="False"  >
+                                </TextBox>
+
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="TFTime_Label" Margin="0,1,10,0" Content="时间（分）"  />
+                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="TFTime" IsTabStop="False"  Visibility="Hidden">
+                                </TextBox>
+
+                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="TFTiming_Label" Content="计时方式" />
+                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="TFTiming" IsTabStop="False" Visibility="Hidden">
+                                </TextBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -434,8 +478,11 @@
                                 <TextBox Name="LEAttr5" Height="20" Width="50" Margin="174,189,72,106.2"   IsEnabled="False"></TextBox>
                             </Grid>
 
-                            <Grid Margin="30,50,0,88.6" Width="286" >
+                            <Grid Margin="30,50,0,22.6" Width="286" >
                                 <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -496,6 +543,19 @@
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
                                 <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="LEEvaluate" IsEnabled="False"/>
+
+                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="计时器" />
+                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="LETimer" IsTabStop="False"  >
+                                </TextBox>
+
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="LETime_Label" Margin="0,1,10,0" Content="时间（分）"  />
+                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="LETime" IsTabStop="False"  Visibility="Hidden">
+                                   
+                                </TextBox>
+
+                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="LETiming_Label" Content="计时方式" />
+                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="LETiming" IsTabStop="False" Visibility="Hidden">
+                                </TextBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -546,9 +606,11 @@
                                 <TextBox Name="HAAttr2" Height="20" Width="50" Margin="78,169,168,126.2"   IsEnabled="False"/>
                                 <TextBox Name="HAAttr3" Height="20" Width="50" Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47"  IsEnabled="False" ></TextBox>
                             </Grid>
-
-                            <Grid Margin="30,50,0,88.6" Width="286" >
+                            <Grid Margin="30,0,0,22.6" Width="286" Height="421" VerticalAlignment="Bottom" >
                                 <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -609,6 +671,18 @@
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
                                 <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="HAEvaluate" IsEnabled="False"/>
+
+                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="计时器" />
+                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="HATimer" IsTabStop="False" >
+                                </TextBox>
+
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="HATime_Label" Margin="0,1,10,0" Content="时间（分）"  />
+                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="HATime" IsTabStop="False"  Visibility="Hidden">
+                                </TextBox>
+
+                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="HATiming_Label" Content="计时方式" />
+                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="HATiming" IsTabStop="False" Visibility="Hidden">
+                                </TextBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -660,8 +734,11 @@
                                 <TextBox Name="CPAttr3" Width="50" Height="20" Margin="150,204,96,94.2"  IsEnabled="False" />
                             </Grid>
 
-                            <Grid Margin="30,50,0,88.6" Width="286" >
+                            <Grid Margin="30,50,0,22.6" Width="286" >
                                 <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -722,6 +799,19 @@
 
                                 <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
                                 <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="CPEvaluate" IsEnabled="False"/>
+
+
+                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="计时器" />
+                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="CPTimer" IsTabStop="False"  >
+                                </TextBox>
+
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="CPTime_Label" Margin="0,1,10,0" Content="时间（分）"  />
+                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="CPTime" IsTabStop="False"  Visibility="Hidden" >
+                                </TextBox>
+
+                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="CPTiming_Label" Content="计时方式" />
+                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="CPTiming" IsTabStop="False" Visibility="Hidden">
+                                </TextBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
