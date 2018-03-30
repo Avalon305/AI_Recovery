@@ -692,4 +692,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y /d  "$(ProjectDir)lib\libmupdf.dll" "$(ProjectDir)$(OutDir)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
