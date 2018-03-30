@@ -925,6 +925,8 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //确定哪些设备可用
+            Certain_Dev();
             //去除窗体叉号
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
@@ -1206,6 +1208,45 @@ namespace spms.view.Pages.ChildWin
                         break;
                 }
 
+            }
+        }
+
+        private void Certain_Dev()
+        {
+            var devs = new DeviceSortDAO().ListAll();
+            foreach(DeviceSort dev in devs)
+            {
+                if(dev.DS_Status == 1)
+                {
+                    continue;
+                }
+                switch (dev.DS_name)
+                {
+                    case "胸部推举机":
+                        checkbox1.IsChecked = false;
+                        checkbox1.IsEnabled = false;
+                        break;
+                    case "坐姿划船机":
+                        checkbox2.IsChecked = false;
+                        checkbox2.IsEnabled = false;
+                        break;
+                    case "身体伸展弯曲机":
+                        checkbox3.IsChecked = false;
+                        checkbox3.IsEnabled = false;
+                        break;
+                    case "腿部伸展弯曲机":
+                        checkbox4.IsChecked = false;
+                        checkbox4.IsEnabled = false;
+                        break;
+                    case "腿部推蹬机":
+                        checkbox5.IsChecked = false;
+                        checkbox5.IsEnabled = false;
+                        break;
+                    case "腿部内外弯机":
+                        checkbox6.IsChecked = false;
+                        checkbox6.IsEnabled = false;
+                        break;
+                }
             }
         }
 

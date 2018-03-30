@@ -133,8 +133,8 @@
             </Grid.Resources>
             <Grid Margin="0,0,0,10">
                 <TabControl Name="TabControl1"  Margin="9,0,10,0"  >
-                    <TabItem Header="胸部推举机" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}">
-                        <StackPanel Orientation="Horizontal">
+                    <TabItem Name="tab1" Header="胸部推举机" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}">
+                        <StackPanel Name="sp1" Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
@@ -325,8 +325,8 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="坐姿划船机" Width="95">
-                        <StackPanel Orientation="Horizontal">
+                    <TabItem Name="tab2"  Header="坐姿划船机" Width="95">
+                        <StackPanel Name="sp2"  Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
@@ -520,8 +520,8 @@
                         </StackPanel>
                     </TabItem>
 
-                    <TabItem Header="身体伸展弯曲机" Width="95">
-                        <StackPanel Orientation="Horizontal">
+                    <TabItem Name="tab3"  Header="身体伸展弯曲机" Width="95">
+                        <StackPanel Name="sp3"  Orientation="Horizontal">
 
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -712,8 +712,8 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="腿部伸展弯曲机" Width="95">
-                        <StackPanel Orientation="Horizontal">
+                    <TabItem Name="tab4"  Header="腿部伸展弯曲机" Width="95">
+                        <StackPanel Name="sp4"  Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
@@ -905,8 +905,8 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="腿部推蹬机" Width="95" Height="21" Margin="0.2,-2,0,0" VerticalAlignment="Top">
-                        <StackPanel Orientation="Horizontal">
+                    <TabItem Name="tab5"  Header="腿部推蹬机" Width="95" Height="21" Margin="0.2,-2,0,0" VerticalAlignment="Top">
+                        <StackPanel Name="sp5"  Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
@@ -1096,8 +1096,8 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="腿部内外弯机" Width="95">
-                        <StackPanel Orientation="Horizontal">
+                    <TabItem Name="tab6"  Header="腿部内外弯机" Width="95">
+                        <StackPanel Name="sp6"  Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />

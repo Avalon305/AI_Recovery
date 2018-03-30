@@ -46,6 +46,20 @@ namespace spms.view.Pages.ChildWin
             trainDto = (TrainDTO) dic["trainDto"];
             //绑定数据
             Load_Data();
+            certain_dev();
+        }
+
+        private void certain_dev()
+        {
+            var deviceSorts = new DeviceSortDAO().ListAll();
+            foreach(DeviceSort dev in deviceSorts)
+            {
+                switch(dev.DS_name)
+                {
+                    case "":
+                        break;
+                }
+            }
         }
 
         private void Load_Data()

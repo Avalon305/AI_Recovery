@@ -37,6 +37,7 @@ namespace spms.view.Pages.ChildWin
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             Load_Data();//载入数据
+            Certain_Dev();//确定购买了哪些设备
             HLPAttr1.ItemsSource = Add(0, 700, 2);
             //com_02.ItemsSource = Add(0, 30, 2);
             HLPAttr3.ItemsSource = Add(1, 5, 2);
@@ -60,6 +61,45 @@ namespace spms.view.Pages.ChildWin
             CPAttr1.ItemsSource = Add(0, 180, 2);
             //com_52.ItemsSource = Add(0, 30, 1);
             CPAttr3.ItemsSource = Add(1, 8, 2);
+        }
+
+        private void Certain_Dev()
+        {
+            var devs = new DeviceSortDAO().ListAll();
+            foreach (DeviceSort dev in devs)
+            {
+                if (dev.DS_Status == 1)
+                {
+                    continue;
+                }
+                switch (dev.DS_name)
+                {
+                    case "胸部推举机":
+                        tab1.IsEnabled = false;
+                        sp1.IsEnabled = false;
+                        break;
+                    case "坐姿划船机":
+                        tab2.IsEnabled = false;
+                        sp2.IsEnabled = false;
+                        break;
+                    case "身体伸展弯曲机":
+                        tab3.IsEnabled = false;
+                        sp3.IsEnabled = false;
+                        break;
+                    case "腿部伸展弯曲机":
+                        tab4.IsEnabled = false;
+                        sp4.IsEnabled = false;
+                        break;
+                    case "腿部推蹬机":
+                        tab5.IsEnabled = false;
+                        sp5.IsEnabled = false;
+                        break;
+                    case "腿部内外弯机":
+                        tab6.IsEnabled = false;
+                        sp6.IsEnabled = false;
+                        break;
+                }
+            }
         }
         private List<double> Add(double start, double end, int type)
 
