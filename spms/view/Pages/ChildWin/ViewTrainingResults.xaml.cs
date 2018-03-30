@@ -71,10 +71,28 @@ namespace spms.view.Pages.ChildWin
                         HLPRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
                         HLPWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         HLPMoveway.Text = trainDto.moveway;
-                        HLPAttr1.Text = attrs[0];
+                        HLPAttr1.Text = trainDto.devicePrescription.dp_movedistance.ToString();
                         //HLPAttr2.Text = attrs[1];
-                        HLPAttr3.Text = attrs[1];
-                        HLPAttr4.Text = attrs[2];
+                        HLPAttr3.Text = attrs[0];
+                        HLPAttr4.Text = attrs[1];
+                        if (trainDto.devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        {
+                            HLPTimer.Text = "有效";
+                            HLPselect_change();
+                            HLPTime.Text = trainDto.devicePrescription.dp_timecount.ToString();
+                            if (trainDto.devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
+                            {
+                                HLPTiming.Text = "正计时";
+                            }
+                            else
+                            {
+                                HLPTiming.Text = "倒计时";
+                            }
+                        }
+                        else
+                        {
+                            HLPTimer.Text = "无效";
+                        }
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -98,10 +116,28 @@ namespace spms.view.Pages.ChildWin
                         ROWRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
                         ROWWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         ROWMoveway.Text = trainDto.moveway;
-                        ROWAttr1.Text = attrs[0];
+                        ROWAttr1.Text = trainDto.devicePrescription.dp_movedistance.ToString();
                         //ROWAttr2.Text = attrs[1];
-                        ROWAttr3.Text = attrs[1];
-                        ROWAttr4.Text = attrs[2];
+                        ROWAttr3.Text = attrs[0];
+                        ROWAttr4.Text = attrs[1];
+                        if (trainDto.devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        {
+                            ROWTimer.Text = "有效";
+                            ROWselect_change();
+                            ROWTime.Text = trainDto.devicePrescription.dp_timecount.ToString();
+                            if (trainDto.devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
+                            {
+                                ROWTiming.Text = "正计时";
+                            }
+                            else
+                            {
+                                ROWTiming.Text = "倒计时";
+                            }
+                        }
+                        else
+                        {
+                            ROWTimer.Text = "无效";
+                        }
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -126,10 +162,28 @@ namespace spms.view.Pages.ChildWin
                         TFRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
                         TFWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         TFMoveway.Text = trainDto.moveway;
-                        TFAttr1.Text = attrs[0];
+                        TFAttr1.Text = trainDto.devicePrescription.dp_movedistance.ToString();
                         //TFAttr2.Text = attrs[1];
-                        TFAttr3.Text = attrs[1];
-                        TFAttr4.Text = attrs[2];
+                        TFAttr3.Text = attrs[0];
+                        TFAttr4.Text = attrs[1];
+                        if (trainDto.devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        {
+                            TFTimer.Text = "有效";
+                            TFselect_change();
+                            TFTime.Text = trainDto.devicePrescription.dp_timecount.ToString();
+                            if (trainDto.devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
+                            {
+                                TFTiming.Text = "正计时";
+                            }
+                            else
+                            {
+                                TFTiming.Text = "倒计时";
+                            }
+                        }
+                        else
+                        {
+                            TFTimer.Text = "无效";
+                        }
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -154,11 +208,29 @@ namespace spms.view.Pages.ChildWin
                         LERelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
                         LEWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         LEMoveway.Text = trainDto.moveway;
-                        LEAttr1.Text = attrs[0];
+                        LEAttr1.Text = trainDto.devicePrescription.dp_movedistance.ToString();
                         //LEAttr2.Text = attrs[1];
-                        LEAttr3.Text = attrs[1];
-                        LEAttr4.Text = attrs[2];
-                        LEAttr5.Text = attrs[3];
+                        LEAttr3.Text = attrs[0];
+                        LEAttr4.Text = attrs[1];
+                        LEAttr5.Text = attrs[2];
+                        if (trainDto.devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        {
+                            LETimer.Text = "有效";
+                            LEselect_change();
+                            LETime.Text = trainDto.devicePrescription.dp_timecount.ToString();
+                            if (trainDto.devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
+                            {
+                                LETiming.Text = "正计时";
+                            }
+                            else
+                            {
+                                LETiming.Text = "倒计时";
+                            }
+                        }
+                        else
+                        {
+                            LETimer.Text = "无效";
+                        }
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -183,9 +255,27 @@ namespace spms.view.Pages.ChildWin
                         HARelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
                         HAWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         HAMoveway.Text = trainDto.moveway;
-                        HAAttr1.Text = attrs[0];
+                        HAAttr1.Text = trainDto.devicePrescription.dp_movedistance.ToString();
                         //HAAttr2.Text = attrs[1];
-                        HAAttr3.Text = attrs[1];
+                        HAAttr3.Text = attrs[0];
+                        if (trainDto.devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        {
+                            HATimer.Text = "有效";
+                            HAselect_change();
+                            HATime.Text = trainDto.devicePrescription.dp_timecount.ToString();
+                            if (trainDto.devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
+                            {
+                                HATiming.Text = "正计时";
+                            }
+                            else
+                            {
+                                HATiming.Text = "倒计时";
+                            }
+                        }
+                        else
+                        {
+                            HATimer.Text = "无效";
+                        }
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -210,9 +300,27 @@ namespace spms.view.Pages.ChildWin
                         CPRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
                         CPWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         CPMoveway.Text = trainDto.moveway;
-                        CPAttr1.Text = attrs[0];
+                        CPAttr1.Text = trainDto.devicePrescription.dp_movedistance.ToString();
                         //CPAttr2.Text = attrs[1];
-                        CPAttr3.Text = attrs[1];
+                        CPAttr3.Text = attrs[0];
+                        if (trainDto.devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        {
+                            CPTimer.Text = "有效";
+                            CPselect_change();
+                            CPTime.Text = trainDto.devicePrescription.dp_timecount.ToString();
+                            if (trainDto.devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
+                            {
+                                CPTiming.Text = "正计时";
+                            }
+                            else
+                            {
+                                CPTiming.Text = "倒计时";
+                            }
+                        }
+                        else
+                        {
+                            CPTimer.Text = "无效";
+                        }
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -256,10 +364,8 @@ namespace spms.view.Pages.ChildWin
             }
 
         }
-        private void HLPselect_change(object sender, EventArgs e)
+        private void HLPselect_change()
         {
-            TextBox t = (TextBox)sender;
-            Console.WriteLine(t.Name);
 
             if (HLPTimer.Text.Equals("无效"))
             {
@@ -279,7 +385,7 @@ namespace spms.view.Pages.ChildWin
                 HLPTime.Visibility = Visibility.Visible;
             }
         }
-        private void ROWselect_change(object sender, EventArgs e)
+        private void ROWselect_change()
         {
 
             if (ROWTimer.Text.Equals("无效"))
@@ -300,7 +406,7 @@ namespace spms.view.Pages.ChildWin
                 ROWTime.Visibility = Visibility.Visible;
             }
         }
-        private void TFselect_change(object sender, EventArgs e)
+        private void TFselect_change()
         {
 
             if (TFTimer.Text.Equals("无效"))
@@ -321,7 +427,7 @@ namespace spms.view.Pages.ChildWin
                 TFTime.Visibility = Visibility.Visible;
             }
         }
-        private void LEselect_change(object sender, EventArgs e)
+        private void LEselect_change()
         {
 
             if (LETimer.Text.Equals("无效"))
@@ -342,7 +448,7 @@ namespace spms.view.Pages.ChildWin
                 LETime.Visibility = Visibility.Visible;
             }
         }
-        private void HAselect_change(object sender, EventArgs e)
+        private void HAselect_change()
         {
 
             if (HATimer.Text.Equals("无效"))
@@ -363,7 +469,7 @@ namespace spms.view.Pages.ChildWin
                 HATime.Visibility = Visibility.Visible;
             }
         }
-        private void CPselect_change(object sender, EventArgs e)
+        private void CPselect_change()
         {
 
             if (CPTimer.Text.Equals("无效"))
