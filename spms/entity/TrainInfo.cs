@@ -64,11 +64,11 @@ namespace spms.entity
         //砝码
         public double dp_weight { get; set; }
         //计时器是否有效
-        public Byte? dp_timer { get; set; }
+        public byte dp_timer { get; set; }
         //计时时间
-        public int dp_timecount { get; set; }
+        public byte dp_timecount { get; set; }
         //计时方式
-        public Byte? dp_timetype { get; set; }
+        public byte dp_timetype { get; set; }
 
         public override string ToString()
         {

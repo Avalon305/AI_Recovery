@@ -164,58 +164,66 @@ namespace spms.protocol
                 var prescription = new TrainService().GetDevicePrescriptionByIdCardDeviceType(idcard, deviceType);
                 UserService userService = new UserService();
                 var u = userService.GetByIdCard(idcard);
-                //
+       
                 if (u == null)
                 {
-                    arr = new byte[1];
-                    arr[0] = 0x01;//无效用户
+                    arr = new byte[2];
+                    arr[0] = (byte)deviceType;
+                    arr[1] = 0x01;//无效用户
                     return arr;
                 }
                 if (prescription == null)
                 {
-                    arr = new byte[1];
+                    arr = new byte[2];
+                    arr[0] = (byte)deviceType;
                     arr[0] = 0x03;//无该项训练计划
                     return arr;
                 }
                 if (prescription.Dp_status == DevicePrescription.DOWN)
                 {
-                    arr = new byte[1];
+                    arr = new byte[2];
+                    arr[0] = (byte)deviceType;
                     arr[0] = 0x02;//已完成该项训练计划
                     return arr;
                 }
-                //备忘
-                string notes = prescription.DP_Memo;
-                byte[] noteBytes = Encoding.GetEncoding("GBK").GetBytes(notes);
-                arr = new byte[67 + noteBytes.Length];
-                arr[0] = 0x00;
-
+               
+                arr = new byte[86];
+                arr[0] = (byte)deviceType;
+                arr[1] = 0x00;//有训练内容
                 // 姓名20个字节
                 byte[] userName = Encoding.GetEncoding("GBK").GetBytes(u.User_Name);
-                Array.Copy(userName, 0, arr, 1, userName.Length);
+                Array.Copy(userName, 0, arr, 2, userName.Length);
                 //姓名拼音32个字节
                 byte[] namePinYin = Encoding.GetEncoding("GBK").GetBytes(u.User_Namepinyin);
-                Array.Copy(namePinYin, 0, arr, 21, namePinYin.Length);
+                Array.Copy(namePinYin, 0, arr, 22, namePinYin.Length);
                 //移乘方法
-                arr[53] = (byte)prescription.dp_moveway;
+                arr[54] = (byte)prescription.dp_moveway;
                 //训练组数
-                arr[54] = (byte)prescription.dp_groupcount;
+                arr[55] = (byte)prescription.dp_groupcount;
                 //每组个数
-                arr[55] = (byte)prescription.dp_groupnum;
+                arr[56] = (byte)prescription.dp_groupnum;
                 //休息时间，秒
-                arr[56] = (byte)prescription.dp_relaxtime;
-                //TODO 计数器是否有效，0有效，1无效，数据库没有该字段，暂时无效
-                arr[57] = 0x01;
+                arr[57] = (byte)prescription.dp_relaxtime;
+                //计数器是否有效，0有效，1无效，数据库没有该字段，暂时无效
+                arr[58] = (byte)prescription.dp_timer;
                 string[] attrs = prescription.DP_Attrs.Split('*');
-                //动臂位置对应的值需要确定 
-                arr[58] = byte.Parse(attrs[2]);
-                //座椅位置 取值 1-9
-                arr[59] = byte.Parse(attrs[3]);
+                //计数方式。正计时。倒计时
+                arr[59] = prescription.dp_timetype;
+                //计时时间，分钟
+                arr[60] = prescription.dp_timecount;
+                //61 备忘
+
+
+
+
                 // 砝码移动距离1/10厘米,存的单位也是毫米
                 Int16 move = Int16.Parse(attrs[0]);
                 arr[60] = Convert.ToByte((move & 0xFF00) >> 8);//低字节
                 arr[61] = Convert.ToByte(move & 0x00FF);//高字节
-               //砝码重量 单位是kg,发送的是0.1kg
-
+                                                        //砝码重量 单位是kg,发送的是0.1kg
+                                                        //备忘
+                string notes = prescription.DP_Memo;
+                byte[] noteBytes = Encoding.GetEncoding("GBK").GetBytes(notes);
                 Int16 weight = (Int16)(prescription.dp_weight * 10);
                 arr[62] = Convert.ToByte((weight & 0xFF00) >> 8);//低字节
                 arr[63] = Convert.ToByte(weight & 0x00FF);//高字节
