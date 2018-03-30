@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
@@ -174,6 +173,33 @@ namespace spms.view.Pages.ChildWin
                 {
                 }
                 devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
+                if (HLPTimer.Text == "有效")
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+                    try
+                    {
+                        devicePrescription.dp_timecount = Byte.Parse(HLPTime.Text);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("请输入正确的计时时间");
+                        return;
+                    }
+                }
+                else
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+                }
+                if (HLPTiming.Text == "倒计时")
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+                }
+                else
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+                }
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -319,6 +345,33 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X05;
+                if (ROWTimer.Text == "有效")
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+                    try
+                    {
+                        devicePrescription.dp_timecount = Byte.Parse(ROWTime.Text);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("请输入正确的计时时间");
+                        return;
+                    }
+                }
+                else
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+                }
+                if (ROWTiming.Text == "倒计时")
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+                }
+                else
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+                }
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -482,6 +535,33 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
+                if (TFTimer.Text == "有效")
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+                    try
+                    {
+                        devicePrescription.dp_timecount = Byte.Parse(TFTime.Text);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("请输入正确的计时时间");
+                        return;
+                    }
+                }
+                else
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+                }
+                if (TFTiming.Text == "倒计时")
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+                }
+                else
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+                }
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -647,6 +727,33 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
+                if (LETimer.Text == "有效")
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+                    try
+                    {
+                        devicePrescription.dp_timecount = Byte.Parse(LETime.Text);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("请输入正确的计时时间");
+                        return;
+                    }
+                }
+                else
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+                }
+                if (LETiming.Text == "倒计时")
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+                }
+                else
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+                }
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -808,6 +915,34 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
+                if (HATimer.Text == "有效")
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+                    try
+                    {
+                        devicePrescription.dp_timecount = Byte.Parse(HATime.Text);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("请输入正确的计时时间");
+                        return;
+                    }
+                }
+                else
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+                }
+                if (HATiming.Text == "倒计时")
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+                }
+                else
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+                }
+
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
@@ -969,6 +1104,33 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
+                if (CPTimer.Text == "有效")
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+                    try
+                    {
+                        devicePrescription.dp_timecount = Byte.Parse(CPTime.Text);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("请输入正确的计时时间");
+                        return;
+                    }
+                }
+                else
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+                }
+                if (CPTiming.Text == "倒计时")
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+                }
+                else
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+                }
 
                 prescriptionResult.Gmt_Create = da;
                 prescriptionResult.Gmt_Modified = DateTime.Now;
