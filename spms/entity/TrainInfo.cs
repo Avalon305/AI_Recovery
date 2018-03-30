@@ -69,6 +69,10 @@ namespace spms.entity
         public byte dp_timecount { get; set; }
         //计时方式
         public byte dp_timetype { get; set; }
+        /// <summary>
+        /// 移动距离
+        /// </summary>
+        public double dp_movedistance { get; set; }
 
         public override string ToString()
         {

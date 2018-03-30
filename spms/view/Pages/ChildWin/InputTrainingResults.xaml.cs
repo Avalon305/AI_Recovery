@@ -115,16 +115,24 @@ namespace spms.view.Pages.ChildWin
                 //胸部推举机
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
-                string attr1 = HLPAttr1.Text;
+                //string attr1 = HLPAttr1.Text;
                 //string attr2 = HLPAttr2.Text;
                 string attr3 = HLPAttr3.Text;
                 string attr4 = HLPAttr4.Text;
-                devicePrescription.DP_Attrs = attr1 + "*" +
+                devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
+                try
+                {
+                    devicePrescription.dp_movedistance = Convert.ToDouble(HLPAttr1.Text);
+                }
+                catch (Exception exception)
+                {
+                }
+
                 try
                 {
                     devicePrescription.dp_groupcount = Convert.ToInt32(HLPGroupcount.Text);
@@ -285,16 +293,23 @@ namespace spms.view.Pages.ChildWin
                 //坐姿划船机
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
-                string attr1 = RowAttr1.Text;
+                //string attr1 = RowAttr1.Text;
                 //string attr2 = RowAttr1.Text;
                 string attr3 = RowAttr1.Text;
                 string attr4 = RowAttr1.Text;
-                devicePrescription.DP_Attrs = attr1 + "*" +
+                devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
+                try
+                {
+                    devicePrescription.dp_movedistance = Convert.ToDouble(RowAttr1.Text);
+                }
+                catch (Exception exception)
+                {
+                }
                 try
                 {
                     devicePrescription.dp_groupcount = Convert.ToInt32(ROWGroupcount.Text);
@@ -475,16 +490,23 @@ namespace spms.view.Pages.ChildWin
                 //身体伸展弯曲机
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
-                string attr1 = TFAttr1.Text;
+                //string attr1 = TFAttr1.Text;
                 //string attr2 = TFAttr2.Text;
                 string attr3 = TFAttr3.Text;
                 string attr4 = TFAttr4.Text;
-                devicePrescription.DP_Attrs = attr1 + "*" +
+                devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
+                try
+                {
+                    devicePrescription.dp_movedistance = Convert.ToDouble(TFAttr1.Text);
+                }
+                catch (Exception exception)
+                {
+                }
                 try
                 {
                     devicePrescription.dp_groupcount = Convert.ToInt32(TFGroupcount.Text);
@@ -665,18 +687,25 @@ namespace spms.view.Pages.ChildWin
                 //腿部伸展弯曲机
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
-                string attr1 = LEAttr1.Text;
+                //string attr1 = LEAttr1.Text;
                 //string attr2 = LEAttr2.Text;
                 string attr3 = LEAttr3.Text;
                 string attr4 = LEAttr4.Text;
                 string attr5 = LEAttr5.Text;
-                devicePrescription.DP_Attrs = attr1 + "*" +
+                devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4 + "*" +
                                               attr5;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
+                try
+                {
+                    devicePrescription.dp_movedistance = Convert.ToDouble(LEAttr1.Text);
+                }
+                catch (Exception exception)
+                {
+                }
                 try
                 {
                     devicePrescription.dp_groupcount = Convert.ToInt32(LEGroupcount.Text);
@@ -857,14 +886,21 @@ namespace spms.view.Pages.ChildWin
                 //腿部腿蹬机
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
-                string attr1 = HAAttr1.Text;
+                //string attr1 = HAAttr1.Text;
                 //string attr2 = HAAttr2.Text;
                 string attr3 = HAAttr3.Text;
-                devicePrescription.DP_Attrs = attr1 + "*" +
+                devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
+                try
+                {
+                    devicePrescription.dp_movedistance = Convert.ToDouble(HAAttr1.Text);
+                }
+                catch (Exception exception)
+                {
+                }
                 try
                 {
                     devicePrescription.dp_groupcount = Convert.ToInt32(HAGroupcount.Text);
@@ -1046,14 +1082,21 @@ namespace spms.view.Pages.ChildWin
                 //腿部内外弯机
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
-                string attr1 = CPAttr1.Text;
+                //string attr1 = CPAttr1.Text;
                 //string attr2 = CPAttr2.Text;
                 string attr3 = CPAttr3.Text;
-                devicePrescription.DP_Attrs = attr1 + "*" +
+                devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
+                try
+                {
+                    devicePrescription.dp_movedistance = Convert.ToDouble(CPAttr1.Text);
+                }
+                catch (Exception exception)
+                {
+                }
                 try
                 {
                     devicePrescription.dp_groupcount = Convert.ToInt32(CPGroupcount.Text);

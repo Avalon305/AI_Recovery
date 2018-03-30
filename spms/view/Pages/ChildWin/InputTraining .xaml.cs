@@ -266,14 +266,14 @@ namespace spms.view.Pages.ChildWin
             if (checkbox1.IsChecked == true)
             {
                 //胸部推举机
-                attr1 = com_01.Text; //属性1
+                //attr1 = com_01.Text; //属性1
                 //attr2 = com_02.Text; //2
                 attr3 = com_03.Text; //3
                 attr4 = com_04.Text; //4
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = attr1 + "*" +
+                devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4;
@@ -281,6 +281,16 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X01;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
+                try
+                {
+                    devicePrescription.dp_movedistance = Convert.ToDouble(com_01.Text);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的移动距离");
+                    throw e;
+                }
+
                 try
                 {
                     devicePrescription.dp_groupcount = Convert.ToInt32(combobox_01.Text); //组数;
@@ -367,14 +377,14 @@ namespace spms.view.Pages.ChildWin
             {
                 //坐姿划船机
                 devName = "坐姿划船机";
-                attr1 = com_11.Text; //属性1
+                //attr1 = com_11.Text; //属性1
                 //attr2 = com_12.Text; //2
                 attr3 = com_13.Text; //3
                 attr4 = com_14.Text; //4
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = attr1 + "*" +
+                devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4;
@@ -382,6 +392,15 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X05;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
+                try
+                {
+                    devicePrescription.dp_movedistance = Convert.ToDouble(com_11.Text);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的移动距离");
+                    throw e;
+                }
                 try
                 {
                     devicePrescription.dp_groupcount = Convert.ToInt32(combobox_11.Text); //组数
@@ -468,13 +487,13 @@ namespace spms.view.Pages.ChildWin
             {
                 //身体伸展弯曲机
                 devName = "身体伸展弯曲机";
-                attr1 = com_21.Text; //属性1
+                //attr1 = com_21.Text; //属性1
                 //attr2 = com_22.Text; //2
                 attr3 = com_23.Text; //3
                 attr4 = com_24.Text; //4
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = attr1 + "*" +
+                devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4;
@@ -482,6 +501,15 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
+                try
+                {
+                    devicePrescription.dp_movedistance = Convert.ToDouble(com_21.Text);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的移动距离");
+                    throw e;
+                }
                 try
                 {
                     devicePrescription.dp_groupcount = Convert.ToInt32(combobox_21.Text); //组数
@@ -568,7 +596,7 @@ namespace spms.view.Pages.ChildWin
             {
                 //腿部伸展弯曲机
                 devName = "腿部伸展弯曲机";
-                attr1 = com_31.Text; //属性1
+                //attr1 = com_31.Text; //属性1
                 //attr2 = com_32.Text; //2
                 attr3 = com_33.Text; //3
                 attr4 = com_34.Text; //4
@@ -576,7 +604,7 @@ namespace spms.view.Pages.ChildWin
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = attr1 + "*" +
+                devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4 + "*" +
@@ -585,6 +613,15 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
+                try
+                {
+                    devicePrescription.dp_movedistance = Convert.ToDouble(com_31.Text);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的移动距离");
+                    throw e;
+                }
                 try
                 {
                     devicePrescription.dp_groupcount = Convert.ToInt32(combobox_31.Text); //组数
@@ -670,19 +707,28 @@ namespace spms.view.Pages.ChildWin
             if (checkbox5.IsChecked == true)
             {
                 //腿部腿蹬机
-                attr1 = com_41.Text; //属性1
+                //attr1 = com_41.Text; //属性1
                 //attr2 = com_42.Text; //2
                 attr3 = com_43.Text; //3
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = attr1 + "*" +
+                devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3;
                 devicePrescription.DP_Memo = t5.Text; //注意点
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
+                try
+                {
+                    devicePrescription.dp_movedistance = Convert.ToDouble(com_41.Text);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的移动距离");
+                    throw e;
+                }
                 try
                 {
                     devicePrescription.dp_groupcount = Convert.ToInt32(combobox_41.Text); //组数
@@ -766,19 +812,28 @@ namespace spms.view.Pages.ChildWin
             if (checkbox6.IsChecked == true)
             {
                 //腿部内外弯机
-                attr1 = com_51.Text; //属性1
+                //attr1 = com_51.Text; //属性1
                 //attr2 = com_52.Text; //2
                 attr3 = com_53.Text; //3
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = attr1 + "*" +
+                devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3;
                 devicePrescription.DP_Memo = t6.Text; //注意点
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
                 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
+                try
+                {
+                    devicePrescription.dp_movedistance = Convert.ToDouble(com_51.Text);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("请选择正确的移动距离");
+                    throw e;
+                }
                 try
                 {
                     devicePrescription.dp_groupcount = Convert.ToInt32(combobox_51.Text); //组数
@@ -965,10 +1020,10 @@ namespace spms.view.Pages.ChildWin
                     case (int)DeviceType.X01:
                         checkbox1.IsChecked = true;
                         //设置属性
-                        com_01.Text = attrs[0];
+                        com_01.Text = devicePrescription.dp_movedistance.ToString();
                         //com_02.Text = attrs[1];
-                        com_03.Text = attrs[1];
-                        com_04.Text = attrs[2];
+                        com_03.Text = attrs[0];
+                        com_04.Text = attrs[1];
                         //设置处方信息
                         combobox_01.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_02.Text = devicePrescription.dp_groupnum.ToString();
@@ -997,10 +1052,10 @@ namespace spms.view.Pages.ChildWin
                         break;
                     case (int)DeviceType.X05:
                         checkbox2.IsChecked = true;
-                        com_11.Text = attrs[0];
+                        com_11.Text = devicePrescription.dp_movedistance.ToString();
                         //com_12.Text = attrs[1];
-                        com_13.Text = attrs[1];
-                        com_14.Text = attrs[2];
+                        com_13.Text = attrs[0];
+                        com_14.Text = attrs[1];
                         combobox_11.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_12.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_13.Text = devicePrescription.dp_relaxtime.ToString();
@@ -1028,10 +1083,10 @@ namespace spms.view.Pages.ChildWin
                         break;
                     case (int)DeviceType.X04:
                         checkbox3.IsChecked = true;
-                        com_21.Text = attrs[0];
+                        com_21.Text = devicePrescription.dp_movedistance.ToString();
                         //com_22.Text = attrs[1];
-                        com_23.Text = attrs[1];
-                        com_24.Text = attrs[2];
+                        com_23.Text = attrs[0];
+                        com_24.Text = attrs[1];
                         combobox_21.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_22.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_23.Text = devicePrescription.dp_relaxtime.ToString();
@@ -1059,11 +1114,11 @@ namespace spms.view.Pages.ChildWin
                         break;
                     case (int)DeviceType.X03:
                         checkbox4.IsChecked = true;
-                        com_31.Text = attrs[0];
+                        com_31.Text = devicePrescription.dp_movedistance.ToString();
                         //com_32.Text = attrs[1];
-                        com_33.Text = attrs[1];
-                        com_34.Text = attrs[2];
-                        com_35.Text = attrs[3];
+                        com_33.Text = attrs[0];
+                        com_34.Text = attrs[1];
+                        com_35.Text = attrs[2];
                         combobox_31.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_32.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_33.Text = devicePrescription.dp_relaxtime.ToString();
@@ -1091,9 +1146,9 @@ namespace spms.view.Pages.ChildWin
                         break;
                     case (int)DeviceType.X06:
                         checkbox5.IsChecked = true;
-                        com_41.Text = attrs[0];
+                        com_41.Text = devicePrescription.dp_movedistance.ToString();
                         //com_42.Text = attrs[1];
-                        com_43.Text = attrs[1];
+                        com_43.Text = attrs[0];
                         combobox_41.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_42.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_43.Text = devicePrescription.dp_relaxtime.ToString();
@@ -1121,9 +1176,9 @@ namespace spms.view.Pages.ChildWin
                         break;
                     case (int)DeviceType.X02:
                         checkbox6.IsChecked = true;
-                        com_51.Text = attrs[0];
+                        com_51.Text = devicePrescription.dp_movedistance.ToString();
                         //com_52.Text = attrs[1];
-                        com_53.Text = attrs[1];
+                        com_53.Text = attrs[0];
                         combobox_51.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_52.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_53.Text = devicePrescription.dp_relaxtime.ToString();
