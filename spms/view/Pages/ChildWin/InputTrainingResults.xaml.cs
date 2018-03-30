@@ -70,11 +70,11 @@ namespace spms.view.Pages.ChildWin
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = HLPAttr1.Text;
-                string attr2 = HLPAttr2.Text;
+                //string attr2 = HLPAttr2.Text;
                 string attr3 = HLPAttr3.Text;
                 string attr4 = HLPAttr4.Text;
                 devicePrescription.DP_Attrs = attr1 + "*" +
-                                              attr2 + "*" +
+                                              //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4;
                 devicePrescription.Gmt_Create = da;
@@ -213,11 +213,11 @@ namespace spms.view.Pages.ChildWin
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = RowAttr1.Text;
-                string attr2 = RowAttr1.Text;
+                //string attr2 = RowAttr1.Text;
                 string attr3 = RowAttr1.Text;
                 string attr4 = RowAttr1.Text;
                 devicePrescription.DP_Attrs = attr1 + "*" +
-                                              attr2 + "*" +
+                                              //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4;
                 devicePrescription.Gmt_Create = da;
@@ -376,11 +376,11 @@ namespace spms.view.Pages.ChildWin
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = TFAttr1.Text;
-                string attr2 = TFAttr2.Text;
+                //string attr2 = TFAttr2.Text;
                 string attr3 = TFAttr3.Text;
                 string attr4 = TFAttr4.Text;
                 devicePrescription.DP_Attrs = attr1 + "*" +
-                                              attr2 + "*" +
+                                              //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4;
                 devicePrescription.Gmt_Create = da;
@@ -539,12 +539,12 @@ namespace spms.view.Pages.ChildWin
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = LEAttr1.Text;
-                string attr2 = LEAttr2.Text;
+                //string attr2 = LEAttr2.Text;
                 string attr3 = LEAttr3.Text;
                 string attr4 = LEAttr4.Text;
                 string attr5 = LEAttr5.Text;
                 devicePrescription.DP_Attrs = attr1 + "*" +
-                                              attr2 + "*" +
+                                              //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4 + "*" +
                                               attr5;
@@ -704,10 +704,10 @@ namespace spms.view.Pages.ChildWin
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = HAAttr1.Text;
-                string attr2 = HAAttr2.Text;
+                //string attr2 = HAAttr2.Text;
                 string attr3 = HAAttr3.Text;
                 devicePrescription.DP_Attrs = attr1 + "*" +
-                                              attr2 + "*" +
+                                              //attr2 + "*" +
                                               attr3;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
@@ -865,10 +865,10 @@ namespace spms.view.Pages.ChildWin
                 PrescriptionResult prescriptionResult = new PrescriptionResult();
                 DevicePrescription devicePrescription = new DevicePrescription();
                 string attr1 = CPAttr1.Text;
-                string attr2 = CPAttr2.Text;
+                //string attr2 = CPAttr2.Text;
                 string attr3 = CPAttr3.Text;
                 devicePrescription.DP_Attrs = attr1 + "*" +
-                                              attr2 + "*" +
+                                              //attr2 + "*" +
                                               attr3;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;

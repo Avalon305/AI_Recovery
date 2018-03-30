@@ -21,6 +21,7 @@ namespace spms.view.Pages.ChildWin
     {
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
+        public int IsTrue = 0;
         [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
@@ -38,9 +39,10 @@ namespace spms.view.Pages.ChildWin
         }
         private void Confirm(object sender, RoutedEventArgs e)
         {
-            string Password = PasswordText.Text;
+            string Password = PasswordText.Password;
             if (Password == "111")
             {
+                IsTrue = 1;
                 this.Close();
             }
             else {
@@ -50,7 +52,7 @@ namespace spms.view.Pages.ChildWin
 
         }
         private void Cancel(object sender, RoutedEventArgs e)
-        {
+        {     
             this.Close();
         }
         //回车按钮

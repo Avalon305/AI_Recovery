@@ -167,7 +167,7 @@
                     <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="性别" Grid.Row="2" Grid.Column="0" Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c1" Grid.Row="2" Grid.Column="1"  Background="Black" Margin="0.2,0.2,100.4,1.6" IsTabStop="False" Grid.ColumnSpan="2" >
+                    <ComboBox Name="c1" Grid.Row="2" Grid.Column="1"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" IsTabStop="False" Grid.ColumnSpan="2" >
                         <ComboBoxItem Content="男" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                         <ComboBoxItem Content="女" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                     </ComboBox>

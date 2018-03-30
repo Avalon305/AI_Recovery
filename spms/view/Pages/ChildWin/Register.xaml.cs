@@ -30,6 +30,8 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class Register : Window
     {
+        //照片的url
+        public string photoUrl { get; set; }
         //用户是否自己选择照片
         private bool userIfSelectPic = false;
         //去除窗体叉号
@@ -209,8 +211,6 @@ namespace spms.view.Pages.ChildWin
             user.User_Sex = (byte?)(usersex.Equals("男") ? 1 : 0);
             user.User_Phone = phone;
 
-            
-
             if (IdCard != null && name != null && IDCard != "" && name != "" && userIfSelectPic != false)
             {
                 // 如果用户是自己选择现成的图片，将图片保存在安装目录下
@@ -234,9 +234,9 @@ namespace spms.view.Pages.ChildWin
 
                 bool isrewrite = true; // true=覆盖已存在的同名文件,false则反之
 
-                //压缩一下
+                //压缩一下并且储存图片
                 long picLen = 0;
-                GetPicThumbnail(sourcePic, targetPic,300,300,22);
+                GetPicThumbnail(sourcePic, targetPic,300,300,20);
                 FileInfo di = new FileInfo(targetPic);
                 picLen = di.Length;
                 picLen /= 1024;
@@ -257,8 +257,11 @@ namespace spms.view.Pages.ChildWin
                 MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
                 return;
             }
-            
+
+            //将图片的url传到数据库
+            user.User_PhotoLocation = photoUrl;
             userService.InsertUser(user);
+            //保存照片的路径
             this.Close();
         }
 
@@ -273,23 +276,20 @@ namespace spms.view.Pages.ChildWin
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            photograph.getIdCard = IDCard.Text;
+            
             photograph.getName = t3.Text;
 
             photograph.ShowDialog();
-
+            photoUrl = photograph.photoUrl;
             photograph.Close();
 
             //MessageBox.Show("hi");
 
             //展示摄像的时候的图片
-            string path = CommUtil.GetUserPic(t3.Text + IDCard.Text);
-            path += ".gif";
-
-            if (File.Exists(path))
+            if (File.Exists(photoUrl))
             {
                 //MessageBox.Show("hi open!");
-                BitmapImage bitmap = new BitmapImage(new Uri(path, UriKind.Absolute));//打开图片
+                BitmapImage bitmap = new BitmapImage(new Uri(photoUrl, UriKind.Absolute));//打开图片
                 pic.Source = bitmap.Clone();//将控件和图片绑定
                 
             }
@@ -444,7 +444,6 @@ namespace spms.view.Pages.ChildWin
             }
         }
 
-
         /// <param name="sFile">原图片</param>    
         /// <param name="dFile">压缩后保存位置</param>    
         /// <param name="dHeight">高度</param>    
@@ -503,7 +502,7 @@ namespace spms.view.Pages.ChildWin
                 ImageCodecInfo jpegICIinfo = null;
                 for (int x = 0; x < arrayICI.Length; x++)
                 {
-                    if (arrayICI[x].FormatDescription.Equals("JPEG"))
+                    if (arrayICI[x].FormatDescription.Equals("BMP"))
                     {
                         jpegICIinfo = arrayICI[x];
                         break;

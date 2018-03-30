@@ -89,13 +89,13 @@
                             </StackPanel>
                         </Label>
                     </bubble:CCPopup>
-                   
+
 
                     <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="用户姓名(拼音)"  FontStyle="Normal"  Foreground="White"/>
                     </Border>
                     <TextBox Grid.Row="1" Name="t3" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Namepinyin}" VerticalContentAlignment="Center"/>
-                    
+
 
                     <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="性别" Grid.Row="2" Grid.Column="0" Foreground="White"/>
@@ -104,7 +104,7 @@
                         <ComboBoxItem Content="男" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                         <ComboBoxItem Content="女" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                     </ComboBox>
-                    
+
 
                     <Border Grid.Row="3" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="出生年月" Grid.Row="3" Grid.Column="0"  Foreground="White"/>
@@ -154,7 +154,7 @@
                     </Border>
                     <ComboBox Name="c4" Grid.Row="8" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Nowcare }"/>
 
-                    
+
 
                     <Border Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="疾病名称" Grid.Row="9" Grid.Column="0"  Foreground="White"/>
@@ -208,7 +208,7 @@
                     </Border>
 
                     <Grid Margin="0,0,0,0.2" Width="86" >
-                        <Button Content="摄影" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Width="75" Height="25"  IsTabStop="False" RenderTransformOrigin="0.004,-0.462" Style="{StaticResource Btn}" Click="Photograph"/>
+                        <Button Content="摄影" HorizontalAlignment="Left" Margin="10,139,0,46.8" Width="75"  IsTabStop="False" RenderTransformOrigin="0.004,-0.462" Style="{StaticResource Btn}" Click="Photograph"/>
                         <Button Content="打开文档" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="75"  Height="25" IsTabStop="False" RenderTransformOrigin="0.049,0.799"  Style="{StaticResource Btn}" Click="Select_Picture_Show" />
                     </Grid>
                     <DockPanel Margin="22,0,0,0" Name="Non_Public_Information"  Visibility="Hidden">
@@ -220,7 +220,7 @@
                 </StackPanel>
                 <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="434" Height="47" VerticalAlignment="Bottom" BorderBrush="White" Margin="0,0,9.6,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,0"  Foreground="Black" Content="确定" IsTabStop="False" Style="{StaticResource Btn}" Click="Button_OK"/>
+                        <Button Width="140" HorizontalAlignment="Right" Margin="0,22,2,0"  Foreground="Black" Content="确定" IsTabStop="False" Style="{StaticResource Btn}" Click="Button_OK"/>
                         <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" Content="取消" Margin="0,0,0,0" IsTabStop="False" Style="{StaticResource Btn}" Click="Cancel"/>
                     </StackPanel>
                 </Border>

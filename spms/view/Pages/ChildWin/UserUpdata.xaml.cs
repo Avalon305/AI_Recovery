@@ -26,6 +26,11 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class UserUpdata : Window
     {
+
+        //用户是否保存了照片
+        public bool ifUserSavePhoto = false;
+        //照片的url
+        public string photoUrl { get; set; }
         ///传递过来的User
         public User SelectUser { get; set; }
         //保存用户照片的路径
@@ -79,8 +84,9 @@ namespace spms.view.Pages.ChildWin
             string path = null; // huo的用戶的tu片url
             if (origin_name != null && origin_name != "")
             {
-                path = CommUtil.GetUserPic(origin_name_pinyin + origin_IDCard);
-                path += ".gif";
+                path = SelectUser.User_PhotoLocation;
+                //path = CommUtil.GetUserPic(origin_name_pinyin);
+                //path += ".gif";
             }
 
 
@@ -194,6 +200,7 @@ namespace spms.view.Pages.ChildWin
             string IDCard = this.IDCard.Text;
             //获得手机号
             string phone = this.phoneNum.Text;
+
             ///2018.3.22添加内容
             if (!inputlimited.InputLimited.IsIDcard(IDCard) && !String.IsNullOrEmpty(IDCard))
             {
@@ -248,7 +255,6 @@ namespace spms.view.Pages.ChildWin
             SelectUser.User_Birth = Convert.ToDateTime(brithday);
             SelectUser.User_GroupName = groupName;
 
-            
             if (IDCard == null || usernamePY == null || IDCard == "" || usernamePY == "")
             {
                 System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
@@ -265,14 +271,14 @@ namespace spms.view.Pages.ChildWin
             SelectUser.User_PhysicalDisabilities = disabilityName;
             SelectUser.User_Sex = (byte?)(usersex.Equals("男") ? 1 : 0);
             SelectUser.User_Phone = phone;
-            ///补齐照片的部分
+
 
             if (IDCard != null && usernamePY != null && IDCard != "" && usernamePY != "" && userIfSelectPic != false)
             {
+
                 // 如果用户是自己选择现成的图片，将图片保存在安装目录下
                 string sourcePic = userPhotoPath;
-                string targetPic = CommUtil.GetUserPic(usernamePY + IDCard);
-                targetPic += ".gif";
+                string targetPic = SelectUser.User_PhotoLocation;
 
                 String dirPath = CommUtil.GetUserPic();
 
@@ -294,8 +300,12 @@ namespace spms.view.Pages.ChildWin
             {
                 MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
                 return;
+            } else
+            {
+                SelectUser.User_PhotoLocation = photoUrl;
             }
 
+            
             userService.UpdateUser(SelectUser);
             this.Close();
             
@@ -304,6 +314,9 @@ namespace spms.view.Pages.ChildWin
         // 摄像按钮
         private void Photograph(object sender, RoutedEventArgs e)
         {
+            //BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+            //pic.Source = bitmap;
+
             Photograph photograph = new Photograph
             {
                 Owner = Window.GetWindow(this),
@@ -311,20 +324,17 @@ namespace spms.view.Pages.ChildWin
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            photograph.getIdCard = IDCard.Text;
+
             photograph.getName = t3.Text;
-
+            ifUserSavePhoto = photograph.ifUserSavePhoto;
             photograph.ShowDialog();
+            photoUrl = photograph.photoUrl;
+            photograph.Close();
 
-            //MessageBox.Show("hi");
-
-            string path = CommUtil.GetUserPic(t3.Text + IDCard.Text);
-            path += ".gif";
-
-            if (File.Exists(path))
+            if (File.Exists(photoUrl))
             {
                 //MessageBox.Show("hi open!");
-                BitmapImage image = new BitmapImage(new Uri(path, UriKind.Absolute));//打开图片
+                BitmapImage image = new BitmapImage(new Uri(photoUrl, UriKind.Absolute));//打开图片
                 pic.Source = image.Clone();//将控件和图片绑定
             }
         }

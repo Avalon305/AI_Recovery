@@ -114,8 +114,9 @@ namespace spms.view.Pages
 
             if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null && selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
             {
-                path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
-                path += ".gif";
+                path = selectUser.User_PhotoLocation;
+                //path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
+                //path += ".gif";
             }
             else
             {
@@ -477,6 +478,11 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             User user = (User) UsersInfo.SelectedItem;
+            if(user == null)
+            {
+                MessageBox.Show("请选择用户");
+                return;
+            }
             inputTrainingResults.DataContext = user;
             inputTrainingResults.ShowDialog();
             Refresh_RecordFrame_Action();
@@ -506,7 +512,7 @@ namespace spms.view.Pages
 
                 if (record.Content == null)
                 {
-                    MessageBox.Show("没有选择用户");
+                    MessageBox.Show("没有选择症状信息");
                     return;
                 }
 
@@ -774,6 +780,11 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             User user = (User) UsersInfo.SelectedItem;
+            if (user == null)
+            {
+                MessageBox.Show("请选择用户");
+                return;
+            }
             inputTraining.DataContext = user;
             inputTraining.ShowDialog();
         }

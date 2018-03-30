@@ -340,18 +340,11 @@
                         </WrapPanel>
                         <StackPanel Orientation="Horizontal" Height="25" Margin="30,7,0,0" HorizontalAlignment="Left" Width="916">
                             <RadioButton VerticalAlignment="Center" IsChecked="True" FocusVisualStyle="{x:Null}" IsTabStop="False" KeyboardNavigation.ControlTabNavigation="None" GroupName="record_radio" Name="is_signinformationrecord" Click="Radio_Check" RenderTransformOrigin="0.5,0.5" >
-                                <RadioButton.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform Angle="-1.431"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </RadioButton.RenderTransform> 征状信息记录
+                                征状信息记录
                             </RadioButton>
-                            <RadioButton VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Name="is_trainingrecord" Click="Radio_Check">训练记录</RadioButton>
-                            <RadioButton VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Name="is_physicalevaluation" Click="Radio_Check">体力评价记录</RadioButton>
-                            <Button Content="输入训练结果" Margin="240,0,0,0" Style="{StaticResource Btn}" Width="140" Click="InputTrainingResults"/>
+                            <RadioButton VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Margin="10,0,0,0" Name="is_trainingrecord" Click="Radio_Check">训练记录</RadioButton>
+                            <RadioButton VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Margin="10,0,0,0" Name="is_physicalevaluation" Click="Radio_Check">体力评价记录</RadioButton>
+                            <Button Content="输入训练结果" Margin="220,0,0,0" Style="{StaticResource Btn}" Width="140" Click="InputTrainingResults"/>
                             <Button Margin="2,0,0,0" Content="查看详细信息" Style="{StaticResource Btn}" Width="140" Click="ViewDetails"/>
                             <Button Content="文档输出" Margin="2,0,0,0"  Style="{StaticResource Btn}" Width="140" Click="Output_Document"/>
                         </StackPanel>

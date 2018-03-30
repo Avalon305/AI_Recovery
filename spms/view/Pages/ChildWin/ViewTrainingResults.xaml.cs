@@ -73,9 +73,9 @@ namespace spms.view.Pages.ChildWin
                         HLPWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         HLPMoveway.Text = trainDto.moveway;
                         HLPAttr1.Text = attrs[0];
-                        HLPAttr2.Text = attrs[1];
-                        HLPAttr3.Text = attrs[2];
-                        HLPAttr4.Text = attrs[3];
+                        //HLPAttr2.Text = attrs[1];
+                        HLPAttr3.Text = attrs[1];
+                        HLPAttr4.Text = attrs[2];
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -100,9 +100,9 @@ namespace spms.view.Pages.ChildWin
                         ROWWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         ROWMoveway.Text = trainDto.moveway;
                         ROWAttr1.Text = attrs[0];
-                        ROWAttr2.Text = attrs[1];
-                        ROWAttr3.Text = attrs[2];
-                        ROWAttr4.Text = attrs[3];
+                        //ROWAttr2.Text = attrs[1];
+                        ROWAttr3.Text = attrs[1];
+                        ROWAttr4.Text = attrs[2];
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -128,9 +128,9 @@ namespace spms.view.Pages.ChildWin
                         TFWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         TFMoveway.Text = trainDto.moveway;
                         TFAttr1.Text = attrs[0];
-                        TFAttr2.Text = attrs[1];
-                        TFAttr3.Text = attrs[2];
-                        TFAttr4.Text = attrs[3];
+                        //TFAttr2.Text = attrs[1];
+                        TFAttr3.Text = attrs[1];
+                        TFAttr4.Text = attrs[2];
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -156,10 +156,10 @@ namespace spms.view.Pages.ChildWin
                         LEWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         LEMoveway.Text = trainDto.moveway;
                         LEAttr1.Text = attrs[0];
-                        LEAttr2.Text = attrs[1];
-                        LEAttr3.Text = attrs[2];
-                        LEAttr4.Text = attrs[3];
-                        LEAttr5.Text = attrs[4];
+                        //LEAttr2.Text = attrs[1];
+                        LEAttr3.Text = attrs[1];
+                        LEAttr4.Text = attrs[2];
+                        LEAttr5.Text = attrs[3];
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -185,8 +185,8 @@ namespace spms.view.Pages.ChildWin
                         HAWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         HAMoveway.Text = trainDto.moveway;
                         HAAttr1.Text = attrs[0];
-                        HAAttr2.Text = attrs[1];
-                        HAAttr3.Text = attrs[2];
+                        //HAAttr2.Text = attrs[1];
+                        HAAttr3.Text = attrs[1];
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
@@ -212,8 +212,8 @@ namespace spms.view.Pages.ChildWin
                         CPWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
                         CPMoveway.Text = trainDto.moveway;
                         CPAttr1.Text = attrs[0];
-                        CPAttr2.Text = attrs[1];
-                        CPAttr3.Text = attrs[2];
+                        //CPAttr2.Text = attrs[1];
+                        CPAttr3.Text = attrs[1];
                         if (trainDto.prescriptionResult == null)
                         {
                             break;

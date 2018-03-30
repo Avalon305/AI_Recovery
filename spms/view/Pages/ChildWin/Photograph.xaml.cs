@@ -27,12 +27,13 @@ namespace spms.view.Pages.ChildWin
     /// 
 
     public partial class Photograph : Window
-
     {
+        //照片的历经
+        public string photoUrl = null;
         //判断用户是否拍照
         private bool ifUserTakePhoto = false;
-        //得到用户的身份证
-        public string getIdCard { get; set; }
+        //判断用户拍照后是否保存
+        public bool ifUserSavePhoto = false;
         //得到用户的名字
         public string getName { get; set; }
         // 照片保存
@@ -121,12 +122,18 @@ namespace spms.view.Pages.ChildWin
         // 保存图片按钮
         private void SavePic(object sender, RoutedEventArgs e)
         {
-            if (getIdCard != null && getName != null && getIdCard != "" && getName != "")
+            // 图片的保存路径
+            String path = null;
+            
+            if ( getName != null && getName != "")
             {
-
-                String path = CommUtil.GetUserPic(getName + getIdCard);
+                Random rd = new Random();
+                int n = rd.Next(1, 100000);
+                string random = n.ToString();
+                path = CommUtil.GetUserPic(getName+ random);
                 String dirPath = CommUtil.GetUserPic();
 
+                //判断是否存在文件夹
                 if (Directory.Exists(dirPath))//判断是否存在
                 {
                     //Response.Write("已存在");
@@ -137,15 +144,16 @@ namespace spms.view.Pages.ChildWin
                     Directory.CreateDirectory(dirPath);//创建新路径
                 }
 
+                //判断是否已经拍照
                 if (!ifUserTakePhoto)
                 {
                     MessageBox.Show("您还没有拍摄照片");
                     return;
                 }
 
-                // 压缩图片
+                // 压缩并且保存图片
                 File.WriteAllBytes(path + "temp.gif", Pic);
-                GetPicThumbnail(path + "temp.gif", path + ".gif", 300, 300, 22);
+                GetPicThumbnail(path + "temp.gif", path + ".gif", 300, 300, 20);
                 File.Delete(path + "temp.gif");
                 // 判断一下压缩后的大小
                 long picLen = 0;
@@ -166,6 +174,10 @@ namespace spms.view.Pages.ChildWin
                 return;
             }
 
+            ifUserSavePhoto = true;
+
+            //返回给register图片的url
+            photoUrl = path+".gif";
             this.Close();
         }
    
@@ -224,19 +236,21 @@ namespace spms.view.Pages.ChildWin
             try
             {
                 ImageCodecInfo[] arrayICI = ImageCodecInfo.GetImageEncoders();
-                ImageCodecInfo jpegICIinfo = null;
+                ImageCodecInfo gifICIinfo = null;
+               
                 for (int x = 0; x < arrayICI.Length; x++)
                 {
+                    
                     if (arrayICI[x].FormatDescription.Equals("JPEG"))
                     {
-                        jpegICIinfo = arrayICI[x];
+                        gifICIinfo = arrayICI[x];
                         break;
                     }
                 }
-                if (jpegICIinfo != null)
+                if (gifICIinfo != null)
                 {
-                    //MessageBox.Show("保存1");
-                    ob.Save(dFile, jpegICIinfo, ep);//dFile是压缩后的新路径    
+                    MessageBox.Show("保存1");
+                    ob.Save(dFile, gifICIinfo, ep);//dFile是压缩后的新路径    
                 }
                 else
                 {
