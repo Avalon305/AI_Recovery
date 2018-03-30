@@ -84,8 +84,8 @@
                                     <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
                                 </Grid.Background>
                                 <TextBox Name="HLPAttr1" Height="20" Width="50" Margin="46,154,200,141.2"  IsEnabled="False" ></TextBox>
-                                <TextBox  Name="HLPAttr2" Height="20" Width="50" Margin="34,208,212,87.2"  IsEnabled="False" ></TextBox>
-                                <TextBox Name="HLPAttr3" Height="20" Width="50" Margin="61,102,185,193.2"  IsEnabled="False" ></TextBox>
+                                <!--<TextBox  Name="HLPAttr2" Height="20" Width="50" Margin="34,208,212,87.2"  IsEnabled="False" ></TextBox>-->
+                                <TextBox Name="HLPAttr3" Height="20" Width="50" Margin="61,102,185,193.2"   IsEnabled="False" ></TextBox>
                                 <TextBox Name="HLPAttr4" Height="20" Width="50" Margin="154,228,92,67.2"  IsEnabled="False" ></TextBox>
                             </Grid>
 
@@ -213,7 +213,7 @@
                                     <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
                                 </Grid.Background>
                                 <TextBox Name="ROWAttr1" Height="20" Width="50" Margin="66,115,180,180.2"  IsEnabled="False" ></TextBox>
-                                <TextBox Name="ROWAttr2" Height="20" Width="50" Margin="50,202,196,93.2"  IsEnabled="False" ></TextBox>
+                                <!--<TextBox Name="ROWAttr2" Height="20" Width="50" Margin="50,202,196,93.2"  IsEnabled="False" ></TextBox>-->
                                 <TextBox Name="ROWAttr3" Height="20" Width="50" Margin="174,182,72,113.2"  IsEnabled="False" ></TextBox>
                                 <TextBox Name="ROWAttr4" Height="20" Width="50" Margin="147,238,99,57.2"   IsEnabled="False"></TextBox>
                             </Grid>
@@ -343,7 +343,7 @@
                                     <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
                                 </Grid.Background>
                                 <TextBox Name="TFAttr1" Height="20" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73"  IsEnabled="False" ></TextBox>
-                                <TextBox Name="TFAttr2" Height="20" Width="50" Margin="55,191,191,104.2"  IsEnabled="False" ></TextBox>
+                                <!--<TextBox Name="TFAttr2" Height="20" Width="50" Margin="55,191,191,104.2"  IsEnabled="False" ></TextBox>-->
                                 <TextBox Name="TFAttr3" Height="20" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01"  IsEnabled="False" ></TextBox>
                                 <TextBox Name="TFAttr4" Height="20" Width="50" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01"  IsEnabled="False" ></TextBox>
                             </Grid>
@@ -472,7 +472,7 @@
                                     <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
                                 </Grid.Background>
                                 <TextBox Name="LEAttr1" Height="20" Width="50" Margin="107,58,139,237.2"  IsEnabled="False" ></TextBox>
-                                <TextBox Name="LEAttr2" Height="20" Width="50" Margin="24,189,222,106.2"   IsEnabled="False"></TextBox>
+                                <!--<TextBox Name="LEAttr2" Height="20" Width="50" Margin="24,189,222,106.2"   IsEnabled="False"></TextBox>-->
                                 <TextBox Name="LEAttr3" Height="20" Width="50" Margin="24,102,222,193.2"   IsEnabled="False"></TextBox>
                                 <TextBox Name="LEAttr4" Height="20" Width="50" Margin="144,240,102,55.2"   IsEnabled="False"></TextBox>
                                 <TextBox Name="LEAttr5" Height="20" Width="50" Margin="174,189,72,106.2"   IsEnabled="False"></TextBox>
@@ -603,7 +603,7 @@
                                     <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
                                 </Grid.Background>
                                 <TextBox Name="HAAttr1" Height="20" Width="50" Margin="160,66,86,229.2" RenderTransformOrigin="-0.096,-0.43"  IsEnabled="False" ></TextBox>
-                                <TextBox Name="HAAttr2" Height="20" Width="50" Margin="78,169,168,126.2"   IsEnabled="False"/>
+                                <!--<TextBox Name="HAAttr2" Height="20" Width="50" Margin="78,169,168,126.2"   IsEnabled="False"/>-->
                                 <TextBox Name="HAAttr3" Height="20" Width="50" Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47"  IsEnabled="False" ></TextBox>
                             </Grid>
                             <Grid Margin="30,0,0,22.6" Width="286" Height="421" VerticalAlignment="Bottom" >
@@ -730,7 +730,7 @@
                                     <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
                                 </Grid.Background>
                                 <TextBox Name="CPAttr1" Height="20" Width="50" Margin="130,66,116,229.2" RenderTransformOrigin="-0.188,-0.34"  IsEnabled="False" ></TextBox>
-                                <TextBox Name="CPAttr2" Height="20" Width="50" Margin="47,171,199,124.2" IsEnabled="False"  ></TextBox>
+                                <!--<TextBox Name="CPAttr2" Height="20" Width="50" Margin="47,171,199,124.2" IsEnabled="False"  ></TextBox>-->
                                 <TextBox Name="CPAttr3" Width="50" Height="20" Margin="150,204,96,94.2"  IsEnabled="False" />
                             </Grid>
 
