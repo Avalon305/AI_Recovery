@@ -55,7 +55,7 @@ namespace spms.constant
         /// </summary>
         X01 = 0x01,
         /// <summary>
-        /// 臀部外展内收机
+        /// 腿部内外弯机
         /// </summary>
         X02 = 0x02,
         /// <summary>
@@ -71,7 +71,7 @@ namespace spms.constant
         /// </summary>
         X05 = 0x05,
         /// <summary>
-        /// 水平腿部推蹬机
+        /// 腿部腿蹬机
         /// </summary>
         X06 = 0x06 
     }
