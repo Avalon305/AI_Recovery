@@ -81,7 +81,7 @@ namespace spms.protocol
         /// </summary>
         /// <param name="idcard"></param>
         /// <returns></returns>
-        public byte[] Make8007Frame( string idcard)
+        public byte[] Make8007Frame(string idcard)
         {
             UserPicService picService = new UserPicService();
             byte[] picData = picService.GetPictureData(idcard);
@@ -146,97 +146,137 @@ namespace spms.protocol
 
         }
 
+
         /// <summary>
-        /// 内部类，处方信息响应报文组帧
+        /// 胸部推举机处方组帧应答
         /// </summary>
-        public class MakePrescription
+        /// <param name="idcard"></param>
+        /// <param name="deviceType"></param>
+        /// <returns></returns>
+        public byte[] Make8008Frame(string idcard, DeviceType deviceType)
         {
-            /// <summary>
-            /// 胸部推举机处方组帧应答
-            /// </summary>
-            /// <param name="idcard"></param>
-            /// <param name="deviceType"></param>
-            /// <returns></returns>
-            public byte[] Make8008Frame(string idcard, DeviceType deviceType)
+            byte[] arr;
+            //获取处方信息
+            var prescription = new TrainService().GetDevicePrescriptionByIdCardDeviceType(idcard, deviceType);
+            UserService userService = new UserService();
+            var u = userService.GetByIdCard(idcard);
+
+            if (u == null)
             {
-                byte[] arr;
-                //获取处方信息
-                var prescription = new TrainService().GetDevicePrescriptionByIdCardDeviceType(idcard, deviceType);
-                UserService userService = new UserService();
-                var u = userService.GetByIdCard(idcard);
-       
-                if (u == null)
-                {
-                    arr = new byte[2];
-                    arr[0] = (byte)deviceType;
-                    arr[1] = 0x01;//无效用户
-                    return arr;
-                }
-                if (prescription == null)
-                {
-                    arr = new byte[2];
-                    arr[0] = (byte)deviceType;
-                    arr[0] = 0x03;//无该项训练计划
-                    return arr;
-                }
-                if (prescription.Dp_status == DevicePrescription.DOWN)
-                {
-                    arr = new byte[2];
-                    arr[0] = (byte)deviceType;
-                    arr[0] = 0x02;//已完成该项训练计划
-                    return arr;
-                }
-               
-                arr = new byte[86];
+                arr = new byte[2];
                 arr[0] = (byte)deviceType;
-                arr[1] = 0x00;//有训练内容
-                // 姓名20个字节
-                byte[] userName = Encoding.GetEncoding("GBK").GetBytes(u.User_Name);
-                Array.Copy(userName, 0, arr, 2, userName.Length);
-                //姓名拼音32个字节
-                byte[] namePinYin = Encoding.GetEncoding("GBK").GetBytes(u.User_Namepinyin);
-                Array.Copy(namePinYin, 0, arr, 22, namePinYin.Length);
-                //移乘方法
-                arr[54] = (byte)prescription.dp_moveway;
-                //训练组数
-                arr[55] = (byte)prescription.dp_groupcount;
-                //每组个数
-                arr[56] = (byte)prescription.dp_groupnum;
-                //休息时间，秒
-                arr[57] = (byte)prescription.dp_relaxtime;
-                //计数器是否有效，0有效，1无效，数据库没有该字段，暂时无效
-                arr[58] = (byte)prescription.dp_timer;
-                string[] attrs = prescription.DP_Attrs.Split('*');
-                //计数方式。正计时。倒计时
-                arr[59] = prescription.dp_timetype;
-                //计时时间，分钟
-                arr[60] = prescription.dp_timecount;
-                //61 备忘
-
-
-
-
-                // 砝码移动距离1/10厘米,存的单位也是毫米
-                Int16 move = Int16.Parse(attrs[0]);
-                arr[60] = Convert.ToByte((move & 0xFF00) >> 8);//低字节
-                arr[61] = Convert.ToByte(move & 0x00FF);//高字节
-                                                        //砝码重量 单位是kg,发送的是0.1kg
-                                                        //备忘
-                string notes = prescription.DP_Memo;
-                byte[] noteBytes = Encoding.GetEncoding("GBK").GetBytes(notes);
-                Int16 weight = (Int16)(prescription.dp_weight * 10);
-                arr[62] = Convert.ToByte((weight & 0xFF00) >> 8);//低字节
-                arr[63] = Convert.ToByte(weight & 0x00FF);//高字节
-                //辅助砝码重量 数据库单位kg，发送的是0.1kg
-                Int16 helpWeight = (Int16)(float.Parse(attrs[1]) * 10);
-                arr[64] = Convert.ToByte((helpWeight & 0xFF00) >> 8);//低字节
-                arr[65] = Convert.ToByte(helpWeight & 0x00FF);//高字节
-                                                              //备忘
-                Array.Copy(noteBytes, 0, arr, 66, noteBytes.Length);
-                arr[66 + noteBytes.Length] = 0x00;
+                arr[1] = 0x01;//无效用户
+                return arr;
+            }
+            if (prescription == null)
+            {
+                arr = new byte[2];
+                arr[0] = (byte)deviceType;
+                arr[1] = 0x03;//无该项训练计划
+                return arr;
+            }
+            if (prescription.Dp_status == DevicePrescription.DOWN)
+            {
+                arr = new byte[2];
+                arr[0] = (byte)deviceType;
+                arr[1] = 0x02;//已完成该项训练计划
                 return arr;
             }
 
+            arr = new byte[87];
+            arr[0] = (byte)deviceType;
+            arr[1] = 0x00;//有训练内容
+                          // 姓名20个字节
+            byte[] userName = Encoding.GetEncoding("GBK").GetBytes(u.User_Name);
+            Array.Copy(userName, 0, arr, 2, userName.Length);
+            //姓名拼音32个字节
+            byte[] namePinYin = Encoding.GetEncoding("GBK").GetBytes(u.User_Namepinyin);
+            Array.Copy(namePinYin, 0, arr, 22, namePinYin.Length);
+            //移乘方法
+            arr[54] = (byte)prescription.dp_moveway;
+            //训练组数
+            arr[55] = (byte)prescription.dp_groupcount;
+            //每组个数
+            arr[56] = (byte)prescription.dp_groupnum;
+            //休息时间，秒
+            arr[57] = (byte)prescription.dp_relaxtime;
+
+            //计数器是否有效，0有效，1无效，数据库没有该字段，暂时无效
+            arr[58] = (byte)prescription.dp_timer;
+            string[] attrs = prescription.DP_Attrs.Split('*');
+
+            //计数方式。正计时。倒计时
+            arr[59] = prescription.dp_timetype;
+
+            //计时时间，分钟
+            arr[60] = prescription.dp_timecount;
+
+            //61 备忘 17 字节
+            string notes = prescription.DP_Memo;
+            byte[] noteBytes = Encoding.GetEncoding("GBK").GetBytes(notes);
+            Array.Copy(noteBytes, 0, arr, 61, noteBytes.Length);
+
+            // 砝码移动距离1/10厘米,存的单位是厘米
+            Int16 move = (Int16)(prescription.dp_movedistance * 10);
+            arr[78] = Convert.ToByte((move & 0xFF00) >> 8);//低字节
+            arr[79] = Convert.ToByte(move & 0x00FF);//高字节
+
+            //砝码重量 单位是kg,发送的是0.1kg
+            Int16 weight = (Int16)(prescription.dp_weight * 10);
+            arr[80] = Convert.ToByte((weight & 0xFF00) >> 8);//低字节
+            arr[81] = Convert.ToByte(weight & 0x00FF);//高字节
+                                                      //辅助砝码重量 数据库单位kg，发送的是0.1kg
+            Int16 helpWeight = (Int16)(weight % 25);
+            arr[82] = Convert.ToByte((helpWeight & 0xFF00) >> 8);//低字节
+            arr[83] = Convert.ToByte(helpWeight & 0x00FF);//高字节
+
+            HandleDeviceType(ref arr, deviceType, attrs);
+            return arr;
         }
+
+        /// <summary>
+        /// 处理各设备类型的个性属性
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="deviceType"></param>
+        /// <param name="attrs"></param>
+        private void HandleDeviceType(ref byte[] arr, DeviceType deviceType, string[] attrs)
+        {
+            switch (deviceType)
+            {
+                case DeviceType.X01:
+                    arr[84] = byte.Parse(attrs[0]);//动臂位置 1-5
+                    arr[85] = byte.Parse(attrs[1]);//座椅位置1-9
+                    arr[86] = 0x00;
+                    break;
+                case DeviceType.X02:
+                    arr[84] = byte.Parse(attrs[0]);//动臂位置 1-8
+                    arr[85] = 0x00;
+                    arr[86] = 0x00;
+                    break;
+                case DeviceType.X03:
+                    arr[84] = byte.Parse(attrs[0]);//动臂位置1 1-5
+                    arr[85] = byte.Parse(attrs[1]);//动臂位置2 1-5
+                    arr[86] = byte.Parse(attrs[2]);//座椅位置 1-9
+                    break;
+                case DeviceType.X04:
+                    arr[84] = byte.Parse(attrs[0]);//动臂位置1 1-4
+                    arr[85] = byte.Parse(attrs[1]);//动臂位置2 1-4
+                    arr[86] = 0x00;
+                    break;
+                case DeviceType.X05:
+                    arr[84] = byte.Parse(attrs[0]);//胸垫位置 1-6
+                    arr[85] = byte.Parse(attrs[1]);//座椅位置 1-9
+                    arr[86] = 0x00;
+                    break;
+                case DeviceType.X06:
+                    arr[84] = byte.Parse(attrs[0]);//胸垫位置 1-6
+                    arr[85] = 0x00;//座椅位置 1-9
+                    arr[86] = 0x00;
+                    break;
+            }
+        }
+
+
     }
 }

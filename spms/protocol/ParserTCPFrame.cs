@@ -162,7 +162,7 @@ namespace spms.protocol
         /// <param name="frameBean"></param>
         public void HandleStartPrictice(ref byte[] response, TcpFrameBean frameBean)
         {
-            var maker = new MakerTCPFrame.MakePrescription();
+            var maker = MakerTCPFrame.GetInstance(); ;
 
             byte[] data = frameBean.DataBody;
             string userId = Encoding.GetEncoding("GBK").GetString(data, 0, 18);
