@@ -120,7 +120,6 @@ namespace spms.view.Pages
             }
             else
             {
-                Console.WriteLine("~~~~~~~~~该用户的照片不存在~~~~~~~" + path);
                 return;
             }
 
@@ -130,10 +129,8 @@ namespace spms.view.Pages
 
                 BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
                 UserPhoto.Source = bitmap;
-               
-                //Console.WriteLine("~~~~~~~~~该用户的照片不存在~~~~~~~" + path);
+
                 return;
-                //提示文件不存在
             }
             else
             {
@@ -212,6 +209,10 @@ namespace spms.view.Pages
         //按钮：更新
         private void UserUpdata(object sender, RoutedEventArgs e)
         {
+            // 切换用户图片的显示，解决线程占用问题
+            BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+            UserPhoto.Source = bitmap;
+
             //检查是否选中
             if (selectUser == null)
             {
@@ -237,6 +238,14 @@ namespace spms.view.Pages
             //关闭后刷新界面
             users = userService.GetAllUsers();
             UsersInfo.ItemsSource = users;
+
+            // 加载用户头像
+            string photoUrl = CommUtil.GetUserPic(selectUser.User_PhotoLocation);
+            if (photoUrl != null)
+            {
+                UserPhoto.Source = new BitmapImage(new Uri(photoUrl));
+            }
+            
         }
 
         //按钮：删除
