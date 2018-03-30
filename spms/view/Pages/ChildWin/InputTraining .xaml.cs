@@ -1338,7 +1338,7 @@ namespace spms.view.Pages.ChildWin
 
                 if (SerialPortUtil.portName == "")
                 {
-                    MessageBox.Show("请选择串口号");
+                    MessageBox.Show("请先连接串口");
                     return;
                 }
 
