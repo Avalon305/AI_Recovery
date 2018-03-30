@@ -330,25 +330,33 @@ namespace spms.view.Pages.ChildWin
                     MessageBox.Show("请选择正确的砝码");
                     throw e;
                 }
-                //TODO
-                if (true)
+
+                if (combobox_06.Text == "有效")
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
                     try
                     {
-                        devicePrescription.dp_timecount = 0;
+                        devicePrescription.dp_timecount = Byte.Parse(combobox_07.Text);
+                        
                     }
                     catch(Exception e)
                     {
                         MessageBox.Show("请输入正确的计时时间");
                         throw e;
                     }
-                    devicePrescription.dp_timetype = 0;
-
                 }
                 else
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+                }
+                if (combobox_08.Text == "倒计时")
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+                }
+                else
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
                 }
 
                 devicePrescription.Dp_status = 0;
@@ -423,6 +431,35 @@ namespace spms.view.Pages.ChildWin
                     MessageBox.Show("请选择正确的砝码");
                     throw e;
                 }
+                if (combobox_16.Text == "有效")
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+                    try
+                    {
+                        devicePrescription.dp_timecount = Byte.Parse(combobox_17.Text);
+
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("请输入正确的计时时间");
+                        throw e;
+                    }
+
+                    
+                }
+                else
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+                }
+                if (combobox_18.Text == "倒计时")
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+                }
+                else
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -493,6 +530,35 @@ namespace spms.view.Pages.ChildWin
                 {
                     MessageBox.Show("请选择正确的砝码");
                     throw e;
+                }
+                if (combobox_26.Text == "有效")
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+                    try
+                    {
+                        devicePrescription.dp_timecount = Byte.Parse(combobox_27.Text);
+
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("请输入正确的计时时间");
+                        throw e;
+                    }
+
+                    
+                }
+                else
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+                }
+                if (combobox_28.Text == "倒计时")
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+                }
+                else
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
                 }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
@@ -568,6 +634,35 @@ namespace spms.view.Pages.ChildWin
                     MessageBox.Show("请选择正确的砝码");
                     throw e;
                 }
+                if (combobox_36.Text == "有效")
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+                    try
+                    {
+                        devicePrescription.dp_timecount = Byte.Parse(combobox_37.Text);
+
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("请输入正确的计时时间");
+                        throw e;
+                    }
+
+                    
+                }
+                else
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+                }
+                if (combobox_38.Text == "倒计时")
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+                }
+                else
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -637,6 +732,33 @@ namespace spms.view.Pages.ChildWin
                     MessageBox.Show("请选择正确的砝码");
                     throw e;
                 }
+                if (combobox_46.Text == "有效")
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+                    try
+                    {
+                        devicePrescription.dp_timecount =Byte.Parse(combobox_47.Text);
+
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("请输入正确的计时时间");
+                        throw e;
+                    }
+                }
+                else
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+                }
+                if (combobox_48.Text == "倒计时")
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+                }
+                else
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
@@ -705,6 +827,33 @@ namespace spms.view.Pages.ChildWin
                 {
                     MessageBox.Show("请选择正确的砝码");
                     throw e;
+                }
+                if (combobox_56.Text == "有效")
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+                    try
+                    {
+                        devicePrescription.dp_timecount = Byte.Parse(combobox_57.Text);
+
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("请输入正确的计时时间");
+                        throw e;
+                    }
+                }
+                else
+                {
+                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+                }
+                if (combobox_58.Text == "倒计时")
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+                }
+                else
+                {
+                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
                 }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
@@ -827,6 +976,24 @@ namespace spms.view.Pages.ChildWin
                         combobox_04.Text = devicePrescription.dp_weight.ToString();
                         combobox_05.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t1.Text = devicePrescription.DP_Memo;
+                        if(devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        {
+                            combobox_06.Text = "有效";
+                            select_change(combobox_06, new EventArgs());
+                            combobox_07.Text = devicePrescription.dp_timecount.ToString();
+                            if(devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
+                            {
+                                combobox_08.Text = "正计时";
+                            }
+                            else
+                            {
+                                combobox_08.Text = "倒计时";
+                            }
+                        }
+                        else
+                        {
+                            combobox_06.Text = "无效";
+                        }
                         break;
                     case (int)DeviceType.X05:
                         checkbox2.IsChecked = true;
@@ -840,6 +1007,24 @@ namespace spms.view.Pages.ChildWin
                         combobox_14.Text = devicePrescription.dp_weight.ToString();
                         combobox_15.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t2.Text = devicePrescription.DP_Memo;
+                        if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        {
+                            combobox_16.Text = "有效";
+                            select_change2(combobox_16, new EventArgs());
+                            combobox_17.Text = devicePrescription.dp_timecount.ToString();
+                            if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
+                            {
+                                combobox_18.Text = "正计时";
+                            }
+                            else
+                            {
+                                combobox_18.Text = "倒计时";
+                            }
+                        }
+                        else
+                        {
+                            combobox_16.Text = "无效";
+                        }
                         break;
                     case (int)DeviceType.X04:
                         checkbox3.IsChecked = true;
@@ -853,6 +1038,24 @@ namespace spms.view.Pages.ChildWin
                         combobox_24.Text = devicePrescription.dp_weight.ToString();
                         combobox_25.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t3.Text = devicePrescription.DP_Memo;
+                        if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        {
+                            combobox_26.Text = "有效";
+                            select_change3(combobox_26, new EventArgs());
+                            combobox_27.Text = devicePrescription.dp_timecount.ToString();
+                            if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
+                            {
+                                combobox_28.Text = "正计时";
+                            }
+                            else
+                            {
+                                combobox_28.Text = "倒计时";
+                            }
+                        }
+                        else
+                        {
+                            combobox_26.Text = "无效";
+                        }
                         break;
                     case (int)DeviceType.X03:
                         checkbox4.IsChecked = true;
@@ -867,6 +1070,24 @@ namespace spms.view.Pages.ChildWin
                         combobox_34.Text = devicePrescription.dp_weight.ToString();
                         combobox_35.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t4.Text = devicePrescription.DP_Memo;
+                        if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        {
+                            combobox_36.Text = "有效";
+                            select_change4(combobox_36, new EventArgs());
+                            combobox_37.Text = devicePrescription.dp_timecount.ToString();
+                            if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
+                            {
+                                combobox_38.Text = "正计时";
+                            }
+                            else
+                            {
+                                combobox_38.Text = "倒计时";
+                            }
+                        }
+                        else
+                        {
+                            combobox_36.Text = "无效";
+                        }
                         break;
                     case (int)DeviceType.X06:
                         checkbox5.IsChecked = true;
@@ -879,6 +1100,24 @@ namespace spms.view.Pages.ChildWin
                         combobox_44.Text = devicePrescription.dp_weight.ToString();
                         combobox_45.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t5.Text = devicePrescription.DP_Memo;
+                        if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        {
+                            combobox_46.Text = "有效";
+                            select_change5(combobox_46, new EventArgs());
+                            combobox_47.Text = devicePrescription.dp_timecount.ToString();
+                            if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
+                            {
+                                combobox_48.Text = "正计时";
+                            }
+                            else
+                            {
+                                combobox_48.Text = "倒计时";
+                            }
+                        }
+                        else
+                        {
+                            combobox_46.Text = "无效";
+                        }
                         break;
                     case (int)DeviceType.X02:
                         checkbox6.IsChecked = true;
@@ -891,6 +1130,24 @@ namespace spms.view.Pages.ChildWin
                         combobox_54.Text = devicePrescription.dp_weight.ToString();
                         combobox_55.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
                         t6.Text = devicePrescription.DP_Memo;
+                        if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        {
+                            combobox_56.Text = "有效";
+                            select_change6(combobox_56, new EventArgs());
+                            combobox_57.Text = devicePrescription.dp_timecount.ToString();
+                            if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
+                            {
+                                combobox_58.Text = "正计时";
+                            }
+                            else
+                            {
+                                combobox_58.Text = "倒计时";
+                            }
+                        }
+                        else
+                        {
+                            combobox_56.Text = "无效";
+                        }
                         break;
                 }
 
