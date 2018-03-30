@@ -29,6 +29,19 @@ namespace spms.util
             return basePath + path + picName;
         }
         /// <summary>
+        /// 获得用户照片temp全路径
+        /// </summary>
+        /// <param name="picName"></param>
+        /// <returns></returns>
+        public static string GetUserPicTemp(string picName)
+        {
+
+            string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
+            string path = ConfigurationManager.AppSettings["PicPathTemp"];
+
+            return basePath + path + picName;
+        }
+        /// <summary>
         /// 获取Excel和pdf的路径全路径
         /// </summary>
         /// <param name="picName"></param>
@@ -40,7 +53,7 @@ namespace spms.util
 
             return basePath + path + docName;
         }
-
+        //重构
         public static string GetUserPic()
         {
             string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
@@ -48,7 +61,15 @@ namespace spms.util
 
             return basePath + path;
         }
+        //重构
+        public static string GetUserPicTemp()
+        {
 
+            string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
+            string path = ConfigurationManager.AppSettings["PicPathTemp"];
+
+            return basePath + path;
+        }
         //mac地址的list 但是都相同??
         public static List<entity.Setter> GetMacByWMI()
         {

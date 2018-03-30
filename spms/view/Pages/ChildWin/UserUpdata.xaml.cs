@@ -4,6 +4,9 @@ using spms.service;
 using spms.util;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,11 +29,8 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class UserUpdata : Window
     {
-
-        //用户是否保存了照片
-        public bool ifUserSavePhoto = false;
         //照片的url
-        public string photoUrl { get; set; }
+        public string photoName { get; set; }
         ///传递过来的User
         public User SelectUser { get; set; }
         //保存用户照片的路径
@@ -99,8 +99,6 @@ namespace spms.view.Pages.ChildWin
                 BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
                 pic.Source = bitmap;
             }
-
-            
 
         }
         public UserUpdata()
@@ -254,13 +252,7 @@ namespace spms.view.Pages.ChildWin
 
             SelectUser.User_Birth = Convert.ToDateTime(brithday);
             SelectUser.User_GroupName = groupName;
-
-            if (IDCard == null || usernamePY == null || IDCard == "" || usernamePY == "")
-            {
-                System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
-                return;
-            }
-
+            
             SelectUser.User_IDCard = IDCard;
             SelectUser.User_IllnessName = sicknessName;
             SelectUser.User_InitCare = initial;
@@ -276,13 +268,12 @@ namespace spms.view.Pages.ChildWin
             if (IDCard != null && usernamePY != null && IDCard != "" && usernamePY != "" && userIfSelectPic != false)
             {
 
-                // 如果用户是自己选择现成的图片，将图片保存在安装目录下
+                //如果用户是自己选择现成的图片，将图片保存在安装目录下
                 string sourcePic = userPhotoPath;
-                string targetPic = SelectUser.User_PhotoLocation;
+                string targetPic = CommUtil.GetUserPicTemp();
 
-                String dirPath = CommUtil.GetUserPic();
-
-                Console.WriteLine(dirPath);
+                //判断要保存的temp文件夹是否存在
+                String dirPath = CommUtil.GetUserPicTemp();
                 if (Directory.Exists(dirPath))//判断是否存在
                 {
                     //Response.Write("已存在");
@@ -293,30 +284,143 @@ namespace spms.view.Pages.ChildWin
                     Directory.CreateDirectory(dirPath);//创建新路径
                 }
 
-                bool isrewrite = true; // true=覆盖已存在的同名文件,false则反之
-                System.IO.File.Copy(sourcePic, targetPic, isrewrite);
+                //压缩一下并且储存图片
+                GetPicThumbnail(sourcePic, targetPic,184,259,20);
+                                
+                // 如果图片太大就重新选择
+                long picLen = 0;
+                FileInfo di = new FileInfo(targetPic);
+                picLen = di.Length;
+                picLen /= 1024;
+                if (picLen > 10)
+                {
+                    MessageBox.Show("图片过大，请重新选择");
+                    
+                    File.Delete(targetPic);
+                    return;
+                }
+
+                // 将temp的照片拷贝过去
+                string userSelectFinalPic = CommUtil.GetUserPic();
+                File.Copy(targetPic, userSelectFinalPic);
+                
             }
-            else if (userIfSelectPic != false)
+            // 如果是正常拍照得到了图片
+            else if(photoName != null)
             {
-                MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
-                return;
-            } else
-            {
-                SelectUser.User_PhotoLocation = photoUrl;
+                // 判断 图片库里面是否存在 原来的头像,存在的话 删除
+                User user = userService.GetByIdCard(origin_IDCard);
+                string yuanPhoto = CommUtil.GetUserPic(user.User_PhotoLocation);
+                MessageBox.Show(yuanPhoto);
+                if (File.Exists(yuanPhoto))
+                {
+                    File.Delete(yuanPhoto);
+                }
+
+                //将新照片存到 图片库
+                string tempPic = CommUtil.GetUserPicTemp(photoName);
+                string finalPic = CommUtil.GetUserPic(photoName);
+                File.Copy(tempPic, finalPic);
             }
 
-            
+            //更新数据库的图片名称
+            SelectUser.User_PhotoLocation = photoName;
+
             userService.UpdateUser(SelectUser);
-            this.Close();
-            
+            this.Close();            
         }
-       
+
+        /// <param name="sFile">原图片</param>    
+        /// <param name="dFile">压缩后保存位置</param>    
+        /// <param name="dHeight">高度</param>    
+        /// <param name="dWidth"></param>    
+        /// <param name="flag">压缩质量(数字越小压缩率越高) 1-100</param>    
+        /// <returns></returns>    
+        /// (源文件，目标文件，高度，宽度，压缩比例)
+        public static bool GetPicThumbnail(string sFile, string dFile, int dHeight, int dWidth, int flag)
+        {
+            System.Drawing.Image iSource = System.Drawing.Image.FromFile(sFile);
+            ImageFormat tFormat = iSource.RawFormat;
+            int sW = 0, sH = 0;
+
+            //按比例缩放  
+            System.Drawing.Size tem_size = new System.Drawing.Size(iSource.Width, iSource.Height);
+
+            if (tem_size.Width > dHeight || tem_size.Width > dWidth)
+            {
+                if ((tem_size.Width * dHeight) > (tem_size.Width * dWidth))
+                {
+                    sW = dWidth;
+                    sH = (dWidth * (int)tem_size.Height) / (int)tem_size.Width;
+                }
+                else
+                {
+                    sH = dHeight;
+                    sW = ((int)tem_size.Width * dHeight) / (int)tem_size.Height;
+                }
+            }
+            else
+            {
+                sW = (int)tem_size.Width;
+                sH = (int)tem_size.Height;
+            }
+
+            Bitmap ob = new Bitmap(dWidth, dHeight);
+            Graphics g = Graphics.FromImage(ob);
+
+            g.Clear(System.Drawing.Color.WhiteSmoke);
+            g.CompositingQuality = CompositingQuality.HighQuality;
+            g.SmoothingMode = SmoothingMode.HighQuality;
+            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+
+            g.DrawImage(iSource, new System.Drawing.Rectangle((dWidth - sW) / 2, (dHeight - sH) / 2, sW, sH), 0, 0, iSource.Width, iSource.Height, GraphicsUnit.Pixel);
+
+            g.Dispose();
+            //以下代码为保存图片时，设置压缩质量    
+            EncoderParameters ep = new EncoderParameters();
+            long[] qy = new long[1];
+            qy[0] = flag;//设置压缩的比例1-100    
+            EncoderParameter eParam = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, qy);
+            ep.Param[0] = eParam;
+            try
+            {
+                ImageCodecInfo[] arrayICI = ImageCodecInfo.GetImageEncoders();
+                ImageCodecInfo jpegICIinfo = null;
+                for (int x = 0; x < arrayICI.Length; x++)
+                {
+                    if (arrayICI[x].FormatDescription.Equals("BMP"))
+                    {
+                        jpegICIinfo = arrayICI[x];
+                        break;
+                    }
+                }
+                if (jpegICIinfo != null)
+                {
+                    //MessageBox.Show("保存1");
+                    ob.Save(dFile, jpegICIinfo, ep);//dFile是压缩后的新路径    
+                }
+                else
+                {
+                    //MessageBox.Show("保存2");
+                    ob.Save(dFile, tFormat);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                iSource.Dispose();
+                ob.Dispose();
+            }
+        }
+
         // 摄像按钮
         private void Photograph(object sender, RoutedEventArgs e)
         {
-            //BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
-            //pic.Source = bitmap;
-
+            
             Photograph photograph = new Photograph
             {
                 Owner = Window.GetWindow(this),
@@ -325,16 +429,21 @@ namespace spms.view.Pages.ChildWin
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
 
+            // 修改一下image的占用问题
+            BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+            pic.Source = bitmap;
+
             photograph.getName = t3.Text;
-            ifUserSavePhoto = photograph.ifUserSavePhoto;
             photograph.ShowDialog();
-            photoUrl = photograph.photoUrl;
+            photoName = photograph.photoName;
             photograph.Close();
 
-            if (File.Exists(photoUrl))
+            //在更新页面上展示用户 刚刚更新的照片
+            string photoUpdatePhoto = CommUtil.GetUserPicTemp() +photoName;
+            if (File.Exists(photoUpdatePhoto))
             {
                 //MessageBox.Show("hi open!");
-                BitmapImage image = new BitmapImage(new Uri(photoUrl, UriKind.Absolute));//打开图片
+                BitmapImage image = new BitmapImage(new Uri(photoUpdatePhoto, UriKind.Absolute));//打开图片
                 pic.Source = image.Clone();//将控件和图片绑定
             }
         }
