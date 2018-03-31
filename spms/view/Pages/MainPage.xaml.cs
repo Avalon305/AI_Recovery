@@ -137,7 +137,7 @@ namespace spms.view.Pages
             }
             else
             {
-                UserPhoto.Source = new BitmapImage(new Uri(path));
+                UserPhoto.Source = new BitmapImage(new Uri(CommUtil.GetUserPic() + path));
             }
         }
 
