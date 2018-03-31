@@ -245,11 +245,14 @@ namespace spms.view.Pages.ChildWin
             //获取备忘的内容
             TextRange text = new TextRange(t6.Document.ContentStart, t6.Document.ContentEnd);
             string memo = text.Text;
+            //私密信息
 
+            //string secretMessage = this.Non_Public_Information.
             User user = new User();
             user.User_Birth = Convert.ToDateTime(brithday);
             user.User_GroupName = groupName;
-
+            //设置私密信息
+            //user.User_Privateinfo = secretMessage==null?"":secretMessage;
             if (IdCard == null || name == null || IDCard == "" || name == "")
             {
                 System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
