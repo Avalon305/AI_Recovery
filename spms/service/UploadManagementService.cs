@@ -46,18 +46,21 @@ namespace spms.service
             Setter setter = setterDAO.getSetter();
             //需要加入解密逻辑 TODO
             string mac = "";
-            try
-            {
-                byte[] deBytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id),
-                    ProtocolConstant.USB_DOG_PASSWORD);
-                mac = Encoding.GetEncoding("GBK").GetString(deBytes);
-            }
-            catch (Exception ex)
-            {
-                //TODO 解密失败的处理:把冒号去掉?
-                mac = setter.Set_Unique_Id.Replace(":", "");
-            }
-            
+            //try
+            //{
+            //    byte[] deBytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id),
+            //        ProtocolConstant.USB_DOG_PASSWORD);
+            //    mac = Encoding.GetEncoding("GBK").GetString(deBytes);
+            //}
+            //catch (Exception ex)
+            //{
+            //    //TODO 解密失败的处理:把冒号去掉?
+            //    mac = setter.Set_Unique_Id.Replace(":", "");
+            //}
+            byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
+            byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
+            mac = Encoding.GetEncoding("GBK").GetString(b);
+
             ///if识别出表,设置发送路径，select出实体，转化至DTO，json打成string,返回
             //识别是否是权限用户添加
             if (uploadManagement.UM_DataTable == "bdl_auth")

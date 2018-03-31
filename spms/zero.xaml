@@ -27,6 +27,8 @@
             <Button Content="mac加密写入" HorizontalAlignment="Left" Margin="105,73,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_14"/>
             <Button Content="mac解密获得" HorizontalAlignment="Left" Margin="202,73,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_15"/>
             <Button Content="激活的逻辑" HorizontalAlignment="Left" Margin="297,73,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_16"/>
+            <Button Content="解密" HorizontalAlignment="Left" Margin="393,73,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_17"/>
+            <Button Content="测试auth存在" HorizontalAlignment="Left" Margin="490,73,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_18"/>
 
 
         </Grid>

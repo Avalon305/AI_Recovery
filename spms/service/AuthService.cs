@@ -74,12 +74,17 @@ namespace spms.service
             Setter setter = setterDAO.getSetter();
           
             string mac = "";
-            try
-            {
-               byte[] deBytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id), ProtocolConstant.USB_DOG_PASSWORD);
-               mac = Encoding.GetEncoding("GBK").GetString(deBytes);
+            //try
+            //{
+            //   byte[] deBytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id), ProtocolConstant.USB_DOG_PASSWORD);
+            //   mac = Encoding.GetEncoding("GBK").GetString(deBytes);
+            //}
+            try {
+                byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
+                byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
+                mac = Encoding.GetEncoding("GBK").GetString(b);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 loginResult = "登录异常";
                 return loginResult;

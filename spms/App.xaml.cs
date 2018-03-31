@@ -1,4 +1,5 @@
-﻿using spms.http;
+﻿using spms.dao;
+using spms.http;
 using spms.server;
 using spms.util;
 using System;
@@ -68,8 +69,11 @@ namespace spms
             Thread bigDataThread;
             //启动大数据线程,切换界面记得关闭该线程
             bigDataThread = new Thread(new ThreadStart(UploadDataToWEB));
-            //暂时先不启动
-            bigDataThread.Start();
+            //激活了就启动
+            if (new SetterDAO().getSetter()!=null) {
+                bigDataThread.Start();
+            }
+           
         }
 
         /// <summary>

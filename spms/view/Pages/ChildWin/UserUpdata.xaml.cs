@@ -150,18 +150,25 @@ namespace spms.view.Pages.ChildWin
         //输入非公开信息
         private void InputNonPublicInformationPassword(object sender, RoutedEventArgs e)
         {
-            InputNonPublicInformationPassword inputNonPublicInformationPassword = new InputNonPublicInformationPassword
+            NonPublicInfomationPass nonPublicInfomationPass = new NonPublicInfomationPass
             {
                 Owner = Window.GetWindow(this),
                 ShowActivated = true,
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            inputNonPublicInformationPassword.ShowDialog();
+            nonPublicInfomationPass.ShowDialog();
             //将非公开信息框显示
-            this.Non_Public_Information.Visibility = System.Windows.Visibility.Visible;
-            //调整该窗体宽度
-            this.Width = 710;
+            if (nonPublicInfomationPass.result == "success")
+            {
+                this.Non_Public_Information.Visibility = System.Windows.Visibility.Visible;
+                //调整该窗体宽度
+                this.Width = 710;
+            }
+            else
+            {
+                MessageBox.Show("密码不正确！");
+            }
         }
 
         //取消操作，关闭窗体

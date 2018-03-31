@@ -168,24 +168,46 @@ namespace spms
         /// <param name="e"></param>
         private void Button_Click_16(object sender, RoutedEventArgs e)
         {
-            //获取mac地址
-            string strMac = CommUtil.GetMacAddress();
+            StringBuilder stringBuilder = new StringBuilder();
+            //string strMac = CommUtil.GetMacAddress();
+            List<string> Macs = CommUtil.GetMacByWMI();
+            foreach (string mac in Macs)
+            {
+                stringBuilder.Append(mac);
+            }
+            //Console.WriteLine(stringBuilder.ToString());
             entity.Setter setter = new entity.Setter();
             //mac地址先变为byte[]再aes加密
-            byte[] byteMac = Encoding.GetEncoding("GBK").GetBytes(strMac);
+            byte[] byteMac = Encoding.GetEncoding("GBK").GetBytes(stringBuilder.ToString());
             byte[] AesMac = AesUtil.Encrypt(byteMac, ProtocolConstant.USB_DOG_PASSWORD);
             //存入数据库
-            setter.Set_Unique_Id = Encoding.GetEncoding("GBK").GetString(AesMac);
-            //setter.Pk_Set_Id = Pk_Set_Id;
-            //MessageBox.Show(Pk_Set_Id.ToString());
-            new SetterDAO().Insert(setter);
-            //注释的部分为添加多个mac地址
-            // List<entity.Setter> ListMac = CommUtil.GetMacByWMI();
-            // SetterDAO.InsertMacAdress(ListMac);
- 
+            //setter.Set_Unique_Id = Encoding.GetEncoding("GBK").GetString(AesMac);
+            setter.Set_Unique_Id = ProtocolUtil.BytesToString(AesMac);
+            /*AES解密
+             * byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
+            byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
+            Console.WriteLine(Encoding.GetEncoding("GBK").GetString(b));*/
            
-            
-           
+            new SetterDAO().InsertOneMacAdress(setter);
+
+
+
+
+        }
+
+        private void Button_Click_17(object sender, RoutedEventArgs e)
+        {
+            byte[] a = ProtocolUtil.StringToBcd(new SetterDAO().getSetter().Set_Unique_Id);
+            byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
+            string mac = Encoding.GetEncoding("GBK").GetString(b);
+            MessageBox.Show(mac);
+        }
+
+        private void Button_Click_18(object sender, RoutedEventArgs e)
+        {
+            UploadManagementDAO uploadManagementDAO = new UploadManagementDAO();
+            string result = uploadManagementDAO.CheckExistAuth() == null ? "null" : "you";
+            MessageBox.Show(result);
         }
     }
 }
