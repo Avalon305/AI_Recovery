@@ -315,10 +315,10 @@ namespace spms.view.Pages.ChildWin
             Console.WriteLine(photoName);
 
             //展示摄像的时候的图片
-            if (File.Exists(photoName))
+            if (File.Exists(CommUtil.GetUserPic() + photoName))
             {
                 //MessageBox.Show("hi open!");
-                BitmapImage bitmap = new BitmapImage(new Uri(photoName, UriKind.Absolute));//打开图片
+                BitmapImage bitmap = new BitmapImage(new Uri(CommUtil.GetUserPic() + photoName, UriKind.Absolute));//打开图片
                 pic.Source = bitmap.Clone();//将控件和图片绑定
                 
             }

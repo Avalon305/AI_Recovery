@@ -92,8 +92,8 @@ namespace spms.view.Pages.ChildWin
             var bmcpy = new Bitmap(183, 256);
             Graphics gh = Graphics.FromImage(bmcpy);
             gh.DrawImage(bit, new System.Drawing.Rectangle(0, 0, 183, 256));
-            photoName = CommUtil.GetUserPic() + getName + id + ".jpg";
-            bmcpy.Save(photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
+            photoName = getName + id + ".jpg";
+            bmcpy.Save(CommUtil.GetUserPic() + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
 
         }
         public static Bitmap BitmapFromSource(BitmapSource source)
@@ -149,7 +149,7 @@ namespace spms.view.Pages.ChildWin
             ImageDealer.CutImage();
             photoName = photoName.Replace(@"/", @"\");
             string newFileName = photoName.Replace(".jpg", ".gif");
-            if (PicZipUtil.GetPicThumbnail(photoName, newFileName, 50))
+            if (PicZipUtil.GetPicThumbnail(CommUtil.GetUserPic() + photoName, CommUtil.GetUserPic() + newFileName, 50))
             {
                 File.Delete(photoName);
                 photoName = newFileName;
