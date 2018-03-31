@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.IO;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -38,9 +39,27 @@ namespace spms.view.Pages.ChildWin
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
 
+
+        Thread initializationExcelToPdfThread;
+        /// <summary>
+        /// 作用：经过初步测试，第一次Excel转pdf相对较慢，所以在进入程序的时候，执行一次Excel转PDF
+        /// </summary>
+        public void InitializationExcelToPdf()
+        {
+            using (Workbook workbook = new Workbook())
+            {
+                workbook.LoadFromFile(CommUtil.GetDocPath("test1.xlsx"));
+                workbook.SaveToFile(CommUtil.GetDocPath("test1.pdf"), Spire.Xls.FileFormat.PDF);
+            }
+        }
+
         public TrainingReport()
         {
             InitializeComponent();
+
+            //启动初始化Excel转PDF的线程
+            initializationExcelToPdfThread = new Thread(new ThreadStart(InitializationExcelToPdf));
+            initializationExcelToPdfThread.Start();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
