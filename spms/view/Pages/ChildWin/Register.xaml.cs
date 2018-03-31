@@ -169,19 +169,69 @@ namespace spms.view.Pages.ChildWin
             //获得手机号
             string phone = this.phoneNum.Text;
             //获取身份证与手机号之后马上查重
-            if (userService.GetByIdCard(IDCard) != null)
+            //if (userService.GetByIdCard(IDCard) != null)
+            //{
+            //    //身份证重复气泡提示
+            //    Error_Info_IDCard.Content = "该身份证已注册";
+            //    bubble_IDCard.IsOpen = true;
+            //}
+            //if (userService.GetByPhone(phone) != null)
+            //{
+            //    //手机重复气泡提示
+            //    Error_Info_Phone.Content = "该手机号已注册";
+            //    bubble_phone.IsOpen = true;
+            //}
+            if (!String.IsNullOrEmpty(IDCard))
             {
-                //身份证重复气泡提示
-                Error_Info_IDCard.Content = "该身份证已注册";
-                bubble_IDCard.IsOpen = true;
+                if (IDCard.Length < 18)
+                {
+                    for (int i = IDCard.Length; i < 18; i++)
+                    {
+                        IDCard = IDCard + '0';
+                    }
+                    if (userService.GetByIdCard(IDCard) != null)
+                    {
+                        //身份证重复气泡提示
+                        Error_Info_IDCard.Content = "该身份证已注册";
+                        bubble_IDCard.IsOpen = true;
+                        return;
+
+                    }
+                }
+                else if (!inputlimited.InputLimited.IsIDcard(IDCard))
+                {
+                    Error_Info_IDCard.Content = "请输入正确的身份证号码";
+                    bubble_IDCard.IsOpen = true;
+                    return;
+                }
+                else if (userService.GetByIdCard(IDCard) != null)
+                {
+                    //身份证重复气泡提示
+                    Error_Info_IDCard.Content = "该身份证已注册";
+                    bubble_IDCard.IsOpen = true;
+                    return;
+
+                }
+                else
+                {
+                    bubble_IDCard.IsOpen = false;
+                }
+
+
             }
             if (userService.GetByPhone(phone) != null)
             {
                 //手机重复气泡提示
                 Error_Info_Phone.Content = "该手机号已注册";
                 bubble_phone.IsOpen = true;
+                return;
             }
-
+            else if (!inputlimited.InputLimited.IsHandset(phone) && !String.IsNullOrEmpty(phone))
+            {
+                Error_Info_Phone.Content = "请输入正确的手机号";
+                bubble_phone.IsOpen = true;
+                return;
+            }
             string IdCard = this.IDCard.Text;
             string name = t3.Text;
             //获取小组名称的内容
@@ -197,11 +247,14 @@ namespace spms.view.Pages.ChildWin
             //获取备忘的内容
             TextRange text = new TextRange(t6.Document.ContentStart, t6.Document.ContentEnd);
             string memo = text.Text;
+            //私密信息
 
+            //string secretMessage = this.Non_Public_Information.
             User user = new User();
             user.User_Birth = Convert.ToDateTime(brithday);
             user.User_GroupName = groupName;
-
+            //设置私密信息
+            //user.User_Privateinfo = secretMessage==null?"":secretMessage;
             if (IdCard == null || name == null || IDCard == "" || name == "")
             {
                 System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
@@ -382,7 +435,7 @@ namespace spms.view.Pages.ChildWin
         private void IsIDCard(object sender, RoutedEventArgs e)
         {
             UserService userService = new UserService();
-            if (!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
+            if (IDCard.Text.Length == 18&&!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
             {
                 Error_Info_IDCard.Content = "请输入正确的身份证号码";
                 bubble_IDCard.IsOpen = true;
