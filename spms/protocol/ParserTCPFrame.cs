@@ -64,7 +64,8 @@ namespace spms.protocol
                     break;
                 case MsgId.X0009://训练结果上报
                     logger.Info("收到训练结果上报：" + ProtocolUtil.BytesToString(source));
-
+                    byte[] dd = MakerTCPFrame.GetInstance().Make8001Frame(serialNo, MsgId.X0001, CommResponse.Success);
+                    response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, frameBean.TerminalId, dd);
                     HandlePricticeResult(ref response, frameBean);
                     break;
                 case MsgId.X000A://请求使用者信息

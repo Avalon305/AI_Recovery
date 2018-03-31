@@ -106,7 +106,7 @@ namespace spms.service
                 {
                     if (unDoItemList[0].Pk_DP_Id == p.Pk_DP_Id)//未完成的项目恰好是一个且为上报上来的这个项目就说明该大处方已经完成了，更新状态
                     {
-                        var t = trainInfoDao.Load(p.Pk_DP_Id);
+                        var t = trainInfoDao.Load(p.Fk_TI_Id);
                         t.Pk_TI_Id = p.Fk_TI_Id;
                         t.Status = (byte)TrainInfoStatus.Finish;
                         trainInfoDao.UpdateByPrimaryKey(t);
