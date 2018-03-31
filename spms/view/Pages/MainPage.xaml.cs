@@ -71,12 +71,10 @@ namespace spms.view.Pages
             Radio_Check_Action();
 
             //启动初始化Excel转PDF的线程
-//            initializationExcelToPdfThread = new Thread(new ThreadStart(InitializationExcelToPdf));
-//            initializationExcelToPdfThread.Start();
+            initializationExcelToPdfThread = new Thread(new ThreadStart(InitializationExcelToPdf));
+            initializationExcelToPdfThread.Start();
 
         }
-
-        
 
         Thread initializationExcelToPdfThread;
         /// <summary>
@@ -114,13 +112,14 @@ namespace spms.view.Pages
 
             if (selectUser != null && selectUser.User_IDCard != null && selectUser.User_Namepinyin != null && selectUser.User_IDCard != "" && selectUser.User_Namepinyin != "")
             {
-                path = selectUser.User_PhotoLocation;
+                path = CommUtil.GetUserPic();
+                path += selectUser.User_PhotoLocation;
+                
                 //path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
                 //path += ".gif";
             }
             else
             {
-                Console.WriteLine("~~~~~~~~~该用户的照片不存在~~~~~~~" + path);
                 return;
             }
 
@@ -130,10 +129,8 @@ namespace spms.view.Pages
 
                 BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
                 UserPhoto.Source = bitmap;
-               
-                //Console.WriteLine("~~~~~~~~~该用户的照片不存在~~~~~~~" + path);
+
                 return;
-                //提示文件不存在
             }
             else
             {
@@ -164,7 +161,7 @@ namespace spms.view.Pages
 
                 timerNotice = new System.Timers.Timer();
                 timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) => { BindNotice(); });
-                timerNotice.Interval = 60 * 1000 * 5;
+                timerNotice.Interval = CommUtil.GetHeartBeatRate();
                 timerNotice.Start();
             }
 
@@ -212,6 +209,10 @@ namespace spms.view.Pages
         //按钮：更新
         private void UserUpdata(object sender, RoutedEventArgs e)
         {
+            // 切换用户图片的显示，解决线程占用问题
+            BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+            UserPhoto.Source = bitmap;
+
             //检查是否选中
             if (selectUser == null)
             {
@@ -237,6 +238,20 @@ namespace spms.view.Pages
             //关闭后刷新界面
             users = userService.GetAllUsers();
             UsersInfo.ItemsSource = users;
+
+            // 加载用户头像
+            string photoUrl = CommUtil.GetUserPic(selectUser.User_PhotoLocation);
+            if (selectUser.User_PhotoLocation != null)
+            {
+                try {
+                   UserPhoto.Source = new BitmapImage(new Uri(photoUrl));
+                }
+                catch (IOException ee) {
+
+                }
+                
+            }
+            
         }
 
         //按钮：删除
@@ -325,19 +340,25 @@ namespace spms.view.Pages
                     if (selectUser != null)
                     {
                         //获取用户症状信息
-                        List<SymptomInfo> symptomInfos = new SymptomService().GetByUserId(selectUser);
-                        List<object> symptomInfoDtos = new List<object>();
-                        foreach (SymptomInfo symptomInfo in symptomInfos)
+                        List<SymptomInfo> lists = new SymptomService().GetByUserId(selectUser);
+                        if (lists.Count > 0)
                         {
-                            symptomInfoDtos.Add(new SymptomInfoDTO(symptomInfo));
+                            List<object> symptomInfoDtos = new List<object>();
+                            foreach (SymptomInfo symptomInfo in lists)
+                            {
+                                symptomInfoDtos.Add(new SymptomInfoDTO(symptomInfo));
+                            }
+
+                            //存放信息导出的列名
+                            string[] colNames = { "训练日期", "血压(前)", "脉搏(前)", "心率(前)", "体温(前)", "血压(后)", "脉搏(后)", "心率(后)", "体温(后)", "水分摄取", "问诊确认单", "参加/不参加", "看护记录" };
+                            //TODO 如果页面数据展示完成，可以继续完成
+
+                            ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("症状信息记录", colNames, symptomInfoDtos));
                         }
-
-                        //存放信息导出的列名
-                        string[] colNames = { "训练日期", "血压(前)", "脉搏(前)", "心率(前)", "体温(前)", "血压(后)", "脉搏(后)", "心率(后)", "体温(后)", "水分摄取", "问诊确认单", "参加/不参加", "看护记录" };
-                        //TODO 如果页面数据展示完成，可以继续完成
-
-                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,ExcelUtil.ToDataTable("症状信息记录", colNames, symptomInfoDtos));
-
+                        else
+                        {
+                            MessageBox.Show("抱歉，没有数据");
+                        }
                     }
                 }
                 else if (is_trainingrecord.IsChecked == true)
@@ -346,16 +367,23 @@ namespace spms.view.Pages
                     if (selectUser != null)
                     {
                         List<TrainComprehensive> lists = new ExcelService().ListTrainExcekVOByUserId(selectUser.Pk_User_Id);
-                        List<object> excelLists = new List<object>();
-                        foreach (TrainComprehensive trainComprehensive in lists)
+                        if (lists.Count > 0)
                         {
-                            excelLists.Add(new TrainExcelVO(trainComprehensive));
+                            List<object> excelLists = new List<object>();
+                            foreach (TrainComprehensive trainComprehensive in lists)
+                            {
+                                excelLists.Add(new TrainExcelVO(trainComprehensive));
+                            }
+                            Console.WriteLine(lists.ToString());
+                            //存放信息导出的列名
+                            string[] colNames = { "实施日期", "使用器械", "组数", "组的个数", "组间隔休息时间", " 砝码", "移乘方法", "自觉运动强度", "时间（秒）", " 距离（mm）", "总工作量（J）", "热量（cal）", "指数", "已完成组数", "时机、姿势", "备忘", "注意点", "利用者感想" };
+                            //TODO 如果页面数据展示完成，可以继续完成
+                            ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("训练记录", colNames, excelLists));
                         }
-                        Console.WriteLine(lists.ToString());
-                        //存放信息导出的列名
-                        string[] colNames = {"实施日期","使用器械","组数","组的个数","组间隔休息时间"," 砝码","移乘方法","自觉运动强度","时间（秒）"," 距离（mm）","总工作量（J）","热量（cal）","指数","已完成组数", "时机、姿势", "备忘","注意点","利用者感想"};
-                        //TODO 如果页面数据展示完成，可以继续完成
-                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,ExcelUtil.ToDataTable("训练记录", colNames, excelLists));
+                        else
+                        {
+                            MessageBox.Show("抱歉，没有数据");
+                        }
                     }
                 }
                 else if (is_physicalevaluation.IsChecked == true)
@@ -364,17 +392,25 @@ namespace spms.view.Pages
                     if (selectUser != null)
                     {
                         List<SymptomInfo> lists = new SymptomService().GetByUserId(selectUser);
-                        List<object> excelLists = new List<object>();
-                        foreach (SymptomInfo symptomInfo in lists)
+                        if (lists.Count > 0)
                         {
-                            excelLists.Add(new SymptomInfoExcelVO(symptomInfo));
-                        }
-                        //存放信息导出的列名
-                        string[] colNames = { "实施日期", "血压（前）", "心率（前）", "脉搏（前）", "体温（前）", "血压（后）", "心率（后）", "脉搏（后）", "体温（后）", "身体倦怠", "腹泻", "摇晃", "心跳、气喘", "咳嗽、有痰", "发烧", "胸部、肚子痛", "没有食欲", "持续便秘", "感到头晕", "头痛", "其他", "没有相关症状", "是否参加", "水分摄取", "看护记录" };
+                            List<object> excelLists = new List<object>();
+                            foreach (SymptomInfo symptomInfo in lists)
+                            {
+                                excelLists.Add(new SymptomInfoExcelVO(symptomInfo));
+                            }
 
-                        //TODO 如果页面数据展示完成，可以继续完成
-                        ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
-                            ExcelUtil.ToDataTable("体力评价记录", colNames, excelLists));
+                            //存放信息导出的列名
+                            string[] colNames = { "实施日期", "血压（前）", "心率（前）", "脉搏（前）", "体温（前）", "血压（后）", "心率（后）", "脉搏（后）", "体温（后）", "身体倦怠", "腹泻", "摇晃", "心跳、气喘", "咳嗽、有痰", "发烧", "胸部、肚子痛", "没有食欲", "持续便秘", "感到头晕", "头痛", "其他", "没有相关症状", "是否参加", "水分摄取", "看护记录" };
+
+                            //TODO 如果页面数据展示完成，可以继续完成
+                            ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
+                                ExcelUtil.ToDataTable("体力评价记录", colNames, excelLists));
+                        }
+                        else
+                        {
+                            MessageBox.Show("抱歉，没有数据");
+                        }
                     }
                 }
             }
@@ -655,9 +691,10 @@ namespace spms.view.Pages
                     
                     HeartBeatOffice heartBeatOffice = new HeartBeatOffice();
                     HttpHeartBeat result = heartBeatOffice.GetHeartBeatByCurrent();
-                    if (!HttpSender.Ping() || result == null)
+                    //心跳直接上传   !HttpSender.Ping() ||
+                    if ( result == null)
                     {
-                        //如果ping不同 或 没有取到值
+                        //如果没有取到值
                         return;
                     }
                     string jsonStr = HttpSender.POSTByJsonStr("communicationController/analysisJson",

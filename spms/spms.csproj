@@ -191,8 +191,8 @@
     <Compile Include="FmyTest.xaml.cs">
       <DependentUpon>FmyTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ganDongPinMing.xaml.cs">
-      <DependentUpon>ganDongPinMing.xaml</DependentUpon>
+    <Compile Include="zero.xaml.cs">
+      <DependentUpon>zero.xaml</DependentUpon>
     </Compile>
     <Compile Include="http\BigDataOfficer.cs" />
     <Compile Include="http\dto\AutherDTO.cs" />
@@ -306,8 +306,8 @@
     <Compile Include="view\Pages\ChildWin\InputTrainingResults.xaml.cs">
       <DependentUpon>InputTrainingResults.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\Pages\ChildWin\NonPublicInformation.xaml.cs">
-      <DependentUpon>NonPublicInformation.xaml</DependentUpon>
+    <Compile Include="view\Pages\ChildWin\NonPublicInfomationPass.xaml.cs">
+      <DependentUpon>NonPublicInfomationPass.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\PdfViewer.xaml.cs">
       <DependentUpon>PdfViewer.xaml</DependentUpon>
@@ -317,6 +317,9 @@
     </Compile>
     <Compile Include="view\Pages\ChildWin\PhysicalAssessmentReport.xaml.cs">
       <DependentUpon>PhysicalAssessmentReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\PicView.xaml.cs">
+      <DependentUpon>PicView.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
@@ -379,7 +382,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ganDongPinMing.xaml">
+    <Page Include="zero.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -484,9 +487,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="view\Pages\ChildWin\NonPublicInformation.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="view\Pages\ChildWin\NonPublicInfomationPass.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\ChildWin\PdfViewer.xaml">
       <SubType>Designer</SubType>
@@ -499,6 +502,10 @@
     <Page Include="view\Pages\ChildWin\PhysicalAssessmentReport.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\PicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\ChildWin\Register.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -591,6 +598,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\excel\1234.gif" />
     <Content Include="lib\libmupdf.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -603,6 +611,8 @@
     <Content Include="lib\Spire.XLS.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="view\Images\excel\enlarge.png" />
+    <Resource Include="view\Images\excel\narrow.png" />
     <Resource Include="view\Images\excel\none.png" />
     <Resource Include="view\Images\Date.bmp" />
     <Resource Include="view\Images\date.png" />
@@ -699,4 +709,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y /d  "$(ProjectDir)lib\libmupdf.dll" "$(ProjectDir)$(OutDir)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

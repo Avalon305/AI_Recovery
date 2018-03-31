@@ -15,7 +15,7 @@ namespace spms.http
     //负责发送http请求的发送者对象
     public class HttpSender
     {
-        public const string URLBASE = "http://10.18.22.131:8080/cloud/";
+        public static string URLBASE = CommUtil.GetPlatformUrl();
         
         //私有化空构造
         private HttpSender()

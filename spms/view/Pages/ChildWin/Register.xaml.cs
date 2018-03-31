@@ -31,7 +31,7 @@ namespace spms.view.Pages.ChildWin
     public partial class Register : Window
     {
         //照片的url
-        public string photoUrl { get; set; }
+        public string photoName { get; set; }
         //用户是否自己选择照片
         private bool userIfSelectPic = false;
         //去除窗体叉号
@@ -138,7 +138,6 @@ namespace spms.view.Pages.ChildWin
             this.Close();
         }
 
-
         /// <summary>
         /// 确定保存添加按钮
         /// </summary>
@@ -146,7 +145,6 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Button_OK(object sender, RoutedEventArgs e)
         {
-
             //获取用户身份证的内容
             //string userID = t1.Text;
             //获取用户姓名的内容
@@ -162,7 +160,8 @@ namespace spms.view.Pages.ChildWin
             //获得手机号
             string phone = this.phoneNum.Text;
             //获取身份证与手机号之后马上查重
-            if (userService.GetByIdCard(IDCard) != null) {
+            if (userService.GetByIdCard(IDCard) != null)
+            {
                 //身份证重复气泡提示
                 Error_Info_IDCard.Content = "该身份证已注册";
                 bubble_IDCard.IsOpen = true;
@@ -211,18 +210,23 @@ namespace spms.view.Pages.ChildWin
             user.User_Sex = (byte?)(usersex.Equals("男") ? 1 : 0);
             user.User_Phone = phone;
 
+            // 如果用户是自己选择现成的图片，将图片保存在安装目录下
             if (IdCard != null && name != null && IDCard != "" && name != "" && userIfSelectPic != false)
             {
-                // 如果用户是自己选择现成的图片，将图片保存在安装目录下
+                // 用户选择的图片文件的 原路径
                 string sourcePic = userPhotoPath;
-                string targetPic = CommUtil.GetUserPic(usernamePY + IDCard);
-                targetPic += ".gif";
-
+                // 压缩
+                string targetPic = CommUtil.GetUserPicTemp();
+                Random random = new Random();
+                int rd = random.Next(0, 100000);
+                targetPic += t3.Text.ToString() + rd.ToString() + ".gif";
+                
+                //targetPic += ".gif";
                 // 获得保存图片的文件夹
-                String dirPath = CommUtil.GetUserPic();
+                String dirPath = CommUtil.GetUserPicTemp();
 
-                Console.WriteLine(dirPath);
-                if (Directory.Exists(dirPath))//判断是否存在
+                //判断是否存在
+                if (Directory.Exists(dirPath))
                 {
                     //Response.Write("已存在");
                 }
@@ -232,25 +236,25 @@ namespace spms.view.Pages.ChildWin
                     Directory.CreateDirectory(dirPath);//创建新路径
                 }
 
-                bool isrewrite = true; // true=覆盖已存在的同名文件,false则反之
-
                 //压缩一下并且储存图片
                 long picLen = 0;
-                GetPicThumbnail(sourcePic, targetPic,300,300,20);
+                GetPicThumbnail(sourcePic, targetPic,184,259,20);
+
                 FileInfo di = new FileInfo(targetPic);
                 picLen = di.Length;
                 picLen /= 1024;
-                Console.WriteLine("~~~~~~~~ 图片的大小" + picLen + "~~~~~~~~");
+                
                 // 如果图片太大就重新选择
-                if (picLen > 10)
+                if (picLen > 40)
                 {
-                    MessageBox.Show("图片过大，请重新选择");
+                    MessageBox.Show("图片过大，请重新选择，不能超过40KB");
                     File.Delete(targetPic);
                     return;
                 }
 
-                //System.IO.File.Copy(sourcePic, targetPic, isrewrite);
-
+                string userSelectFinalPic = CommUtil.GetUserPic(photoName);
+                File.Copy(targetPic, userSelectFinalPic);
+                
             }
             else if(userIfSelectPic != false)
             {
@@ -258,8 +262,17 @@ namespace spms.view.Pages.ChildWin
                 return;
             }
 
+            string tempPic = CommUtil.GetUserPicTemp(photoName);
+
+            // 如果是正常拍照得到的图片
+            if (File.Exists(tempPic))
+            {
+                string finalPic = CommUtil.GetUserPic(photoName);                
+                File.Copy(tempPic, finalPic);
+            }
+
             //将图片的url传到数据库
-            user.User_PhotoLocation = photoUrl;
+            user.User_PhotoLocation = photoName;
             userService.InsertUser(user);
             //保存照片的路径
             this.Close();
@@ -276,20 +289,23 @@ namespace spms.view.Pages.ChildWin
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            
+
+            if(t3.Text == null)
+            {
+                MessageBox.Show("没有填写拼音名字");
+                return;
+            }
             photograph.getName = t3.Text;
 
             photograph.ShowDialog();
-            photoUrl = photograph.photoUrl;
+            photoName = photograph.photoName;
             photograph.Close();
 
-            //MessageBox.Show("hi");
-
             //展示摄像的时候的图片
-            if (File.Exists(photoUrl))
+            if (File.Exists(CommUtil.GetUserPicTemp() + photoName))
             {
                 //MessageBox.Show("hi open!");
-                BitmapImage bitmap = new BitmapImage(new Uri(photoUrl, UriKind.Absolute));//打开图片
+                BitmapImage bitmap = new BitmapImage(new Uri(CommUtil.GetUserPicTemp() + photoName, UriKind.Absolute));//打开图片
                 pic.Source = bitmap.Clone();//将控件和图片绑定
                 
             }
@@ -416,7 +432,7 @@ namespace spms.view.Pages.ChildWin
             }
         }
         //疾病名称是否存在
-        private void IsDisease(object sender, RoutedEventArgs e)
+        private void IsDisease(object sender, KeyboardFocusChangedEventArgs e)
         {
 
             Console.WriteLine(c5.Text);
@@ -542,6 +558,7 @@ namespace spms.view.Pages.ChildWin
 
         }
 
+       
     }
 
 }

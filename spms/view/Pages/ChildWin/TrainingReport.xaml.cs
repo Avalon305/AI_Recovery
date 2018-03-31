@@ -289,9 +289,13 @@ namespace spms.view.Pages.ChildWin
                 int tableRow = 11;
                 int length = list.Count;
                 //设置所有的行高
-                for (int i = 1; i <= tableRow + length; i++)
+                for (int i = 1; i <= tableRow; i++)
                 {
                     worksheet.Row(i).Height = 20;
+                }
+                for (int i = tableRow; i <= tableRow + length; i++)
+                {
+                    worksheet.Row(i).Height = 25;
                 }
                 int userRow = 4;
                 ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, "详细训练报告", Current_User);
@@ -327,7 +331,7 @@ namespace spms.view.Pages.ChildWin
                     worksheet.Cells[row, 1, row, 3].Merge = true;
                     worksheet.Cells[row, 10, row, 11].Merge = true;
                     worksheet.Cells[row, 1].Value = list[i].DS_name;
-                    worksheet.Cells[row, 4].Value = string.Format("{0:d}", list[i].Gmt_Create);
+                    worksheet.Cells[row, 4].Value =  list[i].Gmt_Create.ToString();//string.Format("{0:d}", list[i].Gmt_Create);
                     worksheet.Cells[row, 5].Value = list[i].dp_moveway;
                     worksheet.Cells[row, 6].Value = list[i].dp_weight;
                     worksheet.Cells[row, 7].Value = list[i].dp_groupcount;
