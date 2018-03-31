@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace spms
 {
@@ -42,15 +43,26 @@ namespace spms
                 }
             });
              th.Start();
-            try
-            {
-                //开启大数据上传
-                StartBigData();
-            }
-            catch(Exception ee)
-            {
-            }
+
+
+
             
+
+            //大数据线程
+            
+            Thread bdth = new Thread(() =>
+            {
+                int i = 1;
+                while (true) {
+                    BigDataOfficer bigDataOfficer = new BigDataOfficer();
+                    bigDataOfficer.Run();
+                    int heartBeatRate = (int)CommUtil.GetBigDataRate();
+                    Thread.Sleep(1000* 300);
+                    //Console.WriteLine("运行次数：" + i++);
+                }
+            });
+            bdth.Start();
+
             base.OnStartup(e);
         }
         /// <summary>
@@ -62,28 +74,6 @@ namespace spms
             System.Environment.Exit(0);
             base.OnExit(e);
         }
-
-        private void StartBigData()
-        {
-            //大数据线程，主要上传除心跳之外的所有数据信息
-            Thread bigDataThread;
-            //启动大数据线程,切换界面记得关闭该线程
-            bigDataThread = new Thread(new ThreadStart(UploadDataToWEB));
-            //激活了就启动
-            if (new SetterDAO().getSetter()!=null) {
-                bigDataThread.Start();
-            }
-           
-        }
-
-        /// <summary>
-        /// 上传的方法，参数为秒
-        /// </summary>
-        public static void UploadDataToWEB()
-        {
-            //300秒-5分钟一次上传
-            int? heartBeatRate = CommUtil.GetBigDataRate();
-            BigDataOfficer bigDataOfficer = new BigDataOfficer((int)heartBeatRate);
-        }
+       
     }
 }
