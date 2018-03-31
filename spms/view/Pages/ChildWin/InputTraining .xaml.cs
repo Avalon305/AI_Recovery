@@ -1606,7 +1606,7 @@ namespace spms.view.Pages.ChildWin
                 border4.Background = Brushes.Gray;
                 combobox_08.Visibility = Visibility.Visible;
                 stackpanel.Margin = new Thickness(0, 199.8, 0, 0);
-                t1.Height = 130;
+                t1.Height = 120;
             }
         }
         private void select_change2(object sender, EventArgs e)
@@ -1631,7 +1631,7 @@ namespace spms.view.Pages.ChildWin
                 border14.Background = Brushes.Gray;
                 combobox_18.Visibility = Visibility.Visible;
                 stackpanel2.Margin = new Thickness(0, 199.8, 0, 0);
-                t2.Height = 130;
+                t2.Height = 120;
             }
         }
         private void select_change3(object sender, EventArgs e)
@@ -1656,7 +1656,7 @@ namespace spms.view.Pages.ChildWin
                 border24.Background = Brushes.Gray;
                 combobox_28.Visibility = Visibility.Visible;
                 stackpanel3.Margin = new Thickness(0, 199.8, 0, 0);
-                t3.Height = 130;
+                t3.Height = 120;
             }
         }
         private void select_change4(object sender, EventArgs e)
@@ -1681,7 +1681,7 @@ namespace spms.view.Pages.ChildWin
                 border34.Background = Brushes.Gray;
                 combobox_38.Visibility = Visibility.Visible;
                 stackpanel4.Margin = new Thickness(0, 199.8, 0, 0);
-                t4.Height = 130;
+                t4.Height = 120;
             }
         }
         private void select_change5(object sender, EventArgs e)
@@ -1706,7 +1706,7 @@ namespace spms.view.Pages.ChildWin
                 border44.Background = Brushes.Gray;
                 combobox_48.Visibility = Visibility.Visible;
                 stackpanel5.Margin = new Thickness(0, 199.8, 0, 0);
-                t5.Height = 130;
+                t5.Height = 120;
             }
         }
         private void select_change6(object sender, EventArgs e)
@@ -1731,7 +1731,7 @@ namespace spms.view.Pages.ChildWin
                 border54.Background = Brushes.Gray;
                 combobox_58.Visibility = Visibility.Visible;
                 stackpanel6.Margin = new Thickness(0, 199.8, 0, 0);
-                t6.Height = 130;
+                t6.Height = 120;
             }
         }
     }

@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="337.975" Width="470"
+        Title="宝德龙" Height="352" Width="470"
            ResizeMode = "NoResize"
         Loaded="Window_Loaded"
          LocationChanged="windowmove">
@@ -73,21 +73,21 @@
 
         <Grid Margin="10,10,10,0" Name="Retrieval_Conditon">
             <Grid.RowDefinitions>
-                <RowDefinition Height="23"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="4"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="4"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
                 <RowDefinition Height="4"></RowDefinition>
                 <RowDefinition Height="23"></RowDefinition>
                 <RowDefinition Height="4"></RowDefinition>
-                <RowDefinition Height="23"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
                 <RowDefinition Height="4"></RowDefinition>
-                <RowDefinition Height="23"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
                 <RowDefinition Height="4"></RowDefinition>
-                <RowDefinition Height="23"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
                 <RowDefinition Height="4"></RowDefinition>
-                <RowDefinition Height="23"></RowDefinition>
-                <RowDefinition Height="4"></RowDefinition>
-                <RowDefinition Height="23"></RowDefinition>
-                <RowDefinition Height="4"></RowDefinition>
-                <RowDefinition Height="23"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
                 <RowDefinition Height="4"></RowDefinition>
 
 
@@ -100,7 +100,7 @@
             </Grid.ColumnDefinitions>
             <!--<Label Content="用户ID" Grid.Row="0" Grid.Column="0"  Background="Gray" Foreground="White"/>
             <TextBox Grid.Row="0" Name="t1" Grid.Column="2"   VerticalContentAlignment="Center"/>-->
-            <Label Content="用户姓名" Grid.Row="0" Grid.Column="0" Background="Gray" Foreground="White"/>
+            <Label Content="用户姓名" Grid.Row="0" Grid.Column="0"  Background="Gray" Foreground="White"/>
             <TextBox Grid.Row="0" Name="t2" Grid.Column="2"  Text="{Binding User_Name}"   VerticalContentAlignment="Center"/>
             <Label Content="用户姓名（拼音）" Grid.Row="2" Grid.Column="0" Background="Gray" Foreground="White"/>
             <TextBox Grid.Row="2" Name="t3" Grid.Column="2"  VerticalContentAlignment="Center"/>
