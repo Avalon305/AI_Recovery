@@ -1594,7 +1594,7 @@ namespace spms.view.Pages.ChildWin
                 border3.Background = Brushes.White;
                 border4.Background = Brushes.White;
                 combobox_08.Visibility = Visibility.Hidden;
-                stackpanel.Margin = new Thickness(0, 139.8, 0, 0);
+                stackpanel.Margin = new Thickness(0, 149.8, 0, 0);
                 t1.Height = 170;
             }
             else if (combobox_06.Text.Equals("有效"))
@@ -1605,8 +1605,8 @@ namespace spms.view.Pages.ChildWin
                 border3.Background = Brushes.Gray;
                 border4.Background = Brushes.Gray;
                 combobox_08.Visibility = Visibility.Visible;
-                stackpanel.Margin = new Thickness(0, 179.8, 0, 0);
-                t1.Height = 130;
+                stackpanel.Margin = new Thickness(0, 199.8, 0, 0);
+                t1.Height = 120;
             }
         }
         private void select_change2(object sender, EventArgs e)
@@ -1619,7 +1619,7 @@ namespace spms.view.Pages.ChildWin
                 border13.Background = Brushes.White;
                 border14.Background = Brushes.White;
                 combobox_18.Visibility = Visibility.Hidden;
-                stackpanel2.Margin = new Thickness(0, 139.8, 0, 0);
+                stackpanel2.Margin = new Thickness(0, 149.8, 0, 0);
                 t2.Height = 170;
             }
             else if (combobox_16.Text.Equals("有效"))
@@ -1630,8 +1630,8 @@ namespace spms.view.Pages.ChildWin
                 border13.Background = Brushes.Gray;
                 border14.Background = Brushes.Gray;
                 combobox_18.Visibility = Visibility.Visible;
-                stackpanel2.Margin = new Thickness(0, 179.8, 0, 0);
-                t2.Height = 130;
+                stackpanel2.Margin = new Thickness(0, 199.8, 0, 0);
+                t2.Height = 120;
             }
         }
         private void select_change3(object sender, EventArgs e)
@@ -1644,7 +1644,7 @@ namespace spms.view.Pages.ChildWin
                 border23.Background = Brushes.White;
                 border24.Background = Brushes.White;
                 combobox_28.Visibility = Visibility.Hidden;
-                stackpanel3.Margin = new Thickness(0, 139.8, 0, 0);
+                stackpanel3.Margin = new Thickness(0, 149.8, 0, 0);
                 t3.Height = 170;
             }
             else if (combobox_26.Text.Equals("有效"))
@@ -1655,8 +1655,8 @@ namespace spms.view.Pages.ChildWin
                 border23.Background = Brushes.Gray;
                 border24.Background = Brushes.Gray;
                 combobox_28.Visibility = Visibility.Visible;
-                stackpanel3.Margin = new Thickness(0, 179.8, 0, 0);
-                t3.Height = 130;
+                stackpanel3.Margin = new Thickness(0, 199.8, 0, 0);
+                t3.Height = 120;
             }
         }
         private void select_change4(object sender, EventArgs e)
@@ -1669,7 +1669,7 @@ namespace spms.view.Pages.ChildWin
                 border33.Background = Brushes.White;
                 border34.Background = Brushes.White;
                 combobox_38.Visibility = Visibility.Hidden;
-                stackpanel4.Margin = new Thickness(0, 139.8, 0, 0);
+                stackpanel4.Margin = new Thickness(0, 149.8, 0, 0);
                 t4.Height = 170;
             }
             else if (combobox_36.Text.Equals("有效"))
@@ -1680,8 +1680,8 @@ namespace spms.view.Pages.ChildWin
                 border33.Background = Brushes.Gray;
                 border34.Background = Brushes.Gray;
                 combobox_38.Visibility = Visibility.Visible;
-                stackpanel4.Margin = new Thickness(0, 179.8, 0, 0);
-                t4.Height = 130;
+                stackpanel4.Margin = new Thickness(0, 199.8, 0, 0);
+                t4.Height = 120;
             }
         }
         private void select_change5(object sender, EventArgs e)
@@ -1694,7 +1694,7 @@ namespace spms.view.Pages.ChildWin
                 border43.Background = Brushes.White;
                 border44.Background = Brushes.White;
                 combobox_48.Visibility = Visibility.Hidden;
-                stackpanel5.Margin = new Thickness(0, 139.8, 0, 0);
+                stackpanel5.Margin = new Thickness(0, 149.8, 0, 0);
                 t5.Height = 170;
             }
             else if (combobox_46.Text.Equals("有效"))
@@ -1705,8 +1705,8 @@ namespace spms.view.Pages.ChildWin
                 border43.Background = Brushes.Gray;
                 border44.Background = Brushes.Gray;
                 combobox_48.Visibility = Visibility.Visible;
-                stackpanel5.Margin = new Thickness(0, 179.8, 0, 0);
-                t5.Height = 130;
+                stackpanel5.Margin = new Thickness(0, 199.8, 0, 0);
+                t5.Height = 120;
             }
         }
         private void select_change6(object sender, EventArgs e)
@@ -1719,7 +1719,7 @@ namespace spms.view.Pages.ChildWin
                 border53.Background = Brushes.White;
                 border54.Background = Brushes.White;
                 combobox_58.Visibility = Visibility.Hidden;
-                stackpanel6.Margin = new Thickness(0, 139.8, 0, 0);
+                stackpanel6.Margin = new Thickness(0, 149.8, 0, 0);
                 t6.Height = 130;
             }
             else if (combobox_56.Text.Equals("有效"))
@@ -1730,8 +1730,8 @@ namespace spms.view.Pages.ChildWin
                 border53.Background = Brushes.Gray;
                 border54.Background = Brushes.Gray;
                 combobox_58.Visibility = Visibility.Visible;
-                stackpanel6.Margin = new Thickness(0, 179.8, 0, 0);
-                t6.Height = 130;
+                stackpanel6.Margin = new Thickness(0, 199.8, 0, 0);
+                t6.Height = 120;
             }
         }
     }

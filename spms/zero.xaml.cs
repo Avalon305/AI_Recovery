@@ -161,5 +161,31 @@ namespace spms
 
             MessageBox.Show(setter.Set_Unique_Id);
         }
+        /// <summary>
+        /// 测试激活
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_16(object sender, RoutedEventArgs e)
+        {
+            //获取mac地址
+            string strMac = CommUtil.GetMacAddress();
+            entity.Setter setter = new entity.Setter();
+            //mac地址先变为byte[]再aes加密
+            byte[] byteMac = Encoding.GetEncoding("GBK").GetBytes(strMac);
+            byte[] AesMac = AesUtil.Encrypt(byteMac, ProtocolConstant.USB_DOG_PASSWORD);
+            //存入数据库
+            setter.Set_Unique_Id = Encoding.GetEncoding("GBK").GetString(AesMac);
+            //setter.Pk_Set_Id = Pk_Set_Id;
+            //MessageBox.Show(Pk_Set_Id.ToString());
+            new SetterDAO().Insert(setter);
+            //注释的部分为添加多个mac地址
+            // List<entity.Setter> ListMac = CommUtil.GetMacByWMI();
+            // SetterDAO.InsertMacAdress(ListMac);
+ 
+           
+            
+           
+        }
     }
 }

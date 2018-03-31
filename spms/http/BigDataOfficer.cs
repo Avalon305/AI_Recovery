@@ -27,6 +27,12 @@ namespace spms.http
         //2. 构造函数中初始化定时器,新建即开始工作,参数为间隔时间
         public BigDataOfficer(int disTime)
         {
+            //!HttpSender.Ping() ||
+            if ( string.IsNullOrEmpty(setterDao.getSetter().Set_Unique_Id))
+            {
+                //网路不通 或 未注册 不上传
+                return;
+            }
             //实例化Timer类
             bigDataTimer = new Timer(Run, null, 0, disTime);
         }
@@ -41,12 +47,6 @@ namespace spms.http
         //定时器轮询方法
         public void Run(object state)
         {
-            if (!HttpSender.Ping() || string.IsNullOrEmpty(setterDao.getSetter().Set_Unique_Id))
-            {
-                //网路不通 或 未注册 不上传
-                return;
-            }
-
             Upload();
         }
 

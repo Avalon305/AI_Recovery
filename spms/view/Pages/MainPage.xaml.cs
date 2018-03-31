@@ -691,9 +691,10 @@ namespace spms.view.Pages
                     
                     HeartBeatOffice heartBeatOffice = new HeartBeatOffice();
                     HttpHeartBeat result = heartBeatOffice.GetHeartBeatByCurrent();
-                    if (!HttpSender.Ping() || result == null)
+                    //心跳直接上传   !HttpSender.Ping() ||
+                    if ( result == null)
                     {
-                        //如果ping不同 或 没有取到值
+                        //如果没有取到值
                         return;
                     }
                     string jsonStr = HttpSender.POSTByJsonStr("communicationController/analysisJson",
