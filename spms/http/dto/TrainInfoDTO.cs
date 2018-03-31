@@ -14,15 +14,10 @@ namespace spms.http.dto
         public string gmtCreate;
         public string gmtModified;
         public string fkUserId;
+        //status
+        public string status;
 
-        public TrainInfoDTO(TrainInfo trainInfo,Setter setter)
-        {
-            this.clientId = setter.Set_Unique_Id;
-            this.fkUserId = trainInfo.FK_User_Id.ToString();
-            this.gmtCreate = trainInfo.Gmt_Create.ToString();
-            this.gmtModified = trainInfo.Gmt_Modified.ToString();
-            this.pkTiId = trainInfo.Pk_TI_Id.ToString();
-        }
+        
         public TrainInfoDTO(TrainInfo trainInfo, string mac)
         {
             this.clientId = mac;
@@ -30,6 +25,8 @@ namespace spms.http.dto
             this.gmtCreate = trainInfo.Gmt_Create.ToString();
             this.gmtModified = trainInfo.Gmt_Modified.ToString();
             this.pkTiId = trainInfo.Pk_TI_Id.ToString();
+
+            this.status = trainInfo.Status.ToString();
         }
     }
 }

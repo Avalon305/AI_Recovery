@@ -191,8 +191,8 @@
     <Compile Include="FmyTest.xaml.cs">
       <DependentUpon>FmyTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ganDongPinMing.xaml.cs">
-      <DependentUpon>ganDongPinMing.xaml</DependentUpon>
+    <Compile Include="zero.xaml.cs">
+      <DependentUpon>zero.xaml</DependentUpon>
     </Compile>
     <Compile Include="http\BigDataOfficer.cs" />
     <Compile Include="http\dto\AutherDTO.cs" />
@@ -376,7 +376,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ganDongPinMing.xaml">
+    <Page Include="zero.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
