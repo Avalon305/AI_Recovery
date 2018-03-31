@@ -26,6 +26,7 @@ using spms.constant;
 using spms.http;
 using spms.protocol;
 using spms.view.Pages.ChildWin;
+using System.Drawing;
 
 namespace spms
 {
@@ -179,25 +180,55 @@ namespace spms
 
             bmp.Render(VCE);
 
-            //这里需要创建一个流以便存储摄像头拍摄到的图片。
-            //当然，可以使文件流，也可以使内存流。
-            BitmapEncoder encoder = new JpegBitmapEncoder();
-            // 获取图像的帧
-            encoder.Frames.Add(BitmapFrame.Create(bmp));
+            var renderTargetBitmap = bmp;
+            var bitmapImage = new BitmapImage();
+            var bitmapEncoder = new JpegBitmapEncoder();
+            bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
 
-            Console.WriteLine(path + "1.jpg");
-
-            using (MemoryStream ms = new MemoryStream())
+            using (var stream = new MemoryStream())
             {
-                encoder.Save(ms);
-                byte[] captureData = ms.ToArray();
-                File.WriteAllBytes(path + "/1" + Guid.NewGuid().ToString().Substring(0, 5) + ".jpg", captureData);
-                //@"./photo/" + "1" + Guid.NewGuid().ToString().Substring(0, 5) + 
-                //@"./photo/" + Guid.NewGuid().ToString().Substring(0, 5) + ".jpg"
-            }
-            VCE.Pause();
-        }
+                bitmapEncoder.Save(stream);
+                stream.Seek(0, SeekOrigin.Begin);
 
+                bitmapImage.BeginInit();
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapImage.StreamSource = stream;
+                bitmapImage.EndInit();
+            }
+
+            VCE.Pause();
+
+
+            var win2 = new PhotoCutWindow();
+        
+            win2.SetImage(bitmapImage);
+            win2.Show();
+        }
+        // ImageSource --> Bitmap
+        public static System.Drawing.Bitmap ImageSourceToBitmap(ImageSource imageSource)
+        {
+            BitmapSource m = (BitmapSource)imageSource;
+
+            System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(m.PixelWidth, m.PixelHeight, System.Drawing.Imaging.PixelFormat.Format32bppPArgb); // 坑点：选Format32bppRgb将不带透明度
+
+            System.Drawing.Imaging.BitmapData data = bmp.LockBits(
+            new System.Drawing.Rectangle(System.Drawing.Point.Empty, bmp.Size), System.Drawing.Imaging.ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
+
+            m.CopyPixels(Int32Rect.Empty, data.Scan0, data.Height * data.Stride, data.Stride);
+            bmp.UnlockBits(data);
+
+            return bmp;
+        }
+        public BitmapImage BitmapToBitmapImage(System.Drawing.Bitmap bitmap)
+        {
+            MemoryStream ms = new MemoryStream();
+            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            BitmapImage bit3 = new BitmapImage();
+            bit3.BeginInit();
+            bit3.StreamSource = ms;
+            bit3.EndInit();
+            return bit3;
+        }
         //加载ComBox中的摄像头选择
         private void SelectionChanged_CB(object sender, SelectionChangedEventArgs e)
         {
@@ -227,7 +258,7 @@ namespace spms
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-//            bigDataOfficer.Run();
+            new PhotoCutWindow().ShowDialog();
         }
 
         private void Button_Click_15(object sender, RoutedEventArgs e)
