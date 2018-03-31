@@ -33,28 +33,31 @@ namespace spms.http
 
             //需要加入解密逻辑
             string mac = "";
-            try
-            {
-                byte[] deBytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id),
-                    ProtocolConstant.USB_DOG_PASSWORD);
-                mac = Encoding.GetEncoding("GBK").GetString(deBytes);
-            }
-            catch (Exception ex)
-            {
-                //TODO 解密失败的处理:把冒号去掉?
-                mac = setter.Set_Unique_Id.Replace(":", "");
-            }
-
+            //try
+            //{
+            //    byte[] deBytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id),
+            //        ProtocolConstant.USB_DOG_PASSWORD);
+            //    mac = Encoding.GetEncoding("GBK").GetString(deBytes);
+            //}
+            //catch (Exception ex)
+            //{
+            //    //TODO 解密失败的处理:把冒号去掉?
+            //    mac = setter.Set_Unique_Id.Replace(":", "");
+            //}
+            //获得当前主机的mac地址
+            mac = SystemInfo.GetMacAddress();
             AuthDAO authDAO = new AuthDAO();
             var result = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
             //注册用户设置mac与用户名
             //TODO设置mac地址不能从本地拿，必须实时获取
+
+            
             sendHeartBeat = new HttpHeartBeat(result.Auth_UserName, mac);
 
             if (result.User_Status == Auther.USER_STATUS_FREEZE)
             {
                 //是否为冻结状态的心跳,这里不能从数据库取，否则，云通知本地锁死，本地改状态后，会再次通知云锁死本机，陷入死循环
-                sendHeartBeat.heartbeatType = 0;
+                sendHeartBeat.heartbeatType = 1;
                 sendHeartBeat.authStatus = 0;
             }
             else if (result.User_Status == Auther.USER_STATUS_FREE)
@@ -62,7 +65,7 @@ namespace spms.http
             {
                 //是否完全离线
                 sendHeartBeat.heartbeatType = 2;
-                sendHeartBeat.authStatus = 3;
+                sendHeartBeat.authStatus = 0;
             }
             else
             {

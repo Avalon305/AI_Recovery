@@ -114,6 +114,7 @@ namespace spms.util
 
                 if (dataTable != null)
                 {
+                    //症状信息
                     if (dataTable.TableName == "症状信息记录")
                     {
                         worksheet.Cells[tableRow , 2, tableRow, 5].Merge = true;
@@ -132,8 +133,31 @@ namespace spms.util
                         }
 
                         tableRow += 1;
-
                     }
+
+                    //体力评价记录
+                    if (dataTable.TableName == "体力评价记录")
+                    {
+                        worksheet.Cells[tableRow, 2, tableRow, 5].Merge = true;
+                        worksheet.Cells[tableRow, 6, tableRow, 9].Merge = true;
+                        worksheet.Cells[tableRow, 10, tableRow, 22].Merge = true;
+                        worksheet.Cells[tableRow, 2].Value = "康复前";
+                        worksheet.Cells[tableRow, 6].Value = "康复后";
+                        worksheet.Cells[tableRow, 10].Value = "问诊票";
+
+
+                        using (ExcelRange range = worksheet.Cells[tableRow, 2, tableRow, 22])
+                        {
+                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                            range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            range.Style.Font.Bold = true;
+                            range.Style.Font.Name = "微软雅黑";
+                            range.Style.Font.Size = 11;
+                        }
+
+                        tableRow += 1;
+                    }
+
                     //设置列名和格式
                     foreach (DataColumn col in dataTable.Columns)
                     {

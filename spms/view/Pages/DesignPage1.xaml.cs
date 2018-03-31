@@ -54,13 +54,24 @@ namespace spms.view.Pages
             //setter.Pk_Set_Id = 5;
             //setterList.Add(setterDao.Load(setter.Pk_Set_Id));
             setterList = setterDao.ListAll();
-            Pk_Set_Id = setterList[0].Pk_Set_Id;
-            comboBox2.SelectedIndex = setterList[0].Set_Language;
+            try
+            {
+                Pk_Set_Id = setterList[0].Pk_Set_Id;
+            }
+            catch (ArgumentOutOfRangeException ee)
+            {
+            }
+
+            try { comboBox2.SelectedIndex = setterList[0].Set_Language; }
+            catch (ArgumentOutOfRangeException ee)
+            {
+                comboBox2.SelectedIndex = 0;
+            }
             try
             {
                 comboBox1.SelectedIndex = int.Parse(setterList[0].Set_OrganizationSort);
             }
-            catch(FormatException ee)
+            catch (Exception ee)
             {
                 comboBox1.SelectedIndex = 0;
             }

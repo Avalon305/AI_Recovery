@@ -40,7 +40,15 @@ namespace spms.dao
                 return conn.QueryFirstOrDefault<Auther>(query, new { Auth_UserName = name, Auth_UserPass = password });
             }
         }
+        public int GetAuthCount()
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select count(*) from bdl_auth";
 
+                return conn.QueryFirstOrDefault<int>(query);
+            }
+        }
         /// <summary>
         /// 登录
         /// </summary>

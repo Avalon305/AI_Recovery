@@ -23,23 +23,16 @@ namespace spms.http.dto
         public string dpStatus;
         public string dpWeight;
         public string dpMemo;
-        public DevicePrescriptionDTO(DevicePrescription devicePrescription,Setter setter) {
-            this.clientId = setter.Set_Unique_Id;
-            this.dpAttrs = devicePrescription.DP_Attrs;
-            this.dpGroupcount = devicePrescription.dp_groupcount.ToString();
-            this.dpGroupnum = devicePrescription.dp_groupnum.ToString();
-            this.dpMemo = devicePrescription.DP_Memo;
-            this.dpMoveway = devicePrescription.dp_moveway.ToString();
+        //计时器增加
+        //计时器是否有效
+        public string dpTimer { get; set; }
+        //计时时间
+        public string dpTimeCount { get; set; }
+        //计时方式
+        public string dpTimeType { get; set; }
+        //移动距离
+        public string dpMoveDistance { get; set; }
 
-            this.dpRelaxtime = devicePrescription.dp_relaxtime.ToString();
-            this.dpStatus = devicePrescription.Dp_status.ToString();
-            this.dpWeight = devicePrescription.dp_weight.ToString();
-            this.fkDsId = devicePrescription.Fk_DS_Id.ToString();
-            this.fkTiId = devicePrescription.Fk_TI_Id.ToString();
-            this.gmtCreate = devicePrescription.Gmt_Create.ToString();
-            this.gmtModified = devicePrescription.Gmt_Modified.ToString();
-            this.pkDpId = devicePrescription.Pk_DP_Id.ToString();
-        }
         public DevicePrescriptionDTO(DevicePrescription devicePrescription, string mac)
         {
             this.clientId = mac;
@@ -57,6 +50,12 @@ namespace spms.http.dto
             this.gmtCreate = devicePrescription.Gmt_Create.ToString();
             this.gmtModified = devicePrescription.Gmt_Modified.ToString();
             this.pkDpId = devicePrescription.Pk_DP_Id.ToString();
+            //计时器增加
+            this.dpTimer = devicePrescription.dp_timer.ToString();
+            this.dpTimeCount = devicePrescription.dp_timecount.ToString();
+            this.dpTimeType = devicePrescription.dp_timetype.ToString();
+            //移动距离
+            this.dpMoveDistance = devicePrescription.dp_movedistance.ToString();
         }
     }
 }
