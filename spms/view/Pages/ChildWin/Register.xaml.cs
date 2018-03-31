@@ -288,7 +288,11 @@ namespace spms.view.Pages.ChildWin
         // 摄像
         private void Photograph(object sender, RoutedEventArgs e)
         {
-
+            if (t3.Text == "" || IDCard.Text == "")
+            {
+                MessageBox.Show("请填写完整信息");
+                return;
+            }
             Photograph photograph = new Photograph
             {
                 Owner = Window.GetWindow(this),
@@ -303,16 +307,18 @@ namespace spms.view.Pages.ChildWin
                 return;
             }
             photograph.getName = t3.Text;
+            photograph.id = IDCard.Text;
 
             photograph.ShowDialog();
             photoName = photograph.photoName;
-            photograph.Close();
+            //photograph.Close();
+            Console.WriteLine(photoName);
 
             //展示摄像的时候的图片
-            if (File.Exists(CommUtil.GetUserPicTemp() + photoName))
+            if (File.Exists(photoName))
             {
                 //MessageBox.Show("hi open!");
-                BitmapImage bitmap = new BitmapImage(new Uri(CommUtil.GetUserPicTemp() + photoName, UriKind.Absolute));//打开图片
+                BitmapImage bitmap = new BitmapImage(new Uri(photoName, UriKind.Absolute));//打开图片
                 pic.Source = bitmap.Clone();//将控件和图片绑定
                 
             }
@@ -565,7 +571,23 @@ namespace spms.view.Pages.ChildWin
 
         }
 
-       
+        private void c6_KeyUp(object sender, KeyEventArgs e)
+        {
+            List<string> mylist = new List<string>();
+            mylist = diagnosisList.FindAll(delegate (string s) { return s.Contains(c6.Text.Trim()); });
+            c6.ItemsSource = mylist;
+            c6.IsDropDownOpen = true;
+        }
+
+        private void c5_KeyUp(object sender, KeyEventArgs e)
+        {
+            List<string> mylist = new List<string>();
+            mylist = diseaseList.FindAll(delegate (string s) { return s.Contains(c5.Text.Trim()); });
+            c5.ItemsSource = mylist;
+            c5.IsDropDownOpen = true;
+        }
+
+
     }
 
 }

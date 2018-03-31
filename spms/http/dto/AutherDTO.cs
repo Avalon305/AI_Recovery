@@ -39,7 +39,7 @@ namespace spms.http.dto
             this.organizationSort = setter.Set_OrganizationSort;
             this.organizationName = setter.Set_OrganizationName;
             this.organizationPhone = setter.Set_OrganizationPhone;
-            this.offlineTime = auther.Auth_OfflineTime.ToString();
+            this.offlineTime = auther.Auth_OfflineTime.ToString().Replace("/","-");
             this.clientId = mac;
         }
 

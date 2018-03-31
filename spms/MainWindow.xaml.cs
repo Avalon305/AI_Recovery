@@ -36,12 +36,12 @@ namespace spms
     public partial class MainWindow : Window
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        private BigDataOfficer bigDataOfficer;
+        //private BigDataOfficer bigDataOfficer;
         private string path = null;
         public MainWindow()
         {
             InitializeComponent();
-            bigDataOfficer = new BigDataOfficer(12);
+            //bigDataOfficer = new BigDataOfficer(12);
             // 初始化摄像头
             Camera_CB.ItemsSource = MultimediaUtil.VideoInputNames;
             if (MultimediaUtil.VideoInputNames.Length > 0)

@@ -19,6 +19,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp2;
 using WPFMediaKit.DirectShow.Controls;
 
 namespace spms.view.Pages.ChildWin
@@ -34,6 +35,7 @@ namespace spms.view.Pages.ChildWin
         public string photoName { get; set; }
         //得到用户的名字
         public string getName { get; set; }
+        public string id { get; set; }
         // 照片保存
         byte[] Pic = null;
         //GWL_STYLE表示获得窗口风格
@@ -75,14 +77,44 @@ namespace spms.view.Pages.ChildWin
             }
 
         }
+        /// <summary>
+        /// 箭筒截图是否成功
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ImageDealer_OnOnCutImaging(object sender, RoutedEventArgs e)
+        {
+            
+            var ddd = (BitmapSource)e.OriginalSource;
+            Bitmap bit = BitmapFromSource(ddd);
+
+            //指定照片尺寸这么大
+            var bmcpy = new Bitmap(183, 256);
+            Graphics gh = Graphics.FromImage(bmcpy);
+            gh.DrawImage(bit, new System.Drawing.Rectangle(0, 0, 183, 256));
+            photoName = CommUtil.GetUserPic() + getName + id + ".jpg";
+            bmcpy.Save(photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+        }
+        public static Bitmap BitmapFromSource(BitmapSource source)
+        {
+            using (MemoryStream outStream = new MemoryStream())
+            {
+                BitmapEncoder enc = new PngBitmapEncoder();
+                enc.Frames.Add(BitmapFrame.Create(source));
+                enc.Save(outStream);
+                System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap(outStream);
+
+                // return bitmap; <-- leads to problems, stream is closed/closing ...
+                return new Bitmap(bitmap);
+            }
+        }
 
         //拍照按钮
         private void btn_photo(object sender, RoutedEventArgs e)
         {
             //vce是前台wpfmedia控件的name
             //为避免抓不全的情况，需要在Render之前调用Measure、Arrange
-            //为避免VideoCaptureElement显示不全，需要把
-            //VideoCaptureElement的Stretch="Fill"
             RenderTargetBitmap bmp = new RenderTargetBitmap((int)vce.ActualWidth,
                 (int)vce.ActualHeight, 96, 96, PixelFormats.Default);
 
@@ -90,86 +122,38 @@ namespace spms.view.Pages.ChildWin
             vce.Arrange(new Rect(vce.RenderSize));
 
             bmp.Render(vce);
-            //展示照片
-            pic.Source = bmp;
-            
-            //这里需要创建一个流以便存储摄像头拍摄到的图片。
-            //当然，可以使文件流，也可以使内存流。
-            BitmapEncoder encoder = new JpegBitmapEncoder();
-            // 获取图像的帧
-            encoder.Frames.Add(BitmapFrame.Create(bmp));
-            
-            //System.Console.WriteLine(path);
 
-            using (MemoryStream ms = new MemoryStream())
+            var renderTargetBitmap = bmp;
+            var bitmapImage = new BitmapImage();
+            var bitmapEncoder = new JpegBitmapEncoder();
+            bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
+
+            using (var stream = new MemoryStream())
             {
-                encoder.Save(ms);
-                byte[] captureData = ms.ToArray();
-                Pic = ms.ToArray();
-                ms.Close();
-                //File.WriteAllBytes("/1" + Guid.NewGuid().ToString().Substring(0, 5) + ".jpg", captureData);
+                bitmapEncoder.Save(stream);
+                stream.Seek(0, SeekOrigin.Begin);
+
+                bitmapImage.BeginInit();
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapImage.StreamSource = stream;
+                bitmapImage.EndInit();
             }
 
+            vce.Pause();
+            ImageDealer.BitSource = bitmapImage;
         }
 
         // 保存图片按钮
         private void SavePic(object sender, RoutedEventArgs e)
         {
-            // 图片的保存路径
-            String path = null;
-            
-            if ( getName != null && getName != "")
+            ImageDealer.CutImage();
+            photoName = photoName.Replace(@"/", @"\");
+            string newFileName = photoName.Replace(".jpg", ".gif");
+            if (PicZipUtil.GetPicThumbnail(photoName, newFileName, 50))
             {
-                Random rd = new Random();
-                int n = rd.Next(1, 100000);
-                string random = n.ToString();
-                // 设置文件保存在temp里面
-                path = CommUtil.GetUserPicTemp(getName+ random);
-                
-                String dirPath = CommUtil.GetUserPicTemp();
-
-                //判断是否存在文件夹
-                if (Directory.Exists(dirPath))//判断是否存在
-                {
-                    //Response.Write("已存在");
-                }
-                else
-                {
-                    //Response.Write("不存在，正在创建");
-                    Directory.CreateDirectory(dirPath);//创建新路径
-                }
-
-                //判断是否已经拍照
-                if (Pic == null)
-                {
-                    MessageBox.Show("您还没有拍摄照片");
-                    return;
-                }
-
-                // 压缩并且保存图片
-                File.WriteAllBytes(path + "temp.gif", Pic);
-                GetPicThumbnail(path + "temp.gif", path + ".gif", 184, 259, 20);
-                File.Delete(path + "temp.gif");
-                photoName = getName + random + ".gif";
-                // 判断一下压缩后的大小
-                long picLen = 0;
-                FileInfo di = new FileInfo(path + ".gif");
-                picLen = di.Length;
-                picLen /= 1024;
-
-                if (picLen > 100)
-                {
-                    MessageBox.Show("图片过大，请重新拍摄");
-                    File.Delete(path + ".gif");
-                    return;
-                }
+                File.Delete(photoName);
+                photoName = newFileName;
             }
-            else
-            {
-                System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
-                return;
-            }
-
             this.Close();
         }
 

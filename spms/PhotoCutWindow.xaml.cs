@@ -15,6 +15,7 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp2;
 
 namespace spms
 {
@@ -24,6 +25,7 @@ namespace spms
     public partial class PhotoCutWindow : Window
     {
         private BitmapImage image;
+        private string fileName;
         public void SetImage(BitmapImage image)
         {
             this.image = image;
@@ -47,7 +49,9 @@ namespace spms
             var bmcpy = new Bitmap(183, 256);
             Graphics gh = Graphics.FromImage(bmcpy);
             gh.DrawImage(bit, new System.Drawing.Rectangle(0, 0, 183, 256));
-            bmcpy.Save(@CommUtil.GetUserPic()+Guid.NewGuid().ToString()+".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            fileName = Guid.NewGuid().ToString();
+            
+            bmcpy.Save(@CommUtil.GetUserPic()+ fileName +".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
         }
         public static Bitmap BitmapFromSource(BitmapSource source)
@@ -77,6 +81,10 @@ namespace spms
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ImageDealer.CutImage();
+            fileName = CommUtil.GetUserPic() + fileName;
+            fileName = fileName.Replace(@"/", @"\") + ".jpg";
+            string newFileName = fileName.Replace(".jpg", ".gif");
+            PicZipUtil.GetPicThumbnail(fileName, newFileName, 50);
             MessageBox.Show("裁剪成功，照片存在：" + CommUtil.GetUserPic());
         }
         

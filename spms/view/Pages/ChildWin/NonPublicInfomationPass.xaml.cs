@@ -55,7 +55,7 @@ namespace spms.view.Pages.ChildWin
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var queryResult =  authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
-            string inputPass = password.Text.ToString();
+            string inputPass = password.Password;
             if (!string.IsNullOrEmpty(inputPass)) {
                 if (inputPass == queryResult.Auth_UserPass) {
                     result = "success";
@@ -65,6 +65,18 @@ namespace spms.view.Pages.ChildWin
             }
             result = "failed";
             this.Close();
+        }
+
+        //回车按钮:快捷键
+        private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Button_Click(this, null);
+                //使键盘失去焦点，解决窗口反复出现
+                Keyboard.ClearFocus();
+            }
+
         }
     }
 }

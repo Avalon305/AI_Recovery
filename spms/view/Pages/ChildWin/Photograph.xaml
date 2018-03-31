@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         xmlns:wpfmedia="clr-namespace:WPFMediaKit.DirectShow.Controls;assembly=WPFMediaKit"
+        xmlns:imageDealer="clr-namespace:TestImageDealer.ImageDealer"
         mc:Ignorable="d"
          PreviewKeyDown="key_dowm"
         ResizeMode="NoResize"
@@ -64,7 +65,10 @@ Icon="/view/Images/icon2.png"
                 <Button Name="takePhoto" Style="{StaticResource Btn}" Width="50"  Height="25" Click="btn_photo" >摄影</Button>
             </StackPanel>
             <Border Width="308" Height="308" Margin="24,0,10,0" BorderThickness="1" BorderBrush="Black">
-                <Image Name="pic" Height="300" Width="300" Margin="3,4,3,2"  />
+                <imageDealer:ImageDealer Panel.ZIndex="0" x:Name="ImageDealer" Margin="20"  OnCutImaging="ImageDealer_OnOnCutImaging">
+
+                </imageDealer:ImageDealer>
+                <!--<Image Name="pic" Height="300" Width="300" Margin="3,4,3,2"  />-->
             </Border>
         </StackPanel>
 

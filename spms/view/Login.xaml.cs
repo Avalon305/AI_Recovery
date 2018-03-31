@@ -15,7 +15,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using spms.dao;
+using spms.http;
+using spms.http.entity;
 using spms.service;
+using spms.util;
 using spms.view.Pages;
 using spms.view.Pages.Frame;
 
@@ -26,6 +30,13 @@ namespace spms.view
     /// </summary>
     public partial class Login : Window
     {
+
+        //后台心跳更新UI线程
+        public System.Timers.Timer timerNotice = null;
+        //用到的业务层实例
+        UserService userService = new UserService();
+        AuthDAO authDao = new AuthDAO();
+
         //去除窗体叉号
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
@@ -38,7 +49,62 @@ namespace spms.view
         {
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+
+            #region 通知公告
+
+            if (timerNotice == null)
+            {
+                BindNotice();
+
+                timerNotice = new System.Timers.Timer();
+                timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) => { BindNotice(); });
+
+                timerNotice.Interval = CommUtil.GetHeartBeatRate();
+                timerNotice.Start();
+            }
+
+            #endregion
         }
+        #region 绑定通知公告
+        private void BindNotice()
+        {
+            System.Threading.Tasks.Task.Factory.StartNew(() =>
+            {
+                try
+                {
+
+                    //如果用户没有被上传则return，不允许发心跳，否则就按照不合法冻结了
+                    if (new UploadManagementDAO().CheckExistAuth() != null)
+                    {
+                        return;
+                    }
+
+                    HeartBeatOffice heartBeatOffice = new HeartBeatOffice();
+                    HttpHeartBeat result = heartBeatOffice.GetHeartBeatByCurrent();
+                    //心跳直接上传   !HttpSender.Ping() ||
+                    if (result == null)
+                    {
+                        //如果没有取到值
+                        return;
+                    }
+                    string jsonStr = HttpSender.POSTByJsonStr("communicationController/analysisJson",
+                        JsonTools.Obj2JSONStrNew<HttpHeartBeat>(result));
+                    HttpHeartBeat webResult = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(jsonStr);
+                    //本地数据更改
+                    if (webResult == null)
+                    {
+                        return;
+                    }
+                    heartBeatOffice.SolveHeartbeat(webResult);
+                     
+                }
+                catch
+                {
+                }
+            });
+        }
+
+        #endregion
         public Login()
         {
             InitializeComponent();
@@ -71,7 +137,7 @@ namespace spms.view
             if (loginResult.Equals("check_U"))
             {
                 //验证U盾后跳转
-
+                timerNotice.Stop();
             }
             else if (loginResult.Equals("success"))
             {
@@ -79,6 +145,7 @@ namespace spms.view
                 //成功登陆，跳转
                 MainPage mainpage = new MainPage();
                 this.Content = mainpage;
+                timerNotice.Stop();
             }
             else {
                 //问题登录  在登录提示框内显示信息
