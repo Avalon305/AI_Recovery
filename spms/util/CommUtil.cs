@@ -14,6 +14,40 @@ namespace spms.util
 {
     class CommUtil
     {
+
+
+        /// <summary>
+        /// 获取web平台路径
+        /// </summary>
+        /// <param name="picName"></param>
+        /// <returns></returns>
+        public static string GetPlatformUrl()
+        {
+            string platformUrl = ConfigurationManager.AppSettings["PlatformUrl"];
+            return platformUrl;
+        }
+        /// <summary>
+        /// 大数据上传间隔，单位为秒
+        /// </summary>
+        /// <param name="picName"></param>
+        /// <returns></returns>
+        public static int? GetBigDataRate()
+        {
+            string BeatRate = ConfigurationManager.AppSettings["BigDataRate"];
+            int heartBeatRate = Convert.ToInt16(BeatRate)*1000;
+            return heartBeatRate;
+        }
+        /// <summary>
+        /// 心跳，单位为秒
+        /// </summary>
+        /// <param name="picName"></param>
+        /// <returns></returns>
+        public static int GetHeartBeatRate()
+        {
+            string BeatRate = ConfigurationManager.AppSettings["HeartBeatRate"];
+            int heartBeatRate = Convert.ToInt16(BeatRate) * 1000;
+            return heartBeatRate;
+        }
         /// <summary>
         /// 获取用户照片全路径
         /// </summary>

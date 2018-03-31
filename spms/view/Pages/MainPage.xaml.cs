@@ -161,7 +161,7 @@ namespace spms.view.Pages
 
                 timerNotice = new System.Timers.Timer();
                 timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) => { BindNotice(); });
-                timerNotice.Interval = 60 * 1000 * 5;
+                timerNotice.Interval = CommUtil.GetHeartBeatRate();
                 timerNotice.Start();
             }
 
@@ -243,7 +243,13 @@ namespace spms.view.Pages
             string photoUrl = CommUtil.GetUserPic(selectUser.User_PhotoLocation);
             if (selectUser.User_PhotoLocation != null)
             {
-                UserPhoto.Source = new BitmapImage(new Uri(photoUrl));
+                try {
+                   UserPhoto.Source = new BitmapImage(new Uri(photoUrl));
+                }
+                catch (IOException ee) {
+
+                }
+                
             }
             
         }

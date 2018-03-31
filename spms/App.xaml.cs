@@ -1,5 +1,6 @@
 ﻿using spms.http;
 using spms.server;
+using spms.util;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -77,7 +78,8 @@ namespace spms
         public static void UploadDataToWEB()
         {
             //300秒-5分钟一次上传
-            BigDataOfficer bigDataOfficer = new BigDataOfficer(300 * 1000);
+            int? heartBeatRate = CommUtil.GetBigDataRate();
+            BigDataOfficer bigDataOfficer = new BigDataOfficer((int)heartBeatRate);
         }
     }
 }
