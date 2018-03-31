@@ -205,22 +205,31 @@ namespace spms.view.Pages
                  WindowStartupLocation = WindowStartupLocation.CenterScreen
              };
              passwordInput.ShowDialog();
-            if (ProtocolConstant.USB_SUCCESS == 0)//u盘成功读取
+            if (ProtocolConstant.USB_SUCCESS == 1)//u盘成功读取
             {   //获取mac地址
-                string strMac = CommUtil.GetMacAddress();
+                StringBuilder stringBuilder = new StringBuilder();
+                //string strMac = CommUtil.GetMacAddress();
+                List<string> Macs=CommUtil.GetMacByWMI();
+                foreach (string mac in Macs) {
+                    stringBuilder.Append(mac);
+                }
+                //Console.WriteLine(stringBuilder.ToString());
                 entity.Setter setter = new entity.Setter();
                 //mac地址先变为byte[]再aes加密
-                byte[] byteMac = Encoding.GetEncoding("GBK").GetBytes(strMac);
+                byte[] byteMac = Encoding.GetEncoding("GBK").GetBytes(stringBuilder.ToString());
                 byte[] AesMac = AesUtil.Encrypt(byteMac, ProtocolConstant.USB_DOG_PASSWORD);
                 //存入数据库
-                setter.Set_Unique_Id = Encoding.GetEncoding("GBK").GetString(AesMac);
-                //setter.Pk_Set_Id = Pk_Set_Id;
-                //MessageBox.Show(Pk_Set_Id.ToString());
-                //SetterDAO.UpdateOneSet(setter);更新
+                //setter.Set_Unique_Id = Encoding.GetEncoding("GBK").GetString(AesMac);
+                setter.Set_Unique_Id = ProtocolUtil.BytesToString(AesMac);
+                /*AES解密
+                 * byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
+                byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
+                Console.WriteLine(Encoding.GetEncoding("GBK").GetString(b));*/
                 SetterDAO.InsertOneMacAdress(setter);
                 //注释的部分为添加多个mac地址
                 // List<entity.Setter> ListMac = CommUtil.GetMacByWMI();
                 // SetterDAO.InsertMacAdress(ListMac);
+               
                 Status.Content = "已激活";
                 Color color = Color.FromArgb(255, 2, 200, 5);
                 Status.Foreground = new SolidColorBrush(color);

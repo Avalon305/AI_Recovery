@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Management;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -105,10 +106,9 @@ namespace spms.util
             return basePath + path;
         }
         //mac地址的list 但是都相同??
-        public static List<entity.Setter> GetMacByWMI()
+        public static List<string> GetMacByWMI()
         {
-            entity.Setter setter = new entity.Setter();
-            List<entity.Setter> macs = new List<entity.Setter>();
+            List<string> macs = new List<string>();
             try
             {
                 string mac = "";
@@ -119,8 +119,7 @@ namespace spms.util
                     if ((bool)mo["IPEnabled"])
                     {
                         mac = mo["MacAddress"].ToString();
-                        setter.Set_Unique_Id = mac;
-                        macs.Add(setter);
+                        macs.Add(mac);
                     }
                 }
                 moc = null;
@@ -132,6 +131,7 @@ namespace spms.util
                 return null;
             }
         }
+
         //单个mac地址
         public static string GetMacAddress()
         {
