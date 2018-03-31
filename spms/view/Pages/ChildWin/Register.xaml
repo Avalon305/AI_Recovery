@@ -227,9 +227,9 @@
                     <Border Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="疾病名称" Grid.Row="9" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c5" Grid.Row="9"  LostKeyboardFocus="IsDisease"  Grid.Column="1"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" IsEditable="True"  VerticalContentAlignment="Center"/>
+                    <ComboBox Name="c5" Grid.Row="9"  LostKeyboardFocus="IsDisease"  Grid.Column="1" KeyUp="c5_KeyUp" Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" IsEditable="True"  VerticalContentAlignment="Center"/>
                     <!--气泡-->
-                    <bubble:CCPopup x:Name="bubble_disease" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=c5}" Placement="Right" >
+                    <bubble:CCPopup x:Name="bubble_disease" AllowsTransparency="True" StaysOpen="True"  PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=c5}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
                             <StackPanel Orientation="Horizontal">
                                 <Label Foreground="Red" Name="Error_Info_disease" Content=""/>
@@ -241,7 +241,7 @@
                     <Border Grid.Row="10" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="残障名称" Grid.Row="10" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c6" Grid.Row="10" Grid.Column="1"  LostKeyboardFocus="IsDiagnosis" Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" IsEditable="True" VerticalContentAlignment="Center" />
+                    <ComboBox Name="c6" Grid.Row="10" Grid.Column="1"  LostKeyboardFocus="IsDiagnosis" KeyUp="c6_KeyUp" Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" IsEditable="True" VerticalContentAlignment="Center" />
                     <!--气泡-->
                     <bubble:CCPopup x:Name="bubble_Diagnosis" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=c6}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">

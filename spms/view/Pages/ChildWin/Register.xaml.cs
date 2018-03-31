@@ -565,7 +565,23 @@ namespace spms.view.Pages.ChildWin
 
         }
 
-       
+        private void c6_KeyUp(object sender, KeyEventArgs e)
+        {
+            List<string> mylist = new List<string>();
+            mylist = diagnosisList.FindAll(delegate (string s) { return s.Contains(c6.Text.Trim()); });
+            c6.ItemsSource = mylist;
+            c6.IsDropDownOpen = true;
+        }
+
+        private void c5_KeyUp(object sender, KeyEventArgs e)
+        {
+            List<string> mylist = new List<string>();
+            mylist = diseaseList.FindAll(delegate (string s) { return s.Contains(c5.Text.Trim()); });
+            c5.ItemsSource = mylist;
+            c5.IsDropDownOpen = true;
+        }
+
+
     }
 
 }
