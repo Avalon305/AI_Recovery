@@ -1,17 +1,16 @@
 ﻿<Window x:Class="spms.view.Pages.ChildWin.NonPublicInfomationPass"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
+         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="145" Width="380"
-        Loaded="Window_Loaded"
-     >
+        Title="宝德龙" Height="170" Width="380"
+        Loaded="Window_Loaded">
     <StackPanel Orientation="Vertical">
-        <Border Height="37" CornerRadius="5,5,0,0"  Margin="5,0,5,0">
+        <Border Height="37" CornerRadius="5,5,0,0" Margin="5,0,5,0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Color="Silver" Offset="0.1"/>
@@ -25,19 +24,19 @@
                 <!--
                 <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="106" Height="29" VerticalAlignment="Bottom"  BorderThickness="0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                        <Button Width="50"  Height="25"  Background="Gray"  Foreground="White" Margin="2,0,0,0" Style="{StaticResource Btn}"  IsEnabled="False" VerticalAlignment="Bottom">确定</Button>
-                        <Button Width="50" Height="25"  Background="Gray"  Foreground="White"  Content="取消"  Style="{StaticResource Btn}" Margin="2,0,0,0" VerticalAlignment="Bottom" Click="Cancel"/>
+                        <Button Width="50"  Height="25"  Background="Gray"  Foreground="White" Margin="2,0,0,0" Style="{StaticResource Btn}"   VerticalAlignment="Bottom" Click="Determine">确定</Button>
+                        <Button Width="50" Height="25"  Background="Gray"  Foreground="White"  Content="取消"  Style="{StaticResource Btn}" Margin="2,0,0,0" VerticalAlignment="Bottom" Click="Cancel" />
                     </StackPanel>
                 </Border>-->
             </Grid>
         </Border>
-        <Label Content="请输入密码:" FontWeight="Bold" Margin="5,2,5,2"></Label>
-        <TextBox Name="password"  VerticalAlignment="Center" Margin="5,0,5,3" BorderBrush="Gray" VerticalContentAlignment="Center"></TextBox>
+        <Label Content="请输入密码:" FontWeight="Bold" Margin="5,2,5,0"></Label>
+        <PasswordBox  VerticalAlignment="Center" Margin="5,5,5,10" BorderBrush="Gray" Name="password" VerticalContentAlignment="Center"></PasswordBox>
         <!-- 四个按钮排放位置-->
-        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="141" Height="25" VerticalAlignment="Bottom"  BorderThickness="0" Margin="0,0,4.6,0">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                <Button Width="49"  Height="25"  Margin="2,0,0,-0.2" Style="{StaticResource Btn}"  IsEnabled="False" VerticalAlignment="Bottom" Click="Button_Click">确定</Button>
-                <Button Width="50" Height="25"  Content="取消"  Style="{StaticResource Btn}" Margin="2,0,0,0" VerticalAlignment="Bottom" Click="Cancel"/>
+        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="101" Height="32" VerticalAlignment="Bottom"  BorderThickness="0" Margin="0,0,4.6,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="-2,0,0,0" >
+                <Button Width="50"  Height="25"  Style="{StaticResource Btn}"   IsTabStop="False"  VerticalAlignment="Top" Click="Button_Click">确定</Button>
+                <Button Width="50" Height="25"  Content="取消"  Style="{StaticResource Btn}" IsTabStop="False"  Margin="2,0,0,0" VerticalAlignment="top" Click="Cancel" />
             </StackPanel>
         </Border>
     </StackPanel>
