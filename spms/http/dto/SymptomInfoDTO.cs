@@ -47,8 +47,8 @@ namespace spms.http.dto
             this.clientId = setter.Set_Unique_Id;
             this.fkUserId = symptomInfo.Fk_User_Id.ToString();
 
-            this.gmtCreate = symptomInfo.Gmt_Create.ToString();
-            this.gmtModified = symptomInfo.Gmt_Modified.ToString();
+            this.gmtCreate = symptomInfo.Gmt_Create.ToString().Replace("/", "-");
+            this.gmtModified = symptomInfo.Gmt_Modified.ToString().Replace("/", "-");
             this.pkSiId = symptomInfo.Pk_SI_Id.ToString();
             this.siCareinfo = symptomInfo.SI_CareInfo.ToString();
             this.siInquiry = symptomInfo.SI_Inquiry.ToString();
@@ -60,8 +60,8 @@ namespace spms.http.dto
             this.clientId = mac;
             //V1表信息
             this.fkUserId = symptomInfo.Fk_User_Id.ToString();
-            this.gmtCreate = symptomInfo.Gmt_Create.ToString();
-            this.gmtModified = symptomInfo.Gmt_Modified.ToString();
+            this.gmtCreate = symptomInfo.Gmt_Create.ToString().Replace("/", "-");
+            this.gmtModified = symptomInfo.Gmt_Modified.ToString().Replace("/", "-");
             this.pkSiId = symptomInfo.Pk_SI_Id.ToString();
             this.siCareinfo = symptomInfo.SI_CareInfo.ToString();
             this.siInquiry = symptomInfo.SI_Inquiry.ToString();

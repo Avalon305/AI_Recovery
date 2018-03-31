@@ -28,5 +28,26 @@ namespace spms.dao
             }
 
         }
+        /// <summary>
+        /// 查询是否有权限用户信息
+        /// </summary>
+        /// <returns></returns>
+        public UploadManagement CheckExistAuth()
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                conn.Open();
+                const string query = "select * from bdl_uploadmanagement where UM_DataTable = @UM_DataTable";
+
+                 
+
+                return (UploadManagement)conn.QueryFirstOrDefault<UploadManagement>(query, new { UM_DataTable = "bdl_auth" });
+
+
+            }
+
+        }
+
+
     }
 }

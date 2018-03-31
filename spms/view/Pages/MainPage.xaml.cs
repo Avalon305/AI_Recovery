@@ -145,6 +145,7 @@ namespace spms.view.Pages
 
                 timerNotice = new System.Timers.Timer();
                 timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) => { BindNotice(); });
+                
                 timerNotice.Interval = CommUtil.GetHeartBeatRate();
                 timerNotice.Start();
             }
@@ -672,7 +673,12 @@ namespace spms.view.Pages
             {
                 try
                 {
-                    
+
+                    //如果用户没有被上传则return，不允许发心跳，否则就按照不合法冻结了
+                    if (new UploadManagementDAO().CheckExistAuth()!=null) {
+                        return;
+                    }
+
                     HeartBeatOffice heartBeatOffice = new HeartBeatOffice();
                     HttpHeartBeat result = heartBeatOffice.GetHeartBeatByCurrent();
                     //心跳直接上传   !HttpSender.Ping() ||
@@ -685,6 +691,9 @@ namespace spms.view.Pages
                         JsonTools.Obj2JSONStrNew<HttpHeartBeat>(result));
                     HttpHeartBeat webResult = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(jsonStr);
                     //本地数据更改
+                    if (webResult==null) {
+                        return;
+                    }
                     heartBeatOffice.SolveHeartbeat(webResult);
                     Dispatcher.Invoke(new Action(() =>
                     {

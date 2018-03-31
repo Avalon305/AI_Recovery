@@ -25,7 +25,7 @@ namespace spms.http
         /// <summary>
         /// 测试网络是否通畅
         /// </summary>
-        public static bool Ping()
+        private static bool Ping()
         {
             string pingResult = POSTByJsonStr("communicationController/analysisJson",
                 JsonTools.Obj2JSONStrNew(new HttpHeartBeat("ping")));

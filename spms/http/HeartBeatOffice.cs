@@ -33,6 +33,13 @@ namespace spms.http
 
             //需要加入解密逻辑
             string mac = "";
+            /*AES解密
+             * 
+               byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
+               byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
+               Console.WriteLine(Encoding.GetEncoding("GBK").GetString(b));
+               
+             */
             //try
             //{
             //    byte[] deBytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id),

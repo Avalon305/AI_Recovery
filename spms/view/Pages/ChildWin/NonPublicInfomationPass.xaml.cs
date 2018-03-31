@@ -1,4 +1,6 @@
-﻿using System;
+﻿using spms.dao;
+using spms.entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,11 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class NonPublicInfomationPass : Window
     {
+        AuthDAO authDAO = new AuthDAO();
+        /// <summary>
+        /// 密码结果
+        /// </summary>
+        public string result { get; set; }
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
         [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
@@ -39,6 +46,25 @@ namespace spms.view.Pages.ChildWin
         public NonPublicInfomationPass()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// 输入密码点击确定
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var queryResult =  authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
+            string inputPass = password.Text.ToString();
+            if (!string.IsNullOrEmpty(inputPass)) {
+                if (inputPass == queryResult.Auth_UserPass) {
+                    result = "success";
+                    this.Close();
+                    
+                }
+            }
+            result = "failed";
+            this.Close();
         }
     }
 }
