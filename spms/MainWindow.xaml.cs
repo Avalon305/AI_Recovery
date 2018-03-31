@@ -25,6 +25,7 @@ using WPFMediaKit.DirectShow.Controls;
 using spms.constant;
 using spms.http;
 using spms.protocol;
+using spms.view.Pages.ChildWin;
 
 namespace spms
 {
@@ -227,6 +228,12 @@ namespace spms
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
 //            bigDataOfficer.Run();
+        }
+
+        private void Button_Click_15(object sender, RoutedEventArgs e)
+        {
+            PicView picView = new PicView();
+            picView.Show();
         }
     }
 }

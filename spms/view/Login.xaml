@@ -129,8 +129,8 @@
                 <Label Content="Version 1.0.0" Margin="709,218,301.2,419.4" Foreground="Gray"  FontFamily="{StaticResource ResourceKey=MAGNETOB}" FontSize="20"/>
                 <!--<Label Content="错误提示" FontWeight="DemiBold" FontSize="15" FontFamily="{StaticResource 微软雅黑}" Foreground="Red" Margin="509,273,381.2,340.4" Name="Error_Info"></Label>-->
                 <Label Content="用户名:" HorizontalAlignment="Right" FontSize="30" Foreground="DimGray" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Margin="0,294,795,376" />
-                <TextBlock  Margin="500,301,380,380" FontSize="20" Text="  请在此输入管理用户名" VerticalAlignment="Center" FontFamily="{StaticResource   LiSu}" Foreground="Gray" FontStyle="Italic"/>
-                <TextBox Name="User_Name" Margin="500,300,380,380"  FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Foreground="DimGray" FontSize="25" Style="{StaticResource watermark}" />
+                <Label  Margin="500,300,380,380" FontSize="20" VerticalContentAlignment="Center" Content="  请在此输入管理用户名" VerticalAlignment="Center" FontFamily="{StaticResource   LiSu}" Foreground="Gray" FontStyle="Italic" Height="40"/>
+                <TextBox Name="User_Name" Margin="500,300,380,380" VerticalContentAlignment="Center" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Foreground="DimGray" FontSize="25" Style="{StaticResource watermark}" />
                 <bubble:CCPopup x:Name="bubble" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=User_Name}" Placement="Right" >
                     <Label Style="{StaticResource tipLable}">
                         <StackPanel Orientation="Horizontal">
@@ -140,7 +140,7 @@
                 </bubble:CCPopup>
 
                 <Label  Content="密   码:" HorizontalAlignment="Right" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="30"   Foreground="DimGray" Margin="0,356,795,309" Width="109" />
-                <TextBlock  Margin="500,360,381,320" FontSize="20"  Text="  请在此输入管理密码" VerticalAlignment="Center" Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic" />
+                <Label  Margin="500,360,381,320" FontSize="20" VerticalContentAlignment="Center" Content="  请在此输入管理密码" VerticalAlignment="Center" Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic" Height="40" />
                 <PasswordBox Name="User_Password" Margin="500,360,380,320" Foreground="DimGray" VerticalContentAlignment="Center" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="25" Style="{StaticResource Watermark}"/>
 
                 <Button Content="登录" TabIndex="0" Foreground="White" Width="150"  Height="30" Click="Button_Click" Style="{StaticResource Btn}" IsTabStop="False"   FontSize="15"   Margin="460,439,580,200" />
