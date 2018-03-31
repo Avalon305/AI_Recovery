@@ -213,10 +213,13 @@ namespace spms.view.Pages.ChildWin
             // 如果用户是自己选择现成的图片，将图片保存在安装目录下
             if (IdCard != null && name != null && IDCard != "" && name != "" && userIfSelectPic != false)
             {
+                // 用户选择的图片文件的 原路径
                 string sourcePic = userPhotoPath;
                 // 压缩
                 string targetPic = CommUtil.GetUserPicTemp();
-                targetPic += photoName;
+                Random random = new Random();
+                int rd = random.Next(0, 100000);
+                targetPic += t3.Text.ToString() + rd.ToString() + ".gif";
                 
                 //targetPic += ".gif";
                 // 获得保存图片的文件夹
@@ -232,18 +235,19 @@ namespace spms.view.Pages.ChildWin
                     //Response.Write("不存在，正在创建");
                     Directory.CreateDirectory(dirPath);//创建新路径
                 }
-                
+
                 //压缩一下并且储存图片
                 long picLen = 0;
                 GetPicThumbnail(sourcePic, targetPic,184,259,20);
+
                 FileInfo di = new FileInfo(targetPic);
                 picLen = di.Length;
                 picLen /= 1024;
                 
                 // 如果图片太大就重新选择
-                if (picLen > 10)
+                if (picLen > 40)
                 {
-                    MessageBox.Show("图片过大，请重新选择");
+                    MessageBox.Show("图片过大，请重新选择，不能超过40KB");
                     File.Delete(targetPic);
                     return;
                 }

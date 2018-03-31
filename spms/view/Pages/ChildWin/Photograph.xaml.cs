@@ -39,13 +39,9 @@ namespace spms.view.Pages.ChildWin
         //GWL_STYLE表示获得窗口风格
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
-
         [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
-
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
-        //SetWindowLong：更改指定窗口的属性。
-        
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
        
         //取消按钮，关闭此窗体
@@ -67,6 +63,7 @@ namespace spms.view.Pages.ChildWin
         {
             InitializeComponent();
 
+            // combox 获得摄像头列表
             cb.ItemsSource = MultimediaUtil.VideoInputNames;
             if (MultimediaUtil.VideoInputNames.Length > 0)
             {
@@ -175,7 +172,7 @@ namespace spms.view.Pages.ChildWin
 
             this.Close();
         }
-   
+
         /// <param name="sFile">原图片</param>    
         /// <param name="dFile">压缩后保存位置</param>    
         /// <param name="dHeight">高度</param>    
