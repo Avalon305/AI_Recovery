@@ -205,6 +205,8 @@ namespace spms.view.Pages.ChildWin
             string IDCard = this.IDCard.Text;
             //获得手机号
             string phone = this.phoneNum.Text;
+            //获取非公开信息:lzh
+            String secretMessage = this.noPublicInfoText.Text;
 
             /////2018.3.22添加内容
             //if (!String.IsNullOrEmpty(IDCard)&&IDCard.Length == 18 &&!inputlimited.InputLimited.IsIDcard(IDCard))
@@ -314,8 +316,8 @@ namespace spms.view.Pages.ChildWin
             SelectUser.User_PhysicalDisabilities = disabilityName;
             SelectUser.User_Sex = (byte?)(usersex.Equals("男") ? 1 : 0);
             SelectUser.User_Phone = phone;
-
-
+            //非公开信息添加：lzh
+            SelectUser.User_Privateinfo = secretMessage == null ? "" : secretMessage;
             if (IDCard != null && usernamePY != null && IDCard != "" && usernamePY != "" && userIfSelectPic != false)
             {
                 

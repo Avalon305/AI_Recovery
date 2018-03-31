@@ -246,12 +246,13 @@ namespace spms.view.Pages.ChildWin
             TextRange text = new TextRange(t6.Document.ContentStart, t6.Document.ContentEnd);
             string memo = text.Text;
             //私密信息
-
+            String noPublicInfo = this.noPublicInfoText.Text;
             //string secretMessage = this.Non_Public_Information.
             User user = new User();
             user.User_Birth = Convert.ToDateTime(brithday);
             user.User_GroupName = groupName;
             //设置私密信息
+            user.User_Privateinfo = noPublicInfo == null ? "" : noPublicInfo;
             //user.User_Privateinfo = secretMessage==null?"":secretMessage;
             if (IdCard == null || name == null || IDCard == "" || name == "")
             {
