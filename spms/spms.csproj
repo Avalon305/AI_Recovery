@@ -191,6 +191,15 @@
     <Compile Include="FmyTest.xaml.cs">
       <DependentUpon>FmyTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImageDealer\ImageDealer.xaml.cs">
+      <DependentUpon>ImageDealer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageDealer\ImageDealerUnsafe.xaml.cs">
+      <DependentUpon>ImageDealerUnsafe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoCutWindow.xaml.cs">
+      <DependentUpon>PhotoCutWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="zero.xaml.cs">
       <DependentUpon>zero.xaml</DependentUpon>
     </Compile>
@@ -379,6 +388,18 @@
       <DependentUpon>ZscTest.xaml</DependentUpon>
     </Compile>
     <Page Include="FmyTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageDealer\ImageDealer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ImageDealer\ImageDealerUnsafe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PhotoCutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
