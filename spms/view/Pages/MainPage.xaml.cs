@@ -225,11 +225,12 @@ namespace spms.view.Pages
             UsersInfo.ItemsSource = users;
 
             // 加载用户头像
-            string photoUrl = CommUtil.GetUserPic(selectUser.User_PhotoLocation);
+            string photoUrl = CommUtil.GetUserPic() + selectUser.User_PhotoLocation;
             if (selectUser.User_PhotoLocation != null)
             {
                 try {
-                   UserPhoto.Source = new BitmapImage(new Uri(photoUrl));
+                    BitmapImage b = new BitmapImage(new Uri(photoUrl, UriKind.Absolute));//打开图片
+                    UserPhoto.Source = b.Clone();//将控件和图片绑定
                 }
                 catch (IOException ee) {
 

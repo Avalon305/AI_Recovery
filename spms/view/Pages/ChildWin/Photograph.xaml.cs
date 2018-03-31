@@ -36,6 +36,7 @@ namespace spms.view.Pages.ChildWin
         //得到用户的名字
         public string getName { get; set; }
         public string id { get; set; }
+        public string oldPhotoName { get; set; }
         // 照片保存
         byte[] Pic = null;
         //GWL_STYLE表示获得窗口风格
@@ -49,6 +50,7 @@ namespace spms.view.Pages.ChildWin
         //取消按钮，关闭此窗体
         private void Cancel(object sender, RoutedEventArgs e)
         {
+            photoName = oldPhotoName;
             this.Close();
         }
 
@@ -92,7 +94,13 @@ namespace spms.view.Pages.ChildWin
             var bmcpy = new Bitmap(183, 256);
             Graphics gh = Graphics.FromImage(bmcpy);
             gh.DrawImage(bit, new System.Drawing.Rectangle(0, 0, 183, 256));
-            photoName = getName + id + ".jpg";
+            photoName = getName + id;
+            if (oldPhotoName == getName + id + ".jpg" || oldPhotoName == getName + id + ".gif")
+            {
+                photoName += "_1";
+            }
+
+            photoName += ".jpg";
             bmcpy.Save(CommUtil.GetUserPic() + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
 
         }
@@ -113,6 +121,7 @@ namespace spms.view.Pages.ChildWin
         //拍照按钮
         private void btn_photo(object sender, RoutedEventArgs e)
         {
+            save.IsEnabled = true;
             //vce是前台wpfmedia控件的name
             //为避免抓不全的情况，需要在Render之前调用Measure、Arrange
             RenderTargetBitmap bmp = new RenderTargetBitmap((int)vce.ActualWidth,
@@ -146,12 +155,14 @@ namespace spms.view.Pages.ChildWin
         // 保存图片按钮
         private void SavePic(object sender, RoutedEventArgs e)
         {
+            
             ImageDealer.CutImage();
-            photoName = photoName.Replace(@"/", @"\");
+            
             string newFileName = photoName.Replace(".jpg", ".gif");
+            
             if (PicZipUtil.GetPicThumbnail(CommUtil.GetUserPic() + photoName, CommUtil.GetUserPic() + newFileName, 50))
             {
-                File.Delete(photoName);
+                File.Delete(CommUtil.GetUserPic() + photoName);
                 photoName = newFileName;
             }
             this.Close();
