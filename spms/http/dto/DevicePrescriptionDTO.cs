@@ -1,6 +1,7 @@
 ﻿using spms.entity;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,8 +48,8 @@ namespace spms.http.dto
             this.dpWeight = devicePrescription.dp_weight.ToString();
             this.fkDsId = devicePrescription.Fk_DS_Id.ToString();
             this.fkTiId = devicePrescription.Fk_TI_Id.ToString();
-            this.gmtCreate = devicePrescription.Gmt_Create.ToString();
-            this.gmtModified = devicePrescription.Gmt_Modified.ToString();
+            this.gmtCreate = devicePrescription.Gmt_Create.ToString().Replace("/","-");
+            this.gmtModified = devicePrescription.Gmt_Modified.ToString().Replace("/", "-");
             this.pkDpId = devicePrescription.Pk_DP_Id.ToString();
             //计时器增加
             this.dpTimer = devicePrescription.dp_timer.ToString();

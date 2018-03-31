@@ -22,8 +22,8 @@ namespace spms.http.dto
         {
             this.clientId = mac;
             this.fkUserId = trainInfo.FK_User_Id.ToString();
-            this.gmtCreate = trainInfo.Gmt_Create.ToString();
-            this.gmtModified = trainInfo.Gmt_Modified.ToString();
+            this.gmtCreate = trainInfo.Gmt_Create.ToString().Replace("/", "-");
+            this.gmtModified = trainInfo.Gmt_Modified.ToString().Replace("/", "-");
             this.pkTiId = trainInfo.Pk_TI_Id.ToString();
 
             this.status = trainInfo.Status.ToString();

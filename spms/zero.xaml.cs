@@ -209,5 +209,11 @@ namespace spms
             string result = uploadManagementDAO.CheckExistAuth() == null ? "null" : "you";
             MessageBox.Show(result);
         }
+
+        private void Button_Click_19(object sender, RoutedEventArgs e)
+        {
+            DateTime? a = DateTime.Now;
+            MessageBox.Show(a.ToString());
+        }
     }
 }

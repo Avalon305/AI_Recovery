@@ -31,40 +31,17 @@ namespace spms.http.dto
         public UserDTO() {
 
         }
-        public UserDTO(User user,Setter setter)
-        {
-            //设置mac地址
-            this.clientId = setter.Set_Unique_Id;
-            //实体映射
-            this.gmtCreate = user.Gmt_Create.ToString();
-            this.gmtModified = user.Gmt_Modified.ToString();
-            this.isDeleted = user.Is_Deleted.ToString();
-            this.pkUserId = user.Pk_User_Id.ToString();
-            this.userBirth = user.User_Birth.ToString();
-            this.userGroupname = user.User_GroupName;
-            this.userIdcard = user.User_IDCard;
-            this.userIllnessname = user.User_IllnessName;
-            this.userInitcare = user.User_InitCare;
-            this.userMemo = user.User_Memo;
-            this.userName = user.User_Name;
-            this.userNamepinyin = user.User_Namepinyin;
-            this.userNowcare = user.User_Nowcare;
-            this.userPhone = user.User_Phone;
-            this.userPhotolocation = user.User_PhotoLocation;
-            //残障名称
-            this.userPhysicaldisabilities = user.User_PhysicalDisabilities;
-            this.userSex = user.User_Sex.ToString();
-        }
+        
         public UserDTO(User user, string mac)
         {
             //设置mac地址
             this.clientId = mac;
             //实体映射
-            this.gmtCreate = user.Gmt_Create.ToString();
-            this.gmtModified = user.Gmt_Modified.ToString();
+            this.gmtCreate = user.Gmt_Create.ToString().Replace("/", "-");
+            this.gmtModified = user.Gmt_Modified.ToString().Replace("/", "-");
             this.isDeleted = user.Is_Deleted.ToString();
             this.pkUserId = user.Pk_User_Id.ToString();
-            this.userBirth = user.User_Birth.ToString();
+            this.userBirth = user.User_Birth.ToString().Replace("/", "-");
             this.userGroupname = user.User_GroupName;
             this.userIdcard = user.User_IDCard;
             this.userIllnessname = user.User_IllnessName;
