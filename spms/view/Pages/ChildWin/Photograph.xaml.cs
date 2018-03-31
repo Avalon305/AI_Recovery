@@ -1,4 +1,6 @@
-﻿using spms.util;
+﻿using spms.entity;
+using spms.service;
+using spms.util;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -29,13 +31,7 @@ namespace spms.view.Pages.ChildWin
     public partial class Photograph : Window
     {
         //照片的名字
-        public string photoName = null;
-        //照片的历经
-        public string photoUrl = null;
-        //判断用户是否拍照
-        private bool ifUserTakePhoto = false;
-        //判断用户拍照后是否保存
-        public bool ifUserSavePhoto = false;
+        public string photoName { get; set; }
         //得到用户的名字
         public string getName { get; set; }
         // 照片保存
@@ -43,13 +39,9 @@ namespace spms.view.Pages.ChildWin
         //GWL_STYLE表示获得窗口风格
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
-
         [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
-
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
-        //SetWindowLong：更改指定窗口的属性。
-        
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
        
         //取消按钮，关闭此窗体
@@ -71,6 +63,7 @@ namespace spms.view.Pages.ChildWin
         {
             InitializeComponent();
 
+            // combox 获得摄像头列表
             cb.ItemsSource = MultimediaUtil.VideoInputNames;
             if (MultimediaUtil.VideoInputNames.Length > 0)
             {
@@ -117,8 +110,6 @@ namespace spms.view.Pages.ChildWin
                 //File.WriteAllBytes("/1" + Guid.NewGuid().ToString().Substring(0, 5) + ".jpg", captureData);
             }
 
-            ifUserTakePhoto = true;
-
         }
 
         // 保存图片按钮
@@ -132,8 +123,10 @@ namespace spms.view.Pages.ChildWin
                 Random rd = new Random();
                 int n = rd.Next(1, 100000);
                 string random = n.ToString();
-                path = CommUtil.GetUserPic(getName+ random);
-                String dirPath = CommUtil.GetUserPic();
+                // 设置文件保存在temp里面
+                path = CommUtil.GetUserPicTemp(getName+ random);
+                
+                String dirPath = CommUtil.GetUserPicTemp();
 
                 //判断是否存在文件夹
                 if (Directory.Exists(dirPath))//判断是否存在
@@ -147,7 +140,7 @@ namespace spms.view.Pages.ChildWin
                 }
 
                 //判断是否已经拍照
-                if (!ifUserTakePhoto)
+                if (Pic == null)
                 {
                     MessageBox.Show("您还没有拍摄照片");
                     return;
@@ -177,13 +170,9 @@ namespace spms.view.Pages.ChildWin
                 return;
             }
 
-            ifUserSavePhoto = true;
-
-            //返回给register图片的url
-            photoUrl = path+".gif";
             this.Close();
         }
-   
+
         /// <param name="sFile">原图片</param>    
         /// <param name="dFile">压缩后保存位置</param>    
         /// <param name="dHeight">高度</param>    
