@@ -197,6 +197,7 @@
     <Compile Include="ImageDealer\ImageDealerUnsafe.xaml.cs">
       <DependentUpon>ImageDealerUnsafe.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImageDealer\PicZipUtil.cs" />
     <Compile Include="PhotoCutWindow.xaml.cs">
       <DependentUpon>PhotoCutWindow.xaml</DependentUpon>
     </Compile>
