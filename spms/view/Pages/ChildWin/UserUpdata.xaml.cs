@@ -599,7 +599,7 @@ namespace spms.view.Pages.ChildWin
             }
         }
         //疾病名称是否存在
-        private void IsDisease(object sender, RoutedEventArgs e)
+        private void IsDisease(object sender, KeyboardFocusChangedEventArgs e)
         {
 
             Console.WriteLine(c5.Text);
