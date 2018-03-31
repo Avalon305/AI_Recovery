@@ -944,7 +944,7 @@ namespace spms.view.Pages.ChildWin
 
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
-            com_01.ItemsSource = Add(0, 700, 2);
+            com_01.ItemsSource = Add(0, 70, 2);
             //com_02.ItemsSource = Add(0, 30, 2);
             com_03.ItemsSource = Add(1, 5, 2);
             com_04.ItemsSource = Add(1, 9, 2);
@@ -954,7 +954,7 @@ namespace spms.view.Pages.ChildWin
             combobox_04.ItemsSource = Add(1.0, 84.0, 2);
             combobox_05.ItemsSource = dataItems;
 
-            com_11.ItemsSource = Add(0, 400, 2);
+            com_11.ItemsSource = Add(0, 70, 2);
             //com_12.ItemsSource = Add(0, 30, 1);
             com_13.ItemsSource = Add(1, 4, 2);
             com_14.ItemsSource = Add(1, 4, 2);
@@ -964,7 +964,7 @@ namespace spms.view.Pages.ChildWin
             combobox_14.ItemsSource = Add(1.0, 32.0, 1);
             combobox_15.ItemsSource = dataItems;
 
-            com_21.ItemsSource = Add(0, 700, 2);
+            com_21.ItemsSource = Add(0, 40, 2);
             //com_22.ItemsSource = Add(0, 30, 1);
             com_23.ItemsSource = Add(1, 6, 2);
             com_24.ItemsSource = Add(1, 9, 2);
@@ -974,7 +974,7 @@ namespace spms.view.Pages.ChildWin
             combobox_24.ItemsSource = Add(0.5, 32.0, 1);
             combobox_25.ItemsSource = dataItems;
 
-            com_31.ItemsSource = Add(0, 260, 1);
+            com_31.ItemsSource = Add(0, 26, 1);
             //com_32.ItemsSource = Add(0, 30, 1);
             com_33.ItemsSource = Add(1, 5, 2);
             com_34.ItemsSource = Add(1, 5, 2);
@@ -985,7 +985,7 @@ namespace spms.view.Pages.ChildWin
             combobox_34.ItemsSource = Add(1.0, 32.0, 1);
             combobox_35.ItemsSource = dataItems;
 
-            com_41.ItemsSource = Add(0, 500, 2);
+            com_41.ItemsSource = Add(0, 50, 2);
             //com_42.ItemsSource = Add(0, 30, 1);
             com_43.ItemsSource = Add(1, 9, 2);
             combobox_41.ItemsSource = Add(1, 3, 2);
@@ -994,7 +994,7 @@ namespace spms.view.Pages.ChildWin
             combobox_44.ItemsSource = Add(1.0, 32.0, 1);
             combobox_45.ItemsSource = dataItems;
 
-            com_51.ItemsSource = Add(0, 180, 2);
+            com_51.ItemsSource = Add(0, 18, 2);
             //com_52.ItemsSource = Add(0, 30, 1);
             com_53.ItemsSource = Add(1, 8, 2);
             combobox_51.ItemsSource = Add(1, 3, 2);

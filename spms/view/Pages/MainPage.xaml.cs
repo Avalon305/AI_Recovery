@@ -70,24 +70,8 @@ namespace spms.view.Pages
             //加载表头
             Radio_Check_Action();
 
-            //启动初始化Excel转PDF的线程
-            initializationExcelToPdfThread = new Thread(new ThreadStart(InitializationExcelToPdf));
-            initializationExcelToPdfThread.Start();
-
         }
 
-        Thread initializationExcelToPdfThread;
-        /// <summary>
-        /// 作用：经过初步测试，第一次Excel转pdf相对较慢，所以在进入程序的时候，执行一次Excel转PDF
-        /// </summary>
-        public void InitializationExcelToPdf()
-        {
-            using (Workbook workbook = new Workbook())
-            {
-                workbook.LoadFromFile(CommUtil.GetDocPath("test1.xlsx"));
-                workbook.SaveToFile(CommUtil.GetDocPath("test1.pdf"), Spire.Xls.FileFormat.PDF);
-            }
-        }
 
         /// <summary>
         /// 选中使用者信息时触发，将详细信息展示在左下角
@@ -134,7 +118,7 @@ namespace spms.view.Pages
             }
             else
             {
-                UserPhoto.Source = new BitmapImage(new Uri(path));
+                UserPhoto.Source = new BitmapImage(new Uri(CommUtil.GetUserPic() + path));
             }
         }
 

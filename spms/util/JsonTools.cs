@@ -83,7 +83,7 @@ namespace spms.util
 
         public static string Obj2JSONStrNew<T>(T obj)
         {
-            return JsonConvert.SerializeObject(obj, new IsoDateTimeConverter { DateTimeFormat = "yyyy'年'MM'月'dd'日'" });
+            return JsonConvert.SerializeObject(obj, new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" });
         }
         //list<obj>转化为string of json
         public static string List2JSONStrNew<T>(List<T> list)

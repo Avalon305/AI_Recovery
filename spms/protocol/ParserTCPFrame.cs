@@ -64,7 +64,8 @@ namespace spms.protocol
                     break;
                 case MsgId.X0009://训练结果上报
                     logger.Info("收到训练结果上报：" + ProtocolUtil.BytesToString(source));
-
+                    byte[] dd = MakerTCPFrame.GetInstance().Make8001Frame(serialNo, MsgId.X0001, CommResponse.Success);
+                    response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, frameBean.TerminalId, dd);
                     HandlePricticeResult(ref response, frameBean);
                     break;
                 case MsgId.X000A://请求使用者信息
@@ -132,11 +133,10 @@ namespace spms.protocol
             Array.Copy(body, 32, d, 0, d.Length);
             //设备类型
             DeviceType deviceType = (DeviceType)d[0];
+            logger.Info("收到训练结果上报，设备是：" + deviceType.ToString());
             switch (deviceType)
             {
                 case DeviceType.X01://胸部推举机
-                    //TODO 设备应该上报用户ID
-                    paser.PaserX01(d, idCard);
                     break;
                 case DeviceType.X02:
                     break;
@@ -149,6 +149,7 @@ namespace spms.protocol
                 case DeviceType.X06:
                     break;
             }
+            paser.PaserXall(d, idCard, deviceType);
             //数据上报响应通用应答
             byte[] data = MakerTCPFrame.GetInstance().Make8001Frame(frameBean.SerialNo, frameBean.MsgId, CommResponse.Success);
             response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, frameBean.TerminalId, data);
@@ -207,7 +208,7 @@ namespace spms.protocol
             /// 胸部推举机上报解析
             /// </summary>
             /// <param name="body"></param>
-            public void PaserX01(byte[] body, string idCard)
+            public void PaserXall(byte[] body, string idCard,DeviceType deviceType)
             {
                 //运动强度
                 byte strength = ProtocolUtil.BcdToInt(body[1]);
@@ -252,7 +253,7 @@ namespace spms.protocol
                 TrainService trainService = new TrainService();
 
                 // 存数据库
-                trainService.AddPrescriptionResult(idCard, result, DeviceType.X01);
+                trainService.AddPrescriptionResult(idCard, result, deviceType);
 
 
             }

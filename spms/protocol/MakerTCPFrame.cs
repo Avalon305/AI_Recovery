@@ -186,7 +186,7 @@ namespace spms.protocol
             arr = new byte[87];
             arr[0] = (byte)deviceType;
             arr[1] = 0x00;//有训练内容
-                          // 姓名20个字节
+            // 姓名20个字节
             byte[] userName = Encoding.GetEncoding("GBK").GetBytes(u.User_Name);
             Array.Copy(userName, 0, arr, 2, userName.Length);
             //姓名拼音32个字节
@@ -213,6 +213,10 @@ namespace spms.protocol
 
             //61 备忘 17 字节
             string notes = prescription.DP_Memo;
+            if (notes == null)
+            {
+                notes = "";
+            }
             byte[] noteBytes = Encoding.GetEncoding("GBK").GetBytes(notes);
             Array.Copy(noteBytes, 0, arr, 61, noteBytes.Length);
 
