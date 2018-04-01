@@ -1608,10 +1608,25 @@ namespace spms.view.Pages.ChildWin
                         {
                             //Console.WriteLine("发卡成功");
 
-                            //保存到数据库 TODO
                             //SaveTrainInfo2DB(TrainInfoStatus.Normal);
-                            MessageBox.Show("写卡成功");
+                            //MessageBox.Show("写卡成功");
 
+
+                            //保存到数据库,在接收数据方法中
+                            try
+                            {
+                                SaveTrainInfo2DB(TrainInfoStatus.Normal);
+                            }
+                            catch (Exception exception)
+                            {
+                                return;
+                            }
+
+                            MessageBox.Show("写卡成功");
+                            Dispatcher.Invoke(new Action(() =>
+                            {
+                                this.Close();
+                            }));
                         }
                         else
                         {
