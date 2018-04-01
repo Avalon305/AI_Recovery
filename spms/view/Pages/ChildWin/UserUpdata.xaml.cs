@@ -592,13 +592,15 @@ namespace spms.view.Pages.ChildWin
         //解决气泡不随着窗体移动问题
         private void windowmove(object sender, EventArgs e)
         {
-
-            var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            mi.Invoke(bubble_phone, null);
-            mi.Invoke(bubble_IDCard, null);
-            mi.Invoke(bubble_Name, null);
-            mi.Invoke(bubble_disease, null);
-            mi.Invoke(bubble_Diagnosis, null);
+            if (bubble_phone.IsOpen == true || bubble_IDCard.IsOpen == true || bubble_Name.IsOpen == true || bubble_disease.IsOpen == true || bubble_Diagnosis.IsOpen == true)
+            {
+                var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                mi.Invoke(bubble_phone, null);
+                mi.Invoke(bubble_IDCard, null);
+                mi.Invoke(bubble_Name, null);
+                mi.Invoke(bubble_disease, null);
+                mi.Invoke(bubble_Diagnosis, null);
+            }
         }
 
         //验证用户是否存在

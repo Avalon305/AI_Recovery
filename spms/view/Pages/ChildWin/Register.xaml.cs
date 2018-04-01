@@ -501,14 +501,14 @@ namespace spms.view.Pages.ChildWin
         //解决气泡不随着窗体移动问题
         private void windowmove(object sender, EventArgs e)
         {
-
+            if(bubble_phone.IsOpen == true || bubble_IDCard.IsOpen == true || bubble_name.IsOpen == true || bubble_disease.IsOpen == true || bubble_Diagnosis.IsOpen == true) { 
             var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             mi.Invoke(bubble_phone, null);
             mi.Invoke(bubble_IDCard, null);
             mi.Invoke(bubble_name, null);
             mi.Invoke(bubble_disease, null);
             mi.Invoke(bubble_Diagnosis, null);
-
+            }
         }
         //验证用户是否存在
         private void IsName(object sender, RoutedEventArgs e)
@@ -533,7 +533,6 @@ namespace spms.view.Pages.ChildWin
         private void IsDisease(object sender, KeyboardFocusChangedEventArgs e)
         {
 
-            Console.WriteLine(c5.Text);
             if (!diseaseList.Contains(c5.Text)&&!String.IsNullOrEmpty(c5.Text))
             {
                 Error_Info_disease.Content = "不存在该疾病名称";
