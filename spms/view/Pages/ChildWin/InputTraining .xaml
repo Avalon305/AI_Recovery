@@ -9,7 +9,7 @@
         Title="宝德龙"
 ResizeMode="NoResize"
          PreviewKeyDown="key_dowm"
-        Height="763.2" Width="1300"
+        Height="765.2" Width="1300"
         Loaded="Window_Loaded">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -75,6 +75,7 @@ ResizeMode="NoResize"
             <Setter  Property="BorderBrush" Value="Gray"></Setter>
         </Style>
     </Window.Resources>
+    <Viewbox Name="viewbox">
     <!-- 整体框架用的 StackPanel 布局-->
     <StackPanel Orientation="Vertical" Margin="0,0,3.6,-0.4">
         <!--Border 使用者一览表以及按钮  开始-->
@@ -1168,5 +1169,6 @@ ResizeMode="NoResize"
         </Border>
         <!-- 结束：按钮排放位置-->
     </StackPanel>
+    </Viewbox>
 </Window>
  

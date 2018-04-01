@@ -130,7 +130,7 @@
                 <Label Content="Version 1.0.0" Margin="709,218,301.2,419.4" Foreground="Gray"  FontFamily="{StaticResource ResourceKey=MAGNETOB}" FontSize="20"/>
                 <!--<Label Content="错误提示" FontWeight="DemiBold" FontSize="15" FontFamily="{StaticResource 微软雅黑}" Foreground="Red" Margin="509,273,381.2,340.4" Name="Error_Info"></Label>-->
                 <Label Content="{DynamicResource FormView.UserName}" HorizontalAlignment="Right" FontSize="30" Foreground="DimGray" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Margin="0,294,795,376" />
-                <TextBlock  Margin="500,307,380,340.4" FontSize="20" Text="{DynamicResource FormView.InputUserName}"  FontFamily="{StaticResource   LiSu}" Foreground="Gray" FontStyle="Italic"/>
+                <Label  Margin="500,300,380,380" FontSize="20" VerticalContentAlignment="Center" Content="{DynamicResource FormView.InputUserName}"  FontFamily="{StaticResource   LiSu}" Foreground="Gray" FontStyle="Italic"/>
                 <TextBox Name="User_Name" Margin="500,300,380,380"  FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Foreground="DimGray" FontSize="25" Style="{StaticResource watermark}" />
                 <bubble:CCPopup x:Name="bubble" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=User_Name}" Placement="Right" >
                     <Label Style="{StaticResource tipLable}">
@@ -141,7 +141,7 @@
                 </bubble:CCPopup>
 
                 <Label  Content="{DynamicResource FormView.Password}" HorizontalAlignment="Right" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="30"   Foreground="DimGray" Margin="0,356,795,309" Width="109" />
-                <TextBlock Name="textBlock"  Margin="500,363,380.2,285.4" FontSize="20" Text="{DynamicResource FormView.InputPasswd}"  Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic"/>
+                <Label Name="textBlock"  Margin="500,360,381,320" VerticalAlignment="Center" FontSize="20" Content="{DynamicResource FormView.InputPasswd}"  Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic"/>
                 <PasswordBox Name="User_Password" Margin="500,360,380,320" Foreground="DimGray"  FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="25" LostFocus="User_Password_LostFocus"  Style="{StaticResource Watermark}"/>
 
 
