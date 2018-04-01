@@ -137,10 +137,15 @@ namespace spms.view.Pages
             Refresh_RecordFrame_Action();
             ///心跳部分
 
-            #region 通知公告
-
-            if (timerNotice == null)
+            #region 通知公告   未激活不心跳
+            SetterDAO setterDao = new SetterDAO();
+                if (timerNotice == null)
             {
+
+                while (setterDao.ListAll() != null)
+                {
+                    break;
+                }
                 BindNotice();
 
                 timerNotice = new System.Timers.Timer();

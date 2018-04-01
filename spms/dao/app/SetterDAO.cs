@@ -19,7 +19,7 @@ namespace spms.dao
             {
                 const string query = "select * from bdl_set";
                 conn.Open();
-                var result = conn.QueryFirst<Setter>(query);
+                var result = conn.QueryFirstOrDefault<Setter>(query);
                 return result;
             }
         }
