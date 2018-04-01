@@ -243,7 +243,7 @@
                             </StackPanel>
                         </Label>
                     </bubble:CCPopup>
-                        <Button Content="{DynamicResource AddOrEditView.AddDisease}"  Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" IsTabStop="False" Style="{StaticResource Btn}" Width="80" Click="DiseaseNameAddition"/>
+                        <Button Content="{DynamicResource AddOrEditView.AddDisease}"  Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" IsTabStop="False" Style="{StaticResource Btn}" Width="95" Click="DiseaseNameAddition"/>
 
                     <Border Grid.Row="10" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.Diagnosis}" Grid.Row="10" Grid.Column="0"  Foreground="White"/>
@@ -257,7 +257,7 @@
                             </StackPanel>
                         </Label>
                     </bubble:CCPopup>
-                        <Button Content="{DynamicResource AddOrEditView.AddDiagnosis}"  Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" IsTabStop="False"  Height="25" Style="{StaticResource Btn}" Width="80" Click="DisabilityNameAddition"/>
+                        <Button Content="{DynamicResource AddOrEditView.AddDiagnosis}"  Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" IsTabStop="False"  Height="25" Style="{StaticResource Btn}" Width="95" Click="DisabilityNameAddition"/>
 
                     <Border Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.Memo}" Grid.Row="11" Grid.Column="0"  Foreground="White"/>
@@ -271,7 +271,7 @@
                         </RichTextBox.Document>
                     </RichTextBox>
                     <!--<TextBox Grid.Row="10" Name="t11" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>-->
-                        <Button Content="{DynamicResource AddOrEditView.Non-DisclosureInformation}"  Grid.Row="11" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" IsTabStop="False"  Style="{StaticResource Btn}" Width="80" Click="InputNonPublicInformationPassword"/>
+                        <Button Content="{DynamicResource AddOrEditView.Non-DisclosureInformation}"  Grid.Row="11" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" IsTabStop="False"  Style="{StaticResource Btn}" Width="95" Click="InputNonPublicInformationPassword"/>
                 </Grid>
 
                 <StackPanel Height="211" Orientation="Horizontal" Margin="10,0,0,0">
