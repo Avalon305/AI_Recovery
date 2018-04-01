@@ -129,8 +129,6 @@ namespace spms.view.Pages
         private void Btn_Insert(object sender, RoutedEventArgs e)
         {
             int count = authDAO.GetAuthCount();
-            try
-            {
                 if (SetterDAO.ListAll().Count != 0)
                 {//判断是否激活
                     if (count < 2)
@@ -150,12 +148,10 @@ namespace spms.view.Pages
                         MessageBox.Show("最多只允许存在一个用户");
                     }
                 }
-
-            }
-            catch (Exception ee)
-            {
-                MessageBox.Show("您没有添加权限请先激活");
-            }
+                else
+                {
+                    MessageBox.Show("您没有添加权限请先激活");
+                }
         }
         //删除按钮的事件
         private void Btn_Delete(object sender, RoutedEventArgs e) //单击删除按钮触发事件
