@@ -10,7 +10,7 @@
          PreviewKeyDown="key_dowm"
         ResizeMode="NoResize"
 Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="470" Width="750"
+        Title="宝德龙" Height="570" Width="900"
         Loaded="Window_Loaded">
     <StackPanel Orientation="Vertical">
         <Border Height="37" CornerRadius="5,5,0,0"  Margin="10,0,10,0">
@@ -46,7 +46,7 @@ Icon="/view/Images/icon2.png"
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-            <Border Width="308" Height="308" Margin="10,0,25,0" BorderThickness="1" BorderBrush="Black">
+            <Border Width="308" Height="408" Margin="10,0,25,0" BorderThickness="1" BorderBrush="Black">
 
                 <wpfmedia:VideoCaptureElement Name="vce" Height="300" Width="300"   />
 
@@ -64,7 +64,7 @@ Icon="/view/Images/icon2.png"
                 </Image>
                 <Button Name="takePhoto" Style="{StaticResource Btn}" Width="50"  Height="25" Click="btn_photo" >摄影</Button>
             </StackPanel>
-            <Border Width="308" Height="308" Margin="24,0,10,0" BorderThickness="1" BorderBrush="Black">
+            <Border Width="400" Height="408" Margin="24,0,10,0" BorderThickness="1" BorderBrush="Black">
                 <imageDealer:ImageDealer Panel.ZIndex="0" x:Name="ImageDealer" Margin="20"  OnCutImaging="ImageDealer_OnOnCutImaging">
 
                 </imageDealer:ImageDealer>
@@ -75,7 +75,7 @@ Icon="/view/Images/icon2.png"
         <!-- 保存及取消按钮-->
         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="146" Height="26" VerticalAlignment="Bottom"  BorderThickness="0" Margin="0,10,10,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                <Button Width="50"  Height="25"  Foreground="Black" Background="Gray"   Margin="2,1,0,0" Style="{StaticResource Btn}"  VerticalAlignment="Top" Click="SavePic" >保存</Button>
+                <Button Width="50"  Foreground="Black" Background="Gray"   Margin="2,1,0,0" Style="{StaticResource Btn}" Click="SavePic" >保存</Button>
                 <Button Width="50" Height="25"  Foreground="Black" Background="Gray"  Content="取消"  Style="{StaticResource Btn}" Margin="2,0,0,0" VerticalAlignment="Bottom" Click="Cancel"/>
             </StackPanel>
         </Border>
