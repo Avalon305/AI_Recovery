@@ -1335,7 +1335,7 @@ namespace spms.view.Pages.ChildWin
         //定时任务
         Timer threadTimer;
         int times = 0;//发送次数
-        bool isReceive = false;//是否收到回执
+        static bool isReceive = false;//是否收到回执
         private SerialPort serialPort;
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
@@ -1471,6 +1471,7 @@ namespace spms.view.Pages.ChildWin
                     }
                 }
 
+                isReceive = false;
                 serialPort.Write(send, 0, send.Length);
 
                 //发送的定时器
@@ -1561,6 +1562,8 @@ namespace spms.view.Pages.ChildWin
                 byte[] receiveData = new byte[len];
                 serialPort.Read(receiveData, 0, len);
 
+                Console.WriteLine("收到数据："+ProtocolUtil.ByteToStringOk(receiveData));
+
                 int offset = 0;
 
                 if (len > 0 && receiveData[0] == 0xAA)//第一包数据
@@ -1607,13 +1610,10 @@ namespace spms.view.Pages.ChildWin
                     if (buffer[buffer.Length - 2] == ProtocolUtil.XorByByte(data))
                     {
                         //Console.WriteLine("校验成功");
-                        if (buffer[buffer.Length - 3] == 0x01)
+                        if (buffer[buffer.Length - 3] == 0x00)
                         {
                             //Console.WriteLine("发卡成功");
-
                             //SaveTrainInfo2DB(TrainInfoStatus.Normal);
-                            //MessageBox.Show("写卡成功");
-
 
                             //保存到数据库,在接收数据方法中
                             try
@@ -1622,14 +1622,11 @@ namespace spms.view.Pages.ChildWin
                             }
                             catch (Exception exception)
                             {
+                                Console.WriteLine("捕获异常了");
                                 return;
                             }
 
                             MessageBox.Show("写卡成功");
-                            Dispatcher.Invoke(new Action(() =>
-                            {
-                                this.Close();
-                            }));
                         }
                         else
                         {
