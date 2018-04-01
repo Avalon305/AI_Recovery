@@ -120,6 +120,10 @@
     <s:String x:Key="AddOrEditView.Diagnosis">Diagnosis</s:String>
     <s:String x:Key="AddOrEditView.BirthDate">Birth Date</s:String>
     <s:String x:Key="AddOrEditView.Memo">Memo</s:String>
+    <s:String x:Key="AddOrEditView.Phone">Phone</s:String>
+    <s:String x:Key="AddOrEditView.IdCard">ID Card</s:String>
+    <s:String x:Key="AddOrEditView.M">M</s:String>
+    <s:String x:Key="AddOrEditView.F">F</s:String>
     <s:String x:Key="AddOrEditView.AddDisease">Add Disease</s:String>
     <s:String x:Key="AddOrEditView.AddDiagnosis">Add Diagnosis</s:String>
     <s:String x:Key="AddOrEditView.Non-DisclosureInformation">Non-Disclosure Information</s:String>
@@ -180,7 +184,7 @@
     <s:String x:Key="Physical Evaluation History.Height">Height</s:String>
     <s:String x:Key="Physical Evaluation History.Weight">Weight</s:String>
     <s:String x:Key="Physical Evaluation History.SingleLegStanding(OE)">Single Leg Standing(OE)</s:String>
-    <s:String x:Key="Physical Evaluation History.TimedUp&Go">Timed Up&Go</s:String>
+    <s:String x:Key="Physical Evaluation History.TimedUpGo">Timed Up  Go</s:String>
     <s:String x:Key="Physical Evaluation History.Subjectcomment">Subject comment</s:String>
     <s:String x:Key="Physical Evaluation History.Staffcomment">Staff comment</s:String>
 
@@ -248,7 +252,7 @@
     <s:String x:Key="PhysicalEvaluationFormView.SingleLegStanding(OE)">Single Leg Standing(OE)</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.FunctionalReach">Functional Reach</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.AnteflextionSeated">Anteflextion Seated</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.TimeedUp&Go">Timeed Up&Go</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.TimeedUpGo">Timeed Up Go</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.5mWalk(normal)">5m Walk(normal)</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.5mWalk(utmost)">5m Walk(utmost)</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.10mWalk">10m Walk</s:String>

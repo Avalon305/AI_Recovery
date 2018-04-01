@@ -106,12 +106,12 @@
     <s:String x:Key="SearchSubjectView.Diagnosis">残障名称</s:String>
 
     <!-- 添加&更新界面 -->
-    <s:String x:Key="AddOrEditView.SubjectInformation">使用者用者信息</s:String>
+    <s:String x:Key="AddOrEditView.SubjectInformation">用户信息</s:String>
     <s:String x:Key="AddOrEditView.Confirm">确认</s:String>
     <s:String x:Key="AddOrEditView.Cancel">取消</s:String>
     <s:String x:Key="AddOrEditView.SubjectID">使用者ID</s:String>
-    <s:String x:Key="AddOrEditView.LastName">使用者名称</s:String>
-    <s:String x:Key="AddOrEditView.FirstName">使用者名称（拼音）</s:String>
+    <s:String x:Key="AddOrEditView.LastName">用户姓名</s:String>
+    <s:String x:Key="AddOrEditView.FirstName">用户姓名（拼音）</s:String>
     <s:String x:Key="AddOrEditView.Gender">性别</s:String>
     <s:String x:Key="AddOrEditView.Group">小组名称</s:String>
     <s:String x:Key="AddOrEditView.InitialCareLevel">初期要介护度</s:String>
@@ -119,6 +119,10 @@
     <s:String x:Key="AddOrEditView.Disease">疾病名称</s:String>
     <s:String x:Key="AddOrEditView.Diagnosis">残障名称</s:String>
     <s:String x:Key="AddOrEditView.BirthDate">出生日期</s:String>
+    <s:String x:Key="AddOrEditView.Phone">手机号</s:String>
+    <s:String x:Key="AddOrEditView.IdCard">身份证</s:String>
+    <s:String x:Key="AddOrEditView.M">男</s:String>
+    <s:String x:Key="AddOrEditView.F">女</s:String>
     <s:String x:Key="AddOrEditView.Memo">备忘</s:String>
     <s:String x:Key="AddOrEditView.AddDisease">添加疾病名称</s:String>
     <s:String x:Key="AddOrEditView.AddDiagnosis">添加残障名称</s:String>
@@ -180,7 +184,7 @@
     <s:String x:Key="Physical Evaluation History.Height">身高</s:String>
     <s:String x:Key="Physical Evaluation History.Weight">体重</s:String>
     <s:String x:Key="Physical Evaluation History.SingleLegStanding(OE)">睁眼单脚站立</s:String>
-    <s:String x:Key="Physical Evaluation History.TimedUp&Go">Timed Up&Go</s:String>
+    <s:String x:Key="Physical Evaluation History.TimedUpGo">Timed Up Go</s:String>
     <s:String x:Key="Physical Evaluation History.Subjectcomment">使用者感想</s:String>
     <s:String x:Key="Physical Evaluation History.Staffcomment">工作人员感想</s:String>
 
@@ -248,7 +252,7 @@
     <s:String x:Key="PhysicalEvaluationFormView.SingleLegStanding(OE)">睁眼单脚站立</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.FunctionalReach">功能性前伸</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.AnteflextionSeated">坐姿体前屈</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.TimeedUp&Go">Timeed Up&Go</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.TimeedUpGo">Timeed Up Go</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.5mWalk(normal)">5m步行（通常）</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.5mWalk(utmost)">5m步行（最快）</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.10mWalk">10米步行</s:String>
