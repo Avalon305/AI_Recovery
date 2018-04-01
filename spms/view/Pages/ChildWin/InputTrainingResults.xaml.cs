@@ -212,7 +212,7 @@ namespace spms.view.Pages.ChildWin
                 catch (Exception exception)
                 {
                 }
-                devicePrescription.Dp_status = 1;//TODO
+                devicePrescription.Dp_status = 1;
                 try
                 {
                     devicePrescription.dp_moveway = int.Parse(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, HLPMoveway.Text)); //移乘方式

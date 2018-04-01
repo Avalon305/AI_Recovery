@@ -40,7 +40,17 @@ namespace spms.http
                Console.WriteLine(Encoding.GetEncoding("GBK").GetString(b));
                
              */
-           
+            //try
+            //{
+            //    byte[] deBytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id),
+            //        ProtocolConstant.USB_DOG_PASSWORD);
+            //    mac = Encoding.GetEncoding("GBK").GetString(deBytes);
+            //}
+            //catch (Exception ex)
+            //{
+            //    //
+            //    mac = setter.Set_Unique_Id.Replace(":", "");
+            //}
             //获得当前主机的mac地址
             mac = SystemInfo.GetMacAddress();
             AuthDAO authDAO = new AuthDAO();

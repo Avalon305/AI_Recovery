@@ -202,7 +202,7 @@
       <DependentUpon>ImageDealerUnsafe.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageDealer\PicZipUtil.cs" />
-    <Compile Include="PhotoCutWindow.xaml.cs">
+    <Compile Include="view\Pages\ChildWin\PhotoCutWindow.xaml.cs">
       <DependentUpon>PhotoCutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\converter\TextConverter.cs" />
@@ -405,7 +405,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PhotoCutWindow.xaml">
+    <Page Include="view\Pages\ChildWin\PhotoCutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

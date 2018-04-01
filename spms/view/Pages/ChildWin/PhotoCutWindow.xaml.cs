@@ -26,6 +26,12 @@ namespace spms
     {
         private BitmapImage image;
         private string fileName;
+        //照片的名字
+        public string photoName { get; set; }
+        //得到用户的名字
+        public string getName { get; set; }
+        public string id { get; set; }
+        public string oldPhotoName { get; set; }
         public void SetImage(BitmapImage image)
         {
             this.image = image;
@@ -34,6 +40,8 @@ namespace spms
         {
             InitializeComponent();
         }
+
+
         /// <summary>
         /// 箭筒截图是否成功
         /// </summary>
@@ -41,7 +49,6 @@ namespace spms
         /// <param name="e"></param>
         private void ImageDealer_OnOnCutImaging(object sender, RoutedEventArgs e)
         {
-            CutImage.Source = (BitmapSource)e.OriginalSource;
             var ddd = (BitmapSource)e.OriginalSource;
             Bitmap bit = BitmapFromSource(ddd);
 
@@ -49,9 +56,14 @@ namespace spms
             var bmcpy = new Bitmap(183, 256);
             Graphics gh = Graphics.FromImage(bmcpy);
             gh.DrawImage(bit, new System.Drawing.Rectangle(0, 0, 183, 256));
-            fileName = Guid.NewGuid().ToString();
-            
-            bmcpy.Save(@CommUtil.GetUserPic()+ fileName +".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            photoName = getName + id;
+            if (oldPhotoName == getName + id + ".jpg" || oldPhotoName == getName + id + ".gif")
+            {
+                photoName += "_1";
+            }
+
+            photoName += ".jpg";
+            bmcpy.Save(CommUtil.GetUserPic() + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
 
         }
         public static Bitmap BitmapFromSource(BitmapSource source)
@@ -80,13 +92,33 @@ namespace spms
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //创建文件夹
+            CreateDir(CommUtil.GetUserPic());
             ImageDealer.CutImage();
-            fileName = CommUtil.GetUserPic() + fileName;
-            fileName = fileName.Replace(@"/", @"\") + ".jpg";
-            string newFileName = fileName.Replace(".jpg", ".gif");
-            WpfApp2.PicZipUtil.GetPicThumbnail(fileName, newFileName, 50);
-            MessageBox.Show("裁剪成功，照片存在：" + CommUtil.GetUserPic());
+
+            string newFileName = photoName.Replace(".jpg", ".gif");
+
+            if (PicZipUtil.GetPicThumbnail(CommUtil.GetUserPic() + photoName, CommUtil.GetUserPic() + newFileName, 50))
+            {
+                File.Delete(CommUtil.GetUserPic() + photoName);
+                photoName = newFileName;
+            }
+            this.Close();
         }
-        
+        //根据文件夹全路径创建文件夹
+        public static void CreateDir(string path)
+        {
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            photoName = oldPhotoName;
+            this.Close();
+
+        }
     }
 }

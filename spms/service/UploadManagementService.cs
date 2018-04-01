@@ -47,7 +47,16 @@ namespace spms.service
             Setter setter = setterDAO.getSetter();
             //需要加入解密逻辑 TODO
             string mac = "";
-             
+            //try
+            //{
+            //    byte[] deBytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id),
+            //        ProtocolConstant.USB_DOG_PASSWORD);
+            //    mac = Encoding.GetEncoding("GBK").GetString(deBytes);
+            //}
+            //catch (Exception ex)
+            //{
+            //    mac = setter.Set_Unique_Id.Replace(":", "");
+            //}
             byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
             byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
             mac = Encoding.GetEncoding("GBK").GetString(b);
@@ -77,7 +86,7 @@ namespace spms.service
                     return null;
                 }
 
-                 
+                //TODO 编写entityDTO
                 UserDTO userDTO = new UserDTO(user, mac);
                 serviceResult.URL = "bigData/bodyStrongUser";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<UserDTO>(userDTO);
@@ -93,7 +102,7 @@ namespace spms.service
                     return null;
                 }
 
-                
+                //TODO SymptomInfoDTO
                 SymptomInfoDTO symptomInfoDTO = new SymptomInfoDTO(result, mac);
                 serviceResult.URL = "bigData/symptomInfo";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<SymptomInfoDTO>(symptomInfoDTO);
@@ -109,7 +118,7 @@ namespace spms.service
                     return null;
                 }
 
-                
+                //todo
                 TrainInfoDTO trainInfoDTO = new TrainInfoDTO(result, mac);
                 serviceResult.URL = "bigData/trainInfo";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<TrainInfoDTO>(trainInfoDTO);
@@ -125,7 +134,7 @@ namespace spms.service
                     return null;
                 }
 
-                
+                //todo
                 DevicePrescriptionDTO devicePrescriptionDTO = new DevicePrescriptionDTO(result, mac);
                 serviceResult.URL = "bigData/devicePrescription";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<DevicePrescriptionDTO>(devicePrescriptionDTO);
@@ -140,7 +149,7 @@ namespace spms.service
                     return null;
                 }
 
-                
+                //todo
                 PrescriptionResultDTO prescriptionResultDTO = new PrescriptionResultDTO(result, mac);
                 serviceResult.URL = "bigData/prescriptionResult";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<PrescriptionResultDTO>(prescriptionResultDTO);

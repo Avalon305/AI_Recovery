@@ -174,7 +174,7 @@ namespace spms.view.Pages.ChildWin
                 worksheet.Cells[tableRow + 4, 10, tableRow + 4, 11].Merge = true;
                 worksheet.Cells[tableRow + 5, 10, tableRow + 5, 11].Merge = true;
                 worksheet.Cells[tableRow + 6, 10, tableRow + 6, 11].Merge = true;
-                //TODO 初次未变化
+                //初次未变化
 
                 using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow, 11])
                 {

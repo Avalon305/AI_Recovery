@@ -62,7 +62,7 @@ namespace spms.view.Pages.ChildWin
                 //获取电脑的uuid字节数组-即加密狗的内容
                 ProtocolConstant.USB_DOG_CONTENT = Encoding.UTF8.GetBytes(Get_UUID());
                 new MakerUSBDogFrame().PackData(ref send, new byte[] { 0xF0 }, ProtocolConstant.USB_DOG_CONTENT);
-                Console.WriteLine("加密后的报文" + ProtocolUtil.ByteToStringOk(send));
+                //Console.WriteLine("加密后的报文" + ProtocolUtil.ByteToStringOk(send));
                 //byte[] test = null;
                 //new MakerUSBDogFrame().PackData(ref test, new byte[] { 0xF0 }, Encoding.UTF8.GetBytes("hello"));
                 //Console.WriteLine("测试:"+CRC16Util.ByteToStringOk(test));
@@ -193,7 +193,7 @@ namespace spms.view.Pages.ChildWin
                     using (item) code = item["UUID"].ToString();
                 }
             }
-            Console.WriteLine("设备的uuid:"+code);
+            //Console.WriteLine("设备的uuid:"+code);
             return code;
         }
 
@@ -214,14 +214,14 @@ namespace spms.view.Pages.ChildWin
 
                 byte[] receiveData = new byte[len];
                 serialPort.Read(receiveData, 0, len);
-                Console.WriteLine("收到的数据：" + ProtocolUtil.ByteToStringOk(receiveData));
+                //Console.WriteLine("收到的数据：" + ProtocolUtil.ByteToStringOk(receiveData));
                 int offset = 0;
 
                 Int32 datalen = 0;
                 if (len > 0 && receiveData[0] == 0xAA)//第一包数据
                 {
                     datalen = Convert.ToInt32((receiveData[2].ToString("X2") + receiveData[3].ToString("X2")), 16);
-                    Console.WriteLine("数据的长度：" + datalen);
+                    //Console.WriteLine("数据的长度：" + datalen);
                     buffer = new byte[datalen + 6];
 
                     for (int i = 0; i < receiveData.Length; i++)
@@ -267,11 +267,11 @@ namespace spms.view.Pages.ChildWin
                         object result = null;//用于存放uuid的鉴权加密
                         new ParserUSBDogFrame().Parser(ref result, buffer);
                         string b = ProtocolUtil.BytesToString((byte[])result);
-                        Console.WriteLine("解密通讯加密后的数据：" + b);
+                        //Console.WriteLine("解密通讯加密后的数据：" + b);
 
                         byte[] uuidBytes = null;
                         uuidBytes = AesUtil.Decrypt((byte[])result, ProtocolConstant.USB_DOG_AUTH_PASSWORD);
-                        Console.WriteLine("解密鉴权加密后的数据：" + ProtocolUtil.ByteToStringOk(uuidBytes));
+                        //Console.WriteLine("解密鉴权加密后的数据：" + ProtocolUtil.ByteToStringOk(uuidBytes));
 
                         string strUUID = System.Text.Encoding.ASCII.GetString(uuidBytes);
 

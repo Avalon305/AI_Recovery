@@ -6,19 +6,19 @@
          xmlns:imageDealer="clr-namespace:TestImageDealer.ImageDealer"
         xmlns:local="clr-namespace:spms"
         mc:Ignorable="d"
-        Title="PhotoCutWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="PhotoCutWindow" Height="557.328" Width="568.534" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <imageDealer:ImageDealer Panel.ZIndex="0" x:Name="ImageDealer" Margin="20"  OnCutImaging="ImageDealer_OnOnCutImaging">
+        <imageDealer:ImageDealer Panel.ZIndex="0" x:Name="ImageDealer" Margin="20,20,24,59"  OnCutImaging="ImageDealer_OnOnCutImaging" Grid.ColumnSpan="2">
 
         </imageDealer:ImageDealer>
 
         <Image Name="CutImage" Grid.Column="1" Margin="5" VerticalAlignment="Top"></Image>
-        <Button Content="裁剪" HorizontalAlignment="Left" Margin="124,5,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-
+        <Button Content="确定" HorizontalAlignment="Left" Margin="376,485,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <Button Content="取消" HorizontalAlignment="Left" Margin="41,485,0,0" VerticalAlignment="Top" Width="75" Click="Cancel_Click" Grid.Column="1"/>
     </Grid>
 </Window>
