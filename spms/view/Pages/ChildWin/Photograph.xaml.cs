@@ -19,7 +19,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfApp2;
 using WPFMediaKit.DirectShow.Controls;
 
 namespace spms.view.Pages.ChildWin
@@ -46,7 +45,7 @@ namespace spms.view.Pages.ChildWin
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-       
+
         //取消按钮，关闭此窗体
         private void Cancel(object sender, RoutedEventArgs e)
         {
@@ -79,31 +78,7 @@ namespace spms.view.Pages.ChildWin
             }
 
         }
-        /// <summary>
-        /// 箭筒截图是否成功
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ImageDealer_OnOnCutImaging(object sender, RoutedEventArgs e)
-        {
-            
-            var ddd = (BitmapSource)e.OriginalSource;
-            Bitmap bit = BitmapFromSource(ddd);
 
-            //指定照片尺寸这么大
-            var bmcpy = new Bitmap(183, 256);
-            Graphics gh = Graphics.FromImage(bmcpy);
-            gh.DrawImage(bit, new System.Drawing.Rectangle(0, 0, 183, 256));
-            photoName = getName + id;
-            if (oldPhotoName == getName + id + ".jpg" || oldPhotoName == getName + id + ".gif")
-            {
-                photoName += "_1";
-            }
-
-            photoName += ".jpg";
-            bmcpy.Save(CommUtil.GetUserPic() + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-        }
         public static Bitmap BitmapFromSource(BitmapSource source)
         {
             using (MemoryStream outStream = new MemoryStream())
@@ -125,7 +100,8 @@ namespace spms.view.Pages.ChildWin
             //vce是前台wpfmedia控件的name
             //为避免抓不全的情况，需要在Render之前调用Measure、Arrange
             RenderTargetBitmap bmp = new RenderTargetBitmap((int)vce.ActualWidth,
-                (int)vce.ActualHeight, 96, 96, PixelFormats.Default);
+                (int)vce.ActualHeight,
+                96, 96, PixelFormats.Default);
 
             vce.Measure(vce.RenderSize);
             vce.Arrange(new Rect(vce.RenderSize));
@@ -148,25 +124,9 @@ namespace spms.view.Pages.ChildWin
                 bitmapImage.EndInit();
             }
 
-            vce.Pause();
-            ImageDealer.BitSource = bitmapImage;
-        }
+            //显示拍摄结果
+            picResult.Source = bitmapImage;
 
-        // 保存图片按钮
-        private void SavePic(object sender, RoutedEventArgs e)
-        {
-            //创建文件夹
-            CreateDir(CommUtil.GetUserPic());
-            ImageDealer.CutImage();
-            
-            string newFileName = photoName.Replace(".jpg", ".gif");
-            
-            if (PicZipUtil.GetPicThumbnail(CommUtil.GetUserPic() + photoName, CommUtil.GetUserPic() + newFileName, 50))
-            {
-                File.Delete(CommUtil.GetUserPic() + photoName);
-                photoName = newFileName;
-            }
-            this.Close();
         }
         //根据文件夹全路径创建文件夹
         public static void CreateDir(string path)
@@ -177,94 +137,33 @@ namespace spms.view.Pages.ChildWin
             }
         }
 
-        /// <param name="sFile">原图片</param>    
-        /// <param name="dFile">压缩后保存位置</param>    
-        /// <param name="dHeight">高度</param>    
-        /// <param name="dWidth"></param>    
-        /// <param name="flag">压缩质量(数字越小压缩率越高) 1-100</param>    
-        /// <returns></returns>    
-        /// (源文件，目标文件，高度，宽度，压缩比例)
-        public static bool GetPicThumbnail(string sFile, string dFile, int dHeight, int dWidth, int flag)
+        // 保存图片按钮
+        private void SavePic(object sender, RoutedEventArgs e)
         {
-            System.Drawing.Image iSource = System.Drawing.Image.FromFile(sFile);
-            ImageFormat tFormat = iSource.RawFormat;
-            int sW = 0, sH = 0;
+            vce.Stop();
 
-            //按比例缩放  
-            System.Drawing.Size tem_size = new System.Drawing.Size(iSource.Width, iSource.Height);
+            Bitmap bit = BitmapFromSource((BitmapSource)picResult.Source);
 
-            if (tem_size.Width > dHeight || tem_size.Width > dWidth)
+            //指定照片尺寸这么大
+            var bmcpy = new Bitmap(183, 256);
+            Graphics gh = Graphics.FromImage(bmcpy);
+            gh.DrawImage(bit, new System.Drawing.Rectangle(0, 0, 183, 256));
+            photoName = getName + id;
+            if (oldPhotoName == getName + id + ".jpg" || oldPhotoName == getName + id + ".gif")
             {
-                if ((tem_size.Width * dHeight) > (tem_size.Width * dWidth))
-                {
-                    sW = dWidth;
-                    sH = (dWidth * (int)tem_size.Height) / (int)tem_size.Width;
-                }
-                else
-                {
-                    sH = dHeight;
-                    sW = ((int)tem_size.Width * dHeight) / (int)tem_size.Height;
-                }
-            }
-            else
-            {
-                sW = (int)tem_size.Width;
-                sH = (int)tem_size.Height;
+                photoName += "_1";
             }
 
-            Bitmap ob = new Bitmap(dWidth, dHeight);
-            Graphics g = Graphics.FromImage(ob);
+            photoName += ".jpg";
+            //TODO 保存之前看看需不需要压缩
+            CreateDir(CommUtil.GetUserPic());
+            bmcpy.Save(CommUtil.GetUserPic() + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
 
-            g.Clear(System.Drawing.Color.WhiteSmoke);
-            g.CompositingQuality = CompositingQuality.HighQuality;
-            g.SmoothingMode = SmoothingMode.HighQuality;
-            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
 
-            g.DrawImage(iSource, new System.Drawing.Rectangle((dWidth - sW) / 2, (dHeight - sH) / 2, sW, sH), 0, 0, iSource.Width, iSource.Height, GraphicsUnit.Pixel);
 
-            g.Dispose();
-            //以下代码为保存图片时，设置压缩质量    
-            EncoderParameters ep = new EncoderParameters();
-            long[] qy = new long[1];
-            qy[0] = flag;//设置压缩的比例1-100    
-            EncoderParameter eParam = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, qy);
-            ep.Param[0] = eParam;
-            try
-            {
-                ImageCodecInfo[] arrayICI = ImageCodecInfo.GetImageEncoders();
-                ImageCodecInfo gifICIinfo = null;
-               
-                for (int x = 0; x < arrayICI.Length; x++)
-                {
-                    
-                    if (arrayICI[x].FormatDescription.Equals("GIF"))
-                    {
-                        gifICIinfo = arrayICI[x];
-                        break;
-                    }
-                }
-                if (gifICIinfo != null)
-                {
-                    //MessageBox.Show("保存1");
-                    ob.Save(dFile, gifICIinfo, ep);//dFile是压缩后的新路径    
-                }
-                else
-                {
-                    //MessageBox.Show("保存2");
-                    ob.Save(dFile, tFormat);
-                }
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-            finally
-            {
-                iSource.Dispose();
-                ob.Dispose();
-            }
+            this.Close();
         }
+
 
         // 加载摄像头按钮
         private void cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -276,7 +175,7 @@ namespace spms.view.Pages.ChildWin
         {
             if (e.Key == Key.Enter)
             {
-               SavePic(this, null);
+                SavePic(this, null);
                 //使键盘失去焦点，解决窗口反复出现
                 Keyboard.ClearFocus();
             }
@@ -284,3 +183,4 @@ namespace spms.view.Pages.ChildWin
         }
     }
 }
+
