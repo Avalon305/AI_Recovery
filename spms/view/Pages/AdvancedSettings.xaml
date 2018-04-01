@@ -30,7 +30,7 @@
 
             </Border.Background>
             <Grid>
-                <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38">高级设置</Label>
+                <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38" Content="{DynamicResource SettingsView.AdvancedSettings}"></Label>
                 <!--<Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="285" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2" Margin="0,0,0.2,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Width="140" Height="25"    Foreground="Black" Margin="2,0,0,0"  Style="{StaticResource Btn}">确定更改</Button>
@@ -66,14 +66,14 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0" Grid.Column="0">
-                    <Label Foreground="White" Background="Black" Margin="0,0,3,3">选择器械系列</Label>
+                    <Label Foreground="White" Background="Black" Margin="0,0,3,3" Content="{DynamicResource SettingsView.SeriesofMachines}"></Label>
                 </Border>
                 <Border Grid.Row="0" Grid.Column="1"  Margin="0,0,0,3">
                     <ComboBox SelectedIndex="0"  SelectedValuePath="Bdl_Dset_Id"  DisplayMemberPath="DSet_Name" IsTabStop="False" x:Name="ComboBox_Device" VerticalContentAlignment="Center">
                     </ComboBox>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="0"  Grid.ColumnSpan="2">
-                    <Label Foreground="White" Background="Black"   >使用器械</Label>
+                    <Label Foreground="White" Background="Black"   Content="{DynamicResource SettingsView.PRexerSeries}"></Label>
                 </Border>
                 <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="200">
                     <StackPanel Margin="0" >
@@ -165,14 +165,14 @@
                     </DataGrid.CellStyle>
                     
                     <DataGrid.Columns >
-                        
-                        <DataGridTextColumn Binding="{Binding Auth_UserName}" IsReadOnly="True"  Header="用户名" Width="140" />
-                        <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" IsReadOnly="True" Header="创建时间" Width="247"/>
-                        <DataGridTextColumn Binding="{Binding Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" IsReadOnly="True" Header="更新时间" Width="200">
+
+                        <DataGridTextColumn Binding="{Binding Auth_UserName}" IsReadOnly="True"  Header="{DynamicResource SettingsView.User}" Width="140" />
+                        <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" IsReadOnly="True" Header="{DynamicResource SettingsView.CreateDate}" Width="247"/>
+                        <DataGridTextColumn Binding="{Binding Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" IsReadOnly="True" Header="{DynamicResource SettingsView.ModifyDate}" Width="200">
                         </DataGridTextColumn>
                         <!--<DataGridTextColumn Binding="{Binding Auth_OfflineTime,StringFormat='{}{0:yyyy-MM-dd}'}"  Header="离线使用时间" Width="200"/>-->
 
-                        <DataGridTemplateColumn x:Name="dateScheduledColumn"  Header="离线使用时间" Width="200">
+                        <DataGridTemplateColumn x:Name="dateScheduledColumn"  Header="{DynamicResource SettingsView.OffLineDate}" Width="200">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <DatePicker SelectedDate="{Binding Auth_OfflineTime,StringFormat='{}{0:yyyy-MM-dd}'}" >
@@ -185,7 +185,7 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridCheckBoxColumn Binding="{Binding USER_STATUS_FREE}"  Header="完全离线"  Width="93" />
+                        <DataGridCheckBoxColumn Binding="{Binding USER_STATUS_FREE}"  Header="{DynamicResource SettingsView.OffLine}"  Width="93" />
 
                     </DataGrid.Columns>
                 </DataGrid>
@@ -196,9 +196,9 @@
                             <ColumnDefinition Width="300"/>
                             <ColumnDefinition Width="300"/>
                         </Grid.ColumnDefinitions>
-                        <Button  Click="Btn_Insert" DockPanel.Dock="Left" HorizontalAlignment="Center"  Grid.Column="0" Width="50" Height="25"  VerticalAlignment="Center" Style="{StaticResource Btn}" IsTabStop="False">添加</Button>
-                        <Button  Click="BTN_Update" DockPanel.Dock="Left" Grid.Column="1" Width="50"  VerticalAlignment="Center" Height="25"  Style="{StaticResource Btn}" IsTabStop="False">修改</Button>
-                        <Button  Click="Btn_Delete" DockPanel.Dock="Left"  Grid.Column="2" Width="50" VerticalAlignment="Center" Height="25"   Style="{StaticResource Btn}" IsTabStop="False">删除</Button>
+                        <Button  Click="Btn_Insert" DockPanel.Dock="Left" HorizontalAlignment="Center"  Grid.Column="0" Width="50" Height="25"  VerticalAlignment="Center" Style="{StaticResource Btn}" IsTabStop="False" Content="{DynamicResource SettingsView.Add}"></Button>
+                        <Button  Click="BTN_Update" DockPanel.Dock="Left" Grid.Column="1" Width="50"  VerticalAlignment="Center" Height="25"  Style="{StaticResource Btn}" IsTabStop="False" Content="{DynamicResource SettingsView.Edit}"></Button>
+                        <Button  Click="Btn_Delete" DockPanel.Dock="Left"  Grid.Column="2" Width="50" VerticalAlignment="Center" Height="25"   Style="{StaticResource Btn}" IsTabStop="False" Content="{DynamicResource SettingsView.Delete}"></Button>
                     </Grid>
                 </Border>
             </StackPanel>
@@ -206,16 +206,16 @@
         </DockPanel>
         <!--激活状态-->
         <WrapPanel Width="279" HorizontalAlignment="Left" Margin="40,0,0,0" Height="90">
-            <Label Content="激活产品配合产品密钥:" FontSize="20"></Label>
-            <Button Width="50" Height="25" x:Name="BtnActivite" Style="{StaticResource Btn}" Click="Btn_Activate" IsTabStop="False">激活</Button>
-            <Label FontSize="20">激活状态:</Label>
-            <Label  Name="Status" Content="未激活"  FontSize="20"></Label>
+            <Label Content="{DynamicResource SettingsView.ActivateTheProduct}" FontSize="20"></Label>
+            <Button Width="50" Height="25" x:Name="BtnActivite" Style="{StaticResource Btn}" Click="Btn_Activate" IsTabStop="False" Content="{DynamicResource SettingsView.Activate}"></Button>
+            <Label FontSize="20" Content="{DynamicResource SettingsView.StateofActivation}"></Label>
+            <Label  Name="Status" Content="{DynamicResource SettingsView.Unactivated}"  FontSize="20"></Label>
         </WrapPanel>
         <!--结束：激活状态-->
         <Border CornerRadius="5,50,0,0"  HorizontalAlignment="Right" Width="339" VerticalAlignment="Bottom" Padding="0,2,0,2" Margin="0,0,25,0" Height="40">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Width="140" Height="25"    Foreground="Black" Margin="2,0,0,0" IsTabStop="False"  Style="{StaticResource Btn}" Click="Btn_Confirm">确定更改</Button>
-                <Button Width="140" Height="25"    Foreground="Black"  Margin="2,0,0,0" IsTabStop="False"  Style="{StaticResource Btn}" Click="GoBack">返回</Button>
+                <Button Width="140" Height="25"  Content="{DynamicResource SettingsView.Confirm}"  Foreground="Black" Margin="2,0,0,0" IsTabStop="False"  Style="{StaticResource Btn}" Click="Btn_Confirm" ></Button>
+                <Button Width="140" Height="25" Content="{DynamicResource SettingsView.Cancel}"   Foreground="Black"  Margin="2,0,0,0" IsTabStop="False"  Style="{StaticResource Btn}" Click="GoBack"></Button>
             </StackPanel>
         </Border>
     </StackPanel>

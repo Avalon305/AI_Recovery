@@ -42,6 +42,7 @@ namespace spms.view.Pages
         SetterDAO setterDao = new SetterDAO();
         DataCodeDAO DataCodeDAO = new DataCodeDAO();
         List<DataCode> ListDataCode = new List<DataCode>();
+
         int[] Selected = { 0, 0, 0 };
         int Pk_Set_Id;
         public DesignPage1()
@@ -160,10 +161,12 @@ namespace spms.view.Pages
                 setterDao.UpdateSetter(setter);
 
             }
-
-
-
+            //切换语言
+            LanguageUtils.SetLanguage(comboBox2.SelectedIndex);
+            
         }
+
+        
         private void Grid_Group_Click(object sender, MouseButtonEventArgs e)
         {
             Selected[0] = 1;

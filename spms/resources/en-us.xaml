@@ -21,6 +21,11 @@
 
     <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">Facility Name</s:String>
+    <s:String x:Key="SettingsView.Return">Return</s:String>
+    <s:String x:Key="SettingsView.PremarySettings">Premary Settings</s:String>
+    
+    <s:String x:Key="SettingsView.AdvancedSettings">Advanced Settings</s:String>
+    <s:String x:Key="SettingsView.Alert">(Once the path is set not to suggest changes)</s:String>
     <s:String x:Key="SettingsView.FacilityType">Facility Type</s:String>
     <s:String x:Key="SettingsView.Other">Other</s:String>
     <s:String x:Key="SettingsView.Hospital">Hospital</s:String>

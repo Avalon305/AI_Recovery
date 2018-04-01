@@ -22,6 +22,10 @@
     <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">机构、团体名称</s:String>
     <s:String x:Key="SettingsView.FacilityType">机构分区</s:String>
+    <s:String x:Key="SettingsView.Return">返回</s:String>
+    <s:String x:Key="SettingsView.PremarySettings">初级设置</s:String>
+    <s:String x:Key="SettingsView.AdvancedSettings">高级设置</s:String>
+    <s:String x:Key="SettingsView.Alert">（路径一旦设置不建议改变）</s:String>
     <s:String x:Key="SettingsView.Other">其他</s:String>
     <s:String x:Key="SettingsView.Hospital">医院</s:String>
     <s:String x:Key="SettingsView.Clinic">诊所</s:String>
@@ -41,7 +45,7 @@
     <s:String x:Key="SettingsView.Current">当前密码</s:String>
     <s:String x:Key="SettingsView.New">新密码</s:String>
     <s:String x:Key="SettingsView.ConfirmPassword">确认密码</s:String>
-    <s:String x:Key="SettingsView.Refer">参照</s:String>
+    <s:String x:Key="SettingsView.Refer">打开</s:String>
     <s:String x:Key="SettingsView.Video">设定视频</s:String>
     <s:String x:Key="SettingsView.SeriesofMachines">选择器械系列</s:String>
     <s:String x:Key="SettingsView.PRexerSeries">PRexer 系列</s:String>
@@ -61,7 +65,12 @@
     <s:String x:Key="SettingsView.Cancel">取消</s:String>
     <s:String x:Key="SettingsView.Confirm">确认更改</s:String>
     <s:String x:Key="SettingsView.UserName">用户名</s:String>
+    
+    
+    <s:String x:Key="SettingsView.User">用户</s:String>
     <s:String x:Key="SettingsView.CreateDate">创建时间</s:String>
+    <s:String x:Key="SettingsView.OffLineDate">离线使用时间</s:String>
+    <s:String x:Key="SettingsView.OffLine">完全离线</s:String>
     <s:String x:Key="SettingsView.ModifyDate">更新时间</s:String>
     <s:String x:Key="SettingsView.Status">状态</s:String>
     <s:String x:Key="SettingsView.OffLineTime">离线时间</s:String>
