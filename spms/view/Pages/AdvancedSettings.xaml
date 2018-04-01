@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:spms.util"
+      xmlns:my="clr-namespace:spms.view.controls"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="宝德龙"
@@ -136,20 +137,26 @@
             <!--结束：器械选择-->
             <!--用户表-->
             <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Margin="30,35,20,0">
-                <DataGrid x:Name="DataGrid1" DataGridRow.MouseUp="Grid_Row_Click" CanUserAddRows="False" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" IsReadOnly="True" SelectionMode="Single" GridLinesVisibility="None" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="209" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" BorderBrush="Black" BorderThickness="1,1,1,0" Width="883">
+                <DataGrid x:Name="DataGrid1" DataGridRow.MouseUp="Grid_Row_Click" CanUserAddRows="False" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0"  SelectionMode="Single" GridLinesVisibility="None" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Height="209" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" BorderBrush="Black" BorderThickness="1,1,1,0" Width="883">
                     <!--选中行失去焦点时的颜色-->
                     <DataGrid.Resources>
                         <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
 
                     </DataGrid.Resources>
                     <!--去掉选中单元格的框线-->
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    
                     <DataGrid.CellStyle>
                         <Style TargetType="DataGridCell" >
                             <Style.Triggers>
                                 <Trigger Property="IsSelected" Value="True">
                                     <Setter Property="BorderThickness" Value="0"/>
                                     <Setter Property="BorderBrush" Value="White" />
-
                                     <Setter Property="KeyboardNavigation.IsTabStop" Value="False"/>
                                 </Trigger>
                             </Style.Triggers>
@@ -158,10 +165,27 @@
                     </DataGrid.CellStyle>
                     
                     <DataGrid.Columns >
-                        <DataGridTextColumn Binding="{Binding Auth_UserName}"  Header="用户名" Width="140" />
-                        <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="创建时间" Width="247"/>
-                        <DataGridTextColumn Binding="{Binding Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="更新时间" Width="247"/>
-                        <DataGridTextColumn Binding="{Binding Auth_OfflineTime,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="离线使用时间" Width="247"/>
+                        
+                        <DataGridTextColumn Binding="{Binding Auth_UserName}" IsReadOnly="True"  Header="用户名" Width="140" />
+                        <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" IsReadOnly="True" Header="创建时间" Width="247"/>
+                        <DataGridTextColumn Binding="{Binding Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" IsReadOnly="True" Header="更新时间" Width="200">
+                        </DataGridTextColumn>
+                        <!--<DataGridTextColumn Binding="{Binding Auth_OfflineTime,StringFormat='{}{0:yyyy-MM-dd}'}"  Header="离线使用时间" Width="200"/>-->
+
+                        <DataGridTemplateColumn x:Name="dateScheduledColumn"  Header="离线使用时间" Width="200">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DatePicker SelectedDate="{Binding Auth_OfflineTime,StringFormat='{}{0:yyyy-MM-dd}'}" >
+                                        <DatePicker.Resources>
+                                            <Style TargetType="DatePickerTextBox">
+                                                <Setter Property="IsReadOnly" Value="True"/>
+                                            </Style>
+                                        </DatePicker.Resources>
+                                    </DatePicker>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridCheckBoxColumn Binding="{Binding USER_STATUS_FREE}"  Header="完全离线"  Width="93" />
 
                     </DataGrid.Columns>
                 </DataGrid>

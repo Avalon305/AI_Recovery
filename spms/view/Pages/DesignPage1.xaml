@@ -62,7 +62,7 @@
         </Grid>
         <!--结束：标题栏-->
         <!--基础设置及其高级设置按钮-->
-        <StackPanel Margin="10" Orientation="Horizontal" >
+        <StackPanel Margin="10,10,26.6,10" Orientation="Horizontal" >
             <Grid>
                 <Grid.ColumnDefinitions >
                     <ColumnDefinition Width="140"/>
@@ -150,7 +150,7 @@
             </Grid>
 
             <!--高级设置按钮-->
-            <Border Margin="30,0,0,0" Width="423">
+            <Border Margin="30,0,0,0" Width="352">
                 <StackPanel Orientation="Horizontal">
                     <Button Width="141"  Height="38" IsTabStop="False" VerticalAlignment="Center" HorizontalAlignment="Center"   Foreground="Black" Content="确定更改" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
                     <Button Content="高级设置" Width="141" Margin="10,0,0,0" IsTabStop="False" Height="38" Click="AdvancedSettings" Style="{StaticResource Btn}"/>

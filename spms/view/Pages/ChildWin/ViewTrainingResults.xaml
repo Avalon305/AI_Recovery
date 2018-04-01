@@ -171,7 +171,7 @@
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HLPAttentionpoint" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HLPAttentionpoint" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
                                 <!--行间距-->
@@ -182,7 +182,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="使用者感想"  Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104"  Margin="0,2,26,0" Name="HLPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104"  Margin="0,2,-0.2,0" Name="HLPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -193,7 +193,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HLPMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HLPMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -309,9 +309,9 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <TextBox Height="104" Margin="0,2,26,0" Name="ROWAttentionpoint" AcceptsReturn="True" IsEnabled="False" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="ROWAttentionpoint" AcceptsReturn="True" IsEnabled="False" TextWrapping="Wrap"/>
                                 <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0"  />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="ROWUserthoughts" AcceptsReturn="True" IsEnabled="False" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="ROWUserthoughts" AcceptsReturn="True" IsEnabled="False" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -322,7 +322,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="ROWMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="ROWMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -430,7 +430,7 @@
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="TFAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="TFAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -441,7 +441,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="TFUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="TFUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -452,7 +452,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="TFMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="TFMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -561,7 +561,7 @@
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="LEAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="LEAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -572,7 +572,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="LEUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="LEUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -583,7 +583,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="LEMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="LEMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -688,7 +688,7 @@
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HAAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HAAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -699,7 +699,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HAUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HAUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -710,7 +710,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HAMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HAMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -817,7 +817,7 @@
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
                                 <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="CPAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="CPAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
                                 <!--行间距-->
@@ -828,7 +828,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="CPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="CPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
                                 <!--行间距-->
@@ -839,7 +839,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                 <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="CPMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="CPMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
                                 <!--行间距-->
