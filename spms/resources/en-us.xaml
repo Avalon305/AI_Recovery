@@ -197,10 +197,10 @@
     <s:String x:Key="VitalInfoView.Date">Date</s:String>
     <s:String x:Key="VitalInfoView.BeforeRehab">Before Rehab</s:String>
     <s:String x:Key="VitalInfoView.AfterRehab">After Rehab</s:String>
-    <s:String x:Key="VitalInfoView.BP">BP</s:String>
-    <s:String x:Key="VitalInfoView.HR">HR</s:String>
+    <s:String x:Key="VitalInfoView.BP">BP(mmHg)</s:String>
+    <s:String x:Key="VitalInfoView.HR">HR(min)</s:String>
     <s:String x:Key="VitalInfoView.Pulse">Pulse</s:String>
-    <s:String x:Key="VitalInfoView.Tmp">Tmp</s:String>
+    <s:String x:Key="VitalInfoView.Tmp">Tmp(℃)</s:String>
     <s:String x:Key="VitalInfoView.Regular">Regular</s:String>
     <s:String x:Key="VitalInfoView.Irregular">Irregular</s:String>
     <s:String x:Key="VitalInfoView.MedicalInq">Medical Inq</s:String>
@@ -215,6 +215,7 @@
     <s:String x:Key="VitalInfoView.Constipation">Constipation</s:String>
     <s:String x:Key="VitalInfoView.Dizziness">Dizziness</s:String>
     <s:String x:Key="VitalInfoView.Headache">Headache</s:String>
+    <s:String x:Key="VitalInfoView.Other">Other</s:String>
     <s:String x:Key="VitalInfoView.NotApplicable">Not Applicable</s:String>
     <s:String x:Key="VitalInfoView.Participation">Participation</s:String>
     <s:String x:Key="VitalInfoView.Yes">Yes</s:String>
