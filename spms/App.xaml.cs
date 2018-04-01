@@ -52,13 +52,16 @@ namespace spms
             
             Thread bdth = new Thread(() =>
             {
-                int i = 1;
+                SetterDAO setterDao = new SetterDAO();
                 while (true) {
+                    if (setterDao.ListAll() == null) {
+                        continue;
+                    }
                     BigDataOfficer bigDataOfficer = new BigDataOfficer();
                     bigDataOfficer.Run();
                     int heartBeatRate = (int)CommUtil.GetBigDataRate();
                     Thread.Sleep(1000* 300);
-                    //Console.WriteLine("运行次数：" + i++);
+                    
                 }
             });
             bdth.Start();

@@ -259,8 +259,8 @@ namespace spms.util
         public static int ConvertAge(Object value)
         {
             DateTime revalue = System.Convert.ToDateTime(value);
-            Console.WriteLine(revalue);
-            Console.WriteLine(DateTime.Now.Year - revalue.Year);
+            //Console.WriteLine(revalue);
+            //Console.WriteLine(DateTime.Now.Year - revalue.Year);
             int age = DateTime.Now.Year - revalue.Year;
             return age;
         }
@@ -382,7 +382,6 @@ namespace spms.util
 
             //插入用户图片
             //OfficeOpenXml.Drawing.ExcelPicture userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(user.User_PhotoLocation));//插入图片
-            //TODO 临时用这张图片
             OfficeOpenXml.Drawing.ExcelPicture userPicture = null;
             try
             {
@@ -450,7 +449,7 @@ namespace spms.util
             //设置比较特别的样式
             //string cellRange2 = "A4:B4,F4,H4,F5:G5,A7:C7,F7:G7,A8:C8,F8:G8,A6:B6,F6:G6";
             string cellRange2 = "A" + userRow + ":B" + userRow + ",F" + userRow + ",H" + userRow + ",F" + (userRow + 1) + ":G" + (userRow + 1) + ",A" + (userRow + 4) + ":C" + (userRow + 4) + ",F" + (userRow + 4) + ":G" + (userRow + 4) + ",A" + (userRow + 5) + ":C" + (userRow + 5) + ",F" + (userRow + 5) + ":G" + (userRow + 5) + ",A" + (userRow + 2) + ":B" + (userRow + 2) + ",F" + (userRow + 2) + ":G" + (userRow + 2);
-            Console.WriteLine(cellRange2);
+            //Console.WriteLine(cellRange2);
             using (ExcelRange range = worksheet.Cells[cellRange2.ToString()])
             {
                 range.Style.Font.Color.SetColor(Color.White);

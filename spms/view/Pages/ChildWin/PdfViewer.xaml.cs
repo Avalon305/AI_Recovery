@@ -84,7 +84,7 @@ namespace spms.view.Pages.ChildWin
                     ////将指定范围内的单元格保存为PDF              
                     //sheet.SaveToPdf(@"e:\test.pdf");
                     //文档输出
-                    Console.WriteLine("转换完成了");
+                    //Console.WriteLine("转换完成了");
                     if (SaveToPath != "" && SaveToPath != null)
                     {
                         File.Copy(CommUtil.GetDocPath("test.pdf"), SaveToPath, true);
