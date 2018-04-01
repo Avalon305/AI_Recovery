@@ -94,13 +94,13 @@
     <s:String x:Key="SearchSubjectView.Search">Search</s:String>
     <s:String x:Key="SearchSubjectView.Clear">Clear</s:String>
     <s:String x:Key="SearchSubjectView.Close">Close</s:String>
-    <s:String x:Key="SearchSubjectView.SubjectID">Subject ID</s:String>
     <s:String x:Key="SearchSubjectView.LastName">Last Name</s:String>
     <s:String x:Key="SearchSubjectView.FirstName">First Name</s:String>
     <s:String x:Key="SearchSubjectView.Gender">Gender</s:String>
     <s:String x:Key="SearchSubjectView.M">M</s:String>
     <s:String x:Key="SearchSubjectView.F">F</s:String>
-    <s:String x:Key="SearchSubjectView.Age">Age</s:String>
+    <s:String x:Key="SearchSubjectView.Phone">Phone</s:String>
+    <s:String x:Key="SearchSubjectView.IdCard">ID Card</s:String>
     <s:String x:Key="SearchSubjectView.Group">Group</s:String>
     <s:String x:Key="SearchSubjectView.Disease">Disease</s:String>
     <s:String x:Key="SearchSubjectView.Diagnosis">Diagnosis</s:String>
@@ -278,7 +278,6 @@
     <s:String x:Key="PhysicalEvaluationFormView.KneeFlexion">Knee Flexion</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.NoKneeFlexion">No Knee Flexion</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Independent">Independent</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.SupportDevise">Support Devise</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Other">Other</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Save">Save</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Close">Close</s:String>

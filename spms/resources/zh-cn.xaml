@@ -94,13 +94,13 @@
     <s:String x:Key="SearchSubjectView.Search">查询</s:String>
     <s:String x:Key="SearchSubjectView.Clear">清除</s:String>
     <s:String x:Key="SearchSubjectView.Close">关闭</s:String>
-    <s:String x:Key="SearchSubjectView.SubjectID">使用者ID</s:String>
-    <s:String x:Key="SearchSubjectView.LastName">使用者名称</s:String>
-    <s:String x:Key="SearchSubjectView.FirstName">使用者名称（拼音）</s:String>
+    <s:String x:Key="SearchSubjectView.LastName">用户姓名</s:String>
+    <s:String x:Key="SearchSubjectView.FirstName">用户姓名（拼音）</s:String>
     <s:String x:Key="SearchSubjectView.Gender">性别</s:String>
     <s:String x:Key="SearchSubjectView.M">男</s:String>
     <s:String x:Key="SearchSubjectView.F">女</s:String>
-    <s:String x:Key="SearchSubjectView.Age">年龄</s:String>
+    <s:String x:Key="SearchSubjectView.Phone">手机号</s:String>
+    <s:String x:Key="SearchSubjectView.IdCard">身份证</s:String>
     <s:String x:Key="SearchSubjectView.Group">小组名称</s:String>
     <s:String x:Key="SearchSubjectView.Disease">疾病名称</s:String>
     <s:String x:Key="SearchSubjectView.Diagnosis">残障名称</s:String>
@@ -278,7 +278,6 @@
     <s:String x:Key="PhysicalEvaluationFormView.KneeFlexion">膝弯曲（有）</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.NoKneeFlexion">膝弯曲（无）</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Independent">独自步行</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.SupportDevise">使用步行辅助器具</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Other">其他</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Save">保存</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Close">取消</s:String>
