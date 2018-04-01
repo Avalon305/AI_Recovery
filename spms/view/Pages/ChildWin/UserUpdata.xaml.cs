@@ -318,89 +318,7 @@ namespace spms.view.Pages.ChildWin
             SelectUser.User_Phone = phone;
             //非公开信息添加：lzh
             SelectUser.User_Privateinfo = secretMessage == null ? "" : secretMessage;
-            if (IDCard != null && usernamePY != null && IDCard != "" && usernamePY != "" && userIfSelectPic != false)
-            {
-                
-
-                //如果用户是自己选择现成的图片，将图片保存在安装目录下
-                string sourcePic = userPhotoPath;
-                string targetPic = CommUtil.GetUserPicTemp(SelectUser.User_PhotoLocation);
-
-                // 如果用户更新之前没有照片的话 ，生成一个random
-                Random random = new Random();
-                int rd = random.Next(0, 100000);
-                if (SelectUser.User_PhotoLocation == null)
-                {
-                    targetPic = CommUtil.GetUserPicTemp(SelectUser.User_IDCard + rd.ToString()+".gif");
-                    photoName = SelectUser.User_IDCard + rd.ToString() + ".gif";
-                }
-
-                //判断要保存的temp文件夹是否存在
-                String dirPath = CommUtil.GetUserPicTemp();
-                if (Directory.Exists(dirPath))//判断是否存在
-                {
-                    //Response.Write("已存在");
-                }
-                else
-                {
-                    //Response.Write("不存在，正在创建");
-                    Directory.CreateDirectory(dirPath);//创建新路径
-                }
-                
-                //压缩一下并且储存图片
-                GetPicThumbnail(sourcePic, targetPic,184,259,20);
-
-                // 如果图片太大就重新选择
-                long picLen = 0;
-                FileInfo di = new FileInfo(targetPic);
-                picLen = di.Length;
-                picLen /= 1024;
-                if (picLen > 1000)
-                {
-                    MessageBox.Show("图片过大，请重新选择");
-                    
-                    File.Delete(targetPic);
-                    return;
-                }
-
-                // 将temp的照片拷贝过去，并且判断一下用户更新前是否已经有照片
-                string userSelectFinalPic = CommUtil.GetUserPic();
-                if (SelectUser.User_PhotoLocation == null)
-                {
-                    userSelectFinalPic += photoName;
-                } else
-                {
-                    photoName = SelectUser.User_IDCard + rd.ToString() + ".gif";
-                    userSelectFinalPic = CommUtil.GetUserPic(photoName);
-                }
-                
-                // 将用户之前的照片删除
-                if (File.Exists(userSelectFinalPic))
-                {
-                    //File.Delete(userSelectFinalPic);
-                }
-
-                File.Copy(targetPic, userSelectFinalPic);
-                
-            }
-
-            // 如果是正常拍照得到了图片
-            else if(photoName != null)
-            {
-                // 判断 图片库里面是否存在 原来的头像,存在的话 删除
-                User user = userService.GetByIdCard(origin_IDCard);
-                string yuanPhoto = CommUtil.GetUserPic(user.User_PhotoLocation);
-                //MessageBox.Show(yuanPhoto);
-                if (File.Exists(yuanPhoto))
-                {
-                    //File.Delete(yuanPhoto);
-                }
-
-                //将新照片存到 图片库
-                string tempPic = CommUtil.GetUserPicTemp(photoName);
-                string finalPic = CommUtil.GetUserPic(photoName);
-                File.Copy(tempPic, finalPic);
-            }
+            
 
             //更新数据库的图片名称
             if (photoName != null)
@@ -502,7 +420,16 @@ namespace spms.view.Pages.ChildWin
         // 摄像按钮
         private void Photograph(object sender, RoutedEventArgs e)
         {
+            if (t3.Text == "" || IDCard.Text == "")
+            {
+                MessageBox.Show("请填写完整信息");
+                return;
+            }
+            // 切换用户图片的显示，解决线程占用问题
             
+            BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+            pic.Source = bitmap;
+
             Photograph photograph = new Photograph
             {
                 Owner = Window.GetWindow(this),
@@ -511,17 +438,15 @@ namespace spms.view.Pages.ChildWin
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
 
-            // 修改一下image的占用问题
-            BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
-            pic.Source = bitmap;
-
             photograph.getName = t3.Text;
+            photograph.id = IDCard.Text;
+            photograph.oldPhotoName = SelectUser.User_PhotoLocation;
             photograph.ShowDialog();
             photoName = photograph.photoName;
-            photograph.Close();
-
+            //photograph.Close();
+            Console.WriteLine(photoName);
             //在更新页面上展示用户 刚刚更新的照片
-            string photoUpdatePhoto = CommUtil.GetUserPicTemp() +photoName;
+            string photoUpdatePhoto = CommUtil.GetUserPic() +photoName;
             if (File.Exists(photoUpdatePhoto))
             {
                 //MessageBox.Show("hi open!");

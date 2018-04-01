@@ -5,6 +5,7 @@ using spms.service;
 using spms.util;
 using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -41,7 +42,8 @@ namespace spms.view.Pages.ChildWin
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-        
+
+        private string oldPhotoName;
         //保存用户照片的路径
         string userPhotoPath = null;
         //service层初始化
@@ -347,6 +349,11 @@ namespace spms.view.Pages.ChildWin
                 MessageBox.Show("请填写完整信息");
                 return;
             }
+            // 切换用户图片的显示，解决线程占用问题
+
+            BitmapImage b = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+            pic.Source = b;
+
             Photograph photograph = new Photograph
             {
                 Owner = Window.GetWindow(this),
@@ -354,17 +361,13 @@ namespace spms.view.Pages.ChildWin
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-
-            if(t3.Text == null)
-            {
-                MessageBox.Show("没有填写拼音名字");
-                return;
-            }
+            
             photograph.getName = t3.Text;
             photograph.id = IDCard.Text;
-
+            photograph.oldPhotoName = oldPhotoName;
             photograph.ShowDialog();
             photoName = photograph.photoName;
+            oldPhotoName = photoName;
             //photograph.Close();
             Console.WriteLine(photoName);
 
