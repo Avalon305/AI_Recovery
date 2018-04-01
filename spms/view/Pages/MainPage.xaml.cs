@@ -65,6 +65,7 @@ namespace spms.view.Pages
         {
             InitializeComponent();
             viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
             ///心跳线程部分-load方法启动
 
             //加载表头
