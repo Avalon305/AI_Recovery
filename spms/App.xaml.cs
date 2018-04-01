@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+using Setter = spms.entity.Setter;
 
 namespace spms
 {
@@ -25,6 +26,13 @@ namespace spms
         /// <param name="e"></param>
         protected override void OnStartup(StartupEventArgs e)
         {
+            //加载语言
+            List<Setter> all = new SetterDAO().ListAll();
+            if (all != null && all.Count != 0)
+            {
+                LanguageUtils.SetLanguage(all[0].Set_Language);
+            }
+
             //启动netty
             Thread th = new Thread(() =>
             {
