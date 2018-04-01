@@ -292,8 +292,8 @@
                 </StackPanel>
                 <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="434" Height="47" VerticalAlignment="Bottom" BorderBrush="White" Margin="0,0,9.6,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,0" IsTabStop="False"  Foreground="Black" Content="确定" Style="{StaticResource Btn}" Click="Button_OK"/>
-                        <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" IsTabStop="False"  Content="取消" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
+                            <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,0" IsTabStop="False"  Foreground="Black" Content="{DynamicResource AddOrEditView.Confirm}" Style="{StaticResource Btn}" Click="Button_OK"/>
+                            <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" IsTabStop="False"  Content="{DynamicResource AddOrEditView.Cancel}" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
                     </StackPanel>
                 </Border>
 
