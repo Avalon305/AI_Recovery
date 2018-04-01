@@ -89,7 +89,7 @@
                                 <Style TargetType="DataGridCell" >
                                     <Setter Property="IsTabStop" Value="False"/>
                                     <Style.Triggers>
-                                        
+
                                         <Trigger Property="IsSelected" Value="True">
                                             <Setter Property="BorderThickness" Value="0"/>
                                             <Setter Property="BorderBrush" Value="White" />
@@ -99,9 +99,9 @@
                                 </Style>
 
                             </DataGrid.CellStyle>
-                            
+
                             <DataGrid.Columns  >
-                                
+
                                 <DataGridTemplateColumn Header="选中" Width="277" DisplayIndex="0" >
                                     <DataGridTemplateColumn.HeaderStyle>
                                         <Style TargetType="DataGridColumnHeader">
@@ -109,7 +109,7 @@
                                             <Setter Property="IsTabStop" Value="False"/>
                                         </Style>
                                     </DataGridTemplateColumn.HeaderStyle>
-                                    
+
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <CheckBox  IsChecked="{Binding DS_Status,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource IntToBoolConverter}}" x:Name="thecheck" Content="{Binding DS_name}" Margin="10,0,0,0"></CheckBox>
@@ -150,7 +150,7 @@
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
                         </Style>
                     </DataGrid.RowStyle>
-                    
+
                     <DataGrid.CellStyle>
                         <Style TargetType="DataGridCell" >
                             <Style.Triggers>
@@ -163,30 +163,14 @@
                         </Style>
 
                     </DataGrid.CellStyle>
-                    
+
                     <DataGrid.Columns >
 
                         <DataGridTextColumn Binding="{Binding Auth_UserName}" IsReadOnly="True"  Header="{DynamicResource SettingsView.User}" Width="140" />
                         <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" IsReadOnly="True" Header="{DynamicResource SettingsView.CreateDate}" Width="247"/>
-                        <DataGridTextColumn Binding="{Binding Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" IsReadOnly="True" Header="{DynamicResource SettingsView.ModifyDate}" Width="246">
+                        <DataGridTextColumn Binding="{Binding Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" IsReadOnly="True" Header="{DynamicResource SettingsView.ModifyDate}" Width="200">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Binding="{Binding Auth_OfflineTime,StringFormat='{}{0:yyyy-MM-dd}'}"  Header="{DynamicResource SettingsView.OffLineDate}" Width="246"/>
-
-                        <!--<DataGridTemplateColumn x:Name="dateScheduledColumn"  Header="{DynamicResource SettingsView.OffLineDate}" Width="200">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <DatePicker SelectedDate="{Binding Auth_OfflineTime,StringFormat='{}{0:yyyy-MM-dd}'}" >
-                                        <DatePicker.Resources>
-                                            <Style TargetType="DatePickerTextBox">
-                                                <Setter Property="IsReadOnly" Value="True"/>
-                                            </Style>
-                                        </DatePicker.Resources>
-                                    </DatePicker>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>-->
-                        <!--<DataGridCheckBoxColumn Binding="{Binding USER_STATUS_FREE}"  Header="{DynamicResource SettingsView.OffLine}"  Width="93" />-->
-
+                        <DataGridTextColumn Binding="{Binding Auth_OfflineTime,StringFormat='{}{0:yyyy-MM-dd}'}"  Header="离线使用时间" Width="246"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Border BorderBrush="Black" BorderThickness="1" Margin="5,0,22,0">
