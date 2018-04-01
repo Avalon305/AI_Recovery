@@ -190,6 +190,7 @@
 
     <!-- 输入症状信息界面 -->
     <s:String x:Key="VitalInfoView.VitalInformation">输入症状信息</s:String>
+    <s:String x:Key="VitalInfoView.ViewInformation">查看症状信息</s:String>
     <s:String x:Key="VitalInfoView.Confirm">确认</s:String>
     <s:String x:Key="VitalInfoView.Cancel">取消</s:String>
     <s:String x:Key="VitalInfoView.SubjectID">用户编号:</s:String>
