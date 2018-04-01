@@ -49,7 +49,7 @@ namespace spms.service
             //先验证admin
             Auther auther = authDAO.Login(username, password);
             //超管监测权限监测是否插入U盾
-            if (auther.Auth_Level == Auther.AUTH_LEVEL_ADMIN)
+            if (auther!=null && auther.Auth_Level == Auther.AUTH_LEVEL_ADMIN)
             {
                 loginResult = "check_U";
                 return loginResult;
