@@ -141,25 +141,28 @@ namespace spms.view.Pages.ChildWin
             //t1.Text = "";
             t2.Text = "";
             t3.Text = "";
+            c1.Text = null;
             comboBox1.Text = "";
+            phone.Text = null;
+            IDCard.Text = null;
             c1.Text = "";
             c3.Text = "";
             c4.Text = "";
         }
 
-        //小组名称过滤事件
-        private void comboBox1_KeyUp(object sender, KeyEventArgs e)
-        {
-            List<string> mylist = new List<string>();
-            mylist = groupList.FindAll(delegate (string s) { return s.Contains(comboBox1.Text.Trim()); });
-            comboBox1.ItemsSource = mylist;
-            comboBox1.IsDropDownOpen = true;
-        }
+        ////小组名称过滤事件
+        //private void comboBox1_KeyUp(object sender, KeyEventArgs e)
+        //{
+        //    //List<string> mylist = new List<string>();
+        //    //mylist = groupList.FindAll(delegate (string s) { return s.Contains(comboBox1.Text.Trim()); });
+        //    //comboBox1.ItemsSource = mylist;
+        //    //comboBox1.IsDropDownOpen = true;
+        //}
 
-        private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        //private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
 
-        }
+        //}
 
       
         //设置手机号输入框只能输入数字
@@ -171,7 +174,7 @@ namespace spms.view.Pages.ChildWin
         private void IsIDCard(object sender, RoutedEventArgs e)
         {
             UserService userService = new UserService();
-            if (!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
+            if (!String.IsNullOrEmpty(IDCard.Text)&& IDCard.Text.Length == 18 && !inputlimited.InputLimited.IsIDcard(IDCard.Text) )
             {
                 Error_Info_IDCard.Content = "请输入正确的身份证号";
                 bubble_IDCard.IsOpen = true;

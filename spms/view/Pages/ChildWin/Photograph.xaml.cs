@@ -45,7 +45,7 @@ namespace spms.view.Pages.ChildWin
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-       
+
         //取消按钮，关闭此窗体
         private void Cancel(object sender, RoutedEventArgs e)
         {
@@ -78,7 +78,7 @@ namespace spms.view.Pages.ChildWin
             }
 
         }
-       
+
         public static Bitmap BitmapFromSource(BitmapSource source)
         {
             using (MemoryStream outStream = new MemoryStream())
@@ -100,9 +100,9 @@ namespace spms.view.Pages.ChildWin
             //vce是前台wpfmedia控件的name
             //为避免抓不全的情况，需要在Render之前调用Measure、Arrange
             RenderTargetBitmap bmp = new RenderTargetBitmap((int)vce.ActualWidth,
-                (int)vce.ActualHeight,  
-                96,96, PixelFormats.Default);
-            
+                (int)vce.ActualHeight,
+                96, 96, PixelFormats.Default);
+
             vce.Measure(vce.RenderSize);
             vce.Arrange(new Rect(vce.RenderSize));
 
@@ -124,10 +124,17 @@ namespace spms.view.Pages.ChildWin
                 bitmapImage.EndInit();
             }
 
-           //显示拍摄结果
+            //显示拍摄结果
             picResult.Source = bitmapImage;
 
-            
+        }
+        //根据文件夹全路径创建文件夹
+        public static void CreateDir(string path)
+        {
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
         }
 
         // 保存图片按钮
@@ -148,14 +155,16 @@ namespace spms.view.Pages.ChildWin
             }
 
             photoName += ".jpg";
+            //TODO 保存之前看看需不需要压缩
+            CreateDir(CommUtil.GetUserPic());
             bmcpy.Save(CommUtil.GetUserPic() + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
 
 
-      
+
             this.Close();
         }
 
-        
+
         // 加载摄像头按钮
         private void cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -166,7 +175,7 @@ namespace spms.view.Pages.ChildWin
         {
             if (e.Key == Key.Enter)
             {
-               SavePic(this, null);
+                SavePic(this, null);
                 //使键盘失去焦点，解决窗口反复出现
                 Keyboard.ClearFocus();
             }
@@ -174,3 +183,4 @@ namespace spms.view.Pages.ChildWin
         }
     }
 }
+

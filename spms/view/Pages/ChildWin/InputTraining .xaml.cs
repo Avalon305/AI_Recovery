@@ -87,6 +87,7 @@ namespace spms.view.Pages.ChildWin
             com_04.IsEnabled = true;
             //com_02.IsEnabled = true;
             com_03.IsEnabled = true;
+            
         }
 
         private void checkbox2_Checked(object sender, RoutedEventArgs e)
@@ -159,82 +160,160 @@ namespace spms.view.Pages.ChildWin
 
         private void checkbox1_Unchecked(object sender, RoutedEventArgs e)
         {
-            combobox_01.IsEnabled = false;
-            combobox_02.IsEnabled = false;
-            combobox_03.IsEnabled = false;
-            combobox_04.IsEnabled = false;
-            combobox_05.IsEnabled = false;
+            //combobox_01.IsEnabled = false;
+            combobox_01.Text = null;
+            //combobox_02.IsEnabled = false;
+            combobox_02.Text = null; 
+            //combobox_03.IsEnabled = false;
+            combobox_03.Text = null;
+            //combobox_04.IsEnabled = false;
+            combobox_04.Text = null;
+            //combobox_05.IsEnabled = false;
+            combobox_05.Text = null;
+            combobox_06.Text = null;
+            select_change(sender, e);
+            combobox_07.Text = null;
+            combobox_08.Text = null;
             com_01.IsEnabled = false;
+            com_01.Text = null;
             com_04.IsEnabled = false;
+            com_04.Text = null;
             //com_02.IsEnabled = false;
             com_03.IsEnabled = false;
+            com_03.Text = null;
+            t1.Text = null;
         }
 
         private void checkbox2_Unchecked(object sender, RoutedEventArgs e)
         {
-            combobox_11.IsEnabled = false;
-            combobox_12.IsEnabled = false;
-            combobox_13.IsEnabled = false;
-            combobox_14.IsEnabled = false;
-            combobox_15.IsEnabled = false;
-            com_11.IsEnabled = false;
+            //combobox_11.IsEnabled = false;
+            combobox_11.Text = null;
+           // combobox_12.IsEnabled = false;
+            combobox_12.Text = null;
+            //combobox_13.IsEnabled = false;
+            combobox_13.Text = null;
+            //combobox_14.IsEnabled = false;
+            combobox_14.Text = null;
+            //combobox_15.IsEnabled = false;
+            combobox_15.Text = null;
+            combobox_16.Text = null;
+            select_change2(sender, e);
+            combobox_17.Text = null;
+            combobox_18.Text = null;
+            //com_11.IsEnabled = false;
+            com_11.Text = null;
             //com_12.IsEnabled = false;
-            com_13.IsEnabled = false;
-            com_14.IsEnabled = false;
+            //com_13.IsEnabled = false;
+            com_13.Text = null;
+            //com_14.IsEnabled = false;
+            com_14.Text = null;
+            t2.Text = null;
         }
 
         private void checkbox3_Unchecked(object sender, RoutedEventArgs e)
         {
-            combobox_21.IsEnabled = false;
-            combobox_22.IsEnabled = false;
-            combobox_23.IsEnabled = false;
-            combobox_24.IsEnabled = false;
-            combobox_25.IsEnabled = false;
-            com_21.IsEnabled = false;
-            com_24.IsEnabled = false;
+            //combobox_21.IsEnabled = false;
+            combobox_21.Text = null;
+            //combobox_22.IsEnabled = false;
+            combobox_22.Text = null;
+            //combobox_23.IsEnabled = false;
+            combobox_23.Text = null;
+            //combobox_24.IsEnabled = false;
+            combobox_24.Text = null;
+            //combobox_25.IsEnabled = false;
+            combobox_25.Text = null;
+            combobox_26.Text = null;
+            select_change3(sender, e);
+            combobox_27.Text = null;
+            combobox_28.Text = null;
+            //com_21.IsEnabled = false;
+            com_21.Text = null;
+           // com_24.IsEnabled = false;
+            com_24.Text = null;
             //com_22.IsEnabled = false;
-            com_23.IsEnabled = false;
-
+           // com_23.IsEnabled = false;
+            com_23.Text = null;
+            t3.Text = null;
 
         }
 
         private void checkbox4_Unchecked(object sender, RoutedEventArgs e)
         {
-            combobox_31.IsEnabled = false;
-            combobox_32.IsEnabled = false;
-            combobox_33.IsEnabled = false;
-            combobox_34.IsEnabled = false;
-            combobox_35.IsEnabled = false;
-            com_31.IsEnabled = false;
-            com_34.IsEnabled = false;
-            //com_32.IsEnabled = false;
-            com_33.IsEnabled = false;
-            com_35.IsEnabled = false;
+            //combobox_31.IsEnabled = false;
+            
+            //combobox_32.IsEnabled = false;
+            //combobox_33.IsEnabled = false;
+            //combobox_34.IsEnabled = false;
+            //combobox_35.IsEnabled = false;
+            //com_31.IsEnabled = false;
+            //com_34.IsEnabled = false;
+            ////com_32.IsEnabled = false;
+            //com_33.IsEnabled = false;
+            //com_35.IsEnabled = false;
+            combobox_31.Text = null;
+            combobox_32.Text = null;
+            combobox_33.Text = null;
+
+            combobox_34.Text = null;
+            combobox_35.Text = null;
+            combobox_36.Text = null;
+            select_change4(sender, e);
+            combobox_37.Text = null;
+            combobox_38.Text = null;
+            com_31.Text = null;
+            com_34.Text = null;
+            com_33.Text = null;
+            com_35.Text = null;
+            t4.Text = null;
         }
 
         private void checkbox5_Unchecked(object sender, RoutedEventArgs e)
         {
-            combobox_41.IsEnabled = false;
-            combobox_42.IsEnabled = false;
-            combobox_43.IsEnabled = false;
-            combobox_44.IsEnabled = false;
-            combobox_45.IsEnabled = false;
-            com_41.IsEnabled = false;
-            //com_42.IsEnabled = false;
-            com_43.IsEnabled = false;
+            //combobox_41.IsEnabled = false;
+            //combobox_42.IsEnabled = false;
+            //combobox_43.IsEnabled = false;
+            //combobox_44.IsEnabled = false;
+            //combobox_45.IsEnabled = false;
+            //com_41.IsEnabled = false;
+            ////com_42.IsEnabled = false;
+            //com_43.IsEnabled = false;
+            combobox_41.Text = null;
+            combobox_42.Text = null;
 
+            combobox_43.Text = null;
+            combobox_44.Text = null;
+            combobox_45.Text = null;
+            combobox_46.Text = null;
+            select_change5(sender, e);
+            combobox_47.Text = null;
+            combobox_48.Text = null;
+            com_41.Text = null;
+            com_43.Text = null;
+            t5.Text = null;
         }
 
         private void checkbox6_Unchecked(object sender, RoutedEventArgs e)
         {
-            combobox_51.IsEnabled = false;
-            combobox_52.IsEnabled = false;
-            combobox_53.IsEnabled = false;
-            combobox_54.IsEnabled = false;
-            combobox_55.IsEnabled = false;
-            com_51.IsEnabled = false;
-            //com_52.IsEnabled = false;
-            com_53.IsEnabled = false;
+            //combobox_51.IsEnabled = false;
+            //combobox_52.IsEnabled = false;
+            //combobox_53.IsEnabled = false;
+            //combobox_54.IsEnabled = false;
+            //combobox_55.IsEnabled = false;
+            //com_51.IsEnabled = false;
+            ////com_52.IsEnabled = false;
+            //com_53.IsEnabled = false;
+            combobox_51.Text = null;
+            combobox_52.Text = null;
+            combobox_53.Text = null;
+            combobox_54.Text = null;
+            combobox_55.Text = null;
+            combobox_56.Text = null;
+            select_change6(sender, e);
+            combobox_57.Text = null;
+            combobox_58.Text = null;
+            com_51.Text = null;
+            com_53.Text = null;
+            t6.Text = null;
         }
 
         private void Button_Save(object sender, RoutedEventArgs e)
@@ -1586,7 +1665,7 @@ namespace spms.view.Pages.ChildWin
         private void select_change(object sender, EventArgs e)
         {
 
-            if (combobox_06.Text.Equals("无效"))
+            if (String.IsNullOrEmpty(combobox_06.Text)||combobox_06.Text.Equals("无效"))
             {
                 border1.Background = Brushes.White;
                 border2.Background = Brushes.White;
@@ -1611,7 +1690,7 @@ namespace spms.view.Pages.ChildWin
         }
         private void select_change2(object sender, EventArgs e)
         {
-            if (combobox_16.Text.Equals("无效"))
+            if (String.IsNullOrEmpty(combobox_16.Text) || combobox_16.Text.Equals("无效"))
             {
                 border11.Background = Brushes.White;
                 border12.Background = Brushes.White;
@@ -1636,7 +1715,7 @@ namespace spms.view.Pages.ChildWin
         }
         private void select_change3(object sender, EventArgs e)
         {
-            if (combobox_26.Text.Equals("无效"))
+            if (String.IsNullOrEmpty(combobox_26.Text) || combobox_26.Text.Equals("无效"))
             {
                 border21.Background = Brushes.White;
                 border22.Background = Brushes.White;
@@ -1661,7 +1740,7 @@ namespace spms.view.Pages.ChildWin
         }
         private void select_change4(object sender, EventArgs e)
         {
-            if (combobox_36.Text.Equals("无效"))
+            if (String.IsNullOrEmpty(combobox_36.Text) || combobox_36.Text.Equals("无效"))
             {
                 border31.Background = Brushes.White;
                 border32.Background = Brushes.White;
@@ -1686,7 +1765,7 @@ namespace spms.view.Pages.ChildWin
         }
         private void select_change5(object sender, EventArgs e)
         {
-            if (combobox_46.Text.Equals("无效"))
+            if (String.IsNullOrEmpty(combobox_46.Text) || combobox_46.Text.Equals("无效"))
             {
                 border41.Background = Brushes.White;
                 border42.Background = Brushes.White;
@@ -1711,7 +1790,7 @@ namespace spms.view.Pages.ChildWin
         }
         private void select_change6(object sender, EventArgs e)
         {
-            if (combobox_56.Text.Equals("无效"))
+            if (String.IsNullOrEmpty(combobox_56.Text) || combobox_56.Text.Equals("无效"))
             {
                 border51.Background = Brushes.White;
                 border52.Background = Brushes.White;

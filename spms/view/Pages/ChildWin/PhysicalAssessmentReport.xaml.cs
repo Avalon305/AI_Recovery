@@ -147,14 +147,22 @@ namespace spms.view.Pages.ChildWin
                 {
                     col = i * 2 + 4;
                     //表头行+两个表头，必须是数值
-                    worksheet.Cells[tableRow, col].Value = string.Format("{0:d}", list[i].Gmt_Create);////ToShortDateString().ToString();
-                    worksheet.Cells[tableRow + 1, col].Value = SubstringParams(list[i].PP_High);
-                    worksheet.Cells[tableRow + 2, col].Value = SubstringParams(list[i].PP_Weight);
-                    worksheet.Cells[tableRow + 3, col].Value = SubstringParams(list[i].PP_Grip);
-                    worksheet.Cells[tableRow + 4, col].Value = SubstringParams(list[i].PP_EyeOpenStand);
-                    worksheet.Cells[tableRow + 5, col].Value = SubstringParams(list[i].PP_FunctionProtract);
-                    worksheet.Cells[tableRow + 6, col].Value = SubstringParams(list[i].PP_SitandReach);
+                    try
+                    {
+                        worksheet.Cells[tableRow, col].Value = string.Format("{0:d}", list[i].Gmt_Create);////ToShortDateString().ToString();
+                        worksheet.Cells[tableRow + 1, col].Value = SubstringParams(list[i].PP_High);
+                        worksheet.Cells[tableRow + 2, col].Value = SubstringParams(list[i].PP_Weight);
+                        worksheet.Cells[tableRow + 3, col].Value = SubstringParams(list[i].PP_Grip);
+                        worksheet.Cells[tableRow + 4, col].Value = SubstringParams(list[i].PP_EyeOpenStand);
+                        worksheet.Cells[tableRow + 5, col].Value = SubstringParams(list[i].PP_FunctionProtract);
+                        worksheet.Cells[tableRow + 6, col].Value = SubstringParams(list[i].PP_SitandReach);
 
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("含有非法数据");
+                    }
+                   
                 }
 
                 worksheet.Cells[tableRow, 10].Value = "初次未变化";

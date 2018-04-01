@@ -285,10 +285,10 @@
                                 <Label Grid.Row="2" Grid.Column="2" Content="{Binding User_Namepinyin}" Margin="0,0,0,-6"></Label>
                                 <Label Grid.Row="3" Grid.Column="0" Margin="0,0,0,-6">性别</Label>
                                 <Label Grid.Row="3" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                                <Label Grid.Row="3" Grid.Column="2" Content="{Binding User_Sex}" Margin="0,0,0,-6"></Label>
+                                <Label Grid.Row="3" Grid.Column="2" Content="{Binding User_Sex, Converter={StaticResource sexconverter}}" Margin="0,0,0,-6"></Label>
                                 <Label Grid.Row="4" Grid.Column="0" Margin="0,0,0,-6">年龄</Label>
                                 <Label Grid.Row="4" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                                <Label Grid.Row="4" Grid.Column="2" Content="{Binding User_GroupName}" Margin="0,0,0,-6"></Label>
+                                <Label Grid.Row="4" Grid.Column="2" Content="{Binding User_Birth, Converter={StaticResource ageconverter}}" Margin="0,0,0,-6"></Label>
                                 <Label Grid.Row="5" Grid.Column="0" Margin="0,0,0,-6">小组名称</Label>
                                 <Label Grid.Row="5" Grid.Column="1" Margin="0,0,0,-6">:</Label>
                                 <Label Grid.Row="5" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_GroupName}"></Label>

@@ -21,6 +21,7 @@ using spms.service;
 using static spms.entity.CustomData;
 using spms.dao.app;
 using spms.view.Pages.ChildWin;
+using spms.constant;
 
 namespace spms.view.Pages
 {
@@ -96,7 +97,7 @@ namespace spms.view.Pages
         {
             //Window window = (Window)this.Parent;
             //window.Content = new AdvancedSettingPassWord();
-            AdvancedSettingPassWord advancedSettingPassWord = new AdvancedSettingPassWord
+            /*AdvancedSettingPassWord advancedSettingPassWord = new AdvancedSettingPassWord
             {
                 Owner = Window.GetWindow(this),
                 ShowActivated = true,
@@ -108,8 +109,26 @@ namespace spms.view.Pages
             {
                 Window window = (Window)this.Parent;
                 window.Content = new AdvancedSettings();
+            }*/
+            AuthDAO authDAO = new AuthDAO();
+            Auther auther = new Auther();
+            try
+            {
+                auther = authDAO.Login(UserConstant.USERNAME, UserConstant.PASSWORD);
+                if (auther.Auth_Level == 0x00)
+                {
+                    Window window = (Window)this.Parent;
+                    window.Content = new AdvancedSettings();
+                }
+                else
+                {
+                    MessageBox.Show("当前用户没有权限，请与管理员取得联系");
+                }
             }
-
+            catch (Exception ee){
+                MessageBox.Show("请先登陆");
+            }
+           
         }
         List<int> selectID = new List<int>();  //保存选中要删除行的FID值  
 
