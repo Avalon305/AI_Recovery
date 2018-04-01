@@ -190,8 +190,10 @@
 
     <!-- 输入症状信息界面 -->
     <s:String x:Key="VitalInfoView.VitalInformation">Vital Information</s:String>
+    <s:String x:Key="VitalInfoView.ViewInformation">View Information</s:String>
     <s:String x:Key="VitalInfoView.Confirm">Confirm</s:String>
     <s:String x:Key="VitalInfoView.Cancel">Cancel</s:String>
+    <s:String x:Key="VitalInfoView.Close">Close</s:String>
     <s:String x:Key="VitalInfoView.SubjectID">Subject ID</s:String>
     <s:String x:Key="VitalInfoView.LastName">Last Name</s:String>
     <s:String x:Key="VitalInfoView.Date">Date</s:String>
@@ -242,6 +244,7 @@
 
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">Physical Evaluation Form</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.ViewPhysicalEvaluationForm">Physical Evaluation Form</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.SubjectID">Subject ID</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.LastName">Last Name</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Evaluation">Evaluation</s:String>
