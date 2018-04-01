@@ -1336,7 +1336,7 @@ namespace spms.view.Pages.ChildWin
         private SerialPort serialPort;
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            //TODO 写卡
+            //写卡
             TrainInfo trainInfo = new TrainService().GetTrainInfoByUserIdAndStatus(user.Pk_User_Id, (int)TrainInfoStatus.Normal);
             if (trainInfo != null)
             {
