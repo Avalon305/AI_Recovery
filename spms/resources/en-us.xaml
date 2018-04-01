@@ -4,7 +4,7 @@
                     xmlns:local="clr-namespace:TestMultLanguage.Resources">
 
     <!-- 开始界面 -->
-    <s:String x:Key="FormView.Title">Title</s:String>
+    <s:String x:Key="FormView.Title">Body Strong Medical rehabilitation system</s:String>
     <s:String x:Key="FormView.UserName">UserName</s:String>
     <s:String x:Key="FormView.Password">Password</s:String>
     <s:String x:Key="FormView.LogIn">Log In</s:String>
