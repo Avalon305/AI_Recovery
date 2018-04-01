@@ -30,7 +30,7 @@ namespace spms.http
         //定时器轮询方法
         public void Run()
         {
-            if (string.IsNullOrEmpty(setterDao.getSetter().Set_Unique_Id))
+            if (setterDao.ListAll()==null)
             {
                 //网路不通 或 未注册 不上传
                 return;
