@@ -54,7 +54,7 @@ namespace spms
             {
                 SetterDAO setterDao = new SetterDAO();
                 while (true) {
-                    if (setterDao.ListAll() == null) {
+                    if (setterDao.ListAll().Count==0) {
                         continue;
                     }
                     BigDataOfficer bigDataOfficer = new BigDataOfficer();

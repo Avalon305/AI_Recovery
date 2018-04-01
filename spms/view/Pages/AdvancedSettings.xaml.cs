@@ -124,7 +124,7 @@ namespace spms.view.Pages
             int count = authDAO.GetAuthCount();
             try
             {
-                if (SetterDAO.getSetter().Set_Unique_Id != "" && SetterDAO.getSetter().Set_Unique_Id != null)
+                if (SetterDAO.ListAll().Count != 0)
                 {//判断是否激活
                     if (count < 2)
                     {
@@ -145,7 +145,7 @@ namespace spms.view.Pages
                 }
 
             }
-            catch (InvalidOperationException ee)
+            catch (Exception ee)
             {
                 MessageBox.Show("您没有添加权限请先激活");
             }
