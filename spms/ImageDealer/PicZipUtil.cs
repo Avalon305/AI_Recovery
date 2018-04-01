@@ -105,6 +105,13 @@ namespace WpfApp2
                 iSource.Dispose();
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sFile">要压缩的图片路径</param>
+        /// <param name="outPath">输出路径</param>
+        /// <param name="flag">压缩质量1-100</param>
+        /// <returns></returns>
         public static bool GetPicThumbnail(string sFile, string outPath, int flag)
         {
             if (sFile.Length < 10 * 1024)
@@ -152,5 +159,7 @@ namespace WpfApp2
                 iSource.Dispose();
             }
         }
+
+      
     }
 }
