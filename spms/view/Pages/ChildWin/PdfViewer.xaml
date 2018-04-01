@@ -15,8 +15,9 @@
         </Grid.RowDefinitions>-->
     <Grid Margin="0,10,0,0.4" >
         <Border Background="#f0f0f0" Margin="0,0,0,800">
-            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                <Button x:Name="btn_print" HorizontalAlignment="Left" Width="30" Height="20" Click="Print_Click" Margin="5,5,5,0" VerticalAlignment="Top">
+            
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" >
+                <Button x:Name="btn_print" HorizontalAlignment="Left" ToolTip="打印" Width="30" Height="20" Click="Print_Click" Margin="5,5,5,0" >
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Template">
@@ -40,7 +41,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="btn_zoomin" HorizontalAlignment="Left" Width="30" Height="20" Click="ZoomInButton_Click" Margin="5">
+                <Button x:Name="btn_zoomin" HorizontalAlignment="Left" Width="30" ToolTip="缩小" Height="20" Click="ZoomInButton_Click" Margin="5">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Template">
@@ -64,7 +65,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="btn_zoomout" HorizontalAlignment="Left" Width="30" Height="20" Click="ZoomOutButton_Click" Margin="5">
+                <Button x:Name="btn_zoomout" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="放大" Click="ZoomOutButton_Click" Margin="5">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Template">
@@ -88,7 +89,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="btn_singlepage" HorizontalAlignment="Left" Width="30" Height="20" Click="SinglePageButton_Click" Margin="5">
+                <Button x:Name="btn_singlepage" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="单页模式" Click="SinglePageButton_Click" Margin="5">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Template">
@@ -112,7 +113,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="btn_facing" HorizontalAlignment="Left" Width="30" Height="20" Click="FacingButton_Click" Margin="5">
+                <Button x:Name="btn_facing" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="双页模式" Click="FacingButton_Click" Margin="5">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Template">
@@ -136,7 +137,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="btn_100" HorizontalAlignment="Left" Width="30" Height="20" Click="NormalButton_Click" Margin="5">
+                <Button x:Name="btn_100" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="100%显示" Click="NormalButton_Click" Margin="5">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Template">
@@ -160,7 +161,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="btn_FitToHeight" HorizontalAlignment="Left" Width="30" Height="20" Click="FitToHeightButton_Click" Margin="5">
+                <Button x:Name="btn_FitToHeight" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="正常显示" Click="FitToHeightButton_Click" Margin="5">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Template">
@@ -176,6 +177,30 @@
                                             </Trigger>
                                             <Trigger Property="IsEnabled" Value="false">
                                                 <Setter Property="Source" Value="/view/Images/excel/document.png" TargetName="btnbg" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="close" HorizontalAlignment="Right" ToolTip="关闭" Width="30" Height="20" Click="print_close" Margin="620,5,5,0" >
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Image Name="btnbg" Source="/view/Images/excel/close.png" />
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Source"  Value="/view/Images/excel/close.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Source" Value="/view/Images/excel/close.png" TargetName="btnbg" />
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Source" Value="/view/Images/excel/close.png" TargetName="btnbg" />
                                             </Trigger>
                                         </ControlTemplate.Triggers>
                                     </ControlTemplate>

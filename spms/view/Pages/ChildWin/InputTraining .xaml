@@ -1129,7 +1129,7 @@ ResizeMode="NoResize"
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border45">
                     <Label Content="注意点、运动方法的指示等" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}"  Foreground="White" />
                 </Border>
-                <TextBox Name="t5" Height="170" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
+                <TextBox Name="t5" Height="170" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
             </StackPanel>
             <!--<StackPanel Grid.Row="3" Grid.Column="4" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
@@ -1143,7 +1143,7 @@ ResizeMode="NoResize"
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border55">
                     <Label Content="注意点、运动方法的指示等" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}"  Foreground="White" />
                 </Border>
-                <TextBox Name="t6" Height="170" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
+                <TextBox Name="t6" Height="170" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
             </StackPanel>
             <!--<StackPanel Grid.Row="3" Grid.Column="5" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
