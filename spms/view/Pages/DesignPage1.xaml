@@ -26,14 +26,14 @@
             <Border Height="1" Margin="0,0,-0.4,0" >
                 <Grid>
                     <!--<Border CornerRadius="5,0,0,0"  HorizontalAlignment="Right"  VerticalAlignment="Center" Padding="0,2,0,2" Height="73" Margin="0,0,-4,10">-->
-                        <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0.4,0,0.2" Width="312">-->
-                            <!--<Button Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,4,3,-0.2"  Foreground="Black" Content="确定更改" Click="Btn_Confirm" Style="{StaticResource Btn}"/>-->
-                            
-                        <!--</StackPanel>-->
+                    <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0.4,0,0.2" Width="312">-->
+                    <!--<Button Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,4,3,-0.2"  Foreground="Black" Content="确定更改" Click="Btn_Confirm" Style="{StaticResource Btn}"/>-->
+
+                    <!--</StackPanel>-->
                     <!--</Border>-->
                     <Image Source="/view\Images\bdl.PNG" Stretch="UniformToFill" Height="180" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,24.6,-179.2" Width="1255"   />
                     <Button Width="80" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" IsTabStop="False"  Foreground="Black" Content="{DynamicResource SettingsView.Return}"  Click="GoBack" Style="{StaticResource Btn}" Margin="0,24,40,-58.2"/>
-                    
+
                 </Grid>
             </Border>
         </Grid>
@@ -63,7 +63,7 @@
         <!--结束：标题栏-->
         <!--基础设置及其高级设置按钮-->
         <StackPanel Margin="10,10,26.6,10" Orientation="Horizontal" >
-            <Grid>
+            <Grid Width="872">
                 <Grid.ColumnDefinitions >
                     <ColumnDefinition Width="140"/>
                     <ColumnDefinition Width="470"/>
@@ -81,7 +81,7 @@
                 </Grid.RowDefinitions>
                 <!--机构团体名称-->
                 <Border Grid.Row="0" Grid.Column="0"  Width="140" HorizontalAlignment="Left" Margin="0,0,0,2">
-                    <Label Foreground="White" Background="Black" FontSize="10"  Content="{DynamicResource SettingsView.FacilityName}"></Label>
+                    <Label Foreground="White" VerticalContentAlignment="Center" Background="Black" FontSize="10"  Content="{DynamicResource SettingsView.FacilityName}"></Label>
                 </Border>
 
                 <Border Grid.Row="0" Grid.Column="1" Margin="0,0,0,2" >
@@ -90,7 +90,7 @@
                 <!--结束：机构团体名称-->
                 <!--机构区分-->
                 <Border Grid.Row="1" Grid.Column="0"  Width="140" HorizontalAlignment="Left" Margin="0,0,0,2">
-                    <Label Foreground="White" Background="Black" Content="{DynamicResource SettingsView.FacilityType}"></Label>
+                    <Label Foreground="White" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.FacilityType}"></Label>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1"    Margin="0,0,0,2">
                     <ComboBox VerticalContentAlignment="Center" x:Name="comboBox1" IsTabStop="False" ItemsSource="{Binding}" SelectedIndex ="0"  SelectedValuePath="Code_S_Value" DisplayMemberPath="Code_D_Value" ></ComboBox>
@@ -119,7 +119,7 @@
                     </Border>-->
                 <!--照片保存文档-->
                 <Border Grid.Row="2" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,0,0,2">
-                    <Label Foreground="White" Background="Black" Content="{DynamicResource SettingsView.PictureFolder}"></Label>
+                    <Label Foreground="White" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.PictureFolder}"></Label>
                 </Border>
                 <Border Grid.Row="2" Grid.Column="1"  Margin="0,0,0,2">
                     <TextBox VerticalContentAlignment="Center" Name="textBox2" Text="{Binding Set_PhotoLocation}" ></TextBox>
@@ -129,10 +129,10 @@
                     <Button Click="Output_Document" IsTabStop="False" Style="{StaticResource Btn}" Content="{DynamicResource SettingsView.Refer}"></Button>
                 </Border>
                 <!--结束：照片保存文档-->
-                <Label  Grid.Row="2" Grid.Column="3" Foreground="Red" Content="{DynamicResource SettingsView.Alert}"></Label>
+                <Label  Grid.Row="1" Grid.Column="3" Foreground="Red" Content="{DynamicResource SettingsView.Alert}" Margin="0.2,24.4,9.6,13" Grid.RowSpan="3"></Label>
                 <!--语言-->
                 <Border Grid.Row="3" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,0,0,2">
-                    <Label Foreground="White" Background="Black" Content="{DynamicResource SettingsView.Language}"></Label>
+                    <Label Foreground="White" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.Language}"></Label>
                 </Border>
                 <Border Grid.Row="3" Grid.Column="1"  Margin="0,0,0,2">
                     <ComboBox VerticalContentAlignment="Center" x:Name="comboBox2" IsTabStop="False" ItemsSource="{Binding}" SelectedIndex="0"  SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value" >
@@ -154,7 +154,7 @@
                     <Button Width="141"  Height="38" IsTabStop="False" VerticalAlignment="Center" HorizontalAlignment="Center"   Foreground="Black" Content="{DynamicResource SettingsView.Confirm}" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
                     <Button Content="{DynamicResource SettingsView.AdvancedSettings}" Width="141" Margin="10,0,0,0" IsTabStop="False" Height="38" Click="AdvancedSettings" Style="{StaticResource Btn}"/>
                 </StackPanel>
-               
+
             </Border>
             <!--结束：高级设置按钮-->
             <!--
