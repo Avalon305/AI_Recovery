@@ -155,7 +155,8 @@ namespace spms.view.Pages.ChildWin
         // 保存图片按钮
         private void SavePic(object sender, RoutedEventArgs e)
         {
-            
+            //创建文件夹
+            CreateDir(CommUtil.GetUserPic());
             ImageDealer.CutImage();
             
             string newFileName = photoName.Replace(".jpg", ".gif");
@@ -166,6 +167,14 @@ namespace spms.view.Pages.ChildWin
                 photoName = newFileName;
             }
             this.Close();
+        }
+        //根据文件夹全路径创建文件夹
+        public static void CreateDir(string path)
+        {
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
         }
 
         /// <param name="sFile">原图片</param>    
