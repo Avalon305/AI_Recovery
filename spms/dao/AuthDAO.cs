@@ -26,6 +26,15 @@ namespace spms.dao
                 return conn.QueryFirstOrDefault<Auther>(query, new { Auth_Level = Auth_Level });
             }
         }
+        public Auther GetAuther(byte Auth_Level)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select * from bdl_auth where Auth_Level = @Auth_Level";
+
+                return conn.QueryFirst<Auther>(query, new { Auth_Level = Auth_Level });
+            }
+        }
         /// <summary>
         /// 登录
         /// </summary>

@@ -175,6 +175,7 @@
     <Compile Include="constant\CodeConstant.cs" />
     <Compile Include="constant\DevConstants.cs" />
     <Compile Include="constant\ProtocolConstant.cs" />
+    <Compile Include="constant\UserConstant.cs" />
     <Compile Include="dao\app\CustomDataDAO.cs" />
     <Compile Include="dao\app\ExcelDao.cs" />
     <Compile Include="dao\AuthDAO.cs" />
