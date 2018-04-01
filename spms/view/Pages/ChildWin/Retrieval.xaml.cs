@@ -36,6 +36,8 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }

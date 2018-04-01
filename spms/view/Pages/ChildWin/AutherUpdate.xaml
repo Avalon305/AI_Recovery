@@ -7,10 +7,10 @@
         PreviewKeyDown="key_dowm"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
-        Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="280" Width="436"
+        Title="宝德龙" Height="242" Width="436"
          ResizeMode = "NoResize"
         Loaded="Window_Loaded">
+
     <Grid>
         <Border CornerRadius="2">
             <StackPanel >
@@ -25,12 +25,13 @@
                         <Label VerticalAlignment="Center" FontSize="22" Foreground="White" Content="用户注册"/>
                     </Grid>
                 </Border>
-                <Grid Margin="10,5,9.6,5"  Height="144">
+                <Grid Margin="10,5,9.6,5"  Height="96">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="28"/>
+                        <RowDefinition Height="4"/>
                         <RowDefinition Height="28"/>
+                        <RowDefinition Height="4"/>
                         <RowDefinition Height="28"/>
-                        <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
@@ -40,27 +41,22 @@
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
                         <Label Content="用户名"  VerticalAlignment="Center"  Foreground="White"/>
                     </Border>
-                    <TextBox  LostFocus="Name_LostFocus" Grid.Row="0" Name="UserName" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="0" LostFocus="Name_LostFocus" Name="UserName" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <Label  Grid.Row="0" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
-                    <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
+                    <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="密码"  FontStyle="Normal"  Foreground="White"/>
                     </Border>
-                    <PasswordBox  Grid.Row="1" Name="Pass" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="1" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
-                    <Border Grid.Row="2" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
+                    <PasswordBox  Grid.Row="2" Name="Pass" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="4" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
+                    <Border Grid.Row="4" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="确认密码" Grid.Row="3" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <PasswordBox  Name="Confirm_Pass" Grid.Row="2"  Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-
-                    <Border Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
-                        <Label Content="备忘" Grid.Row="11" Grid.Column="0"  Foreground="White"/>
-                    </Border>
-                    <TextBox TextWrapping="Wrap" AcceptsReturn="True"  Grid.Row="11" Name="Note" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"></TextBox>
+                    <PasswordBox  Name="Confirm_Pass" Grid.Row="4"  Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
 
                     <!--<TextBox Grid.Row="10" Name="t11" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>-->
                 </Grid>
-                <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="434" Height="47" VerticalAlignment="Bottom" BorderBrush="White" Margin="0,0,9.6,0">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="434" Height="47" VerticalAlignment="Top" BorderBrush="White" Margin="0,0,9.6,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                         <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" IsTabStop="False"  Margin="0,0,2,0"  Foreground="Black" Content="确定" Style="{StaticResource Btn}" Click="Button_OK"/>
                         <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  IsTabStop="False"  Foreground="Black" Content="取消" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
                     </StackPanel>
@@ -71,4 +67,5 @@
         </Border>
 
     </Grid>
+
 </Window>
