@@ -305,8 +305,8 @@
 
     <!-- 训练结果界面 -->
     <s:String x:Key="TrainingResultView.TrainingResult">训练结果</s:String>
-    <s:String x:Key="TrainingResultView.SubjectID">使用者编号</s:String>
-    <s:String x:Key="TrainingResultView.LastName">姓名</s:String>
+    <s:String x:Key="TrainingResultView.SubjectID">用户编号:</s:String>
+    <s:String x:Key="TrainingResultView.LastName">用户姓名:</s:String>
     <s:String x:Key="TrainingResultView.Date">日期</s:String>
     <s:String x:Key="TrainingResultView.#ofSets">组数</s:String>
     <s:String x:Key="TrainingResultView.Reps">1组的个数</s:String>
@@ -322,6 +322,9 @@
     <s:String x:Key="TrainingResultView.Timer(sec)">时间（秒）</s:String>
     <s:String x:Key="TrainingResultView.TotalSetsdone">已完成组数</s:String>
     <s:String x:Key="TrainingResultView.Timing/form">时机、姿势</s:String>
+    <s:String x:Key="TrainingResultView.Timer">计时器</s:String>
+    <s:String x:Key="TrainingResultView.TimerCount">时间(分)</s:String>
+    <s:String x:Key="TrainingResultView.TimeType">计时方式</s:String>
     <s:String x:Key="TrainingResultView.TrainingCaution">注意点、运动方式的指示等。</s:String>
     <s:String x:Key="TrainingResultView.Subjectcomment">使用者感想</s:String>
     <s:String x:Key="TrainingResultView.TrainingMemo">时机、姿势备忘</s:String>

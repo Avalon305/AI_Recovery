@@ -322,6 +322,9 @@
     <s:String x:Key="TrainingResultView.Timer(sec)">Timer(sec)</s:String>
     <s:String x:Key="TrainingResultView.TotalSetsdone">Total Sets done</s:String>
     <s:String x:Key="TrainingResultView.Timing/form">Timing/form</s:String>
+    <s:String x:Key="TrainingResultView.Timer">Timer</s:String>
+    <s:String x:Key="TrainingResultView.TimerCount">Time(min)</s:String>
+    <s:String x:Key="TrainingResultView.TimeType">Timer Type</s:String>
     <s:String x:Key="TrainingResultView.TrainingCaution">Training Caution</s:String>
     <s:String x:Key="TrainingResultView.Subjectcomment">Subject comment</s:String>
     <s:String x:Key="TrainingResultView.TrainingMemo">Training Memo</s:String>
