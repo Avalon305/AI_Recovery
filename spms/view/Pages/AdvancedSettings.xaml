@@ -168,11 +168,11 @@
 
                         <DataGridTextColumn Binding="{Binding Auth_UserName}" IsReadOnly="True"  Header="{DynamicResource SettingsView.User}" Width="140" />
                         <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" IsReadOnly="True" Header="{DynamicResource SettingsView.CreateDate}" Width="247"/>
-                        <DataGridTextColumn Binding="{Binding Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" IsReadOnly="True" Header="{DynamicResource SettingsView.ModifyDate}" Width="200">
+                        <DataGridTextColumn Binding="{Binding Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" IsReadOnly="True" Header="{DynamicResource SettingsView.ModifyDate}" Width="246">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Binding="{Binding Auth_OfflineTime,StringFormat='{}{0:yyyy-MM-dd}'}"  Header="离线使用时间" Width="246"/>
+                        <DataGridTextColumn Binding="{Binding Auth_OfflineTime,StringFormat='{}{0:yyyy-MM-dd}'}"  Header="{DynamicResource SettingsView.OffLineDate}" Width="246"/>
 
-                        <DataGridTemplateColumn x:Name="dateScheduledColumn"  Header="{DynamicResource SettingsView.OffLineDate}" Width="200">
+                        <!--<DataGridTemplateColumn x:Name="dateScheduledColumn"  Header="{DynamicResource SettingsView.OffLineDate}" Width="200">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <DatePicker SelectedDate="{Binding Auth_OfflineTime,StringFormat='{}{0:yyyy-MM-dd}'}" >
@@ -184,8 +184,8 @@
                                     </DatePicker>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridCheckBoxColumn Binding="{Binding USER_STATUS_FREE}"  Header="{DynamicResource SettingsView.OffLine}"  Width="93" />
+                        </DataGridTemplateColumn>-->
+                        <!--<DataGridCheckBoxColumn Binding="{Binding USER_STATUS_FREE}"  Header="{DynamicResource SettingsView.OffLine}"  Width="93" />-->
 
                     </DataGrid.Columns>
                 </DataGrid>
