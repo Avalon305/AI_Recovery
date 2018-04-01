@@ -5,6 +5,7 @@ using spms.service;
 using spms.util;
 using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -41,7 +42,8 @@ namespace spms.view.Pages.ChildWin
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-        
+
+        private string oldPhotoName;
         //保存用户照片的路径
         string userPhotoPath = null;
         //service层初始化
@@ -167,19 +169,69 @@ namespace spms.view.Pages.ChildWin
             //获得手机号
             string phone = this.phoneNum.Text;
             //获取身份证与手机号之后马上查重
-            if (userService.GetByIdCard(IDCard) != null)
+            //if (userService.GetByIdCard(IDCard) != null)
+            //{
+            //    //身份证重复气泡提示
+            //    Error_Info_IDCard.Content = "该身份证已注册";
+            //    bubble_IDCard.IsOpen = true;
+            //}
+            //if (userService.GetByPhone(phone) != null)
+            //{
+            //    //手机重复气泡提示
+            //    Error_Info_Phone.Content = "该手机号已注册";
+            //    bubble_phone.IsOpen = true;
+            //}
+            if (!String.IsNullOrEmpty(IDCard))
             {
-                //身份证重复气泡提示
-                Error_Info_IDCard.Content = "该身份证已注册";
-                bubble_IDCard.IsOpen = true;
+                if (IDCard.Length < 18)
+                {
+                    for (int i = IDCard.Length; i < 18; i++)
+                    {
+                        IDCard = IDCard + '0';
+                    }
+                    if (userService.GetByIdCard(IDCard) != null)
+                    {
+                        //身份证重复气泡提示
+                        Error_Info_IDCard.Content = "该身份证已注册";
+                        bubble_IDCard.IsOpen = true;
+                        return;
+
+                    }
+                }
+                else if (!inputlimited.InputLimited.IsIDcard(IDCard))
+                {
+                    Error_Info_IDCard.Content = "请输入正确的身份证号码";
+                    bubble_IDCard.IsOpen = true;
+                    return;
+                }
+                else if (userService.GetByIdCard(IDCard) != null)
+                {
+                    //身份证重复气泡提示
+                    Error_Info_IDCard.Content = "该身份证已注册";
+                    bubble_IDCard.IsOpen = true;
+                    return;
+
+                }
+                else
+                {
+                    bubble_IDCard.IsOpen = false;
+                }
+
+
             }
             if (userService.GetByPhone(phone) != null)
             {
                 //手机重复气泡提示
                 Error_Info_Phone.Content = "该手机号已注册";
                 bubble_phone.IsOpen = true;
+                return;
             }
-
+            else if (!inputlimited.InputLimited.IsHandset(phone) && !String.IsNullOrEmpty(phone))
+            {
+                Error_Info_Phone.Content = "请输入正确的手机号";
+                bubble_phone.IsOpen = true;
+                return;
+            }
             string IdCard = this.IDCard.Text;
             string name = t3.Text;
             //获取小组名称的内容
@@ -195,11 +247,15 @@ namespace spms.view.Pages.ChildWin
             //获取备忘的内容
             TextRange text = new TextRange(t6.Document.ContentStart, t6.Document.ContentEnd);
             string memo = text.Text;
-
+            //私密信息
+            String noPublicInfo = this.noPublicInfoText.Text;
+            //string secretMessage = this.Non_Public_Information.
             User user = new User();
             user.User_Birth = Convert.ToDateTime(brithday);
             user.User_GroupName = groupName;
-
+            //设置私密信息
+            user.User_Privateinfo = noPublicInfo == null ? "" : noPublicInfo;
+            //user.User_Privateinfo = secretMessage==null?"":secretMessage;
             if (IdCard == null || name == null || IDCard == "" || name == "")
             {
                 System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
@@ -293,6 +349,11 @@ namespace spms.view.Pages.ChildWin
                 MessageBox.Show("请填写完整信息");
                 return;
             }
+            // 切换用户图片的显示，解决线程占用问题
+
+            BitmapImage b = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+            pic.Source = b;
+
             Photograph photograph = new Photograph
             {
                 Owner = Window.GetWindow(this),
@@ -300,25 +361,21 @@ namespace spms.view.Pages.ChildWin
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-
-            if(t3.Text == null)
-            {
-                MessageBox.Show("没有填写拼音名字");
-                return;
-            }
+            
             photograph.getName = t3.Text;
             photograph.id = IDCard.Text;
-
+            photograph.oldPhotoName = oldPhotoName;
             photograph.ShowDialog();
             photoName = photograph.photoName;
+            oldPhotoName = photoName;
             //photograph.Close();
             Console.WriteLine(photoName);
 
             //展示摄像的时候的图片
-            if (File.Exists(photoName))
+            if (File.Exists(CommUtil.GetUserPic() + photoName))
             {
                 //MessageBox.Show("hi open!");
-                BitmapImage bitmap = new BitmapImage(new Uri(photoName, UriKind.Absolute));//打开图片
+                BitmapImage bitmap = new BitmapImage(new Uri(CommUtil.GetUserPic() + photoName, UriKind.Absolute));//打开图片
                 pic.Source = bitmap.Clone();//将控件和图片绑定
                 
             }
@@ -379,7 +436,7 @@ namespace spms.view.Pages.ChildWin
         private void IsIDCard(object sender, RoutedEventArgs e)
         {
             UserService userService = new UserService();
-            if (!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
+            if (IDCard.Text.Length == 18&&!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
             {
                 Error_Info_IDCard.Content = "请输入正确的身份证号码";
                 bubble_IDCard.IsOpen = true;

@@ -107,6 +107,10 @@ namespace WpfApp2
         }
         public static bool GetPicThumbnail(string sFile, string outPath, int flag)
         {
+            if (sFile.Length < 10 * 1024)
+            {
+                return false;
+            }
             System.Drawing.Image iSource = System.Drawing.Image.FromFile(sFile);
             ImageFormat tFormat = iSource.RawFormat;
 

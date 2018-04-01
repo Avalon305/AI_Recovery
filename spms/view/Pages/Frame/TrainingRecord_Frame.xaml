@@ -4,8 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:spms.view.Pages.Frame"
+      xmlns:converter="clr-namespace:spms.view.converter"
              mc:Ignorable="d" 
              d:DesignHeight="321.666" d:DesignWidth="955">
+    <Page.Resources>
+        <converter:TextConverter x:Key="textconverter"/>
+    </Page.Resources>
     <Grid>
         <TabControl Name="TabControl1" HorizontalAlignment="Left" Height="337" Margin="2.3,8,0,0" VerticalAlignment="Top" Width="948">
             <TabItem Header="胸部推举机" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
@@ -56,7 +60,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -67,7 +71,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -76,7 +80,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -87,7 +91,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -142,7 +146,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -153,7 +157,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -162,7 +166,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -173,7 +177,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -226,7 +230,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -237,7 +241,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -246,7 +250,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -257,7 +261,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -314,7 +318,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -325,7 +329,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -334,7 +338,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -345,7 +349,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -398,7 +402,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -409,7 +413,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -418,7 +422,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -429,7 +433,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -483,7 +487,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -494,7 +498,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -503,7 +507,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -514,7 +518,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>

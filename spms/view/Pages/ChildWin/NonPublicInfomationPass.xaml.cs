@@ -41,6 +41,7 @@ namespace spms.view.Pages.ChildWin
         //取消操作，关闭窗体
         private void Cancel(object sender, RoutedEventArgs e)
         {
+            result = "cancel";
             this.Close();
         }
         public NonPublicInfomationPass()
@@ -54,16 +55,17 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            result = "failed";
             var queryResult =  authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
             string inputPass = password.Password;
             if (!string.IsNullOrEmpty(inputPass)) {
                 if (inputPass == queryResult.Auth_UserPass) {
                     result = "success";
-                    this.Close();
                     
+                     
                 }
             }
-            result = "failed";
+           
             this.Close();
         }
 

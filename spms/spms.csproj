@@ -201,6 +201,7 @@
     <Compile Include="PhotoCutWindow.xaml.cs">
       <DependentUpon>PhotoCutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\converter\TextConverter.cs" />
     <Compile Include="zero.xaml.cs">
       <DependentUpon>zero.xaml</DependentUpon>
     </Compile>

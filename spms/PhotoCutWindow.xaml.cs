@@ -84,7 +84,7 @@ namespace spms
             fileName = CommUtil.GetUserPic() + fileName;
             fileName = fileName.Replace(@"/", @"\") + ".jpg";
             string newFileName = fileName.Replace(".jpg", ".gif");
-            PicZipUtil.GetPicThumbnail(fileName, newFileName, 50);
+            WpfApp2.PicZipUtil.GetPicThumbnail(fileName, newFileName, 50);
             MessageBox.Show("裁剪成功，照片存在：" + CommUtil.GetUserPic());
         }
         
