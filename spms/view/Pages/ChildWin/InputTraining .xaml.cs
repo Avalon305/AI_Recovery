@@ -1817,7 +1817,7 @@ namespace spms.view.Pages.ChildWin
                 border54.Background = Brushes.White;
                 combobox_58.Visibility = Visibility.Hidden;
                 stackpanel6.Margin = new Thickness(0, 149.8, 0, 0);
-                t6.Height = 130;
+                t6.Height = 170;
             }
             else if (combobox_56.Text.Equals("有效"))
             {
