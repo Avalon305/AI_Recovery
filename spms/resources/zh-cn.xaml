@@ -233,7 +233,7 @@
     <s:String x:Key="TrainingListView.Weight">砝码</s:String>
     <s:String x:Key="TrainingListView.Transfer">移乘方式</s:String>
     <s:String x:Key="TrainingListView.Timer">计时器</s:String>
-    <s:String x:Key="TrainingListView.TimerCount">计时时间</s:String>
+    <s:String x:Key="TrainingListView.TimerCount">时间(分)</s:String>
     <s:String x:Key="TrainingListView.TimeType">计时方式</s:String>
     <s:String x:Key="TrainingListView.TrainingCaution">注意点、运动方式的指示等</s:String>
     <s:String x:Key="TrainingListView.Save">保存</s:String>
@@ -293,13 +293,14 @@
 
     <!-- 制作体力评价报告界面 -->
     <s:String x:Key="CreateTrainingReportView.CreateTrainingReport">制作体力评价报告</s:String>
-    <s:String x:Key="CreateTrainingReportView.SubjectID">使用者编号</s:String>
-    <s:String x:Key="CreateTrainingReportView.LastName">姓名</s:String>
+    <s:String x:Key="CreateTrainingReportView.SubjectID">用户编号</s:String>
+    <s:String x:Key="CreateTrainingReportView.LastName">用户姓名</s:String>
     <s:String x:Key="CreateTrainingReportView.Date">日期</s:String>
     <s:String x:Key="CreateTrainingReportView.Comment">评论</s:String>
     <s:String x:Key="CreateTrainingReportView.Export">文档输出</s:String>
     <s:String x:Key="CreateTrainingReportView.Output">输出文档</s:String>
-    <s:String x:Key="CreateTrainingReportView.Go">实行</s:String>
+    <s:String x:Key="CreateTrainingReportView.Go">打印</s:String>
+    <s:String x:Key="CreateTrainingReportView.Preview">打印预览</s:String>
     <s:String x:Key="CreateTrainingReportView.Cancel">取消</s:String>
 
     <!-- 训练结果界面 -->
