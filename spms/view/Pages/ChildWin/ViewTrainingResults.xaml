@@ -78,7 +78,7 @@
             </Grid.Resources>
             <Grid Margin="0,0,0,10">
                 <TabControl Name="TabControl1"  Margin="9,0,10,0"  >
-                    <TabItem Header="胸部推举机" Width="95" FocusVisualStyle="{x:Null}">
+                        <TabItem Header="{DynamicResource Dev.ChestPress}" Width="95" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -207,7 +207,7 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="坐姿划船机" Width="95" FocusVisualStyle="{x:Null}">
+                        <TabItem Header="{DynamicResource Dev.Rowing}" Width="95" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -337,7 +337,7 @@
                         </StackPanel>
                     </TabItem>
 
-                    <TabItem Header="身体伸展弯曲机" Width="95"  FocusVisualStyle="{x:Null}">
+                        <TabItem Header="{DynamicResource Dev.TorsoFlexion}" Width="95"  FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -466,7 +466,7 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="腿部伸展弯曲机" Width="95" FocusVisualStyle="{x:Null}">
+                        <TabItem Header="{DynamicResource Dev.LegExtension}" Width="95" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -597,7 +597,7 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="臀部外展内收机" Width="95" FocusVisualStyle="{x:Null}">
+                        <TabItem Header="{DynamicResource Dev.HorizontalLegPress}" Width="95" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -724,7 +724,7 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="腿部内外弯机" Width="95" FocusVisualStyle="{x:Null}">
+                        <TabItem Header="{DynamicResource Dev.HipAbduction}" Width="95" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>

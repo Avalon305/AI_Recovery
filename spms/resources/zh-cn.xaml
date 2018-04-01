@@ -19,6 +19,14 @@
     <s:String x:Key="MainView.Settings">设置</s:String>
     <s:String x:Key="MainView.Close">关闭</s:String>
 
+    <!-- 设备 -->
+    <s:String x:Key="Dev.HorizontalLegPress">腿部推蹬机</s:String>
+    <s:String x:Key="Dev.Rowing">坐姿划船机</s:String>
+    <s:String x:Key="Dev.TorsoFlexion">身体伸展弯曲机</s:String>
+    <s:String x:Key="Dev.LegExtension">腿部伸展弯曲机</s:String>
+    <s:String x:Key="Dev.HipAbduction">腿部内外展机</s:String>
+    <s:String x:Key="Dev.ChestPress">胸部推举机</s:String>
+
     <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">机构、团体名称</s:String>
     <s:String x:Key="SettingsView.FacilityType">机构分区</s:String>
@@ -50,12 +58,6 @@
     <s:String x:Key="SettingsView.SeriesofMachines">选择器械系列</s:String>
     <s:String x:Key="SettingsView.PRexerSeries">PRexer 系列</s:String>
     <s:String x:Key="SettingsView.TrainingMachines">使用器械</s:String>
-    <s:String x:Key="SettingsView.HorizontalLegPress">水平腿部推蹬机</s:String>
-    <s:String x:Key="SettingsView.Rowing">坐姿划船机</s:String>
-    <s:String x:Key="SettingsView.TorsoFlexion">身体伸展弯曲机</s:String>
-    <s:String x:Key="SettingsView.LegExtension">腿部伸展弯曲机</s:String>
-    <s:String x:Key="SettingsView.HipAbduction">臂部外展内收机</s:String>
-    <s:String x:Key="SettingsView.ChestPress">胸部推举机</s:String>
     <s:String x:Key="SettingsView.Group">小组名称</s:String>
     <s:String x:Key="SettingsView.Disease">疾病名称</s:String>
     <s:String x:Key="SettingsView.Diagnosis">残障名称</s:String>
@@ -165,8 +167,8 @@
     <s:String x:Key="SubjectInfoView.Export">文档输出</s:String>
 
     <!-- 症状信息frame界面 -->
-    <s:String x:Key="VitalHistoryView.BeforePowerRehab">帕维尔康复前</s:String>
-    <s:String x:Key="VitalHistoryView.AfterPowerRehab">帕维尔康复后</s:String>
+    <s:String x:Key="VitalHistoryView.BeforePowerRehab">康复前</s:String>
+    <s:String x:Key="VitalHistoryView.AfterPowerRehab">康复后</s:String>
     <s:String x:Key="VitalHistoryView.Date">训练日期</s:String>
     <s:String x:Key="VitalHistoryView.BP">血压</s:String>
     <s:String x:Key="VitalHistoryView.HR">心率</s:String>
@@ -189,13 +191,13 @@
     <s:String x:Key="TrainingHistoryView.Subjectcommment">使用者感想</s:String>
 
     <!-- 体力评价记录 -->
-    <s:String x:Key="Physical Evaluation History.Date">日期</s:String>
-    <s:String x:Key="Physical Evaluation History.Height">身高</s:String>
-    <s:String x:Key="Physical Evaluation History.Weight">体重</s:String>
-    <s:String x:Key="Physical Evaluation History.SingleLegStanding(OE)">睁眼单脚站立</s:String>
-    <s:String x:Key="Physical Evaluation History.TimedUpGo">Timed Up Go</s:String>
-    <s:String x:Key="Physical Evaluation History.Subjectcomment">使用者感想</s:String>
-    <s:String x:Key="Physical Evaluation History.Staffcomment">工作人员感想</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Date">日期</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Height">身高</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Weight">体重</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.SingleLegStanding(OE)">睁眼单脚站立</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.TimedUpGo">Timed Up Go</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Subjectcomment">使用者感想</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Staffcomment">工作人员感想</s:String>
 
     <!-- 输入症状信息界面 -->
     <s:String x:Key="VitalInfoView.VitalInformation">输入症状信息</s:String>

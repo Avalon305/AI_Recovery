@@ -10,10 +10,10 @@
         <WrapPanel Orientation="Vertical">
             <Grid Margin="0,8,0,0">
                 <Border Background="Silver" Margin="135,3,570.2,-5" BorderBrush="Black" BorderThickness="1,1,0,0">
-                    <Label HorizontalAlignment="Center" Margin="-0.8,-2.8,-1.6,-3.6" VerticalAlignment="Center" Height="24" Width="212" RenderTransformOrigin="0.562,0.656" HorizontalContentAlignment="Center">康复前</Label>
+                    <Label HorizontalAlignment="Center" Margin="-0.8,-2.8,-1.6,-3.6" VerticalAlignment="Center" Height="24" Width="212" RenderTransformOrigin="0.562,0.656" HorizontalContentAlignment="Center" Content="{DynamicResource VitalHistoryView.BeforePowerRehab}"></Label>
                 </Border>
                 <Border Height="20" Background="Silver" Margin="376,3,330.2,-5" BorderBrush="Black" BorderThickness="1,1,1,0">
-                    <Label HorizontalAlignment="Left" Margin="90.2,-3.8,0,-4.6" VerticalAlignment="Center" Height="26" Width="56">康复后</Label>
+                    <Label HorizontalAlignment="Left" Margin="90.2,-3.8,0,-4.6" VerticalAlignment="Center" Height="26" Width="56" Content="{DynamicResource VitalHistoryView.AfterPowerRehab}"></Label>
                 </Border>
             </Grid>
 
@@ -45,19 +45,19 @@
                     </Style>
                 </DataGrid.CellStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130"/>
-                    <DataGridTextColumn Binding="{Binding Pre_Pressure}" Header="血压" Width="60"/>
-                    <DataGridTextColumn Binding="{Binding Pre_Pulse}" Header="脉搏" Width="80"/>
-                    <DataGridTextColumn Binding="{Binding Pre_HeartRate}"  Header="心率" Width="50"/>
-                    <DataGridTextColumn Binding="{Binding Pre_AnimalHeat}" Header="体温" Width="50"/>
-                    <DataGridTextColumn Binding="{Binding Suf_Pressure}"  Header="血压" Width="60"/>
-                    <DataGridTextColumn Binding="{Binding Suf_Pulse}" Header="脉搏" Width="80"/>
-                    <DataGridTextColumn Binding="{Binding Suf_HeartRate}"  Header="心率" Width="50"/>
-                    <DataGridTextColumn Binding="{Binding Suf_AnimalHeat}" Header="体温" Width="50"/>
-                    <DataGridTextColumn Binding="{Binding WaterInput}" Header="水分摄取" Width="60"/>
+                    <DataGridTextColumn Binding="{Binding Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource VitalHistoryView.Date}" Width="130"/>
+                    <DataGridTextColumn Binding="{Binding Pre_Pressure}" Header="{DynamicResource VitalHistoryView.BP}" Width="60"/>
+                    <DataGridTextColumn Binding="{Binding Pre_Pulse}" Header="{DynamicResource VitalHistoryView.Pulse}" Width="80"/>
+                    <DataGridTextColumn Binding="{Binding Pre_HeartRate}"  Header="{DynamicResource VitalHistoryView.HR}" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding Pre_AnimalHeat}" Header="{DynamicResource VitalHistoryView.Tmp}" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding Suf_Pressure}"  Header="{DynamicResource VitalHistoryView.BP}" Width="60"/>
+                    <DataGridTextColumn Binding="{Binding Suf_Pulse}" Header="{DynamicResource VitalHistoryView.Pulse}" Width="80"/>
+                    <DataGridTextColumn Binding="{Binding Suf_HeartRate}"  Header="{DynamicResource VitalHistoryView.HR}" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding Suf_AnimalHeat}" Header="{DynamicResource VitalHistoryView.Tmp}" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding WaterInput}" Header="{DynamicResource VitalHistoryView.Water}" Width="60"/>
                     <!--<DataGridTextColumn Binding="{Binding Inquiry}" Header="问诊确认单"  Width="80">
 </DataGridTextColumn>-->
-                    <DataGridTemplateColumn Header="问诊确认单" Width="100" MaxWidth="100">
+                    <DataGridTemplateColumn Header="{DynamicResource VitalHistoryView.MedicalInq}" Width="100" MaxWidth="100">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <!--设置当单元格内容超过最大长度时，显示...-->
@@ -76,9 +76,9 @@
                             </Style>
                         </DataGridTemplateColumn.CellStyle>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Binding="{Binding Join}" Header="参加/不参加" Width="80"/>
+                    <DataGridTextColumn Binding="{Binding Join}" Header="{DynamicResource VitalHistoryView.Participation}" Width="80"/>
                     <!--<DataGridTextColumn Binding="{Binding CareInfo}" Header="看护记录" Width="150"/>-->
-                    <DataGridTemplateColumn Header="看护记录" Width="90">
+                    <DataGridTemplateColumn Header="{DynamicResource VitalHistoryView.CareInfo}" Width="90">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <!--设置当单元格内容超过最大长度时，显示...-->

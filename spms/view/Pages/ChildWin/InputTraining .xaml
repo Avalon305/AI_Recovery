@@ -129,22 +129,22 @@ ResizeMode="NoResize"
             </Grid.ColumnDefinitions>
             <!--器材名称开始-->
             <Border Grid.Row="0"  Grid.Column="0" Background="Gray" Margin="11,0,10,0">
-                <CheckBox Name="checkbox1" Checked="Checkbox1_OnChecked" Unchecked="checkbox1_Unchecked" IsTabStop="False"  Foreground="White"  Margin="0,3,0,0" >胸部推举机</CheckBox>
+                    <CheckBox Name="checkbox1" Checked="Checkbox1_OnChecked" Unchecked="checkbox1_Unchecked" IsTabStop="False"  Foreground="White"  Margin="0,3,0,0" Content="{DynamicResource Dev.ChestPress}"></CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="1" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox2" Checked="Checkbox2_OnChecked"   IsTabStop="False" Unchecked="checkbox2_Unchecked"  Foreground="White"  Margin="00,3,0,0"  >坐姿划船机</CheckBox>
+                    <CheckBox Name="checkbox2" Checked="Checkbox2_OnChecked"   IsTabStop="False" Unchecked="checkbox2_Unchecked"  Foreground="White"  Margin="00,3,0,0" Content="{DynamicResource Dev.Rowing}"></CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="2" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox3" Checked="Checkbox3_OnChecked"   IsTabStop="False" Unchecked="checkbox3_Unchecked" Foreground="White"  Margin="0,3,0,0"  >身体伸展弯曲机</CheckBox>
+                    <CheckBox Name="checkbox3" Checked="Checkbox3_OnChecked"   IsTabStop="False" Unchecked="checkbox3_Unchecked" Foreground="White"  Margin="0,3,0,0"  Content="{DynamicResource Dev.TorsoFlexion}" ></CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="3" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox4"  Checked="Checkbox4_OnChecked"  IsTabStop="False" Unchecked="checkbox4_Unchecked" Foreground="White"  Margin="0,3,0,0"  >腿部伸展弯曲机</CheckBox>
+                    <CheckBox Name="checkbox4"  Checked="Checkbox4_OnChecked"  IsTabStop="False" Unchecked="checkbox4_Unchecked" Foreground="White"  Margin="0,3,0,0"   Content="{DynamicResource Dev.LegExtension}"></CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="4" Background="Gray" Margin="10,0,10,0">
-                <CheckBox Name="checkbox5"  Checked="Checkbox5_OnChecked"  IsTabStop="False" Unchecked="checkbox5_Unchecked" Foreground="White"  Margin="0,3,0,0"  >腿部推蹬机</CheckBox>
+                    <CheckBox Name="checkbox5"  Checked="Checkbox5_OnChecked"  IsTabStop="False" Unchecked="checkbox5_Unchecked" Foreground="White"  Margin="0,3,0,0"  Content="{DynamicResource Dev.HorizontalLegPress}" ></CheckBox>
             </Border>
             <Border Grid.Row="0"  Grid.Column="5" Background="Gray" Margin="10,0,10,0">
-                <CheckBox  Name="checkbox6" Checked="Checkbox6_OnChecked"  IsTabStop="False" Unchecked="checkbox6_Unchecked" Foreground="White"  Margin="0,3,0,0"  >腿部内外弯机</CheckBox>
+                    <CheckBox  Name="checkbox6" Checked="Checkbox6_OnChecked"  IsTabStop="False" Unchecked="checkbox6_Unchecked" Foreground="White"  Margin="0,3,0,0"   Content="{DynamicResource Dev.HipAbduction}"></CheckBox>
             </Border>
             <!--器材名称结束-->
 

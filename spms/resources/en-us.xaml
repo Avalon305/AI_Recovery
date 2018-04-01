@@ -19,6 +19,14 @@
     <s:String x:Key="MainView.Settings">Settings</s:String>
     <s:String x:Key="MainView.Close">Close</s:String>
 
+    <!-- 设备 -->
+    <s:String x:Key="Dev.HorizontalLegPress">Horizontal Leg Press</s:String>
+    <s:String x:Key="Dev.Rowing">Rowing</s:String>
+    <s:String x:Key="Dev.TorsoFlexion">Torso Flexion</s:String>
+    <s:String x:Key="Dev.LegExtension">Leg Extension</s:String>
+    <s:String x:Key="Dev.HipAbduction">Hip Abduction</s:String>
+    <s:String x:Key="Dev.ChestPress">Chest Press</s:String>
+
     <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">Facility Name</s:String>
     <s:String x:Key="SettingsView.Return">Return</s:String>
@@ -51,12 +59,6 @@
     <s:String x:Key="SettingsView.SeriesofMachines">Series of Machines</s:String>
     <s:String x:Key="SettingsView.PRexerSeries">PRexer Series</s:String>
     <s:String x:Key="SettingsView.TrainingMachines">Training Machines</s:String>
-    <s:String x:Key="SettingsView.HorizontalLegPress">Horizontal Leg Press</s:String>
-    <s:String x:Key="SettingsView.Rowing">Rowing</s:String>
-    <s:String x:Key="SettingsView.TorsoFlexion">Torso Flexion</s:String>
-    <s:String x:Key="SettingsView.LegExtension">Leg Extension</s:String>
-    <s:String x:Key="SettingsView.HipAbduction">Hip Abduction</s:String>
-    <s:String x:Key="SettingsView.ChestPress">Chest Press</s:String>
     <s:String x:Key="SettingsView.Group">Group</s:String>
     <s:String x:Key="SettingsView.Disease">Disease</s:String>
     <s:String x:Key="SettingsView.Diagnosis">Diagnosis</s:String>
@@ -185,13 +187,13 @@
     <s:String x:Key="TrainingHistoryView.Subjectcommment">Subject commment</s:String>
 
     <!-- 体力评价记录 -->
-    <s:String x:Key="Physical Evaluation History.Date">Date</s:String>
-    <s:String x:Key="Physical Evaluation History.Height">Height</s:String>
-    <s:String x:Key="Physical Evaluation History.Weight">Weight</s:String>
-    <s:String x:Key="Physical Evaluation History.SingleLegStanding(OE)">Single Leg Standing(OE)</s:String>
-    <s:String x:Key="Physical Evaluation History.TimedUpGo">Timed Up  Go</s:String>
-    <s:String x:Key="Physical Evaluation History.Subjectcomment">Subject comment</s:String>
-    <s:String x:Key="Physical Evaluation History.Staffcomment">Staff comment</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Date">Date</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Height">Height</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Weight">Weight</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.SingleLegStanding(OE)">Single Leg Standing(OE)</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.TimedUpGo">Timed Up  Go</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Subjectcomment">Subject comment</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Staffcomment">Staff comment</s:String>
 
     <!-- 输入症状信息界面 -->
     <s:String x:Key="VitalInfoView.VitalInformation">Vital Information</s:String>
