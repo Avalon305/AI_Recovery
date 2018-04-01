@@ -915,7 +915,12 @@ namespace spms.view.Pages
                     List<PhysicaleDTO> physicaleDTOs = new List<PhysicaleDTO>();
                     foreach (PhysicalPower physicalPower in physicalPowers)
                     {
-                        physicaleDTOs.Add(new PhysicaleDTO(physicalPower));
+                        PhysicaleDTO physicaleDTO = new PhysicaleDTO(physicalPower);
+                        //为空，说明有可能是不符合格式的数据
+                        if (physicaleDTO.ID != null)
+                        {
+                            physicaleDTOs.Add(physicaleDTO);
+                        }
                     }
 
                     //展示在frame
