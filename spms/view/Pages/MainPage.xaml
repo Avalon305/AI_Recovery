@@ -181,7 +181,7 @@
                 <!--结束：使用者一览表_按钮-->
                 <!--使用者一览表_数据-->
                 <Border>
-                    <DataGrid x:Name="UsersInfo" HorizontalAlignment="Left" KeyboardNavigation.TabNavigation="None" SelectionMode="Single" RowHeaderWidth="0" DataGridRow.MouseUp="Grid_Click"   IsReadOnly="true" Margin="11,5,0,0" VerticalAlignment="Top"  Height="150" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" Width="1270" SelectionChanged="UsersInfo_SelectionChanged"  >
+                    <DataGrid x:Name="UsersInfo" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None" SelectionMode="Single" RowHeaderWidth="0" DataGridRow.MouseUp="Grid_Click"   IsReadOnly="true" Margin="11,5,0,0" VerticalAlignment="Top"  Height="150" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" Width="1270" SelectionChanged="UsersInfo_SelectionChanged"  >
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DodgerBlue"/>

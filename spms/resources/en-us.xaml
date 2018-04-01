@@ -4,12 +4,16 @@
                     xmlns:local="clr-namespace:TestMultLanguage.Resources">
 
 	<!-- 开始界面 -->
+    <s:String x:Key="FormView.Title">宝德龙康复医疗系统</s:String>
 	<s:String x:Key="FormView.UserName">UserName</s:String>
 	<s:String x:Key="FormView.Password">Password</s:String>
 	<s:String x:Key="FormView.LogIn">Log In</s:String>
 	<s:String x:Key="FormView.Reset">Reset</s:String>
 	<s:String x:Key="FormView.Settings">Settings</s:String>
 	<s:String x:Key="FormView.Close">Close</s:String>
+    <s:String x:Key="FormView.InputUserName">请在此输入管理用户名</s:String>
+    <s:String x:Key="FormView.InputPasswd">请在此输入管理密码</s:String>
+    <s:String x:Key="FormView.UserErro">用户名或密码错误</s:String>
 
 	<!-- 设定界面 -->
 	<s:String x:Key="SettingsView.FacilityName">Facility Name</s:String>

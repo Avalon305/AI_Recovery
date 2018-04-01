@@ -229,7 +229,7 @@ namespace spms.view.Pages.ChildWin
                     int row = tableRow + 2 + i;
                     worksheet.Cells[row, 1, row, 2].Merge = true;
                     worksheet.Cells[row, 9, row, 11].Merge = true;
-                    worksheet.Cells[row, 1].Value = list[i].Gmt_Create.ToString();
+                    worksheet.Cells[row, 1].Value = ((DateTime)list[i].Gmt_Create).ToString();
                     worksheet.Cells[row, 3].Value = list[i].SI_Pre_HighPressure + "/" + list[i].SI_Pre_LowPressure;
                     worksheet.Cells[row, 4].Value = list[i].SI_Suf_HighPressure + "/" + list[i].SI_Suf_LowPressure;
                     worksheet.Cells[row, 5].Value = list[i].SI_WaterInput;
@@ -358,7 +358,7 @@ namespace spms.view.Pages.ChildWin
                     worksheet.Cells[row, 1, row, 3].Merge = true;
                     worksheet.Cells[row, 10, row, 11].Merge = true;
                     worksheet.Cells[row, 1].Value = list[i].DS_name;
-                    worksheet.Cells[row, 4].Value =  list[i].Gmt_Create.ToString();//string.Format("{0:d}", list[i].Gmt_Create);
+                    worksheet.Cells[row, 4].Value =  ((DateTime)list[i].Gmt_Create).ToString();//string.Format("{0:d}", list[i].Gmt_Create);
                     worksheet.Cells[row, 5].Value = list[i].dp_moveway;
                     worksheet.Cells[row, 6].Value = list[i].dp_weight;
                     worksheet.Cells[row, 7].Value = list[i].dp_groupcount;
@@ -483,7 +483,7 @@ namespace spms.view.Pages.ChildWin
                     worksheet.Cells[row, 10, row, 11].Merge = true;//总消耗热量
                     worksheet.Cells[row + 1, 1, row + 2, 11].Merge = true;
 
-                    worksheet.Cells[row, 1].Value = list[i].Gmt_Create.ToString();
+                    worksheet.Cells[row, 1].Value = ((DateTime)list[i].Gmt_Create).ToString(); 
                     worksheet.Cells[row, 3].Value = list[i].SI_Pre_HighPressure + "/" + list[i].SI_Pre_LowPressure;
                     worksheet.Cells[row, 4].Value = list[i].SI_Suf_HighPressure + "/" + list[i].SI_Suf_LowPressure;
                     worksheet.Cells[row, 5].Value = list[i].SI_WaterInput;

@@ -19,6 +19,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp2;
 using WPFMediaKit.DirectShow.Controls;
 
 namespace spms.view.Pages.ChildWin
@@ -155,9 +156,10 @@ namespace spms.view.Pages.ChildWin
             }
 
             photoName += ".jpg";
-            //TODO 保存之前看看需不需要压缩
+            
             CreateDir(CommUtil.GetUserPic());
-            bmcpy.Save(CommUtil.GetUserPic() + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
+            PicZipUtil.GetPicThumbnail(bmcpy, CommUtil.GetUserPic() + photoName, 50);
+            //bmcpy.Save(CommUtil.GetUserPic() + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
 
 
 

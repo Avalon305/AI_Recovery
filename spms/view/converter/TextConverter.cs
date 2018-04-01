@@ -13,6 +13,7 @@ namespace spms.view.converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+
             String text = value.ToString();
             
             if (String.IsNullOrEmpty(text.Trim()))

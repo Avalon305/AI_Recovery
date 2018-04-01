@@ -196,5 +196,20 @@ namespace spms.view
             }
             
         }
+        private void User_Password_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!User_Password.Password.Equals(""))
+            {
+
+                User_Password.Style = null;
+            }
+            else
+
+            {
+                Style xxStyle = (Style)this.FindResource("Watermark");
+                User_Password.Style = xxStyle;
+            }
+
+        }
     }
 }
