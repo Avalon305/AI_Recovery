@@ -232,7 +232,7 @@ namespace spms.view.Pages
                     BitmapImage b = new BitmapImage(new Uri(photoUrl, UriKind.Absolute));//打开图片
                     UserPhoto.Source = b.Clone();//将控件和图片绑定
                 }
-                catch (IOException ee) {
+                catch (Exception ee) {
 
                 }
                 

@@ -458,7 +458,14 @@ namespace spms.view.Pages.ChildWin
         // 用户自主选择照片
         private void Select_Picture_Show(object sender, RoutedEventArgs e)
         {
-
+            if (t3.Text == "" || IDCard.Text == "")
+            {
+                MessageBox.Show("请填写完整信息");
+                return;
+            }
+            // 切换用户图片的显示，解决线程占用问题
+            BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
+            pic.Source = bitmap;
             using (System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog())
             {
                 ofd.Title = "请选择要插入的图片";
@@ -469,35 +476,45 @@ namespace spms.view.Pages.ChildWin
 
                 if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    // 获取图片路径
-                    string picPath = ofd.FileName;
-
-                    long picLen = 0;
-
-                    FileInfo di = new FileInfo(picPath);
-                    picLen = di.Length;
-                    picLen /= 1024;
-                    Console.WriteLine("~~~~~~~~ 图片的大小" + picLen + "~~~~~~~~");
-
-                    if (picLen > 40)
-                    {
-                        System.Windows.MessageBox.Show("图片过大，请重新选择", "信息提示");
-                        return;
-                    }
-
                     BitmapImage image = new BitmapImage(new Uri(ofd.FileName, UriKind.Absolute));//打开图片
-                    pic.Source = image;//将控件和图片绑定
-
-                    userIfSelectPic = true;
-                    userPhotoPath = ofd.FileName;
+                    var win2 = new PhotoCutWindow
+                    {
+                        Owner = Window.GetWindow(this),
+                        ShowActivated = true,
+                        ShowInTaskbar = false,
+                        WindowStartupLocation = WindowStartupLocation.CenterScreen
+                    };
+                    win2.getName = t3.Text;
+                    win2.id = IDCard.Text;
+                    win2.oldPhotoName = SelectUser.User_PhotoLocation;
+                    win2.SetImage(image);
+                    
+                    win2.ShowDialog();
+                    photoName = win2.photoName;
+                    //photograph.Close();
+                    Console.WriteLine(photoName);
+                    //在更新页面上展示用户 刚刚更新的照片
+                    string photoUpdatePhoto = CommUtil.GetUserPic() + photoName;
+                    if (File.Exists(photoUpdatePhoto))
+                    {
+                        //MessageBox.Show("hi open!");
+                        BitmapImage i = new BitmapImage(new Uri(photoUpdatePhoto, UriKind.Absolute));//打开图片
+                        pic.Source = i.Clone();//将控件和图片绑定
+                    }
                 }
                 else
                 {
                     userIfSelectPic = false;
-                    System.Windows.MessageBox.Show("你没有选择图片", "信息提示");
+                    BitmapImage i = new BitmapImage(new Uri(CommUtil.GetUserPic() + SelectUser.User_PhotoLocation, UriKind.Absolute));//打开图片
+                    pic.Source = i.Clone();//将控件和图片绑定
                 }
                 
             }
+        }
+
+        private void Capture(BitmapImage bitmapImage)
+        {
+            
         }
 
         //设置手机号输入框只能输入数字
