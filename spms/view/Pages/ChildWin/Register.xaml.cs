@@ -219,18 +219,32 @@ namespace spms.view.Pages.ChildWin
 
 
             }
-            if (userService.GetByPhone(phone) != null)
+            else
             {
-                //手机重复气泡提示
-                Error_Info_Phone.Content = "该手机号已注册";
+                Error_Info_IDCard.Content = "请输入身份证号码";
+                bubble_IDCard.IsOpen = true;
+                return;
+            }
+            if (String.IsNullOrEmpty(phone))
+            {
+                Error_Info_Phone.Content = "请输入手机号";
                 bubble_phone.IsOpen = true;
                 return;
             }
-            else if (!inputlimited.InputLimited.IsHandset(phone) && !String.IsNullOrEmpty(phone))
-            {
-                Error_Info_Phone.Content = "请输入正确的手机号";
-                bubble_phone.IsOpen = true;
-                return;
+            else { 
+                if (userService.GetByPhone(phone) != null)
+                {
+                    //手机重复气泡提示
+                    Error_Info_Phone.Content = "该手机号已注册";
+                    bubble_phone.IsOpen = true;
+                    return;
+                }
+                else if (!inputlimited.InputLimited.IsHandset(phone) && !String.IsNullOrEmpty(phone))
+                {
+                    Error_Info_Phone.Content = "请输入正确的手机号";
+                    bubble_phone.IsOpen = true;
+                    return;
+                }
             }
             string IdCard = this.IDCard.Text;
             string name = t3.Text;
@@ -442,7 +456,11 @@ namespace spms.view.Pages.ChildWin
         private void IsIDCard(object sender, RoutedEventArgs e)
         {
             UserService userService = new UserService();
-            if (IDCard.Text.Length == 18&&!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
+            if (String.IsNullOrEmpty(IDCard.Text))
+            {
+                Error_Info_IDCard.Content = "请输入身份证号码";
+                bubble_IDCard.IsOpen = true;
+            }else if (IDCard.Text.Length == 18&&!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
             {
                 Error_Info_IDCard.Content = "请输入正确的身份证号码";
                 bubble_IDCard.IsOpen = true;
@@ -461,7 +479,11 @@ namespace spms.view.Pages.ChildWin
         //手机号验证和查重
         private void IsPhone(object sender, RoutedEventArgs e)
         {
-            if (!inputlimited.InputLimited.IsHandset(phoneNum.Text) && !String.IsNullOrEmpty(phoneNum.Text))
+            if (String.IsNullOrEmpty(phoneNum.Text))
+            {
+                Error_Info_Phone.Content = "请输入手机号";
+                bubble_phone.IsOpen = true;
+            }else if (!inputlimited.InputLimited.IsHandset(phoneNum.Text) && !String.IsNullOrEmpty(phoneNum.Text))
             {
                 Error_Info_Phone.Content = "请输入正确的手机号";
                 bubble_phone.IsOpen = true;
@@ -650,7 +672,18 @@ namespace spms.view.Pages.ChildWin
             c5.IsDropDownOpen = true;
         }
 
+        
 
+        private void limit_input(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"^[A-Za-z]*$"))
+            {
+                
+                e.Handled = true;//阻止非法字符输入。
+                return;
+            }
+           
+        }
     }
 
 }
