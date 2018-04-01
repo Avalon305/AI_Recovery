@@ -13,7 +13,11 @@ namespace spms.view.converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-
+            if(value == null)
+            {
+                return "未填写";
+            }
+            else { 
             String text = value.ToString();
             
             if (String.IsNullOrEmpty(text.Trim()))
@@ -24,6 +28,7 @@ namespace spms.view.converter
             else
             {
                 return text;
+            }
             }
         }
 
