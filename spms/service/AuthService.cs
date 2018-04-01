@@ -48,7 +48,7 @@ namespace spms.service
 
             //先验证admin
             Auther auther = authDAO.Login(username, password);
-            //超管监测权限监测是否插入U盾
+            //超管监测权限
             if (auther!=null && auther.Auth_Level == Auther.AUTH_LEVEL_ADMIN)
             {
                 loginResult = "check_U";
@@ -80,11 +80,6 @@ namespace spms.service
             Setter setter = setterDAO.getSetter();
           
             string mac = "";
-            //try
-            //{
-            //   byte[] deBytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id), ProtocolConstant.USB_DOG_PASSWORD);
-            //   mac = Encoding.GetEncoding("GBK").GetString(deBytes);
-            //}
             try {
                 byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
                 byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
