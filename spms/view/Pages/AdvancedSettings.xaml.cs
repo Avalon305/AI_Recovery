@@ -70,12 +70,16 @@ namespace spms.view.Pages
             catch (ArgumentOutOfRangeException ee)
             {
             }
-
-            List<Auther> AutherList = new List<Auther>();
-            auther = authDAO.GetByAuthLevel(auth_level);
-            AutherList.Add(auther);
+            try
+            {
+                List<Auther> AutherList = new List<Auther>();
+                auther = authDAO.GetAuther(auth_level);
+                AutherList.Add(auther);
+                ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
+            }
+            catch (Exception ee) {}
+          
             DeviceSetList = deviceSetDAO.ListAll();
-            ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
             ((this.FindName("ComboBox_Device")) as ComboBox).ItemsSource = DeviceSetList;//系列
             int Dset_Id = (int)ComboBox_Device.SelectedValue;
             DeviceSortList = deviceSortDAO.GetDeviceSortBySet(Dset_Id);
@@ -102,7 +106,7 @@ namespace spms.view.Pages
             //致空
             auther = null;
             //刷新界面
-            Auther AutherTemp = authDAO.GetByAuthLevel(auth_level);
+            Auther AutherTemp = authDAO.GetAuther(auth_level);
             List<Auther> AutherList = new List<Auther>();
             AutherList.Add(AutherTemp);
             ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;

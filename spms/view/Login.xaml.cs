@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using spms.constant;
 using spms.dao;
 using spms.http;
 using spms.http.entity;
@@ -124,7 +125,8 @@ namespace spms.view
             String name = this.User_Name.Text;
             //获取密码
             String password = this.User_Password.Password;
-            
+            UserConstant.USERNAME = name;
+            UserConstant.PASSWORD = password;
             ///登录逻辑
             AuthService authService = new AuthService();
             string loginResult = authService.Login(name, password);
