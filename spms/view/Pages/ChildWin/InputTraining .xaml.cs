@@ -38,6 +38,7 @@ namespace spms.view.Pages.ChildWin
         public InputTraining()
         {
             InitializeComponent();
+            
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
@@ -1007,6 +1008,8 @@ namespace spms.view.Pages.ChildWin
             //确定哪些设备可用
             Certain_Dev();
             //去除窗体叉号
+            viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             //
@@ -1608,10 +1611,25 @@ namespace spms.view.Pages.ChildWin
                         {
                             //Console.WriteLine("发卡成功");
 
-                            //保存到数据库 TODO
                             //SaveTrainInfo2DB(TrainInfoStatus.Normal);
-                            MessageBox.Show("写卡成功");
+                            //MessageBox.Show("写卡成功");
 
+
+                            //保存到数据库,在接收数据方法中
+                            try
+                            {
+                                SaveTrainInfo2DB(TrainInfoStatus.Normal);
+                            }
+                            catch (Exception exception)
+                            {
+                                return;
+                            }
+
+                            MessageBox.Show("写卡成功");
+                            Dispatcher.Invoke(new Action(() =>
+                            {
+                                this.Close();
+                            }));
                         }
                         else
                         {

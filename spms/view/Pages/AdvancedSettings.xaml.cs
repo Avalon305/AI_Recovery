@@ -54,12 +54,15 @@ namespace spms.view.Pages
         {
             try
             {
-                if (SetterDAO.getSetter().Set_Unique_Id != "" && SetterDAO.getSetter().Set_Unique_Id != null)//判断是否激活
+                if (SetterDAO.getSetter() != null)
                 {
-                    Status.Content = "已激活";
-                    Color color = Color.FromArgb(255, 2, 200, 5);
-                    Status.Foreground = new SolidColorBrush(color);
-                    BtnActivite.IsEnabled = false;
+                    if (SetterDAO.getSetter().Set_Unique_Id != "" && SetterDAO.getSetter().Set_Unique_Id != null)//判断是否激活
+                    {
+                        Status.Content = "已激活";
+                        Color color = Color.FromArgb(255, 2, 200, 5);
+                        Status.Foreground = new SolidColorBrush(color);
+                        BtnActivite.IsEnabled = false;
+                    }
                 }
             }
             catch (InvalidOperationException ee)
@@ -78,12 +81,16 @@ namespace spms.view.Pages
                 ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
             }
             catch (Exception ee) {}
-          
-            DeviceSetList = deviceSetDAO.ListAll();
-            ((this.FindName("ComboBox_Device")) as ComboBox).ItemsSource = DeviceSetList;//系列
-            int Dset_Id = (int)ComboBox_Device.SelectedValue;
-            DeviceSortList = deviceSortDAO.GetDeviceSortBySet(Dset_Id);
-            ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = DeviceSortList;//类型
+            try
+            {
+                DeviceSetList = deviceSetDAO.ListAll();
+                ((this.FindName("ComboBox_Device")) as ComboBox).ItemsSource = DeviceSetList;//系列
+                int Dset_Id = (int)ComboBox_Device.SelectedValue;
+                DeviceSortList = deviceSortDAO.GetDeviceSortBySet(Dset_Id);
+                ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = DeviceSortList;//类型
+            }
+            catch (Exception ee){
+            }
 
         }
         //返回上一页

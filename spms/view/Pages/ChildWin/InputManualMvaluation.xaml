@@ -11,7 +11,7 @@
          xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Icon="/view/Images/icon2.png"
         Title="宝德龙"
-         ResizeMode = "NoResize" Height="789.6" Width="850"
+         ResizeMode = "NoResize" Height="799.6" Width="850"
         Loaded="Window_Loaded">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -26,6 +26,7 @@
             <Setter Property="Margin" Value="1"/>
         </Style>
     </Window.Resources>
+    <Viewbox Name="viewbox">
     <StackPanel Orientation="Vertical">
         <!--Border 使用者一览表以及按钮  开始-->
         <Border Height="40" CornerRadius="5,5,0,0" Margin="10,5,10,0" BorderThickness="0" BorderBrush="White">
@@ -82,7 +83,7 @@
             </Border>
 
             <!--日历-->
-            <Border Margin="7,10,0,10" Width="153">
+            <Border Margin="7,10,10,10" Width="153">
                 <my:DateTimePicker HorizontalAlignment="Left"  x:Name="implementation_date" VerticalAlignment="Top" Height="25" Width="150" />
                 <!--<DatePicker Name="implementation_date" Height="23" Margin="0.2,0,-1,0" VerticalAlignment="Bottom" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
             </Border>
@@ -477,4 +478,5 @@
             </StackPanel>
         </Border>
     </StackPanel>
+    </Viewbox>
 </Window>

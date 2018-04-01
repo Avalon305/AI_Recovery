@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         
         Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="756.993" Width="600"
+        Title="宝德龙" Height="656.993" Width="600"
          ResizeMode = "NoResize"
         PreviewKeyDown="key_dowm"
         Loaded="Window_Loaded"
@@ -90,6 +90,7 @@
             </Setter>
         </Style>
     </Window.Resources> -->
+    <Viewbox Name="viewbox">
     <Grid>
         <Border CornerRadius="2">
             <StackPanel >
@@ -301,4 +302,5 @@
         </Border>
 
     </Grid>
+    </Viewbox>
 </Window>

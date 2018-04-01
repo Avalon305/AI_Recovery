@@ -10,7 +10,7 @@
         Icon="/view/Images/icon2.png"
          PreviewKeyDown="key_dowm"
         Title="宝德龙"
-        Height="739.2"
+        Height="719.2"
         Width="580"
         ResizeMode="NoResize"
         Loaded="Window_Loaded"
@@ -18,6 +18,8 @@
     <!--
     ResizeMode="NoResize"
     WindowStyle="None"-->
+    <Viewbox Name="viewbox">
+
     <StackPanel>
         <!--标题栏-->
         <Border CornerRadius="5,5,0,0" Height="38" Margin="10,0,10,0" BorderBrush="Silver" BorderThickness="1" >
@@ -215,4 +217,6 @@
             </StackPanel>
         </Border>
     </StackPanel>
+
+    </Viewbox>
 </Window>
