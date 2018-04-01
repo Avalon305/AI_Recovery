@@ -8,7 +8,7 @@
          PreviewKeyDown="key_dowm"
         ResizeMode="NoResize"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="701.086" Width="480"
+        Title="宝德龙" Height="711.086" Width="480"
         Loaded="Window_Loaded">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -40,6 +40,7 @@
         </Style>
 
     </Window.Resources>-->
+    <Viewbox Name="viewbox">
     <StackPanel Orientation="Vertical">
         <!--标题栏-->
         <Border CornerRadius="5,5,0,0" Height="38" Margin="10,0,10,0"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0">
@@ -129,7 +130,7 @@
         </StackPanel>
         <!--结束：文档输出-->
         <!--按钮部分-->
-        <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="150" Height="29" VerticalAlignment="Bottom"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0" Margin="0,0,9.6,0">
+        <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="150" Height="29" VerticalAlignment="Bottom"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0" Margin="0,0,9.6,10">
             <StackPanel Orientation="Horizontal" Margin="-52,0,0,0"  >
                 <Button Width="62" Height="25" VerticalAlignment="Bottom"   IsTabStop="False"  Content="打印" Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Button_Click_Print"/>
                 <Button Width="62" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"   Content="打印预览" Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Button_Click_Print_View"/>
@@ -138,5 +139,6 @@
         </Border>
         <!--结束：按钮-->
     </StackPanel>
+    </Viewbox>
 </Window>
 
