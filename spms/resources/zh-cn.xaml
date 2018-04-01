@@ -193,6 +193,7 @@
     <s:String x:Key="VitalInfoView.ViewInformation">查看症状信息</s:String>
     <s:String x:Key="VitalInfoView.Confirm">确认</s:String>
     <s:String x:Key="VitalInfoView.Cancel">取消</s:String>
+    <s:String x:Key="VitalInfoView.Close">关闭</s:String>
     <s:String x:Key="VitalInfoView.SubjectID">用户编号:</s:String>
     <s:String x:Key="VitalInfoView.LastName">用户姓名:</s:String>
     <s:String x:Key="VitalInfoView.Date">日期</s:String>
