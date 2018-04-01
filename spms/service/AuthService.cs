@@ -41,8 +41,19 @@ namespace spms.service
         /// </summary>
         /// <returns></returns>
         public string Login(string username,string password) {
+            
+            
             string loginResult = "success";
             AuthDAO authDAO = new AuthDAO();
+
+            //先验证admin
+            Auther auther = authDAO.Login(username, password);
+            //超管监测权限监测是否插入U盾
+            if (auther.Auth_Level == Auther.AUTH_LEVEL_ADMIN)
+            {
+                loginResult = "check_U";
+                return loginResult;
+            }
             Auther autherCN = authDAO.GetByName(username);
             //密码错误
             if (autherCN == null)
@@ -50,7 +61,7 @@ namespace spms.service
                 loginResult = "没有该用户";
                 return loginResult;
             }
-            Auther auther = authDAO.Login(username, password);
+            
             //没有该用户
             if (autherCN!=null && auther == null) {
                 loginResult = "密码错误！";
@@ -62,12 +73,7 @@ namespace spms.service
                 loginResult = "您的使用时间已经用尽，请联系宝德龙管理员";
                 return loginResult;
             }
-            //超管监测权限监测是否插入U盾
-            if (auther.Auth_Level == Auther.AUTH_LEVEL_ADMIN)
-            {
-                loginResult = "check_U";
-                return loginResult;
-            }
+            
 
             //登录mac与激活mac不对应
             SetterDAO setterDAO = new SetterDAO();
