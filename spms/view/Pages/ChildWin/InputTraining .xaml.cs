@@ -174,12 +174,12 @@ namespace spms.view.Pages.ChildWin
             select_change(sender, e);
             combobox_07.Text = null;
             combobox_08.Text = null;
-            com_01.IsEnabled = false;
+            //com_01.IsEnabled = false;
             com_01.Text = null;
-            com_04.IsEnabled = false;
+            //com_04.IsEnabled = false;
             com_04.Text = null;
             //com_02.IsEnabled = false;
-            com_03.IsEnabled = false;
+            //com_03.IsEnabled = false;
             com_03.Text = null;
             t1.Text = null;
         }
@@ -1812,6 +1812,153 @@ namespace spms.view.Pages.ChildWin
                 stackpanel6.Margin = new Thickness(0, 199.8, 0, 0);
                 t6.Height = 120;
             }
+        }
+
+        private void Checkbox1_OnChecked(object sender, RoutedEventArgs e)
+        {
+            //combobox_01.IsEnabled = false;
+            combobox_01.SelectedIndex = 0;
+            //combobox_02.IsEnabled = false;
+            combobox_02.SelectedIndex = 0;
+            //combobox_03.IsEnabled = false;
+            combobox_03.SelectedIndex = 0;
+            //combobox_04.IsEnabled = false;
+            combobox_04.SelectedIndex = 0;
+            //combobox_05.IsEnabled = false;
+            combobox_05.SelectedIndex = 0;
+            combobox_06.SelectedIndex = 1;
+            select_change(sender, e);
+            combobox_07.SelectedIndex = 0;
+            combobox_08.SelectedIndex = 0;
+            //com_01.IsEnabled = false;
+            com_01.SelectedIndex = 0;
+            //com_04.IsEnabled = false;
+            com_04.SelectedIndex = 0;
+            //com_02.IsEnabled = false;
+            //com_03.IsEnabled = false;
+            com_03.SelectedIndex = 0;
+            t1.Text = "";
+        }
+        private void Checkbox2_OnChecked(object sender, RoutedEventArgs e)
+        {
+            //combobox_01.IsEnabled = false;
+            combobox_11.SelectedIndex = 0;
+            //combobox_02.IsEnabled = false;
+            combobox_12.SelectedIndex = 0;
+            //combobox_03.IsEnabled = false;
+            combobox_13.SelectedIndex = 0;
+            //combobox_04.IsEnabled = false;
+            combobox_14.SelectedIndex = 0;
+            //combobox_05.IsEnabled = false;
+            combobox_15.SelectedIndex = 0;
+            combobox_16.SelectedIndex = 1;
+            select_change(sender, e);
+            combobox_17.SelectedIndex = 0;
+            combobox_18.SelectedIndex = 0;
+            //com_01.IsEnabled = false;
+            com_11.SelectedIndex = 0;
+            //com_04.IsEnabled = false;
+            com_14.SelectedIndex = 0;
+            //com_02.IsEnabled = false;
+            //com_03.IsEnabled = false;
+            com_13.SelectedIndex = 0;
+            t2.Text = "";
+        }
+        private void Checkbox3_OnChecked(object sender, RoutedEventArgs e)
+        {
+            //combobox_01.IsEnabled = false;
+            combobox_21.SelectedIndex = 0;
+            //combobox_02.IsEnabled = false;
+            combobox_22.SelectedIndex = 0;
+            //combobox_03.IsEnabled = false;
+            combobox_23.SelectedIndex = 0;
+            //combobox_04.IsEnabled = false;
+            combobox_24.SelectedIndex = 0;
+            //combobox_05.IsEnabled = false;
+            combobox_25.SelectedIndex = 0;
+            combobox_26.SelectedIndex = 1;
+            select_change2(sender, e);
+            combobox_27.SelectedIndex = 0;
+            combobox_28.SelectedIndex = 0;
+            //com_01.IsEnabled = false;
+            com_21.SelectedIndex = 0;
+            //com_04.IsEnabled = false;
+            //com_24.SelectedIndex = 0;
+            //com_02.IsEnabled = false;
+            //com_03.IsEnabled = false;
+            com_23.SelectedIndex = 0;
+            t3.Text = "";
+        }private void Checkbox4_OnChecked(object sender, RoutedEventArgs e)
+        {
+            //combobox_01.IsEnabled = false;
+            combobox_31.SelectedIndex = 0;
+            //combobox_02.IsEnabled = false;
+            combobox_32.SelectedIndex = 0;
+            //combobox_03.IsEnabled = false;
+            combobox_33.SelectedIndex = 0;
+            //combobox_04.IsEnabled = false;
+            combobox_34.SelectedIndex = 0;
+            //combobox_05.IsEnabled = false;
+            combobox_35.SelectedIndex = 0;
+            combobox_36.SelectedIndex = 1;
+            select_change3(sender, e);
+            combobox_37.SelectedIndex = 0;
+            combobox_38.SelectedIndex = 0;
+            //com_01.IsEnabled = false;
+            com_31.SelectedIndex = 0;
+            //com_04.IsEnabled = false;
+            com_34.SelectedIndex = 0;
+            //com_02.IsEnabled = false;
+            com_35.SelectedIndex = 0;
+            com_33.SelectedIndex = 0;
+            t4.Text = "";
+        }
+        private void Checkbox5_OnChecked(object sender, RoutedEventArgs e)
+        {
+            //combobox_01.IsEnabled = false;
+            combobox_41.SelectedIndex = 0;
+            //combobox_02.IsEnabled = false;
+            combobox_42.SelectedIndex = 0;
+            //combobox_03.IsEnabled = false;
+            combobox_43.SelectedIndex = 0;
+            //combobox_04.IsEnabled = false;
+            combobox_44.SelectedIndex = 0;
+            //combobox_05.IsEnabled = false;
+            combobox_45.SelectedIndex = 0;
+            combobox_46.SelectedIndex = 1;
+            select_change4(sender, e);
+            combobox_47.SelectedIndex = 0;
+            combobox_48.SelectedIndex = 0;
+            //com_01.IsEnabled = false;
+            com_41.SelectedIndex = 0;
+            //com_04.IsEnabled = false;
+            //com_02.IsEnabled = false;
+            //com_03.IsEnabled = false;
+            com_43.SelectedIndex = 0;
+            t5.Text = "";
+        }
+        private void Checkbox6_OnChecked(object sender, RoutedEventArgs e)
+        {
+            //combobox_01.IsEnabled = false;
+            combobox_51.SelectedIndex = 0;
+            //combobox_02.IsEnabled = false;
+            combobox_52.SelectedIndex = 0;
+            //combobox_03.IsEnabled = false;
+            combobox_53.SelectedIndex = 0;
+            //combobox_04.IsEnabled = false;
+            combobox_54.SelectedIndex = 0;
+            //combobox_05.IsEnabled = false;
+            combobox_55.SelectedIndex = 0;
+            combobox_56.SelectedIndex = 1;
+            select_change5(sender, e);
+            combobox_57.SelectedIndex = 0;
+            combobox_58.SelectedIndex = 0;
+            //com_01.IsEnabled = false;
+            com_51.SelectedIndex = 0;
+            //com_04.IsEnabled = false;
+            //com_02.IsEnabled = false;
+            com_53.SelectedIndex = 0;
+            t5.Text = "";
         }
     }
 }
