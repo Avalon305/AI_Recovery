@@ -51,7 +51,7 @@
                         <GradientStop Color="White" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <Button  Name="EndBtn" Style="{StaticResource Btn}"  Width="140" Height="25" Margin="1110,25,15,615" IsTabStop="False" Content="关闭" FontSize="15" Foreground="White" Click="EndBtn_Click" />
+                <Button  Name="EndBtn" Style="{StaticResource Btn}"  Width="140" Height="25" Margin="1110,25,15,615" IsTabStop="False" Content="{DynamicResource FormView.Close}" FontSize="15" Foreground="White" Click="EndBtn_Click" />
                 <Image  Source="/view/Images/body3.png"  Margin="0,31,1029.2,580.4"/>
                 <Border Margin="1020,568,0,53.4">
                     <Image  x:Name="DesignerHead3"  RenderTransformOrigin="0.4,0.5" Source="/view/images/3.png" Stretch="Fill" Width="245" Height="85" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -126,27 +126,27 @@
                         </Image.RenderTransform>
                     </Image>
                 </Border>
-                <Label Content="宝德龙康复医疗系统" FontWeight="DemiBold" Foreground="DimGray" FontFamily="{StaticResource ResourceKey=微软雅黑}" FontSize="50"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="84" Margin="405.2,44,405.2,442.4" />
+                <Label Content="{DynamicResource FormView.Title}" FontWeight="DemiBold" Foreground="DimGray" FontFamily="{StaticResource ResourceKey=微软雅黑}" FontSize="50"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="84" Margin="405.2,44,405.2,442.4" />
                 <Label Content="Version 1.0.0" Margin="709,218,301.2,419.4" Foreground="Gray"  FontFamily="{StaticResource ResourceKey=MAGNETOB}" FontSize="20"/>
                 <!--<Label Content="错误提示" FontWeight="DemiBold" FontSize="15" FontFamily="{StaticResource 微软雅黑}" Foreground="Red" Margin="509,273,381.2,340.4" Name="Error_Info"></Label>-->
-                <Label Content="用户名:" HorizontalAlignment="Right" FontSize="30" Foreground="DimGray" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Margin="0,294,795,376" />
-                <TextBlock  Margin="500,307,380,340.4" FontSize="20" Text="  请在此输入管理用户名"  FontFamily="{StaticResource   LiSu}" Foreground="Gray" FontStyle="Italic"/>
+                <Label Content="{DynamicResource FormView.UserName}" HorizontalAlignment="Right" FontSize="30" Foreground="DimGray" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Margin="0,294,795,376" />
+                <TextBlock  Margin="500,307,380,340.4" FontSize="20" Text="{DynamicResource FormView.InputUserName}"  FontFamily="{StaticResource   LiSu}" Foreground="Gray" FontStyle="Italic"/>
                 <TextBox Name="User_Name" Margin="500,300,380,380"  FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Foreground="DimGray" FontSize="25" Style="{StaticResource watermark}" />
                 <bubble:CCPopup x:Name="bubble" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=User_Name}" Placement="Right" >
                     <Label Style="{StaticResource tipLable}">
                         <StackPanel Orientation="Horizontal">
-                            <Label Foreground="Red" Name="Error_Info" Content="用户名或密码错误"/>
+                            <Label Foreground="Red" Name="Error_Info" Content="{DynamicResource FormView.UserErro}"/>
                         </StackPanel>
                     </Label>
                 </bubble:CCPopup>
 
-                <Label  Content="密   码:" HorizontalAlignment="Right" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="30"   Foreground="DimGray" Margin="0,356,795,309" Width="109" />
-                <TextBlock Name="textBlock"  Margin="500,363,380.2,285.4" FontSize="20" Text="  请在此输入管理密码"  Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic"/>
+                <Label  Content="{DynamicResource FormView.Password}" HorizontalAlignment="Right" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="30"   Foreground="DimGray" Margin="0,356,795,309" Width="109" />
+                <TextBlock Name="textBlock"  Margin="500,363,380.2,285.4" FontSize="20" Text="{DynamicResource FormView.InputPasswd}"  Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic"/>
                 <PasswordBox Name="User_Password" Margin="500,360,380,320" Foreground="DimGray"  FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="25" LostFocus="User_Password_LostFocus"  Style="{StaticResource Watermark}"/>
-             
-              
-                <Button Content="登录" TabIndex="0" Foreground="White" Width="150"  Height="30" Click="Button_Click" Style="{StaticResource Btn}" IsTabStop="False"   FontSize="15"   Margin="460,439,580,200" />
-                <Button Content="重置" TabIndex="0" Foreground="White" Height="30" Width="150" Style="{StaticResource Btn}" Click="Resetting_Button" IsTabStop="False" FontSize="15"   Margin="717,439,350,200" RenderTransformOrigin="1.511,-2.152" />
+
+
+                <Button Content="{DynamicResource FormView.LogIn}" TabIndex="0" Foreground="White" Width="150"  Height="30" Click="Button_Click" Style="{StaticResource Btn}" IsTabStop="False"   FontSize="15"   Margin="460,439,580,200" />
+                <Button Content="{DynamicResource FormView.Reset}" TabIndex="0" Foreground="White" Height="30" Width="150" Style="{StaticResource Btn}" Click="Resetting_Button" IsTabStop="False" FontSize="15"   Margin="717,439,350,200" RenderTransformOrigin="1.511,-2.152" />
             </Grid>
 
         </Viewbox>
