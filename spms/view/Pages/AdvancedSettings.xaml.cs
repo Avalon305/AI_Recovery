@@ -109,14 +109,21 @@ namespace spms.view.Pages
         //刷新页面
         private void FlushAuther()
         {
-            //添加之后，flush界面
-            //致空
-            auther = null;
-            //刷新界面
-            Auther AutherTemp = authDAO.GetAuther(auth_level);
-            List<Auther> AutherList = new List<Auther>();
-            AutherList.Add(AutherTemp);
-            ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
+            try
+            { //添加之后，flush界面
+              //致空
+                auther = null;
+                //刷新界面
+                Auther AutherTemp = authDAO.GetAuther(auth_level);
+                List<Auther> AutherList = new List<Auther>();
+                AutherList.Add(AutherTemp);
+                ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
+            }
+            catch (Exception ee) {
+                List<Auther> AutherList = null;
+                ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
+            }
+           
         }
         //添加按钮的事件
         private void Btn_Insert(object sender, RoutedEventArgs e)
@@ -216,7 +223,7 @@ namespace spms.view.Pages
                  WindowStartupLocation = WindowStartupLocation.CenterScreen
              };
              passwordInput.ShowDialog();
-            if (ProtocolConstant.USB_SUCCESS == 1)//u盘成功读取
+            if (ProtocolConstant.USB_SUCCESS == 0)//u盘成功读取
             {   //获取mac地址
                 StringBuilder stringBuilder = new StringBuilder();
                 //string strMac = CommUtil.GetMacAddress();

@@ -69,10 +69,13 @@ namespace spms.view.Pages.ChildWin
             if (PassWord.Equals(REPassword))
             {
                 auther.Auth_UserPass = PassWord;
-
                 authDAO.Insert(auther);
+                this.Close();
             }
-            this.Close();
+            else {
+                MessageBox.Show("密码的两次输入不一致");
+            }
+            
         }
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
