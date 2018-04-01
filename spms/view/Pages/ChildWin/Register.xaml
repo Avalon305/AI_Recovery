@@ -112,7 +112,7 @@
                     </Border.Background>
                     <Grid>
 
-                        <Label VerticalAlignment="Center" FontSize="22" Foreground="White" Content="用户信息"/>
+                            <Label VerticalAlignment="Center" FontSize="22" Foreground="White" Content="{DynamicResource AddOrEditView.SubjectInformation}"/>
 
                         <!--<Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="284" Height="28" VerticalAlignment="Bottom" BorderBrush="White">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
@@ -146,7 +146,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
-                        <Label Content="用户姓名"  VerticalAlignment="Center"  Foreground="White"/>
+                            <Label Content="{DynamicResource AddOrEditView.LastName}"  VerticalAlignment="Center"  Foreground="White"/>
                     </Border>
                     <TextBox Grid.Row="0" Name="t2" Grid.Column="1" LostFocus="IsName" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <!--气泡-->
@@ -160,22 +160,22 @@
                     <Label  Grid.Row="0" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
 
                     <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
-                        <Label Content="用户姓名(拼音)"  FontStyle="Normal"  Foreground="White"/>
+                            <Label Content="{DynamicResource AddOrEditView.FirstName}"  FontStyle="Normal"  Foreground="White"/>
                     </Border>
                     <TextBox Grid.Row="1" Name="t3" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <Label Grid.Row="1" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
 
                     <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
-                        <Label Content="性别" Grid.Row="2" Grid.Column="0" Foreground="White"/>
+                            <Label Content="{DynamicResource AddOrEditView.Gender}" Grid.Row="2" Grid.Column="0" Foreground="White"/>
                     </Border>
                     <ComboBox Name="c1" Grid.Row="2" Grid.Column="1"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" IsTabStop="False" Grid.ColumnSpan="2" >
-                        <ComboBoxItem Content="男" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
-                        <ComboBoxItem Content="女" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource AddOrEditView.M}" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource AddOrEditView.F}" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                     </ComboBox>
                     <Label  Grid.Row="2" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
 
                     <Border Grid.Row="3" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
-                        <Label Content="出生年月" Grid.Row="3" Grid.Column="0"  Foreground="White"/>
+                            <Label Content="{DynamicResource AddOrEditView.BirthDate}" Grid.Row="3" Grid.Column="0"  Foreground="White"/>
                     </Border>
                     <DatePicker Grid.Row="3" Name="t4" Grid.Column="1"  KeyboardNavigation.TabNavigation="None" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center" SelectedDate="{x:Static sys:DateTime.Now}">
                         <DatePicker.Resources>
@@ -187,7 +187,7 @@
                     <!--<TextBox Grid.Row="3" Name="t4" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>-->
                     <!--<Label Content="（yyyy/mm/dd）" Grid.Row="3" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="0.4,1.6,-71.6,0.2"/>-->
                     <Border Grid.Row="4" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
-                        <Label Content="手机号" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
+                            <Label Content="{DynamicResource AddOrEditView.Phone}" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
                     <TextBox Grid.Row="4" Name="phoneNum" Grid.Column="1" LostFocus="IsPhone" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                     <!--气泡-->
@@ -199,7 +199,7 @@
                         </Label>
                     </bubble:CCPopup>
                     <Border Grid.Row="5" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
-                        <Label Content="身份证号" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
+                            <Label Content="{DynamicResource AddOrEditView.IdCard}" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
                     <TextBox Grid.Row="5" Name="IDCard" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" LostFocus="IsIDCard" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <!--气泡-->
@@ -211,28 +211,28 @@
                         </Label>
                     </bubble:CCPopup>
                     <Border Grid.Row="6" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
-                        <Label Content="小组名称"   Foreground="White"/>
+                            <Label Content="{DynamicResource AddOrEditView.Group}"   Foreground="White"/>
                     </Border>
                     <ComboBox Name="c2" Grid.Row="6" Grid.Column="1" Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" />
 
                     <Label Grid.Row="6" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="0.2,0.2,100.4,1.6"/>
 
                     <Border Grid.Row="7" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
-                        <Label Content="初期要介护度"   Foreground="White"/>
+                            <Label Content="{DynamicResource AddOrEditView.InitialCareLevel}"   Foreground="White"/>
                     </Border>
                     <ComboBox Name="c3" Grid.Row="7" Grid.Column="1" Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>
 
                     <Label  Grid.Row="7" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
 
                     <Border Grid.Row="8" Grid.Column="0" Background="Gray"  Margin="0,0,4,2" >
-                        <Label Content="现在要介护度" Grid.Row="8" Grid.Column="0"  Foreground="White"/>
+                            <Label Content="{DynamicResource AddOrEditView.CurrentCareLevel}" Grid.Row="8" Grid.Column="0"  Foreground="White"/>
                     </Border>
                     <ComboBox Name="c4" Grid.Row="8" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>
 
                     <Label  Grid.Row="8" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
 
                     <Border Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
-                        <Label Content="疾病名称" Grid.Row="9" Grid.Column="0"  Foreground="White"/>
+                            <Label Content="{DynamicResource AddOrEditView.Disease}" Grid.Row="9" Grid.Column="0"  Foreground="White"/>
                     </Border>
                     <ComboBox Name="c5" Grid.Row="9"  LostKeyboardFocus="IsDisease"  Grid.Column="1" KeyUp="c5_KeyUp" Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" IsEditable="True"  VerticalContentAlignment="Center"/>
                     <!--气泡-->
@@ -243,10 +243,10 @@
                             </StackPanel>
                         </Label>
                     </bubble:CCPopup>
-                    <Button Content="疾病名称添加"  Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" IsTabStop="False" Style="{StaticResource Btn}" Width="80" Click="DiseaseNameAddition"/>
+                        <Button Content="{DynamicResource AddOrEditView.AddDisease}"  Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" IsTabStop="False" Style="{StaticResource Btn}" Width="80" Click="DiseaseNameAddition"/>
 
                     <Border Grid.Row="10" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
-                        <Label Content="残障名称" Grid.Row="10" Grid.Column="0"  Foreground="White"/>
+                            <Label Content="{DynamicResource AddOrEditView.Diagnosis}" Grid.Row="10" Grid.Column="0"  Foreground="White"/>
                     </Border>
                     <ComboBox Name="c6" Grid.Row="10" Grid.Column="1"  LostKeyboardFocus="IsDiagnosis" KeyUp="c6_KeyUp" Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" IsEditable="True" VerticalContentAlignment="Center" />
                     <!--气泡-->
@@ -257,10 +257,10 @@
                             </StackPanel>
                         </Label>
                     </bubble:CCPopup>
-                    <Button Content="残障名称添加"  Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" IsTabStop="False"  Height="25" Style="{StaticResource Btn}" Width="80" Click="DisabilityNameAddition"/>
+                        <Button Content="{DynamicResource AddOrEditView.AddDiagnosis}"  Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" IsTabStop="False"  Height="25" Style="{StaticResource Btn}" Width="80" Click="DisabilityNameAddition"/>
 
                     <Border Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
-                        <Label Content="备忘" Grid.Row="11" Grid.Column="0"  Foreground="White"/>
+                            <Label Content="{DynamicResource AddOrEditView.Memo}" Grid.Row="11" Grid.Column="0"  Foreground="White"/>
                     </Border>
                     <!--<TextBox TextWrapping="Wrap" AcceptsReturn="True"  Grid.Row="11" Name="t6" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"></TextBox>-->
                     <RichTextBox  AcceptsReturn="True"  Grid.Row="11" Name="t6" Grid.Column="1"   Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2">
@@ -271,7 +271,7 @@
                         </RichTextBox.Document>
                     </RichTextBox>
                     <!--<TextBox Grid.Row="10" Name="t11" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>-->
-                    <Button Content="非公开信息"  Grid.Row="11" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" IsTabStop="False"  Style="{StaticResource Btn}" Width="80" Click="InputNonPublicInformationPassword"/>
+                        <Button Content="{DynamicResource AddOrEditView.Non-DisclosureInformation}"  Grid.Row="11" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" IsTabStop="False"  Style="{StaticResource Btn}" Width="80" Click="InputNonPublicInformationPassword"/>
                 </Grid>
 
                 <StackPanel Height="211" Orientation="Horizontal" Margin="10,0,0,0">
@@ -280,8 +280,8 @@
                     </Border>
 
                     <Grid Margin="0,0,0,0.2" Width="86" >
-                        <Button Content="摄影" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Width="75" IsTabStop="False"  Height="25" RenderTransformOrigin="0.004,-0.462" Style="{StaticResource Btn}" Click="Photograph"/>
-                        <Button Content="打开文档" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="75" IsTabStop="False"  Height="25" RenderTransformOrigin="0.049,0.799"  Style="{StaticResource Btn}" Click="Select_Picture_Show" />
+                            <Button Content="{DynamicResource AddOrEditView.Shoot}" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Width="75" IsTabStop="False"  Height="25" RenderTransformOrigin="0.004,-0.462" Style="{StaticResource Btn}" Click="Photograph"/>
+                            <Button Content="{DynamicResource AddOrEditView.Refer}" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="75" IsTabStop="False"  Height="25" RenderTransformOrigin="0.049,0.799"  Style="{StaticResource Btn}" Click="Select_Picture_Show" />
                     </Grid>
                     <DockPanel Margin="22,0,0,0" Name="Non_Public_Information"  Visibility="Hidden">
                         <Border Height="20" Width="270" Background="Red" DockPanel.Dock="Top" >
@@ -292,8 +292,8 @@
                 </StackPanel>
                 <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="434" Height="47" VerticalAlignment="Bottom" BorderBrush="White" Margin="0,0,9.6,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,0" IsTabStop="False"  Foreground="Black" Content="确定" Style="{StaticResource Btn}" Click="Button_OK"/>
-                        <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" IsTabStop="False"  Content="取消" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
+                            <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,2,0" IsTabStop="False"  Foreground="Black" Content="{DynamicResource AddOrEditView.Confirm}" Style="{StaticResource Btn}" Click="Button_OK"/>
+                            <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" IsTabStop="False"  Content="{DynamicResource AddOrEditView.Cancel}" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
                     </StackPanel>
                 </Border>
 

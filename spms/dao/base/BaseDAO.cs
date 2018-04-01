@@ -17,22 +17,31 @@ namespace spms.dao
         /// <returns></returns>
         public List<T> ListAll()
         {
+            //using (var conn = DbUtil.getConn())
+            //{
+
+            //    conn.Open();
+
+            //    var result = conn.GetAll<T>().ToList();
+            //    return result;
+            //}
             using (var conn = DbUtil.getConn())
             {
 
                 conn.Open();
+                var r = conn.GetAll<T>();
+                return r == null ? new List<T>() : r.ToList();
 
-                var result = conn.GetAll<T>().ToList();
-                return result;
             }
+
 
         }
 
-       /// <summary>
-       /// 根据主键载入
-       /// </summary>
-       /// <param name="primaryKey"></param>
-       /// <returns></returns>
+        /// <summary>
+        /// 根据主键载入
+        /// </summary>
+        /// <param name="primaryKey"></param>
+        /// <returns></returns>
         public T Load(Object primaryKey)
         {
             using (var conn = DbUtil.getConn())
