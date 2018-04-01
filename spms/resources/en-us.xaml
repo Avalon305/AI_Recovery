@@ -232,6 +232,9 @@
     <s:String x:Key="TrainingListView.Resttime">Rest time</s:String>
     <s:String x:Key="TrainingListView.Weight">Weight</s:String>
     <s:String x:Key="TrainingListView.Transfer">Transfer</s:String>
+    <s:String x:Key="TrainingListView.Timer">Timer</s:String>
+    <s:String x:Key="TrainingListView.TimerCount">Time Count</s:String>
+    <s:String x:Key="TrainingListView.TimeType">Timer Type</s:String>
     <s:String x:Key="TrainingListView.TrainingCaution">Training Caution</s:String>
     <s:String x:Key="TrainingListView.Save">Save</s:String>
     <s:String x:Key="TrainingListView.WritetoCard">Write to Card</s:String>

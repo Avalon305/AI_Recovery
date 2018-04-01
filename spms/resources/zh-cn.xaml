@@ -225,13 +225,16 @@
 
     <!-- 输入训练界面 -->
     <s:String x:Key="TrainingListView.TrainingList">输入训练</s:String>
-    <s:String x:Key="TrainingListView.SubjectID">使用者编号</s:String>
-    <s:String x:Key="TrainingListView.LastName">姓名</s:String>
+    <s:String x:Key="TrainingListView.SubjectID">用户编号:</s:String>
+    <s:String x:Key="TrainingListView.LastName">用户姓名:</s:String>
     <s:String x:Key="TrainingListView.#ofSets">组数</s:String>
     <s:String x:Key="TrainingListView.Reps">1组的个数</s:String>
     <s:String x:Key="TrainingListView.Resttime">组间间隔休息时间</s:String>
     <s:String x:Key="TrainingListView.Weight">砝码</s:String>
     <s:String x:Key="TrainingListView.Transfer">移乘方式</s:String>
+    <s:String x:Key="TrainingListView.Timer">计时器</s:String>
+    <s:String x:Key="TrainingListView.TimerCount">计时时间</s:String>
+    <s:String x:Key="TrainingListView.TimeType">计时方式</s:String>
     <s:String x:Key="TrainingListView.TrainingCaution">注意点、运动方式的指示等</s:String>
     <s:String x:Key="TrainingListView.Save">保存</s:String>
     <s:String x:Key="TrainingListView.WritetoCard">写入IC卡</s:String>
