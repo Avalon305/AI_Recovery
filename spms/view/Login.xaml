@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         
+        xmlns:local="clr-namespace:spms.view.Pages"
         xmlns:bubble="clr-namespace:spms.view.bubblemove"
         PreviewKeyDown="key_dowm"
         ResizeMode="NoResize"
@@ -59,7 +60,7 @@
                 <Border Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="1035,582,0,0" Width="76" RenderTransformOrigin="0.5,0.5">
                     <Border.Resources>
                         <Storyboard x:Key="LoadHeadStoryboard">
-                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:02"    Duration="00:00:12.5" RepeatBehavior="Forever"  Storyboard.TargetName="DesignerHead" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:01"    Duration="00:00:3" RepeatBehavior="Forever"  Storyboard.TargetName="DesignerHead" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
                                 <LinearDoubleKeyFrame KeyTime="0:0:0.5" Value="-1"/>
                                 <LinearDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
                             </DoubleAnimationUsingKeyFrames>
@@ -93,7 +94,7 @@
                     <Border.Resources>
 
                         <Storyboard x:Key="LoadHeadStoryboard">
-                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:3.5"    Duration="00:00:12.5"   RepeatBehavior="1"  Storyboard.TargetName="DesignerHead2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:2"    Duration="00:00:03"   RepeatBehavior="1"  Storyboard.TargetName="DesignerHead2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
                                 <LinearDoubleKeyFrame KeyTime="0:0:0.5" Value="1.23"/>
                                 <LinearDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
 
@@ -129,8 +130,8 @@
                 <Label Content="Version 1.0.0" Margin="709,218,301.2,419.4" Foreground="Gray"  FontFamily="{StaticResource ResourceKey=MAGNETOB}" FontSize="20"/>
                 <!--<Label Content="错误提示" FontWeight="DemiBold" FontSize="15" FontFamily="{StaticResource 微软雅黑}" Foreground="Red" Margin="509,273,381.2,340.4" Name="Error_Info"></Label>-->
                 <Label Content="用户名:" HorizontalAlignment="Right" FontSize="30" Foreground="DimGray" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Margin="0,294,795,376" />
-                <Label  Margin="500,300,380,380" FontSize="20" VerticalContentAlignment="Center" Content="  请在此输入管理用户名" VerticalAlignment="Center" FontFamily="{StaticResource   LiSu}" Foreground="Gray" FontStyle="Italic" Height="40"/>
-                <TextBox Name="User_Name" Margin="500,300,380,380" VerticalContentAlignment="Center" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Foreground="DimGray" FontSize="25" Style="{StaticResource watermark}" />
+                <TextBlock  Margin="500,307,380,340.4" FontSize="20" Text="  请在此输入管理用户名"  FontFamily="{StaticResource   LiSu}" Foreground="Gray" FontStyle="Italic"/>
+                <TextBox Name="User_Name" Margin="500,300,380,380"  FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Foreground="DimGray" FontSize="25" Style="{StaticResource watermark}" />
                 <bubble:CCPopup x:Name="bubble" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=User_Name}" Placement="Right" >
                     <Label Style="{StaticResource tipLable}">
                         <StackPanel Orientation="Horizontal">
@@ -140,9 +141,10 @@
                 </bubble:CCPopup>
 
                 <Label  Content="密   码:" HorizontalAlignment="Right" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="30"   Foreground="DimGray" Margin="0,356,795,309" Width="109" />
-                <Label  Margin="500,360,381,320" FontSize="20" VerticalContentAlignment="Center" Content="  请在此输入管理密码" VerticalAlignment="Center" Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic" Height="40" />
-                <PasswordBox Name="User_Password" Margin="500,360,380,320" Foreground="DimGray" VerticalContentAlignment="Center" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="25" Style="{StaticResource Watermark}"/>
-
+                <TextBlock Name="textBlock"  Margin="500,363,380.2,285.4" FontSize="20" Text="  请在此输入管理密码"  Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic"/>
+                <PasswordBox Name="User_Password" Margin="500,360,380,320" Foreground="DimGray"  FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="25" LostFocus="User_Password_LostFocus"  Style="{StaticResource Watermark}"/>
+             
+              
                 <Button Content="登录" TabIndex="0" Foreground="White" Width="150"  Height="30" Click="Button_Click" Style="{StaticResource Btn}" IsTabStop="False"   FontSize="15"   Margin="460,439,580,200" />
                 <Button Content="重置" TabIndex="0" Foreground="White" Height="30" Width="150" Style="{StaticResource Btn}" Click="Resetting_Button" IsTabStop="False" FontSize="15"   Margin="717,439,350,200" RenderTransformOrigin="1.511,-2.152" />
             </Grid>

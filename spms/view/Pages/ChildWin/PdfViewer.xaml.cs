@@ -186,5 +186,12 @@ namespace spms.view.Pages.ChildWin
                 printDoc.Print();
             }
         }
+
+      
+
+        private void print_close(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

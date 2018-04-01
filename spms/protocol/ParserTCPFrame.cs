@@ -245,6 +245,8 @@ namespace spms.protocol
                 result.PR_Index = singer / 100.0;
                 result.PR_Evaluate = rhythem;
                 result.PR_UserThoughts = think;
+                result.Gmt_Create = DateTime.Now;
+                result.Gmt_Modified = result.Gmt_Create;
 
                 StringBuilder sb = new StringBuilder();
                 sb.Append("运动强度：").Append(strength).Append("运动时间：").Append(time).Append("总移动距离：").Append(distance).Append("总功：").Append(energy)
