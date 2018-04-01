@@ -239,8 +239,8 @@
 
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">输入体力评价</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.SubjectID">使用者编号</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.LastName">姓名</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.SubjectID">用户编号:</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.LastName">用户姓名:</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Evaluation">评价项目</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.EvaluationCondition">测定条件</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.#1">第1次</s:String>
