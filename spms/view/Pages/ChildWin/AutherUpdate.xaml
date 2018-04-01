@@ -70,8 +70,8 @@
                     <Border Grid.Row="8" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="永久离线" Grid.Row="8" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <RadioButton Grid.Row="8" Grid.Column="1"  Margin="10,0,0,0" VerticalAlignment="Center" IsTabStop="False" Content="是"></RadioButton>
-                    <RadioButton Grid.Row="8" Grid.Column="1"  Margin="60,0,0,0" VerticalAlignment="Center" IsTabStop="False" Content="否"></RadioButton>
+                    <RadioButton x:Name="Yse" Grid.Row="8" Grid.Column="1"  Margin="10,0,0,0" VerticalAlignment="Center" IsTabStop="False" Content="是"></RadioButton>
+                    <RadioButton  x:Name="No" Grid.Row="8" Grid.Column="1"  Margin="60,0,0,0" VerticalAlignment="Center" IsTabStop="False" Content="否"></RadioButton>
                     <!--<TextBox Grid.Row="10" Name="t11" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>-->
                 </Grid>
                 <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="276" Height="47" VerticalAlignment="Top" BorderBrush="White" Margin="0,0,9.6,0">

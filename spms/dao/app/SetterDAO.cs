@@ -27,7 +27,7 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
-                const string sql = "insert into bdl_set(set_unique_id) values(@Set_Unique_Id)";
+                const string sql = "insert into bdl_set(set_unique_id, set_photolocation) values(@Set_Unique_Id, @Set_PhotoLocation)";
                 conn.Execute(sql, setter);
             }
         }
