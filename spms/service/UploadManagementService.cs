@@ -55,7 +55,6 @@ namespace spms.service
             //}
             //catch (Exception ex)
             //{
-            //    //TODO 解密失败的处理:把冒号去掉?
             //    mac = setter.Set_Unique_Id.Replace(":", "");
             //}
             byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);

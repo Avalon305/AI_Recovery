@@ -118,6 +118,7 @@ namespace spms
         {
             photoName = oldPhotoName;
             this.Close();
+
         }
     }
 }

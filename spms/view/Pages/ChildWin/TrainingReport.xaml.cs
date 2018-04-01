@@ -46,11 +46,19 @@ namespace spms.view.Pages.ChildWin
         /// </summary>
         public void InitializationExcelToPdf()
         {
-            using (Workbook workbook = new Workbook())
+            try
             {
-                workbook.LoadFromFile(CommUtil.GetDocPath("test1.xlsx"));
-                workbook.SaveToFile(CommUtil.GetDocPath("test1.pdf"), Spire.Xls.FileFormat.PDF);
+                using (Workbook workbook = new Workbook())
+                {
+                    workbook.LoadFromFile(CommUtil.GetDocPath("test1.xlsx"));
+                    workbook.SaveToFile(CommUtil.GetDocPath("test1.pdf"), Spire.Xls.FileFormat.PDF);
+                }
             }
+            catch (Exception e)
+            {
+                initializationExcelToPdfThread.Abort();
+            }
+           
         }
 
         public TrainingReport()

@@ -54,7 +54,7 @@ namespace spms.view.dto
 
         private string isEmpty(string val)
         {
-            if (val == null || val == "")
+            if (val == null || val.Trim() == "")
             {
                 return "未填写";
             }

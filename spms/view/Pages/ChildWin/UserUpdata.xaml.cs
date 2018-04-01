@@ -505,8 +505,17 @@ namespace spms.view.Pages.ChildWin
                 else
                 {
                     userIfSelectPic = false;
-                    BitmapImage i = new BitmapImage(new Uri(CommUtil.GetUserPic() + SelectUser.User_PhotoLocation, UriKind.Absolute));//打开图片
-                    pic.Source = i.Clone();//将控件和图片绑定
+                    try
+                    {
+                        BitmapImage i = new BitmapImage(new Uri(CommUtil.GetUserPic() + SelectUser.User_PhotoLocation,
+                            UriKind.Absolute)); //打开图片
+                        pic.Source = i.Clone(); //将控件和图片绑定
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                    
                 }
                 
             }

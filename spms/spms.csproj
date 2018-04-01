@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -48,6 +48,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>view\Images\bitbug_favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -175,6 +178,7 @@
     <Compile Include="constant\CodeConstant.cs" />
     <Compile Include="constant\DevConstants.cs" />
     <Compile Include="constant\ProtocolConstant.cs" />
+    <Compile Include="constant\UserConstant.cs" />
     <Compile Include="dao\app\CustomDataDAO.cs" />
     <Compile Include="dao\app\ExcelDao.cs" />
     <Compile Include="dao\AuthDAO.cs" />
@@ -621,6 +625,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\bitbug_favicon.ico" />
+    <Resource Include="view\Images\icon2.jpg" />
     <Resource Include="view\Images\excel\1234.gif" />
     <Content Include="lib\libmupdf.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

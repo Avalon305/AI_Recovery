@@ -48,7 +48,7 @@ namespace spms.http
             //}
             //catch (Exception ex)
             //{
-            //    //TODO 解密失败的处理:把冒号去掉?
+            //    //
             //    mac = setter.Set_Unique_Id.Replace(":", "");
             //}
             //获得当前主机的mac地址

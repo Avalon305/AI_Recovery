@@ -65,6 +65,7 @@ namespace spms.view.Pages.ChildWin
             auther.Auth_OfflineTime = DateTime.Now;
             string PassWord = Pass.Password;
             string REPassword = Confirm_Pass.Password;
+            auther.Auth_Level = 0x01;
             if (PassWord.Equals(REPassword))
             {
                 auther.Auth_UserPass = PassWord;
