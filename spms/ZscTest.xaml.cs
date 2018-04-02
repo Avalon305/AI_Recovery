@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.util;
 
 namespace spms
 {
@@ -26,7 +27,8 @@ namespace spms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            string s = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Valid");
+            MessageBox.Show(s);
         }
     }
 }

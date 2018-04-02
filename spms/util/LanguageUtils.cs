@@ -41,12 +41,12 @@ namespace spms.util
             var dataCodeCache = DataCodeCache.GetInstance();
             if (all != null && all.Count != 0)
             {
-                if (dataCodeCache.GetCodeDValue(DataCodeTypeEnum.Language, all[0].Set_Language.ToString()) == "中文")
+                if (dataCodeCache.GetCodeDValue(DataCodeTypeEnum.Language, all[0].Set_Language.ToString()) == "英语")
                 {
-                    return true;
+                    return false;
                 }
             }
-            return false;
+            return true;
             
         }
         /// <summary>
