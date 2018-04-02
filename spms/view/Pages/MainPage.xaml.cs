@@ -244,7 +244,7 @@ namespace spms.view.Pages
                 
             }
             //更新之后，刷新左下角
-            //Refresh_RecordFrame_Action();
+            Refresh_RecordFrame_Action();
 
 
         }
@@ -431,6 +431,7 @@ namespace spms.view.Pages
 
                     List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(selectUser.Pk_User_Id);
                     trainingReport.datalist.DataContext = list;
+                    Console.WriteLine(list.ToString());
                     trainingReport.ShowDialog();
                 }
             }
