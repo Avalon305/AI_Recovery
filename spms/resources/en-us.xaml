@@ -31,9 +31,9 @@
     <s:String x:Key="SettingsView.FacilityName">Facility Name</s:String>
     <s:String x:Key="SettingsView.Return">Return</s:String>
     <s:String x:Key="SettingsView.PremarySettings">Premary Settings</s:String>
-
+    
     <s:String x:Key="SettingsView.AdvancedSettings">Advanced Settings</s:String>
-    <s:String x:Key="SettingsView.Alert"  xml:space="preserve">(Once the path is set&#13;not to suggest changes)</s:String>
+    <s:String x:Key="SettingsView.Alert">(Once the path is set not to suggest changes)</s:String>
     <s:String x:Key="SettingsView.FacilityType">Facility Type</s:String>
     <s:String x:Key="SettingsView.Other">Other</s:String>
     <s:String x:Key="SettingsView.Hospital">Hospital</s:String>
@@ -277,8 +277,8 @@
     <s:String x:Key="PhysicalEvaluationFormView.2minKneeext.(reps)">2min Knee ext.(reps)</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Subjectcomment">Subject comment</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Staffcomment">Staff comment</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.SupportingLeg" xml:space="preserve">Supporting&#13;Leg</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.Bothhands" xml:space="preserve">Both&#13;hands</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.SupportingLeg">Supporting Leg</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.Bothhands">Both hands</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.L">L</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.R">R</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Testing">Testing</s:String>
@@ -312,6 +312,7 @@
     <s:String x:Key="CreateTrainingReportView.Go">Go</s:String>
     <s:String x:Key="CreateTrainingReportView.Preview">Preview</s:String>
     <s:String x:Key="CreateTrainingReportView.Cancel">Cancel</s:String>
+    <s:String x:Key="CreateTrainingReportView.OutputReport">Output Report</s:String>
     <s:String x:Key="CreateTrainingReportView.ComprehensiveReport">Comprehensive Report</s:String>
     <s:String x:Key="CreateTrainingReportView.Detailedreport">Detailed report</s:String>
     <s:String x:Key="CreateTrainingReportView.NursingRecordReport">Nursing Record Report</s:String>
@@ -347,12 +348,15 @@
     <!-- 用户注册界面 -->
     <s:String x:Key="RegisterView.Register">Register</s:String>
     <s:String x:Key="RegisterView.UserName">UserName</s:String>
+    <s:String x:Key="RegisterView.Update">Update</s:String>
     <s:String x:Key="RegisterView.Password">Password</s:String>
-    <s:String x:Key="RegisterView.Confirm">Confirm</s:String>
     <s:String x:Key="RegisterView.OffLineDate">OffLineDate</s:String>
     <s:String x:Key="RegisterView.OffLine">OffLine</s:String>
     <s:String x:Key="RegisterView.Yes">Yes</s:String>
     <s:String x:Key="RegisterView.No">No</s:String>
+    <s:String x:Key="RegisterView.ConfirmPasswd">Confirm Password</s:String>
+    <s:String x:Key="RegisterView.Confirm">Confirm</s:String>
+    <s:String x:Key="RegisterView.Cancel">Cancel</s:String>
 
     <!-- 增加残障界面 -->
     <s:String x:Key="AddDiagnosisView.Diagnosis">Diagnosis</s:String>
