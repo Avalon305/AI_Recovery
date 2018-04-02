@@ -1354,7 +1354,8 @@ namespace spms.view.Pages.ChildWin
             {
                 byte[] data = new byte[90];
                 //用户id
-                string str = new UserService().getUserByUserId(user.Pk_User_Id) + "";
+                string str = new UserService().getUserByUserId(user.Pk_User_Id).User_IDCard + "";
+                Console.WriteLine(str);
                 byte[] idBytes = Encoding.ASCII.GetBytes(str);
                 Array.Copy(idBytes, 0, data, 0, idBytes.Length);
 
