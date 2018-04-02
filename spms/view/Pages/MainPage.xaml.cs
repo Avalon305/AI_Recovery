@@ -53,7 +53,7 @@ namespace spms.view.Pages
         private AuthDAO authDao = new AuthDAO();
 
 
-        
+
 
         //后台心跳更新UI线程
         public System.Timers.Timer timerNotice = null;
@@ -82,7 +82,7 @@ namespace spms.view.Pages
         private void Grid_Click(object sender, MouseButtonEventArgs e)
         {
             ifSelecUser = true;
-            selectUser = (User) UsersInfo.SelectedItem;
+            selectUser = (User)UsersInfo.SelectedItem;
             //UserInfo
             UserInfo.DataContext = selectUser;
             string path = null;
@@ -99,7 +99,7 @@ namespace spms.view.Pages
             {
                 path = CommUtil.GetUserPic();
                 path += selectUser.User_PhotoLocation;
-                
+
                 //path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
                 //path += ".gif";
             }
@@ -119,7 +119,28 @@ namespace spms.view.Pages
             }
             else
             {
-                UserPhoto.Source = new BitmapImage(new Uri(path));
+
+                using (FileStream fs = new FileStream(path, FileMode.Open))
+                {
+                    byte[] byteData = new byte[fs.Length];
+                    fs.Read(byteData, 0, byteData.Length);
+
+                    BitmapImage bmp = null;
+                    try
+                    {
+                        bmp = new BitmapImage();
+                        bmp.BeginInit();
+                        bmp.StreamSource = new MemoryStream(byteData);
+                        bmp.EndInit();
+                    }
+                    catch
+                    {
+                        bmp = null;
+                    }
+
+                    UserPhoto.Source = bmp;
+                }
+
             }
         }
 
@@ -134,13 +155,13 @@ namespace spms.view.Pages
             users = userService.GetAllUsers();
             UsersInfo.ItemsSource = users;
             UsersInfo.SelectedIndex = 1;
-            selectUser = (User) UsersInfo.SelectedItem;
+            selectUser = (User)UsersInfo.SelectedItem;
             Refresh_RecordFrame_Action();
             ///心跳部分
 
             #region 通知公告   未激活不心跳
             SetterDAO setterDao = new SetterDAO();
-                if (timerNotice == null)
+            if (timerNotice == null)
             {
 
                 while (setterDao.ListAll() != null)
@@ -151,7 +172,7 @@ namespace spms.view.Pages
 
                 timerNotice = new System.Timers.Timer();
                 timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) => { BindNotice(); });
-                
+
                 timerNotice.Interval = CommUtil.GetHeartBeatRate();
                 timerNotice.Start();
             }
@@ -218,9 +239,9 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            
+
             //类中使用
-            User user = (User) UsersInfo.SelectedItem;
+            User user = (User)UsersInfo.SelectedItem;
             userUpdata.SelectUser = user;
             //UI中使用
             userUpdata.selectUser.DataContext = user;
@@ -228,7 +249,7 @@ namespace spms.view.Pages
             userUpdata.noPublicInfoText.Text = user.User_Privateinfo;
             Console.WriteLine("123123aaaaa:   " + userUpdata.noPublicInfoText.Text);
             userUpdata.ShowDialog();
-            
+
             //关闭后刷新界面
             users = userService.GetAllUsers();
             UsersInfo.ItemsSource = users;
@@ -237,14 +258,16 @@ namespace spms.view.Pages
             string photoUrl = CommUtil.GetUserPic() + selectUser.User_PhotoLocation;
             if (selectUser.User_PhotoLocation != null)
             {
-                try {
+                try
+                {
                     BitmapImage b = new BitmapImage(new Uri(photoUrl, UriKind.Absolute));//打开图片
                     UserPhoto.Source = b.Clone();//将控件和图片绑定
                 }
-                catch (Exception ee) {
+                catch (Exception ee)
+                {
 
                 }
-                
+
             }
             //更新之后，刷新左下角
             Refresh_RecordFrame_Action();
@@ -255,7 +278,7 @@ namespace spms.view.Pages
         //按钮：删除
         private void Delete_User(object sender, RoutedEventArgs e)
         {
-            
+
             //检查是否选中
             if (selectUser == null)
             {
@@ -263,7 +286,7 @@ namespace spms.view.Pages
                 return;
             }
 
-            MessageBoxResult dr = MessageBox.Show(LanguageUtils.ConvertLanguage("您确定删除该使用者信息？\n 使用者：", "Do You Want Delete The Subject?\n Subject:") + ((User) UsersInfo.SelectedItem).User_Name,
+            MessageBoxResult dr = MessageBox.Show(LanguageUtils.ConvertLanguage("您确定删除该使用者信息？\n 使用者：", "Do You Want Delete The Subject?\n Subject:") + ((User)UsersInfo.SelectedItem).User_Name,
                 LanguageUtils.ConvertLanguage("提示", "Option"), MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (dr == MessageBoxResult.OK)
             {
@@ -276,7 +299,7 @@ namespace spms.view.Pages
                 UsersInfo.ItemsSource = users;
             }
         }
-        
+
         // 切换frame
         private void Radio_Check(object sender, RoutedEventArgs e)
         {
@@ -287,7 +310,7 @@ namespace spms.view.Pages
         //记录类型切换
         private void Radio_Check_Action()
         {
-            
+
             User user = (User)UsersInfo.SelectedItem;
             if (user == null)
             {
@@ -314,9 +337,9 @@ namespace spms.view.Pages
                 //MessageBox.Show("界面3");
                 record.Source = new Uri("/view/Pages/Frame/PhysicaleValuation_Frame.xaml", UriKind.Relative);
             }
-            
+
         }
-        
+
         //按钮：文档输出
         private void Output_Document(object sender, RoutedEventArgs e)
         {
@@ -481,15 +504,15 @@ namespace spms.view.Pages
                     physicalAssessmentReport.datalist.DataContext = list;
                     physicalAssessmentReport.ShowDialog();
                 }
-                    //List<TrainInfo> list = new List<TrainInfo>();
-                    //TrainInfo trainInfo = new TrainInfo
-                    //{
-                    //    Gmt_Create = new DateTime(2012, 01, 02)
-                    //};
-                    //list.Add(trainInfo);
-                    //Console.WriteLine(trainInfo.Gmt_Create);
-                    //list.Add(trainInfo);
-                    
+                //List<TrainInfo> list = new List<TrainInfo>();
+                //TrainInfo trainInfo = new TrainInfo
+                //{
+                //    Gmt_Create = new DateTime(2012, 01, 02)
+                //};
+                //list.Add(trainInfo);
+                //Console.WriteLine(trainInfo.Gmt_Create);
+                //list.Add(trainInfo);
+
             }
 
             ////List<String> list = new List<string>();
@@ -509,8 +532,8 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            User user = (User) UsersInfo.SelectedItem;
-            if(user == null)
+            User user = (User)UsersInfo.SelectedItem;
+            if (user == null)
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
@@ -549,9 +572,9 @@ namespace spms.view.Pages
                 }
 
                 DataGrid dataGrid = ((SignInformationRecord_Frame)record.Content).SignInformationRecord;
-                
-                SymptomInfoDTO symptomInfoDto = (SymptomInfoDTO) dataGrid.SelectedItem;
-                User user = (User) UsersInfo.SelectedItem;
+
+                SymptomInfoDTO symptomInfoDto = (SymptomInfoDTO)dataGrid.SelectedItem;
+                User user = (User)UsersInfo.SelectedItem;
                 if (user == null)
                 {
                     MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
@@ -686,14 +709,15 @@ namespace spms.view.Pages
                 {
 
                     //如果用户没有被上传则return，不允许发心跳，否则就按照不合法冻结了
-                    if (new UploadManagementDAO().CheckExistAuth()!=null) {
+                    if (new UploadManagementDAO().CheckExistAuth() != null)
+                    {
                         return;
                     }
 
                     HeartBeatOffice heartBeatOffice = new HeartBeatOffice();
                     HttpHeartBeat result = heartBeatOffice.GetHeartBeatByCurrent();
                     //心跳直接上传   !HttpSender.Ping() ||
-                    if ( result == null)
+                    if (result == null)
                     {
                         //如果没有取到值
                         return;
@@ -702,7 +726,8 @@ namespace spms.view.Pages
                         JsonTools.Obj2JSONStrNew<HttpHeartBeat>(result));
                     HttpHeartBeat webResult = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(jsonStr);
                     //本地数据更改
-                    if (webResult==null) {
+                    if (webResult == null)
+                    {
                         return;
                     }
                     heartBeatOffice.SolveHeartbeat(webResult);
@@ -820,7 +845,7 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            User user = (User) UsersInfo.SelectedItem;
+            User user = (User)UsersInfo.SelectedItem;
             if (user == null)
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
@@ -852,16 +877,16 @@ namespace spms.view.Pages
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
             }
-           
+
         }
 
         //设置按钮
         private void BtnSetting_Click(object sender, RoutedEventArgs e)
         {
-            Window window = (Window) this.Parent;
+            Window window = (Window)this.Parent;
             window.Content = new DesignPage1();
         }
-        
+
         private void UsersInfo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Refresh_RecordFrame_Action();
@@ -873,14 +898,14 @@ namespace spms.view.Pages
         /// 给frame加入数据
         private void Refresh_RecordFrame_Action()
         {
-            
+
             User user = selectUser;
 
             if (user == null)
             {
                 //MessageBox.Show("请选择用户");
                 return;
-            } 
+            }
 
             if (user.User_Name != "" && user.User_Name != null)
             {
