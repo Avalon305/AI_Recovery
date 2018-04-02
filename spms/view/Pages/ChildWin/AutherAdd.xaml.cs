@@ -74,6 +74,7 @@ namespace spms.view.Pages.ChildWin
             if ((bool)No.IsChecked)
             {
                 auther.Auth_OfflineTime = Confirm_Date.SelectedDate;
+                auther.User_Status = 0;
             }
             else//默认启用
             {
@@ -83,6 +84,7 @@ namespace spms.view.Pages.ChildWin
                 DateTimeFormatInfo dtFormat = new DateTimeFormatInfo();
                 dtFormat.ShortDatePattern = "yyyy-MM-dd";
                 auther.Auth_OfflineTime = Convert.ToDateTime(sdate, dtFormat);
+                auther.User_Status = 2;
             }
             if (Pass.Password != null && Pass.Password != "")
             {

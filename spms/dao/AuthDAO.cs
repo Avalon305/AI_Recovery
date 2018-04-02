@@ -22,7 +22,6 @@ namespace spms.dao
             using (var conn = DbUtil.getConn())
             {
                 const string query = "select * from bdl_auth where Auth_Level = @Auth_Level";
-
                 return conn.QueryFirstOrDefault<Auther>(query, new { Auth_Level = Auth_Level });
             }
         }

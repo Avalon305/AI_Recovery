@@ -193,8 +193,16 @@ namespace spms.view.Pages
                 autherUpdate.UserName.Text = auther.Auth_UserName;
                 autherUpdate.Pass.Password = auther.Auth_UserPass;
                 autherUpdate.Confirm_Pass.Password = auther.Auth_UserPass;
-                //日期在修改时最好不要获取 如果以前是9999那么改太麻烦
-                //autherUpdate.Confirm_Date.SelectedDate = auther.Auth_OfflineTime;
+                if (auther.Auth_OfflineTime.ToString() == "9999-12-31")
+                {
+                    autherUpdate.Yes.IsChecked = true;
+                    autherUpdate.Confirm_Date.SelectedDate = auther.Auth_OfflineTime;
+                }
+                else {
+                    autherUpdate.No.IsChecked = true;
+                    autherUpdate.Confirm_Date.SelectedDate = auther.Auth_OfflineTime;
+                }
+                          
                 autherUpdate.ShowDialog();
                 FlushAuther();
                 selected = 0;

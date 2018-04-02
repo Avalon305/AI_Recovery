@@ -357,9 +357,10 @@
 
                                 </DockPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0.2,0,10,0.2">
-                                <Button DockPanel.Dock="Right" Content="{DynamicResource SubjectInfoView.Export}" Margin="2,0,0,0"  Style="{StaticResource Btn}" Width="140" Click="Output_Document"/>
-                                    <Button DockPanel.Dock="Right" Content="{DynamicResource SubjectInfoView.InputTrainingResult}" Margin="2,0,0,0" Style="{StaticResource Btn}" Width="140" Click="InputTrainingResults"/>
-                                    <Button   Content="{DynamicResource SubjectInfoView.Details}" Margin="2,0,0,0" Style="{StaticResource Btn}" Width="140" Click="ViewDetails"/>
+                                    <Button   Content="{DynamicResource SubjectInfoView.Details}" Margin="2,0,0,0" Style="{StaticResource Btn}" Height="25" Width="140" Click="ViewDetails"/>
+                                    <Button DockPanel.Dock="Right" Content="{DynamicResource SubjectInfoView.InputTrainingResult}" Margin="2,0,0,0" Height="25" Style="{StaticResource Btn}" Width="140" Click="InputTrainingResults"/>
+
+                                    <Button DockPanel.Dock="Right" Content="{DynamicResource SubjectInfoView.Export}" Margin="2,0,0,0" Height="25" Style="{StaticResource Btn}" Width="140" Click="Output_Document"/>
                                 </StackPanel>
                                 </Grid>
                             

@@ -63,6 +63,7 @@ namespace spms.view.Pages.ChildWin
             if ((bool)No.IsChecked)
             {
                 selectedAuther.Auth_OfflineTime = Confirm_Date.SelectedDate;
+                selectedAuther.User_Status = 0;
             }
             else
             {
@@ -71,17 +72,25 @@ namespace spms.view.Pages.ChildWin
                 DateTimeFormatInfo dtFormat = new DateTimeFormatInfo();
                 dtFormat.ShortDatePattern = "yyyy-MM-dd";
                 selectedAuther.Auth_OfflineTime = Convert.ToDateTime(sdate, dtFormat);
+                selectedAuther.User_Status = 2;
             }
             string PassWord = Pass.Password;
             string REPassword = Confirm_Pass.Password;
-            if (PassWord.Equals(REPassword))
+            if (PassWord.Equals(REPassword) && PassWord != "")
             {
                 selectedAuther.Auth_UserPass = PassWord;
                 authDAO.UpdateByPrimaryKey(selectedAuther);
-
+                this.Close();
 
             }
-            this.Close();
+            else if ((PassWord.Equals(REPassword) && PassWord == ""))
+            {
+                MessageBox.Show("密码不能为空");
+            }
+            else {
+                MessageBox.Show("密码的两次输入不一致");
+            }
+            
         }
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)

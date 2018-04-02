@@ -312,6 +312,9 @@
     <s:String x:Key="CreateTrainingReportView.Go">Go</s:String>
     <s:String x:Key="CreateTrainingReportView.Preview">Preview</s:String>
     <s:String x:Key="CreateTrainingReportView.Cancel">Cancel</s:String>
+    <s:String x:Key="CreateTrainingReportView.ComprehensiveReport">Comprehensive Report</s:String>
+    <s:String x:Key="CreateTrainingReportView.Detailedreport">Detailed report</s:String>
+    <s:String x:Key="CreateTrainingReportView.NursingRecordReport">Nursing Record Report</s:String>
 
     <!-- 训练结果界面 -->
     <s:String x:Key="TrainingResultView.TrainingResult">Training Result</s:String>
@@ -340,4 +343,55 @@
     <s:String x:Key="TrainingResultView.TrainingMemo">Training Memo</s:String>
     <s:String x:Key="TrainingResultView.Save">Save</s:String>
     <s:String x:Key="TrainingResultView.Back">Back</s:String>
+
+    <!-- 用户注册界面 -->
+    <s:String x:Key="RegisterView.Register">Register</s:String>
+    <s:String x:Key="RegisterView.UserName">UserName</s:String>
+    <s:String x:Key="RegisterView.Password">Password</s:String>
+    <s:String x:Key="RegisterView.Confirm">Confirm</s:String>
+    <s:String x:Key="RegisterView.OffLineDate">OffLineDate</s:String>
+    <s:String x:Key="RegisterView.OffLine">OffLine</s:String>
+    <s:String x:Key="RegisterView.Yes">Yes</s:String>
+    <s:String x:Key="RegisterView.No">No</s:String>
+
+    <!-- 增加残障界面 -->
+    <s:String x:Key="AddDiagnosisView.Diagnosis">Diagnosis</s:String>
+    <s:String x:Key="AddDiagnosisView.Save">Save</s:String>
+    <s:String x:Key="AddDiagnosisView.Cancel">Cancel</s:String>
+
+    <!-- 增加疾病界面 -->
+    <s:String x:Key="AddDiseaseView.Disease">Disease</s:String>
+    <s:String x:Key="AddDiseaseView.Save">Save</s:String>
+    <s:String x:Key="AddDiseaseView.Cancel">Cancel</s:String>
+
+    <!-- 增加小组界面 -->
+    <s:String x:Key="AddGroupView.Group">Group</s:String>
+    <s:String x:Key="AddGroupView.Save">Save</s:String>
+    <s:String x:Key="AddGroupView.Cancel">Cancel</s:String>
+
+    <!-- 输入密码界面 -->
+    <s:String x:Key="InputPasswdView.Password">Password</s:String>
+    <s:String x:Key="InputPasswdView.PleaseInputPassword">Please Input Password</s:String>
+    <s:String x:Key="InputPasswdView.Confirm">Confirm</s:String>
+    <s:String x:Key="InputPasswdView.Cancel">Cancel</s:String>
+
+    <!-- pdf加载界面 -->
+    <s:String x:Key="PdfView.loading...">loading...</s:String>
+
+    <!-- 剪切照片界面 -->
+    <s:String x:Key="PhotoCutView.Confirm">Confirm</s:String>
+    <s:String x:Key="PhotoCutView.Cancel">Cancel</s:String>
+
+    <!-- 拍照界面 -->
+    <s:String x:Key="PhotoGraphView.PhotoGraph">PhotoGraph</s:String>
+    <s:String x:Key="PhotoGraphView.VideoDev">Video Dev</s:String>
+    <s:String x:Key="PhotoGraphView.Take">Take</s:String>
+    <s:String x:Key="PhotoGraphView.Confirm">Confirm</s:String>
+    <s:String x:Key="PhotoGraphView.cancel">cancel</s:String>
+
+    <!-- 串口选择界面 -->
+    <s:String x:Key="SerialPortView.CurrentSerialPort">Current SerialPort</s:String>
+    <s:String x:Key="SerialPortView.Confirm">Confirm</s:String>
+    <s:String x:Key="SerialPortView.cancel">cancel</s:String>
+
 </ResourceDictionary>
