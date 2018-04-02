@@ -48,7 +48,7 @@ namespace spms.view.Pages.ChildWin
         //定时任务
         Timer threadTimer;
         int times = 0;//发送次数
-        bool isReceive = false;//是否收到回执
+        static bool isReceive = false;//是否收到回执
         private SerialPort serialPort;
         //确定按钮
         private void Determine(object sender, RoutedEventArgs e)

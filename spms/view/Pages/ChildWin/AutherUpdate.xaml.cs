@@ -2,6 +2,7 @@
 using spms.entity;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,7 +60,18 @@ namespace spms.view.Pages.ChildWin
         { //获取控件值
             selectedAuther.Auth_UserName = UserName.Text;
             selectedAuther.Gmt_Modified = DateTime.Now;
-            selectedAuther.Auth_OfflineTime = DateTime.Now;
+            if ((bool)No.IsChecked)
+            {
+                selectedAuther.Auth_OfflineTime = Confirm_Date.SelectedDate;
+            }
+            else
+            {
+                DateTime date = (DateTime)Auther.Auth_OFFLINETIMEFREE;
+                string sdate = string.Format("{0:yyyy-MM-dd}", date);
+                DateTimeFormatInfo dtFormat = new DateTimeFormatInfo();
+                dtFormat.ShortDatePattern = "yyyy-MM-dd";
+                selectedAuther.Auth_OfflineTime = Convert.ToDateTime(sdate, dtFormat);
+            }
             string PassWord = Pass.Password;
             string REPassword = Confirm_Pass.Password;
             if (PassWord.Equals(REPassword))

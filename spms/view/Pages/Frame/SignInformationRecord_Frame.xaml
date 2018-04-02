@@ -18,7 +18,7 @@
             </Grid>
 
 
-            <DataGrid x:Name="SignInformationRecord" KeyboardNavigation.TabNavigation="None" RowHeaderWidth="0" SelectionMode="Single" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="280" Width="942" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False"  AutoGenerateColumns="False" IsReadOnly="true" >
+            <DataGrid x:Name="SignInformationRecord" KeyboardNavigation.TabNavigation="None" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" SelectionMode="Single" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="280" Width="942" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False"  AutoGenerateColumns="False" IsReadOnly="true" >
 
                 <!--选中行失去焦点时的颜色-->
                 <DataGrid.Resources>

@@ -17,24 +17,13 @@ namespace spms.dao
         /// <returns></returns>
         public List<T> ListAll()
         {
-            //using (var conn = DbUtil.getConn())
-            //{
-
-            //    conn.Open();
-
-            //    var result = conn.GetAll<T>().ToList();
-            //    return result;
-            //}
+        
             using (var conn = DbUtil.getConn())
             {
-
                 conn.Open();
                 var r = conn.GetAll<T>();
                 return r == null ? new List<T>() : r.ToList();
-
             }
-
-
         }
 
         /// <summary>

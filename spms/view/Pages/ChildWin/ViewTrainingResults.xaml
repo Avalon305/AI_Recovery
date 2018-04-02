@@ -8,7 +8,7 @@
         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
         Title="宝德龙"
-         ResizeMode = "NoResize" Height="714.8" Width="900"
+         ResizeMode = "NoResize" Height="734.8" Width="900"
         Loaded="Window_Loaded">
     <Viewbox Name="viewbox">
     <StackPanel>
@@ -170,7 +170,7 @@
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="注意点、运动方法的指示等" Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
                                 <TextBox Height="104" Margin="0,2,-0.2,0" Name="HLPAttentionpoint" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->

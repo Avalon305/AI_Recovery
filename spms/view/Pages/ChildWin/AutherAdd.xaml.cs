@@ -2,6 +2,7 @@
 using spms.entity;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,23 +60,51 @@ namespace spms.view.Pages.ChildWin
 
         private void Button_OK(object sender, RoutedEventArgs e)
         {
-            auther.Auth_UserName = UserName.Text;
+            string PassWord = "";
+            if (UserName.Text != null && UserName.Text != "")
+            {
+                auther.Auth_UserName = UserName.Text;
+            }
+            else
+            {
+                MessageBox.Show("用户名不能为空");
+            }
             auther.Gmt_Create = DateTime.Now;
             auther.Gmt_Modified = DateTime.Now;
-            auther.Auth_OfflineTime = DateTime.Now;
-            string PassWord = Pass.Password;
+            if ((bool)No.IsChecked)
+            {
+                auther.Auth_OfflineTime = Confirm_Date.SelectedDate;
+            }
+            else//默认启用
+            {
+
+                DateTime date = (DateTime)Auther.Auth_OFFLINETIMEFREE;
+                string sdate = string.Format("{0:yyyy-MM-dd}", date);
+                DateTimeFormatInfo dtFormat = new DateTimeFormatInfo();
+                dtFormat.ShortDatePattern = "yyyy-MM-dd";
+                auther.Auth_OfflineTime = Convert.ToDateTime(sdate, dtFormat);
+            }
+            if (Pass.Password != null && Pass.Password != "")
+            {
+                PassWord = Pass.Password;
+            }
+            else
+            {
+                MessageBox.Show("密码不能为空");
+            }
             string REPassword = Confirm_Pass.Password;
             auther.Auth_Level = 0x01;
-            if (PassWord.Equals(REPassword))
+            if (PassWord.Equals(REPassword) && PassWord != "")
             {
                 auther.Auth_UserPass = PassWord;
                 authDAO.Insert(auther);
                 this.Close();
             }
-            else {
+            else if (!PassWord.Equals(REPassword))
+            {
                 MessageBox.Show("密码的两次输入不一致");
             }
-            
+
         }
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)

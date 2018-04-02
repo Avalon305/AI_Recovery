@@ -19,6 +19,9 @@ namespace spms.entity
         /// 一般管理员
         /// </summary>
         public static byte? AUTH_LEVEL_MANAGER = 1;
+
+
+
         //用户状态常量，0代表正常、解冻，1代表冻结，2代表完全离线
         /// <summary>
         /// 正常/解冻
