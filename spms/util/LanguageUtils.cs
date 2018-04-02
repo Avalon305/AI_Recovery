@@ -61,10 +61,11 @@ namespace spms.util
         }
 
         /// <summary>
-        /// 根据资源id返回当前语言的字符串
+        /// 根据资源id返回当前语言的字符串(暂时不要用，有bug)
         /// </summary>
+        /// <param name="key">字符key</param>
         /// <returns></returns>
-        public static string GetCurrentLanuageByKey(string key)
+        public static string GetCurrentLanuageStrByKey(string key)
         {
             return (string)Application.Current.Resources.MergedDictionaries[0][key];
         }
@@ -77,13 +78,6 @@ namespace spms.util
         /// <returns></returns>
         public static bool EqualsResource(string str, string key)
         {
-            List<ResourceDictionary> dictionaryList = new List<ResourceDictionary>();
-            foreach (ResourceDictionary dictionary in Application.Current.Resources.MergedDictionaries)
-            {
-                dictionaryList.Add(dictionary);
-            }
-            string zh = (string)dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals("zh-cn.xaml")).MergedDictionaries[0][key];
-            string en = (string)dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals("en-us.xaml")).MergedDictionaries[0][key];
             return false;
         }
 

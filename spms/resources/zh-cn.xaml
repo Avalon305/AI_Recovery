@@ -314,6 +314,15 @@
     <s:String x:Key="PhysicalEvaluationFormView.Save">保存</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Close">取消</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Date">实施日期</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.T-Kane">T字拐杖</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.Qtr-Cane">4字拐杖</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.Walker">步行器</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.RightFrontal">右手前面支持</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.RightLateral">右手侧面支持</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.LeftFrontal">左手前面支持</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.LeftLateral">左手侧面支持</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.BothFrontal">两手前面支持</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.BothLateral">两手侧面支持</s:String>
 
     <!-- 制作体力评价报告界面 -->
     <s:String x:Key="CreateTrainingReportView.CreateTrainingReport">制作体力评价报告</s:String>

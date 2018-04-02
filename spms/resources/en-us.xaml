@@ -310,6 +310,15 @@
     <s:String x:Key="PhysicalEvaluationFormView.Save">Save</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Close">Close</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Date">Date</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.T-Kane">T-Kane</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.Qtr-Cane">Qtr-Cane</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.Walker">Walker</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.RightFrontal">Right Frontal</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.RightLateral">Right Lateral</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.LeftFrontal">Left Frontal</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.LeftLateral">Left Lateral</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.BothFrontal">Both Frontal</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.BothLateral">Both Lateral</s:String>
 
     <!-- 制作体力评价报告界面 -->
     <s:String x:Key="CreateTrainingReportView.CreateTrainingReport">Create Training Report</s:String>
