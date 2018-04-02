@@ -238,11 +238,11 @@ namespace spms.protocol
                 PrescriptionResult result = new PrescriptionResult();
                 //自觉运动强度
                 result.PR_SportStrength = (byte)(strength - 5);
-                result.PR_Time1 = time * 100.0 / 60.0 ;
+                result.PR_Time1 = time / 100.0 / 60.0 ;
                 result.PR_Distance = distance;
-                result.PR_CountWorkQuantity = energy * 100.0;
-                result.PR_Cal = heat * 100.0;
-                result.PR_Index = singer * 100.0;
+                result.PR_CountWorkQuantity = energy / 100.0;
+                result.PR_Cal = heat / 100.0;
+                result.PR_Index = singer / 100.0;
                 result.PR_Evaluate = rhythem;
                 result.PR_UserThoughts = think;
                 result.Gmt_Create = DateTime.Now;
