@@ -1335,7 +1335,7 @@ namespace spms.view.Pages.ChildWin
         //定时任务
         Timer threadTimer;
         int times = 0;//发送次数
-        static bool isReceive = false;//是否收到回执
+        private static bool isReceive = false;//是否收到回执
         private SerialPort serialPort;
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
@@ -1616,15 +1616,18 @@ namespace spms.view.Pages.ChildWin
                             //SaveTrainInfo2DB(TrainInfoStatus.Normal);
 
                             //保存到数据库,在接收数据方法中
-                            try
+                            Dispatcher.Invoke(new Action(() =>
                             {
-                                SaveTrainInfo2DB(TrainInfoStatus.Normal);
-                            }
-                            catch (Exception exception)
-                            {
-                                Console.WriteLine("捕获异常了");
-                                return;
-                            }
+                                try
+                                {
+                                    SaveTrainInfo2DB(TrainInfoStatus.Normal);
+                                }
+                                catch (Exception exception)
+                                {
+                                    Console.WriteLine("捕获异常了");
+                                    return;
+                                }
+                            }));
 
                             MessageBox.Show("写卡成功");
                         }
@@ -1660,6 +1663,7 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception exception)
             {
+                Console.WriteLine("捕获异常了");
                 return;
             }
             
