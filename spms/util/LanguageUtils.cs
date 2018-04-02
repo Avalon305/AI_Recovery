@@ -5,23 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using spms.constant;
+using spms.dao;
+using Setter = spms.entity.Setter;
 
 namespace spms.util
 {
     class LanguageUtils
     {
-        public static void SetLanguage(int index)
+        public static void SetLanguage()
         {
-            var dataCodeCache = DataCodeCache.GetInstance();
-            string language = "zh-cn.xaml";
-            switch (dataCodeCache.GetCodeDValue(DataCodeTypeEnum.Language, index.ToString()))
+            string language;
+            if (IsChainese())
             {
-                case "中文":
-                    language = "zh-cn.xaml";
-                    break;
-                case "英语":
-                    language = "en-us.xaml";
-                    break;
+                language = "zh-cn.xaml";
+            }
+            else
+            {
+                language = "en-us.xaml";
             }
 
             List<ResourceDictionary> dictionaryList = new List<ResourceDictionary>();
@@ -33,6 +33,31 @@ namespace spms.util
             ResourceDictionary resourceDictionary = dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals(requestedCulture));
             Application.Current.Resources.MergedDictionaries.Remove(resourceDictionary);
             Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+        }
+
+        public static bool IsChainese()
+        {
+            List<Setter> all = new SetterDAO().ListAll();
+            var dataCodeCache = DataCodeCache.GetInstance();
+            if (all != null && all.Count != 0)
+            {
+                if (dataCodeCache.GetCodeDValue(DataCodeTypeEnum.Language, all[0].Set_Language.ToString()) == "中文")
+                {
+                    return true;
+                }
+            }
+            return false;
+            
+        }
+        /// <summary>
+        /// 根据当前语言返回字符串
+        /// </summary>
+        /// <param name="chainese">中文</param>
+        /// <param name="english">英文</param>
+        /// <returns></returns>
+        public static string ConvertLanguage(string chainese, string english)
+        {
+            return IsChainese() ? chainese : english;
         }
 
     }

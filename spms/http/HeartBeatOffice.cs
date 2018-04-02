@@ -33,28 +33,12 @@ namespace spms.http
 
             //需要加入解密逻辑
             string mac = "";
-            /*AES解密
-             * 
-               byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
-               byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
-               Console.WriteLine(Encoding.GetEncoding("GBK").GetString(b));
-               
-             */
-            //try
-            //{
-            //    byte[] deBytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id),
-            //        ProtocolConstant.USB_DOG_PASSWORD);
-            //    mac = Encoding.GetEncoding("GBK").GetString(deBytes);
-            //}
-            //catch (Exception ex)
-            //{
-            //    //
-            //    mac = setter.Set_Unique_Id.Replace(":", "");
-            //}
+            
             //获得当前主机的mac地址
             mac = SystemInfo.GetMacAddress();
             AuthDAO authDAO = new AuthDAO();
             var result = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
+
             //注册用户设置mac与用户名
             //TODO设置mac地址不能从本地拿，必须实时获取
 
@@ -97,6 +81,8 @@ namespace spms.http
             if (httpHeartBeat.authStatus == 0)
             {
                 //0权限操作位  不作处理，属于正常心跳
+                //解锁
+                auther.User_Status = Auther.USER_STATUS_GENERAL;
             }
             else if (httpHeartBeat.authStatus == 1)
             {
@@ -110,8 +96,9 @@ namespace spms.http
             }
             else if (httpHeartBeat.authStatus == 3)
             {
-                //永久离线
+                //永久离线至9999年
                 auther.User_Status = Auther.USER_STATUS_FREE;
+                auther.Auth_OfflineTime = Auther.Auth_OFFLINETIMEFREE;
             }
             else if (httpHeartBeat.authStatus == 4)
             {

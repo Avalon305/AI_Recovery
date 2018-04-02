@@ -36,5 +36,23 @@ namespace spms.dao
                 return conn.Execute(insert, physicalPower);
             }
         }
+
+        /// <summary>
+        /// 根据时间查询刚才插入的体力评价信息id
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        public int getIdByGmtCreate(DateTime? gmtCreate)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                Console.WriteLine(gmtCreate.ToString());
+                const string query = "SELECT pk_pp_id FROM bdl_physicalpower WHERE gmt_create = @gmt_create";
+                int id = conn.QueryFirstOrDefault<int>(query, new { gmt_create = gmtCreate });
+                return conn.QueryFirstOrDefault<int>(query, new { gmt_create = gmtCreate });
+            }
+        }
+
+
     }
 }

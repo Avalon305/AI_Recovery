@@ -385,7 +385,8 @@ namespace spms.util
             OfficeOpenXml.Drawing.ExcelPicture userPicture = null;
             try
             {
-                userPicture = worksheet.Drawings.AddPicture("user", Image.FromFile(user.User_PhotoLocation));//插入图片
+                Console.WriteLine("图片路径："+ CommUtil.GetUserPic(user.User_PhotoLocation));
+                userPicture = worksheet.Drawings.AddPicture("user", Image.FromFile(CommUtil.GetUserPic(user.User_PhotoLocation)));//插入图片
                 
                 //userPicture.Border.LineStyle = eLineStyle.Solid;
                 //userPicture.Fill.Style = eFillStyle.NoFill;//设置形状的填充样式

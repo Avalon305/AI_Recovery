@@ -6,7 +6,7 @@
     <!-- 开始界面 -->
     <s:String x:Key="FormView.Title">宝德龙康复医疗系统</s:String>
     <s:String x:Key="FormView.UserName">用户名:</s:String>
-    <s:String x:Key="FormView.Password" >密&#160;&#160;&#160;&#160;码:</s:String>
+    <s:String x:Key="FormView.Password">密  码:</s:String>
     <s:String x:Key="FormView.LogIn">登录</s:String>
     <s:String x:Key="FormView.Reset">重置</s:String>
     <s:String x:Key="FormView.Settings">设置</s:String>
@@ -252,6 +252,16 @@
     <s:String x:Key="TrainingListView.Save">保存</s:String>
     <s:String x:Key="TrainingListView.WritetoCard">写入IC卡</s:String>
     <s:String x:Key="TrainingListView.Cancel">取消</s:String>
+    <s:String x:Key="TrainingListView.Valid">有效</s:String>
+    <s:String x:Key="TrainingListView.Invalid">无效</s:String>
+    <s:String x:Key="TrainingListView.CountForward">正计时</s:String>
+    <s:String x:Key="TrainingListView.CountReverse">倒计时</s:String>
+    <s:String x:Key="TrainingListView.EndStopper">移动距离</s:String>
+    <s:String x:Key="TrainingListView.AngleOfArm">动臂位置</s:String>
+    <s:String x:Key="TrainingListView.AngleOfArm1">动臂位置1</s:String>
+    <s:String x:Key="TrainingListView.AngleOfArm2">动臂位置2</s:String>
+    <s:String x:Key="TrainingListView.SeatPosition">座椅位置</s:String>
+    <s:String x:Key="TrainingListView.TrunkPad">胸垫位置</s:String>
 
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">输入体力评价</s:String>
@@ -316,6 +326,10 @@
     <s:String x:Key="CreateTrainingReportView.Go">打印</s:String>
     <s:String x:Key="CreateTrainingReportView.Preview">打印预览</s:String>
     <s:String x:Key="CreateTrainingReportView.Cancel">取消</s:String>
+    <s:String x:Key="CreateTrainingReportView.OutputReport">输入报告</s:String>
+    <s:String x:Key="CreateTrainingReportView.ComprehensiveReport">综合报告</s:String>
+    <s:String x:Key="CreateTrainingReportView.Detailedreport">详细报告</s:String>
+    <s:String x:Key="CreateTrainingReportView.NursingRecordReport">看护记录报告</s:String>
 
     <!-- 训练结果界面 -->
     <s:String x:Key="TrainingResultView.TrainingResult">训练结果</s:String>
@@ -344,4 +358,58 @@
     <s:String x:Key="TrainingResultView.TrainingMemo">时机、姿势备忘</s:String>
     <s:String x:Key="TrainingResultView.Save">保存</s:String>
     <s:String x:Key="TrainingResultView.Back">返回</s:String>
+
+    <!-- 用户注册界面 -->
+    <s:String x:Key="RegisterView.Register">用户注册</s:String>
+    <s:String x:Key="RegisterView.Update">用户修改</s:String>
+    <s:String x:Key="RegisterView.UserName">用户名</s:String>
+    <s:String x:Key="RegisterView.Password">密码</s:String>
+    <s:String x:Key="RegisterView.ConfirmPasswd">确认密码</s:String>
+    <s:String x:Key="RegisterView.Confirm">确认</s:String>
+    <s:String x:Key="RegisterView.Cancel">取消</s:String>
+    <s:String x:Key="RegisterView.OffLineDate">离线使用时间</s:String>
+    <s:String x:Key="RegisterView.OffLine">永久离线</s:String>
+    <s:String x:Key="RegisterView.Yes">是</s:String>
+    <s:String x:Key="RegisterView.No">否</s:String>
+
+    <!-- 增加残障界面 -->
+    <s:String x:Key="AddDiagnosisView.Diagnosis">残障名称</s:String>
+    <s:String x:Key="AddDiagnosisView.Save">保存</s:String>
+    <s:String x:Key="AddDiagnosisView.Cancel">取消</s:String>
+
+    <!-- 增加疾病界面 -->
+    <s:String x:Key="AddDiseaseView.Disease">疾病名称</s:String>
+    <s:String x:Key="AddDiseaseView.Save">保存</s:String>
+    <s:String x:Key="AddDiseaseView.Cancel">取消</s:String>
+
+    <!-- 增加小组界面 -->
+    <s:String x:Key="AddGroupView.Group">小组名称</s:String>
+    <s:String x:Key="AddGroupView.Save">保存</s:String>
+    <s:String x:Key="AddGroupView.Cancel">取消</s:String>
+
+    <!-- 输入密码界面 -->
+    <s:String x:Key="InputPasswdView.Password">输入密码</s:String>
+    <s:String x:Key="InputPasswdView.PleaseInputPassword">请输入密码</s:String>
+    <s:String x:Key="InputPasswdView.Confirm">确定</s:String>
+    <s:String x:Key="InputPasswdView.Cancel">取消</s:String>
+
+    <!-- pdf加载界面 -->
+    <s:String x:Key="PdfView.loading...">加载中，请耐心等待...</s:String>
+
+    <!-- 剪切照片界面 -->
+    <s:String x:Key="PhotoCutView.Confirm">确认</s:String>
+    <s:String x:Key="PhotoCutView.Cancel">取消</s:String>
+
+    <!-- 拍照界面 -->
+    <s:String x:Key="PhotoGraphView.PhotoGraph">拍照</s:String>
+    <s:String x:Key="PhotoGraphView.VideoDev">拍照设备</s:String>
+    <s:String x:Key="PhotoGraphView.Take">拍照</s:String>
+    <s:String x:Key="PhotoGraphView.Confirm">确认</s:String>
+    <s:String x:Key="PhotoGraphView.Cancel">取消</s:String>
+
+    <!-- 串口选择界面 -->
+    <s:String x:Key="SerialPortView.CurrentSerialPort">当前串口</s:String>
+    <s:String x:Key="SerialPortView.Confirm">确认</s:String>
+    <s:String x:Key="SerialPortView.Cancel">取消</s:String>
+
 </ResourceDictionary>

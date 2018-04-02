@@ -20,7 +20,7 @@
 
             </Border.Background>
             <Grid>
-                <Label VerticalAlignment="Bottom"  Foreground="White" FontSize="20" Height="37">疾病名称</Label>
+                <Label VerticalAlignment="Bottom"  Foreground="White" FontSize="20" Height="37" Content="{DynamicResource AddGroupView.Group}"></Label>
                 <!--保存及取消按钮-->
 
                 <!--<Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="106" Height="29" VerticalAlignment="Bottom"  BorderThickness="0">
@@ -38,8 +38,8 @@
         <!--保存及取消按钮-->
         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="116" Height="29" VerticalAlignment="Bottom"  BorderThickness="0" Margin="0,0,0,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
-                <Button Width="50"  Height="25"   Margin="2,0,0,0" Style="{StaticResource Btn}"  IsTabStop="False"  VerticalAlignment="Bottom" Click="Button_SaveClick">保存</Button>
-                <Button Width="50" Height="25"    Content="取消"  Style="{StaticResource Btn}" IsTabStop="False"  Margin="2,0,0,0" VerticalAlignment="Bottom" Click="Cancel"/>
+                <Button Width="50"  Height="25"   Margin="2,0,0,0" Style="{StaticResource Btn}"  IsTabStop="False"  VerticalAlignment="Bottom" Click="Button_SaveClick" Content="{DynamicResource AddGroupView.Save}"></Button>
+                <Button Width="50" Height="25"    Content="{DynamicResource AddGroupView.Cancel}"  Style="{StaticResource Btn}" IsTabStop="False"  Margin="2,0,0,0" VerticalAlignment="Bottom" Click="Cancel"/>
             </StackPanel>
         </Border>
     </StackPanel>

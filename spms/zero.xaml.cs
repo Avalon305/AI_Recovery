@@ -215,5 +215,12 @@ namespace spms
             DateTime? a = DateTime.Now;
             MessageBox.Show(a.ToString());
         }
+
+        private void Button_Click_20(object sender, RoutedEventArgs e)
+        {
+            AuthDAO authDAO = new AuthDAO();
+            var result = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
+            MessageBox.Show(JsonTools.Obj2JSONStrNew(result));
+        }
     }
 }

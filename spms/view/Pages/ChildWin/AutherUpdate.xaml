@@ -23,7 +23,7 @@
                         </LinearGradientBrush>
                     </Border.Background>
                     <Grid>
-                        <Label VerticalAlignment="Center" FontSize="22" Foreground="White" Content="用户注册"/>
+                        <Label VerticalAlignment="Center" FontSize="22" Foreground="White" Content="{DynamicResource RegisterView.Update}"/>
                     </Grid>
                 </Border>
                 <Grid Margin="10,5,9.6,5"  Height="156">
@@ -44,21 +44,21 @@
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
-                        <Label Content="用户名"  VerticalAlignment="Center"  Foreground="White"/>
+                        <Label Content="{DynamicResource RegisterView.UserName}"  VerticalAlignment="Center"  Foreground="White"/>
                     </Border>
                     <TextBox Grid.Row="0" LostFocus="Name_LostFocus"  Name="UserName" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <Label  Grid.Row="0" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
                     <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
-                        <Label Content="密码"  FontStyle="Normal"  Foreground="White"/>
+                        <Label Content="{DynamicResource RegisterView.Password}"  FontStyle="Normal"  Foreground="White"/>
                     </Border>
                     <PasswordBox  Grid.Row="2" Name="Pass" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <Label Grid.Row="4" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
                     <Border Grid.Row="4" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
-                        <Label Content="确认密码" Grid.Row="3" Grid.Column="0"  Foreground="White"/>
+                        <Label Content="{DynamicResource RegisterView.ConfirmPasswd}" Grid.Row="3" Grid.Column="0"  Foreground="White"/>
                     </Border>
                     <PasswordBox  Name="Confirm_Pass"  Grid.Row="4"  Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <Border Grid.Row="6" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
-                        <Label Content="离线使用事件" Grid.Row="6" Grid.Column="0"  Foreground="White"/>
+                        <Label Content="{DynamicResource RegisterView.OffLineDate}" Grid.Row="6" Grid.Column="0"  Foreground="White"/>
                     </Border>
                     <DatePicker  Name="Confirm_Date" Grid.Row="6" IsTabStop="False"  KeyboardNavigation.TabNavigation="None" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center">
                         <DatePicker.Resources>
@@ -68,16 +68,17 @@
                         </DatePicker.Resources>
                     </DatePicker>
                     <Border Grid.Row="8" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
-                        <Label Content="永久离线" Grid.Row="8" Grid.Column="0"  Foreground="White"/>
+                        <Label Content="{DynamicResource RegisterView.OffLine}" Grid.Row="8" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <RadioButton x:Name="Yse" Grid.Row="8" Grid.Column="1"  Margin="10,0,0,0" VerticalAlignment="Center" IsTabStop="False" Content="是"></RadioButton>
-                    <RadioButton  x:Name="No" Grid.Row="8" Grid.Column="1"  Margin="60,0,0,0" VerticalAlignment="Center" IsTabStop="False" Content="否"></RadioButton>
+                    <RadioButton x:Name="Yes" Grid.Row="8" Grid.Column="1"  Margin="10,0,0,0" VerticalAlignment="Center" IsTabStop="False" Content="{DynamicResource RegisterView.Yes}"></RadioButton>
+                    <RadioButton  x:Name="No" Grid.Row="8" Grid.Column="1"  Margin="60,0,0,0" VerticalAlignment="Center" IsTabStop="False" Content="{DynamicResource RegisterView.No}"></RadioButton>
+
                     <!--<TextBox Grid.Row="10" Name="t11" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>-->
                 </Grid>
                 <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="276" Height="47" VerticalAlignment="Top" BorderBrush="White" Margin="0,0,9.6,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                        <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" IsTabStop="False"  Margin="0,0,2,0"  Foreground="Black" Content="确定" Style="{StaticResource Btn}" Click="Button_OK"/>
-                        <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  IsTabStop="False"  Foreground="Black" Content="取消" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
+                        <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" IsTabStop="False"  Margin="0,0,2,0"  Foreground="Black" Content="{DynamicResource RegisterView.Confirm}" Style="{StaticResource Btn}" Click="Button_OK"/>
+                        <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  IsTabStop="False"  Foreground="Black" Content="{DynamicResource RegisterView.Cancel}" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
                     </StackPanel>
                 </Border>
 

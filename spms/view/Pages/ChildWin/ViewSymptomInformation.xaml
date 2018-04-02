@@ -89,14 +89,14 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="119*"/>
                         <ColumnDefinition Width="93*"/>
-                        <ColumnDefinition  Width="108*"/>
-                        <ColumnDefinition Width="24*"/>
-                        <ColumnDefinition Width="117*"/>
+                        <ColumnDefinition  Width="139*"/>
+
+                        <ColumnDefinition Width="110*"/>
                     </Grid.ColumnDefinitions>
                     <Label Content="{DynamicResource VitalInfoView.BP}" Grid.Column="0" Foreground="White"  HorizontalContentAlignment="Center"   VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="0,1,0.2,1"/>
-                    <Label Content="{DynamicResource VitalInfoView.HR}"  Foreground="White"  VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="119,1,0,1" Grid.ColumnSpan="2"/>
-                    <Label Content="{DynamicResource VitalInfoView.Pulse}" Grid.Column="1" HorizontalContentAlignment="Center"  Foreground="White"  VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="89.8,1,2,1" Grid.ColumnSpan="3"/>
-                    <Label Content="{DynamicResource VitalInfoView.Tmp}" Grid.Column="3"  Foreground="White" VerticalAlignment="Center"  HorizontalContentAlignment="Center" Height="24" Margin="23,1,9.8,1" Grid.ColumnSpan="2" />
+                    <Label Content="{DynamicResource VitalInfoView.HR}"  Foreground="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="119,1,0,1" Grid.ColumnSpan="2"/>
+                    <Label Content="{DynamicResource VitalInfoView.Pulse}" Grid.Column="2" HorizontalContentAlignment="Center"  Foreground="White"  VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="0,1,108.8,1" Grid.ColumnSpan="2"/>
+                    <Label Content="{DynamicResource VitalInfoView.Tmp}" Grid.Column="2"  Foreground="White" VerticalAlignment="Center"  HorizontalContentAlignment="Center" Height="24" Margin="139,1,-0.2,1" Grid.ColumnSpan="2" />
                 </Grid>
                 <Grid Grid.Row="1" Grid.Column="0" Background="Gray" >
                     <Grid.RowDefinitions>
@@ -115,51 +115,51 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="118"/>
                         <ColumnDefinition Width="92.8"/>
-                        <ColumnDefinition  Width="130"/>
-                        <ColumnDefinition Width="6.8"/>
-                        <ColumnDefinition Width="207.4"/>
-                        <ColumnDefinition Width="63"/>
+                        <ColumnDefinition  Width="140"/>
+
+                        <ColumnDefinition Width="109.6"/>
+
                     </Grid.ColumnDefinitions>
 
                     <!--<TextBox Grid.Row="0" Grid.Column="0" Margin="10,0,80.4,23.6" VerticalContentAlignment="Center" Grid.RowSpan="2" Name="bloodlow_1" IsEnabled="False"/>
                 <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="37,0,57.4,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
                 <TextBox Grid.Row="0" Grid.Column="0" Margin="65,0,26.4,23.6" Grid.RowSpan="2"  Name="bloodhight_1" IsEnabled="False" VerticalContentAlignment="Center"/>-->
-                    <TextBox Grid.Row="0" Grid.Column="0" Margin="17.2,2,72.2,1.8" Name="bloodlow_1" VerticalContentAlignment="Center"  IsEnabled="False"/>
-                    <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="50.2,0,50.2,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
-                    <TextBox Grid.Row="0" Grid.Column="0" Margin="72.2,2,17.4,1.8"  Name="bloodhight_1" VerticalContentAlignment="Center" IsEnabled="False"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Margin="0.6,0,0.2,23.6" Grid.RowSpan="2" Name="heartRate_1" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <GroupBox Grid.Row="0" Grid.Column="2"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="2.8,2,0.8,0.8" Width="126" >
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="127" Margin="-8,0,-5.4,-6" >
-                            <RadioButton VerticalAlignment="Center" Width="55" Margin="0,1" Name="rule_1" IsEnabled="False" Content="{DynamicResource VitalInfoView.Regular}"></RadioButton>
-                            <RadioButton VerticalAlignment="Center"  Width="70" Name="irregular_1" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Irregular}" ></RadioButton>
+                    <TextBox Grid.Row="0" Grid.Column="0" Margin="17,2,72.4,1.8" Name="bloodlow_1" VerticalContentAlignment="Center"  IsEnabled="False"/>
+                    <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="50,0,50.4,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
+                    <TextBox Grid.Row="0" Grid.Column="0" Margin="72,2,17.4,1.8"  Name="bloodhight_1" VerticalContentAlignment="Center" IsEnabled="False"/>
+                    <TextBox Grid.Row="0" Margin="118,0,139.2,23.6" Grid.RowSpan="2" Name="heartRate_1" IsEnabled="False" VerticalContentAlignment="Center" BorderThickness="1,1,0,1" Grid.ColumnSpan="3"/>
+                    <GroupBox Grid.Row="0" Grid.Column="2"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="0.8,2,1.2,0.8" Width="138" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="144" Margin="-6,0,-12.4,-6" >
+                            <RadioButton VerticalAlignment="Center" Width="65" Margin="2,0,0,0.4" VerticalContentAlignment="Center" Name="rule_1" IsEnabled="False" Content="{DynamicResource VitalInfoView.Regular}" Height="22"></RadioButton>
+                            <RadioButton VerticalAlignment="Center" Margin="2,0,0,0.4" VerticalContentAlignment="Center"  Width="68" Name="irregular_1" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Irregular}" Height="22" ></RadioButton>
                         </StackPanel>
                     </GroupBox>
-                    <TextBox Grid.Row="0" Grid.Column="3" Margin="0.2,0,94.4,23.6" Grid.RowSpan="2" Grid.ColumnSpan="2"  Name="heat_1" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Margin="139.8,0,-0.2,24.6" BorderThickness="1,0,1,0" Grid.RowSpan="2"  Name="heat_1" IsEnabled="False" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
 
 
                     <!--<TextBox Grid.Row="1" Grid.Column="0" Margin="10,0.2,80.4,0.6" VerticalContentAlignment="Center" Name="bloodlow_2" IsEnabled="False"/>
                     <Label Content="/" Grid.Row="1" Grid.Column="0" Margin="50,0.2,50,0.6"  HorizontalContentAlignment="Center" />
                     <TextBox Grid.Row="1" Grid.Column="0" Margin="65,0.2,26.4,0.6" Name="bloodhight_2" IsEnabled="False" VerticalContentAlignment="Center"/>-->
-                    <TextBox Grid.Row="1" Grid.Column="0" Margin="17.2,2,72.2,1.8"  Name="bloodlow_2" IsEnabled="False" VerticalContentAlignment="Center"  />
-                    <Label Content="/" Grid.Row="1" Grid.Column="0" Margin="50,0.2,50,0.6"  HorizontalContentAlignment="Center" />
-                    <TextBox Grid.Row="1" Grid.Column="0" Margin="72.2,2,17.4,1.8" Name="bloodhight_2" IsEnabled="False" VerticalContentAlignment="Center" />
-                    <TextBox Grid.Row="1" Grid.Column="1" Margin="0.6,0.2,0.2,-0.4" Name="heartRate_2" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <GroupBox Grid.Row="1" Grid.Column="2" Height="24" Margin="0.8,0.2,1.2,0" VerticalAlignment="Top" BorderBrush="White" Grid.ColumnSpan="2">
-                        <StackPanel Orientation="Horizontal" Margin="-7,0,-5.8,-6.4" HorizontalAlignment="Center" Width="132">
-                            <RadioButton VerticalAlignment="Center" Width="55" Margin="0,1" Name="rule_2" IsEnabled="False" Content="{DynamicResource VitalInfoView.Regular}"></RadioButton>
-                            <RadioButton VerticalAlignment="Center"  Width="70" Name="irregular_2" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Irregular}" ></RadioButton>
+                    <TextBox Grid.Row="1" Grid.Column="0" Margin="17,2.2,72.4,1.6"  Name="bloodlow_2" IsEnabled="False" VerticalContentAlignment="Center"  />
+                    <Label Content="/" Grid.Row="1" Grid.Column="0" Margin="50,0.2,50.4,0.6"  HorizontalContentAlignment="Center" />
+                    <TextBox Grid.Row="1" Grid.Column="0" Margin="72,2.2,17.4,1.6" Name="bloodhight_2" IsEnabled="False" VerticalContentAlignment="Center" />
+                    <TextBox Grid.Row="1" Margin="118,0.2,139.2,-0.4" Name="heartRate_2" IsEnabled="False" VerticalContentAlignment="Center" Grid.ColumnSpan="3" Height="25" VerticalAlignment="Top"/>
+                    <GroupBox Grid.Row="1" Grid.Column="2" Height="24" Margin="0.8,0.2,108.8,0" VerticalAlignment="Top" BorderBrush="White" Grid.ColumnSpan="2">
+                        <StackPanel Orientation="Horizontal" Margin="-6,0,-5.8,-6.4" HorizontalAlignment="Center" Width="139">
+                            <RadioButton VerticalAlignment="Center" Width="65" Margin="2,0,0,0.4" Name="rule_2" IsEnabled="False" Content="{DynamicResource VitalInfoView.Regular}"></RadioButton>
+                            <RadioButton VerticalAlignment="Center"  Width="70" Margin="3,0,0,0" Name="irregular_2" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Irregular}" ></RadioButton>
                         </StackPanel>
                     </GroupBox>
-                    <TextBox Grid.Row="1" Grid.Column="3" Margin="0.2,0.2,94.4,-0.4" Grid.ColumnSpan="2" Name="heat_2" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Border Grid.Row="0" Grid.Column="0" BorderBrush="Silver" BorderThickness="1" Margin="0,0,0.4,24.6" Grid.RowSpan="2"/>
-                    <Border Grid.Row="0" BorderBrush="Silver" BorderThickness="1" Margin="118,0,0.2,24.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-                    <Border Grid.Row="0" Grid.Column="1" BorderBrush="Silver" BorderThickness="1" Margin="92.6,0,94.4,24.6" Grid.RowSpan="2" Grid.ColumnSpan="4"/>
-                    <Border Grid.Row="0" Grid.Column="3" BorderBrush="Silver" BorderThickness="1" Margin="0.2,0,94.4,24.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" Margin="139.8,0.2,-0.2,-0.4" Name="heat_2" BorderThickness="0,1,1,1" IsEnabled="False" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                    <Border Grid.Row="0" Grid.Column="0"  BorderBrush="Silver" BorderThickness="1" Margin="0,0,0.4,24.6" Grid.RowSpan="2"/>
+                    <Border Grid.Row="0" BorderBrush="Silver" BorderThickness="0,0,1,0" Margin="0.6,0,139.2,24.6" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <Border Grid.Row="0" Grid.Column="2" BorderBrush="Silver" BorderThickness="1,0,0,0" Margin="139.8,0,-0.2,24.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    <Border Grid.Row="0" Grid.Column="3" BorderBrush="White" BorderThickness="0" Margin="0.8,0,-0.2,24.6" Grid.RowSpan="2"/>
 
                     <Border Grid.Row="1" Grid.Column="0" BorderBrush="Silver" BorderThickness="1" Margin="0,0.2,0.4,-0.4"/>
-                    <Border Grid.Row="1" BorderBrush="Silver" BorderThickness="1" Margin="118,0.2,0.2,-0.4" Grid.ColumnSpan="2"/>
-                    <Border Grid.Column="1" BorderBrush="Silver" BorderThickness="1" Margin="92.6,0.2,94.4,-0.4" Grid.Row="1" Grid.ColumnSpan="4"/>
-                    <Border Grid.Row="1" Grid.Column="3" BorderBrush="Silver" BorderThickness="1" Margin="0.2,0.2,94.4,-0.4" Grid.ColumnSpan="2"/>
+                    <Border Grid.Row="1" BorderBrush="White" BorderThickness="0" Margin="118,0.2,26.2,-0.4" Grid.ColumnSpan="2"/>
+                    <Border Grid.Column="1" BorderBrush="Silver" BorderThickness="1" Margin="92.6,0.2,108.8,-0.4" Grid.Row="1" Grid.ColumnSpan="3"/>
+                    <Border Grid.Row="1" Grid.Column="2" BorderBrush="Silver" BorderThickness="1" Margin="139.8,0.2,-0.2,-0.4" Grid.ColumnSpan="2"/>
                 </Grid>
             </Grid>
             <!--结束：康复前后信息对比-->

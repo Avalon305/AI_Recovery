@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using spms.dao;
 using spms.entity;
 using spms.service;
+using spms.util;
 using spms.view.dto;
 using spms.view.Pages.ChildWin;
 namespace spms.view.Pages.ChildWin
@@ -69,7 +70,7 @@ namespace spms.view.Pages.ChildWin
             }
             else
             {
-                MessageBox.Show("请选择康复前脉症状");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择康复前脉症状", "Please choose the symptoms of the pre recovery pulse"));
                 return;
             }
 
@@ -81,14 +82,14 @@ namespace spms.view.Pages.ChildWin
             string sufHighPressure = bloodhight_2.Text;
             if (sufLowPressure.Trim() == "" || sufHighPressure.Trim() == "" || preLowPressure.Trim() == "" || preHighPressure.Trim() == "" || !(Double.Parse(sufLowPressure) > 0 && Double.Parse(sufLowPressure) < 300) || !(Double.Parse(sufHighPressure) > 0 && Double.Parse(sufHighPressure) < 300) || !(Double.Parse(preHighPressure) > 0 && Double.Parse(preHighPressure) < 300) || !(Double.Parse(preLowPressure) > 0 && Double.Parse(preLowPressure) < 300))
             {
-                MessageBox.Show("请输入正确的血压");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的血压", "Please enter the right blood pressure"));
                 return;
             }
             //康复后心率
             string sufHeartRate = heartRate_2.Text;
             if (sufHeartRate.Trim() == "" || preHeartRate.Trim() == "" || !(Int32.Parse(sufHeartRate) > 0 && Int32.Parse(sufHeartRate) < 200) || !(Int32.Parse(preHeartRate) > 0 && Int32.Parse(preHeartRate) < 200))
             {
-                MessageBox.Show("请输入正确的心率");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的心率", "Please enter the right heartrate"));
                 return;
             }
             //康复后脉
@@ -103,7 +104,7 @@ namespace spms.view.Pages.ChildWin
             }
             else
             {
-                MessageBox.Show("请选择康复后脉症状");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择康复后脉症状", "Please choose the symptoms of the post recovery pulse"));
                 return;
             }
 
@@ -111,7 +112,7 @@ namespace spms.view.Pages.ChildWin
             string sufAnimalheat = heat_2.Text;
             if (sufAnimalheat.Trim() == "" || preAnimalheat.Trim() == "" || !(Double.Parse(sufAnimalheat) < 50 && Double.Parse(sufAnimalheat) > 30) || !(Double.Parse(preAnimalheat) < 50 && Double.Parse(preAnimalheat) > 30))
             {
-                MessageBox.Show("请输入正确的体温");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的体温", "Please enter the right temperature"));
                 return;
             }
 
@@ -145,7 +146,7 @@ namespace spms.view.Pages.ChildWin
             }
             else
             {
-                MessageBox.Show("请选择是否参加");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择是否参加", "Please choose whether or not to participate"));
                 return;
             }
 
@@ -154,7 +155,7 @@ namespace spms.view.Pages.ChildWin
             string waterInput = amunt.Text;
             if (waterInput.Trim() == "" || Double.Parse(waterInput) < 0)
             {
-                MessageBox.Show("请输入正确的摄水量");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的摄水量", "Please enter the correct water intake"));
                 return;
             }
 
@@ -190,7 +191,7 @@ namespace spms.view.Pages.ChildWin
 
             //存储
             new SymptomService().AddSymptomnInfo(symptomInfo);
-            MessageBox.Show("已存储");
+            MessageBox.Show(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
             this.Close();
         }
 
