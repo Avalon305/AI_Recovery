@@ -112,7 +112,7 @@ namespace spms.view.Pages
             {
 
                 BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
-                UserPhoto.Source = bitmap.Clone();
+                //UserPhoto.Source = bitmap.Clone();
 
                 return;
             }
