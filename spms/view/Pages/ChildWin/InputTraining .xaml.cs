@@ -38,7 +38,6 @@ namespace spms.view.Pages.ChildWin
         public InputTraining()
         {
             InitializeComponent();
-            
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
@@ -1335,7 +1334,7 @@ namespace spms.view.Pages.ChildWin
         //定时任务
         Timer threadTimer;
         int times = 0;//发送次数
-        static bool isReceive = false;//是否收到回执
+        private static bool isReceive = false;//是否收到回执
         private SerialPort serialPort;
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
@@ -1365,43 +1364,43 @@ namespace spms.view.Pages.ChildWin
                 //设备
                 if (checkbox1.IsChecked == true)
                 {
-                    //水平腿部推蹬机 0x06
-                    data[position] = 0x06;
+                    //胸部推举机0x01
+                    data[position] = (byte)DeviceType.X01;
                     position += 1;
                 }
 
                 if (checkbox2.IsChecked == true)
                 {
                     //坐姿划船机 0x05
-                    data[position] = 0x05;
+                    data[position] = (byte)DeviceType.X05;
                     position += 1;
                 }
 
                 if (checkbox3.IsChecked == true)
                 {
                     //身体伸展弯曲机 0x04
-                    data[position] = 0x04;
+                    data[position] = (byte)DeviceType.X04;
                     position += 1;
                 }
 
                 if (checkbox4.IsChecked == true)
                 {
                     //腿部伸展弯曲机 0x03
-                    data[position] = 0x03;
+                    data[position] = (byte)DeviceType.X03;
                     position += 1;
                 }
 
                 if (checkbox5.IsChecked == true)
                 {
-                    //臀部外展内收机 0x02
-                    data[position] = 0x02;
+                    //胸部推举机 0x06
+                    data[position] = (byte)DeviceType.X06;
                     position += 1;
                 }
 
                 if (checkbox6.IsChecked == true)
                 {
-                    //胸部推举机 0x01
-                    data[position] = 0x01;
+                    //腿部内外弯机 0x02
+                    data[position] = (byte)DeviceType.X02;
                 }
 
                 Console.WriteLine("发卡的内容：" + ProtocolUtil.ByteToStringOk(data));
@@ -1616,15 +1615,18 @@ namespace spms.view.Pages.ChildWin
                             //SaveTrainInfo2DB(TrainInfoStatus.Normal);
 
                             //保存到数据库,在接收数据方法中
-                            try
+                            Dispatcher.Invoke(new Action(() =>
                             {
-                                SaveTrainInfo2DB(TrainInfoStatus.Normal);
-                            }
-                            catch (Exception exception)
-                            {
-                                Console.WriteLine("捕获异常了");
-                                return;
-                            }
+                                try
+                                {
+                                    SaveTrainInfo2DB(TrainInfoStatus.Normal);
+                                }
+                                catch (Exception exception)
+                                {
+                                    Console.WriteLine("捕获异常了");
+                                    return;
+                                }
+                            }));
 
                             MessageBox.Show("写卡成功");
                         }
@@ -1660,6 +1662,7 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception exception)
             {
+                Console.WriteLine("捕获异常了");
                 return;
             }
             
