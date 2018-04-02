@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -232,7 +233,7 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             passwordInput.ShowDialog();
-            if (ProtocolConstant.USB_SUCCESS == 1)//u盘成功读取
+            if (ProtocolConstant.USB_SUCCESS == 0)//u盘成功读取
             {   //获取mac地址
                 StringBuilder stringBuilder = new StringBuilder();
                 //string strMac = CommUtil.GetMacAddress();
@@ -257,6 +258,14 @@ namespace spms.view.Pages
                 string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
                 string path = ConfigurationManager.AppSettings["PicPath"];
                 setter.Set_PhotoLocation = basePath + path;
+                if (!Directory.Exists(@setter.Set_PhotoLocation))
+                {
+                    Directory.CreateDirectory(@setter.Set_PhotoLocation);//不存在就创建目录
+                }
+                if (Directory.Exists(@setter.Set_PhotoLocation)) {
+                    Directory.Delete(@setter.Set_PhotoLocation, true);
+                    Directory.CreateDirectory(@setter.Set_PhotoLocation);
+                }
                 SetterDAO.InsertOneMacAdress(setter);
                 //注释的部分为添加多个mac地址
                 // List<entity.Setter> ListMac = CommUtil.GetMacByWMI();

@@ -26,6 +26,29 @@ namespace spms.view.Pages.ChildWin
     {
         private User user;
         private PhysicaleDTO physicaleDto;
+        List<String> list = new List<string>
+        {
+            "T字拐杖",
+            "T-Kane",
+            "4字拐杖",
+            "Qtr-Cane",
+            "步行器",
+            "Walker",
+            "其他",
+            "Other",
+            "右手前面支持",
+            "Right Frontal",
+            "右手侧面支持",
+            "Right Lateral",
+            "左手前面支持",
+            "Left Frontal",
+            "左手侧面支持",
+            "Left Lateral",
+            "两手前面支持",
+            "Both Frontal",
+            "两手侧面支持",
+            "Both Lateral"
+        };
         public ViewManualMvaluation()
         {
             InitializeComponent();
@@ -205,7 +228,7 @@ namespace spms.view.Pages.ChildWin
             {
                 c23.IsChecked = true;
             }
-            else if (ppTimeUpGo[3] == "T字拐杖" || ppTimeUpGo[3] == "4字拐杖" || ppTimeUpGo[3] == "步行器" || ppTimeUpGo[3] == "其他")
+            else if (list.Contains(ppTimeUpGo[3]))
             {
                 c24.IsChecked = true;
                 comBox3.Text = ppTimeUpGo[3];
@@ -235,7 +258,7 @@ namespace spms.view.Pages.ChildWin
             {
                 c28.IsChecked = true;
             }
-            else if (ppWalk5MileGeneral[3] == "T字拐杖" || ppWalk5MileGeneral[3] == "4字拐杖" || ppWalk5MileGeneral[3] == "步行器" || ppWalk5MileGeneral[3] == "其他")
+            else if (list.Contains(ppWalk5MileGeneral[3]))
             {
                 c29.IsChecked = true;
                 comBox4.Text = ppWalk5MileGeneral[3];
@@ -264,7 +287,7 @@ namespace spms.view.Pages.ChildWin
             {
                 c33.IsChecked = true;
             }
-            else if (ppWalk5MileFast[3] == "T字拐杖" || ppWalk5MileFast[3] == "4字拐杖" || ppWalk5MileFast[3] == "步行器" || ppWalk5MileFast[3] == "其他")
+            else if (list.Contains(ppWalk5MileFast[3]))
             {
                 c34.IsChecked = true;
                 comBox5.Text = ppWalk5MileFast[3];
@@ -304,7 +327,7 @@ namespace spms.view.Pages.ChildWin
             {
                 c38.IsChecked = true;
             }
-            else if (ppWalk10Mile[3] == "T字拐杖" || ppWalk10Mile[3] == "4字拐杖" || ppWalk10Mile[3] == "步行器" || ppWalk10Mile[3] == "其他")
+            else if (list.Contains(ppWalk10Mile[3]))
             {
                 c39.IsChecked = true;
                 comBox6.Text = ppWalk10Mile[3];
@@ -325,7 +348,7 @@ namespace spms.view.Pages.ChildWin
             {
                 c43.IsChecked = true;
             }
-            else if (ppWalk6Minute[3] == "T字拐杖" || ppWalk6Minute[3] == "4字拐杖" || ppWalk6Minute[3] == "步行器" || ppWalk6Minute[3] == "其他")
+            else if (list.Contains(ppWalk6Minute[3]))
             {
                 c44.IsChecked = true;
                 comBox7.Text = ppWalk6Minute[3];
@@ -346,7 +369,7 @@ namespace spms.view.Pages.ChildWin
             {
                 c46.IsChecked = true;
             }
-            else if (ppStep2Minute[3] == "T字拐杖" || ppStep2Minute[3] == "4字拐杖" || ppStep2Minute[3] == "步行器" || ppStep2Minute[3] == "其他")
+            else if (list.Contains(ppStep2Minute[3]))
             {
                 c47.IsChecked = true;
                 comBox8.Text = ppStep2Minute[3];

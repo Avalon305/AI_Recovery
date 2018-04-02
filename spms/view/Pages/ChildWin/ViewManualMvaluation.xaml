@@ -402,11 +402,11 @@
                 </StackPanel>
                 <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal">
                     <TextBox Name="time_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="秒" Margin="1,11,1,0" Height="24" VerticalAlignment="Top"/>
+                    <Label Content="s" Margin="1,11,1,0" Height="24" VerticalAlignment="Top"/>
                 </StackPanel>
                 <StackPanel Grid.Row="7" Grid.Column="3" Orientation="Horizontal">
                     <TextBox Name="time_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="秒" VerticalAlignment="Center"/>
+                    <Label Content="s" VerticalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"  Grid.Row="7" Grid.Column="4">
                     <CheckBox  Name="c23" FontSize="10"   Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
@@ -424,11 +424,11 @@
                 <StackPanel Grid.Row="8
                         " Grid.Column="2" Orientation="Horizontal">
                     <TextBox Name="five1_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                    <Label Content="s" Margin="1,11,1,9.6"/>
                 </StackPanel>
                 <StackPanel Grid.Row="8" Grid.Column="3" Orientation="Horizontal">
                     <TextBox Name="five1_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                    <Label Content="s" Margin="1,11,1,9.6"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"  Grid.Row="8" Grid.Column="4"   >
                     <CheckBox  Name="c28" FontSize="10"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0"  IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
@@ -445,11 +445,11 @@
                 </StackPanel>
                 <StackPanel Grid.Row="9" Grid.Column="2" Orientation="Horizontal">
                     <TextBox Name="five2_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                    <Label Content="s" Margin="1,11,1,9.6"/>
                 </StackPanel>
                 <StackPanel Grid.Row="9" Grid.Column="3" Orientation="Horizontal">
                     <TextBox Name="five2_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                    <Label Content="s" Margin="1,11,1,9.6"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"  Grid.Row="9" Grid.Column="4"   >
                     <CheckBox  Name="c33" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
@@ -466,11 +466,11 @@
                 </StackPanel>
                 <StackPanel Grid.Row="10" Grid.Column="2" Orientation="Horizontal">
                     <TextBox Name="ten_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                    <Label Content="s" Margin="1,11,1,9.6"/>
                 </StackPanel>
                 <StackPanel Grid.Row="10" Grid.Column="3" Orientation="Horizontal">
                     <TextBox Name="ten_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                    <Label Content="s" Margin="1,11,1,9.6"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"  Grid.Row="10" Grid.Column="4"   >
                     <CheckBox  Name="c38" FontSize="10"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
@@ -484,11 +484,11 @@
                 <Label  Grid.Row="11" Grid.Column="1" Content="—"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <StackPanel Grid.Row="11" Grid.Column="2" Orientation="Horizontal">
                     <TextBox Name="six_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="秒" Margin="1,11,1,9.6" />
+                    <Label Content="s" Margin="1,11,1,9.6" />
                 </StackPanel>
                 <StackPanel Grid.Row="11" Grid.Column="3" Orientation="Horizontal">
                     <TextBox Name="six_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                    <Label Content="s" Margin="1,11,1,9.6"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"  Grid.Row="11" Grid.Column="4"   >
                     <CheckBox  Name="c43" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
