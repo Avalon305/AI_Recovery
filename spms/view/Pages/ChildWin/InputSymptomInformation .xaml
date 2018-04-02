@@ -142,7 +142,7 @@
         <!--问诊票-->
         <StackPanel Orientation="Horizontal" Margin="10,10,0,3">
             <Border Width="80">
-                <Label Foreground="White" Content="问诊票" Height="25" Background="Gray" Margin="0,-165,0,0"  Width="80"/>
+                    <Label Foreground="White"   Content="{DynamicResource VitalInfoView.MedicalInq}"  Height="25" Background="Gray" Margin="0,-165,0,0"  Width="80"/>
 
             </Border>
             <Border Width="461" Height="190" Margin="3,0,0,0" BorderBrush="Silver" BorderThickness="1">

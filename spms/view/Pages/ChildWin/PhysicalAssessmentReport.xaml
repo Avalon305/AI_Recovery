@@ -52,7 +52,7 @@
 
             </Border.Background>
             <DockPanel >
-                <Label  DockPanel.Dock="Left" FontSize="22" FontStyle="Normal" Foreground="White"     Content="体力评价报告" VerticalAlignment="Center"/>
+                    <Label  DockPanel.Dock="Left" FontSize="22" FontStyle="Normal" Foreground="White"   Content="{DynamicResource CreateTrainingReportView.CreateTrainingReport}" VerticalAlignment="Center"/>
                 <!--按钮部分--><!--
                 <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="131" Height="29" VerticalAlignment="Bottom"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0">
                     <StackPanel Orientation="Horizontal"  >
@@ -73,9 +73,9 @@
                 <ColumnDefinition Width="63.2"/>
                 <ColumnDefinition Width="72"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="用户姓名: " Margin="-6,11,69.8,-1.4" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Grid.Column="0"  Content="{DynamicResource CreateTrainingReportView.LastName}"  Margin="-6,11,69.8,-1.4" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
             <Label Grid.Column="1"  Margin="2,11,-9.2,-1.4" Name="User_Name" Content="{Binding User_Name}" Grid.RowSpan="2"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="用户编号:" Margin="-6,-6,69.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource CreateTrainingReportView.SubjectID}" Margin="-6,-6,69.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
             <Label Grid.Row="0" Grid.Column="1"  Margin="2,-6,-9.2,15.6" Name="Pk_User_Id" Grid.RowSpan="2"/>
         </Grid>
         <!--结束：用户ID和姓名-->
@@ -84,7 +84,7 @@
         <!--实施日期-->
         <StackPanel Orientation="Horizontal" Height="370" Margin="10,10,10,0">
             <Border Background="Silver" Width="80" Height="20" VerticalAlignment="Top" Margin="0,0,4,0">
-                <Label Margin="0,-2,0,-4">实施日期</Label>
+                    <Label Margin="0,-2,0,-4" Content="{DynamicResource CreateTrainingReportView.Date}" ></Label>
             </Border>
             <Border BorderBrush="Black" BorderThickness="1" Width="361" Margin="0,0,0,-0.4">
                 <Grid>
@@ -103,7 +103,7 @@
         <!--评论-->
         <StackPanel Orientation="Horizontal" Height="100" Margin="0,10,0,0">
             <Border Background="Silver" Width="80" Height="20" VerticalAlignment="Top" Margin="8,0,4,0">
-                <Label Margin="0,-2,0,-4">评论</Label>
+                    <Label Margin="0,-2,0,-4" Content="{DynamicResource CreateTrainingReportView.Comment}" ></Label>
             </Border>
 
             <Border BorderBrush="Black" BorderThickness="1" Width="362" Height="100">
@@ -122,9 +122,9 @@
         <!--结束：评论-->
         <!--文档输出-->
         <StackPanel Orientation="Vertical" Height="48" Margin="10,10,10,0">
-            <CheckBox Content="文档输出" Name="DocumentInput_Check" IsTabStop="False"/>
+                <CheckBox  Content="{DynamicResource CreateTrainingReportView.Export}"  Name="DocumentInput_Check" IsTabStop="False"/>
             <StackPanel Orientation="Horizontal">
-                <Button Content="输出文档" Click="Button_Click_OutputDocument" Width="80" IsTabStop="False" Height="25" HorizontalAlignment="Left" Margin="0,6,8,-3" Style="{StaticResource Btn}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"/>
+                    <Button  Content="{DynamicResource CreateTrainingReportView.Output}"  Click="Button_Click_OutputDocument" Width="80" IsTabStop="False" Height="25" HorizontalAlignment="Left" Margin="0,6,8,-3" Style="{StaticResource Btn}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"/>
                 <TextBox Width="355" Name="text_output_document"  VerticalAlignment="Center" Height="25" Margin="0,8,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"></TextBox>
             </StackPanel>
         </StackPanel>
@@ -132,9 +132,9 @@
         <!--按钮部分-->
         <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="150" Height="29" VerticalAlignment="Bottom"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0" Margin="0,0,9.6,10">
             <StackPanel Orientation="Horizontal" Margin="-52,0,0,0"  >
-                <Button Width="62" Height="25" VerticalAlignment="Bottom"   IsTabStop="False"  Content="打印" Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Button_Click_Print"/>
-                <Button Width="62" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"   Content="打印预览" Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Button_Click_Print_View"/>
-                <Button Width="62" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"  Content="返回"  Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>
+                    <Button Width="62" Height="25" VerticalAlignment="Bottom"   IsTabStop="False"   Content="{DynamicResource CreateTrainingReportView.Go}"  Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Button_Click_Print"/>
+                    <Button Width="62" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"    Content="{DynamicResource CreateTrainingReportView.Preview}"  Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Button_Click_Print_View"/>
+                    <Button Width="62" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"   Content="{DynamicResource CreateTrainingReportView.Cancel}"   Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>
             </StackPanel>
         </Border>
         <!--结束：按钮-->

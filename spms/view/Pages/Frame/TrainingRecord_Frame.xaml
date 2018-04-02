@@ -12,13 +12,13 @@
     </Page.Resources>
     <Grid>
         <TabControl Name="TabControl1" HorizontalAlignment="Left" Height="337" Margin="2.3,8,0,0" VerticalAlignment="Top" Width="948">
-            <TabItem Header="胸部推举机" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
+            <TabItem Header="{DynamicResource Dev.ChestPress}" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="64*"/>
                         <ColumnDefinition Width="407*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="TrainingRecord1" HorizontalAlignment="Left" FocusVisualStyle="{x:Null}" IsTabStop="False" KeyboardNavigation.TabNavigation="None" RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="2" Margin="0,0,-12.6,0">
+                    <DataGrid x:Name="TrainingRecord1" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" FocusVisualStyle="{x:Null}" IsTabStop="False" KeyboardNavigation.TabNavigation="None" RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="2" Margin="0,0,-12.6,0">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -46,17 +46,17 @@
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130" />
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
 
-                            <DataGridTextColumn Binding="{Binding moveway}" Header="移乘方法" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="重量" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="组数" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="个数" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
 
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="自觉运动强度" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding evaluate}" Header="运动时机、姿势等" Width="110"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="{DynamicResource TrainingHistoryView.BorgScale}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding evaluate}" Header="{DynamicResource TrainingHistoryView.Timing/form}" Width="110"/>
                             <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>-->
-                            <DataGridTemplateColumn Header="备忘" Width="185" >
+                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Memo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
@@ -76,7 +76,7 @@
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
                             <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="使用者感想" Width="198">
+                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Subjectcommment}" Width="198">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
@@ -101,9 +101,9 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="坐姿划船机" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
+            <TabItem Header="{DynamicResource Dev.Rowing}" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="TrainingRecord2" HorizontalAlignment="Left" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
+                    <DataGrid x:Name="TrainingRecord2" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -187,9 +187,9 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="身体伸展弯曲机" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
+            <TabItem Header="{DynamicResource Dev.TorsoFlexion}" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="TrainingRecord3" HorizontalAlignment="Left" RowHeaderWidth="0" KeyboardNavigation.TabNavigation="None"  SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False"  BorderThickness="0" IsReadOnly="true">
+                    <DataGrid x:Name="TrainingRecord3" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" KeyboardNavigation.TabNavigation="None"  SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False"  BorderThickness="0" IsReadOnly="true">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -270,14 +270,14 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="腿部伸展弯曲机" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
+            <TabItem Header="{DynamicResource Dev.LegExtension}" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220*"/>
                         <ColumnDefinition Width="12*"/>
                         <ColumnDefinition Width="239*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="TrainingRecord4" HorizontalAlignment="Left" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="3" Margin="0,0,-12.6,0">
+                    <DataGrid x:Name="TrainingRecord4" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="3" Margin="0,0,-12.6,0">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -359,9 +359,9 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="腿部推蹬机" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
+            <TabItem Header="{DynamicResource Dev.HorizontalLegPress}" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="TrainingRecord5" HorizontalAlignment="Left" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
+                    <DataGrid x:Name="TrainingRecord5" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -444,9 +444,9 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="腿部内外弯机" Width="95" KeyboardNavigation.TabNavigation="None" FocusVisualStyle="{x:Null}" IsTabStop="False">
+            <TabItem Header="{DynamicResource Dev.HipAbduction}" Width="95" KeyboardNavigation.TabNavigation="None" FocusVisualStyle="{x:Null}" IsTabStop="False">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="TrainingRecord6" HorizontalAlignment="Left" RowHeaderWidth="0" KeyboardNavigation.TabNavigation="None"  SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False"  BorderThickness="0" IsReadOnly="true">
+                    <DataGrid x:Name="TrainingRecord6" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" KeyboardNavigation.TabNavigation="None"  SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False"  BorderThickness="0" IsReadOnly="true">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>

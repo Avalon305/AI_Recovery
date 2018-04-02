@@ -17,228 +17,227 @@
     ResizeMode="NoResize"
     WindowStyle="None"-->
     <Viewbox Name="viewbox">
-    <StackPanel>
+        <StackPanel>
 
-        <!-- <Border CornerRadius="5,5,0,0" Height="30" Margin="0,0,-0.4,0" BorderBrush="Silver" BorderThickness="1" Background="Gray">
+            <!-- <Border CornerRadius="5,5,0,0" Height="30" Margin="0,0,-0.4,0" BorderBrush="Silver" BorderThickness="1" Background="Gray">
             <StackPanel Orientation="Horizontal"   >
                 <Label Content="输入症状信息" FontSize="18" FontStyle="Normal" Foreground="White" Style="{StaticResource {x:Type Label}}" Margin="0,-5,0,-0.2" Width="135"/>
                 <Button Content="确定" Margin="340,0,5,0" Width="97" UseLayoutRounding="True"/>
             </StackPanel>
         </Border>-->
-        <!--标题栏-->
-        <Border CornerRadius="5,5,0,0" Height="38" Margin="10,0,10,0" BorderBrush="Silver" BorderThickness="1" >
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="Silver" Offset="0.1"/>
-                    <GradientStop Color="Gray" Offset="0.9"/>
-                </LinearGradientBrush>
+            <!--标题栏-->
+            <Border CornerRadius="5,5,0,0" Height="38" Margin="10,0,10,0" BorderBrush="Silver" BorderThickness="1" >
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Silver" Offset="0.1"/>
+                        <GradientStop Color="Gray" Offset="0.9"/>
+                    </LinearGradientBrush>
 
-            </Border.Background>
-            <DockPanel >
-                <!--<dec:Class1 RunSpeed="1000" StopSecond="0" DockPanel.Dock="Left" FontSize="22" FontStyle="Normal" Foreground="White"     Content="输入征状信息" VerticalAlignment="Center"></dec:Class1>-->
-                <Label  DockPanel.Dock="Left" FontSize="22" FontStyle="Normal" Foreground="White"     Content="输入征状信息" VerticalAlignment="Center"/>
-                <!--<Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="128" Height="27" VerticalAlignment="Bottom"   DockPanel.Dock="Right">
+                </Border.Background>
+                <DockPanel >
+                    <!--<dec:Class1 RunSpeed="1000" StopSecond="0" DockPanel.Dock="Left" FontSize="22" FontStyle="Normal" Foreground="White"     Content="输入征状信息" VerticalAlignment="Center"></dec:Class1>-->
+                    <Label  DockPanel.Dock="Left" FontSize="22" FontStyle="Normal" Foreground="White" Content="{DynamicResource VitalInfoView.ViewInformation}" VerticalAlignment="Center"/>
+                    <!--<Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="128" Height="27" VerticalAlignment="Bottom"   DockPanel.Dock="Right">
                     <StackPanel Orientation="Horizontal"  >
                         <Button Width="62" Height="25" VerticalAlignment="Bottom"    Foreground="Black" Content="确定更改" Margin="2,0,0,0" Style="{StaticResource Btn}" Click="Button_Save"/>
                         <Button Width="62" Height="25" VerticalAlignment="Bottom"    Content="取消"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>
                     </StackPanel>
                 </Border>-->
-            </DockPanel>
-        </Border>
-        <!--结束：标题栏-->
-        <!--用户ID和姓名-->
-        <Grid Height="34" Margin="10,10,18.6,0">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="63.2"/>
-                <ColumnDefinition Width="72"/>
-            </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="用户姓名: " Margin="0,11,69.8,-1.4" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Label Grid.Column="1"  Margin="2,11,-9.2,-1.4" Name="l1" Grid.RowSpan="2"/>
-            <Label Grid.Row="0" Grid.Column="0" Content="用户编号:" Margin="0,-6,69.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Label Grid.Row="0" Grid.Column="1"  Margin="2,-6,-9.2,15.6" Name="l2" Grid.RowSpan="2"/>
-        </Grid>
-        <!--结束：用户ID和姓名-->
-        <!--实施日期-->
-        <StackPanel Height="25" Margin="10,15,-0.4,0" Orientation="Horizontal">
-            <Label Content="实施日期" Height="25" Margin="0,0,0,0" Background="Gray" Foreground="White" Width="80"/>
-            <Border BorderBrush="Gray" BorderThickness="1" Margin="3,0,0,0">
-            <StackPanel Orientation="Horizontal"  >
-                    <Label x:Name="date" Width="125" VerticalContentAlignment="Center" IsEnabled="False" Height="23" BorderBrush="Gray" BorderThickness="0"></Label>
-                <Image Source="/view/Images/date.png" Margin="5,5,0,5"></Image>
-            </StackPanel>
+                </DockPanel>
             </Border>
-            <!--<DatePicker Name="date"  Height="23" Margin="3,0,0,0" VerticalAlignment="Bottom" Width="155" IsEnabled="False"/>-->
-            <!--<my:DateTimePicker  x:Name="date"   Height="25" Margin="3,0,0,0" VerticalAlignment="Center" Width="155"  />-->
-        </StackPanel>
-        <!--结束：实施日期-->
-        <!--康复前后信息对比-->
-        <Grid Height="75" Margin="10,10,18.6,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="50"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="394"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Row="0" Grid.Column="1" Background="Gray" Margin="3.2,0,-69.8,49.2" HorizontalAlignment="Left" Grid.RowSpan="2" Width="461">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="119*"/>
-                    <ColumnDefinition Width="93*"/>
-                    <ColumnDefinition  Width="108*"/>
-                    <ColumnDefinition Width="24*"/>
-                    <ColumnDefinition Width="117*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content="血压（mmHg)" Grid.Column="0" Foreground="White"  HorizontalContentAlignment="Center"   VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="0,1,0.2,1"/>
-                <Label Content="心率（分钟）"  Foreground="White"  VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="119,1,0,1" Grid.ColumnSpan="2"/>
-                <Label Content="脉" Grid.Column="1" HorizontalContentAlignment="Center"  Foreground="White"  VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="89.8,1,2,1" Grid.ColumnSpan="3"/>
-                <Label Content="体温（℃）" Grid.Column="3"  Foreground="White" VerticalAlignment="Center"  HorizontalContentAlignment="Center" Height="24" Margin="23,1,9.8,1" Grid.ColumnSpan="2" />
-            </Grid>
-            <Grid Grid.Row="1" Grid.Column="0" Background="Gray" >
+            <!--结束：标题栏-->
+            <!--用户ID和姓名-->
+            <Grid Height="34" Margin="10,10,18.6,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition  Height="25"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="69.6"/>
+                    <ColumnDefinition Width="73.6"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"  Content="{DynamicResource VitalInfoView.LastName}"  Margin="0,11,63.8,-1.4" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Grid.Column="1"  Margin="1.6,11,-11.2,-1.4" Name="l1" Grid.RowSpan="2"/>
+                <Label Grid.Row="0" Grid.Column="0"  Content="{DynamicResource VitalInfoView.SubjectID}"  Margin="0,-6,63.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Grid.Row="0" Grid.Column="1"  Margin="1.6,-6,-11.2,15.6" Name="l2" Grid.RowSpan="2"/>
+            </Grid>
+            <!--结束：用户ID和姓名-->
+            <!--实施日期-->
+            <StackPanel Height="25" Margin="10,15,-0.4,0" Orientation="Horizontal">
+                <Label  Content="{DynamicResource VitalInfoView.Date}"  Height="25" Margin="0,0,0,0" Background="Gray" Foreground="White" Width="80"/>
+                <Border BorderBrush="Gray" BorderThickness="1" Margin="3,0,0,0">
+                    <StackPanel Orientation="Horizontal"  >
+                        <Label x:Name="date" Width="125" VerticalContentAlignment="Center" IsEnabled="False" Height="23" BorderBrush="Gray" BorderThickness="0"></Label>
+                        <Image Source="/view/Images/date.png" Margin="5,5,0,5"></Image>
+                    </StackPanel>
+                </Border>
+                <!--<DatePicker Name="date"  Height="23" Margin="3,0,0,0" VerticalAlignment="Bottom" Width="155" IsEnabled="False"/>-->
+                <!--<my:DateTimePicker  x:Name="date"   Height="25" Margin="3,0,0,0" VerticalAlignment="Center" Width="155"  />-->
+            </StackPanel>
+            <!--结束：实施日期-->
+            <!--康复前后信息对比-->
+            <Grid Height="75" Margin="10,10,18.6,0">
+                <Grid.RowDefinitions>
                     <RowDefinition Height="25"/>
-                </Grid.RowDefinitions>
-                <Label Content="康复前"   Background="Gray" Foreground="White" Width="80" Grid.Row="0" BorderBrush="Silver" BorderThickness="0,0,0,0.5"/>
-                <Label Content="康复后"  Background="Gray" Foreground="White" Width="80" Grid.Row="1" BorderBrush="Silver" BorderThickness="0,0,0,0.5"/>
-            </Grid>
-
-            <Grid Grid.Row="1" Grid.Column="1"  Margin="3.2,0.2,-69.8,0.2">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="118"/>
-                    <ColumnDefinition Width="92.8"/>
-                    <ColumnDefinition  Width="130"/>
-                    <ColumnDefinition Width="6.8"/>
-                    <ColumnDefinition Width="207.4"/>
-                    <ColumnDefinition Width="63"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="394"/>
                 </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" Grid.Column="1" Background="Gray" Margin="3.2,0,-69.8,49.2" HorizontalAlignment="Left" Grid.RowSpan="2" Width="461">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="119*"/>
+                        <ColumnDefinition Width="93*"/>
+                        <ColumnDefinition  Width="108*"/>
+                        <ColumnDefinition Width="24*"/>
+                        <ColumnDefinition Width="117*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="{DynamicResource VitalInfoView.BP}" Grid.Column="0" Foreground="White"  HorizontalContentAlignment="Center"   VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="0,1,0.2,1"/>
+                    <Label Content="{DynamicResource VitalInfoView.HR}"  Foreground="White"  VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="119,1,0,1" Grid.ColumnSpan="2"/>
+                    <Label Content="{DynamicResource VitalInfoView.Pulse}" Grid.Column="1" HorizontalContentAlignment="Center"  Foreground="White"  VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="89.8,1,2,1" Grid.ColumnSpan="3"/>
+                    <Label Content="{DynamicResource VitalInfoView.Tmp}" Grid.Column="3"  Foreground="White" VerticalAlignment="Center"  HorizontalContentAlignment="Center" Height="24" Margin="23,1,9.8,1" Grid.ColumnSpan="2" />
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="0" Background="Gray" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="25"/>
+                        <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+                    <Label  Content="{DynamicResource VitalInfoView.BeforeRehab}"   Background="Gray" Foreground="White" Width="80" Grid.Row="0" BorderBrush="Silver" BorderThickness="0,0,0,0.5"/>
+                    <Label Content="{DynamicResource VitalInfoView.AfterRehab}"   Background="Gray" Foreground="White" Width="80" Grid.Row="1" BorderBrush="Silver" BorderThickness="0,0,0,0.5"/>
+                </Grid>
 
-                <!--<TextBox Grid.Row="0" Grid.Column="0" Margin="10,0,80.4,23.6" VerticalContentAlignment="Center" Grid.RowSpan="2" Name="bloodlow_1" IsEnabled="False"/>
+                <Grid Grid.Row="1" Grid.Column="1"  Margin="3.2,0.2,-69.8,0.2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="118"/>
+                        <ColumnDefinition Width="92.8"/>
+                        <ColumnDefinition  Width="130"/>
+                        <ColumnDefinition Width="6.8"/>
+                        <ColumnDefinition Width="207.4"/>
+                        <ColumnDefinition Width="63"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--<TextBox Grid.Row="0" Grid.Column="0" Margin="10,0,80.4,23.6" VerticalContentAlignment="Center" Grid.RowSpan="2" Name="bloodlow_1" IsEnabled="False"/>
                 <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="37,0,57.4,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
                 <TextBox Grid.Row="0" Grid.Column="0" Margin="65,0,26.4,23.6" Grid.RowSpan="2"  Name="bloodhight_1" IsEnabled="False" VerticalContentAlignment="Center"/>-->
                     <TextBox Grid.Row="0" Grid.Column="0" Margin="17.2,2,72.2,1.8" Name="bloodlow_1" VerticalContentAlignment="Center"  IsEnabled="False"/>
                     <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="50.2,0,50.2,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
                     <TextBox Grid.Row="0" Grid.Column="0" Margin="72.2,2,17.4,1.8"  Name="bloodhight_1" VerticalContentAlignment="Center" IsEnabled="False"/>
                     <TextBox Grid.Row="0" Grid.Column="1" Margin="0.6,0,0.2,23.6" Grid.RowSpan="2" Name="heartRate_1" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <GroupBox Grid.Row="0" Grid.Column="2"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="2.8,2,0.8,0.8" Width="126" >
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="127" Margin="-8,0,-5.4,-6" >
-                        <RadioButton VerticalAlignment="Center" Width="55" Margin="0,1" Name="rule_1" IsEnabled="False">规律脉</RadioButton>
-                        <RadioButton VerticalAlignment="Center"  Width="70" Name="irregular_1" IsEnabled="False">脉率不齐</RadioButton>
-                    </StackPanel>
-                </GroupBox>
-                <TextBox Grid.Row="0" Grid.Column="3" Margin="0.2,0,94.4,23.6" Grid.RowSpan="2" Grid.ColumnSpan="2"  Name="heat_1" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <GroupBox Grid.Row="0" Grid.Column="2"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="2.8,2,0.8,0.8" Width="126" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="127" Margin="-8,0,-5.4,-6" >
+                            <RadioButton VerticalAlignment="Center" Width="55" Margin="0,1" Name="rule_1" IsEnabled="False" Content="{DynamicResource VitalInfoView.Regular}"></RadioButton>
+                            <RadioButton VerticalAlignment="Center"  Width="70" Name="irregular_1" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Irregular}" ></RadioButton>
+                        </StackPanel>
+                    </GroupBox>
+                    <TextBox Grid.Row="0" Grid.Column="3" Margin="0.2,0,94.4,23.6" Grid.RowSpan="2" Grid.ColumnSpan="2"  Name="heat_1" IsEnabled="False" VerticalContentAlignment="Center"/>
 
 
-                <!--<TextBox Grid.Row="1" Grid.Column="0" Margin="10,0.2,80.4,0.6" VerticalContentAlignment="Center" Name="bloodlow_2" IsEnabled="False"/>
+                    <!--<TextBox Grid.Row="1" Grid.Column="0" Margin="10,0.2,80.4,0.6" VerticalContentAlignment="Center" Name="bloodlow_2" IsEnabled="False"/>
                     <Label Content="/" Grid.Row="1" Grid.Column="0" Margin="50,0.2,50,0.6"  HorizontalContentAlignment="Center" />
                     <TextBox Grid.Row="1" Grid.Column="0" Margin="65,0.2,26.4,0.6" Name="bloodhight_2" IsEnabled="False" VerticalContentAlignment="Center"/>-->
                     <TextBox Grid.Row="1" Grid.Column="0" Margin="17.2,2,72.2,1.8"  Name="bloodlow_2" IsEnabled="False" VerticalContentAlignment="Center"  />
                     <Label Content="/" Grid.Row="1" Grid.Column="0" Margin="50,0.2,50,0.6"  HorizontalContentAlignment="Center" />
                     <TextBox Grid.Row="1" Grid.Column="0" Margin="72.2,2,17.4,1.8" Name="bloodhight_2" IsEnabled="False" VerticalContentAlignment="Center" />
                     <TextBox Grid.Row="1" Grid.Column="1" Margin="0.6,0.2,0.2,-0.4" Name="heartRate_2" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <GroupBox Grid.Row="1" Grid.Column="2" Height="24" Margin="0.8,0.2,1.2,0" VerticalAlignment="Top" BorderBrush="White" Grid.ColumnSpan="2">
-                    <StackPanel Orientation="Horizontal" Margin="-7,0,-5.8,-6.4" HorizontalAlignment="Center" Width="132">
-                        <RadioButton VerticalAlignment="Center" Width="55" Margin="0,1" Name="rule_2" IsEnabled="False">规律脉</RadioButton>
-                        <RadioButton VerticalAlignment="Center"  Width="70" Name="irregular_2" IsEnabled="False">脉率不齐</RadioButton>
-                    </StackPanel>
-                </GroupBox>
-                <TextBox Grid.Row="1" Grid.Column="3" Margin="0.2,0.2,94.4,-0.4" Grid.ColumnSpan="2" Name="heat_2" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Border Grid.Row="0" Grid.Column="0" BorderBrush="Silver" BorderThickness="1" Margin="0,0,0.4,24.6" Grid.RowSpan="2"/>
-                <Border Grid.Row="0" BorderBrush="Silver" BorderThickness="1" Margin="118,0,0.2,24.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Silver" BorderThickness="1" Margin="92.6,0,94.4,24.6" Grid.RowSpan="2" Grid.ColumnSpan="4"/>
-                <Border Grid.Row="0" Grid.Column="3" BorderBrush="Silver" BorderThickness="1" Margin="0.2,0,94.4,24.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    <GroupBox Grid.Row="1" Grid.Column="2" Height="24" Margin="0.8,0.2,1.2,0" VerticalAlignment="Top" BorderBrush="White" Grid.ColumnSpan="2">
+                        <StackPanel Orientation="Horizontal" Margin="-7,0,-5.8,-6.4" HorizontalAlignment="Center" Width="132">
+                            <RadioButton VerticalAlignment="Center" Width="55" Margin="0,1" Name="rule_2" IsEnabled="False" Content="{DynamicResource VitalInfoView.Regular}"></RadioButton>
+                            <RadioButton VerticalAlignment="Center"  Width="70" Name="irregular_2" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Irregular}" ></RadioButton>
+                        </StackPanel>
+                    </GroupBox>
+                    <TextBox Grid.Row="1" Grid.Column="3" Margin="0.2,0.2,94.4,-0.4" Grid.ColumnSpan="2" Name="heat_2" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Border Grid.Row="0" Grid.Column="0" BorderBrush="Silver" BorderThickness="1" Margin="0,0,0.4,24.6" Grid.RowSpan="2"/>
+                    <Border Grid.Row="0" BorderBrush="Silver" BorderThickness="1" Margin="118,0,0.2,24.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    <Border Grid.Row="0" Grid.Column="1" BorderBrush="Silver" BorderThickness="1" Margin="92.6,0,94.4,24.6" Grid.RowSpan="2" Grid.ColumnSpan="4"/>
+                    <Border Grid.Row="0" Grid.Column="3" BorderBrush="Silver" BorderThickness="1" Margin="0.2,0,94.4,24.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
 
-                <Border Grid.Row="1" Grid.Column="0" BorderBrush="Silver" BorderThickness="1" Margin="0,0.2,0.4,-0.4"/>
-                <Border Grid.Row="1" BorderBrush="Silver" BorderThickness="1" Margin="118,0.2,0.2,-0.4" Grid.ColumnSpan="2"/>
-                <Border Grid.Column="1" BorderBrush="Silver" BorderThickness="1" Margin="92.6,0.2,94.4,-0.4" Grid.Row="1" Grid.ColumnSpan="4"/>
-                <Border Grid.Row="1" Grid.Column="3" BorderBrush="Silver" BorderThickness="1" Margin="0.2,0.2,94.4,-0.4" Grid.ColumnSpan="2"/>
+                    <Border Grid.Row="1" Grid.Column="0" BorderBrush="Silver" BorderThickness="1" Margin="0,0.2,0.4,-0.4"/>
+                    <Border Grid.Row="1" BorderBrush="Silver" BorderThickness="1" Margin="118,0.2,0.2,-0.4" Grid.ColumnSpan="2"/>
+                    <Border Grid.Column="1" BorderBrush="Silver" BorderThickness="1" Margin="92.6,0.2,94.4,-0.4" Grid.Row="1" Grid.ColumnSpan="4"/>
+                    <Border Grid.Row="1" Grid.Column="3" BorderBrush="Silver" BorderThickness="1" Margin="0.2,0.2,94.4,-0.4" Grid.ColumnSpan="2"/>
+                </Grid>
             </Grid>
-        </Grid>
-        <!--结束：康复前后信息对比-->
-        <!--问诊票-->
-        <StackPanel Orientation="Horizontal" Margin="10,10,0,3">
-            <Border Width="80">
-                <Label Foreground="White" Content="问诊票" Height="25" Background="Gray" Margin="0,-165,0,0"  Width="80"/>
+            <!--结束：康复前后信息对比-->
+            <!--问诊票-->
+            <StackPanel Orientation="Horizontal" Margin="10,10,0,3">
+                <Border Width="80">
+                    <Label Foreground="White"   Content="{DynamicResource VitalInfoView.MedicalInq}" Height="25" Background="Gray" Margin="0,-165,0,0"  Width="80"/>
 
-            </Border>
-            <Border Width="461" Height="190" Margin="3,0,0,0" BorderBrush="Silver" BorderThickness="1">
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel Margin="0,8,0,0.8" Width="236" Orientation="Vertical" Name="stackPanel_1">
-                        <CheckBox Margin="20,1,20,15" IsEnabled="False">1. 身体疲倦</CheckBox>
-                        <CheckBox Margin="20,-5,20,15" IsEnabled="False">2. 腹泻</CheckBox>
-                        <CheckBox Margin="20,-5,20,15" IsEnabled="False">3. 摇晃</CheckBox>
-                        <CheckBox Margin="20,-5,20,15" IsEnabled="False">4. 心跳、气喘</CheckBox>
-                        <CheckBox Margin="20,-5,20,15" IsEnabled="False">5. 咳嗽、有痰</CheckBox>
-                        <CheckBox Margin="20,-5,20,15" IsEnabled="False">6. 发烧</CheckBox>
-                        <CheckBox Margin="20,-5,20,15" IsEnabled="False">7. 胸部、肚子痛</CheckBox>
+                </Border>
+                <Border Width="461" Height="190" Margin="3,0,0,0" BorderBrush="Silver" BorderThickness="1">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0,8,0,0.8" Width="236" Orientation="Vertical" Name="stackPanel_1">
+                            <CheckBox Margin="20,1,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.Janguidness}"  ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.Diarrhea}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.Wamble}"  ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.BeingBreathless}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.CoughAndPhlegm}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15"  IsEnabled="False"  Content="{DynamicResource VitalInfoView.Fever}"></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsEnabled="False" Content="{DynamicResource VitalInfoView.Stomachache}"  ></CheckBox>
+                        </StackPanel>
+                        <StackPanel Margin="0,8,3,0.8" Width="227" Orientation="Vertical" Name="stackPanel_2">
+                            <CheckBox Margin="20,1,20,15"  IsEnabled="False"  Content="{DynamicResource VitalInfoView.APoorAppetite}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Constipation}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsEnabled="False" Content="{DynamicResource VitalInfoView.Dizziness}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Headache}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsEnabled="False" Content="{DynamicResource VitalInfoView.Other}"  ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsEnabled="False" Content="{DynamicResource VitalInfoView.NotApplicable}"  ></CheckBox>
+                        </StackPanel>
+                    </StackPanel>
 
-                    </StackPanel>
-                    <StackPanel Margin="0,8,3,0.8" Width="227" Orientation="Vertical" Name="stackPanel_2">
-                        <CheckBox Margin="20,1,20,15" IsEnabled="False">8. 没有食欲</CheckBox>
-                        <CheckBox Margin="20,-5,20,15" IsEnabled="False">9.持续便秘</CheckBox>
-                        <CheckBox Margin="20,-5,20,15" IsEnabled="False">10. 感到头晕</CheckBox>
-                        <CheckBox Margin="20,-5,20,15" IsEnabled="False">11. 头痛</CheckBox>
-                        <CheckBox Margin="20,-5,20,15" IsEnabled="False">12. 其他</CheckBox>
-                        <CheckBox Margin="20,-5,20,15" IsEnabled="False">13. 没有相关症状</CheckBox>
-                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <!--结束：问诊票-->
+            <!--是否参加-->
+            <StackPanel Height="25" Margin="10,0,-0.4,0" Orientation="Horizontal">
+                <StackPanel Height="25" Margin="0,0,5,0">
+                    <Label Height="25"  Background="Gray" Foreground="White" Width="80"  Content="{DynamicResource VitalInfoView.Participation}" ></Label>
                 </StackPanel>
-
+                <StackPanel Margin="-10,0,0,-0.2" Width="494">
+                    <GroupBox Height="23" Margin="10,0,0.4,0" BorderBrush="White">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0.2,-6.2" >
+                            <RadioButton Margin="20,0,0,0" VerticalAlignment="Center" Name="join_1" IsEnabled="False" Content="{DynamicResource VitalInfoView.Yes}" ></RadioButton>
+                            <RadioButton Margin="50,0,0,0" VerticalAlignment="Center"  Name="join_2" IsEnabled="False" Content="{DynamicResource VitalInfoView.No}" ></RadioButton>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </StackPanel>
+            <!--结束：是否参加-->
+            <!--水分摄取-->
+            <StackPanel Orientation="Horizontal" Margin="10,10,10,10">
+                <Label Content="{DynamicResource VitalInfoView.Water}" Background="Gray" Foreground="White"  Width="80"/>
+                <TextBox Margin="15,0" Width="41"  Name="amunt" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <Label Content="(cc)"/>
+            </StackPanel>
+            <!--结束：水分摄取-->
+            <!--看护记录-->
+            <StackPanel Orientation="Horizontal" Height="158" Margin="10,0,10,0">
+                <Grid Margin="0,0,0,0.4" >
+                    <Label  Content="{DynamicResource VitalInfoView.CareInfo}"  Background="Gray" Foreground="White" Width="80" Margin="0,0,0,136" Height="30"/>
+                </Grid>
+                <!--            <RichTextBox  AcceptsReturn="True" Margin="3,0,0,0.4" Width="461" Name="Record" IsEnabled="False">-->
+                <!--                ~1~行间距@1@-->
+                <!--                <RichTextBox.Document>-->
+                <!--                    <FlowDocument Focusable="True" LineHeight="1" >-->
+                <!--                    </FlowDocument>-->
+                <!--                </RichTextBox.Document>-->
+                <!--            </RichTextBox>-->
+                <TextBox Margin="3,0,0,0.4" Width="461" Name="Record" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+            </StackPanel>
+            <!--结束：看护记录-->
+            <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="145" Height="27" VerticalAlignment="Bottom"  Margin="0,15,8,0">
+                <StackPanel Orientation="Horizontal"  >
+                    <!--<Button Width="62" Height="25" VerticalAlignment="Bottom"     Content="确定更改" Margin="2,0,0,0" Style="{StaticResource Btn}" IsEnabled="False" Background="Gray" Foreground="Silver"/>-->
+                    <Button Width="140" Height="25"   Content="{DynamicResource VitalInfoView.Close}" Style="{StaticResource Btn}" Margin="2,0,2,-0.2" VerticalAlignment="Bottom"  Click="Cancel"/>
+                    <!--<Button Width="62" Height="25" VerticalAlignment="Bottom"    Content="取消"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>-->
+                </StackPanel>
             </Border>
         </StackPanel>
-        <!--结束：问诊票-->
-        <!--是否参加-->
-        <StackPanel Height="25" Margin="10,0,-0.4,0" Orientation="Horizontal">
-            <StackPanel Height="25" Margin="0,0,5,0">
-                <Label Height="25"  Background="Gray" Foreground="White" Width="80">参加/不参加</Label>
-            </StackPanel>
-            <StackPanel Margin="-10,0,0,-0.2" Width="494">
-                <GroupBox Height="23" Margin="10,0,0.4,0" BorderBrush="White">
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0.2,-6.2" >
-                        <RadioButton Margin="20,0,0,0" VerticalAlignment="Center" Name="join_1" IsEnabled="False">参加</RadioButton>
-                        <RadioButton Margin="50,0,0,0" VerticalAlignment="Center"  Name="join_2" IsEnabled="False">不参加</RadioButton>
-                    </StackPanel>
-                </GroupBox>
-            </StackPanel>
-        </StackPanel>
-        <!--结束：是否参加-->
-        <!--水分摄取-->
-        <StackPanel Orientation="Horizontal" Margin="10,10,10,10">
-            <Label Content=" 水分摄取" Background="Gray" Foreground="White"  Width="80"/>
-                <TextBox Margin="15,0" Width="41"  Name="amunt" IsEnabled="False" VerticalContentAlignment="Center"/>
-            <Label Content="(cc)"/>
-        </StackPanel>
-        <!--结束：水分摄取-->
-        <!--看护记录-->
-        <StackPanel Orientation="Horizontal" Height="158" Margin="10,0,10,0">
-            <Grid Margin="0,0,0,0.4" >
-                <Label Content="看护记录"  Background="Gray" Foreground="White" Width="80" Margin="0,0,0,136" Height="30"/>
-            </Grid>
-<!--            <RichTextBox  AcceptsReturn="True" Margin="3,0,0,0.4" Width="461" Name="Record" IsEnabled="False">-->
-<!--                ~1~行间距@1@-->
-<!--                <RichTextBox.Document>-->
-<!--                    <FlowDocument Focusable="True" LineHeight="1" >-->
-<!--                    </FlowDocument>-->
-<!--                </RichTextBox.Document>-->
-<!--            </RichTextBox>-->
-            <TextBox Margin="3,0,0,0.4" Width="461" Name="Record" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-        </StackPanel>
-        <!--结束：看护记录-->
-        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="145" Height="27" VerticalAlignment="Bottom"  Margin="0,15,8,0">
-            <StackPanel Orientation="Horizontal"  >
-                <!--<Button Width="62" Height="25" VerticalAlignment="Bottom"     Content="确定更改" Margin="2,0,0,0" Style="{StaticResource Btn}" IsEnabled="False" Background="Gray" Foreground="Silver"/>-->
-                <Button Width="140" Height="25"   Content="关闭"  Style="{StaticResource Btn}" Margin="2,0,2,-0.2" VerticalAlignment="Bottom"  Click="Cancel"/>
-                <!--<Button Width="62" Height="25" VerticalAlignment="Bottom"    Content="取消"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>-->
-            </StackPanel>
-        </Border>
-    </StackPanel>
     </Viewbox>
 </Window>
 

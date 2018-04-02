@@ -341,16 +341,30 @@
                             </DataGrid.Columns>
                         </DataGrid>-->
                             </WrapPanel>
-                            <StackPanel Orientation="Horizontal" Height="25" Margin="30,7,0,0" HorizontalAlignment="Left" Width="916">
-                                <RadioButton Content="{DynamicResource SubjectInfoView.VitalHistory}" VerticalAlignment="Center" IsChecked="True" FocusVisualStyle="{x:Null}" IsTabStop="False" KeyboardNavigation.ControlTabNavigation="None" GroupName="record_radio" Name="is_signinformationrecord" Click="Radio_Check" RenderTransformOrigin="0.5,0.5" >
-                                    
-                                </RadioButton>
-                                <RadioButton VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Margin="10,0,0,0" Name="is_trainingrecord" Click="Radio_Check" Content="{DynamicResource SubjectInfoView.TrainingHistory}"></RadioButton>
-                                <RadioButton VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Margin="10,0,0,0" Name="is_physicalevaluation" Click="Radio_Check" Content="{DynamicResource SubjectInfoView.PhysicalEvaluationHistory}"></RadioButton>
-                                <Button Content="{DynamicResource SubjectInfoView.InputTrainingResult}" Margin="220,0,0,0" Style="{StaticResource Btn}" Width="140" Click="InputTrainingResults"/>
-                                <Button Margin="2,0,0,0" Content="{DynamicResource SubjectInfoView.Details}" Style="{StaticResource Btn}" Width="140" Click="ViewDetails"/>
-                                <Button Content="{DynamicResource SubjectInfoView.Export}" Margin="2,0,0,0"  Style="{StaticResource Btn}" Width="140" Click="Output_Document"/>
-                            </StackPanel>
+                            
+                            <Grid   Margin="0,0,0,-0.2" Width="962" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*">
+                                        </ColumnDefinition>
+                                        <ColumnDefinition Width="*">
+                                        </ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                <DockPanel  Height="25" Margin="20,7,0,0" Grid.Column="0" HorizontalAlignment="Left"  Width="931">
+
+                                    <RadioButton DockPanel.Dock="Left" Content="{DynamicResource SubjectInfoView.VitalHistory}" VerticalAlignment="Center" IsChecked="True" FocusVisualStyle="{x:Null}" IsTabStop="False" KeyboardNavigation.ControlTabNavigation="None" GroupName="record_radio" Name="is_signinformationrecord" Click="Radio_Check" RenderTransformOrigin="0.5,0.5" ></RadioButton>
+                                    <RadioButton DockPanel.Dock="Left" VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Margin="10,0,0,0" Name="is_trainingrecord" Click="Radio_Check" Content="{DynamicResource SubjectInfoView.TrainingHistory}"></RadioButton>
+                                    <RadioButton DockPanel.Dock="Left" VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Margin="10,0,0,0" Name="is_physicalevaluation" Click="Radio_Check" Content="{DynamicResource SubjectInfoView.PhysicalEvaluationHistory}"></RadioButton>
+
+                                </DockPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0.2,0,10,0.2">
+                                    <Button   Content="{DynamicResource SubjectInfoView.Details}" Margin="2,0,0,0" Style="{StaticResource Btn}" Height="25" Width="140" Click="ViewDetails"/>
+                                    <Button DockPanel.Dock="Right" Content="{DynamicResource SubjectInfoView.InputTrainingResult}" Margin="2,0,0,0" Height="25" Style="{StaticResource Btn}" Width="140" Click="InputTrainingResults"/>
+
+                                    <Button DockPanel.Dock="Right" Content="{DynamicResource SubjectInfoView.Export}" Margin="2,0,0,0" Height="25" Style="{StaticResource Btn}" Width="140" Click="Output_Document"/>
+                                </StackPanel>
+                                </Grid>
+                            
+                           
                         </WrapPanel>
                     </Border>
                     <!--结束：训练信息展示-->

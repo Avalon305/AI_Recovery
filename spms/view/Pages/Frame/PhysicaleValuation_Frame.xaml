@@ -10,7 +10,7 @@
 
     <Grid>
 
-        <DataGrid x:Name="PhysicaleValuation" RowHeaderWidth="0" SelectionMode="Single" KeyboardNavigation.TabNavigation="None" HorizontalAlignment="Left" Margin="5,11,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="302" Width="942" CanUserSortColumns="False" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
+        <DataGrid x:Name="PhysicaleValuation" RowHeaderWidth="0" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" SelectionMode="Single" KeyboardNavigation.TabNavigation="None" HorizontalAlignment="Left" Margin="5,11,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="302" Width="942" CanUserSortColumns="False" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
             <!--选中行失去焦点时的颜色-->
             <DataGrid.Resources>
                 <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -36,14 +36,14 @@
             </DataGrid.CellStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ID}" Header="ID" Width="130" Visibility="Hidden"/>
-                <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="训练日期" Width="130"/>
-                <DataGridTextColumn Binding="{Binding PP_High}" Header="身高" Width="80"/>
-                <DataGridTextColumn Binding="{Binding PP_Weight}" Header="体重" Width="80"/>
-                <DataGridTextColumn Binding="{Binding PP_EyeOpenStand}" Header="睁眼单脚站立" Width="100"/>
-                <DataGridTextColumn Binding="{Binding PP_TimeUpGo}" Header="Time Up &amp; go" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource PhysicalEvaluationHistory.Date}" Width="130"/>
+                <DataGridTextColumn Binding="{Binding PP_High}" Header="{DynamicResource PhysicalEvaluationHistory.Height}" Width="80"/>
+                <DataGridTextColumn Binding="{Binding PP_Weight}" Header="{DynamicResource PhysicalEvaluationHistory.Weight}" Width="80"/>
+                <DataGridTextColumn Binding="{Binding PP_EyeOpenStand}" Header="{DynamicResource PhysicalEvaluationHistory.SingleLegStanding(OE)}" Width="100"/>
+                <DataGridTextColumn Binding="{Binding PP_TimeUpGo}" Header="{DynamicResource PhysicalEvaluationHistory.TimedUpGo}" Width="100"/>
                 <!--<DataGridTextColumn Binding="{Binding PP_UserMemo}" Header="使用者感想" Width="240"/>
                 <DataGridTextColumn Binding="{Binding PP_WorkerMemo}" Header="工作人员感想" Width="240"/>-->
-                <DataGridTemplateColumn Header="使用者感想" Width="225">
+                <DataGridTemplateColumn Header="{DynamicResource PhysicalEvaluationHistory.Subjectcomment}" Width="225">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <!--设置当单元格内容超过最大长度时，显示...-->
@@ -63,7 +63,7 @@
                        
                     </DataGridTemplateColumn.CellStyle>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="工作人员感想" Width="225">
+                <DataGridTemplateColumn Header="{DynamicResource PhysicalEvaluationHistory.Staffcomment}" Width="225">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <!--设置当单元格内容超过最大长度时，显示...-->

@@ -267,11 +267,21 @@ namespace spms.view.Pages.ChildWin
 
 
             }
+            else
+            {
+                Error_Info_IDCard.Content = "请输入身份证号码";
+                bubble_IDCard.IsOpen = true;
+                return;
+            }
 
             //
-
-
-            if (!inputlimited.InputLimited.IsHandset(phone) && !String.IsNullOrEmpty(phone))
+            if (String.IsNullOrEmpty(phone))
+            {
+                Error_Info_Phone.Content = "请输入手机号";
+                bubble_phone.IsOpen = true;
+                return;
+            }
+            else if (!inputlimited.InputLimited.IsHandset(phone) && !String.IsNullOrEmpty(phone))
             {
                 Error_Info_Phone.Content = "请输入正确的手机号";
                 bubble_phone.IsOpen = true;
@@ -537,8 +547,12 @@ namespace spms.view.Pages.ChildWin
         //身份证号验证和查重
         private void IsIDCard(object sender, RoutedEventArgs e)
         {
-            
-            if (!String.IsNullOrEmpty(IDCard.Text)&&IDCard.Text.Length == 18&&!inputlimited.InputLimited.IsIDcard(IDCard.Text) )
+            if (String.IsNullOrEmpty(IDCard.Text))
+            {
+                Error_Info_IDCard.Content = "请输入身份证号码";
+                bubble_IDCard.IsOpen = true;
+            }
+            else if (!String.IsNullOrEmpty(IDCard.Text)&&IDCard.Text.Length == 18&&!inputlimited.InputLimited.IsIDcard(IDCard.Text) )
             {
                 Error_Info_IDCard.Content = "请输入正确的身份证号码";
                 bubble_IDCard.IsOpen = true;
@@ -556,7 +570,11 @@ namespace spms.view.Pages.ChildWin
         //手机号验证和查重
         private void IsPhone(object sender, RoutedEventArgs e)
         {
-            if (!inputlimited.InputLimited.IsHandset(phoneNum.Text) && !String.IsNullOrEmpty(phoneNum.Text))
+            if (String.IsNullOrEmpty(phoneNum.Text))
+            {
+                Error_Info_Phone.Content = "请输入手机号";
+                bubble_phone.IsOpen = true;
+            }else if (!inputlimited.InputLimited.IsHandset(phoneNum.Text) && !String.IsNullOrEmpty(phoneNum.Text))
             {
                 Error_Info_Phone.Content = "请输入正确的手机号";
                 bubble_phone.IsOpen = true;
@@ -574,13 +592,15 @@ namespace spms.view.Pages.ChildWin
         //解决气泡不随着窗体移动问题
         private void windowmove(object sender, EventArgs e)
         {
-
-            var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            mi.Invoke(bubble_phone, null);
-            mi.Invoke(bubble_IDCard, null);
-            mi.Invoke(bubble_Name, null);
-            mi.Invoke(bubble_disease, null);
-            mi.Invoke(bubble_Diagnosis, null);
+            if (bubble_phone.IsOpen == true || bubble_IDCard.IsOpen == true || bubble_Name.IsOpen == true || bubble_disease.IsOpen == true || bubble_Diagnosis.IsOpen == true)
+            {
+                var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                mi.Invoke(bubble_phone, null);
+                mi.Invoke(bubble_IDCard, null);
+                mi.Invoke(bubble_Name, null);
+                mi.Invoke(bubble_disease, null);
+                mi.Invoke(bubble_Diagnosis, null);
+            }
         }
 
         //验证用户是否存在
@@ -644,5 +664,14 @@ namespace spms.view.Pages.ChildWin
 
         }
 
+        private void limit_input(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"^[A-Za-z]*$"))
+            {
+
+                e.Handled = true;//阻止非法字符输入。
+                return;
+            }
+        }
     }
 }

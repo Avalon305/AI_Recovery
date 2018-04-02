@@ -107,5 +107,11 @@ namespace spms
         {
             MessageBox.Show(TestCombox.SelectedValue.ToString());
         }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            var a = new AuthDAO().GetByAuthLevel(2);
+            MessageBox.Show(a.User_Status.ToString());
+        }
     }
 }

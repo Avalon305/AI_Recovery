@@ -440,7 +440,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="95.5*"/>
+                <ColumnDefinition Width="104.5*"/>
                 <ColumnDefinition Width="726*"/>
             </Grid.ColumnDefinitions>
             <Border Grid.Row="0" Grid.Column="0"></Border>

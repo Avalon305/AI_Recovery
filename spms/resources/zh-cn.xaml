@@ -6,7 +6,7 @@
     <!-- 开始界面 -->
     <s:String x:Key="FormView.Title">宝德龙康复医疗系统</s:String>
     <s:String x:Key="FormView.UserName">用户名:</s:String>
-    <s:String x:Key="FormView.Password">密  码:</s:String>
+    <s:String x:Key="FormView.Password" >密&#160;&#160;&#160;&#160;码:</s:String>
     <s:String x:Key="FormView.LogIn">登录</s:String>
     <s:String x:Key="FormView.Reset">重置</s:String>
     <s:String x:Key="FormView.Settings">设置</s:String>
@@ -19,9 +19,21 @@
     <s:String x:Key="MainView.Settings">设置</s:String>
     <s:String x:Key="MainView.Close">关闭</s:String>
 
+    <!-- 设备 -->
+    <s:String x:Key="Dev.HorizontalLegPress">腿部推蹬机</s:String>
+    <s:String x:Key="Dev.Rowing">坐姿划船机</s:String>
+    <s:String x:Key="Dev.TorsoFlexion">身体伸展弯曲机</s:String>
+    <s:String x:Key="Dev.LegExtension">腿部伸展弯曲机</s:String>
+    <s:String x:Key="Dev.HipAbduction">腿部内外展机</s:String>
+    <s:String x:Key="Dev.ChestPress">胸部推举机</s:String>
+
     <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">机构、团体名称</s:String>
     <s:String x:Key="SettingsView.FacilityType">机构分区</s:String>
+    <s:String x:Key="SettingsView.Return">返回</s:String>
+    <s:String x:Key="SettingsView.PremarySettings">初级设置</s:String>
+    <s:String x:Key="SettingsView.AdvancedSettings">高级设置</s:String>
+    <s:String x:Key="SettingsView.Alert">（路径一旦设置不建议改变）</s:String>
     <s:String x:Key="SettingsView.Other">其他</s:String>
     <s:String x:Key="SettingsView.Hospital">医院</s:String>
     <s:String x:Key="SettingsView.Clinic">诊所</s:String>
@@ -41,17 +53,11 @@
     <s:String x:Key="SettingsView.Current">当前密码</s:String>
     <s:String x:Key="SettingsView.New">新密码</s:String>
     <s:String x:Key="SettingsView.ConfirmPassword">确认密码</s:String>
-    <s:String x:Key="SettingsView.Refer">参照</s:String>
+    <s:String x:Key="SettingsView.Refer">打开</s:String>
     <s:String x:Key="SettingsView.Video">设定视频</s:String>
     <s:String x:Key="SettingsView.SeriesofMachines">选择器械系列</s:String>
     <s:String x:Key="SettingsView.PRexerSeries">PRexer 系列</s:String>
     <s:String x:Key="SettingsView.TrainingMachines">使用器械</s:String>
-    <s:String x:Key="SettingsView.HorizontalLegPress">水平腿部推蹬机</s:String>
-    <s:String x:Key="SettingsView.Rowing">坐姿划船机</s:String>
-    <s:String x:Key="SettingsView.TorsoFlexion">身体伸展弯曲机</s:String>
-    <s:String x:Key="SettingsView.LegExtension">腿部伸展弯曲机</s:String>
-    <s:String x:Key="SettingsView.HipAbduction">臂部外展内收机</s:String>
-    <s:String x:Key="SettingsView.ChestPress">胸部推举机</s:String>
     <s:String x:Key="SettingsView.Group">小组名称</s:String>
     <s:String x:Key="SettingsView.Disease">疾病名称</s:String>
     <s:String x:Key="SettingsView.Diagnosis">残障名称</s:String>
@@ -61,7 +67,12 @@
     <s:String x:Key="SettingsView.Cancel">取消</s:String>
     <s:String x:Key="SettingsView.Confirm">确认更改</s:String>
     <s:String x:Key="SettingsView.UserName">用户名</s:String>
+    
+    
+    <s:String x:Key="SettingsView.User">用户</s:String>
     <s:String x:Key="SettingsView.CreateDate">创建时间</s:String>
+    <s:String x:Key="SettingsView.OffLineDate">离线使用时间</s:String>
+    <s:String x:Key="SettingsView.OffLine">完全离线</s:String>
     <s:String x:Key="SettingsView.ModifyDate">更新时间</s:String>
     <s:String x:Key="SettingsView.Status">状态</s:String>
     <s:String x:Key="SettingsView.OffLineTime">离线时间</s:String>
@@ -156,8 +167,8 @@
     <s:String x:Key="SubjectInfoView.Export">文档输出</s:String>
 
     <!-- 症状信息frame界面 -->
-    <s:String x:Key="VitalHistoryView.BeforePowerRehab">帕维尔康复前</s:String>
-    <s:String x:Key="VitalHistoryView.AfterPowerRehab">帕维尔康复后</s:String>
+    <s:String x:Key="VitalHistoryView.BeforePowerRehab">康复前</s:String>
+    <s:String x:Key="VitalHistoryView.AfterPowerRehab">康复后</s:String>
     <s:String x:Key="VitalHistoryView.Date">训练日期</s:String>
     <s:String x:Key="VitalHistoryView.BP">血压</s:String>
     <s:String x:Key="VitalHistoryView.HR">心率</s:String>
@@ -180,18 +191,20 @@
     <s:String x:Key="TrainingHistoryView.Subjectcommment">使用者感想</s:String>
 
     <!-- 体力评价记录 -->
-    <s:String x:Key="Physical Evaluation History.Date">日期</s:String>
-    <s:String x:Key="Physical Evaluation History.Height">身高</s:String>
-    <s:String x:Key="Physical Evaluation History.Weight">体重</s:String>
-    <s:String x:Key="Physical Evaluation History.SingleLegStanding(OE)">睁眼单脚站立</s:String>
-    <s:String x:Key="Physical Evaluation History.TimedUpGo">Timed Up Go</s:String>
-    <s:String x:Key="Physical Evaluation History.Subjectcomment">使用者感想</s:String>
-    <s:String x:Key="Physical Evaluation History.Staffcomment">工作人员感想</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Date">日期</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Height">身高</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Weight">体重</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.SingleLegStanding(OE)">睁眼单脚站立</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.TimedUpGo">Timed Up Go</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Subjectcomment">使用者感想</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Staffcomment">工作人员感想</s:String>
 
     <!-- 输入症状信息界面 -->
     <s:String x:Key="VitalInfoView.VitalInformation">输入症状信息</s:String>
+    <s:String x:Key="VitalInfoView.ViewInformation">查看症状信息</s:String>
     <s:String x:Key="VitalInfoView.Confirm">确认</s:String>
     <s:String x:Key="VitalInfoView.Cancel">取消</s:String>
+    <s:String x:Key="VitalInfoView.Close">关闭</s:String>
     <s:String x:Key="VitalInfoView.SubjectID">用户编号:</s:String>
     <s:String x:Key="VitalInfoView.LastName">用户姓名:</s:String>
     <s:String x:Key="VitalInfoView.Date">日期</s:String>
@@ -225,13 +238,16 @@
 
     <!-- 输入训练界面 -->
     <s:String x:Key="TrainingListView.TrainingList">输入训练</s:String>
-    <s:String x:Key="TrainingListView.SubjectID">使用者编号</s:String>
-    <s:String x:Key="TrainingListView.LastName">姓名</s:String>
+    <s:String x:Key="TrainingListView.SubjectID">用户编号:</s:String>
+    <s:String x:Key="TrainingListView.LastName">用户姓名:</s:String>
     <s:String x:Key="TrainingListView.#ofSets">组数</s:String>
     <s:String x:Key="TrainingListView.Reps">1组的个数</s:String>
     <s:String x:Key="TrainingListView.Resttime">组间间隔休息时间</s:String>
     <s:String x:Key="TrainingListView.Weight">砝码</s:String>
     <s:String x:Key="TrainingListView.Transfer">移乘方式</s:String>
+    <s:String x:Key="TrainingListView.Timer">计时器</s:String>
+    <s:String x:Key="TrainingListView.TimerCount">时间(分)</s:String>
+    <s:String x:Key="TrainingListView.TimeType">计时方式</s:String>
     <s:String x:Key="TrainingListView.TrainingCaution">注意点、运动方式的指示等</s:String>
     <s:String x:Key="TrainingListView.Save">保存</s:String>
     <s:String x:Key="TrainingListView.WritetoCard">写入IC卡</s:String>
@@ -239,6 +255,7 @@
 
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">输入体力评价</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.ViewPhysicalEvaluationForm">查看体力评价</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.SubjectID">用户编号:</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.LastName">用户姓名:</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Evaluation">评价项目</s:String>
@@ -290,19 +307,20 @@
 
     <!-- 制作体力评价报告界面 -->
     <s:String x:Key="CreateTrainingReportView.CreateTrainingReport">制作体力评价报告</s:String>
-    <s:String x:Key="CreateTrainingReportView.SubjectID">使用者编号</s:String>
-    <s:String x:Key="CreateTrainingReportView.LastName">姓名</s:String>
+    <s:String x:Key="CreateTrainingReportView.SubjectID">用户编号</s:String>
+    <s:String x:Key="CreateTrainingReportView.LastName">用户姓名</s:String>
     <s:String x:Key="CreateTrainingReportView.Date">日期</s:String>
     <s:String x:Key="CreateTrainingReportView.Comment">评论</s:String>
     <s:String x:Key="CreateTrainingReportView.Export">文档输出</s:String>
     <s:String x:Key="CreateTrainingReportView.Output">输出文档</s:String>
-    <s:String x:Key="CreateTrainingReportView.Go">实行</s:String>
+    <s:String x:Key="CreateTrainingReportView.Go">打印</s:String>
+    <s:String x:Key="CreateTrainingReportView.Preview">打印预览</s:String>
     <s:String x:Key="CreateTrainingReportView.Cancel">取消</s:String>
 
     <!-- 训练结果界面 -->
     <s:String x:Key="TrainingResultView.TrainingResult">训练结果</s:String>
-    <s:String x:Key="TrainingResultView.SubjectID">使用者编号</s:String>
-    <s:String x:Key="TrainingResultView.LastName">姓名</s:String>
+    <s:String x:Key="TrainingResultView.SubjectID">用户编号:</s:String>
+    <s:String x:Key="TrainingResultView.LastName">用户姓名:</s:String>
     <s:String x:Key="TrainingResultView.Date">日期</s:String>
     <s:String x:Key="TrainingResultView.#ofSets">组数</s:String>
     <s:String x:Key="TrainingResultView.Reps">1组的个数</s:String>
@@ -318,6 +336,9 @@
     <s:String x:Key="TrainingResultView.Timer(sec)">时间（秒）</s:String>
     <s:String x:Key="TrainingResultView.TotalSetsdone">已完成组数</s:String>
     <s:String x:Key="TrainingResultView.Timing/form">时机、姿势</s:String>
+    <s:String x:Key="TrainingResultView.Timer">计时器</s:String>
+    <s:String x:Key="TrainingResultView.TimerCount">时间(分)</s:String>
+    <s:String x:Key="TrainingResultView.TimeType">计时方式</s:String>
     <s:String x:Key="TrainingResultView.TrainingCaution">注意点、运动方式的指示等。</s:String>
     <s:String x:Key="TrainingResultView.Subjectcomment">使用者感想</s:String>
     <s:String x:Key="TrainingResultView.TrainingMemo">时机、姿势备忘</s:String>

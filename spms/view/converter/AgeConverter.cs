@@ -15,8 +15,6 @@ namespace spms.view.converter
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             DateTime revalue = System.Convert.ToDateTime(value);
-            Console.WriteLine(revalue);
-            Console.WriteLine(DateTime.Now.Year - revalue.Year);
             int age = DateTime.Now.Year - revalue.Year;
             
             return age;
@@ -25,6 +23,7 @@ namespace spms.view.converter
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             int revalue = (int)value;
+
             return DateTime.Now.Year -revalue;
         }
     }

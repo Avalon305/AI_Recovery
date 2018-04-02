@@ -8,6 +8,7 @@ using spms.view.Pages.ChildWin;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,7 +81,7 @@ namespace spms.view.Pages
                 AutherList.Add(auther);
                 ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
             }
-            catch (Exception ee) {}
+            catch (Exception ee) { }
             try
             {
                 DeviceSetList = deviceSetDAO.ListAll();
@@ -89,7 +90,8 @@ namespace spms.view.Pages
                 DeviceSortList = deviceSortDAO.GetDeviceSortBySet(Dset_Id);
                 ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = DeviceSortList;//类型
             }
-            catch (Exception ee){
+            catch (Exception ee)
+            {
             }
 
         }
@@ -119,40 +121,37 @@ namespace spms.view.Pages
                 AutherList.Add(AutherTemp);
                 ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
             }
-            catch (Exception ee) {
+            catch (Exception ee)
+            {
                 List<Auther> AutherList = null;
                 ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
             }
-           
+
         }
         //添加按钮的事件
         private void Btn_Insert(object sender, RoutedEventArgs e)
         {
             int count = authDAO.GetAuthCount();
-            try
-            {
-                if (SetterDAO.ListAll().Count != 0)
-                {//判断是否激活
-                    if (count < 2)
+            if (SetterDAO.ListAll().Count != 0)
+            {//判断是否激活
+                if (count < 2)
+                {
+                    AutherAdd addAuther = new AutherAdd
                     {
-                        AutherAdd addAuther = new AutherAdd
-                        {
-                            Owner = Window.GetWindow(this),
-                            ShowActivated = true,
-                            ShowInTaskbar = false,
-                            WindowStartupLocation = WindowStartupLocation.CenterScreen
-                        };
-                        addAuther.ShowDialog();
-                        FlushAuther();
-                    }
-                    else
-                    {
-                        MessageBox.Show("最多只允许存在一个用户");
-                    }
+                        Owner = Window.GetWindow(this),
+                        ShowActivated = true,
+                        ShowInTaskbar = false,
+                        WindowStartupLocation = WindowStartupLocation.CenterScreen
+                    };
+                    addAuther.ShowDialog();
+                    FlushAuther();
                 }
-
+                else
+                {
+                    MessageBox.Show("最多只允许存在一个用户");
+                }
             }
-            catch (Exception ee)
+            else
             {
                 MessageBox.Show("您没有添加权限请先激活");
             }
@@ -194,6 +193,8 @@ namespace spms.view.Pages
                 autherUpdate.UserName.Text = auther.Auth_UserName;
                 autherUpdate.Pass.Password = auther.Auth_UserPass;
                 autherUpdate.Confirm_Pass.Password = auther.Auth_UserPass;
+                //日期在修改时最好不要获取 如果以前是9999那么改太麻烦
+                //autherUpdate.Confirm_Date.SelectedDate = auther.Auth_OfflineTime;
                 autherUpdate.ShowDialog();
                 FlushAuther();
                 selected = 0;
@@ -216,19 +217,20 @@ namespace spms.view.Pages
         {
             //InputNonPublicInformationPassword
             InputNonPublicInformationPassword passwordInput = new InputNonPublicInformationPassword
-             {
-                 Owner = Window.GetWindow(this),
-                 ShowActivated = true,
-                 ShowInTaskbar = false,
-                 WindowStartupLocation = WindowStartupLocation.CenterScreen
-             };
-             passwordInput.ShowDialog();
-            if (ProtocolConstant.USB_SUCCESS == 0)//u盘成功读取
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            passwordInput.ShowDialog();
+            if (ProtocolConstant.USB_SUCCESS == 1)//u盘成功读取
             {   //获取mac地址
                 StringBuilder stringBuilder = new StringBuilder();
                 //string strMac = CommUtil.GetMacAddress();
-                List<string> Macs=CommUtil.GetMacByWMI();
-                foreach (string mac in Macs) {
+                List<string> Macs = CommUtil.GetMacByWMI();
+                foreach (string mac in Macs)
+                {
                     stringBuilder.Append(mac);
                 }
                 //Console.WriteLine(stringBuilder.ToString());
@@ -243,11 +245,18 @@ namespace spms.view.Pages
                  * byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
                 byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
                 Console.WriteLine(Encoding.GetEncoding("GBK").GetString(b));*/
+                //默认照片路径，激活时获取(路径中不要有汉字)
+                string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
+                string path = ConfigurationManager.AppSettings["PicPath"];
+                setter.Set_PhotoLocation = basePath + path;
                 SetterDAO.InsertOneMacAdress(setter);
                 //注释的部分为添加多个mac地址
                 // List<entity.Setter> ListMac = CommUtil.GetMacByWMI();
                 // SetterDAO.InsertMacAdress(ListMac);
-               
+
+
+
+
                 Status.Content = "已激活";
                 Color color = Color.FromArgb(255, 2, 200, 5);
                 Status.Foreground = new SolidColorBrush(color);

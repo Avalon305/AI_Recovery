@@ -182,10 +182,10 @@ namespace spms.view
         //解决气泡不随着窗体移动问题
         private void windowmove(object sender, EventArgs e)
         {
-
+            if(bubble.IsOpen == true) { 
             var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             mi.Invoke(bubble, null);
-
+            }
         }
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)

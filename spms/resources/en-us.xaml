@@ -4,7 +4,7 @@
                     xmlns:local="clr-namespace:TestMultLanguage.Resources">
 
     <!-- 开始界面 -->
-    <s:String x:Key="FormView.Title">Title</s:String>
+    <s:String x:Key="FormView.Title">Body Strong Medical rehabilitation system</s:String>
     <s:String x:Key="FormView.UserName">UserName</s:String>
     <s:String x:Key="FormView.Password">Password</s:String>
     <s:String x:Key="FormView.LogIn">Log In</s:String>
@@ -19,8 +19,21 @@
     <s:String x:Key="MainView.Settings">Settings</s:String>
     <s:String x:Key="MainView.Close">Close</s:String>
 
+    <!-- 设备 -->
+    <s:String x:Key="Dev.HorizontalLegPress">Horizontal Leg Press</s:String>
+    <s:String x:Key="Dev.Rowing">Rowing</s:String>
+    <s:String x:Key="Dev.TorsoFlexion">Torso Flexion</s:String>
+    <s:String x:Key="Dev.LegExtension">Leg Extension</s:String>
+    <s:String x:Key="Dev.HipAbduction">Hip Abduction</s:String>
+    <s:String x:Key="Dev.ChestPress">Chest Press</s:String>
+
     <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">Facility Name</s:String>
+    <s:String x:Key="SettingsView.Return">Return</s:String>
+    <s:String x:Key="SettingsView.PremarySettings">Premary Settings</s:String>
+
+    <s:String x:Key="SettingsView.AdvancedSettings">Advanced Settings</s:String>
+    <s:String x:Key="SettingsView.Alert"  xml:space="preserve">(Once the path is set&#13;not to suggest changes)</s:String>
     <s:String x:Key="SettingsView.FacilityType">Facility Type</s:String>
     <s:String x:Key="SettingsView.Other">Other</s:String>
     <s:String x:Key="SettingsView.Hospital">Hospital</s:String>
@@ -46,12 +59,6 @@
     <s:String x:Key="SettingsView.SeriesofMachines">Series of Machines</s:String>
     <s:String x:Key="SettingsView.PRexerSeries">PRexer Series</s:String>
     <s:String x:Key="SettingsView.TrainingMachines">Training Machines</s:String>
-    <s:String x:Key="SettingsView.HorizontalLegPress">Horizontal Leg Press</s:String>
-    <s:String x:Key="SettingsView.Rowing">Rowing</s:String>
-    <s:String x:Key="SettingsView.TorsoFlexion">Torso Flexion</s:String>
-    <s:String x:Key="SettingsView.LegExtension">Leg Extension</s:String>
-    <s:String x:Key="SettingsView.HipAbduction">Hip Abduction</s:String>
-    <s:String x:Key="SettingsView.ChestPress">Chest Press</s:String>
     <s:String x:Key="SettingsView.Group">Group</s:String>
     <s:String x:Key="SettingsView.Disease">Disease</s:String>
     <s:String x:Key="SettingsView.Diagnosis">Diagnosis</s:String>
@@ -180,18 +187,20 @@
     <s:String x:Key="TrainingHistoryView.Subjectcommment">Subject commment</s:String>
 
     <!-- 体力评价记录 -->
-    <s:String x:Key="Physical Evaluation History.Date">Date</s:String>
-    <s:String x:Key="Physical Evaluation History.Height">Height</s:String>
-    <s:String x:Key="Physical Evaluation History.Weight">Weight</s:String>
-    <s:String x:Key="Physical Evaluation History.SingleLegStanding(OE)">Single Leg Standing(OE)</s:String>
-    <s:String x:Key="Physical Evaluation History.TimedUpGo">Timed Up  Go</s:String>
-    <s:String x:Key="Physical Evaluation History.Subjectcomment">Subject comment</s:String>
-    <s:String x:Key="Physical Evaluation History.Staffcomment">Staff comment</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Date">Date</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Height">Height</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Weight">Weight</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.SingleLegStanding(OE)">Single Leg Standing(OE)</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.TimedUpGo">Timed Up  Go</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Subjectcomment">Subject comment</s:String>
+    <s:String x:Key="PhysicalEvaluationHistory.Staffcomment">Staff comment</s:String>
 
     <!-- 输入症状信息界面 -->
     <s:String x:Key="VitalInfoView.VitalInformation">Vital Information</s:String>
+    <s:String x:Key="VitalInfoView.ViewInformation">View Information</s:String>
     <s:String x:Key="VitalInfoView.Confirm">Confirm</s:String>
     <s:String x:Key="VitalInfoView.Cancel">Cancel</s:String>
+    <s:String x:Key="VitalInfoView.Close">Close</s:String>
     <s:String x:Key="VitalInfoView.SubjectID">Subject ID</s:String>
     <s:String x:Key="VitalInfoView.LastName">Last Name</s:String>
     <s:String x:Key="VitalInfoView.Date">Date</s:String>
@@ -232,6 +241,9 @@
     <s:String x:Key="TrainingListView.Resttime">Rest time</s:String>
     <s:String x:Key="TrainingListView.Weight">Weight</s:String>
     <s:String x:Key="TrainingListView.Transfer">Transfer</s:String>
+    <s:String x:Key="TrainingListView.Timer">Timer</s:String>
+    <s:String x:Key="TrainingListView.TimerCount">Time(min)</s:String>
+    <s:String x:Key="TrainingListView.TimeType">Timer Type</s:String>
     <s:String x:Key="TrainingListView.TrainingCaution">Training Caution</s:String>
     <s:String x:Key="TrainingListView.Save">Save</s:String>
     <s:String x:Key="TrainingListView.WritetoCard">Write to Card</s:String>
@@ -239,6 +251,7 @@
 
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">Physical Evaluation Form</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.ViewPhysicalEvaluationForm">Physical Evaluation Form</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.SubjectID">Subject ID</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.LastName">Last Name</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Evaluation">Evaluation</s:String>
@@ -264,8 +277,8 @@
     <s:String x:Key="PhysicalEvaluationFormView.2minKneeext.(reps)">2min Knee ext.(reps)</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Subjectcomment">Subject comment</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Staffcomment">Staff comment</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.SupportingLeg">Supporting Leg</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.Bothhands">Both hands</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.SupportingLeg" xml:space="preserve">Supporting&#13;Leg</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.Bothhands" xml:space="preserve">Both&#13;hands</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.L">L</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.R">R</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Testing">Testing</s:String>
@@ -297,6 +310,7 @@
     <s:String x:Key="CreateTrainingReportView.Export">Export</s:String>
     <s:String x:Key="CreateTrainingReportView.Output">Output</s:String>
     <s:String x:Key="CreateTrainingReportView.Go">Go</s:String>
+    <s:String x:Key="CreateTrainingReportView.Preview">Preview</s:String>
     <s:String x:Key="CreateTrainingReportView.Cancel">Cancel</s:String>
 
     <!-- 训练结果界面 -->
@@ -318,6 +332,9 @@
     <s:String x:Key="TrainingResultView.Timer(sec)">Timer(sec)</s:String>
     <s:String x:Key="TrainingResultView.TotalSetsdone">Total Sets done</s:String>
     <s:String x:Key="TrainingResultView.Timing/form">Timing/form</s:String>
+    <s:String x:Key="TrainingResultView.Timer">Timer</s:String>
+    <s:String x:Key="TrainingResultView.TimerCount">Time(min)</s:String>
+    <s:String x:Key="TrainingResultView.TimeType">Timer Type</s:String>
     <s:String x:Key="TrainingResultView.TrainingCaution">Training Caution</s:String>
     <s:String x:Key="TrainingResultView.Subjectcomment">Subject comment</s:String>
     <s:String x:Key="TrainingResultView.TrainingMemo">Training Memo</s:String>

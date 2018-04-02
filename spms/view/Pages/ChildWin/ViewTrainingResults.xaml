@@ -8,7 +8,7 @@
         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
         Title="宝德龙"
-         ResizeMode = "NoResize" Height="714.8" Width="900"
+         ResizeMode = "NoResize" Height="734.8" Width="900"
         Loaded="Window_Loaded">
     <Viewbox Name="viewbox">
     <StackPanel>
@@ -22,7 +22,7 @@
 
             </Border.Background>
             <Grid>
-                <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38">训练结果</Label>
+                    <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38" Content="{DynamicResource TrainingResultView.TrainingResult}"></Label>
                 <!-- 四个按钮排放位置-->
                 <!--
                 <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="290" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2">
@@ -48,15 +48,15 @@
                     <ColumnDefinition Width="15*"/>
                     <ColumnDefinition Width="82*"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Content="用户编号: " Margin="0,-6,34.4,15.6" Grid.RowSpan="2"/>
+                    <Label Grid.Row="0" Grid.Column="0"  Content="{DynamicResource TrainingResultView.SubjectID}"  Margin="0,-6,34.4,15.6" Grid.RowSpan="2"/>
                 <Label Grid.Row="0"  Margin="65,-6,-0.2,15.6" Name="l2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-                <Label Grid.Column="0" Content="用户姓名:" Margin="0,11,34.4,-1.4" Grid.RowSpan="2"/>
+                    <Label Grid.Column="0"  Content="{DynamicResource TrainingResultView.LastName}"  Margin="0,11,34.4,-1.4" Grid.RowSpan="2"/>
                 <Label  Margin="65,11,-0.2,-1.4" Name="l1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
             </Grid>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Border Margin="10,10,0,8" Background="LightGray" Height="25">
-                <Label Content="实施日期" FontSize="12" Margin="0,0,0,0.2"/>
+                    <Label  Content="{DynamicResource TrainingResultView.Date}"  FontSize="12" Margin="0,0,0,0.2"/>
             </Border>
             <!--日历-->
             <Border Margin="10" Width="153" Height="25" BorderThickness="1" BorderBrush="Gray">
@@ -78,7 +78,7 @@
             </Grid.Resources>
             <Grid Margin="0,0,0,10">
                 <TabControl Name="TabControl1"  Margin="9,0,10,0"  >
-                    <TabItem Header="胸部推举机" Width="95" FocusVisualStyle="{x:Null}">
+                        <TabItem Header="{DynamicResource Dev.ChestPress}" Width="95" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -114,64 +114,64 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Label Background="Gray" Margin="0,0,10,0" Content="组数" Grid.Row="0" Grid.Column="0"/>
+                                <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="HLPGroupcount" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Background="Gray" Margin="0,1,10,0" Content="1组的个数" Grid.Row="1" Grid.Column="0"/>
+                                <Label Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
                                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="HLPGroupnum" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="组间隔休息时间" />
+                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
                                 <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="HLPRelaxTime" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
+                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
                                 <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="HLPWeight" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
+                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
                                 <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0"  Name="HLPMoveway"  IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
+                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="HLPSportstrength" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
+                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
                                 <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="HLPTime1" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
+                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
                                 <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="HLPDistance" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
+                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
                                 <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="HLPCountworkqu" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
+                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
                                 <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="HLPCal" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
+                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Score}" />
                                 <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="HLPIndex" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
+                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
                                 <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="HLPTime2" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="已完成组数" />
+                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HLPFinishgroup" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
+                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
                                 <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0"  Name="HLPEvaluate"  IsEnabled="False"/>
-                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="计时器" />
+                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
                                 <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="HLPTimer" IsTabStop="False" IsEnabled="False"  >
                                 </TextBox>
 
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="HLPTime_Label" Margin="0,1,10,0" Content="时间（分）"  />
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="HLPTime_Label" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
                                 <TextBox Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="HLPTime" IsTabStop="False" IsEnabled="False" Visibility="Hidden">
                                    
                                 </TextBox>
 
-                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="HLPTiming_Label" Content="计时方式" />
+                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="HLPTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
                                 <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="HLPTiming" IsTabStop="False" IsEnabled="False" Visibility="Hidden">
                                 </TextBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="注意点、运动方法的指示等" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HLPAttentionpoint" TextWrapping="Wrap" IsEnabled="False"/>
+                                    <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HLPAttentionpoint" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
                                 <!--行间距-->
@@ -181,8 +181,8 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label Content="使用者感想"  Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104"  Margin="0,2,26,0" Name="HLPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.Subjectcomment}"  Background="Gray"  Margin="0,2,-0.4,0" />
+                                <TextBox Height="104"  Margin="0,2,-0.2,0" Name="HLPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -192,8 +192,8 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HLPMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HLPMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -207,7 +207,7 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="坐姿划船机" Width="95" FocusVisualStyle="{x:Null}">
+                        <TabItem Header="{DynamicResource Dev.Rowing}" Width="95" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -243,63 +243,63 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Label Background="Gray" Margin="0,0,10,0" Content="组数" Grid.Row="0" Grid.Column="0"/>
+                                <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0"  Name="ROWGroupcount"  IsEnabled="False" />
 
-                                <Label Background="Gray" Margin="0,1,10,0" Content="1组的个数" Grid.Row="1" Grid.Column="0"/>
+                                <Label Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
                                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="ROWGroupnum"  IsEnabled="False" />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="组间隔休息时间" />
+                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
                                 <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="ROWRelaxTime"  IsEnabled="False" />
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
+                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
                                 <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="ROWWeight"  IsEnabled="False" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
+                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
                                 <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="ROWMoveway"  IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
+                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="ROWSportstrength"  IsEnabled="False" />
 
-                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
+                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
                                 <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="ROWTime1"  IsEnabled="False" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
+                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
                                 <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="ROWDistance"  IsEnabled="False" />
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
+                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
                                 <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="ROWCountworkqu"  IsEnabled="False" />
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
+                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
                                 <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="ROWCal"  IsEnabled="False" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
+                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Score}" />
                                 <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="ROWIndex"  IsEnabled="False" />
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
+                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
                                 <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="ROWTime2"  IsEnabled="False" />
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="已完成组数" />
+                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="ROWFinishgroup"  IsEnabled="False" />
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
+                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
                                 <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="ROWEvaluate" IsEnabled="False"/>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="计时器" />
+                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
                                 <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="ROWTimer" IsTabStop="False"  >
                                 </TextBox>
 
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="ROWTime_Label" Margin="0,1,10,0" Content="时间（分）"  />
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="ROWTime_Label" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
                                 <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="ROWTime" IsTabStop="False"  Visibility="Hidden">
                                 </TextBox>
 
-                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="ROWTiming_Label" Content="计时方式" />
+                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="ROWTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
                                 <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="ROWTiming" IsTabStop="False" Visibility="Hidden">
                                 </TextBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0"  />
+                                <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0"  />
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -309,9 +309,9 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <TextBox Height="104" Margin="0,2,26,0" Name="ROWAttentionpoint" AcceptsReturn="True" IsEnabled="False" TextWrapping="Wrap"/>
-                                <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0"  />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="ROWUserthoughts" AcceptsReturn="True" IsEnabled="False" TextWrapping="Wrap"/>
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="ROWAttentionpoint" AcceptsReturn="True" IsEnabled="False" TextWrapping="Wrap"/>
+                                <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0"  />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="ROWUserthoughts" AcceptsReturn="True" IsEnabled="False" TextWrapping="Wrap"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -321,8 +321,8 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="ROWMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="ROWMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -337,7 +337,7 @@
                         </StackPanel>
                     </TabItem>
 
-                    <TabItem Header="身体伸展弯曲机" Width="95"  FocusVisualStyle="{x:Null}">
+                        <TabItem Header="{DynamicResource Dev.TorsoFlexion}" Width="95"  FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -373,64 +373,64 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Label Background="Gray" Margin="0,0,10,0" Content="组数" Grid.Row="0" Grid.Column="0"/>
+                                <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="TFGroupcount"  IsEnabled="False" />
 
-                                <Label Background="Gray" Margin="0,1,10,0" Content="1组的个数" Grid.Row="1" Grid.Column="0"/>
+                                <Label Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
                                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="TFGroupnum"  IsEnabled="False" />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="组间隔休息时间" />
+                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
                                 <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="TFRelaxTime"  IsEnabled="False" />
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
+                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
                                 <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="TFWeight"   IsEnabled="False"/>
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
+                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
                                 <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="TFMoveway"   IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
+                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="TFSportstrength"   IsEnabled="False"/>
 
-                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
+                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
                                 <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="TFTime1"  IsEnabled="False" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
+                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
                                 <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="TFDistance"   IsEnabled="False"/>
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
+                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
                                 <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="TFCountworkqu"  IsEnabled="False" />
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
+                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
                                 <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="TFCal" IsEnabled="False"  />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
+                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Score}" />
                                 <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="TFIndex"  IsEnabled="False" />
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
+                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
                                 <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="TFTime2"  IsEnabled="False" />
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="已完成组数" />
+                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="TFFinishgroup" IsEnabled="False"  />
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
+                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
                                 <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="TFEvaluate" IsEnabled="False"/>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="计时器" />
+                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
                                 <TextBox Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="TFTimer" IsTabStop="False"  >
                                 </TextBox>
 
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="TFTime_Label" Margin="0,1,10,0" Content="时间（分）"  />
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="TFTime_Label" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
                                 <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="TFTime" IsTabStop="False"  Visibility="Hidden">
                                 </TextBox>
 
-                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="TFTiming_Label" Content="计时方式" />
+                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="TFTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
                                 <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="TFTiming" IsTabStop="False" Visibility="Hidden">
                                 </TextBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="TFAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="TFAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -440,8 +440,8 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="TFUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="TFUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -451,8 +451,8 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="TFMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="TFMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -466,7 +466,7 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="腿部伸展弯曲机" Width="95" FocusVisualStyle="{x:Null}">
+                        <TabItem Header="{DynamicResource Dev.LegExtension}" Width="95" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -503,65 +503,65 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Label Background="Gray" Margin="0,0,10,0" Content="组数" Grid.Row="0" Grid.Column="0"/>
+                                <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="LEGroupcount"  IsEnabled="False" />
 
-                                <Label Background="Gray" Margin="0,1,10,0" Content="1组的个数" Grid.Row="1" Grid.Column="0"/>
+                                <Label Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
                                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="LEGroupnum"  IsEnabled="False" />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="组间隔休息时间" />
+                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
                                 <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="LERelaxTime"   IsEnabled="False"/>
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
+                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
                                 <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="LEWeight"   IsEnabled="False" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
+                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
                                 <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="LEMoveway" IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
+                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="LESportstrength"  IsEnabled="False" />
 
-                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
+                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
                                 <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="LETime1"  IsEnabled="False" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
+                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
                                 <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="LEDistance" IsEnabled="False"  />
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
+                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
                                 <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="LECountworkqu"   IsEnabled="False"/>
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
+                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
                                 <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="LECal"  IsEnabled="False" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
+                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Score}" />
                                 <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="LEIndex"  IsEnabled="False" />
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
+                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
                                 <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="LETime2"  IsEnabled="False" />
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="已完成组数" />
+                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="LEFinishgroup"  IsEnabled="False" />
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
+                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
                                 <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="LEEvaluate" IsEnabled="False"/>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="计时器" />
+                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
                                 <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="LETimer" IsTabStop="False"  >
                                 </TextBox>
 
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="LETime_Label" Margin="0,1,10,0" Content="时间（分）"  />
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="LETime_Label" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
                                 <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="LETime" IsTabStop="False"  Visibility="Hidden">
                                    
                                 </TextBox>
 
-                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="LETiming_Label" Content="计时方式" />
+                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="LETiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
                                 <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="LETiming" IsTabStop="False" Visibility="Hidden">
                                 </TextBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="LEAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="LEAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -571,8 +571,8 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="LEUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="LEUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -582,8 +582,8 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="LEMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="LEMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -597,7 +597,7 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="臀部外展内收机" Width="95" FocusVisualStyle="{x:Null}">
+                        <TabItem Header="{DynamicResource Dev.HorizontalLegPress}" Width="95" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -631,64 +631,64 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Label Background="Gray" Margin="0,0,10,0" Content="组数" Grid.Row="0" Grid.Column="0"/>
+                                <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="HAGroupcount"  IsEnabled="False" />
 
-                                <Label Background="Gray" Margin="0,1,10,0" Content="1组的个数" Grid.Row="1" Grid.Column="0"/>
+                                <Label Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
                                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="HAGroupnum"  IsEnabled="False"  />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="组间隔休息时间" />
+                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
                                 <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="HARelaxTime"  IsEnabled="False" />
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
+                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
                                 <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="HAWeight"  IsEnabled="False" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
+                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
                                 <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="HAMoveway" IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
+                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="HASportstrength"  IsEnabled="False" />
 
-                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
+                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
                                 <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="HATime1"  IsEnabled="False" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
+                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
                                 <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="HADistance"  IsEnabled="False" />
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
+                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
                                 <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="HACountworkqu"  IsEnabled="False" />
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
+                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
                                 <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="HACal"  IsEnabled="False" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
+                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Score}" />
                                 <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="HAIndex"   IsEnabled="False"/>
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
+                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
                                 <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="HATime2"  IsEnabled="False" />
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="已完成组数" />
+                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HAFinishgroup"  IsEnabled="False" />
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
+                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
                                 <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="HAEvaluate" IsEnabled="False"/>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="计时器" />
+                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
                                 <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="HATimer" IsTabStop="False" >
                                 </TextBox>
 
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="HATime_Label" Margin="0,1,10,0" Content="时间（分）"  />
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="HATime_Label" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
                                 <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="HATime" IsTabStop="False"  Visibility="Hidden">
                                 </TextBox>
 
-                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="HATiming_Label" Content="计时方式" />
+                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="HATiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
                                 <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="HATiming" IsTabStop="False" Visibility="Hidden">
                                 </TextBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HAAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HAAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -698,8 +698,8 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HAUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HAUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -709,8 +709,8 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="HAMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HAMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                 <!--行间距-->
@@ -724,7 +724,7 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="腿部内外弯机" Width="95" FocusVisualStyle="{x:Null}">
+                        <TabItem Header="{DynamicResource Dev.HipAbduction}" Width="95" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -759,65 +759,65 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Label Background="Gray" Margin="0,0,10,0" Content="组数" Grid.Row="0" Grid.Column="0"/>
+                                <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="CPGroupcount"  IsEnabled="False" />
 
-                                <Label Background="Gray" Margin="0,1,10,0" Content="1组的个数" Grid.Row="1" Grid.Column="0"/>
+                                <Label Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
                                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="CPGroupnum"  IsEnabled="False" />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="组间隔休息时间" />
+                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
                                 <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="CPRelaxTime" IsEnabled="False"  />
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="砝码" />
+                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
                                 <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="CPWeight"  IsEnabled="False" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="移乘方法" />
+                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
                                 <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="CPMoveway" IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="自觉运动强度" />
+                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="CPSportstrength"  IsEnabled="False" />
 
-                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
+                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
                                 <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="CPTime1"  IsEnabled="False" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="距离（mm）" />
+                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
                                 <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="CPDistance"   IsEnabled="False"/>
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="总工作量（J）" />
+                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
                                 <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="CPCountworkqu"  IsEnabled="False" />
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="热量（cal）" />
+                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
                                 <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="CPCal"   IsEnabled="False" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="指数" />
+                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Score}" />
                                 <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="CPIndex"  IsEnabled="False" />
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时间（秒）" />
+                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
                                 <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="CPTime2"  IsEnabled="False" />
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="已完成组数" />
+                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="CPFinishgroup"  IsEnabled="False" />
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="时机、姿势" />
+                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
                                 <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="CPEvaluate" IsEnabled="False"/>
 
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="计时器" />
+                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
                                 <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="CPTimer" IsTabStop="False"  >
                                 </TextBox>
 
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="CPTime_Label" Margin="0,1,10,0" Content="时间（分）"  />
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="CPTime_Label" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
                                 <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="CPTime" IsTabStop="False"  Visibility="Hidden" >
                                 </TextBox>
 
-                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="CPTiming_Label" Content="计时方式" />
+                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="CPTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
                                 <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="CPTiming" IsTabStop="False" Visibility="Hidden">
                                 </TextBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="注意点、运动方法的指示等。" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="CPAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="CPAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
                                 <!--行间距-->
@@ -827,8 +827,8 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label Content="使用者感想" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="CPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="CPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
                                 <!--行间距-->
@@ -838,8 +838,8 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label Content="时机、姿势备忘" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,26,0" Name="CPMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
+                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="CPMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
                                 <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
                                 <!--行间距-->
