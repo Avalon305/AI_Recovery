@@ -105,7 +105,7 @@ namespace spms.view.Pages.ChildWin
             }
             else if (grit_right.IsChecked == true)
             {
-                builder.Append(grip_left.Content + ",");
+                builder.Append(grit_right.Content + ",");
             }
             else
             {
