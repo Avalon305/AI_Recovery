@@ -38,7 +38,6 @@ namespace spms.view.Pages.ChildWin
         public InputTraining()
         {
             InitializeComponent();
-            
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
