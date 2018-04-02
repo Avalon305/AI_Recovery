@@ -17,6 +17,7 @@ namespace spms.dao
         /// <returns></returns>
         public List<T> ListAll()
         {
+        
             using (var conn = DbUtil.getConn())
             {
                 conn.Open();
@@ -25,11 +26,11 @@ namespace spms.dao
             }
         }
 
-       /// <summary>
-       /// 根据主键载入
-       /// </summary>
-       /// <param name="primaryKey"></param>
-       /// <returns></returns>
+        /// <summary>
+        /// 根据主键载入
+        /// </summary>
+        /// <param name="primaryKey"></param>
+        /// <returns></returns>
         public T Load(Object primaryKey)
         {
             using (var conn = DbUtil.getConn())

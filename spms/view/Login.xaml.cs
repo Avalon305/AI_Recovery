@@ -120,13 +120,13 @@ namespace spms.view
         //登录操作
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if ("true" == ConfigurationManager.AppSettings["Debug"])
+            /*if ("true" == ConfigurationManager.AppSettings["Debug"])
             {
                 //Debug模式直接进系统 方便开发
                 MainPage mainpage1 = new MainPage();
                 this.Content = mainpage1;
                 return;
-            }
+            }*/
             //获取用户名
             String name = this.User_Name.Text;
             //获取密码
@@ -182,10 +182,10 @@ namespace spms.view
         //解决气泡不随着窗体移动问题
         private void windowmove(object sender, EventArgs e)
         {
-
+            if(bubble.IsOpen == true) { 
             var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             mi.Invoke(bubble, null);
-
+            }
         }
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
@@ -195,6 +195,21 @@ namespace spms.view
                 Button_Click(this, null);
             }
             
+        }
+        private void User_Password_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!User_Password.Password.Equals(""))
+            {
+
+                User_Password.Style = null;
+            }
+            else
+
+            {
+                Style xxStyle = (Style)this.FindResource("Watermark");
+                User_Password.Style = xxStyle;
+            }
+
         }
     }
 }

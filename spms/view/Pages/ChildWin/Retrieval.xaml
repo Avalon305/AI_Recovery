@@ -41,7 +41,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Viewbox>
+    <Viewbox Name="viewbox">
     <StackPanel Margin="0,0,0,0.8">
         <Border CornerRadius="5,5,0,0" Height="38" Margin="10,0,10,0">
             <Border.Background>
@@ -60,7 +60,7 @@
                 </StackPanel>
             </Border>-->
             <DockPanel >
-                <Label Content="设置检索条件"   FontSize="20" VerticalAlignment="Center" DockPanel.Dock="Left" Foreground="White"/>
+                    <Label Content="{DynamicResource SearchSubjectView.SetSearchCondition}"   FontSize="20" VerticalAlignment="Center" DockPanel.Dock="Left" Foreground="White"/>
                 <!--<Border CornerRadius="5,0,0,0" DockPanel.Dock="Right" Background="White" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="188" Margin="0,0,0,0.4" BorderBrush="White" BorderThickness="0">
                     <DockPanel  VerticalAlignment="Bottom">
                         <Button Content="关闭" Name="b3"  Height="25" DockPanel.Dock="Right" Margin="0,0,0,0" Width="60"  Style="{StaticResource Btn}" Click="GoBack"/>
@@ -101,16 +101,16 @@
             </Grid.ColumnDefinitions>
             <!--<Label Content="用户ID" Grid.Row="0" Grid.Column="0"  Background="Gray" Foreground="White"/>
             <TextBox Grid.Row="0" Name="t1" Grid.Column="2"   VerticalContentAlignment="Center"/>-->
-            <Label Content="用户姓名" Grid.Row="0" Grid.Column="0"  Background="Gray" Foreground="White"/>
+                <Label Content="{DynamicResource SearchSubjectView.LastName}" Grid.Row="0" Grid.Column="0"  Background="Gray" Foreground="White"/>
             <TextBox Grid.Row="0" Name="t2" Grid.Column="2"  Text="{Binding User_Name}"   VerticalContentAlignment="Center"/>
-            <Label Content="用户姓名（拼音）" Grid.Row="2" Grid.Column="0" Background="Gray" Foreground="White"/>
+                <Label Content="{DynamicResource SearchSubjectView.FirstName}" Grid.Row="2" Grid.Column="0" Background="Gray" Foreground="White"/>
             <TextBox Grid.Row="2" Name="t3" Grid.Column="2"  VerticalContentAlignment="Center"/>
-            <Label Content="性别" Grid.Row="4" Grid.Column="0" Background="Gray" Foreground="White" />
+                <Label Content="{DynamicResource SearchSubjectView.Gender}" Grid.Row="4" Grid.Column="0" Background="Gray" Foreground="White" />
             <ComboBox Name="c1" Grid.Row="4" Grid.Column="2"   Background="LightGray"  IsTabStop="False"   VerticalContentAlignment="Center">
-                <ComboBoxItem Content="男"></ComboBoxItem>
-                <ComboBoxItem Content="女"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SearchSubjectView.M}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource SearchSubjectView.F}"></ComboBoxItem>
             </ComboBox>
-            <Label Content="手机号" Grid.Row="6" Grid.Column="0" Background="Gray" Foreground="White"/>
+                <Label Content="{DynamicResource SearchSubjectView.Phone}" Grid.Row="6" Grid.Column="0" Background="Gray" Foreground="White"/>
             <TextBox Name="phone" Grid.Row="6" Grid.Column="2" LostFocus="IsPhone" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
             <bubble:CCPopup x:Name="bubble_phone" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=phone}" Placement="Right" >
                 <Label Style="{StaticResource tipLable}">
@@ -119,7 +119,7 @@
                     </StackPanel>
                 </Label>
             </bubble:CCPopup>
-            <Label Content="身份证号" Grid.Row="8" Grid.Column="0" Background="Gray" Foreground="White"/>
+                <Label Content="{DynamicResource SearchSubjectView.IdCard}" Grid.Row="8" Grid.Column="0" Background="Gray" Foreground="White"/>
             <TextBox Name="IDCard" Grid.Row="8" Grid.Column="2" LostFocus="IsIDCard" VerticalContentAlignment="Center"/>
             <bubble:CCPopup x:Name="bubble_IDCard" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=IDCard}" Placement="Right" >
                 <Label Style="{StaticResource tipLable}">
@@ -129,8 +129,8 @@
                 </Label>
             </bubble:CCPopup>
             <ComboBox  Name="comboBox1"  Grid.Row="10"  Grid.Column="2" IsTabStop="False"  />
-            <Label Content="小组名称" Grid.Row="10" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <Label Content="疾病名称" Grid.Row="12" Grid.Column="0" Background="Gray" Foreground="White"/>
+            <Label Content="{DynamicResource SearchSubjectView.Group}" Grid.Row="10" Grid.Column="0" Background="Gray" Foreground="White"/>
+            <Label Content="{DynamicResource SearchSubjectView.Disease}" Grid.Row="12" Grid.Column="0" Background="Gray" Foreground="White"/>
             <ComboBox Name="c4" Grid.Row="12" Grid.Column="2"  LostKeyboardFocus="IsDisease" IsEditable="True" VerticalContentAlignment="Center" />
             <!--气泡-->
             <bubble:CCPopup x:Name="bubble_disease" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=c4}" Placement="Right" >
@@ -140,7 +140,7 @@
                     </StackPanel>
                 </Label>
             </bubble:CCPopup>
-            <Label Content="残障名称" Grid.Row="14" Grid.Column="0" Background="Gray" Foreground="White"/>
+            <Label Content="{DynamicResource SearchSubjectView.Diagnosis}" Grid.Row="14" Grid.Column="0" Background="Gray" Foreground="White"/>
             <ComboBox Name="c3" Grid.Row="14" Grid.Column="2" Background="LightGray"  LostKeyboardFocus="IsDiagnosis" IsEditable="True" VerticalContentAlignment="Center" />
             <!--气泡-->
             <bubble:CCPopup x:Name="bubble_Diagnosis" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=c3}" Placement="Right" >
@@ -153,9 +153,9 @@
         </Grid>
         <Border CornerRadius="5,0,0,0" DockPanel.Dock="Right" Background="White" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="208" Margin="0,3,10,10" BorderBrush="White" BorderThickness="0">
             <DockPanel  VerticalAlignment="Top">
-                <Button Content="关闭" Name="b3"  Height="25" DockPanel.Dock="Right" Margin="0,0,0,0" Width="60" IsTabStop="False"   Style="{StaticResource Btn}" Click="GoBack"/>
-                <Button Content="清空条件" Name="b2" Click="Emptying_Condition" Height="25" DockPanel.Dock="Right" IsTabStop="False"  Width="60" Margin="0,0,10,0" Style="{StaticResource Btn}"/>
-                <Button Content="检索" Name="BtnQuery"  Click="BtnQuery_Click" Height="25" DockPanel.Dock="Right" IsTabStop="False"  Width="60" Margin="2,0,2.1,0" Style="{StaticResource Btn}"/>
+                    <Button Content="{DynamicResource SearchSubjectView.Close}" Name="b3"  Height="25" DockPanel.Dock="Right" Margin="0,0,0,0" Width="60" IsTabStop="False"   Style="{StaticResource Btn}" Click="GoBack"/>
+                    <Button Content="{DynamicResource SearchSubjectView.Clear}" Name="b2" Click="Emptying_Condition" Height="25" DockPanel.Dock="Right" IsTabStop="False"  Width="60" Margin="0,0,10,0" Style="{StaticResource Btn}"/>
+                    <Button Content="{DynamicResource SearchSubjectView.Search}" Name="BtnQuery"  Click="BtnQuery_Click" Height="25" DockPanel.Dock="Right" IsTabStop="False"  Width="60" Margin="2,0,2.1,0" Style="{StaticResource Btn}"/>
             </DockPanel>
         </Border>
     </StackPanel>

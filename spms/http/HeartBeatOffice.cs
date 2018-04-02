@@ -25,7 +25,7 @@ namespace spms.http
             //不属于未注册状态
             SetterDAO setterDAO = new SetterDAO();
             Setter setter = setterDAO.getSetter();
-            if (string.IsNullOrEmpty(setter.Set_Unique_Id))
+            if (setterDAO.ListAll().Count!=1)
             {
                 //设置表没有唯一标识，直接返回
                 return null;

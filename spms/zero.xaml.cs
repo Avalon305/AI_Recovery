@@ -137,7 +137,7 @@ namespace spms
 
         private void Button_Click_13(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("ba123123".IndexOf("a123").ToString());
+            MessageBox.Show("ba123123".IndexOf("a123x").ToString());
         }
         //获得aes加密insert
         private void Button_Click_14(object sender, RoutedEventArgs e)

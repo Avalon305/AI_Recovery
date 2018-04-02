@@ -38,6 +38,7 @@ namespace spms.view.Pages.ChildWin
         public InputTraining()
         {
             InitializeComponent();
+            
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
@@ -1007,6 +1008,8 @@ namespace spms.view.Pages.ChildWin
             //确定哪些设备可用
             Certain_Dev();
             //去除窗体叉号
+            viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             //
@@ -1332,7 +1335,7 @@ namespace spms.view.Pages.ChildWin
         //定时任务
         Timer threadTimer;
         int times = 0;//发送次数
-        bool isReceive = false;//是否收到回执
+        static bool isReceive = false;//是否收到回执
         private SerialPort serialPort;
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
@@ -1468,6 +1471,7 @@ namespace spms.view.Pages.ChildWin
                     }
                 }
 
+                isReceive = false;
                 serialPort.Write(send, 0, send.Length);
 
                 //发送的定时器
@@ -1558,6 +1562,8 @@ namespace spms.view.Pages.ChildWin
                 byte[] receiveData = new byte[len];
                 serialPort.Read(receiveData, 0, len);
 
+                Console.WriteLine("收到数据："+ProtocolUtil.ByteToStringOk(receiveData));
+
                 int offset = 0;
 
                 if (len > 0 && receiveData[0] == 0xAA)//第一包数据
@@ -1604,14 +1610,23 @@ namespace spms.view.Pages.ChildWin
                     if (buffer[buffer.Length - 2] == ProtocolUtil.XorByByte(data))
                     {
                         //Console.WriteLine("校验成功");
-                        if (buffer[buffer.Length - 3] == 0x01)
+                        if (buffer[buffer.Length - 3] == 0x00)
                         {
                             //Console.WriteLine("发卡成功");
-
-                            //保存到数据库 TODO
                             //SaveTrainInfo2DB(TrainInfoStatus.Normal);
-                            MessageBox.Show("写卡成功");
 
+                            //保存到数据库,在接收数据方法中
+                            try
+                            {
+                                SaveTrainInfo2DB(TrainInfoStatus.Normal);
+                            }
+                            catch (Exception exception)
+                            {
+                                Console.WriteLine("捕获异常了");
+                                return;
+                            }
+
+                            MessageBox.Show("写卡成功");
                         }
                         else
                         {
@@ -1799,7 +1814,7 @@ namespace spms.view.Pages.ChildWin
                 border54.Background = Brushes.White;
                 combobox_58.Visibility = Visibility.Hidden;
                 stackpanel6.Margin = new Thickness(0, 149.8, 0, 0);
-                t6.Height = 130;
+                t6.Height = 170;
             }
             else if (combobox_56.Text.Equals("有效"))
             {

@@ -8,6 +8,7 @@ using spms.view.Pages.ChildWin;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,12 +55,15 @@ namespace spms.view.Pages
         {
             try
             {
-                if (SetterDAO.getSetter().Set_Unique_Id != "" && SetterDAO.getSetter().Set_Unique_Id != null)//判断是否激活
+                if (SetterDAO.getSetter() != null)
                 {
-                    Status.Content = "已激活";
-                    Color color = Color.FromArgb(255, 2, 200, 5);
-                    Status.Foreground = new SolidColorBrush(color);
-                    BtnActivite.IsEnabled = false;
+                    if (SetterDAO.getSetter().Set_Unique_Id != "" && SetterDAO.getSetter().Set_Unique_Id != null)//判断是否激活
+                    {
+                        Status.Content = "已激活";
+                        Color color = Color.FromArgb(255, 2, 200, 5);
+                        Status.Foreground = new SolidColorBrush(color);
+                        BtnActivite.IsEnabled = false;
+                    }
                 }
             }
             catch (InvalidOperationException ee)
@@ -77,13 +81,18 @@ namespace spms.view.Pages
                 AutherList.Add(auther);
                 ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
             }
-            catch (Exception ee) {}
-          
-            DeviceSetList = deviceSetDAO.ListAll();
-            ((this.FindName("ComboBox_Device")) as ComboBox).ItemsSource = DeviceSetList;//系列
-            int Dset_Id = (int)ComboBox_Device.SelectedValue;
-            DeviceSortList = deviceSortDAO.GetDeviceSortBySet(Dset_Id);
-            ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = DeviceSortList;//类型
+            catch (Exception ee) { }
+            try
+            {
+                DeviceSetList = deviceSetDAO.ListAll();
+                ((this.FindName("ComboBox_Device")) as ComboBox).ItemsSource = DeviceSetList;//系列
+                int Dset_Id = (int)ComboBox_Device.SelectedValue;
+                DeviceSortList = deviceSortDAO.GetDeviceSortBySet(Dset_Id);
+                ((this.FindName("DataGrid2")) as DataGrid).ItemsSource = DeviceSortList;//类型
+            }
+            catch (Exception ee)
+            {
+            }
 
         }
         //返回上一页
@@ -102,43 +111,47 @@ namespace spms.view.Pages
         //刷新页面
         private void FlushAuther()
         {
-            //添加之后，flush界面
-            //致空
-            auther = null;
-            //刷新界面
-            Auther AutherTemp = authDAO.GetAuther(auth_level);
-            List<Auther> AutherList = new List<Auther>();
-            AutherList.Add(AutherTemp);
-            ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
+            try
+            { //添加之后，flush界面
+              //致空
+                auther = null;
+                //刷新界面
+                Auther AutherTemp = authDAO.GetAuther(auth_level);
+                List<Auther> AutherList = new List<Auther>();
+                AutherList.Add(AutherTemp);
+                ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
+            }
+            catch (Exception ee)
+            {
+                List<Auther> AutherList = null;
+                ((this.FindName("DataGrid1")) as DataGrid).ItemsSource = AutherList;
+            }
+
         }
         //添加按钮的事件
         private void Btn_Insert(object sender, RoutedEventArgs e)
         {
             int count = authDAO.GetAuthCount();
-            try
-            {
-                if (SetterDAO.getSetter().Set_Unique_Id != "" && SetterDAO.getSetter().Set_Unique_Id != null)
-                {//判断是否激活
-                    if (count < 2)
+            if (SetterDAO.ListAll().Count != 0)
+            {//判断是否激活
+                if (count < 2)
+                {
+                    AutherAdd addAuther = new AutherAdd
                     {
-                        AutherAdd addAuther = new AutherAdd
-                        {
-                            Owner = Window.GetWindow(this),
-                            ShowActivated = true,
-                            ShowInTaskbar = false,
-                            WindowStartupLocation = WindowStartupLocation.CenterScreen
-                        };
-                        addAuther.ShowDialog();
-                        FlushAuther();
-                    }
-                    else
-                    {
-                        MessageBox.Show("最多只允许存在一个用户");
-                    }
+                        Owner = Window.GetWindow(this),
+                        ShowActivated = true,
+                        ShowInTaskbar = false,
+                        WindowStartupLocation = WindowStartupLocation.CenterScreen
+                    };
+                    addAuther.ShowDialog();
+                    FlushAuther();
                 }
-
+                else
+                {
+                    MessageBox.Show("最多只允许存在一个用户");
+                }
             }
-            catch (InvalidOperationException ee)
+            else
             {
                 MessageBox.Show("您没有添加权限请先激活");
             }
@@ -180,6 +193,8 @@ namespace spms.view.Pages
                 autherUpdate.UserName.Text = auther.Auth_UserName;
                 autherUpdate.Pass.Password = auther.Auth_UserPass;
                 autherUpdate.Confirm_Pass.Password = auther.Auth_UserPass;
+                //日期在修改时最好不要获取 如果以前是9999那么改太麻烦
+                //autherUpdate.Confirm_Date.SelectedDate = auther.Auth_OfflineTime;
                 autherUpdate.ShowDialog();
                 FlushAuther();
                 selected = 0;
@@ -202,19 +217,20 @@ namespace spms.view.Pages
         {
             //InputNonPublicInformationPassword
             InputNonPublicInformationPassword passwordInput = new InputNonPublicInformationPassword
-             {
-                 Owner = Window.GetWindow(this),
-                 ShowActivated = true,
-                 ShowInTaskbar = false,
-                 WindowStartupLocation = WindowStartupLocation.CenterScreen
-             };
-             passwordInput.ShowDialog();
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            passwordInput.ShowDialog();
             if (ProtocolConstant.USB_SUCCESS == 1)//u盘成功读取
             {   //获取mac地址
                 StringBuilder stringBuilder = new StringBuilder();
                 //string strMac = CommUtil.GetMacAddress();
-                List<string> Macs=CommUtil.GetMacByWMI();
-                foreach (string mac in Macs) {
+                List<string> Macs = CommUtil.GetMacByWMI();
+                foreach (string mac in Macs)
+                {
                     stringBuilder.Append(mac);
                 }
                 //Console.WriteLine(stringBuilder.ToString());
@@ -229,11 +245,18 @@ namespace spms.view.Pages
                  * byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
                 byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
                 Console.WriteLine(Encoding.GetEncoding("GBK").GetString(b));*/
+                //默认照片路径，激活时获取(路径中不要有汉字)
+                string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
+                string path = ConfigurationManager.AppSettings["PicPath"];
+                setter.Set_PhotoLocation = basePath + path;
                 SetterDAO.InsertOneMacAdress(setter);
                 //注释的部分为添加多个mac地址
                 // List<entity.Setter> ListMac = CommUtil.GetMacByWMI();
                 // SetterDAO.InsertMacAdress(ListMac);
-               
+
+
+
+
                 Status.Content = "已激活";
                 Color color = Color.FromArgb(255, 2, 200, 5);
                 Status.Foreground = new SolidColorBrush(color);

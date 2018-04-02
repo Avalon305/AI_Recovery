@@ -24,557 +24,572 @@
             <Setter Property="Margin" Value="1"/>
         </Style>
     </Window.Resources>
-    <StackPanel Orientation="Vertical" Margin="0,0,0.2,11.8">
-        <!--Border 使用者一览表以及按钮  开始-->
-        <Border Height="40" CornerRadius="5,5,0,0" Margin="5,5,5,0" BorderThickness="0" BorderBrush="White">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="Silver" Offset="0.1"/>
-                    <GradientStop Color="Gray" Offset="0.9"/>
-                </LinearGradientBrush>
+    <Viewbox Name="viewbox">
+        <StackPanel Orientation="Vertical" Margin="0,0,0.2,11.8">
+            <!--Border 使用者一览表以及按钮  开始-->
+            <Border Height="40" CornerRadius="5,5,0,0" Margin="5,5,5,0" BorderThickness="0" BorderBrush="White">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Silver" Offset="0.1"/>
+                        <GradientStop Color="Gray" Offset="0.9"/>
+                    </LinearGradientBrush>
 
-            </Border.Background>
-            <Grid>
-                <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38">查看体力评价</Label>
-                <!-- 保存及取消按钮--><!--
+                </Border.Background>
+                <Grid>
+                    <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38"  Content="{DynamicResource PhysicalEvaluationFormView.ViewPhysicalEvaluationForm}"></Label>
+                    <!-- 保存及取消按钮-->
+                    <!--
                 <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="286" Height="29" VerticalAlignment="Bottom" BorderThickness="0" BorderBrush="White">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                        --><!--保存按钮--><!--
+                        -->
+                    <!--保存按钮-->
+                    <!--
                         <Button Width="140"  Height="25"  Background="Gray"  Foreground="White" Margin="3,0,0,0" Style="{StaticResource Btn}" VerticalAlignment="Bottom" >保存</Button>
-                        --><!--取消按钮--><!--
+                        -->
+                    <!--取消按钮-->
+                    <!--
                         <Button Width="140" Height="25"  Background="Gray"  Foreground="White"  Content="取消" Margin="2,0,0,0" VerticalAlignment="Bottom"  Style="{StaticResource Btn}" Click="GoBack"/>
                     </StackPanel>
                 </Border>-->
+                </Grid>
+            </Border>
+            <!--Border 使用者一览表以及按钮  结束-->
+
+            <!--StackPanel 信息以及日期-->
+            <StackPanel  Orientation="Horizontal">
+
+                <!--Grid 使用者信息展示-->
+                <Grid Height="34" Margin="10,10,0,0" Width="670">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="82*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--用户姓名-->
+                    <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource PhysicalEvaluationFormView.SubjectID}" Margin="0,-6,16.4,15.6" Grid.RowSpan="2"/>
+                    <Label Grid.Row="0"  Margin="79,-6,-0.6,15.6" Name="l2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                    <!--用户ID-->
+                    <Label Grid.Column="0" Content="{DynamicResource PhysicalEvaluationFormView.LastName}" Margin="0,11,16.4,-1.4" Grid.RowSpan="2"/>
+                    <Label  Margin="79,11,-0.6,-1.4" Name="l1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                </Grid>
+                <!--实施日期-->
+                <Border Margin="10,10,0,10" Background="LightGray" Height="23">
+                    <Label Content="{DynamicResource PhysicalEvaluationFormView.Date}" FontSize="12" Height="23" VerticalAlignment="Center"/>
+                </Border>
+
+                <!--日历-->
+                <Border Margin="17,10,10,10" Width="153">
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="implementation_date" VerticalContentAlignment="Center" IsEnabled="False" Width="125" Height="25"></Label>
+                        <Image Source="/view/Images/date.png" ></Image>
+                    </StackPanel>
+                    <!--<DatePicker Name="implementation_date"  Height="23" Margin="0,0,0,0" VerticalAlignment="Bottom" Width="115" IsEnabled="False"/>-->
+                    <!--<my:DateTimePicker  Margin="0,0,0,0"   x:Name="implementation_date" VerticalAlignment="Top" Height="25" />-->
+                </Border>
+
+            </StackPanel>
+            <!--大表格-->
+            <Grid Margin="5.5,10,5,0" Height="533" >
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter   Property="VerticalAlignment"  Value="Center"></Setter>
+                    </Style>
+                    <Style TargetType="Border">
+                        <Setter  Property="BorderBrush" Value="Gray"></Setter>
+                        <Setter  Property="BorderThickness"  Value="1"></Setter>
+                    </Style>
+                    <Style TargetType="Label">
+                        <Setter Property="Margin" Value="1"/>
+                    </Style>
+                </Grid.Resources>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="33*"/>
+                    <RowDefinition Height="33*"/>
+                    <RowDefinition Height="33*"/>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition  Height="33*"/>
+                    <RowDefinition Height="33*"/>
+                    <RowDefinition Height="45*" />
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="30*"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="110*"/>
+                    <ColumnDefinition Width="110*"/>
+                    <ColumnDefinition Width="110*"/>
+                    <ColumnDefinition Width="290*"/>
+                    <ColumnDefinition Width="65*"/>
+                </Grid.ColumnDefinitions>
+                <!--Border 画表格线-->
+                <Border Grid.Column="0" Grid.Row="0"/>
+                <Border Grid.Column="1" Grid.Row="0"/>
+                <Border Grid.Column="2" Grid.Row="0"/>
+                <Border Grid.Column="3" Grid.Row="0"/>
+                <Border Grid.Column="4" Grid.Row="0"/>
+                <Border Grid.Column="5" Grid.Row="0"/>
+
+                <Border Grid.Column="0" Grid.Row="1"/>
+                <Border Grid.Column="1" Grid.Row="1"/>
+                <Border Grid.Column="2" Grid.Row="1"/>
+                <Border Grid.Column="3" Grid.Row="1"/>
+                <Border Grid.Column="4" Grid.Row="1"/>
+                <Border Grid.Column="5" Grid.Row="1"/>
+
+                <Border Grid.Column="0" Grid.Row="2"/>
+                <Border Grid.Column="0" Grid.Row="2"/>
+                <Border Grid.Row="2" Height="32" Margin="0.6,0.4,0.6,0" VerticalAlignment="Top" Grid.Column="1"/>
+                <Border Grid.Column="2" Grid.Row="2"/>
+                <Border Grid.Column="3" Grid.Row="2"/>
+                <Border Grid.Column="4" Grid.Row="2"/>
+                <Border Grid.Column="5" Grid.Row="2"/>
+
+
+                <Border Grid.Column="0" Grid.Row="3"/>
+                <Border Grid.Column="1" Grid.Row="3"/>
+                <Border Grid.Column="2" Grid.Row="3"/>
+                <Border Grid.Column="3" Grid.Row="3"/>
+                <Border Grid.Column="4" Grid.Row="3"/>
+                <Border Grid.Column="5" Grid.Row="3"/>
+
+                <Border Grid.Column="0" Grid.Row="4"/>
+                <Border Grid.Column="1" Grid.Row="4"/>
+                <Border Grid.Column="2" Grid.Row="4"/>
+                <Border Grid.Column="3" Grid.Row="4"/>
+                <Border Grid.Column="4" Grid.Row="4"/>
+                <Border Grid.Column="5" Grid.Row="4"/>
+
+                <Border Grid.Column="0" Grid.Row="4"/>
+                <Border Grid.Column="1" Grid.Row="4"/>
+                <Border Grid.Column="2" Grid.Row="4"/>
+                <Border Grid.Column="3" Grid.Row="4"/>
+                <Border Grid.Column="4" Grid.Row="4"/>
+                <Border Grid.Column="5" Grid.Row="4"/>
+
+
+
+                <Border Grid.Column="0" Grid.Row="5"/>
+                <Border Grid.Column="1" Grid.Row="5"/>
+                <Border Grid.Column="2" Grid.Row="5"/>
+                <Border Grid.Column="3" Grid.Row="5"/>
+                <Border Grid.Column="4" Grid.Row="5"/>
+                <Border Grid.Column="5" Grid.Row="5"/>
+
+                <Border Grid.Column="0" Grid.Row="6"/>
+                <Border Grid.Column="1" Grid.Row="6"/>
+                <Border Grid.Column="2" Grid.Row="6"/>
+                <Border Grid.Column="3" Grid.Row="6"/>
+                <Border Grid.Column="4" Grid.Row="6"/>
+                <Border Grid.Column="5" Grid.Row="6"/>
+
+                <Border Grid.Column="0" Grid.Row="7"/>
+                <Border Grid.Column="1" Grid.Row="7"/>
+                <Border Grid.Column="2" Grid.Row="7"/>
+                <Border Grid.Column="3" Grid.Row="7"/>
+                <Border Grid.Column="4" Grid.Row="7"/>
+                <Border Grid.Column="5" Grid.Row="7"/>
+
+                <Border Grid.Column="0" Grid.Row="8"/>
+                <Border Grid.Column="1" Grid.Row="8"/>
+                <Border Grid.Column="2" Grid.Row="8"/>
+                <Border Grid.Column="3" Grid.Row="8"/>
+                <Border Grid.Column="4" Grid.Row="8"/>
+                <Border Grid.Column="5" Grid.Row="8"/>
+
+                <Border Grid.Column="0" Grid.Row="9"/>
+                <Border Grid.Column="1" Grid.Row="9"/>
+                <Border Grid.Column="2" Grid.Row="9"/>
+                <Border Grid.Column="3" Grid.Row="9"/>
+                <Border Grid.Column="4" Grid.Row="9"/>
+                <Border Grid.Column="5" Grid.Row="9"/>
+
+                <Border Grid.Column="0" Grid.Row="10" Margin="0,0,0.4,44.6" Grid.RowSpan="2"/>
+                <Border Grid.Column="1" Grid.Row="10"/>
+                <Border Grid.Column="2" Grid.Row="10"/>
+                <Border Grid.Column="3" Grid.Row="10"/>
+                <Border Grid.Column="4" Grid.Row="10"/>
+                <Border Grid.Column="5" Grid.Row="10"/>
+
+                <Border Grid.Column="0" Grid.Row="11"/>
+                <Border Grid.Column="1" Grid.Row="11"/>
+                <Border Grid.Column="2" Grid.Row="11"/>
+                <Border Grid.Column="3" Grid.Row="11"/>
+                <Border Grid.Column="4" Grid.Row="11"/>
+                <Border Grid.Column="5" Grid.Row="11"/>
+
+                <Border Grid.Column="0" Grid.Row="12"/>
+                <Border Grid.Column="1" Grid.Row="12"/>
+                <Border Grid.Column="2" Grid.Row="12"/>
+                <Border Grid.Column="3" Grid.Row="12"/>
+                <Border Grid.Column="4" Grid.Row="12"/>
+                <Border Grid.Column="5" Grid.Row="12"/>
+
+                <Border Grid.Column="0" Grid.Row="13"/>
+                <Border Grid.Column="1" Grid.Row="13"/>
+                <Border Grid.Column="2" Grid.Row="13"/>
+                <Border Grid.Column="3" Grid.Row="13"/>
+                <Border Grid.Column="4" Grid.Row="13"/>
+                <Border Grid.Column="5" Grid.Row="13"/>
+
+                <Border Grid.Column="0" Grid.Row="14"/>
+                <Border Grid.Column="1" Grid.Row="14"/>
+                <Border Grid.Column="2" Grid.Row="14"/>
+                <Border Grid.Column="3" Grid.Row="14"/>
+                <Border Grid.Column="4" Grid.Row="14"/>
+                <Border Grid.Column="5" Grid.Row="14"/>
+
+                <Border Grid.Column="0" Grid.Row="15"/>
+                <Border Grid.Column="1" Grid.Row="15"/>
+                <Border Grid.Column="2" Grid.Row="15"/>
+                <Border Grid.Column="3" Grid.Row="15"/>
+                <Border Grid.Column="4" Grid.Row="15"/>
+
+                <!--评价项目名-->
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Evaluation}" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" Margin="1,0,1,0.8"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.EvaluationCondition}" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" Margin="1,0,0.8,0.8"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.#1}" Grid.Row="0" Grid.Column="2" HorizontalContentAlignment="Center" Margin="1.2,0,0.6,32.6" Grid.RowSpan="2"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.#2}" Grid.Row="0" Grid.Column="3" HorizontalContentAlignment="Center" Margin="1.4,0,1.2,0.8"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Condition}" Grid.Row="0" Grid.Column="4" HorizontalContentAlignment="Center" Margin="0.8,0,1.2,0.8"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Administrat}" Grid.Row="0" Grid.Column="5" HorizontalContentAlignment="Center" Margin="0.8,0,1,0.8"/>
+
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Height}" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Weight}" Grid.Row="2" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Grip}" Grid.Row="3" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.SingleLegStanding(OE)}" Grid.Row="4" Grid.Column="0" HorizontalContentAlignment="Center" />
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.FunctionalReach}" Grid.Row="5" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.AnteflextionSeated}" Grid.Row="6" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.TimeedUpGo}" Grid.Row="7" Grid.Column="0" HorizontalContentAlignment="Center" Margin="1,0.8,0,0.8"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.5mWalk(normal)}" Grid.Row="8" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.5mWalk(utmost)}" Grid.Row="9" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <StackPanel Grid.Row="10" Grid.Column="0" Background="LightGray" Margin="1,0,0.4,44.6" Grid.RowSpan="2" >
+                    <Label Content="{DynamicResource PhysicalEvaluationFormView.10mWalk}" HorizontalContentAlignment="Center"/>
+                    <TextBox Name="method" Background="LightGray" Margin="10,-4,10,0" IsEnabled="False">
+                    </TextBox>
+                </StackPanel>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.6minWalk}" Grid.Row="11" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.2minStamp}" Grid.Row="12" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.2minKneeext.(reps)}" Grid.Row="13" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <!--第一行 （从零行开始）-->
+                <Label Grid.Row="1" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                    <TextBox Margin="5,5,0,5" Width="71" Name="height_first" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="cm" VerticalAlignment="Center"/>
+                </StackPanel>
+                <Label Grid.Row="1" Grid.Column="3" Content="—"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+
+                <CheckBox Grid.Row="1" Grid.Column="4"  Name="height_condition" Margin="9.8,10.2,92.2,0.6" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Picture(front/lateral)}"></CheckBox>
+                <TextBox Grid.Row="1" Grid.Column="5" Name="height_duty" IsEnabled="False" />
+                <!--第二行-->
+                <Label Grid.Row="2" Grid.Column="1" Content="—"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                    <TextBox Margin="5,5,0,5" Width="71" Name="weight_first" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="kg" VerticalAlignment="Center"/>
+                </StackPanel>
+                <Label Grid.Row="2" Grid.Column="3" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <CheckBox  Name="weight_condition" Grid.Row="2" Grid.Column="4" Margin="9.8,9.4,241.2,4.4" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Cloth}"></CheckBox>
+                <TextBox Grid.Row="2" Name="weight_condition_text" Grid.Column="4" Margin="77.8,9.4,58.2,5.4" IsEnabled="False" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=weight_condition}"/>
+                <TextBox Grid.Row="2" Grid.Column="5" Name="weight_duty" IsEnabled="False" />
+
+                <!--第三行-->
+                <Label Grid.Row="3" Grid.Column="1"/>
+                <StackPanel Margin="0,0,116.6,1" Grid.Row="3" Grid.Column="1" >
+                    <CheckBox Name="grip_left" Margin="5,0,-90,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.L}"></CheckBox>
+                    <CheckBox Name="grit_right" Margin="5,0,-76,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.R}"></CheckBox>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+                    <TextBox Name="grip_first" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="kg" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal">
+                    <TextBox Name="grip_second" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="kg" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"  Grid.Row="3" Grid.Column="4"   >
+                    <CheckBox  Name="grid_stand" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.Standing}"></CheckBox>
+                    <CheckBox Name="grid_sit"   FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Seated}"></CheckBox>
+
+                </StackPanel>
+                <TextBox Grid.Row="3" Grid.Column="5" Name="grip_duty" IsEnabled="False"/>
+                <!--第四行-->
+                <Label Grid.Row="4" Grid.Column="1" Content="{DynamicResource PhysicalEvaluationFormView.SupportingLeg}"/>
+                <StackPanel Margin="50,5,0,1" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
+                    <CheckBox Name="stand_left" Margin="30,0,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.L}"></CheckBox>
+                    <CheckBox Name="stand_right" Margin="30,0,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.R}"></CheckBox>
+                </StackPanel>
+                <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal">
+                    <TextBox Name="stand_first" Margin="5,12,0,9.6" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label  Content="kg" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Row="4" Grid.Column="3" Orientation="Horizontal">
+                    <TextBox Name="stand_second" Margin="5,12,0,8" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="kg" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"  Grid.Row="4" Grid.Column="4"   >
+                    <CheckBox  Name="stand_nosupport" FontSize="10"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False"   Content="{DynamicResource PhysicalEvaluationFormView.nosupport}"></CheckBox>
+                    <CheckBox Name="stand_toolsupport"   FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="stand_support" FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Supportedbyassistance}"></CheckBox>
+                </StackPanel>
+                <TextBox Grid.Row="4" Grid.Column="4" Name="stand_comBox1" FontSize="8" Margin="124.6,13,115.2,15" IsEnabled="False" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=stand_toolsupport}"/>
+                <TextBox Grid.Row="4" Grid.Column="4" Name="stand_comBox2" Margin="205.8,12.8,10.2,15" IsEnabled="False" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=stand_toolsupport}"/>
+                <TextBox Grid.Row="4" Grid.Column="5" Name="stand_duty" IsEnabled="False" />
+                <!--第五行-->
+                <CheckBox Content="{DynamicResource PhysicalEvaluationFormView.Bothhands}" Grid.Row="5" Name="protrack_twohands" Margin="1.2,0,1.2,32.6" Grid.RowSpan="2" Grid.Column="1" IsEnabled="False"></CheckBox>
+                <StackPanel Margin="50,0,116.6,0.8" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" >
+                    <CheckBox Name="protrack_left" Margin="30,0,-11,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.L}"></CheckBox>
+                    <CheckBox Name="protrack_right" Margin="30,0,0.8,0"  Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.R}"></CheckBox>
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal">
+                    <TextBox Name="protrack_first" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="cm" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="3" Orientation="Horizontal">
+                    <TextBox Name="protrack_second" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="cm" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"  Grid.Row="5" Grid.Column="4"   >
+                    <CheckBox  Name="protrack_curvature" FontSize="10"   Height="14" HorizontalAlignment="Left" Width="274" Margin="10,1.5,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Difficulttorisearmstoshoulder(ShoulderFlex)}"></CheckBox>
+                    <CheckBox Name="protrack_sit"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.SeatedPosition}"></CheckBox>
+
+                </StackPanel>
+                <TextBox Name="protrack_duty" Grid.Row="5" Grid.Column="5" IsEnabled="False"/>
+                <!--第六行-->
+                <Label Grid.Row="6" Grid.Column="1" Content="{DynamicResource PhysicalEvaluationFormView.Testing}"/>
+                <StackPanel Margin="50,0,0,0" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" >
+                    <CheckBox Name="c17" Margin="5,0,118,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.L}"></CheckBox>
+                    <CheckBox Name="c18" Margin="5,0,118,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.R}"></CheckBox>
+                </StackPanel>
+                <StackPanel Grid.Row="6" Grid.Column="2" Orientation="Horizontal">
+                    <TextBox Name="c_first" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="cm" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Row="6" Grid.Column="3" Orientation="Horizontal">
+                    <TextBox Name="c_second" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="cm" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"  Grid.Row="6" Grid.Column="4"   >
+                    <CheckBox  Name="c19" FontSize="10"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.KneeFlexion}"></CheckBox>
+                    <CheckBox Name="c20"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.NoKneeFlexion}"></CheckBox>
+                </StackPanel>
+                <TextBox Name="c_duty" Grid.Row="6" Grid.Column="5" IsEnabled="False"/>
+                <!--第七行-->
+                <StackPanel Margin="5,5,0,1" Grid.Row="7" Grid.Column="1" >
+                    <CheckBox Name="c21" Margin="0,0,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Basic}"></CheckBox>
+                    <CheckBox Name="c22" Margin="0,0,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Modified}"></CheckBox>
+                </StackPanel>
+                <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal">
+                    <TextBox Name="time_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="秒" Margin="1,11,1,0" Height="24" VerticalAlignment="Top"/>
+                </StackPanel>
+                <StackPanel Grid.Row="7" Grid.Column="3" Orientation="Horizontal">
+                    <TextBox Name="time_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="秒" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"  Grid.Row="7" Grid.Column="4">
+                    <CheckBox  Name="c23" FontSize="10"   Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
+                    <CheckBox Name="c24"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="c25"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
+                </StackPanel>
+                <TextBox Grid.Row="7" Grid.Column="4" Name="comBox3" IsEnabled="False" FontSize="8" Margin="124.8,11,115.2,15" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c24}"/>
+                <TextBox Grid.Row="7" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text1" IsEnabled="False"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c25}"/>
+                <TextBox Name="time_duty" Grid.Row="7" Grid.Column="5" IsEnabled="False"/>
+                <!--第八行-->
+                <StackPanel Margin="5,5,0,1" Grid.Row="8" Grid.Column="1">
+                    <CheckBox Name="c26" Margin="0,0,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Basic}"></CheckBox>
+                    <CheckBox Name="c27" Margin="0,0,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Modified}"></CheckBox>
+                </StackPanel>
+                <StackPanel Grid.Row="8
+                        " Grid.Column="2" Orientation="Horizontal">
+                    <TextBox Name="five1_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                </StackPanel>
+                <StackPanel Grid.Row="8" Grid.Column="3" Orientation="Horizontal">
+                    <TextBox Name="five1_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"  Grid.Row="8" Grid.Column="4"   >
+                    <CheckBox  Name="c28" FontSize="10"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0"  IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
+                    <CheckBox Name="c29"   FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="c30"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
+                </StackPanel>
+                <TextBox IsEnabled="False" Grid.Row="8" Grid.Column="4" Name="comBox4" FontSize="8" Margin="124.8,11,115.2,15" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c29}"/>
+                <TextBox Grid.Row="8" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text2" IsEnabled="False" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c30}"/>
+                <TextBox Name="five1_duty" Grid.Row="8" Grid.Column="5" IsEnabled="False"/>
+                <!--第九行-->
+                <StackPanel Margin="5,5,0,1" Grid.Row="9" Grid.Column="1">
+                    <CheckBox Name="c31" Margin="0,0,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Basic}"></CheckBox>
+                    <CheckBox Name="c32" Margin="0,0,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Modified}"></CheckBox>
+                </StackPanel>
+                <StackPanel Grid.Row="9" Grid.Column="2" Orientation="Horizontal">
+                    <TextBox Name="five2_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                </StackPanel>
+                <StackPanel Grid.Row="9" Grid.Column="3" Orientation="Horizontal">
+                    <TextBox Name="five2_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"  Grid.Row="9" Grid.Column="4"   >
+                    <CheckBox  Name="c33" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
+                    <CheckBox Name="c34"    FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="c35" FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
+                </StackPanel>
+                <TextBox IsEnabled="False" Grid.Row="9" Grid.Column="4" Name="comBox5"  FontSize="8" Margin="124.8,9.8,115.2,19.8" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c34}"/>
+                <TextBox Grid.Row="9" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text3" IsEnabled="False"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c35}"/>
+                <TextBox Name="five2_duty" Grid.Row="9" Grid.Column="5" IsEnabled="False"/>
+                <!--第十行-->
+                <StackPanel Margin="5,5,0,1" Grid.Row="10" Grid.Column="1">
+                    <CheckBox Name="c36" Margin="0,0,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Basic}"></CheckBox>
+                    <CheckBox Name="c37" Margin="0,0,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Modified}"></CheckBox>
+                </StackPanel>
+                <StackPanel Grid.Row="10" Grid.Column="2" Orientation="Horizontal">
+                    <TextBox Name="ten_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                </StackPanel>
+                <StackPanel Grid.Row="10" Grid.Column="3" Orientation="Horizontal">
+                    <TextBox Name="ten_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"  Grid.Row="10" Grid.Column="4"   >
+                    <CheckBox  Name="c38" FontSize="10"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
+                    <CheckBox Name="c39"    FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="c40"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
+                </StackPanel>
+                <TextBox IsEnabled="False" Grid.Row="10" Grid.Column="4" Name="comBox6" FontSize="8" Margin="124.8,9.8,115.2,19.8" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c39}"/>
+                <TextBox Grid.Row="10" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text4"  IsEnabled="False" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c40}"/>
+                <TextBox Name="ten_duty" Grid.Row="10" Grid.Column="5" IsEnabled="False"/>
+                <!--第十一行-->
+                <Label  Grid.Row="11" Grid.Column="1" Content="—"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <StackPanel Grid.Row="11" Grid.Column="2" Orientation="Horizontal">
+                    <TextBox Name="six_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="秒" Margin="1,11,1,9.6" />
+                </StackPanel>
+                <StackPanel Grid.Row="11" Grid.Column="3" Orientation="Horizontal">
+                    <TextBox Name="six_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="秒" Margin="1,11,1,9.6"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"  Grid.Row="11" Grid.Column="4"   >
+                    <CheckBox  Name="c43" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
+                    <CheckBox Name="c44"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="c45"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
+                </StackPanel>
+                <TextBox IsEnabled="False" Grid.Row="11" Grid.Column="4" Name="comBox7"  FontSize="8" Margin="124.8,9.8,115.2,19.8" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c44}"/>
+                <TextBox Grid.Row="11" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text5"  IsEnabled="False" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c45}"/>
+                <TextBox Name="six_duty" Grid.Row="11" Grid.Column="5" IsEnabled="False"/>
+                <!--第十二行-->
+                <Label  Grid.Row="12" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <StackPanel Grid.Row="12" Grid.Column="2" Orientation="Horizontal">
+                    <TextBox Name="two_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="次" Margin="1,11,1,9.6"/>
+                </StackPanel>
+                <StackPanel Grid.Row="12" Grid.Column="3" Orientation="Horizontal">
+                    <TextBox Name="two_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="次" Margin="1,11,1,9.6"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"  Grid.Row="12" Grid.Column="4"   >
+                    <CheckBox  Name="c46" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
+                    <CheckBox Name="c47"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="c48"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
+                </StackPanel>
+                <TextBox IsEnabled="False" Grid.Row="12" Grid.Column="4" Name="comBox8"  FontSize="8" Margin="124.8,9.8,115.2,19.8" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c47}"/>
+                <TextBox Grid.Row="12" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text6" IsEnabled="False" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c48}"/>
+                <TextBox Name="two_duty" Grid.Row="12" Grid.Column="5" IsEnabled="False"/>
+                <!--第十三行-->
+                <Label  Grid.Row="13" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                <StackPanel Grid.Row="13" Grid.Column="2" Orientation="Horizontal">
+                    <TextBox Name="twoleg_first" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="次" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Row="13" Grid.Column="3" Orientation="Horizontal">
+                    <TextBox Name="twoleg_second" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
+                    <Label Content="次" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"  Grid.Row="13" Grid.Column="4"   >
+                    <CheckBox  Name="c49" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.Standing}"></CheckBox>
+                    <CheckBox Name="c50" FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Seated}"></CheckBox>
+                </StackPanel>
+                <TextBox Name="twoleg_duty" Grid.Row="13" Grid.Column="5" IsEnabled="False"/>
             </Grid>
-        </Border>
-        <!--Border 使用者一览表以及按钮  结束-->
-
-        <!--StackPanel 信息以及日期-->
-        <StackPanel  Orientation="Horizontal">
-
-            <!--Grid 使用者信息展示-->
-            <Grid Height="34" Margin="10,10,0,0" Width="583">
+            <!--使用者/工作人员感想-->
+            <Grid Height="70" Margin="5.5,-1,4.6,-4" >
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter   Property="VerticalAlignment"  Value="Center"></Setter>
+                    </Style>
+                    <Style TargetType="Border">
+                        <Setter  Property="BorderBrush" Value="Gray"></Setter>
+                        <Setter  Property="BorderThickness"  Value="1"></Setter>
+                    </Style>
+                    <Style TargetType="Label">
+                        <Setter Property="Margin" Value="1"/>
+                        <Setter Property="Background" Value="LightGray"/>
+                    </Style>
+                </Grid.Resources>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="15*"/>
-                    <ColumnDefinition Width="82*"/>
+                    <ColumnDefinition Width="107.2"/>
+                    <ColumnDefinition Width="813.6"/>
                 </Grid.ColumnDefinitions>
-                <!--用户姓名-->
-                <Label Grid.Row="0" Grid.Column="0" Content="用户编号: " Margin="0,-6,34.4,15.6" Grid.RowSpan="2"/>
-                <Label Grid.Row="0"  Margin="65,-6,-0.2,15.6" Name="l2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-                <!--用户ID-->
-                <Label Grid.Column="0" Content="用户姓名:" Margin="0,11,34.4,-1.4" Grid.RowSpan="2"/>
-                <Label  Margin="65,11,-0.2,-1.4" Name="l1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Border Grid.Row="0" Grid.Column="0" Margin="0,0,0.2,0.2"/>
+                <Border Grid.Row="0" Margin="107,0,-52.2,0.2" Grid.ColumnSpan="2"/>
+                <Border Grid.Column="0" Margin="0,35,0.2,-0.4" Grid.RowSpan="2"/>
+                <Border Margin="107,35,-55.2,-0.4" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+
+                <Label Content="{DynamicResource PhysicalEvaluationFormView.Subjectcomment}" Grid.Row="0" Grid.Column="0" Margin="1,1,0.2,1.2" />
+                <Label Content="{DynamicResource PhysicalEvaluationFormView.Staffcomment}"  Grid.Row="1" Grid.Column="0" Margin="1,0.8,0.2,0.6"/>
+                <!-- 使用者、工作人员感想的两个文本输入框-->
+                <!--<TextBox Grid.Row="0" Grid.Column="1"/>-->
+                <RichTextBox  AcceptsReturn="True"   Grid.Row="0" IsEnabled="False" Margin="107,0,-53.2,0.2" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+                    <RichTextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="-0.145"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="0.87"/>
+                        </TransformGroup>
+                    </RichTextBox.RenderTransform>
+                    <!--行间距-->
+                    <RichTextBox.Document>
+                        <FlowDocument Focusable="True" LineHeight="1" >
+                            <Paragraph>
+                                <Run Name="user_think"></Run>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox.Document>
+                </RichTextBox>
+                <!--<TextBox Grid.Row="1" Grid.Column="1"/>-->
+                <RichTextBox  AcceptsReturn="True" IsEnabled="False" Margin="0,35,-56.2,-0.4" Grid.RowSpan="2" HorizontalAlignment="Right" Width="870" Grid.ColumnSpan="2">
+                    <!--行间距-->
+                    <RichTextBox.Document>
+                        <FlowDocument Focusable="True" LineHeight="1" >
+                            <Paragraph>
+                                <Run Name="worker_think"></Run>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox.Document>
+                </RichTextBox>
             </Grid>
-            <!--实施日期-->
-            <Border Margin="10,10,0,10" Background="LightGray" Height="23">
-                <Label Content="实施日期" FontSize="12" Height="23" VerticalAlignment="Center"/>
-            </Border>
+            <!-- 保存及取消按钮-->
+            <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="286" Height="29" VerticalAlignment="Bottom" BorderThickness="0" BorderBrush="White" Margin="0,13,10,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
 
-            <!--日历-->
-            <Border Margin="7,10,10,10" Width="153">
-                <StackPanel Orientation="Horizontal">
-                    <Label x:Name="implementation_date" VerticalContentAlignment="Center" IsEnabled="False" Width="125" Height="25"></Label>
-                    <Image Source="/view/Images/date.png" ></Image>
+                    <!--取消按钮-->
+                    <Button Width="140" Height="25" Content="{DynamicResource PhysicalEvaluationFormView.Close}" Margin="2,0,0,0" VerticalAlignment="Bottom"  Style="{StaticResource Btn}" Click="GoBack"/>
                 </StackPanel>
-                <!--<DatePicker Name="implementation_date"  Height="23" Margin="0,0,0,0" VerticalAlignment="Bottom" Width="115" IsEnabled="False"/>-->
-                <!--<my:DateTimePicker  Margin="0,0,0,0"   x:Name="implementation_date" VerticalAlignment="Top" Height="25" />-->
             </Border>
-
         </StackPanel>
-        <!--大表格-->
-        <Grid Margin="5.5,10,5,0" Height="533" >
-            <Grid.Resources>
-                <Style TargetType="TextBlock">
-                    <Setter   Property="VerticalAlignment"  Value="Center"></Setter>
-                </Style>
-                <Style TargetType="Border">
-                    <Setter  Property="BorderBrush" Value="Gray"></Setter>
-                    <Setter  Property="BorderThickness"  Value="1"></Setter>
-                </Style>
-                <Style TargetType="Label">
-                    <Setter Property="Margin" Value="1"/>
-                </Style>
-            </Grid.Resources>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="25*"/>
-                <RowDefinition Height="33*"/>
-                <RowDefinition Height="33*"/>
-                <RowDefinition Height="33*"/>
-                <RowDefinition Height="45*"/>
-                <RowDefinition  Height="33*"/>
-                <RowDefinition Height="33*"/>
-                <RowDefinition Height="45*" />
-                <RowDefinition Height="45*"/>
-                <RowDefinition Height="45*"/>
-                <RowDefinition Height="45*"/>
-                <RowDefinition Height="45*"/>
-                <RowDefinition Height="45*"/>
-                <RowDefinition Height="30*"/>
-
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="90*"/>
-                <ColumnDefinition Width="110*"/>
-                <ColumnDefinition Width="110*"/>
-                <ColumnDefinition Width="110*"/>
-                <ColumnDefinition Width="290*"/>
-                <ColumnDefinition Width="65*"/>
-            </Grid.ColumnDefinitions>
-            <!--Border 画表格线-->
-            <Border Grid.Column="0" Grid.Row="0"/>
-            <Border Grid.Column="1" Grid.Row="0"/>
-            <Border Grid.Column="2" Grid.Row="0"/>
-            <Border Grid.Column="3" Grid.Row="0"/>
-            <Border Grid.Column="4" Grid.Row="0"/>
-            <Border Grid.Column="5" Grid.Row="0"/>
-
-            <Border Grid.Column="0" Grid.Row="1"/>
-            <Border Grid.Column="1" Grid.Row="1"/>
-            <Border Grid.Column="2" Grid.Row="1"/>
-            <Border Grid.Column="3" Grid.Row="1"/>
-            <Border Grid.Column="4" Grid.Row="1"/>
-            <Border Grid.Column="5" Grid.Row="1"/>
-
-            <Border Grid.Column="0" Grid.Row="2"/>
-            <Border Grid.Column="0" Grid.Row="2"/>
-            <Border Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Height="32" Margin="0,0.4,117.2,0" VerticalAlignment="Top"/>
-            <Border Grid.Column="2" Grid.Row="2"/>
-            <Border Grid.Column="3" Grid.Row="2"/>
-            <Border Grid.Column="4" Grid.Row="2"/>
-            <Border Grid.Column="5" Grid.Row="2"/>
-
-
-            <Border Grid.Column="0" Grid.Row="3"/>
-            <Border Grid.Column="1" Grid.Row="3"/>
-            <Border Grid.Column="2" Grid.Row="3"/>
-            <Border Grid.Column="3" Grid.Row="3"/>
-            <Border Grid.Column="4" Grid.Row="3"/>
-            <Border Grid.Column="5" Grid.Row="3"/>
-
-            <Border Grid.Column="0" Grid.Row="4"/>
-            <Border Grid.Column="1" Grid.Row="4"/>
-            <Border Grid.Column="2" Grid.Row="4"/>
-            <Border Grid.Column="3" Grid.Row="4"/>
-            <Border Grid.Column="4" Grid.Row="4"/>
-            <Border Grid.Column="5" Grid.Row="4"/>
-
-            <Border Grid.Column="0" Grid.Row="4"/>
-            <Border Grid.Column="1" Grid.Row="4"/>
-            <Border Grid.Column="2" Grid.Row="4"/>
-            <Border Grid.Column="3" Grid.Row="4"/>
-            <Border Grid.Column="4" Grid.Row="4"/>
-            <Border Grid.Column="5" Grid.Row="4"/>
-
-
-
-            <Border Grid.Column="0" Grid.Row="5"/>
-            <Border Grid.Column="1" Grid.Row="5"/>
-            <Border Grid.Column="2" Grid.Row="5"/>
-            <Border Grid.Column="3" Grid.Row="5"/>
-            <Border Grid.Column="4" Grid.Row="5"/>
-            <Border Grid.Column="5" Grid.Row="5"/>
-
-            <Border Grid.Column="0" Grid.Row="6"/>
-            <Border Grid.Column="1" Grid.Row="6"/>
-            <Border Grid.Column="2" Grid.Row="6"/>
-            <Border Grid.Column="3" Grid.Row="6"/>
-            <Border Grid.Column="4" Grid.Row="6"/>
-            <Border Grid.Column="5" Grid.Row="6"/>
-
-            <Border Grid.Column="0" Grid.Row="7"/>
-            <Border Grid.Column="1" Grid.Row="7"/>
-            <Border Grid.Column="2" Grid.Row="7"/>
-            <Border Grid.Column="3" Grid.Row="7"/>
-            <Border Grid.Column="4" Grid.Row="7"/>
-            <Border Grid.Column="5" Grid.Row="7"/>
-
-            <Border Grid.Column="0" Grid.Row="8"/>
-            <Border Grid.Column="1" Grid.Row="8"/>
-            <Border Grid.Column="2" Grid.Row="8"/>
-            <Border Grid.Column="3" Grid.Row="8"/>
-            <Border Grid.Column="4" Grid.Row="8"/>
-            <Border Grid.Column="5" Grid.Row="8"/>
-
-            <Border Grid.Column="0" Grid.Row="9"/>
-            <Border Grid.Column="1" Grid.Row="9"/>
-            <Border Grid.Column="2" Grid.Row="9"/>
-            <Border Grid.Column="3" Grid.Row="9"/>
-            <Border Grid.Column="4" Grid.Row="9"/>
-            <Border Grid.Column="5" Grid.Row="9"/>
-
-            <Border Grid.Column="0" Grid.Row="10"/>
-            <Border Grid.Column="1" Grid.Row="10"/>
-            <Border Grid.Column="2" Grid.Row="10"/>
-            <Border Grid.Column="3" Grid.Row="10"/>
-            <Border Grid.Column="4" Grid.Row="10"/>
-            <Border Grid.Column="5" Grid.Row="10"/>
-
-            <Border Grid.Column="0" Grid.Row="11"/>
-            <Border Grid.Column="1" Grid.Row="11"/>
-            <Border Grid.Column="2" Grid.Row="11"/>
-            <Border Grid.Column="3" Grid.Row="11"/>
-            <Border Grid.Column="4" Grid.Row="11"/>
-            <Border Grid.Column="5" Grid.Row="11"/>
-
-            <Border Grid.Column="0" Grid.Row="12"/>
-            <Border Grid.Column="1" Grid.Row="12"/>
-            <Border Grid.Column="2" Grid.Row="12"/>
-            <Border Grid.Column="3" Grid.Row="12"/>
-            <Border Grid.Column="4" Grid.Row="12"/>
-            <Border Grid.Column="5" Grid.Row="12"/>
-
-            <Border Grid.Column="0" Grid.Row="13"/>
-            <Border Grid.Column="1" Grid.Row="13"/>
-            <Border Grid.Column="2" Grid.Row="13"/>
-            <Border Grid.Column="3" Grid.Row="13"/>
-            <Border Grid.Column="4" Grid.Row="13"/>
-            <Border Grid.Column="5" Grid.Row="13"/>
-
-            <Border Grid.Column="0" Grid.Row="14"/>
-            <Border Grid.Column="1" Grid.Row="14"/>
-            <Border Grid.Column="2" Grid.Row="14"/>
-            <Border Grid.Column="3" Grid.Row="14"/>
-            <Border Grid.Column="4" Grid.Row="14"/>
-            <Border Grid.Column="5" Grid.Row="14"/>
-
-            <Border Grid.Column="0" Grid.Row="15"/>
-            <Border Grid.Column="1" Grid.Row="15"/>
-            <Border Grid.Column="2" Grid.Row="15"/>
-            <Border Grid.Column="3" Grid.Row="15"/>
-            <Border Grid.Column="4" Grid.Row="15"/>
-
-            <!--评价项目名-->
-            <Label Background="LightGray" Content="评价项目" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" Margin="1,0,1,0.8"/>
-            <Label Background="LightGray" Content="测定条件" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" Margin="1,0,0.8,0.8"/>
-            <Label Background="LightGray" Content="第一次" Grid.Row="0" Grid.Column="2" HorizontalContentAlignment="Center" Margin="1.2,0,0.6,32.6" Grid.RowSpan="2"/>
-            <Label Background="LightGray" Content="第二次" Grid.Row="0" Grid.Column="3" HorizontalContentAlignment="Center" Margin="1.4,0,1.2,0.8"/>
-            <Label Background="LightGray" Content="条件" Grid.Row="0" Grid.Column="4" HorizontalContentAlignment="Center" Margin="0.8,0,1.2,0.8"/>
-            <Label Background="LightGray" Content="担当人员" Grid.Row="0" Grid.Column="5" HorizontalContentAlignment="Center" Margin="0.8,0,1,0.8"/>
-
-            <Label Background="LightGray" Content="身高" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="体重" Grid.Row="2" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="握力" Grid.Row="3" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="睁眼单脚站立" Grid.Row="4" Grid.Column="0" HorizontalContentAlignment="Center" />
-            <Label Background="LightGray" Content="功能性前伸" Grid.Row="5" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="坐姿体前屈" Grid.Row="6" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="Time Up &amp; Go" Grid.Row="7" Grid.Column="0" HorizontalContentAlignment="Center" Margin="1,0.8,0,0.8"/>
-            <Label Background="LightGray" Content="5m步行&#13;（通常）" Grid.Row="8" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="5m步行&#13;（最快）" Grid.Row="9" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <StackPanel Grid.Row="10" Grid.Column="0" Background="LightGray">
-                <Label  Content="10m步行"  HorizontalContentAlignment="Center"/>
-                <TextBox Name="method" Background="LightGray" Margin="10,-4,10,0" IsEnabled="False">
-                </TextBox>
-            </StackPanel>
-            <Label Background="LightGray" Content="6分钟步行" Grid.Row="11" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="2分钟踏步" Grid.Row="12" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="2分钟抬腿" Grid.Row="13" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <!--第一行 （从零行开始）-->
-            <Label Grid.Row="1" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,5,0,5" Width="71" Name="height_first" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="cm" VerticalAlignment="Center"/>
-            </StackPanel>
-            <Label Grid.Row="1" Grid.Column="3" Content="—"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-
-            <CheckBox Grid.Row="1" Grid.Column="4"  Name="height_condition" Margin="9.8,10.2,92.2,0.6" IsEnabled="False">照片（侧面、前面）</CheckBox>
-            <TextBox Grid.Row="1" Grid.Column="5" Name="height_duty" IsEnabled="False" />
-            <!--第二行-->
-            <Label Grid.Row="2" Grid.Column="1" Content="—"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Margin="5,5,0,5" Width="71" Name="weight_first" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="kg" VerticalAlignment="Center"/>
-            </StackPanel>
-            <Label Grid.Row="2" Grid.Column="3" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <CheckBox  Name="weight_condition" Grid.Row="2" Grid.Column="4" Margin="9.8,9.4,241.2,4.4" IsEnabled="False">服装</CheckBox>
-            <TextBox Grid.Row="2" Name="weight_condition_text" Grid.Column="4" Margin="77.8,9.4,58.2,5.4" IsEnabled="False"/>
-            <TextBox Grid.Row="2" Grid.Column="5" Name="weight_duty" IsEnabled="False" />
-
-            <!--第三行-->
-            <Label Grid.Row="3" Grid.Column="1"/>
-            <StackPanel Margin="0,0,116.6,1" Grid.Row="3" Grid.Column="1" >
-                <CheckBox Name="grip_left" Margin="5,0,-90,0" IsEnabled="False">左</CheckBox>
-                <CheckBox Name="grit_right" Margin="5,0,-76,0" IsEnabled="False">右</CheckBox>
-            </StackPanel>
-            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Name="grip_first" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="kg" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Name="grip_second" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="kg" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical"  Grid.Row="3" Grid.Column="4"   >
-                <CheckBox  Name="grid_stand" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False">站姿</CheckBox>
-                <CheckBox Name="grid_sit"   FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">坐姿</CheckBox>
-
-            </StackPanel>
-            <TextBox Grid.Row="3" Grid.Column="5" Name="grip_duty" IsEnabled="False"/>
-            <!--第四行-->
-            <Label Grid.Row="4" Grid.Column="1" Content="支撑腿"/>
-            <StackPanel Margin="50,5,0,1" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
-                <CheckBox Name="stand_left" Margin="5,0,0,0" IsEnabled="False">左</CheckBox>
-                <CheckBox Name="stand_right" Margin="5,0,0,0" IsEnabled="False">右</CheckBox>
-            </StackPanel>
-            <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Name="stand_first" Margin="5,12,0,9.6" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label  Content="kg" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Grid.Row="4" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Name="stand_second" Margin="5,12,0,8" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="kg" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical"  Grid.Row="4" Grid.Column="4"   >
-                <CheckBox  Name="stand_nosupport" FontSize="10"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False" >不需要支持</CheckBox>
-                <CheckBox Name="stand_toolsupport"   FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用支持用具</CheckBox>
-                <CheckBox Name="stand_support" FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">通过介助支持</CheckBox>
-            </StackPanel>
-            <TextBox Grid.Row="4" Grid.Column="4" Name="stand_comBox1" FontSize="8" Margin="124.6,13,115.2,15" IsEnabled="False"/>
-            <TextBox Grid.Row="4" Grid.Column="4" Name="stand_comBox2" Margin="205.8,12.8,10.2,15" IsEnabled="False"/>
-            <TextBox Grid.Row="4" Grid.Column="5" Name="stand_duty" IsEnabled="False" />
-            <!--第五行-->
-            <CheckBox Grid.Row="5" Name="protrack_twohands" Margin="1.2,0,1.2,32.6" Grid.RowSpan="2" Grid.Column="1" IsEnabled="False">两手</CheckBox>
-            <StackPanel Margin="50,0,116.6,0.8" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" >
-                <CheckBox Name="protrack_left" Margin="5,0,10.4,0" IsEnabled="False">左</CheckBox>
-                <CheckBox Name="protrack_right" Margin="5,0,0.4,0"  Height="14" IsEnabled="False">右</CheckBox>
-            </StackPanel>
-            <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Name="protrack_first" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="cm" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Grid.Row="5" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Name="protrack_second" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="cm" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical"  Grid.Row="5" Grid.Column="4"   >
-                <CheckBox  Name="protrack_curvature" FontSize="10"   Height="14" HorizontalAlignment="Left" Width="206" Margin="10,1.5,0,0" IsEnabled="False">胳膊不能举到肩的高度（肩关节弯曲度）</CheckBox>
-                <CheckBox Name="protrack_sit"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">以坐姿确定</CheckBox>
-
-            </StackPanel>
-            <TextBox Name="protrack_duty" Grid.Row="5" Grid.Column="5" IsEnabled="False"/>
-            <!--第六行-->
-            <Label Grid.Row="6" Grid.Column="1" Content="测定腿"/>
-            <StackPanel Margin="50,0,0,0" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" >
-                <CheckBox Name="c17" Margin="5,0,118,0" IsEnabled="False">左</CheckBox>
-                <CheckBox Name="c18" Margin="5,0,118,0" IsEnabled="False" >右</CheckBox>
-            </StackPanel>
-            <StackPanel Grid.Row="6" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Name="c_first" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="cm" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Grid.Row="6" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Name="c_second" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="cm" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical"  Grid.Row="6" Grid.Column="4"   >
-                <CheckBox  Name="c19" FontSize="10"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False">膝弯曲（有）</CheckBox>
-                <CheckBox Name="c20"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">膝弯曲（无）</CheckBox>
-            </StackPanel>
-            <TextBox Name="c_duty" Grid.Row="6" Grid.Column="5" IsEnabled="False"/>
-            <!--第七行-->
-            <StackPanel Margin="5,5,0,1" Grid.Row="7" Grid.Column="1" >
-                <CheckBox Name="c21" Margin="0,0,0,0" IsEnabled="False">基本方法</CheckBox>
-                <CheckBox Name="c22" Margin="0,0,0,0" IsEnabled="False">常规外方法</CheckBox>
-            </StackPanel>
-            <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Name="time_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="秒" Margin="1,11,1,0" Height="24" VerticalAlignment="Top"/>
-            </StackPanel>
-            <StackPanel Grid.Row="7" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Name="time_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="秒" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical"  Grid.Row="7" Grid.Column="4">
-                <CheckBox  Name="c23" FontSize="10"   Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False">独自步行</CheckBox>
-                <CheckBox Name="c24"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用步行辅助工具</CheckBox>
-                <CheckBox Name="c25"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">其他</CheckBox>
-            </StackPanel>
-            <TextBox Grid.Row="7" Grid.Column="4" Name="comBox3" IsEnabled="False" FontSize="8" Margin="124.8,11,115.2,15" />
-            <TextBox Grid.Row="7" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text1" IsEnabled="False"  />
-            <TextBox Name="time_duty" Grid.Row="7" Grid.Column="5" IsEnabled="False"/>
-            <!--第八行-->
-            <StackPanel Margin="5,5,0,1" Grid.Row="8" Grid.Column="1">
-                <CheckBox Name="c26" Margin="0,0,0,0" IsEnabled="False">基本方法</CheckBox>
-                <CheckBox Name="c27" Margin="0,0,0,0" IsEnabled="False">常规外方法</CheckBox>
-            </StackPanel>
-            <StackPanel Grid.Row="8
-                        " Grid.Column="2" Orientation="Horizontal">
-                <TextBox Name="five1_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="秒" Margin="1,11,1,9.6"/>
-            </StackPanel>
-            <StackPanel Grid.Row="8" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Name="five1_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="秒" Margin="1,11,1,9.6"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical"  Grid.Row="8" Grid.Column="4"   >
-                <CheckBox  Name="c28" FontSize="10"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0"  IsEnabled="False">独自步行</CheckBox>
-                <CheckBox Name="c29"   FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用步行辅助工具</CheckBox>
-                <CheckBox Name="c30"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">其他</CheckBox>
-            </StackPanel>
-            <TextBox IsEnabled="False" Grid.Row="8" Grid.Column="4" Name="comBox4" FontSize="8" Margin="124.8,11,115.2,15" />
-            <TextBox Grid.Row="8" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text2" IsEnabled="False" />
-            <TextBox Name="five1_duty" Grid.Row="8" Grid.Column="5" IsEnabled="False"/>
-            <!--第九行-->
-            <StackPanel Margin="5,5,0,1" Grid.Row="9" Grid.Column="1">
-                <CheckBox Name="c31" Margin="0,0,0,0" IsEnabled="False">基本方法</CheckBox>
-                <CheckBox Name="c32" Margin="0,0,0,0" IsEnabled="False">常规外方法</CheckBox>
-            </StackPanel>
-            <StackPanel Grid.Row="9" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Name="five2_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="秒" Margin="1,11,1,9.6"/>
-            </StackPanel>
-            <StackPanel Grid.Row="9" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Name="five2_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="秒" Margin="1,11,1,9.6"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical"  Grid.Row="9" Grid.Column="4"   >
-                <CheckBox  Name="c33" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False">独自步行</CheckBox>
-                <CheckBox Name="c34"    FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用步行辅助工具</CheckBox>
-                <CheckBox Name="c35" FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">其他</CheckBox>
-            </StackPanel>
-            <TextBox IsEnabled="False" Grid.Row="9" Grid.Column="4" Name="comBox5"  FontSize="8" Margin="124.8,9.8,115.2,19.8" />
-            <TextBox Grid.Row="9" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text3" IsEnabled="False" />
-            <TextBox Name="five2_duty" Grid.Row="9" Grid.Column="5" IsEnabled="False"/>
-            <!--第十行-->
-            <StackPanel Margin="5,5,0,1" Grid.Row="10" Grid.Column="1">
-                <CheckBox Name="c36" Margin="0,0,0,0" IsEnabled="False">基本方法</CheckBox>
-                <CheckBox Name="c37" Margin="0,0,0,0" IsEnabled="False">常规外方法</CheckBox>
-            </StackPanel>
-            <StackPanel Grid.Row="10" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Name="ten_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="秒" Margin="1,11,1,9.6"/>
-            </StackPanel>
-            <StackPanel Grid.Row="10" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Name="ten_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="秒" Margin="1,11,1,9.6"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical"  Grid.Row="10" Grid.Column="4"   >
-                <CheckBox  Name="c38" FontSize="10"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False">独自步行</CheckBox>
-                <CheckBox Name="c39"    FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用步行辅助工具</CheckBox>
-                <CheckBox Name="c40"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">其他</CheckBox>
-            </StackPanel>
-            <TextBox IsEnabled="False" Grid.Row="10" Grid.Column="4" Name="comBox6" FontSize="8" Margin="124.8,9.8,115.2,19.8" />
-            <TextBox Grid.Row="10" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text4"  IsEnabled="False" />
-            <TextBox Name="ten_duty" Grid.Row="10" Grid.Column="5" IsEnabled="False"/>
-            <!--第十一行-->
-            <Label  Grid.Row="11" Grid.Column="1" Content="—"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <StackPanel Grid.Row="11" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Name="six_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="秒" Margin="1,11,1,9.6" />
-            </StackPanel>
-            <StackPanel Grid.Row="11" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Name="six_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="秒" Margin="1,11,1,9.6"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical"  Grid.Row="11" Grid.Column="4"   >
-                <CheckBox  Name="c43" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False" >独自步行</CheckBox>
-                <CheckBox Name="c44"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用步行辅助工具</CheckBox>
-                <CheckBox Name="c45"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">其他</CheckBox>
-            </StackPanel>
-            <TextBox IsEnabled="False" Grid.Row="11" Grid.Column="4" Name="comBox7"  FontSize="8" Margin="124.8,9.8,115.2,19.8" />
-            <TextBox Grid.Row="11" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text5"  IsEnabled="False" />
-            <TextBox Name="six_duty" Grid.Row="11" Grid.Column="5" IsEnabled="False"/>
-            <!--第十二行-->
-            <Label  Grid.Row="12" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <StackPanel Grid.Row="12" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Name="two_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="次" Margin="1,11,1,9.6"/>
-            </StackPanel>
-            <StackPanel Grid.Row="12" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Name="two_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="次" Margin="1,11,1,9.6"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical"  Grid.Row="12" Grid.Column="4"   >
-                <CheckBox  Name="c46" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False" >独自步行</CheckBox>
-                <CheckBox Name="c47"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">使用步行辅助工具</CheckBox>
-                <CheckBox Name="c48"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False">其他</CheckBox>
-            </StackPanel>
-            <TextBox IsEnabled="False" Grid.Row="12" Grid.Column="4" Name="comBox8"  FontSize="8" Margin="124.8,9.8,115.2,19.8"/>
-            <TextBox Grid.Row="12" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text6" IsEnabled="False" />
-            <TextBox Name="two_duty" Grid.Row="12" Grid.Column="5" IsEnabled="False"/>
-            <!--第十三行-->
-            <Label  Grid.Row="13" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-            <StackPanel Grid.Row="13" Grid.Column="2" Orientation="Horizontal">
-                <TextBox Name="twoleg_first" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="次" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Grid.Row="13" Grid.Column="3" Orientation="Horizontal">
-                <TextBox Name="twoleg_second" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                <Label Content="次" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical"  Grid.Row="13" Grid.Column="4"   >
-                <CheckBox  Name="c49" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False">站姿</CheckBox>
-                <CheckBox Name="c50" FontSize="10" Height="14" Margin="10,0,185.8,0" IsEnabled="False">坐姿</CheckBox>
-            </StackPanel>
-            <TextBox Name="twoleg_duty" Grid.Row="13" Grid.Column="5" IsEnabled="False"/>
-        </Grid>
-        <!--使用者/工作人员感想-->
-        <Grid Height="70" Margin="6,0,4.6,-4" >
-            <Grid.Resources>
-                <Style TargetType="TextBlock">
-                    <Setter   Property="VerticalAlignment"  Value="Center"></Setter>
-                </Style>
-                <Style TargetType="Border">
-                    <Setter  Property="BorderBrush" Value="Gray"></Setter>
-                    <Setter  Property="BorderThickness"  Value="1"></Setter>
-                </Style>
-                <Style TargetType="Label">
-                    <Setter Property="Margin" Value="1"/>
-                    <Setter Property="Background" Value="LightGray"/>
-                </Style>
-            </Grid.Resources>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="95.5*"/>
-                <ColumnDefinition Width="726*"/>
-            </Grid.ColumnDefinitions>
-            <Border Grid.Row="0" Grid.Column="0"></Border>
-            <Border Grid.Row="0" Grid.Column="1"/>
-            <Border Grid.Row="1" Grid.Column="0"/>
-            <Border Grid.Row="1" Grid.Column="1"/>
-
-            <Label Content="使用者感想" Grid.Row="0" Grid.Column="0" />
-            <Label Content="工作人员感想"  Grid.Row="1" Grid.Column="0"/>
-            <!-- 使用者、工作人员感想的两个文本输入框-->
-            <!--<TextBox Grid.Row="0" Grid.Column="1"/>-->
-            <RichTextBox  AcceptsReturn="True"   Grid.Row="0" Grid.Column="1" IsEnabled="False">
-                <!--行间距-->
-                <RichTextBox.Document>
-                    <FlowDocument Focusable="True" LineHeight="1" >
-                        <Paragraph>
-                            <Run Name="user_think"></Run>
-                        </Paragraph>
-                    </FlowDocument>
-                </RichTextBox.Document>
-            </RichTextBox>
-            <!--<TextBox Grid.Row="1" Grid.Column="1"/>-->
-            <RichTextBox  AcceptsReturn="True"   Grid.Row="1" Grid.Column="1" IsEnabled="False">
-                <!--行间距-->
-                <RichTextBox.Document>
-                    <FlowDocument Focusable="True" LineHeight="1" >
-                        <Paragraph>
-                            <Run Name="worker_think"></Run>
-                        </Paragraph>
-                    </FlowDocument>
-                </RichTextBox.Document>
-            </RichTextBox>
-        </Grid>
-        <!-- 保存及取消按钮-->
-        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="286" Height="29" VerticalAlignment="Bottom" BorderThickness="0" BorderBrush="White" Margin="0,13,10,0">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                
-                <!--取消按钮-->
-                <Button Width="140" Height="25" Content="关闭" Margin="2,0,0,0" VerticalAlignment="Bottom"  Style="{StaticResource Btn}" Click="GoBack"/>
-            </StackPanel>
-        </Border>
-    </StackPanel>
+    </Viewbox>
 </Window>

@@ -11,7 +11,7 @@
          xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Icon="/view/Images/icon2.png"
         Title="宝德龙"
-         ResizeMode = "NoResize" Height="789.6" Width="850"
+         ResizeMode = "NoResize" Height="799.6" Width="850"
         Loaded="Window_Loaded">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -26,6 +26,7 @@
             <Setter Property="Margin" Value="1"/>
         </Style>
     </Window.Resources>
+    <Viewbox Name="viewbox">
     <StackPanel Orientation="Vertical">
         <!--Border 使用者一览表以及按钮  开始-->
         <Border Height="40" CornerRadius="5,5,0,0" Margin="10,5,10,0" BorderThickness="0" BorderBrush="White">
@@ -37,7 +38,7 @@
 
             </Border.Background>
             <Grid>
-                <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38">输入体力评价</Label>
+                    <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38"  Content="{DynamicResource PhysicalEvaluationFormView.PhysicalEvaluationForm}" ></Label>
                 <!-- 保存及取消按钮-->
                 <!--
                 <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="286" Height="29" VerticalAlignment="Bottom" BorderThickness="0" BorderBrush="White">
@@ -70,19 +71,19 @@
                     <ColumnDefinition Width="82*"/>
                 </Grid.ColumnDefinitions>
                 <!--用户姓名-->
-                <Label Grid.Row="0" Grid.Column="0" Content="用户编号: "  Margin="0,-6,34.4,15.6" Grid.RowSpan="2"/>
+                    <Label Grid.Row="0" Grid.Column="0"  Content="{DynamicResource PhysicalEvaluationFormView.SubjectID}"   Margin="0,-6,34.4,15.6" Grid.RowSpan="2"/>
                 <Label Grid.Row="0"  Margin="65,-6,-0.2,15.6" Name="Pk_User_Id" Content="{Binding Pk_User_Id}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 <!--用户ID-->
-                <Label Grid.Column="0" Content="用户姓名:" Margin="0,11,34.4,-1.4" Grid.RowSpan="2"/>
+                    <Label Grid.Column="0"  Content="{DynamicResource PhysicalEvaluationFormView.LastName}"  Margin="0,11,34.4,-1.4" Grid.RowSpan="2"/>
                 <Label  Margin="65,11,-0.2,-1.4" Name="User_Name" Grid.ColumnSpan="2" Content="{Binding  User_Name}" Grid.RowSpan="2"/>
             </Grid>
             <!--实施日期-->
             <Border Margin="10,10,0,10" Background="LightGray" Height="23">
-                <Label Content="实施日期" FontSize="12" Height="23" VerticalAlignment="Center"/>
+                    <Label Content="{DynamicResource PhysicalEvaluationFormView.Date}" FontSize="12" Height="23" VerticalAlignment="Center"/>
             </Border>
 
             <!--日历-->
-            <Border Margin="7,10,0,10" Width="153">
+            <Border Margin="7,10,10,10" Width="153">
                 <my:DateTimePicker HorizontalAlignment="Left"  x:Name="implementation_date" VerticalAlignment="Top" Height="25" Width="150" />
                 <!--<DatePicker Name="implementation_date" Height="23" Margin="0.2,0,-1,0" VerticalAlignment="Bottom" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
             </Border>
@@ -151,33 +152,33 @@
             <Border Grid.Column="4" Grid.RowSpan="14"/>
             <Border Grid.Column="5" Grid.RowSpan="14" />
             <!--评价项目名-->
-            <Label Background="LightGray" Content="评价项目" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" Margin="1,0,1,0.8"/>
-            <Label Background="LightGray" Content="测定条件" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" Margin="1,0,0.8,0.8"/>
-            <Label Background="LightGray" Content="第一次" Grid.Row="0" Grid.Column="2" HorizontalContentAlignment="Center" Margin="1.2,0,0.6,32.6" Grid.RowSpan="2"/>
-            <Label Background="LightGray" Content="第二次" Grid.Row="0" Grid.Column="3" HorizontalContentAlignment="Center" Margin="1.4,0,1.2,0.8"/>
-            <Label Background="LightGray" Content="条件" Grid.Row="0" Grid.Column="4" HorizontalContentAlignment="Center" Margin="0.8,0,1.2,0.8"/>
-            <Label Background="LightGray" Content="担当人员" Grid.Row="0" Grid.Column="5" HorizontalContentAlignment="Center" Margin="0.8,0,1,0.8"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Evaluation}" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" Margin="1,0,1,0.8"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.EvaluationCondition}" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" Margin="1,0,0.8,0.8"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.#1}" Grid.Row="0" Grid.Column="2" HorizontalContentAlignment="Center" Margin="1.2,0,0.6,32.6" Grid.RowSpan="2"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.#2}" Grid.Row="0" Grid.Column="3" HorizontalContentAlignment="Center" Margin="1.4,0,1.2,0.8"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Condition}" Grid.Row="0" Grid.Column="4" HorizontalContentAlignment="Center" Margin="0.8,0,1.2,0.8"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Administrat}" Grid.Row="0" Grid.Column="5" HorizontalContentAlignment="Center" Margin="0.8,0,1,0.8"/>
 
-            <Label Background="LightGray" Content="身高" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="体重" Grid.Row="2" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="握力" Grid.Row="3" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="睁眼单脚站立" Grid.Row="4" Grid.Column="0" HorizontalContentAlignment="Center" />
-            <Label Background="LightGray" Content="功能性前伸" Grid.Row="5" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="坐姿体前屈" Grid.Row="6" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="Time Up &amp; Go" Grid.Row="7" Grid.Column="0" HorizontalContentAlignment="Center" Margin="1,0.8,0,0.8"/>
-            <Label Background="LightGray" Content="5m步行&#13;（通常）" Grid.Row="8" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="5m步行&#13;（最快）" Grid.Row="9" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Height}" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Weight}" Grid.Row="2" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Grip}" Grid.Row="3" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.SingleLegStanding(OE)}" Grid.Row="4" Grid.Column="0" HorizontalContentAlignment="Center" />
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.FunctionalReach}" Grid.Row="5" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.AnteflextionSeated}" Grid.Row="6" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.TimeedUpGo}" Grid.Row="7" Grid.Column="0" HorizontalContentAlignment="Center" Margin="1,0.8,0,0.8"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.5mWalk(normal)}" Grid.Row="8" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.5mWalk(utmost)}" Grid.Row="9" Grid.Column="0" HorizontalContentAlignment="Center"/>
             <StackPanel Grid.Row="10" Grid.Column="0" Background="LightGray" Margin="1,0,1,44.6" Grid.RowSpan="2">
-                <Label  Content="10m步行"  HorizontalContentAlignment="Center" Margin="10,1,1,1"/>
+                    <Label  Content="{DynamicResource PhysicalEvaluationFormView.10mWalk}"  HorizontalContentAlignment="Center" Margin="10,1,1,1"/>
                 <!--<ComboBox Name="walk10_comboBox" Background="LightGray" Margin="10,-4,10,0" >
                     <ComboBoxItem IsSelected="True">通常</ComboBoxItem>
                     <ComboBoxItem>最快</ComboBoxItem>
                 </ComboBox>-->
                 <ComboBox Grid.Row="4" Grid.Column="4" Background="LightGray" IsTabStop="False" Name="walk10_comboBox"  Margin="15,-4,10,0"/>
             </StackPanel>
-            <Label Background="LightGray" Content="6分钟步行" Grid.Row="11" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="2分钟踏步" Grid.Row="12" Grid.Column="0" HorizontalContentAlignment="Center"/>
-            <Label Background="LightGray" Content="2分钟抬腿" Grid.Row="13" Grid.Column="0" HorizontalContentAlignment="Center" Margin="1,1,1,2"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.6minWalk}" Grid.Row="11" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.2minStamp}" Grid.Row="12" Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.2minKneeext.(reps)}" Grid.Row="13" Grid.Column="0" HorizontalContentAlignment="Center" Margin="1,1,1,2"/>
             <!--第一行 （从零行开始）-->
             <Label Grid.Row="1" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
@@ -187,7 +188,7 @@
             <Label Grid.Row="1" Grid.Column="3" Content="—"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
 
-            <CheckBox Grid.Row="1" Grid.Column="4" IsTabStop="False" Name="height_condition" Margin="9.8,10.2,92.2,0.6">照片（侧面、前面）</CheckBox>
+                <CheckBox Grid.Row="1" Grid.Column="4" IsTabStop="False" Name="height_condition" Margin="9.8,10.2,92.2,0.6" Content="{DynamicResource PhysicalEvaluationFormView.Picture(front/lateral)}"></CheckBox>
             <TextBox Grid.Row="1" Grid.Column="5" Name="height_duty" Margin="1,0.5,0.5,0.5"/>
             <!--第二行-->
             <Label Grid.Row="2" Grid.Column="1" Content="—"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -196,15 +197,15 @@
                 <Label Content="kg" VerticalAlignment="Center"/>
             </StackPanel>
             <Label Grid.Row="2" Grid.Column="3" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <CheckBox  Name="weight_condition" Grid.Row="2" Grid.Column="4" IsTabStop="False" Margin="9.8,9.4,241.2,4.4" >服装</CheckBox>
+                <CheckBox  Name="weight_condition" Grid.Row="2" Grid.Column="4" IsTabStop="False" Margin="9.8,9.4,241.2,4.4"  Content="{DynamicResource PhysicalEvaluationFormView.Cloth}"></CheckBox>
             <TextBox Grid.Row="2" Name="weight_condition_text" Grid.Column="4" Margin="77.8,9.4,58.2,5.4"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=weight_condition}"/>
             <TextBox Grid.Row="2" Grid.Column="5" Name="weight_duty"  Margin="1,0.5,0.5,0.5"/>
 
             <!--第三行-->
             <Label Grid.Row="3" Grid.Column="1"/>
             <StackPanel Margin="0,0,116.6,1" Grid.Row="3" Grid.Column="1" >
-                <CheckBox Name="grip_left" Margin="5,1,-90,0" IsTabStop="False" Checked="Grip_left_Checked">左</CheckBox>
-                <CheckBox Name="grit_right" Margin="5,0,-76,0" IsTabStop="False" Checked="Grit_right_Checked"  Height="14">右</CheckBox>
+                    <CheckBox Name="grip_left" Margin="5,1,-90,0" IsTabStop="False" Checked="Grip_left_Checked" Content="{DynamicResource PhysicalEvaluationFormView.L}"></CheckBox>
+                    <CheckBox Name="grit_right" Margin="5,0,-76,0" IsTabStop="False" Checked="Grit_right_Checked"  Height="14" Content="{DynamicResource PhysicalEvaluationFormView.R}"></CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
                 <TextBox Name="grip_first" Margin="5,5,0,5" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" />
@@ -215,16 +216,16 @@
                 <Label Content="kg" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="3" Grid.Column="4"   >
-                <CheckBox  Name="grid_stand" FontSize="10" Checked="Grid_stand_Checked" IsTabStop="False" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >站姿</CheckBox>
-                <CheckBox Name="grid_sit"  Checked="Grid_sit_Checked"  FontSize="10" Height="14" IsTabStop="False" Margin="10,0,185.8,0">坐姿</CheckBox>
+                    <CheckBox  Name="grid_stand" FontSize="10" Checked="Grid_stand_Checked" IsTabStop="False" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0"  Content="{DynamicResource PhysicalEvaluationFormView.Standing}"></CheckBox>
+                    <CheckBox Name="grid_sit"  Checked="Grid_sit_Checked"  FontSize="10" Height="14" IsTabStop="False" Margin="10,0,185.8,0" Content="{DynamicResource PhysicalEvaluationFormView.Seated}"></CheckBox>
 
             </StackPanel>
             <TextBox Grid.Row="3" Grid.Column="5" Name="grip_duty" Margin="1,0.5,0.5,0.5"/>
             <!--第四行-->
-            <Label Grid.Row="4" Grid.Column="1" Content="支撑腿"/>
+                <Label Grid.Row="4" Grid.Column="1"  Content="{DynamicResource PhysicalEvaluationFormView.SupportingLeg}"/>
             <StackPanel Margin="50,5,120,1" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
-                <CheckBox Name="stand_left" Margin="5,0,0,0" Checked="Stand_left_Checked" IsTabStop="False">左</CheckBox>
-                <CheckBox Name="stand_right" Margin="5,0,0,0" Checked="Stand_right_Checked" IsTabStop="False">右</CheckBox>
+                    <CheckBox Name="stand_left" Margin="5,0,0,0" Checked="Stand_left_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.L}"></CheckBox>
+                    <CheckBox Name="stand_right" Margin="5,0,0,0" Checked="Stand_right_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.R}"></CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal">
                 <TextBox Name="stand_first" Margin="5,12,0,9.6" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -235,18 +236,18 @@
                 <Label Content="kg" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="4" Grid.Column="4"   >
-                <CheckBox  Name="stand_nosupport" FontSize="10" Checked="Stand_nosupport_Checked"  Height="14" IsTabStop="False" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" >不需要支持</CheckBox>
-                <CheckBox Name="stand_toolsupport"  Checked="Stand_toolsupport_Checked" FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False">使用支持用具</CheckBox>
-                <CheckBox Name="stand_support" Checked="Stand_support_Checked" FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False">通过介助支持</CheckBox>
+                    <CheckBox  Name="stand_nosupport" FontSize="10" Checked="Stand_nosupport_Checked"  Height="14" IsTabStop="False" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0"  Content="{DynamicResource PhysicalEvaluationFormView.nosupport}"></CheckBox>
+                    <CheckBox Name="stand_toolsupport"  Checked="Stand_toolsupport_Checked" FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False"  Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="stand_support" Checked="Stand_support_Checked" FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Supportedbyassistance}"></CheckBox>
             </StackPanel>
             <ComboBox Grid.Row="4" Grid.Column="4" Name="stand_tools_selected" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=stand_toolsupport}" FontSize="8" Margin="124.6,13,115.2,15"/>
             <ComboBox Grid.Row="4" Grid.Column="4" Name="stand_tools_selected2" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=stand_toolsupport}" FontSize="8" Margin="205.6,13,20.2,15"/>
             <TextBox Grid.Row="4" Grid.Column="5" Name="stand_duty" Margin="1,0.5,0.5,0.5"/>
             <!--第五行-->
-            <CheckBox Grid.Row="5" Name="protrack_twohands" Margin="1.2,2,1.2,32.6" Checked="Protrack_twohands_Checked" Grid.RowSpan="2" Grid.Column="1" IsTabStop="False">两手</CheckBox>
+                <CheckBox Grid.Row="5" Name="protrack_twohands" Margin="1.2,2,1.2,32.6" Checked="Protrack_twohands_Checked" Grid.RowSpan="2" Grid.Column="1" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Bothhands}"></CheckBox>
             <StackPanel Margin="50,0,116.6,0.8" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" >
-                <CheckBox Name="protrack_left" Margin="5,0,10.4,0" Checked="Protrack_left_Checked" IsTabStop="False">左</CheckBox>
-                <CheckBox Name="protrack_right" Margin="5,0,0.4,0" Checked="Protrack_right_Checked" IsTabStop="False" Height="14">右</CheckBox>
+                    <CheckBox Name="protrack_left" Margin="5,0,10.4,0" Checked="Protrack_left_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.L}"></CheckBox>
+                    <CheckBox Name="protrack_right" Margin="5,0,0.4,0" Checked="Protrack_right_Checked" IsTabStop="False" Height="14" Content="{DynamicResource PhysicalEvaluationFormView.R}"></CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal">
                 <TextBox Name="protrack_first" Margin="5,5,0,5" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -257,16 +258,16 @@
                 <Label Content="cm" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="5" Grid.Column="4"   >
-                <CheckBox  Name="protrack_curvature" FontSize="10" Checked="Protrack_curvature_Checked"  Height="14" IsTabStop="False" HorizontalAlignment="Left" Width="206" Margin="10,1.5,0,0" >胳膊不能举到肩的高度（肩关节弯曲度）</CheckBox>
-                <CheckBox Name="protrack_sit"  Checked="Protrack_sit_Checked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False">以坐姿确定</CheckBox>
+                    <CheckBox  Name="protrack_curvature" FontSize="10" Checked="Protrack_curvature_Checked"  Height="14" IsTabStop="False" HorizontalAlignment="Left" Width="206" Margin="10,1.5,0,0"  Content="{DynamicResource PhysicalEvaluationFormView.Difficulttorisearmstoshoulder(ShoulderFlex)}"></CheckBox>
+                    <CheckBox Name="protrack_sit"  Checked="Protrack_sit_Checked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.SeatedPosition}"></CheckBox>
 
             </StackPanel>
             <TextBox Name="protrack_duty" Grid.Row="5" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
             <!--第六行-->
-            <Label Grid.Row="6" Grid.Column="1" Content="测定腿"/>
+                <Label Grid.Row="6" Grid.Column="1"  Content="{DynamicResource PhysicalEvaluationFormView.Testing}"/>
             <StackPanel Margin="50,0,0,0" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" >
-                <CheckBox Name="measuring_leg_left" Margin="5,0,118,0" Checked="c17_Checked" IsTabStop="False">左</CheckBox>
-                <CheckBox Name="measuring_leg_right" Margin="5,0,118,0" Checked="c18_Checked" IsTabStop="False">右</CheckBox>
+                    <CheckBox Name="measuring_leg_left" Margin="5,0,118,0" Checked="c17_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.L}"></CheckBox>
+                    <CheckBox Name="measuring_leg_right" Margin="5,0,118,0" Checked="c18_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.R}"></CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="6" Grid.Column="2" Orientation="Horizontal">
                 <TextBox Margin="5,5,0,5" Name="sitand_reach_first" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -277,14 +278,14 @@
                 <Label Content="cm" VerticalAlignment="Center" />
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="6" Grid.Column="4"   >
-                <CheckBox  Name="knee_flexure_is" FontSize="10" Checked="c19_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False">膝弯曲（有）</CheckBox>
-                <CheckBox Name="knee_flexure_not"  Checked="c20_Checked"   FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False">膝弯曲（无）</CheckBox>
+                    <CheckBox  Name="knee_flexure_is" FontSize="10" Checked="c19_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.KneeFlexion}"></CheckBox>
+                    <CheckBox Name="knee_flexure_not"  Checked="c20_Checked"   FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.NoKneeFlexion}"></CheckBox>
             </StackPanel>
             <TextBox Name="sitand_reach_duty" Grid.Row="6" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
             <!--第七行-->
             <StackPanel Margin="5,5,0,1" Grid.Row="7" Grid.Column="1" >
-                <CheckBox Name="time_up_base" Margin="0,0,0,0" Checked="c21_Checked" IsTabStop="False">基本方法</CheckBox>
-                <CheckBox Name="time_up_routine" Margin="0,0,0,0" Checked="c22_Checked" IsTabStop="False">常规外方法</CheckBox>
+                    <CheckBox Name="time_up_base" Margin="0,0,0,0" Checked="c21_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Basic}"></CheckBox>
+                    <CheckBox Name="time_up_routine" Margin="0,0,0,0" Checked="c22_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Modified}"></CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal">
                 <TextBox Margin="5,11,0,11" Name="time_up_first" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -295,17 +296,17 @@
                 <Label Content="秒" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="7" Grid.Column="4">
-                <CheckBox  Name="time_up_walk" FontSize="10" Checked="c23_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False">独自步行</CheckBox>
-                <CheckBox Name="time_up_tools"  Checked="c24_Checked" Unchecked="c24_Unchecked" FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False">使用步行辅助工具</CheckBox>
-                <CheckBox Name="time_up_other"  Checked="c25_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False">其他</CheckBox>
+                    <CheckBox  Name="time_up_walk" FontSize="10" Checked="c23_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
+                    <CheckBox Name="time_up_tools"  Checked="c24_Checked" Unchecked="c24_Unchecked" FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="time_up_other"  Checked="c25_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
             </StackPanel>
             <ComboBox Grid.Row="7" Grid.Column="4" Name="time_up_other_selected" IsEnabled="False" FontSize="8" Margin="124.8,11,115.2,15" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=time_up_tools}"/>
             <TextBox Grid.Row="7" Grid.Column="4" Margin="124.8,26,81.2,2" Name="time_up_other_content" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=time_up_other}"/>
             <TextBox Name="time_up_duty" Grid.Row="7" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
             <!--第八行-->
             <StackPanel Margin="5,5,0,1" Grid.Row="8" Grid.Column="1">
-                <CheckBox Name="walk5_base" Margin="0,0,0,0" Checked="c26_Checked" IsTabStop="False">基本方法</CheckBox>
-                <CheckBox Name="walk5_routine" Margin="0,0,0,0" Checked="c27_Checked" IsTabStop="False">常规外方法</CheckBox>
+                    <CheckBox Name="walk5_base" Margin="0,0,0,0" Checked="c26_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Basic}"></CheckBox>
+                    <CheckBox Name="walk5_routine" Margin="0,0,0,0" Checked="c27_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Modified}"></CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="8
                         " Grid.Column="2" Orientation="Horizontal">
@@ -317,17 +318,17 @@
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="8" Grid.Column="4"   >
-                <CheckBox  Name="walk5_walk" FontSize="10" Checked="c28_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False">独自步行</CheckBox>
-                <CheckBox Name="walk5_tools"   Checked="c29_Checked" Unchecked="c29_Unchecked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False">使用步行辅助工具</CheckBox>
-                <CheckBox Name="walk5_other"  Checked="c30_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False">其他</CheckBox>
+                    <CheckBox  Name="walk5_walk" FontSize="10" Checked="c28_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
+                    <CheckBox Name="walk5_tools"   Checked="c29_Checked" Unchecked="c29_Unchecked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="walk5_other"  Checked="c30_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
             </StackPanel>
             <ComboBox Grid.Row="8" Grid.Column="4" Name="walk5_tools_selected" FontSize="8" Margin="124.8,11,115.2,15" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_tools}"/>
             <TextBox Grid.Row="8" Grid.Column="4" Margin="124.8,26,81.2,2" Name="walk5_other_content" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_other}"/>
             <TextBox Name="walk5_duty" Grid.Row="8" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
             <!--第九行-->
             <StackPanel Margin="5,5,0,1" Grid.Row="9" Grid.Column="1">
-                <CheckBox Name="walk5_fastest_base" Margin="0,0,0,0" Checked="c31_Checked" IsTabStop="False">基本方法</CheckBox>
-                <CheckBox Name="walk5_fastest_routine" Margin="0,0,0,0" Checked="c32_Checked" IsTabStop="False">常规外方法</CheckBox>
+                    <CheckBox Name="walk5_fastest_base" Margin="0,0,0,0" Checked="c31_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Basic}"></CheckBox>
+                    <CheckBox Name="walk5_fastest_routine" Margin="0,0,0,0" Checked="c32_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Modified}"></CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="9" Grid.Column="2" Orientation="Horizontal">
                 <TextBox Margin="5,11,0,11" Name="walk5_fastest_first" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -338,17 +339,17 @@
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="9" Grid.Column="4"   >
-                <CheckBox  Name="walk5_fastest_walk" FontSize="10" Checked="c33_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False">独自步行</CheckBox>
-                <CheckBox Name="walk5_fastest_tools"   Checked="c34_Checked" Unchecked="c34_Unchecked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False">使用步行辅助工具</CheckBox>
-                <CheckBox Name="walk5_fastest_other"  Checked="c35_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False">其他</CheckBox>
+                    <CheckBox  Name="walk5_fastest_walk" FontSize="10" Checked="c33_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
+                    <CheckBox Name="walk5_fastest_tools"   Checked="c34_Checked" Unchecked="c34_Unchecked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="walk5_fastest_other"  Checked="c35_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
             </StackPanel>
             <ComboBox Grid.Row="9" Grid.Column="4" Name="walk5_fastest_tools_selected"  FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_fastest_tools}"/>
             <TextBox Grid.Row="9" Grid.Column="4" Margin="124.8,26,81.2,2" Name="walk5_fastest_other_content"   Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_fastest_other}"/>
             <TextBox Name="walk5_fastest_duty" Grid.Row="9" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
             <!--第十行-->
             <StackPanel Margin="5,5,0,1" Grid.Row="10" Grid.Column="1">
-                <CheckBox Name="walk10_base" Margin="0,0,0,0" Checked="c36_Checked" IsTabStop="False">基本方法</CheckBox>
-                <CheckBox Name="walk10_routine" Margin="0,0,0,0" Checked="c37_Checked" IsTabStop="False">常规外方法</CheckBox>
+                    <CheckBox Name="walk10_base" Margin="0,0,0,0" Checked="c36_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Basic}"></CheckBox>
+                    <CheckBox Name="walk10_routine" Margin="0,0,0,0" Checked="c37_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Modified}"></CheckBox>
             </StackPanel>
             <StackPanel Grid.Row="10" Grid.Column="2" Orientation="Horizontal">
                 <TextBox Margin="5,11,0,11" Name="walk10_first" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -359,9 +360,9 @@
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="10" Grid.Column="4"   >
-                <CheckBox  Name="walk10_walk" FontSize="10" Checked="c38_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False">独自步行</CheckBox>
-                <CheckBox Name="walk10_tools"  Checked="c39_Checked" Unchecked="c39_Unchecked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False">使用步行辅助工具</CheckBox>
-                <CheckBox Name="walk10_other"  Checked="c40_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False">其他</CheckBox>
+                    <CheckBox  Name="walk10_walk" FontSize="10" Checked="c38_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
+                    <CheckBox Name="walk10_tools"  Checked="c39_Checked" Unchecked="c39_Unchecked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="walk10_other"  Checked="c40_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
             </StackPanel>
             <ComboBox Grid.Row="10" Grid.Column="4" Name="walk10_tools_selected" FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk10_tools}"/>
             <TextBox Grid.Row="10" Grid.Column="4" Margin="124.8,26,81.2,2" Name="walk10_other_content"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk10_other}"/>
@@ -377,9 +378,9 @@
                 <Label Content="秒" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="2" Margin="116.4,0.2,0.4,44.4" Grid.RowSpan="2"   >
-                <CheckBox  Name="walk6_walk" FontSize="10" Checked="c43_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False">独自步行</CheckBox>
-                <CheckBox Name="walk6_tools"  Checked="c44_Checked" Unchecked="c44_Unchecked" FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False">使用步行辅助工具</CheckBox>
-                <CheckBox Name="walk6_other"  Checked="c45_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False">其他</CheckBox>
+                    <CheckBox  Name="walk6_walk" FontSize="10" Checked="c43_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
+                    <CheckBox Name="walk6_tools"  Checked="c44_Checked" Unchecked="c44_Unchecked" FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="walk6_other"  Checked="c45_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
             </StackPanel>
             <ComboBox Grid.Row="11" Grid.Column="4" Name="walk6_tools_selected"  FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk6_tools}"/>
             <TextBox Grid.Row="11" Grid.Column="4" Margin="124.8,26,81.2,2" Name="walk6_other_content"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk6_other}"/>
@@ -395,9 +396,9 @@
                 <Label Content="次" Margin="1,11,1,9.6"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="2" Margin="116.4,0.4,1.4,0.4"   >
-                <CheckBox  Name="step2_walk" FontSize="10" Checked="c46_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False" >独自步行</CheckBox>
-                <CheckBox Name="step2_tools"  Checked="c47_Checked" Unchecked="c47_Unchecked" FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False">使用步行辅助工具</CheckBox>
-                <CheckBox Name="step2_other"  Checked="c48_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False">其他</CheckBox>
+                    <CheckBox  Name="step2_walk" FontSize="10" Checked="c46_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False"  Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
+                    <CheckBox Name="step2_tools"  Checked="c47_Checked" Unchecked="c47_Unchecked" FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.SupportDevise}"></CheckBox>
+                    <CheckBox Name="step2_other"  Checked="c48_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
             </StackPanel>
             <ComboBox Grid.Row="12" Grid.Column="4" Name="step2_tools_selected"  FontSize="8" Margin="124.8,9.8,115.2,19.8"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=step2_tools}"/>
             <TextBox Grid.Row="12" Grid.Column="4" Margin="124.8,26,81.2,2" Name="step2_other_content"   Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=step2_other}"/>
@@ -414,8 +415,8 @@
                 <Label Content="次" VerticalAlignment="Center" />
             </StackPanel>
             <StackPanel Orientation="Vertical"  Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="2" Margin="116.4,44.4,1.4,-0.2" Grid.RowSpan="2"   >
-                <CheckBox  Name="leg2_stand" FontSize="10" Checked="c49_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False">站姿</CheckBox>
-                <CheckBox Name="leg2_sit"  Checked="c50_Checked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False">坐姿</CheckBox>
+                    <CheckBox  Name="leg2_stand" FontSize="10" Checked="c49_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Standing}"></CheckBox>
+                    <CheckBox Name="leg2_sit"  Checked="c50_Checked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Seated}"></CheckBox>
             </StackPanel>
             <TextBox Name="leg2_duty" Grid.Row="13" Grid.Column="5"  Margin="1,0,1,1" />
         </Grid>
@@ -439,7 +440,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="95.5*"/>
+                <ColumnDefinition Width="104.5*"/>
                 <ColumnDefinition Width="726*"/>
             </Grid.ColumnDefinitions>
             <Border Grid.Row="0" Grid.Column="0"></Border>
@@ -447,8 +448,8 @@
             <Border Grid.Row="1" Grid.Column="0"/>
             <Border Grid.Row="1" Grid.Column="1" BorderThickness="2"/>
 
-            <Label Content="使用者感想" Grid.Row="0" Grid.Column="0" Margin="1,1,0.5,1"/>
-            <Label Content="工作人员感想"  Grid.Row="1" Grid.Column="0" Margin="1,1,1,1.5"/>
+                <Label Content="{DynamicResource PhysicalEvaluationFormView.Subjectcomment}" Grid.Row="0" Grid.Column="0" Margin="1,1,0.5,1"/>
+                <Label Content="{DynamicResource PhysicalEvaluationFormView.Staffcomment}"  Grid.Row="1" Grid.Column="0" Margin="1,1,1,1.5"/>
             <!-- 使用者、工作人员感想的两个文本输入框-->
             <!--<TextBox Grid.Row="0" Grid.Column="1"/>-->
             <RichTextBox Name="user_feel" AcceptsReturn="True"   Grid.Row="0" Grid.Column="1" Margin="0,0,1,0">
@@ -471,10 +472,11 @@
         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="286" Height="29" VerticalAlignment="Bottom" BorderThickness="0" BorderBrush="White" Margin="0,13,10,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
                 <!--保存按钮-->
-                <Button Width="140"  Height="25"  Margin="3,0,0,0" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Save" IsTabStop="False">保存</Button>
+                    <Button Width="140"  Height="25"  Margin="3,0,0,0" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Save" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Save}"></Button>
                 <!--取消按钮-->
-                <Button Width="140" Height="25" Content="取消" Margin="2,0,0,0" VerticalAlignment="Bottom"  Style="{StaticResource Btn}" Click="GoBack" IsTabStop="False"/>
+                    <Button Width="140" Height="25"  Content="{DynamicResource PhysicalEvaluationFormView.Close}" Margin="2,0,0,0" VerticalAlignment="Bottom"  Style="{StaticResource Btn}" Click="GoBack" IsTabStop="False"/>
             </StackPanel>
         </Border>
     </StackPanel>
+    </Viewbox>
 </Window>

@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>view\Images\bitbug_favicon.ico</ApplicationIcon>
+    <ApplicationIcon>view\Images\123.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -202,6 +202,7 @@
       <DependentUpon>ImageDealerUnsafe.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageDealer\PicZipUtil.cs" />
+    <Compile Include="util\LanguageUtils.cs" />
     <Compile Include="view\Pages\ChildWin\PhotoCutWindow.xaml.cs">
       <DependentUpon>PhotoCutWindow.xaml</DependentUpon>
     </Compile>
@@ -625,6 +626,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\123.ico" />
+    <Resource Include="view\Images\excel\close.png" />
     <Resource Include="view\Images\bitbug_favicon.ico" />
     <Resource Include="view\Images\icon2.jpg" />
     <Resource Include="view\Images\excel\1234.gif" />

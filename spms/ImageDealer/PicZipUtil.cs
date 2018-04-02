@@ -114,7 +114,8 @@ namespace WpfApp2
         /// <returns></returns>
         public static bool GetPicThumbnail(string sFile, string outPath, int flag)
         {
-            if (sFile.Length < 10 * 1024)
+            FileInfo firstFileInfo = new FileInfo(sFile);
+            if (firstFileInfo.Length < 10 * 1024)
             {
                 return false;
             }
@@ -159,7 +160,51 @@ namespace WpfApp2
                 iSource.Dispose();
             }
         }
+        
+        public static bool GetPicThumbnail(Bitmap sFile,string outPath, int flag)
+        {
+            
+            System.Drawing.Image iSource = sFile;
+            ImageFormat tFormat = iSource.RawFormat;
 
-      
+            //以下代码为保存图片时，设置压缩质量  
+            EncoderParameters ep = new EncoderParameters();
+            long[] qy = new long[1];
+            qy[0] = flag;//设置压缩的比例1-100  
+            EncoderParameter eParam = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, qy);
+            ep.Param[0] = eParam;
+            try
+            {
+                ImageCodecInfo[] arrayICI = ImageCodecInfo.GetImageEncoders();
+                ImageCodecInfo jpegICIinfo = null;
+                for (int x = 0; x < arrayICI.Length; x++)
+                {
+                    if (arrayICI[x].FormatDescription.Equals("JPEG"))
+                    {
+                        jpegICIinfo = arrayICI[x];
+                        break;
+                    }
+                }
+                if (jpegICIinfo != null)
+                {
+                    iSource.Save(outPath, jpegICIinfo, ep);//dFile是压缩后的新路径  
+                }
+                else
+                {
+                    iSource.Save(outPath, tFormat);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                iSource.Dispose();
+                iSource.Dispose();
+            }
+        }
+
     }
 }
