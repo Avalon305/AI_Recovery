@@ -29,8 +29,10 @@ namespace spms.util
             {
                 dictionaryList.Add(dictionary);
             }
+
             string requestedCulture = @"resources\" + language;
-            ResourceDictionary resourceDictionary = dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals(requestedCulture));
+            ResourceDictionary resourceDictionary =
+                dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals(requestedCulture));
             Application.Current.Resources.MergedDictionaries.Remove(resourceDictionary);
             Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
         }
@@ -46,9 +48,10 @@ namespace spms.util
                     return false;
                 }
             }
+
             return true;
-            
         }
+
         /// <summary>
         /// 根据当前语言返回字符串
         /// </summary>
@@ -61,13 +64,14 @@ namespace spms.util
         }
 
         /// <summary>
-        /// 根据资源id返回当前语言的字符串(暂时不要用，有bug)
+        /// 根据资源id返回当前语言的字符串
         /// </summary>
         /// <param name="key">字符key</param>
         /// <returns></returns>
         public static string GetCurrentLanuageStrByKey(string key)
         {
-            return (string)Application.Current.Resources.MergedDictionaries[0][key];
+            var resourceDictionaries = Application.Current.Resources.MergedDictionaries;
+            return (string) resourceDictionaries[resourceDictionaries.Count - 1][key];
         }
 
         /// <summary>
@@ -78,8 +82,18 @@ namespace spms.util
         /// <returns></returns>
         public static bool EqualsResource(string str, string key)
         {
+            List<string> strs = new List<string>();
+            foreach (var md in Application.Current.Resources.MergedDictionaries)
+            {
+                strs.Add((string) md[key]);
+            }
+
+            if (strs.Contains(str))
+            {
+                return true;
+            }
+
             return false;
         }
-
     }
 }

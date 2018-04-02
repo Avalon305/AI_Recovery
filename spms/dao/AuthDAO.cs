@@ -81,5 +81,13 @@ namespace spms.dao
                 conn.Execute(query, new { User_Status = status, Auth_UserName = username });
             }
         }
+        public int getIdByMaxId()
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "SELECT Max(pk_auth_id) FROM bdl_auth";
+                return conn.QueryFirstOrDefault<int>(query);
+            }
+        }
     }
 }

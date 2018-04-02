@@ -27,8 +27,7 @@ namespace spms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string s = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Valid");
-            MessageBox.Show(s);
+            LanguageUtils.EqualsResource("倒计时", "TrainingListView.CountReverse");
         }
     }
 }
