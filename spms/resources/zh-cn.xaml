@@ -305,7 +305,7 @@
     <s:String x:Key="PhysicalEvaluationFormView.nosupport">不需要支持</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.SupportDevise">使用支持用具</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Supportedbyassistance">通过介助支持</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.Difficulttorisearmstoshoulder(ShoulderFlex)">胳膊不能举到肩的高度</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.Difficulttorisearmstoshoulder(ShoulderFlex)">胳膊不能举到肩的高度（肩关节弯曲度）</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.SeatedPosition">以坐姿进行测定</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.KneeFlexion">膝弯曲（有）</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.NoKneeFlexion">膝弯曲（无）</s:String>

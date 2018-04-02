@@ -10,7 +10,7 @@
         Icon="/view/Images/icon2.png"
          PreviewKeyDown="key_dowm"
         Title="宝德龙"
-        Height="719.2"
+        Height="729.2"
         Width="580"
         ResizeMode="NoResize"
         Loaded="Window_Loaded"
@@ -76,7 +76,7 @@
                         <ColumnDefinition Width="24*"/>
                         <ColumnDefinition Width="117*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="{DynamicResource VitalInfoView.BP}" Grid.Column="0" Foreground="White"  HorizontalContentAlignment="Center"   VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="0,1,0.2,1"/>
+                    <Label Content="{DynamicResource VitalInfoView.BP}" Grid.Column="0" Foreground="White"  HorizontalContentAlignment="Center"   VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="0,1,0,1"/>
                     <Label Content="{DynamicResource VitalInfoView.HR}"  Foreground="White"  VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="119,1,1,1" Grid.ColumnSpan="2"/>
                     <Label Content="{DynamicResource VitalInfoView.Pulse}" Grid.Column="2" HorizontalContentAlignment="Center"  Foreground="White"  VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="0,1,109.8,1" Grid.ColumnSpan="3"/>
                     <Label Content="{DynamicResource VitalInfoView.Tmp}" Grid.Column="3"  Foreground="White" VerticalAlignment="Center"  HorizontalContentAlignment="Center" Height="24" Margin="23,1,9.8,1" Grid.ColumnSpan="2" />
@@ -109,8 +109,8 @@
                     <TextBox Grid.Row="0" Margin="118,0,0.2,23.6" Grid.RowSpan="2" Name="heartRate_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Grid.ColumnSpan="2"/>
                     <GroupBox Grid.Row="0" Grid.Column="1"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="92.6,2,0.2,0.8" Width="140" Grid.ColumnSpan="2" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="140" Margin="-6,0,-6.8,-6" >
-                            <RadioButton VerticalAlignment="Center" Width="64" Margin="0,4,0,4.4" Name="rule_1"  IsTabStop="False" Content="{DynamicResource VitalInfoView.Regular}" ></RadioButton>
-                            <RadioButton VerticalAlignment="Center"  Width="70" Name="irregular_1" IsTabStop="False" Content="{DynamicResource VitalInfoView.Irregular}"  ></RadioButton>
+                            <RadioButton VerticalAlignment="Center" Width="64" VerticalContentAlignment="Center" Margin="0,0,0,0.4" Name="rule_1"  IsTabStop="False" Content="{DynamicResource VitalInfoView.Regular}" Height="22" ></RadioButton>
+                            <RadioButton VerticalAlignment="Center" VerticalContentAlignment="Center" Width="70" Name="irregular_1" IsTabStop="False" Content="{DynamicResource VitalInfoView.Irregular}" Height="22" Margin="0,0,0,0.4"  ></RadioButton>
                         </StackPanel>
                     </GroupBox>
                     <TextBox Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"   Name="heat_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Margin="139.8,0,-0.2,24.6" Grid.ColumnSpan="2"/>
@@ -122,8 +122,8 @@
                     <TextBox Grid.Row="1" Grid.Column="1" Margin="0.6,0.2,0,-0.4" Name="heartRate_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                     <GroupBox Grid.Row="1" Grid.Column="1"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Margin="92.6,0.2,0.2,0.6" Width="140" Grid.ColumnSpan="2" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="139" Margin="-6,0,-5.8,-6.4" >
-                            <RadioButton VerticalAlignment="Center" Width="65" Margin="0,5" Name="rule_2"  IsTabStop="False" Content="{DynamicResource VitalInfoView.Regular}"></RadioButton>
-                            <RadioButton VerticalAlignment="Center"  Width="70" Name="irregular_2"  IsTabStop="False"  Content="{DynamicResource VitalInfoView.Irregular}"   ></RadioButton>
+                            <RadioButton VerticalAlignment="Center" Width="65" Margin="0,0,0,-0.2" VerticalContentAlignment="Center" Name="rule_2"  IsTabStop="False" Content="{DynamicResource VitalInfoView.Regular}" Height="25"></RadioButton>
+                            <RadioButton VerticalAlignment="Center"  Width="70" Name="irregular_2" VerticalContentAlignment="Center" IsTabStop="False"  Content="{DynamicResource VitalInfoView.Irregular}" Height="25" Margin="0,0,0,-0.2"   ></RadioButton>
                         </StackPanel>
                     </GroupBox>
                     <TextBox Grid.Row="1" Grid.Column="2" Margin="139.8,0.2,-0.2,-0.4" Name="heat_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Grid.ColumnSpan="2"/>
@@ -175,7 +175,7 @@
                 <StackPanel Height="25" Margin="0,0,5,0">
                     <Label Height="25"  Background="Gray" Foreground="White" Width="80"  Content="{DynamicResource VitalInfoView.Participation}" ></Label>
                 </StackPanel>
-                <StackPanel Margin="-10,0,0,-0.2" Width="494">
+                <StackPanel Margin="-5,0,0,-0.2" Width="456">
                     <GroupBox Height="23" Margin="10,0,0.4,0" BorderBrush="White">
                         <StackPanel Orientation="Horizontal" Margin="0,0,0.2,-6.2" >
                             <RadioButton Margin="20,0,0,0" VerticalAlignment="Center" Name="join_1" IsTabStop="False"  Content="{DynamicResource VitalInfoView.Yes}" ></RadioButton>

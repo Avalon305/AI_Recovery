@@ -140,7 +140,7 @@
 
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="300"/>
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
@@ -287,7 +287,7 @@
                         <Border Height="20" Width="270" Background="Red" DockPanel.Dock="Top" >
                             <Label Margin="0,-2,0,-2">非公开信息</Label>
                         </Border>
-                        <TextBox Name="noPublicInfoText"></TextBox>
+                            <TextBox Name="noPublicInfoText" Text="{Binding User_Privateinfo}"></TextBox>
                     </DockPanel>
                 </StackPanel>
                 <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="434" Height="47" VerticalAlignment="Bottom" BorderBrush="White" Margin="0,0,9.6,0">

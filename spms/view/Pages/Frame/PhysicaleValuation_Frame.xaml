@@ -39,11 +39,11 @@
                 <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource PhysicalEvaluationHistory.Date}" Width="130"/>
                 <DataGridTextColumn Binding="{Binding PP_High}" Header="{DynamicResource PhysicalEvaluationHistory.Height}" Width="80"/>
                 <DataGridTextColumn Binding="{Binding PP_Weight}" Header="{DynamicResource PhysicalEvaluationHistory.Weight}" Width="80"/>
-                <DataGridTextColumn Binding="{Binding PP_EyeOpenStand}" Header="{DynamicResource PhysicalEvaluationHistory.SingleLegStanding(OE)}" Width="100"/>
+                <DataGridTextColumn Binding="{Binding PP_EyeOpenStand}" Header="{DynamicResource PhysicalEvaluationHistory.SingleLegStanding(OE)}" Width="150"/>
                 <DataGridTextColumn Binding="{Binding PP_TimeUpGo}" Header="{DynamicResource PhysicalEvaluationHistory.TimedUpGo}" Width="100"/>
                 <!--<DataGridTextColumn Binding="{Binding PP_UserMemo}" Header="使用者感想" Width="240"/>
                 <DataGridTextColumn Binding="{Binding PP_WorkerMemo}" Header="工作人员感想" Width="240"/>-->
-                <DataGridTemplateColumn Header="{DynamicResource PhysicalEvaluationHistory.Subjectcomment}" Width="225">
+                <DataGridTemplateColumn Header="{DynamicResource PhysicalEvaluationHistory.Subjectcomment}" Width="200">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <!--设置当单元格内容超过最大长度时，显示...-->
@@ -63,7 +63,7 @@
                        
                     </DataGridTemplateColumn.CellStyle>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="{DynamicResource PhysicalEvaluationHistory.Staffcomment}" Width="225">
+                <DataGridTemplateColumn Header="{DynamicResource PhysicalEvaluationHistory.Staffcomment}" Width="200">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <!--设置当单元格内容超过最大长度时，显示...-->
