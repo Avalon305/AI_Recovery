@@ -248,6 +248,16 @@
     <s:String x:Key="TrainingListView.Save">Save</s:String>
     <s:String x:Key="TrainingListView.WritetoCard">Write to Card</s:String>
     <s:String x:Key="TrainingListView.Cancel">Cancel</s:String>
+    <s:String x:Key="TrainingListView.Valid">Valid</s:String>
+    <s:String x:Key="TrainingListView.Invalid">Invalid</s:String>
+    <s:String x:Key="TrainingListView.CountForward">Count Forward</s:String>
+    <s:String x:Key="TrainingListView.CountReverse">Count Reverse</s:String>
+    <s:String x:Key="TrainingListView.EndStopper">End Stopper</s:String>
+    <s:String x:Key="TrainingListView.AngleOfArm">Angle Of Arm</s:String>
+    <s:String x:Key="TrainingListView.AngleOfArm1">Angle Of Arm1</s:String>
+    <s:String x:Key="TrainingListView.AngleOfArm2">Angle Of Arm2</s:String>
+    <s:String x:Key="TrainingListView.SeatPosition">Seat Position</s:String>
+    <s:String x:Key="TrainingListView.TrunkPad">Trunk Pad</s:String>
 
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">Physical Evaluation Form</s:String>
@@ -263,7 +273,7 @@
     <s:String x:Key="PhysicalEvaluationFormView.Height">Height</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Weight">Weight</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Grip">Grip</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.SingleLegStanding(OE)"  xml:space="preserve">Single&#13;Leg Standing(OE)</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.SingleLegStanding(OE)">Single Leg Standing(OE)</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.FunctionalReach">Functional Reach</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.AnteflextionSeated">Anteflextion Seated</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.TimeedUpGo">Timeed Up Go</s:String>
@@ -277,8 +287,8 @@
     <s:String x:Key="PhysicalEvaluationFormView.2minKneeext.(reps)">2min Knee ext.(reps)</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Subjectcomment">Subject comment</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Staffcomment">Staff comment</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.SupportingLeg"  xml:space="preserve">Supporting&#13;Leg</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.Bothhands"  xml:space="preserve">Both&#13;hands</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.SupportingLeg">Supporting Leg</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.Bothhands">Both hands</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.L">L</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.R">R</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.Testing">Testing</s:String>
