@@ -224,6 +224,9 @@ namespace spms.view.Pages
             userUpdata.SelectUser = user;
             //UI中使用
             userUpdata.selectUser.DataContext = user;
+            Console.WriteLine("123123:   " + user.User_Privateinfo);
+            userUpdata.noPublicInfoText.Text = user.User_Privateinfo;
+            Console.WriteLine("123123aaaaa:   " + userUpdata.noPublicInfoText.Text);
             userUpdata.ShowDialog();
             
             //关闭后刷新界面

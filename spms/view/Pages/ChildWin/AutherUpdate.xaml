@@ -39,8 +39,8 @@
                         <RowDefinition Height="28"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="280"/>
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
@@ -75,7 +75,7 @@
 
                     <!--<TextBox Grid.Row="10" Name="t11" Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>-->
                 </Grid>
-                <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="276" Height="47" VerticalAlignment="Top" BorderBrush="White" Margin="0,0,9.6,0">
+                <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="314" Height="47" VerticalAlignment="Top" BorderBrush="White" Margin="0,0,9.6,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                         <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" IsTabStop="False"  Margin="0,0,2,0"  Foreground="Black" Content="{DynamicResource RegisterView.Confirm}" Style="{StaticResource Btn}" Click="Button_OK"/>
                         <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  IsTabStop="False"  Foreground="Black" Content="{DynamicResource RegisterView.Cancel}" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
