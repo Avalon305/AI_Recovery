@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ZscTest" Height="450" Width="800">
     <Grid>
-        <Button Content="测试" HorizontalAlignment="Left" Margin="335,60,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="测试" HorizontalAlignment="Left" Margin="335,60,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <TextBox HorizontalAlignment="Left" Height="275" Margin="143,98,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="505"/>
 
     </Grid>
