@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using spms.dao;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,6 +17,8 @@ namespace spms.util
     class CommUtil
     {
 
+     
+        private static SetterDAO setterDAO = new SetterDAO();
 
         /// <summary>
         /// 获取web平台路径
@@ -56,7 +59,12 @@ namespace spms.util
         /// <returns></returns>
         public static string GetUserPic(string picName)
         {
+           var setter =  setterDAO.getSetter();
 
+            if(setter != null)
+            {
+                return setter.Set_PhotoLocation;
+            }
 
             string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
             string path = ConfigurationManager.AppSettings["PicPath"];
@@ -91,6 +99,13 @@ namespace spms.util
         //重构
         public static string GetUserPic()
         {
+            var setter = setterDAO.getSetter();
+
+            if (setter != null)
+            {
+                return setter.Set_PhotoLocation;
+            }
+
             string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
             string path = ConfigurationManager.AppSettings["PicPath"];
 
