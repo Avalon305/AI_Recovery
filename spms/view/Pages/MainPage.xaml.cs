@@ -207,7 +207,7 @@ namespace spms.view.Pages
             //检查是否选中
             if (selectUser == null)
             {
-                MessageBox.Show("请选择用户再进行操作！");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
 
@@ -256,12 +256,12 @@ namespace spms.view.Pages
             //检查是否选中
             if (selectUser == null)
             {
-                MessageBox.Show("请选择用户再进行操作！");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
 
-            MessageBoxResult dr = MessageBox.Show("您确定删除该使用者信息？\n 使用者：" + ((User) UsersInfo.SelectedItem).User_Name,
-                "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            MessageBoxResult dr = MessageBox.Show(LanguageUtils.ConvertLanguage("您确定删除该使用者信息？\n 使用者：", "Do You Want Delete The Subject?\n Subject:") + ((User) UsersInfo.SelectedItem).User_Name,
+                LanguageUtils.ConvertLanguage("提示", "Option"), MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (dr == MessageBoxResult.OK)
             {
                 //删除
@@ -351,7 +351,7 @@ namespace spms.view.Pages
                         }
                         else
                         {
-                            MessageBox.Show("抱歉，没有数据");
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
                         }
                     }
                 }
@@ -375,7 +375,7 @@ namespace spms.view.Pages
                         }
                         else
                         {
-                            MessageBox.Show("抱歉，没有数据");
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
                         }
                     }
                 }
@@ -401,7 +401,7 @@ namespace spms.view.Pages
                         }
                         else
                         {
-                            MessageBox.Show("抱歉，没有数据");
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
                         }
                     }
                 }
@@ -508,7 +508,7 @@ namespace spms.view.Pages
             User user = (User) UsersInfo.SelectedItem;
             if(user == null)
             {
-                MessageBox.Show("请选择用户");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
             inputTrainingResults.DataContext = user;
@@ -540,7 +540,7 @@ namespace spms.view.Pages
 
                 if (record.Content == null)
                 {
-                    MessageBox.Show("没有选择症状信息");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择症状信息再进行操作！", "Please Select A Symptom Info!"));
                     return;
                 }
 
@@ -550,13 +550,13 @@ namespace spms.view.Pages
                 User user = (User) UsersInfo.SelectedItem;
                 if (user == null)
                 {
-                    MessageBox.Show("请选择用户");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                     return;
                 }
 
                 if (symptomInfoDto == null)
                 {
-                    MessageBox.Show("请选择症状信息");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择症状信息再进行操作！", "Please Select A Symptom Info!"));
                     return;
                 }
 
@@ -609,12 +609,12 @@ namespace spms.view.Pages
 
                 if (user == null)
                 {
-                    MessageBox.Show("请先选择用户");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                     return;
                 }
                 if (trainDto == null)
                 {//判断是否选择了训练信息
-                    MessageBox.Show("请先选择训练信息");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择训练信息再进行操作！", "Please Select A Train Info!"));
                     return;
                 }
                 Dictionary<string, Object> dic = new Dictionary<string, object>();
@@ -645,12 +645,12 @@ namespace spms.view.Pages
 
                 if (user == null)
                 {
-                    MessageBox.Show("请先选择用户");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                     return;
                 }
                 if (physicaleDto == null)
                 {//判断是否选择了训练信息
-                    MessageBox.Show("请先选择体力评价");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择体力评价再进行操作！", "Please Select A Physical Evalution!"));
                     return;
                 }
                 Dictionary<string, Object> dic = new Dictionary<string, object>();
@@ -781,13 +781,13 @@ namespace spms.view.Pages
 
             if (user == null)
             {
-                MessageBox.Show("请先选择用户");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
             if (trainDto == null)
             {
                 //判断是否选择了训练信息
-                MessageBox.Show("请先选择训练信息");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择训练信息再进行操作！", "Please Select A Train Info!"));
                 return;
             }
 
@@ -819,7 +819,7 @@ namespace spms.view.Pages
             User user = (User) UsersInfo.SelectedItem;
             if (user == null)
             {
-                MessageBox.Show("请选择用户");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
             inputTraining.DataContext = user;
@@ -846,7 +846,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show("未选择用户");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
             }
            
         }

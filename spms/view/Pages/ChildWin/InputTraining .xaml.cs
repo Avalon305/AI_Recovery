@@ -42,7 +42,7 @@ namespace spms.view.Pages.ChildWin
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult dr = MessageBox.Show("是否所有编辑都无效？", "提示", MessageBoxButton.OKCancel,
+            MessageBoxResult dr = MessageBox.Show(LanguageUtils.ConvertLanguage("是否所有编辑都无效？", "Whether all editors are invalid?"), LanguageUtils.ConvertLanguage("提示", "Point"), MessageBoxButton.OKCancel,
                 MessageBoxImage.Question);
             if (dr == MessageBoxResult.OK)
             {
@@ -326,8 +326,7 @@ namespace spms.view.Pages.ChildWin
             {
                 return;
             }
-            
-            MessageBox.Show("已存储");
+            MessageBox.Show(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
             this.Close();
         }
 
@@ -366,7 +365,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的移动距离");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
                     throw e;
                 }
 
@@ -376,7 +375,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的组数");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
                     throw e;
                 }
 
@@ -386,7 +385,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的个数");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
                     throw e;
                 }
 
@@ -396,7 +395,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的移乘方式");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
                     throw e;
                 }
 
@@ -406,7 +405,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的间隔时间");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -416,7 +415,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的砝码");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
                     throw e;
                 }
 
@@ -431,7 +430,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch(Exception e)
                     {
-                        MessageBox.Show("请输入正确的计时时间");
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         throw e;
                     }
                 }
@@ -477,7 +476,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的移动距离");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
                     throw e;
                 }
                 try
@@ -486,7 +485,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的组数");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
                     throw e;
                 }
 
@@ -496,7 +495,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的个数");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
                     throw e;
                 }
 
@@ -506,7 +505,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的移乘方式");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
                     throw e;
                 }
 
@@ -516,7 +515,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的间隔时间");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -526,7 +525,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的砝码");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
                     throw e;
                 }
                 if (combobox_16.Text == "有效")
@@ -540,7 +539,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show("请输入正确的计时时间");
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         throw e;
                     }
 
@@ -586,7 +585,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的移动距离");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
                     throw e;
                 }
                 try
@@ -595,7 +594,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的组数");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
                     throw e;
                 }
 
@@ -605,7 +604,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的个数");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
                     throw e;
                 }
 
@@ -615,7 +614,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的移乘方式");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
                     throw e;
                 }
 
@@ -625,7 +624,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的间隔时间");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -635,7 +634,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的砝码");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
                     throw e;
                 }
                 if (combobox_26.Text == "有效")
@@ -649,7 +648,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show("请输入正确的计时时间");
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         throw e;
                     }
 
@@ -698,7 +697,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的移动距离");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
                     throw e;
                 }
                 try
@@ -707,7 +706,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的组数");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
                     throw e;
                 }
 
@@ -717,7 +716,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的个数");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
                     throw e;
                 }
 
@@ -727,7 +726,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的移乘方式");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
                     throw e;
                 }
 
@@ -737,7 +736,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的间隔时间");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -747,7 +746,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的砝码");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
                     throw e;
                 }
                 if (combobox_36.Text == "有效")
@@ -761,7 +760,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show("请输入正确的计时时间");
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         throw e;
                     }
 
@@ -805,7 +804,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的移动距离");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
                     throw e;
                 }
                 try
@@ -814,7 +813,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的组数");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
                     throw e;
                 }
 
@@ -824,7 +823,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的个数");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
                     throw e;
                 }
 
@@ -834,7 +833,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的移乘方式");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
                     throw e;
                 }
 
@@ -844,7 +843,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的间隔时间");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -854,7 +853,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的砝码");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
                     throw e;
                 }
                 if (combobox_46.Text == "有效")
@@ -868,7 +867,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show("请输入正确的计时时间");
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         throw e;
                     }
                 }
@@ -910,7 +909,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的移动距离");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
                     throw e;
                 }
                 try
@@ -919,7 +918,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的组数");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
                     throw e;
                 }
 
@@ -929,7 +928,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的个数");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
                     throw e;
                 }
 
@@ -939,7 +938,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的移乘方式");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
                     throw e;
                 }
 
@@ -949,7 +948,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的间隔时间");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -959,7 +958,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("请选择正确的砝码");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
                     throw e;
                 }
                 if (combobox_56.Text == "有效")
@@ -973,7 +972,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show("请输入正确的计时时间");
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         throw e;
                     }
                 }
@@ -1419,7 +1418,7 @@ namespace spms.view.Pages.ChildWin
 
                 if (SerialPortUtil.portName == "")
                 {
-                    MessageBox.Show("请先连接串口");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请先连接串口", "Please Connect the serial port"));
                     return;
                 }
 

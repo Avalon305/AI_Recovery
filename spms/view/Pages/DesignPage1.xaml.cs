@@ -162,7 +162,7 @@ namespace spms.view.Pages
 
             }
             //切换语言
-            LanguageUtils.SetLanguage(comboBox2.SelectedIndex);
+            LanguageUtils.SetLanguage();
             
         }
 
