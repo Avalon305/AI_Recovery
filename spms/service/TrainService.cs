@@ -96,6 +96,10 @@ namespace spms.service
             using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
             {
                 DevicePrescription p = GetDevicePrescriptionByIdCardDeviceType(idCard, deviceType);
+                if (p == null)
+                {
+                    return;
+                }
                 //插入训练结果
                 result.Fk_DP_Id = p.Pk_DP_Id;
                 prescriptionResultDAO.Insert(result);
