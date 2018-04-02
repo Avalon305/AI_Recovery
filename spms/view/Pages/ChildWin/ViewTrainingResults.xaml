@@ -8,7 +8,7 @@
         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
         Title="宝德龙"
-         ResizeMode = "NoResize" Height="714.8" Width="900"
+         ResizeMode = "NoResize" Height="734.8" Width="900"
         Loaded="Window_Loaded">
     <Viewbox Name="viewbox">
     <StackPanel>

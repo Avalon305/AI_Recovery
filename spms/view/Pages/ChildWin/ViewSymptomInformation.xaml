@@ -211,7 +211,7 @@
             <!--水分摄取-->
             <StackPanel Orientation="Horizontal" Margin="10,10,10,10">
                 <Label Content="{DynamicResource VitalInfoView.Water}" Background="Gray" Foreground="White"  Width="80"/>
-                <TextBox Margin="15,0" Width="45"  Name="amunt" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Margin="15,0" Width="41"  Name="amunt" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="(cc)"/>
             </StackPanel>
             <!--结束：水分摄取-->

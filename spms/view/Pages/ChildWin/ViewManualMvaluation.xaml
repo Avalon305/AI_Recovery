@@ -324,8 +324,8 @@
                 <!--第四行-->
                 <Label Grid.Row="4" Grid.Column="1" Content="{DynamicResource PhysicalEvaluationFormView.SupportingLeg}"/>
                 <StackPanel Margin="50,5,0,1" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
-                    <CheckBox Name="stand_left" Margin="28,0,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.L}"></CheckBox>
-                    <CheckBox Name="stand_right" Margin="28,0,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.R}"></CheckBox>
+                    <CheckBox Name="stand_left" Margin="30,0,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.L}"></CheckBox>
+                    <CheckBox Name="stand_right" Margin="30,0,0,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.R}"></CheckBox>
                 </StackPanel>
                 <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal">
                     <TextBox Name="stand_first" Margin="5,12,0,9.6" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
@@ -346,8 +346,8 @@
                 <!--第五行-->
                 <CheckBox Content="{DynamicResource PhysicalEvaluationFormView.Bothhands}" Grid.Row="5" Name="protrack_twohands" Margin="1.2,0,1.2,32.6" Grid.RowSpan="2" Grid.Column="1" IsEnabled="False"></CheckBox>
                 <StackPanel Margin="50,0,116.6,0.8" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" >
-                    <CheckBox Name="protrack_left" Margin="28,0,-11,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.L}"></CheckBox>
-                    <CheckBox Name="protrack_right" Margin="28,0,0.8,0"  Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.R}"></CheckBox>
+                    <CheckBox Name="protrack_left" Margin="30,0,-11,0" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.L}"></CheckBox>
+                    <CheckBox Name="protrack_right" Margin="30,0,0.8,0"  Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.R}"></CheckBox>
                 </StackPanel>
                 <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal">
                     <TextBox Name="protrack_first" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
