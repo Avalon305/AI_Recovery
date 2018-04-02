@@ -46,10 +46,8 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
-                Console.WriteLine(gmtCreate.ToString());
-                const string query = "SELECT pk_pp_id FROM bdl_physicalpower WHERE gmt_create = @gmt_create";
-                int id = conn.QueryFirstOrDefault<int>(query, new { gmt_create = gmtCreate });
-                return conn.QueryFirstOrDefault<int>(query, new { gmt_create = gmtCreate });
+                const string query = "SELECT Max(pk_pp_id) FROM bdl_physicalpower";
+                return conn.QueryFirstOrDefault<int>(query);
             }
         }
 

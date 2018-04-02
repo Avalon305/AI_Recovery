@@ -265,6 +265,7 @@ namespace spms.view.Pages.ChildWin
             String noPublicInfo = this.noPublicInfoText.Text;
             //string secretMessage = this.Non_Public_Information.
             User user = new User();
+            user.User_Privateinfo = noPublicInfo;
             user.User_Birth = Convert.ToDateTime(brithday);
             user.User_GroupName = groupName;
             //设置私密信息
