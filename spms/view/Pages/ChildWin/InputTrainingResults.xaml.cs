@@ -77,26 +77,32 @@ namespace spms.view.Pages.ChildWin
                 switch (dev.DS_name)
                 {
                     case "胸部推举机":
+                    case "Chest Press":
                         tab1.IsEnabled = false;
                         sp1.IsEnabled = false;
                         break;
                     case "坐姿划船机":
+                    case "Rowing":
                         tab2.IsEnabled = false;
                         sp2.IsEnabled = false;
                         break;
                     case "身体伸展弯曲机":
+                    case "Torso Flexion":
                         tab3.IsEnabled = false;
                         sp3.IsEnabled = false;
                         break;
                     case "腿部伸展弯曲机":
+                    case "Leg Extension":
                         tab4.IsEnabled = false;
                         sp4.IsEnabled = false;
                         break;
                     case "腿部推蹬机":
+                    case "Horizontal Leg Press":
                         tab5.IsEnabled = false;
                         sp5.IsEnabled = false;
                         break;
                     case "腿部内外弯机":
+                    case "Hip Abduction":
                         tab6.IsEnabled = false;
                         sp6.IsEnabled = false;
                         break;
@@ -223,7 +229,7 @@ namespace spms.view.Pages.ChildWin
                 {
                 }
                 devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
-                if (HLPTimer.Text == "有效")
+                if (HLPTimer.Text == "有效" || HLPTimer.Text == "Valid")
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -234,7 +240,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("请输入正确的计时时间");
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
                 }
@@ -242,7 +248,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (HLPTiming.Text == "倒计时")
+                if (HLPTiming.Text == "倒计时" || HLPTiming.Text == "Count Reverse")
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -402,7 +408,7 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X05;
-                if (ROWTimer.Text == "有效")
+                if (ROWTimer.Text == "有效" || ROWTimer.Text == "Valid")
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -413,7 +419,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("请输入正确的计时时间");
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
                 }
@@ -421,7 +427,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (ROWTiming.Text == "倒计时")
+                if (ROWTiming.Text == "倒计时" || ROWTiming.Text == "Count Reverse")
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -599,7 +605,7 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
-                if (TFTimer.Text == "有效")
+                if (TFTimer.Text == "有效" || TFTimer.Text == "Valid")
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -610,7 +616,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("请输入正确的计时时间");
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
                 }
@@ -618,7 +624,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (TFTiming.Text == "倒计时")
+                if (TFTiming.Text == "倒计时" || TFTiming.Text == "Count Reverse")
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -798,7 +804,7 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
-                if (LETimer.Text == "有效")
+                if (LETimer.Text == "有效" || LETimer.Text == "Valid")
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -809,7 +815,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("请输入正确的计时时间");
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
                 }
@@ -817,7 +823,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (LETiming.Text == "倒计时")
+                if (LETiming.Text == "倒计时" || LETiming.Text == "Count Reverse")
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -993,7 +999,7 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
-                if (HATimer.Text == "有效")
+                if (HATimer.Text == "有效" || HATimer.Text == "Valid")
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -1004,7 +1010,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("请输入正确的计时时间");
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
                 }
@@ -1012,7 +1018,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (HATiming.Text == "倒计时")
+                if (HATiming.Text == "倒计时" || HATiming.Text == "Count Reverse")
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -1189,7 +1195,7 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
-                if (CPTimer.Text == "有效")
+                if (CPTimer.Text == "有效" || CPTimer.Text == "Valid")
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -1200,7 +1206,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("请输入正确的计时时间");
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
                 }
@@ -1208,7 +1214,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (CPTiming.Text == "倒计时")
+                if (CPTiming.Text == "倒计时" || CPTiming.Text == "Count Reverse")
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -1317,13 +1323,13 @@ namespace spms.view.Pages.ChildWin
 
             if (prescription.Count == 0)
             {
-                MessageBox.Show("没有输入训练结果");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("没有输入训练结果", "No input of training results"));
                 return;
             }
             //插入训练结果
             new TrainService().AddPrescriptionResult(trainInfo, prescription);
             //打印
-            MessageBox.Show("已存储");
+            MessageBox.Show(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
             this.Close();
         }
 
@@ -1401,7 +1407,7 @@ namespace spms.view.Pages.ChildWin
         private void HLPselect_change(object sender, EventArgs e)
         {
 
-            if (HLPTimer.Text.Equals("无效"))
+            if (HLPTimer.Text.Equals("无效") || HLPTimer.Text.Equals("Invalid"))
             {
                 HLPTime_Label.Background = Brushes.White;
                 HLPTiming_Label.Background = Brushes.White;
@@ -1410,7 +1416,7 @@ namespace spms.view.Pages.ChildWin
                 HLPTime.Visibility = Visibility.Hidden;
                 
             }
-            else if (HLPTimer.Text.Equals("有效"))
+            else if (HLPTimer.Text.Equals("有效") || HLPTimer.Text.Equals("Valid"))
             {
                 HLPTime_Label.Background = Brushes.Gray;
                 HLPTiming_Label.Background = Brushes.Gray;
@@ -1422,7 +1428,7 @@ namespace spms.view.Pages.ChildWin
         private void ROWselect_change(object sender, EventArgs e)
         {
 
-            if (ROWTimer.Text.Equals("无效"))
+            if (ROWTimer.Text.Equals("无效") || ROWTimer.Text.Equals("Invalid"))
             {
                 ROWTime_Label.Background = Brushes.White;
                 ROWTiming_Label.Background = Brushes.White;
@@ -1431,7 +1437,7 @@ namespace spms.view.Pages.ChildWin
                 ROWTime.Visibility = Visibility.Hidden;
 
             }
-            else if (ROWTimer.Text.Equals("有效"))
+            else if (ROWTimer.Text.Equals("有效") || ROWTimer.Text.Equals("Valid"))
             {
                 ROWTime_Label.Background = Brushes.Gray;
                 ROWTiming_Label.Background = Brushes.Gray;
@@ -1443,7 +1449,7 @@ namespace spms.view.Pages.ChildWin
         private void TFselect_change(object sender, EventArgs e)
         {
 
-            if (TFTimer.Text.Equals("无效"))
+            if (TFTimer.Text.Equals("无效") || TFTimer.Text.Equals("Invalid"))
             {
                 TFTime_Label.Background = Brushes.White;
                 TFTiming_Label.Background = Brushes.White;
@@ -1452,7 +1458,7 @@ namespace spms.view.Pages.ChildWin
                 TFTime.Visibility = Visibility.Hidden;
 
             }
-            else if (TFTimer.Text.Equals("有效"))
+            else if (TFTimer.Text.Equals("有效") || TFTimer.Text.Equals("Valid"))
             {
                 TFTime_Label.Background = Brushes.Gray;
                 TFTiming_Label.Background = Brushes.Gray;
@@ -1464,7 +1470,7 @@ namespace spms.view.Pages.ChildWin
         private void LEselect_change(object sender, EventArgs e)
         {
 
-            if (LETimer.Text.Equals("无效"))
+            if (LETimer.Text.Equals("无效") || LETimer.Text.Equals("Invalid"))
             {
                 LETime_Label.Background = Brushes.White;
                 LETiming_Label.Background = Brushes.White;
@@ -1473,7 +1479,7 @@ namespace spms.view.Pages.ChildWin
                 LETime.Visibility = Visibility.Hidden;
 
             }
-            else if (LETimer.Text.Equals("有效"))
+            else if (LETimer.Text.Equals("有效") || LETimer.Text.Equals("Valid"))
             {
                 LETime_Label.Background = Brushes.Gray;
                 LETiming_Label.Background = Brushes.Gray;
@@ -1485,7 +1491,7 @@ namespace spms.view.Pages.ChildWin
         private void HAselect_change(object sender, EventArgs e)
         {
 
-            if (HATimer.Text.Equals("无效"))
+            if (HATimer.Text.Equals("无效") || HATimer.Text.Equals("Invalid"))
             {
                 HATime_Label.Background = Brushes.White;
                 HATiming_Label.Background = Brushes.White;
@@ -1494,7 +1500,7 @@ namespace spms.view.Pages.ChildWin
                 HATime.Visibility = Visibility.Hidden;
 
             }
-            else if (HATimer.Text.Equals("有效"))
+            else if (HATimer.Text.Equals("有效") || HATimer.Text.Equals("Valid"))
             {
                 HATime_Label.Background = Brushes.Gray;
                 HATiming_Label.Background = Brushes.Gray;
@@ -1506,7 +1512,7 @@ namespace spms.view.Pages.ChildWin
         private void CPselect_change(object sender, EventArgs e)
         {
 
-            if (CPTimer.Text.Equals("无效"))
+            if (CPTimer.Text.Equals("无效") || CPTimer.Text.Equals("Invalid"))
             {
                 CPTime_Label.Background = Brushes.White;
                 CPTiming_Label.Background = Brushes.White;
@@ -1515,7 +1521,7 @@ namespace spms.view.Pages.ChildWin
                 CPTime.Visibility = Visibility.Hidden;
 
             }
-            else if (CPTimer.Text.Equals("有效"))
+            else if (CPTimer.Text.Equals("有效") || CPTimer.Text.Equals("Valid"))
             {
                 CPTime_Label.Background = Brushes.Gray;
                 CPTiming_Label.Background = Brushes.Gray;

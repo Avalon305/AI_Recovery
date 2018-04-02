@@ -158,10 +158,10 @@ ResizeMode="NoResize"
                     <Grid.Background>
                         <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_01" ToolTip="移动距离" Height="20" Width="50" IsTabStop="False" Margin="10,94,54.7,66" RenderTransformOrigin="0.502,0.5"   IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
+                        <ComboBox Name="com_01" ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" IsTabStop="False" Margin="10,94,54.7,66" RenderTransformOrigin="0.502,0.5"   IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
                     <!--<ComboBox Name="com_02" ToolTip="砝码重量" Height="20" Width="50" IsTabStop="False"  Margin="0,141,66,49"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>-->
-                    <ComboBox Name="com_03" ToolTip="动臂位置" Height="20" Width="50" IsTabStop="False"  Margin="66,49,0,111"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
-                    <ComboBox Name="com_04" ToolTip="座椅位置" Height="20" Width="50" IsTabStop="False"  Margin="0,143,29.2,17"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}" Grid.Column="1"/>
+                    <ComboBox Name="com_03" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" Height="20" Width="50" IsTabStop="False"  Margin="66,49,0,111"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
+                    <ComboBox Name="com_04" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" IsTabStop="False"  Margin="0,143,29.2,17"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}" Grid.Column="1"/>
                 </Grid>
             </Border>
 
@@ -170,11 +170,11 @@ ResizeMode="NoResize"
                     <Grid.Background>
                         <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_11" ToolTip="移动距离" IsTabStop="False"  Height="20" Width="50" Margin="11,54,133.6,106" IsEnabled="{Binding IsChecked, ElementName=checkbox2}" ></ComboBox>
+                    <ComboBox Name="com_11" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="11,54,133.6,106" IsEnabled="{Binding IsChecked, ElementName=checkbox2}" ></ComboBox>
 
                     <!--<ComboBox Name="com_12" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="0,126,144.6,64" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>-->
-                    <ComboBox Name="com_13" ToolTip="胸垫位置" IsTabStop="False"  Height="20" Width="50" Margin="125,82,20.6,68" RenderTransformOrigin="1.002,-0.44" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
-                    <ComboBox Name="com_14" ToolTip="座椅位置" IsTabStop="False"  Height="20" Width="50" Margin="95,137,49.6,13" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+                    <ComboBox Name="com_13" ToolTip="{DynamicResource TrainingListView.TrunkPad}" IsTabStop="False"  Height="20" Width="50" Margin="125,82,20.6,68" RenderTransformOrigin="1.002,-0.44" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+                    <ComboBox Name="com_14" ToolTip="{DynamicResource TrainingListView.SeatPosition}" IsTabStop="False"  Height="20" Width="50" Margin="95,137,49.6,13" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
                 </Grid>
 
             </Border>
@@ -183,10 +183,10 @@ ResizeMode="NoResize"
                     <Grid.Background>
                         <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_21" IsTabStop="False"  ToolTip="移动距离"  Height="20" Width="50" Margin="10,19,135.4,131" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
+                    <ComboBox Name="com_21" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}"  Height="20" Width="50" Margin="10,19,135.4,131" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
                     <!--<ComboBox Name="com_22" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="0,108,145.4,82" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>-->
-                    <ComboBox Name="com_23" IsTabStop="False"  ToolTip="动臂位置1" Height="20" Width="50" Margin="122,69,23.4,91" IsEnabled="{Binding IsChecked, ElementName=checkbox3}" RenderTransformOrigin="0.34,1.49"></ComboBox>
-                    <ComboBox Name="com_24" IsTabStop="False"  ToolTip="动臂位置2" Height="20" Width="50" Margin="122,22,23.4,168" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
+                    <ComboBox Name="com_23" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Height="20" Width="50" Margin="122,69,23.4,91" IsEnabled="{Binding IsChecked, ElementName=checkbox3}" RenderTransformOrigin="0.34,1.49"></ComboBox>
+                    <ComboBox Name="com_24" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Height="20" Width="50" Margin="122,22,23.4,168" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
 
                 </Grid>
             </Border>
@@ -195,11 +195,11 @@ ResizeMode="NoResize"
                     <Grid.Background>
                         <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_31" IsTabStop="False"  ToolTip="移动距离" Height="20" Width="50" Margin="10,23,135.4,137" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                    <ComboBox Name="com_31" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="10,23,135.4,137" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
                     <!--<ComboBox Name="com_32" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="0,106,145.4,84" RenderTransformOrigin="-0.672,0.78" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>-->
-                    <ComboBox Name="com_33" IsTabStop="False"  ToolTip="动臂位置1" Height="20" Width="50" Margin="70,64,75.4,96" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
-                    <ComboBox Name="com_34" IsTabStop="False"  ToolTip="动臂位置2" Height="20" Width="50" Margin="39,133,106.4,27" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
-                    <ComboBox Name="com_35" IsTabStop="False"  ToolTip="座椅位置" Height="20" Width="50" Margin="145,96,0.4,60" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                    <ComboBox Name="com_33" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Height="20" Width="50" Margin="70,64,75.4,96" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                    <ComboBox Name="com_34" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Height="20" Width="50" Margin="39,133,106.4,27" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                    <ComboBox Name="com_35" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="145,96,0.4,60" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
                 </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="4" Margin="10,3,10,3">
@@ -207,9 +207,9 @@ ResizeMode="NoResize"
                     <Grid.Background>
                         <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_41" IsTabStop="False"  ToolTip="移动距离" Height="20" Width="50" Margin="111,20,33.6,140"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
+                    <ComboBox Name="com_41" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="111,20,33.6,140"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
                     <!--<ComboBox Name="com_42" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="41,101,103.6,89" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>-->
-                    <ComboBox Name="com_43" IsTabStop="False"  ToolTip="座椅位置" Height="20" Width="50" Margin="135,108,9.6,52" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
+                    <ComboBox Name="com_43" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="135,108,9.6,52" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
 
                 </Grid>
             </Border>
@@ -218,9 +218,9 @@ ResizeMode="NoResize"
                     <Grid.Background>
                         <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
                     </Grid.Background>
-                    <ComboBox Name="com_51" ToolTip="移动距离" IsTabStop="False"  Height="20" Width="50" Margin="80,19,65.4,131" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>
+                    <ComboBox Name="com_51" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="80,19,65.4,131" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>
                     <!--<ComboBox Name="com_52" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="10,104,133.8,86" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>-->
-                    <ComboBox Name="com_53" ToolTip="动臂位置" IsTabStop="False"  Height="20" Width="50" Margin="113,114,32.4,46" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05"></ComboBox>
+                        <ComboBox Name="com_53" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" IsTabStop="False"  Height="20" Width="50" Margin="113,114,32.4,46" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05"></ComboBox>
 
                 </Grid>
             </Border>
@@ -284,11 +284,8 @@ ResizeMode="NoResize"
                 </Border>
                 <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
                     <ComboBox Name="combobox_06" IsTabStop="False" Height="21"  DropDownClosed="select_change"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}">
-                        <ComboBoxItem>
-                            有效
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            无效</ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
                     </ComboBox>
                 </Border>
                 <Border Grid.Row="6" Grid.Column="0" Name="border1" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
@@ -362,8 +359,8 @@ ResizeMode="NoResize"
                 </Border>
                 <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border4" Margin="10,3,10,0">
                     <ComboBox Name="combobox_08" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox1}">
-                        <ComboBoxItem>正计时</ComboBoxItem>
-                        <ComboBoxItem>倒计时</ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
                     </ComboBox>
                 </Border>
             </Grid>
@@ -425,12 +422,9 @@ ResizeMode="NoResize"
                 </Border>
                 <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
                     <ComboBox Name="combobox_16" IsTabStop="False" Height="21"  DropDownClosed="select_change2"  IsEnabled="{Binding IsChecked, ElementName=checkbox2}">
-                        <ComboBoxItem>
-                            有效
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            无效</ComboBoxItem>
-                    </ComboBox>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                        </ComboBox>
                 </Border>
                 <Border Grid.Row="6" Grid.Column="0" Name="border11" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
                         <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}" Content="{DynamicResource TrainingListView.TimerCount}"></Label>
@@ -503,9 +497,9 @@ ResizeMode="NoResize"
                 </Border>
                 <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border14" Margin="10,3,10,0">
                     <ComboBox Name="combobox_18" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox2}">
-                        <ComboBoxItem>正计时</ComboBoxItem>
-                        <ComboBoxItem>倒计时</ComboBoxItem>
-                    </ComboBox>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                        </ComboBox>
                 </Border>
             </Grid>
 
@@ -566,12 +560,9 @@ ResizeMode="NoResize"
                 </Border>
                 <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
                     <ComboBox Name="combobox_26" IsTabStop="False" Height="21"  DropDownClosed="select_change3"  IsEnabled="{Binding IsChecked, ElementName=checkbox3}">
-                        <ComboBoxItem>
-                            有效
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            无效</ComboBoxItem>
-                    </ComboBox>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                        </ComboBox>
                 </Border>
                 <Border Grid.Row="6" Grid.Column="0" Name="border21" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}" Content="{DynamicResource TrainingListView.TimerCount}"></Label>
@@ -644,9 +635,9 @@ ResizeMode="NoResize"
                 </Border>
                 <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border24" Margin="10,3,10,0">
                     <ComboBox Name="combobox_28" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox3}">
-                        <ComboBoxItem>正计时</ComboBoxItem>
-                        <ComboBoxItem>倒计时</ComboBoxItem>
-                    </ComboBox>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                        </ComboBox>
                 </Border>
             </Grid>
 
@@ -707,12 +698,9 @@ ResizeMode="NoResize"
                 </Border>
                 <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
                     <ComboBox Name="combobox_36" IsTabStop="False" Height="21"  DropDownClosed="select_change4"  IsEnabled="{Binding IsChecked, ElementName=checkbox4}">
-                        <ComboBoxItem>
-                            有效
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            无效</ComboBoxItem>
-                    </ComboBox>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                        </ComboBox>
                 </Border>
                 <Border Grid.Row="6" Grid.Column="0" Name="border31" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}" Content="{DynamicResource TrainingListView.TimerCount}"></Label>
@@ -785,9 +773,9 @@ ResizeMode="NoResize"
                 </Border>
                 <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border34" Margin="10,3,10,0">
                     <ComboBox Name="combobox_38" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox4}">
-                        <ComboBoxItem>正计时</ComboBoxItem>
-                        <ComboBoxItem>倒计时</ComboBoxItem>
-                    </ComboBox>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                        </ComboBox>
                 </Border>
             </Grid>
 
@@ -848,12 +836,9 @@ ResizeMode="NoResize"
                 </Border>
                 <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
                     <ComboBox Name="combobox_46" IsTabStop="False" Height="21"  DropDownClosed="select_change5"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}">
-                        <ComboBoxItem>
-                            有效
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            无效</ComboBoxItem>
-                    </ComboBox>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                        </ComboBox>
                 </Border>
                 <Border Grid.Row="6" Grid.Column="0" Name="border41" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}" Content="{DynamicResource TrainingListView.TimerCount}"></Label>
@@ -926,9 +911,9 @@ ResizeMode="NoResize"
                 </Border>
                 <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border44" Margin="10,3,10,0">
                     <ComboBox Name="combobox_48" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox5}">
-                        <ComboBoxItem>正计时</ComboBoxItem>
-                        <ComboBoxItem>倒计时</ComboBoxItem>
-                    </ComboBox>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                        </ComboBox>
                 </Border>
             </Grid>
 
@@ -989,12 +974,9 @@ ResizeMode="NoResize"
                 </Border>
                 <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
                     <ComboBox Name="combobox_56" IsTabStop="False" Height="21"  DropDownClosed="select_change6"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
-                        <ComboBoxItem>
-                            有效
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            无效</ComboBoxItem>
-                    </ComboBox>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                        </ComboBox>
                 </Border>
                 <Border Grid.Row="6" Grid.Column="0" Name="border51" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.TimerCount}"></Label>
@@ -1067,9 +1049,9 @@ ResizeMode="NoResize"
                 </Border>
                 <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border54" Margin="10,3,10,0">
                     <ComboBox Name="combobox_58" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
-                        <ComboBoxItem>正计时</ComboBoxItem>
-                        <ComboBoxItem>倒计时</ComboBoxItem>
-                    </ComboBox>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                        </ComboBox>
                 </Border>
             </Grid>
             <!--器材数据设置 结束-->
@@ -1164,7 +1146,7 @@ ResizeMode="NoResize"
                     <Button Width="140"  Height="25" IsTabStop="False"   Margin="2,0,0,0"  RenderTransformOrigin="0.5,0.508" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Save"  Content="{DynamicResource TrainingListView.Save}"></Button>
                     <Button Width="140" Height="25"  IsTabStop="False"   Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="ButtonBase_OnClick" Name="Button_Write"  Content="{DynamicResource TrainingListView.WritetoCard}"></Button>
                     <Button Width="140" Height="25"  IsTabStop="False" Content="{DynamicResource TrainingListView.Cancel}" Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Cancel"/>
-                <Button Width="140" Height="25"  IsTabStop="False"  Content="模拟写卡"  Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Click"/>
+                
             </StackPanel>
         </Border>
         <!-- 结束：按钮排放位置-->

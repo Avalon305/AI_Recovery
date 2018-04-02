@@ -14,6 +14,7 @@ namespace spms.service
 {
     class PhysicaleValuationService
     {
+        UploadManagementDAO uploadManagementDAO = new UploadManagementDAO();
         public List<PhysicalPower> GetByUserId(User user)
         {
             List<PhysicalPower> symptomInfos = new PhysicalPowerDAO().GetByUserId(user.Pk_User_Id);
@@ -26,7 +27,16 @@ namespace spms.service
         /// <param name="physicalPower"></param>
         public int AddPhysicalPower(PhysicalPower physicalPower)
         {
-            return new PhysicalPowerDAO().AddPhysicalPower(physicalPower);
+            int row = new PhysicalPowerDAO().AddPhysicalPower(physicalPower);
+            if (row == 1)
+            {
+                int pk_pp_id = new PhysicalPowerDAO().getIdByGmtCreate(physicalPower.Gmt_Create);
+                Console.WriteLine(pk_pp_id);
+                UploadManagement uploadManagement = new UploadManagement(pk_pp_id, "bdl_physicalpower");
+                uploadManagementDAO.Insert(uploadManagement);
+            }
+            
+            return row;
         }
     }
 }

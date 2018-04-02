@@ -140,10 +140,10 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <ComboBox Name="HLPAttr1" Height="20" ToolTip="移动距离" Width="50" Margin="46,154,200,141.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <ComboBox Name="HLPAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="46,154,200,141.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                 <!--<TextBox  Name="HLPAttr2" Height="20" ToolTip="砝码重量" Width="50" Margin="34,208,212,87.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                <ComboBox Name="HLPAttr3" Height="20" ToolTip="动臂位置" Width="50" Margin="61,102,185,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <ComboBox Name="HLPAttr4" Height="20" ToolTip="座椅位置" Width="50" Margin="154,228,92,67.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <ComboBox Name="HLPAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" Width="50" Margin="61,102,185,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <ComboBox Name="HLPAttr4" Height="20" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Width="50" Margin="154,228,92,67.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,22.6" Width="286" >
@@ -214,9 +214,9 @@
 
                                 <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
                                 <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="HLPTimer" IsTabStop="False" DropDownClosed="HLPselect_change" >
-                                    <ComboBoxItem>有效</ComboBoxItem>
-                                    <ComboBoxItem>无效</ComboBoxItem>
-                                </ComboBox>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                                    </ComboBox>
 
                                 <Label Grid.Row="15" Grid.Column="0" Background="White" Name="HLPTime_Label" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
                                 <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="HLPTime" IsTabStop="False"  Visibility="Hidden">
@@ -283,9 +283,9 @@
 
                                 <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="HLPTiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
                                 <ComboBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="HLPTiming" IsTabStop="False" Visibility="Hidden">
-                                    <ComboBoxItem>正计时</ComboBoxItem>
-                                    <ComboBoxItem>倒计时</ComboBoxItem>
-                                </ComboBox>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    </ComboBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -332,10 +332,10 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <ComboBox Name="RowAttr1" ToolTip="移动距离" Height="20" Width="50" Margin="66,115,180,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <ComboBox Name="RowAttr1" ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="66,115,180,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                 <!--<TextBox Name="RowAttr2" ToolTip="砝码重量" Height="20" Width="50" Margin="50,202,196,93.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                <ComboBox Name="RowAttr3" Height="20" ToolTip="胸垫位置" Width="50" Margin="174,182,72,113.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <ComboBox Name="RowAttr4" Height="20" Width="50" ToolTip="座椅位置" Margin="147,238,99,57.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <ComboBox Name="RowAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.TrunkPad}" Width="50" Margin="174,182,72,113.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <ComboBox Name="RowAttr4" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Margin="147,238,99,57.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                             </Grid>
 
 
@@ -407,9 +407,9 @@
 
                                 <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
                                 <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="ROWTimer" IsTabStop="False" DropDownClosed="ROWselect_change" >
-                                    <ComboBoxItem>有效</ComboBoxItem>
-                                    <ComboBoxItem>无效</ComboBoxItem>
-                                </ComboBox>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                                    </ComboBox>
 
                                 <Label Grid.Row="15" Grid.Column="0" Background="White" Name="ROWTime_Label" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
                                 <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="ROWTime" IsTabStop="False"  Visibility="Hidden">
@@ -476,9 +476,9 @@
 
                                 <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="ROWTiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
                                 <ComboBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="ROWTiming" IsTabStop="False" Visibility="Hidden">
-                                    <ComboBoxItem>正计时</ComboBoxItem>
-                                    <ComboBoxItem>倒计时</ComboBoxItem>
-                                </ComboBox>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    </ComboBox>
                                 
                             </Grid>
 
@@ -528,10 +528,10 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <ComboBox Name="TFAttr1" Height="20" ToolTip="移动距离" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <ComboBox Name="TFAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                 <!--<TextBox Name="TFAttr2" Height="20" ToolTip="砝码重量" Width="50" Margin="55,191,191,104.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                <ComboBox Name="TFAttr3" Height="20" ToolTip="动臂位置1" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <ComboBox Name="TFAttr4" Height="20" Width="50" ToolTip="动臂位置2" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <ComboBox Name="TFAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="TFAttr4" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                             </Grid>
                             <Grid Margin="30,50,0,22.6" Width="286" >
                                 <Grid.RowDefinitions>
@@ -601,9 +601,9 @@
 
                                 <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
                                 <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="TFTimer" IsTabStop="False" DropDownClosed="TFselect_change" >
-                                    <ComboBoxItem>有效</ComboBoxItem>
-                                    <ComboBoxItem>无效</ComboBoxItem>
-                                </ComboBox>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                                    </ComboBox>
 
                                 <Label Grid.Row="15" Grid.Column="0" Background="White" Name="TFTime_Label" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
                                 <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="TFTime" IsTabStop="False"  Visibility="Hidden">
@@ -670,9 +670,9 @@
 
                                 <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="TFTiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
                                 <ComboBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="TFTiming" IsTabStop="False" Visibility="Hidden">
-                                    <ComboBoxItem>正计时</ComboBoxItem>
-                                    <ComboBoxItem>倒计时</ComboBoxItem>
-                                </ComboBox>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    </ComboBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -719,11 +719,11 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <ComboBox Name="LEAttr1" Height="20" Width="50" ToolTip="移动距离" Margin="107,58,139,237.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <ComboBox Name="LEAttr1" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.EndStopper}" Margin="107,58,139,237.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                 <!--<TextBox Name="LEAttr2" Height="20"  ToolTip="砝码重量"  Width="50" Margin="24,189,222,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                <ComboBox Name="LEAttr3" Height="20"  ToolTip="动臂位置1" Width="50" Margin="24,102,222,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <ComboBox Name="LEAttr4" Height="20" ToolTip="动臂位置2"  Width="50" Margin="144,240,102,55.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <ComboBox Name="LEAttr5" Height="20"  ToolTip="座椅位置" Width="50" Margin="174,189,72,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="LEAttr3" Height="20"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Width="50" Margin="24,102,222,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="LEAttr4" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm2}"  Width="50" Margin="144,240,102,55.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <ComboBox Name="LEAttr5" Height="20"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Width="50" Margin="174,189,72,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,22.6" Width="286" >
@@ -794,9 +794,9 @@
 
                                 <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
                                 <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="LETimer" IsTabStop="False" DropDownClosed="LEselect_change" >
-                                    <ComboBoxItem>有效</ComboBoxItem>
-                                    <ComboBoxItem>无效</ComboBoxItem>
-                                </ComboBox>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                                    </ComboBox>
 
                                 <Label Grid.Row="15" Grid.Column="0" Background="White" Name="LETime_Label" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
                                 <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="LETime" IsTabStop="False"  Visibility="Hidden">
@@ -863,9 +863,9 @@
 
                                 <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="LETiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
                                 <ComboBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="LETiming" IsTabStop="False" Visibility="Hidden">
-                                    <ComboBoxItem>正计时</ComboBoxItem>
-                                    <ComboBoxItem>倒计时</ComboBoxItem>
-                                </ComboBox>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    </ComboBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -912,9 +912,9 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <ComboBox Name="HAAttr1" Height="20" ToolTip="移动距离" Width="50" Margin="160,66,86,229.2" RenderTransformOrigin="-0.096,-0.43" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <ComboBox Name="HAAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="160,66,86,229.2" RenderTransformOrigin="-0.096,-0.43" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                 <!--<TextBox Name="HAAttr2" Height="20" Width="50" ToolTip="砝码重量"  Margin="78,169,168,126.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>-->
-                                <ComboBox Name="HAAttr3" Height="20" Width="50" ToolTip="座椅位置"  Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <ComboBox Name="HAAttr3" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.SeatPosition}"  Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                             </Grid>
 
                             <Grid Margin="30,50,0,22.6" Width="286" >
@@ -985,9 +985,9 @@
 
                                 <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
                                 <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="HATimer" IsTabStop="False" DropDownClosed="HAselect_change" >
-                                    <ComboBoxItem>有效</ComboBoxItem>
-                                    <ComboBoxItem>无效</ComboBoxItem>
-                                </ComboBox>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                                    </ComboBox>
 
                                 <Label Grid.Row="15" Grid.Column="0" Background="White" Name="HATime_Label" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
                                 <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="HATime" IsTabStop="False"  Visibility="Hidden">
@@ -1054,9 +1054,9 @@
 
                                 <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="HATiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
                                 <ComboBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="HATiming" IsTabStop="False" Visibility="Hidden">
-                                    <ComboBoxItem>正计时</ComboBoxItem>
-                                    <ComboBoxItem>倒计时</ComboBoxItem>
-                                </ComboBox>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    </ComboBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >
@@ -1103,9 +1103,9 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
                                 </Grid.Background>
-                                <ComboBox Name="CPAttr1" Height="20"  ToolTip="移动距离" Width="50" Margin="130,66,116,229.2" RenderTransformOrigin="-0.188,-0.34" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <ComboBox Name="CPAttr1" Height="20"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="130,66,116,229.2" RenderTransformOrigin="-0.188,-0.34" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                 <!--<TextBox Name="CPAttr2" ToolTip="砝码重量"  Height="20" Width="50" Margin="47,171,199,124.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                <ComboBox Name="CPAttr3" ToolTip="动臂位置"  Width="50" Height="20" Margin="150,204,96,94.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                <ComboBox Name="CPAttr3" ToolTip="{DynamicResource TrainingListView.AngleOfArm}"  Width="50" Height="20" Margin="150,204,96,94.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                             </Grid>
 
                             <Grid Margin="30,50,0,22.6" Width="286" >
@@ -1177,9 +1177,9 @@
 
                                 <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
                                 <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="CPTimer" IsTabStop="False"  DropDownClosed="CPselect_change" >
-                                    <ComboBoxItem>有效</ComboBoxItem>
-                                    <ComboBoxItem>无效</ComboBoxItem>
-                                </ComboBox>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                                    </ComboBox>
 
                                 <Label Grid.Row="15" Grid.Column="0" Background="White" Name="CPTime_Label" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
                                 <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="CPTime" IsTabStop="False"  Visibility="Hidden" >
@@ -1246,9 +1246,9 @@
 
                                 <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="CPTiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
                                 <ComboBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="CPTiming" IsTabStop="False" Visibility="Hidden">
-                                    <ComboBoxItem>正计时</ComboBoxItem>
-                                    <ComboBoxItem>倒计时</ComboBoxItem>
-                                </ComboBox>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    </ComboBox>
                             </Grid>
 
                             <StackPanel Margin="0,50,0,9.6" Width="245" >

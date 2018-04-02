@@ -36,5 +36,21 @@ namespace spms.dao
                 return conn.Execute(insert, physicalPower);
             }
         }
+
+        /// <summary>
+        /// 根据时间查询刚才插入的体力评价信息id
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        public int getIdByGmtCreate(DateTime? gmtCreate)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "SELECT Max(pk_pp_id) FROM bdl_physicalpower";
+                return conn.QueryFirstOrDefault<int>(query);
+            }
+        }
+
+
     }
 }

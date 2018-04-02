@@ -74,7 +74,7 @@
 
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="300"/>
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
@@ -219,11 +219,11 @@
                             <Button Content="{DynamicResource AddOrEditView.Shoot}" HorizontalAlignment="Left" Margin="10,139,0,46.8" Width="75"  IsTabStop="False" RenderTransformOrigin="0.004,-0.462" Style="{StaticResource Btn}" Click="Photograph"/>
                             <Button Content="{DynamicResource AddOrEditView.Refer}" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="75"  Height="25" IsTabStop="False" RenderTransformOrigin="0.049,0.799"  Style="{StaticResource Btn}" Click="Select_Picture_Show" />
                     </Grid>
-                    <DockPanel Margin="22,0,0,0" Name="Non_Public_Information"  Visibility="Hidden">
+                    <DockPanel Margin="15,0,10,0" Name="Non_Public_Information"  Visibility="Hidden">
                         <Border Height="20" Width="270" Background="Red" DockPanel.Dock="Top" >
                             <Label Margin="0,-2,0,-2">非公开信息</Label>
                         </Border>
-                        <TextBox Name="noPublicInfoText"></TextBox>
+                            <TextBox Name="noPublicInfoText"  ></TextBox>
                     </DockPanel>
                 </StackPanel>
                 <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="434" Height="47" VerticalAlignment="Bottom" BorderBrush="White" Margin="0,0,9.6,0">

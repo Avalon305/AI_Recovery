@@ -81,11 +81,14 @@
                         <Label Content="{DynamicResource PhysicalEvaluationFormView.Date}" Width="100" Background="LightGray" FontSize="12" Height="23" VerticalAlignment="Center"/>
                     </Border>
 
-                    <!--日历-->
-                    <Border Margin="0,0,0,0" Width="153" Grid.Row="0" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.RowSpan="2">
-                        <my:DateTimePicker HorizontalAlignment="Left"  x:Name="implementation_date" VerticalAlignment="Top" Height="25" Width="150" />
-                        <!--<DatePicker Name="implementation_date" Height="23" Margin="0.2,0,-1,0" VerticalAlignment="Bottom" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
-                    </Border>
+                    <Border  Grid.Row="0" Height="23" Grid.Column="3" Grid.RowSpan="2" Margin="3,0,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label x:Name="implementation_date" VerticalContentAlignment="Center" IsEnabled="False" Margin="0,-2,0,0"  Width="130" />
+                            <Image Source="/view/Images/date.png" Margin="8,3,0,3"></Image>
+                        </StackPanel>
+                        
+                        
+                </Border>
                 </Grid>
                 <!--实施日期-->
                 <!--

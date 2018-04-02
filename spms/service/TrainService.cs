@@ -96,8 +96,18 @@ namespace spms.service
             using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
             {
                 DevicePrescription p = GetDevicePrescriptionByIdCardDeviceType(idCard, deviceType);
+                if (p == null)
+                {
+                    return;
+                }
                 //插入训练结果
                 result.Fk_DP_Id = p.Pk_DP_Id;
+                if (p.Gmt_Modified != null && result.Gmt_Create !=null)
+                {
+                   TimeSpan ts0 = (DateTime)result.Gmt_Create - (DateTime)p.Gmt_Modified;
+                    result.PR_Time2 = ts0.TotalMinutes;
+                }
+
                 prescriptionResultDAO.Insert(result);
 
                 //查询是否还有没完成的训练处方，如果都完成了就更新TrinInfo

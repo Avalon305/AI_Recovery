@@ -58,9 +58,9 @@ namespace spms.service
         /// <param name="user"></param>
         public void UpdateUser(User user)
         {
-            
+
             user.Gmt_Modified = DateTime.Now;
-             
+
             userDAO.UpdateByPrimaryKey(user);
         }
         /// <summary>
@@ -69,7 +69,7 @@ namespace spms.service
         /// <param name="user"></param>
         /// <returns></returns>
         public List<User> SelectByCondition(User user) {
-            if (user==null) {
+            if (user == null) {
                 return userDAO.GetExistUsers();
             }
             return userDAO.SelectByCondition(user);
@@ -80,12 +80,12 @@ namespace spms.service
         /// <param name="idCard"></param>
         /// <param name="phoneNum"></param>
         /// <returns></returns>
-        public bool CheckExistByPhoneAndIDCard(string idCard,string phoneNum) {
+        public bool CheckExistByPhoneAndIDCard(string idCard, string phoneNum) {
             var userByIDCard = userDAO.GetByIdCard(idCard);
             var userByPhone = userDAO.GetByPhone(phoneNum);
             var checkResult = false;
             //如果有一个不为空，则说明存在重复，返回false
-            if (userByIDCard!=null || userByPhone!=null) {
+            if (userByIDCard != null || userByPhone != null) {
                 checkResult = true;
             }
             return checkResult;
@@ -98,6 +98,11 @@ namespace spms.service
         public User GetByPhone(string Phone)
         {
             return userDAO.GetByPhone(Phone);
+        }
+
+        public User getUserByUserId(int userId)
+        {
+            return userDAO.Load(userId);
         }
     }
 }

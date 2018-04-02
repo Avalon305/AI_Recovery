@@ -419,7 +419,7 @@ namespace spms.view.Pages.ChildWin
                     throw e;
                 }
 
-                if (combobox_06.Text == "有效")
+                if (combobox_06.Text == "有效" || combobox_06.Text == "Valid")
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -438,7 +438,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (combobox_08.Text == "倒计时")
+                if (combobox_08.Text == "倒计时" || combobox_08.Text == "Count Reverse")
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -528,7 +528,7 @@ namespace spms.view.Pages.ChildWin
                     MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
                     throw e;
                 }
-                if (combobox_16.Text == "有效")
+                if (combobox_16.Text == "有效" || combobox_16.Text == "Valid")
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -549,7 +549,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (combobox_18.Text == "倒计时")
+                if (combobox_18.Text == "倒计时" || combobox_18.Text == "Count Reverse")
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -637,7 +637,7 @@ namespace spms.view.Pages.ChildWin
                     MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
                     throw e;
                 }
-                if (combobox_26.Text == "有效")
+                if (combobox_26.Text == "有效" || combobox_26.Text == "Valid")
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -658,7 +658,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (combobox_28.Text == "倒计时")
+                if (combobox_28.Text == "倒计时" || combobox_28.Text == "Count Reverse")
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -749,7 +749,7 @@ namespace spms.view.Pages.ChildWin
                     MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
                     throw e;
                 }
-                if (combobox_36.Text == "有效")
+                if (combobox_36.Text == "有效" || combobox_36.Text == "Valid")
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -770,7 +770,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (combobox_38.Text == "倒计时")
+                if (combobox_38.Text == "倒计时" || combobox_38.Text == "Count Reverse")
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -856,7 +856,7 @@ namespace spms.view.Pages.ChildWin
                     MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
                     throw e;
                 }
-                if (combobox_46.Text == "有效")
+                if (combobox_46.Text == "有效" || combobox_46.Text == "Valid")
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -875,7 +875,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (combobox_48.Text == "倒计时")
+                if (combobox_48.Text == "倒计时" || combobox_48.Text == "Count Reverse")
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -961,7 +961,7 @@ namespace spms.view.Pages.ChildWin
                     MessageBox.Show(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
                     throw e;
                 }
-                if (combobox_56.Text == "有效")
+                if (combobox_56.Text == "有效" || combobox_56.Text == "Valid")
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -980,7 +980,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (combobox_58.Text == "倒计时")
+                if (combobox_58.Text == "倒计时" || combobox_58.Text == "Count Reverse")
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -1115,21 +1115,21 @@ namespace spms.view.Pages.ChildWin
                         t1.Text = devicePrescription.DP_Memo;
                         if(devicePrescription.dp_timer == DevConstants.TIMER_VALID)
                         {
-                            combobox_06.Text = "有效";
+                            combobox_06.Text = LanguageUtils.ConvertLanguage("有效", "Valid");
                             select_change(combobox_06, new EventArgs());
                             combobox_07.Text = devicePrescription.dp_timecount.ToString();
                             if(devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
                             {
-                                combobox_08.Text = "正计时";
+                                combobox_08.Text = LanguageUtils.ConvertLanguage("正计时", "Count Forward");
                             }
                             else
                             {
-                                combobox_08.Text = "倒计时";
+                                combobox_08.Text = LanguageUtils.ConvertLanguage("倒计时", "Count Reverse");
                             }
                         }
                         else
                         {
-                            combobox_06.Text = "无效";
+                            combobox_06.Text = LanguageUtils.ConvertLanguage("无效", "Invalid");
                         }
                         break;
                     case (int)DeviceType.X05:
@@ -1146,21 +1146,21 @@ namespace spms.view.Pages.ChildWin
                         t2.Text = devicePrescription.DP_Memo;
                         if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
                         {
-                            combobox_16.Text = "有效";
+                            combobox_16.Text = LanguageUtils.ConvertLanguage("有效", "Valid");
                             select_change2(combobox_16, new EventArgs());
                             combobox_17.Text = devicePrescription.dp_timecount.ToString();
                             if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
                             {
-                                combobox_18.Text = "正计时";
+                                combobox_18.Text = LanguageUtils.ConvertLanguage("正计时", "Count Forward");
                             }
                             else
                             {
-                                combobox_18.Text = "倒计时";
+                                combobox_18.Text = LanguageUtils.ConvertLanguage("倒计时", "Count Reverse");
                             }
                         }
                         else
                         {
-                            combobox_16.Text = "无效";
+                            combobox_16.Text = LanguageUtils.ConvertLanguage("无效", "Invalid");
                         }
                         break;
                     case (int)DeviceType.X04:
@@ -1177,21 +1177,21 @@ namespace spms.view.Pages.ChildWin
                         t3.Text = devicePrescription.DP_Memo;
                         if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
                         {
-                            combobox_26.Text = "有效";
+                            combobox_26.Text = LanguageUtils.ConvertLanguage("有效", "Valid");
                             select_change3(combobox_26, new EventArgs());
                             combobox_27.Text = devicePrescription.dp_timecount.ToString();
                             if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
                             {
-                                combobox_28.Text = "正计时";
+                                combobox_28.Text = LanguageUtils.ConvertLanguage("正计时", "Count Forward");
                             }
                             else
                             {
-                                combobox_28.Text = "倒计时";
+                                combobox_28.Text = LanguageUtils.ConvertLanguage("倒计时", "Count Reverse");
                             }
                         }
                         else
                         {
-                            combobox_26.Text = "无效";
+                            combobox_26.Text = LanguageUtils.ConvertLanguage("无效", "Invalid");
                         }
                         break;
                     case (int)DeviceType.X03:
@@ -1209,21 +1209,21 @@ namespace spms.view.Pages.ChildWin
                         t4.Text = devicePrescription.DP_Memo;
                         if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
                         {
-                            combobox_36.Text = "有效";
+                            combobox_36.Text = LanguageUtils.ConvertLanguage("有效", "Valid");
                             select_change4(combobox_36, new EventArgs());
                             combobox_37.Text = devicePrescription.dp_timecount.ToString();
                             if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
                             {
-                                combobox_38.Text = "正计时";
+                                combobox_38.Text = LanguageUtils.ConvertLanguage("正计时", "Count Forward");
                             }
                             else
                             {
-                                combobox_38.Text = "倒计时";
+                                combobox_38.Text = LanguageUtils.ConvertLanguage("倒计时", "Count Reverse");
                             }
                         }
                         else
                         {
-                            combobox_36.Text = "无效";
+                            combobox_36.Text = LanguageUtils.ConvertLanguage("无效", "Invalid");
                         }
                         break;
                     case (int)DeviceType.X06:
@@ -1239,21 +1239,21 @@ namespace spms.view.Pages.ChildWin
                         t5.Text = devicePrescription.DP_Memo;
                         if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
                         {
-                            combobox_46.Text = "有效";
+                            combobox_46.Text = LanguageUtils.ConvertLanguage("有效", "Valid");
                             select_change5(combobox_46, new EventArgs());
                             combobox_47.Text = devicePrescription.dp_timecount.ToString();
                             if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
                             {
-                                combobox_48.Text = "正计时";
+                                combobox_48.Text = LanguageUtils.ConvertLanguage("正计时", "Count Forward");
                             }
                             else
                             {
-                                combobox_48.Text = "倒计时";
+                                combobox_48.Text = LanguageUtils.ConvertLanguage("倒计时", "Count Reverse");
                             }
                         }
                         else
                         {
-                            combobox_46.Text = "无效";
+                            combobox_46.Text = LanguageUtils.ConvertLanguage("无效", "Invalid");
                         }
                         break;
                     case (int)DeviceType.X02:
@@ -1269,21 +1269,21 @@ namespace spms.view.Pages.ChildWin
                         t6.Text = devicePrescription.DP_Memo;
                         if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
                         {
-                            combobox_56.Text = "有效";
+                            combobox_56.Text = LanguageUtils.ConvertLanguage("有效", "Valid");
                             select_change6(combobox_56, new EventArgs());
                             combobox_57.Text = devicePrescription.dp_timecount.ToString();
                             if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
                             {
-                                combobox_58.Text = "正计时";
+                                combobox_58.Text = LanguageUtils.ConvertLanguage("正计时", "Count Forward");
                             }
                             else
                             {
-                                combobox_58.Text = "倒计时";
+                                combobox_58.Text = LanguageUtils.ConvertLanguage("倒计时", "Count Reverse");
                             }
                         }
                         else
                         {
-                            combobox_56.Text = "无效";
+                            combobox_56.Text = LanguageUtils.ConvertLanguage("无效", "Invalid");
                         }
                         break;
                 }
@@ -1303,26 +1303,32 @@ namespace spms.view.Pages.ChildWin
                 switch (dev.DS_name)
                 {
                     case "胸部推举机":
+                    case "Chest Press":
                         checkbox1.IsChecked = false;
                         checkbox1.IsEnabled = false;
                         break;
                     case "坐姿划船机":
+                    case "Rowing":
                         checkbox2.IsChecked = false;
                         checkbox2.IsEnabled = false;
                         break;
                     case "身体伸展弯曲机":
+                    case "Torso Flexion":
                         checkbox3.IsChecked = false;
                         checkbox3.IsEnabled = false;
                         break;
                     case "腿部伸展弯曲机":
+                    case "Leg Extension":
                         checkbox4.IsChecked = false;
                         checkbox4.IsEnabled = false;
                         break;
                     case "腿部推蹬机":
+                    case "Horizontal Leg Press":
                         checkbox5.IsChecked = false;
                         checkbox5.IsEnabled = false;
                         break;
                     case "腿部内外弯机":
+                    case "Hip Abduction":
                         checkbox6.IsChecked = false;
                         checkbox6.IsEnabled = false;
                         break;
@@ -1348,7 +1354,8 @@ namespace spms.view.Pages.ChildWin
             {
                 byte[] data = new byte[90];
                 //用户id
-                string str = user.Pk_User_Id + "";
+                string str = new UserService().getUserByUserId(user.Pk_User_Id).User_IDCard + "";
+                Console.WriteLine(str);
                 byte[] idBytes = Encoding.ASCII.GetBytes(str);
                 Array.Copy(idBytes, 0, data, 0, idBytes.Length);
 
@@ -1682,7 +1689,7 @@ namespace spms.view.Pages.ChildWin
         private void select_change(object sender, EventArgs e)
         {
 
-            if (String.IsNullOrEmpty(combobox_06.Text)||combobox_06.Text.Equals("无效"))
+            if (String.IsNullOrEmpty(combobox_06.Text)||combobox_06.Text.Equals("无效") || combobox_06.Text.Equals("Invalid"))
             {
                 border1.Background = Brushes.White;
                 border2.Background = Brushes.White;
@@ -1693,7 +1700,7 @@ namespace spms.view.Pages.ChildWin
                 stackpanel.Margin = new Thickness(0, 149.8, 0, 0);
                 t1.Height = 170;
             }
-            else if (combobox_06.Text.Equals("有效"))
+            else if (combobox_06.SelectedIndex == 0)
             {
                 border1.Background = Brushes.Gray;
                 border2.Background = Brushes.Gray;
@@ -1707,7 +1714,7 @@ namespace spms.view.Pages.ChildWin
         }
         private void select_change2(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_16.Text) || combobox_16.Text.Equals("无效"))
+            if (String.IsNullOrEmpty(combobox_16.Text) || combobox_16.Text.Equals("无效") || combobox_16.Text.Equals("Invalid"))
             {
                 border11.Background = Brushes.White;
                 border12.Background = Brushes.White;
@@ -1718,7 +1725,7 @@ namespace spms.view.Pages.ChildWin
                 stackpanel2.Margin = new Thickness(0, 149.8, 0, 0);
                 t2.Height = 170;
             }
-            else if (combobox_16.Text.Equals("有效"))
+            else if (combobox_16.SelectedIndex == 0)
             {
                 border11.Background = Brushes.Gray;
                 border12.Background = Brushes.Gray;
@@ -1732,7 +1739,7 @@ namespace spms.view.Pages.ChildWin
         }
         private void select_change3(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_26.Text) || combobox_26.Text.Equals("无效"))
+            if (String.IsNullOrEmpty(combobox_26.Text) || combobox_26.Text.Equals("无效") || combobox_26.Text.Equals("Invalid"))
             {
                 border21.Background = Brushes.White;
                 border22.Background = Brushes.White;
@@ -1743,7 +1750,7 @@ namespace spms.view.Pages.ChildWin
                 stackpanel3.Margin = new Thickness(0, 149.8, 0, 0);
                 t3.Height = 170;
             }
-            else if (combobox_26.Text.Equals("有效"))
+            else if (combobox_26.SelectedIndex == 0)
             {
                 border21.Background = Brushes.Gray;
                 border22.Background = Brushes.Gray;
@@ -1757,7 +1764,7 @@ namespace spms.view.Pages.ChildWin
         }
         private void select_change4(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_36.Text) || combobox_36.Text.Equals("无效"))
+            if (String.IsNullOrEmpty(combobox_36.Text) || combobox_36.Text.Equals("无效") || combobox_36.Text.Equals("Invalid"))
             {
                 border31.Background = Brushes.White;
                 border32.Background = Brushes.White;
@@ -1768,7 +1775,7 @@ namespace spms.view.Pages.ChildWin
                 stackpanel4.Margin = new Thickness(0, 149.8, 0, 0);
                 t4.Height = 170;
             }
-            else if (combobox_36.Text.Equals("有效"))
+            else if (combobox_36.SelectedIndex == 0)
             {
                 border31.Background = Brushes.Gray;
                 border32.Background = Brushes.Gray;
@@ -1782,7 +1789,7 @@ namespace spms.view.Pages.ChildWin
         }
         private void select_change5(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_46.Text) || combobox_46.Text.Equals("无效"))
+            if (String.IsNullOrEmpty(combobox_46.Text) || combobox_46.Text.Equals("无效") || combobox_46.Text.Equals("Invalid"))
             {
                 border41.Background = Brushes.White;
                 border42.Background = Brushes.White;
@@ -1793,7 +1800,7 @@ namespace spms.view.Pages.ChildWin
                 stackpanel5.Margin = new Thickness(0, 149.8, 0, 0);
                 t5.Height = 170;
             }
-            else if (combobox_46.Text.Equals("有效"))
+            else if (combobox_46.SelectedIndex == 0)
             {
                 border41.Background = Brushes.Gray;
                 border42.Background = Brushes.Gray;
@@ -1807,7 +1814,7 @@ namespace spms.view.Pages.ChildWin
         }
         private void select_change6(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_56.Text) || combobox_56.Text.Equals("无效"))
+            if (String.IsNullOrEmpty(combobox_56.Text) || combobox_56.Text.Equals("无效") || combobox_56.Text.Equals("Invalid"))
             {
                 border51.Background = Brushes.White;
                 border52.Background = Brushes.White;
@@ -1818,7 +1825,7 @@ namespace spms.view.Pages.ChildWin
                 stackpanel6.Margin = new Thickness(0, 149.8, 0, 0);
                 t6.Height = 170;
             }
-            else if (combobox_56.Text.Equals("有效"))
+            else if (combobox_56.SelectedIndex == 0)
             {
                 border51.Background = Brushes.Gray;
                 border52.Background = Brushes.Gray;

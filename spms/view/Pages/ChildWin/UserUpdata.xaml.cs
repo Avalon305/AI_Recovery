@@ -329,7 +329,7 @@ namespace spms.view.Pages.ChildWin
             SelectUser.User_Sex = (byte?)(usersex.Equals("男") ? 1 : 0);
             SelectUser.User_Phone = phone;
             //非公开信息添加：lzh
-            SelectUser.User_Privateinfo = secretMessage == null ? "" : secretMessage;
+            SelectUser.User_Privateinfo = secretMessage;
             
 
             //更新数据库的图片名称

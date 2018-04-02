@@ -127,11 +127,11 @@
                     <TextBox Grid.Row="0" Grid.Column="0" Margin="17,2,72.4,1.8" Name="bloodlow_1" VerticalContentAlignment="Center"  IsEnabled="False"/>
                     <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="50,0,50.4,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
                     <TextBox Grid.Row="0" Grid.Column="0" Margin="72,2,17.4,1.8"  Name="bloodhight_1" VerticalContentAlignment="Center" IsEnabled="False"/>
-                    <TextBox Grid.Row="0" Margin="118,0,139.2,23.6" Grid.RowSpan="2" Name="heartRate_1" IsEnabled="False" VerticalContentAlignment="Center" Grid.ColumnSpan="3"/>
+                    <TextBox Grid.Row="0" Margin="118,0,139.2,23.6" Grid.RowSpan="2" Name="heartRate_1" IsEnabled="False" VerticalContentAlignment="Center" BorderThickness="1,1,0,1" Grid.ColumnSpan="3"/>
                     <GroupBox Grid.Row="0" Grid.Column="2"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="0.8,2,1.2,0.8" Width="138" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="144" Margin="-6,0,-12.4,-6" >
-                            <RadioButton VerticalAlignment="Center" Width="65" Margin="0,4,0,4.4" Name="rule_1" IsEnabled="False" Content="{DynamicResource VitalInfoView.Regular}"></RadioButton>
-                            <RadioButton VerticalAlignment="Center" Margin="5,0,0,0"  Width="70" Name="irregular_1" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Irregular}" ></RadioButton>
+                            <RadioButton VerticalAlignment="Center" Width="65" Margin="2,0,0,0.4" VerticalContentAlignment="Center" Name="rule_1" IsEnabled="False" Content="{DynamicResource VitalInfoView.Regular}" Height="22"></RadioButton>
+                            <RadioButton VerticalAlignment="Center" Margin="2,0,0,0.4" VerticalContentAlignment="Center"  Width="68" Name="irregular_1" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Irregular}" Height="22" ></RadioButton>
                         </StackPanel>
                     </GroupBox>
                     <TextBox Grid.Row="0" Grid.Column="2" Margin="139.8,0,-0.2,24.6" BorderThickness="1,0,1,0" Grid.RowSpan="2"  Name="heat_1" IsEnabled="False" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
@@ -146,18 +146,18 @@
                     <TextBox Grid.Row="1" Margin="118,0.2,139.2,-0.4" Name="heartRate_2" IsEnabled="False" VerticalContentAlignment="Center" Grid.ColumnSpan="3" Height="25" VerticalAlignment="Top"/>
                     <GroupBox Grid.Row="1" Grid.Column="2" Height="24" Margin="0.8,0.2,108.8,0" VerticalAlignment="Top" BorderBrush="White" Grid.ColumnSpan="2">
                         <StackPanel Orientation="Horizontal" Margin="-6,0,-5.8,-6.4" HorizontalAlignment="Center" Width="139">
-                            <RadioButton VerticalAlignment="Center" Width="65" Margin="0,1" Name="rule_2" IsEnabled="False" Content="{DynamicResource VitalInfoView.Regular}"></RadioButton>
-                            <RadioButton VerticalAlignment="Center"  Width="70" Margin="5,0,0,0" Name="irregular_2" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Irregular}" ></RadioButton>
+                            <RadioButton VerticalAlignment="Center" Width="65" Margin="2,0,0,0.4" Name="rule_2" IsEnabled="False" Content="{DynamicResource VitalInfoView.Regular}"></RadioButton>
+                            <RadioButton VerticalAlignment="Center"  Width="70" Margin="3,0,0,0" Name="irregular_2" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Irregular}" ></RadioButton>
                         </StackPanel>
                     </GroupBox>
                     <TextBox Grid.Row="1" Grid.Column="2" Margin="139.8,0.2,-0.2,-0.4" Name="heat_2" BorderThickness="0,1,1,1" IsEnabled="False" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
                     <Border Grid.Row="0" Grid.Column="0"  BorderBrush="Silver" BorderThickness="1" Margin="0,0,0.4,24.6" Grid.RowSpan="2"/>
-                    <Border Grid.Row="0" BorderBrush="Silver" BorderThickness="0,0,0,0" Margin="0.6,0,0.2,24.6" Grid.RowSpan="2" Grid.Column="1"/>
+                    <Border Grid.Row="0" BorderBrush="Silver" BorderThickness="0,0,1,0" Margin="0.6,0,139.2,24.6" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
                     <Border Grid.Row="0" Grid.Column="2" BorderBrush="Silver" BorderThickness="1,0,0,0" Margin="139.8,0,-0.2,24.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
                     <Border Grid.Row="0" Grid.Column="3" BorderBrush="White" BorderThickness="0" Margin="0.8,0,-0.2,24.6" Grid.RowSpan="2"/>
 
                     <Border Grid.Row="1" Grid.Column="0" BorderBrush="Silver" BorderThickness="1" Margin="0,0.2,0.4,-0.4"/>
-                    <Border Grid.Row="1" BorderBrush="White" BorderThickness="0" Margin="118,0.2,0.2,-0.4" Grid.ColumnSpan="2"/>
+                    <Border Grid.Row="1" BorderBrush="White" BorderThickness="0" Margin="118,0.2,26.2,-0.4" Grid.ColumnSpan="2"/>
                     <Border Grid.Column="1" BorderBrush="Silver" BorderThickness="1" Margin="92.6,0.2,108.8,-0.4" Grid.Row="1" Grid.ColumnSpan="3"/>
                     <Border Grid.Row="1" Grid.Column="2" BorderBrush="Silver" BorderThickness="1" Margin="139.8,0.2,-0.2,-0.4" Grid.ColumnSpan="2"/>
                 </Grid>
@@ -196,7 +196,7 @@
             <!--是否参加-->
             <StackPanel Height="25" Margin="10,0,-0.4,0" Orientation="Horizontal">
                 <StackPanel Height="25" Margin="0,0,5,0">
-                    <Label Height="25"  Background="Gray" Foreground="White" Width="80"  Content="{DynamicResource VitalInfoView.Participation}" ></Label>
+                    <Label Height="25"  Background="Gray"  Foreground="White" Width="80"  Content="{DynamicResource VitalInfoView.Participation}" ></Label>
                 </StackPanel>
                 <StackPanel Margin="-10,0,0,-0.2" Width="494">
                     <GroupBox Height="23" Margin="10,0,0.4,0" BorderBrush="White">
@@ -211,7 +211,7 @@
             <!--水分摄取-->
             <StackPanel Orientation="Horizontal" Margin="10,10,10,10">
                 <Label Content="{DynamicResource VitalInfoView.Water}" Background="Gray" Foreground="White"  Width="80"/>
-                <TextBox Margin="15,0" Width="44"  Name="amunt" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Margin="15,0" Width="41"  Name="amunt" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="(cc)"/>
             </StackPanel>
             <!--结束：水分摄取-->

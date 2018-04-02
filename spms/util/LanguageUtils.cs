@@ -60,5 +60,32 @@ namespace spms.util
             return IsChainese() ? chainese : english;
         }
 
+        /// <summary>
+        /// 根据资源id返回当前语言的字符串
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCurrentLanuageByKey(string key)
+        {
+            return (string)Application.Current.Resources.MergedDictionaries[0][key];
+        }
+
+        /// <summary>
+        /// 判断某个字符串是不是匹配某个资源id的中英文
+        /// </summary>
+        /// <param name="str">要比较的字符串</param>
+        /// <param name="key">资源id</param>
+        /// <returns></returns>
+        public static bool EqualsResource(string str, string key)
+        {
+            List<ResourceDictionary> dictionaryList = new List<ResourceDictionary>();
+            foreach (ResourceDictionary dictionary in Application.Current.Resources.MergedDictionaries)
+            {
+                dictionaryList.Add(dictionary);
+            }
+            string zh = (string)dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals("zh-cn.xaml")).MergedDictionaries[0][key];
+            string en = (string)dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals("en-us.xaml")).MergedDictionaries[0][key];
+            return false;
+        }
+
     }
 }
