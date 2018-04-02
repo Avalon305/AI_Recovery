@@ -59,13 +59,13 @@ namespace spms.util
         /// <returns></returns>
         public static string GetUserPic(string picName)
         {
-           var setter =  setterDAO.getSetter();
 
-            if(setter != null)
+            var setter = setterDAO.getSetter();
+
+            if (setter != null)
             {
-                return setter.Set_PhotoLocation;
+                return setter.Set_PhotoLocation + picName;
             }
-
             string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
             string path = ConfigurationManager.AppSettings["PicPath"];
 
@@ -78,7 +78,7 @@ namespace spms.util
         /// <returns></returns>
         public static string GetUserPicTemp(string picName)
         {
-
+        
             string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
             string path = ConfigurationManager.AppSettings["PicPathTemp"];
 
@@ -103,7 +103,7 @@ namespace spms.util
 
             if (setter != null)
             {
-                return setter.Set_PhotoLocation;
+                return setter.Set_PhotoLocation ;
             }
 
             string basePath = System.AppDomain.CurrentDomain.BaseDirectory;

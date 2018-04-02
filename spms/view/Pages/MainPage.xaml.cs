@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -99,9 +100,7 @@ namespace spms.view.Pages
             {
                 path = CommUtil.GetUserPic();
                 path += selectUser.User_PhotoLocation;
-
-                //path = CommUtil.GetUserPic(selectUser.User_Namepinyin + selectUser.User_IDCard);
-                //path += ".gif";
+ 
             }
             else
             {
@@ -113,33 +112,14 @@ namespace spms.view.Pages
             {
 
                 BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
-                UserPhoto.Source = bitmap;
+                UserPhoto.Source = bitmap.Clone();
 
                 return;
             }
             else
             {
-
-                using (FileStream fs = new FileStream(path, FileMode.Open))
-                {
-                    byte[] byteData = new byte[fs.Length];
-                    fs.Read(byteData, 0, byteData.Length);
-
-                    BitmapImage bmp = null;
-                    try
-                    {
-                        bmp = new BitmapImage();
-                        bmp.BeginInit();
-                        bmp.StreamSource = new MemoryStream(byteData);
-                        bmp.EndInit();
-                    }
-                    catch
-                    {
-                        bmp = null;
-                    }
-
-                    UserPhoto.Source = bmp;
-                }
+                
+             UserPhoto.Source = new BitmapImage(new Uri(path)).Clone();
 
             }
         }
@@ -223,7 +203,7 @@ namespace spms.view.Pages
         {
             // 切换用户图片的显示，解决线程占用问题
             BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
-            UserPhoto.Source = bitmap;
+            UserPhoto.Source = bitmap.Clone();
 
             //检查是否选中
             if (selectUser == null)
