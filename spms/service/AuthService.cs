@@ -15,6 +15,7 @@ namespace spms.service
 
     class AuthService
     {
+        UploadManagementDAO uploadManagementDAO = new UploadManagementDAO();
 
         public void updateTest()
         {
@@ -36,6 +37,13 @@ namespace spms.service
 
             }
         }
+        public void UpLoadAuth()
+        {
+                int pk_auth_id = new AuthDAO().getIdByMaxId();
+                Console.WriteLine(pk_auth_id);
+                UploadManagement uploadManagement = new UploadManagement(pk_auth_id, "bdl_auth");
+                uploadManagementDAO.Insert(uploadManagement);
+         }
         /// <summary>
         /// 登录
         /// </summary>
