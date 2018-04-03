@@ -52,6 +52,9 @@ namespace spms.view.Pages.ChildWin
         public ViewManualMvaluation()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
         }
 
         //取消操作，关闭窗口

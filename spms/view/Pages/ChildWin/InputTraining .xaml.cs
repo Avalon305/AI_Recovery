@@ -38,6 +38,8 @@ namespace spms.view.Pages.ChildWin
         public InputTraining()
         {
             InitializeComponent();
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
@@ -1006,8 +1008,7 @@ namespace spms.view.Pages.ChildWin
             //确定哪些设备可用
             Certain_Dev();
             //去除窗体叉号
-            viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
+           
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             //

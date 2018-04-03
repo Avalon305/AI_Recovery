@@ -347,6 +347,8 @@
     <s:String x:Key="TrainingResultView.Weight">Weight</s:String>
     <s:String x:Key="TrainingResultView.Transfer">Transfer</s:String>
     <s:String x:Key="TrainingResultView.BorgScale">Borg Scale</s:String>
+    <s:String x:Key="TrainingResultView.TrainTime(min)">Training Time</s:String>
+    <s:String x:Key="TrainingResultView.Time(min)">Prescription Time</s:String>
     <s:String x:Key="TrainingResultView.Time(sec)">Time(sec)</s:String>
     <s:String x:Key="TrainingResultView.Distance(m)">Distance(m)</s:String>
     <s:String x:Key="TrainingResultView.TotalWork(J)">Total Work(J)</s:String>

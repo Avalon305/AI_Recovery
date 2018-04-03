@@ -9,14 +9,14 @@
         Icon="/view/Images/icon2.png"
         PreviewKeyDown="key_dowm"
         Title="宝德龙"
-        Height="715.2"
-        Width="580"
+        Height="700.2"
+        Width="570"
         Loaded="Window_Loaded"
         >
     <!--
     ResizeMode="NoResize"
     WindowStyle="None"-->
-    <Viewbox Name="viewbox">
+    <Viewbox Name="viewbox" Stretch="Fill">
         <StackPanel>
 
             <!-- <Border CornerRadius="5,5,0,0" Height="30" Margin="0,0,-0.4,0" BorderBrush="Silver" BorderThickness="1" Background="Gray">
@@ -233,7 +233,7 @@
             <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="145" Height="27" VerticalAlignment="Bottom"  Margin="0,15,8,0">
                 <StackPanel Orientation="Horizontal"  >
                     <!--<Button Width="62" Height="25" VerticalAlignment="Bottom"     Content="确定更改" Margin="2,0,0,0" Style="{StaticResource Btn}" IsEnabled="False" Background="Gray" Foreground="Silver"/>-->
-                    <Button Width="140" Height="25"   Content="{DynamicResource VitalInfoView.Close}" Style="{StaticResource Btn}" Margin="2,0,2,-0.2" VerticalAlignment="Bottom"  Click="Cancel"/>
+                    <Button Width="140" Height="25"   Content="{DynamicResource VitalInfoView.Close}" Style="{StaticResource Btn}" Margin="2,-4,2,5" VerticalAlignment="Bottom"  Click="Cancel"/>
                     <!--<Button Width="62" Height="25" VerticalAlignment="Bottom"    Content="取消"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>-->
                 </StackPanel>
             </Border>

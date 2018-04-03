@@ -11,7 +11,7 @@
         Title="宝德龙" Height="302" Width="436"
          ResizeMode = "NoResize"
         Loaded="Window_Loaded">
-
+    <Viewbox Stretch="Fill">
     <Grid>
         <Border CornerRadius="2">
             <StackPanel >
@@ -46,21 +46,21 @@
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
                         <Label Content="{DynamicResource RegisterView.UserName}"  VerticalAlignment="Center"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="0" LostFocus="Name_LostFocus"  Name="UserName" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-                    <Label  Grid.Row="0" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
+                        <TextBox Grid.Row="0"  CaretBrush="Black" LostFocus="Name_LostFocus"  Name="UserName" Grid.Column="1"  Margin="0.2,0.2,0,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                    <Label  Grid.Row="0" Grid.Column="2"  FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
                     <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="{DynamicResource RegisterView.Password}"  FontStyle="Normal"  Foreground="White"/>
                     </Border>
-                    <PasswordBox  Grid.Row="2" Name="Pass" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                        <PasswordBox  Grid.Row="2" Name="Pass"  CaretBrush="Black" Grid.Column="1"  Margin="0.2,0.2,0,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <Label Grid.Row="4" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
                     <Border Grid.Row="4" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="{DynamicResource RegisterView.ConfirmPasswd}" Grid.Row="3" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <PasswordBox  Name="Confirm_Pass"  Grid.Row="4"  Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                        <PasswordBox  Name="Confirm_Pass"  CaretBrush="Black" Grid.Row="4"  Grid.Column="1"  Margin="0.2,0.2,0,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <Border Grid.Row="6" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                         <Label Content="{DynamicResource RegisterView.OffLineDate}" Grid.Row="6" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <DatePicker  Name="Confirm_Date" Grid.Row="6" IsTabStop="False"  KeyboardNavigation.TabNavigation="None" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center">
+                    <DatePicker  Name="Confirm_Date" Grid.Row="6" IsTabStop="False"  KeyboardNavigation.TabNavigation="None" Grid.Column="1"  Margin="0.2,0.2,0,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center">
                         <DatePicker.Resources>
                             <Style TargetType="DatePickerTextBox">
                                 <Setter Property="IsReadOnly" Value="True"/>
@@ -87,5 +87,5 @@
         </Border>
 
     </Grid>
-
+    </Viewbox>
 </Window>

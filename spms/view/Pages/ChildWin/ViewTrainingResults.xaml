@@ -90,7 +90,7 @@
                                 <TextBox Name="HLPAttr4" Height="20" Width="50" Margin="154,228,92,67.2"  IsEnabled="False" ></TextBox>
                             </Grid>
 
-                            <Grid Margin="30,50,0,22.6" Width="286" >
+                            <Grid Margin="30,50,0,0" Width="286" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -101,9 +101,8 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -117,55 +116,55 @@
                                 <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="HLPGroupcount" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="HLPGroupnum" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                <Label Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="HLPGroupnum" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="HLPRelaxTime" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="HLPRelaxTime" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="HLPWeight" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"   Name="HLPWeight" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0"  Name="HLPMoveway"  IsEnabled="False"/>
+                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
+                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0"  Name="HLPMoveway"  IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="HLPSportstrength" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
+                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="HLPSportstrength" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="HLPTime1" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
+                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="HLPTime1" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="HLPDistance" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="HLPDistance" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="HLPCountworkqu" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="HLPCountworkqu" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="HLPCal" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="HLPCal" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="HLPIndex" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="HLPIndex" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="HLPTime2" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
+                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="HLPTime2" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HLPFinishgroup" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
+                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="HLPFinishgroup" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0"  Name="HLPEvaluate"  IsEnabled="False"/>
-                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="HLPTimer" IsTabStop="False" IsEnabled="False"  >
+                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
+                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="HLPEvaluate"  IsEnabled="False"/>
+                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
+                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTimer" IsTabStop="False" IsEnabled="False"  >
                                 </TextBox>
 
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="HLPTime_Label" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                <TextBox Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="HLPTime" IsTabStop="False" IsEnabled="False" Visibility="Hidden">
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="HLPTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
+                                <TextBox Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTime" IsTabStop="False" IsEnabled="False" Visibility="Hidden">
                                    
                                 </TextBox>
 
-                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="HLPTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="HLPTiming" IsTabStop="False" IsEnabled="False" Visibility="Hidden">
+                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="HLPTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
+                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTiming" IsTabStop="False" IsEnabled="False" Visibility="Hidden">
                                 </TextBox>
                             </Grid>
 
@@ -219,7 +218,7 @@
                                 <TextBox Name="ROWAttr4" Height="20" Width="50" Margin="147,238,99,57.2"   IsEnabled="False"></TextBox>
                             </Grid>
 
-                            <Grid Margin="30,50,0,22.6" Width="286" >
+                            <Grid Margin="30,50,0,0" Width="286" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -234,9 +233,8 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
@@ -246,55 +244,55 @@
                                 <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0"  Name="ROWGroupcount"  IsEnabled="False" />
 
-                                <Label Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="ROWGroupnum"  IsEnabled="False" />
+                                <Label Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="ROWGroupnum"  IsEnabled="False" />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="ROWRelaxTime"  IsEnabled="False" />
+                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="ROWRelaxTime"  IsEnabled="False" />
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"   Name="ROWWeight"  IsEnabled="False" />
+                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"   Name="ROWWeight"  IsEnabled="False" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="ROWMoveway"  IsEnabled="False"/>
+                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
+                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="ROWMoveway"  IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="ROWSportstrength"  IsEnabled="False" />
+                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
+                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="ROWSportstrength"  IsEnabled="False" />
 
-                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="ROWTime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
+                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="ROWTime1"  IsEnabled="False" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="ROWDistance"  IsEnabled="False" />
+                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="ROWDistance"  IsEnabled="False" />
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="ROWCountworkqu"  IsEnabled="False" />
+                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="ROWCountworkqu"  IsEnabled="False" />
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="ROWCal"  IsEnabled="False" />
+                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="ROWCal"  IsEnabled="False" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="ROWIndex"  IsEnabled="False" />
+                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="ROWIndex"  IsEnabled="False" />
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="ROWTime2"  IsEnabled="False" />
+                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
+                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="ROWTime2"  IsEnabled="False" />
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="ROWFinishgroup"  IsEnabled="False" />
+                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
+                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="ROWFinishgroup"  IsEnabled="False" />-->
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="ROWEvaluate" IsEnabled="False"/>
+                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
+                                <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="ROWEvaluate" IsEnabled="False"/>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="ROWTimer" IsTabStop="False"  >
+                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
+                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="ROWTimer" IsTabStop="False"  >
                                 </TextBox>
 
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="ROWTime_Label" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="ROWTime" IsTabStop="False"  Visibility="Hidden">
+                                <Label Grid.Row="14" Grid.Column="0" Background="White" Name="ROWTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
+                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="ROWTime" IsTabStop="False"  Visibility="Hidden">
                                 </TextBox>
 
-                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="ROWTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="ROWTiming" IsTabStop="False" Visibility="Hidden">
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="ROWTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
+                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="ROWTiming" IsTabStop="False" Visibility="Hidden">
                                 </TextBox>
                             </Grid>
 
@@ -349,9 +347,11 @@
                                 <TextBox Name="TFAttr4" Height="20" Width="50" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01"  IsEnabled="False" ></TextBox>
                             </Grid>
 
-                            <Grid Margin="30,50,0,22.6" Width="286" >
+                            <Grid Margin="30,50,0,0" Width="286" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -359,11 +359,8 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -376,55 +373,55 @@
                                 <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="TFGroupcount"  IsEnabled="False" />
 
-                                <Label Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="TFGroupnum"  IsEnabled="False" />
+                                <Label Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="TFGroupnum"  IsEnabled="False" />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="TFRelaxTime"  IsEnabled="False" />
+                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="TFRelaxTime"  IsEnabled="False" />
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="TFWeight"   IsEnabled="False"/>
+                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"  Name="TFWeight"   IsEnabled="False"/>
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="TFMoveway"   IsEnabled="False"/>
+                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
+                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="TFMoveway"   IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="TFSportstrength"   IsEnabled="False"/>
+                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
+                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="TFSportstrength"   IsEnabled="False"/>
 
-                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="TFTime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
+                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="TFTime1"  IsEnabled="False" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="TFDistance"   IsEnabled="False"/>
+                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="TFDistance"   IsEnabled="False"/>
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="TFCountworkqu"  IsEnabled="False" />
+                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="TFCountworkqu"  IsEnabled="False" />
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="TFCal" IsEnabled="False"  />
+                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="TFCal" IsEnabled="False"  />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="TFIndex"  IsEnabled="False" />
+                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="TFIndex"  IsEnabled="False" />
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="TFTime2"  IsEnabled="False" />
+                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
+                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="TFTime2"  IsEnabled="False" />
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="TFFinishgroup" IsEnabled="False"  />
+                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
+                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="TFFinishgroup" IsEnabled="False"  />-->
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="TFEvaluate" IsEnabled="False"/>
+                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
+                                <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="TFEvaluate" IsEnabled="False"/>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                <TextBox Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="TFTimer" IsTabStop="False"  >
+                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
+                                <TextBox Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="TFTimer" IsTabStop="False"  >
                                 </TextBox>
 
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="TFTime_Label" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="TFTime" IsTabStop="False"  Visibility="Hidden">
+                                <Label Grid.Row="14" Grid.Column="0" Background="White" Name="TFTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
+                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="TFTime" IsTabStop="False"  Visibility="Hidden">
                                 </TextBox>
 
-                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="TFTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="TFTiming" IsTabStop="False" Visibility="Hidden">
+                                <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="TFTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
+                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="TFTiming" IsTabStop="False" Visibility="Hidden">
                                 </TextBox>
                             </Grid>
 
@@ -479,10 +476,9 @@
                                 <TextBox Name="LEAttr5" Height="20" Width="50" Margin="174,189,72,106.2"   IsEnabled="False"></TextBox>
                             </Grid>
 
-                            <Grid Margin="30,50,0,22.6" Width="286" >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                            <Grid Margin="30,50,0,0" Width="286" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -503,59 +499,59 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
+                                    <Label Background="Gray" Margin="0,0,10,0 "   Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="LEGroupcount"  IsEnabled="False" />
 
-                                <Label Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="LEGroupnum"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,3,10,0"   Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="LEGroupnum"  IsEnabled="False" />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="LERelaxTime"   IsEnabled="False"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="LERelaxTime"   IsEnabled="False"/>
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="LEWeight"   IsEnabled="False" />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray"    Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"  Name="LEWeight"   IsEnabled="False" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="LEMoveway" IsEnabled="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
+                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="LEMoveway" IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="LESportstrength"  IsEnabled="False" />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
+                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="LESportstrength"  IsEnabled="False" />
 
-                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="LETime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
+                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="LETime1"  IsEnabled="False" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="LEDistance" IsEnabled="False"  />
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="LEDistance" IsEnabled="False"  />
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="LECountworkqu"   IsEnabled="False"/>
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="LECountworkqu"   IsEnabled="False"/>
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="LECal"  IsEnabled="False" />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="LECal"  IsEnabled="False" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="LEIndex"  IsEnabled="False" />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="LEIndex"  IsEnabled="False" />
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="LETime2"  IsEnabled="False" />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
+                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="LETime2"  IsEnabled="False" />
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="LEFinishgroup"  IsEnabled="False" />
+                                    <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
+                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="LEFinishgroup"  IsEnabled="False" />-->
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="LEEvaluate" IsEnabled="False"/>
+                                    <Label Grid.Row="12" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
+                                <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="LEEvaluate" IsEnabled="False"/>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="LETimer" IsTabStop="False"  >
+                                    <Label Grid.Row="13" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
+                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="LETimer" IsTabStop="False"  >
                                 </TextBox>
 
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="LETime_Label" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="LETime" IsTabStop="False"  Visibility="Hidden">
+                                    <Label Grid.Row="14" Grid.Column="0" Background="White"    Name="LETime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
+                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="LETime" IsTabStop="False"  Visibility="Hidden">
                                    
                                 </TextBox>
 
-                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="LETiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="LETiming" IsTabStop="False" Visibility="Hidden">
+                                    <Label Grid.Row="15" Grid.Column="0" Background="White"    Margin="0,3,10,0" Name="LETiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
+                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="LETiming" IsTabStop="False" Visibility="Hidden">
                                 </TextBox>
                             </Grid>
 
@@ -607,10 +603,9 @@
                                 <!--<TextBox Name="HAAttr2" Height="20" Width="50" Margin="78,169,168,126.2"   IsEnabled="False"/>-->
                                 <TextBox Name="HAAttr3" Height="20" Width="50" Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47"  IsEnabled="False" ></TextBox>
                             </Grid>
-                            <Grid Margin="30,0,0,22.6" Width="286" Height="421" VerticalAlignment="Bottom" >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                            <Grid Margin="30,50,0,0" Width="286"   >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -631,58 +626,58 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
+                                    <Label Background="Gray" Margin="0,0,10,0"   Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="HAGroupcount"  IsEnabled="False" />
 
-                                <Label Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="HAGroupnum"  IsEnabled="False"  />
+                                    <Label Background="Gray" Margin="0,3,10,0"   Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="HAGroupnum"  IsEnabled="False"  />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="HARelaxTime"  IsEnabled="False" />
+                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="HARelaxTime"  IsEnabled="False" />
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="HAWeight"  IsEnabled="False" />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray"   Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"  Name="HAWeight"  IsEnabled="False" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="HAMoveway" IsEnabled="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
+                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="HAMoveway" IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="HASportstrength"  IsEnabled="False" />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
+                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="HASportstrength"  IsEnabled="False" />
 
-                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="HATime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
+                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="HATime1"  IsEnabled="False" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="HADistance"  IsEnabled="False" />
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="HADistance"  IsEnabled="False" />
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="HACountworkqu"  IsEnabled="False" />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="HACountworkqu"  IsEnabled="False" />
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="HACal"  IsEnabled="False" />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="HACal"  IsEnabled="False" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="HAIndex"   IsEnabled="False"/>
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="HAIndex"   IsEnabled="False"/>
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="HATime2"  IsEnabled="False" />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
+                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="HATime2"  IsEnabled="False" />
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HAFinishgroup"  IsEnabled="False" />
+                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"   Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
+                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="HAFinishgroup"  IsEnabled="False" />-->
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="HAEvaluate" IsEnabled="False"/>
+                                    <Label Grid.Row="12" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
+                                <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="HAEvaluate" IsEnabled="False"/>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="HATimer" IsTabStop="False" >
+                                    <Label Grid.Row="13" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
+                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="HATimer" IsTabStop="False" >
                                 </TextBox>
 
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="HATime_Label" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="HATime" IsTabStop="False"  Visibility="Hidden">
+                                    <Label Grid.Row="14" Grid.Column="0" Background="White"   Name="HATime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
+                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="HATime" IsTabStop="False"  Visibility="Hidden">
                                 </TextBox>
 
-                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="HATiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="HATiming" IsTabStop="False" Visibility="Hidden">
+                                    <Label Grid.Row="15" Grid.Column="0" Background="White"   Margin="0,3,10,0" Name="HATiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
+                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="HATiming" IsTabStop="False" Visibility="Hidden">
                                 </TextBox>
                             </Grid>
 
@@ -735,10 +730,9 @@
                                 <TextBox Name="CPAttr3" Width="50" Height="20" Margin="150,204,96,94.2"  IsEnabled="False" />
                             </Grid>
 
-                            <Grid Margin="30,50,0,22.6" Width="286" >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                            <Grid Margin="30,50,0,0" Width="286" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -759,59 +753,59 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
+                                    <Label Background="Gray" Margin="0,0,10,0"  Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="CPGroupcount"  IsEnabled="False" />
 
-                                <Label Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,1,20,0" Name="CPGroupnum"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,3,10,0"   Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="CPGroupnum"  IsEnabled="False" />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,1,20,0" Name="CPRelaxTime" IsEnabled="False"  />
+                                    <Label Grid.Row="2" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="CPRelaxTime" IsEnabled="False"  />
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,1,20,0"  Name="CPWeight"  IsEnabled="False" />
+                                    <Label Grid.Row="3" Grid.Column="0"   Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
+                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"  Name="CPWeight"  IsEnabled="False" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,1,20,0" Name="CPMoveway" IsEnabled="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
+                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="CPMoveway" IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,1,20,0" Name="CPSportstrength"  IsEnabled="False" />
+                                    <Label Grid.Row="5" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
+                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="CPSportstrength"  IsEnabled="False" />
 
-                                <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,1,20,0" Name="CPTime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
+                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="CPTime1"  IsEnabled="False" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,1,20,0" Name="CPDistance"   IsEnabled="False"/>
+                                    <Label Grid.Row="7" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
+                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="CPDistance"   IsEnabled="False"/>
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,1,20,0" Name="CPCountworkqu"  IsEnabled="False" />
+                                    <Label Grid.Row="8" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
+                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="CPCountworkqu"  IsEnabled="False" />
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,1,20,0" Name="CPCal"   IsEnabled="False" />
+                                    <Label Grid.Row="9" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
+                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="CPCal"   IsEnabled="False" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,1,20,0" Name="CPIndex"  IsEnabled="False" />
+                                    <Label Grid.Row="10" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
+                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="CPIndex"  IsEnabled="False" />
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Time(sec)}" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,1,20,0" Name="CPTime2"  IsEnabled="False" />
+                                    <Label Grid.Row="11" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
+                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="CPTime2"  IsEnabled="False" />
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="CPFinishgroup"  IsEnabled="False" />
+                                    <!--<Label Grid.Row="12" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
+                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="CPFinishgroup"  IsEnabled="False" />-->
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,1,20,0" Name="CPEvaluate" IsEnabled="False"/>
+                                    <Label Grid.Row="12" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
+                                <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="CPEvaluate" IsEnabled="False"/>
 
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,1,20,0"  Name="CPTimer" IsTabStop="False"  >
+                                    <Label Grid.Row="13" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
+                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="CPTimer" IsTabStop="False"  >
                                 </TextBox>
 
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="CPTime_Label" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,1,20,0"  Name="CPTime" IsTabStop="False"  Visibility="Hidden" >
+                                    <Label Grid.Row="14" Grid.Column="0"   Background="White" Name="CPTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
+                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="CPTime" IsTabStop="False"  Visibility="Hidden" >
                                 </TextBox>
 
-                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,1,10,0" Name="CPTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,1,20,0"  Name="CPTiming" IsTabStop="False" Visibility="Hidden">
+                                    <Label Grid.Row="15" Grid.Column="0"   Background="White" Margin="0,3,10,0" Name="CPTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
+                                <TextBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="CPTiming" IsTabStop="False" Visibility="Hidden">
                                 </TextBox>
                             </Grid>
 

@@ -66,6 +66,9 @@ namespace spms.view.Pages.ChildWin
         public Photograph()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
 
             // combox 获得摄像头列表
             cb.ItemsSource = MultimediaUtil.VideoInputNames;

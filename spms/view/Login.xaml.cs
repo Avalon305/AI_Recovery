@@ -48,6 +48,9 @@ namespace spms.view
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+           
+            
+            
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
 
@@ -116,6 +119,23 @@ namespace spms.view
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.Height = SystemParameters.WorkArea.Size.Height;
+            this.Width = SystemParameters.WorkArea.Size.Width;
+            this.SizeChanged += new System.Windows.SizeChangedEventHandler(MainWindow_Resize);
+        }
+        private void MainWindow_Resize(object sender, System.EventArgs e)
+        {
+            Console.WriteLine("窗体改变");
+            Console.WriteLine(SystemParameters.WorkArea.Size.Height);
+            Console.WriteLine(SystemParameters.WorkArea.Size.Width);
+            if (this.WindowState == WindowState.Maximized)
+            {
+                Console.WriteLine("123123");
+                this.Height = SystemParameters.WorkArea.Size.Height;
+                this.Width = SystemParameters.WorkArea.Size.Width;
+            }
+            Console.WriteLine("当前窗体高度："+ this.Height);
+            Console.WriteLine("当前窗体宽度：" + this.Width);
         }
         //登录操作
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -157,6 +177,7 @@ namespace spms.view
                 //成功登陆，跳转
                 MainPage mainpage = new MainPage();
                 this.Content = mainpage;
+                
                 timerNotice.Stop();
             }
             else {

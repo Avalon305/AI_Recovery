@@ -38,8 +38,9 @@
         </Style>
         <converter:SexConverter x:Key="sexconverter"/>
         <converter:AgeConverter x:Key="ageconverter"/>
+        <converter:IDCardConverter x:Key="idcardconverter" />
     </Window.Resources>
-    <Viewbox Name="viewbox">
+    <Viewbox Name="viewbox" Stretch="Fill">
 
     <Grid>
         <Border CornerRadius="2">
@@ -82,7 +83,7 @@
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.LastName}"  VerticalAlignment="Center"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="0" Name="t2" LostFocus="IsName" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Name}" VerticalContentAlignment="Center"/>
+                        <TextBox Grid.Row="0"  CaretBrush="Black" Name="t2" LostFocus="IsName" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Name}" VerticalContentAlignment="Center"/>
                     <!--气泡-->
                     <bubble:CCPopup x:Name="bubble_Name" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=t2}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
@@ -96,13 +97,13 @@
                     <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.FirstName}"  FontStyle="Normal"  Foreground="White"/>
                     </Border>
-                        <TextBox Grid.Row="1" Name="t3" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" PreviewTextInput="limit_input" Grid.ColumnSpan="2" Text="{Binding User_Namepinyin}" VerticalContentAlignment="Center"/>
+                        <TextBox Grid.Row="1"  CaretBrush="Black" Name="t3" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" PreviewTextInput="limit_input" Grid.ColumnSpan="2" Text="{Binding User_Namepinyin}" VerticalContentAlignment="Center"/>
 
 
                     <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.Gender}" Grid.Row="2" Grid.Column="0" Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c1" Grid.Row="2" Grid.Column="1"  Background="Black" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Sex, Converter={StaticResource sexconverter}}" VerticalContentAlignment="Center">
+                    <ComboBox Name="c1" Grid.Row="2" Grid.Column="1"   IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Sex, Converter={StaticResource sexconverter}}" VerticalContentAlignment="Center">
                             <ComboBoxItem Content="{DynamicResource AddOrEditView.M}" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                             <ComboBoxItem Content="{DynamicResource AddOrEditView.F}" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                     </ComboBox>
@@ -123,7 +124,7 @@
                     <Border Grid.Row="4" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.Phone}" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="4"   Name ="phoneNum" Grid.Column="1" LostFocus="IsPhone"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding  User_Phone}" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                        <TextBox Grid.Row="4"  CaretBrush="Black"  Name ="phoneNum" Grid.Column="1" LostFocus="IsPhone"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding  User_Phone}" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                     <bubble:CCPopup x:Name="bubble_phone" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=phoneNum}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
                             <StackPanel Orientation="Horizontal">
@@ -134,7 +135,7 @@
                     <Border Grid.Row="5" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.IdCard}" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <TextBox Grid.Row="5" Name="IDCard" Grid.Column="1" LostFocus="IsIDCard" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IDCard}" VerticalContentAlignment="Center"/>
+                        <TextBox Grid.Row="5"  CaretBrush="Black" Name="IDCard" Grid.Column="1" LostFocus="IsIDCard" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IDCard,Converter={StaticResource idcardconverter}}" VerticalContentAlignment="Center"/>
                     <!--气泡-->
                     <bubble:CCPopup x:Name="bubble_IDCard" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=IDCard}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
@@ -196,7 +197,7 @@
                             <Label Content="{DynamicResource AddOrEditView.Memo}" Grid.Row="11" Grid.Column="0"  Foreground="White"/>
                     </Border>
                     <!--<TextBox   Grid.Row="11" Name="t6"  Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding User_Memo}"></TextBox>-->
-                    <RichTextBox  AcceptsReturn="True"  Grid.Row="11" Name="t6" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" >
+                        <RichTextBox  CaretBrush="Black" AcceptsReturn="True"  Grid.Row="11" Name="t6" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" >
                         <!--行间距-->
                         <RichTextBox.Document>
                             <FlowDocument Focusable="True" LineHeight="1" >
@@ -226,10 +227,10 @@
                             <TextBox Name="noPublicInfoText"  ></TextBox>
                     </DockPanel>
                 </StackPanel>
-                <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="434" Height="47" VerticalAlignment="Bottom" BorderBrush="White" Margin="0,0,9.6,0">
+                <Border CornerRadius="5,0,0,0" Background="White"  HorizontalAlignment="Right" Width="434" Height="47" VerticalAlignment="Center" BorderBrush="White" Margin="0,0,9.6,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button Width="140" HorizontalAlignment="Right" Margin="0,22,2,0"  Foreground="Black" Content="{DynamicResource AddOrEditView.Confirm}" IsTabStop="False" Style="{StaticResource Btn}" Click="Button_OK"/>
-                            <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black" Content="{DynamicResource AddOrEditView.Cancel}" Margin="0,0,0,0" IsTabStop="False" Style="{StaticResource Btn}" Click="Cancel"/>
+                            <Button Width="140" HorizontalAlignment="Right" Height="25" Margin="0,0,3,0" Foreground="Black" Content="{DynamicResource AddOrEditView.Confirm}" IsTabStop="False" Style="{StaticResource Btn}" Click="Button_OK"/>
+                            <Button Width="140" Height="25" HorizontalAlignment="Right"  Foreground="Black" Content="{DynamicResource AddOrEditView.Cancel}"  IsTabStop="False" Style="{StaticResource Btn}" Click="Cancel"/>
                     </StackPanel>
                 </Border>
 

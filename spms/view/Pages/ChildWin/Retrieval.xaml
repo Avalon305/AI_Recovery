@@ -41,7 +41,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Viewbox Name="viewbox">
+    <Viewbox Name="viewbox" Stretch="Fill">
     <StackPanel Margin="0,0,0,0.8">
         <Border CornerRadius="5,5,0,0" Height="38" Margin="10,0,10,0">
             <Border.Background>
@@ -102,16 +102,16 @@
             <!--<Label Content="用户ID" Grid.Row="0" Grid.Column="0"  Background="Gray" Foreground="White"/>
             <TextBox Grid.Row="0" Name="t1" Grid.Column="2"   VerticalContentAlignment="Center"/>-->
                 <Label Content="{DynamicResource SearchSubjectView.LastName}" Grid.Row="0" Grid.Column="0"  Background="Gray" Foreground="White"/>
-            <TextBox Grid.Row="0" Name="t2" Grid.Column="2"  Text="{Binding User_Name}"   VerticalContentAlignment="Center"/>
+                <TextBox Grid.Row="0"  CaretBrush="Black" Name="t2" Grid.Column="2"  Text="{Binding User_Name}"   VerticalContentAlignment="Center"/>
                 <Label Content="{DynamicResource SearchSubjectView.FirstName}" Grid.Row="2" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <TextBox Grid.Row="2" Name="t3" Grid.Column="2"  VerticalContentAlignment="Center"/>
+                <TextBox Grid.Row="2"  CaretBrush="Black" Name="t3" Grid.Column="2"  VerticalContentAlignment="Center"/>
                 <Label Content="{DynamicResource SearchSubjectView.Gender}" Grid.Row="4" Grid.Column="0" Background="Gray" Foreground="White" />
             <ComboBox Name="c1" Grid.Row="4" Grid.Column="2"   Background="LightGray"  IsTabStop="False"   VerticalContentAlignment="Center">
                     <ComboBoxItem Content="{DynamicResource SearchSubjectView.M}"></ComboBoxItem>
                     <ComboBoxItem Content="{DynamicResource SearchSubjectView.F}"></ComboBoxItem>
             </ComboBox>
                 <Label Content="{DynamicResource SearchSubjectView.Phone}" Grid.Row="6" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <TextBox Name="phone" Grid.Row="6" Grid.Column="2" LostFocus="IsPhone" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Name="phone" CaretBrush="Black" Grid.Row="6" Grid.Column="2" LostFocus="IsPhone" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
             <bubble:CCPopup x:Name="bubble_phone" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=phone}" Placement="Right" >
                 <Label Style="{StaticResource tipLable}">
                     <StackPanel Orientation="Horizontal">
@@ -120,7 +120,7 @@
                 </Label>
             </bubble:CCPopup>
                 <Label Content="{DynamicResource SearchSubjectView.IdCard}" Grid.Row="8" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <TextBox Name="IDCard" Grid.Row="8" Grid.Column="2" LostFocus="IsIDCard" VerticalContentAlignment="Center"/>
+                <TextBox Name="IDCard"  CaretBrush="Black" Grid.Row="8" Grid.Column="2" LostFocus="IsIDCard" VerticalContentAlignment="Center"/>
             <bubble:CCPopup x:Name="bubble_IDCard" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=IDCard}" Placement="Right" >
                 <Label Style="{StaticResource tipLable}">
                     <StackPanel Orientation="Horizontal">
