@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="宝德龙" Height="145" Width="380"
+        Title="{DynamicResource Title.Title}" Height="145" Width="380"
         Loaded="Window_Loaded"
          PreviewKeyDown="key_dowm"
         >

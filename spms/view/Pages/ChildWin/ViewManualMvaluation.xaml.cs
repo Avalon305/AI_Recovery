@@ -26,6 +26,7 @@ namespace spms.view.Pages.ChildWin
     {
         private User user;
         private PhysicaleDTO physicaleDto;
+        /*
         List<String> list = new List<string>
         {
             "T字拐杖",
@@ -48,7 +49,8 @@ namespace spms.view.Pages.ChildWin
             "Both Frontal",
             "两手侧面支持",
             "Both Lateral"
-        };
+        };*/
+        
         public ViewManualMvaluation()
         {
             InitializeComponent();
@@ -93,7 +95,7 @@ namespace spms.view.Pages.ChildWin
             //身高
             string[] ppHigh = Regex.Replace(physicalPower.PP_High, @"param\d", "").Split(new char[] { ',' });
             height_first.Text = ppHigh[1];
-            if (ppHigh[3] == "照片（侧面、前面）" || ppHigh[3] == "Picture(front/lateral)")
+            if (LanguageUtils.EqualsResource(ppHigh[3], "PhysicalEvaluationFormView.Picture(front/lateral)"))
             {
                 height_condition.IsChecked = true;
             }
@@ -111,22 +113,22 @@ namespace spms.view.Pages.ChildWin
 
             //握力
             string[] ppGrip = Regex.Replace(physicalPower.PP_Grip, @"param\d", "").Split(new char[] { ',' });
-            if (ppGrip[0] == "左" || ppGrip[0] == "L")
+            if (LanguageUtils.EqualsResource(ppGrip[0], "PhysicalEvaluationFormView.L"))
             {
                 grip_left.IsChecked = true;
             }
-            else if (ppGrip[0] == "右" || ppGrip[0] == "R")
+            else if (LanguageUtils.EqualsResource(ppGrip[0], "PhysicalEvaluationFormView.R"))
             {
                 grit_right.IsChecked = true;
             }
 
             grip_first.Text = ppGrip[1];
             grip_second.Text = ppGrip[2];
-            if (ppGrip[3] == "站姿" || ppGrip[3] == "Standing")
+            if (LanguageUtils.EqualsResource(ppGrip[3], "PhysicalEvaluationFormView.Standing"))
             {
                 grid_stand.IsChecked = true;
             }
-            else if (ppGrip[3] == "坐姿" || ppGrip[3] == "Seated")
+            else if (LanguageUtils.EqualsResource(ppGrip[3], "PhysicalEvaluationFormView.Seated"))
             {
                 grid_sit.IsChecked = true;
             }
@@ -136,21 +138,21 @@ namespace spms.view.Pages.ChildWin
 
             //睁眼单脚站立
             string[] ppEyeOpenStand = Regex.Replace(physicalPower.PP_EyeOpenStand, @"param\d", "").Split(new char[] { ',' });
-            if (ppEyeOpenStand[0] == "左" || ppEyeOpenStand[0] == "L")
+            if (LanguageUtils.EqualsResource(ppEyeOpenStand[0], "PhysicalEvaluationFormView.L"))
             {
                 stand_left.IsChecked = true;
             }
-            else if (ppEyeOpenStand[0] == "右" || ppEyeOpenStand[0] == "R")
+            else if (LanguageUtils.EqualsResource(ppEyeOpenStand[0], "PhysicalEvaluationFormView.R"))
             {
                 stand_right.IsChecked = true;
             }
             stand_first.Text = ppEyeOpenStand[1];
             stand_second.Text = ppEyeOpenStand[2];
-            if (ppEyeOpenStand[3] == "不需要支持" || ppEyeOpenStand[3] == "no support")
+            if (LanguageUtils.EqualsResource(ppEyeOpenStand[3], "PhysicalEvaluationFormView.nosupport"))
             {
                 stand_nosupport.IsChecked = true;
             }
-            else if (ppEyeOpenStand[3] == "通过介助支持" || ppEyeOpenStand[3] == "Supported by assistance")
+            else if (LanguageUtils.EqualsResource(ppEyeOpenStand[3], "PhysicalEvaluationFormView.Supportedbyassistance"))
             {
                 stand_support.IsChecked = true;
             }
@@ -158,34 +160,75 @@ namespace spms.view.Pages.ChildWin
             {
                 string[] strings = ppEyeOpenStand[3].Split(new char[] { '(' });
                 stand_toolsupport.IsChecked = true;
-                stand_comBox1.Text = strings[0];
-                stand_comBox2.Text = strings[1].Substring(0, strings[1].Length - 1);
+                string stand2 = strings[1].Substring(0, strings[1].Length - 1);
+                //第一个框
+                if (LanguageUtils.EqualsResource(strings[0], "PhysicalEvaluationFormView.T-Kane"))
+                {
+                    stand_comBox1.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.T-Kane");
+                }
+                else if (LanguageUtils.EqualsResource(strings[0], "PhysicalEvaluationFormView.Qtr-Cane"))
+                {
+                    stand_comBox1.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Qtr-Cane");
+                }
+                else if (LanguageUtils.EqualsResource(strings[0], "PhysicalEvaluationFormView.Walker"))
+                {
+                    stand_comBox1.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Walker");
+                }
+                else if (LanguageUtils.EqualsResource(strings[0], "PhysicalEvaluationFormView.Other"))
+                {
+                    stand_comBox1.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Other");
+                }
+                //第二个框
+                if (LanguageUtils.EqualsResource(stand2, "PhysicalEvaluationFormView.RightFrontal"))
+                {
+                    stand_comBox2.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.RightFrontal");
+                }
+                else if (LanguageUtils.EqualsResource(stand2, "PhysicalEvaluationFormView.RightLateral"))
+                {
+                    stand_comBox2.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.RightLateral");
+                }
+                else if (LanguageUtils.EqualsResource(stand2, "PhysicalEvaluationFormView.LeftFrontal"))
+                {
+                    stand_comBox2.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.LeftFrontal");
+                }
+                else if (LanguageUtils.EqualsResource(stand2, "PhysicalEvaluationFormView.LeftLateral"))
+                {
+                    stand_comBox2.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.LeftLateral");
+                }
+                else if (LanguageUtils.EqualsResource(stand2, "PhysicalEvaluationFormView.BothFrontal"))
+                {
+                    stand_comBox2.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.BothFrontal");
+                }
+                else if (LanguageUtils.EqualsResource(stand2, "PhysicalEvaluationFormView.BothLateral"))
+                {
+                    stand_comBox2.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.BothLateral");
+                }
             }
             
             stand_duty.Text = ppEyeOpenStand[4];
 
             //功能性前伸
             string[] ppFunctionProtract = Regex.Replace(physicalPower.PP_FunctionProtract, @"param\d", "").Split(new char[] { ',' });
-            if (ppFunctionProtract[0] == "两手" || ppFunctionProtract[0] == "Both hands")
+            if (LanguageUtils.EqualsResource(ppFunctionProtract[0], "PhysicalEvaluationFormView.Bothhands"))
             {
                 protrack_twohands.IsChecked = true;
             }
-            else if (ppFunctionProtract[0] == "左" || ppFunctionProtract[0] == "L")
+            else if (LanguageUtils.EqualsResource(ppFunctionProtract[0], "PhysicalEvaluationFormView.L"))
             {
                 protrack_left.IsChecked = true;
             }
-            else if (ppFunctionProtract[0] == "右"|| ppFunctionProtract[0] == "R")
+            else if (LanguageUtils.EqualsResource(ppFunctionProtract[0], "PhysicalEvaluationFormView.R"))
             {
                 protrack_right.IsChecked = true;
             }
 
             protrack_first.Text = ppFunctionProtract[1];
             protrack_second.Text = ppFunctionProtract[2];
-            if (ppFunctionProtract[3] == "胳膊不能举到肩的高度（肩关节弯曲度）"|| ppFunctionProtract[3] == "Difficult to rise arms to shoulder(Shoulder Flex)")
+            if (LanguageUtils.EqualsResource(ppFunctionProtract[3], "PhysicalEvaluationFormView.Difficulttorisearmstoshoulder(ShoulderFlex)"))
             {
                 protrack_curvature.IsChecked = true;
             }
-            else if (ppFunctionProtract[3] == "以坐姿进行测定" || ppFunctionProtract[3] == "Seated Position")
+            else if (LanguageUtils.EqualsResource(ppFunctionProtract[3], "PhysicalEvaluationFormView.SeatedPosition"))
             {
                 protrack_sit.IsChecked = true;
             }
@@ -194,22 +237,22 @@ namespace spms.view.Pages.ChildWin
 
             //坐姿体前屈
             string[] ppSitandReach = Regex.Replace(physicalPower.PP_SitandReach, @"param\d", "").Split(new char[] { ',' });
-            if (ppSitandReach[0] == "左" || ppSitandReach[0] == "L")
+            if (LanguageUtils.EqualsResource(ppSitandReach[0], "PhysicalEvaluationFormView.L"))
             {
                 c17.IsChecked = true;
             }
-            else if (ppSitandReach[0] == "右" || ppSitandReach[0] == "R")
+            else if (LanguageUtils.EqualsResource(ppSitandReach[0], "PhysicalEvaluationFormView.R"))
             {
                 c18.IsChecked = true;
             }
 
             c_first.Text = ppSitandReach[1];
             c_second.Text = ppSitandReach[2];
-            if (ppSitandReach[3] == "膝弯曲（有）" || ppSitandReach[3] == "Knee Flexion")
+            if (LanguageUtils.EqualsResource(ppSitandReach[3], "PhysicalEvaluationFormView.KneeFlexion"))
             {
                 c19.IsChecked = true;
             }
-            else if (ppSitandReach[3] == "膝弯曲（无）"|| ppSitandReach[3] == "No Knee Flexion")
+            else if (LanguageUtils.EqualsResource(ppSitandReach[3], "PhysicalEvaluationFormView.NoKneeFlexion"))
             {
                 c20.IsChecked = true;
             }
@@ -217,24 +260,39 @@ namespace spms.view.Pages.ChildWin
 
             //Time UP & GO
             string[] ppTimeUpGo = Regex.Replace(physicalPower.PP_TimeUpGo, @"param\d", "").Split(new char[] { ',' });
-            if (ppTimeUpGo[0] == "基本方法"|| ppTimeUpGo[0] == "Basic")
+            if (LanguageUtils.EqualsResource(ppTimeUpGo[0], "PhysicalEvaluationFormView.Basic"))
             {
                 c21.IsChecked = true;
             }
-            else if (ppTimeUpGo[0] == "常规外方法"|| ppTimeUpGo[0] == "Modified")
+            else if (LanguageUtils.EqualsResource(ppTimeUpGo[0], "PhysicalEvaluationFormView.Modified"))
             {
                 c22.IsChecked = true;
             }
             time_first.Text = ppTimeUpGo[1];
             time_second.Text = ppTimeUpGo[2];
-            if (ppTimeUpGo[3] == "独自步行"|| ppTimeUpGo[3] == "Independent")
+            if (LanguageUtils.EqualsResource(ppTimeUpGo[3], "PhysicalEvaluationFormView.Independent"))
             {
                 c23.IsChecked = true;
             }
-            else if (list.Contains(ppTimeUpGo[3]))
+            else if (LanguageUtils.EqualsResource(ppTimeUpGo[3], "PhysicalEvaluationFormView.T-Kane"))
             {
                 c24.IsChecked = true;
-                comBox3.Text = ppTimeUpGo[3];
+                comBox3.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.T-Kane");
+            }
+            else if (LanguageUtils.EqualsResource(ppTimeUpGo[3], "PhysicalEvaluationFormView.Qtr-Cane"))
+            {
+                c24.IsChecked = true;
+                comBox3.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Qtr-Cane");
+            }
+            else if (LanguageUtils.EqualsResource(ppTimeUpGo[3], "PhysicalEvaluationFormView.Walker"))
+            {
+                c24.IsChecked = true;
+                comBox3.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Walker");
+            }
+            else if (LanguageUtils.EqualsResource(ppTimeUpGo[3], "PhysicalEvaluationFormView.Other"))
+            {
+                c24.IsChecked = true;
+                comBox3.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Other");
             }
             else if(ppTimeUpGo[3] != "")
             {
@@ -247,24 +305,39 @@ namespace spms.view.Pages.ChildWin
 
             //5m步行，通常
             string[] ppWalk5MileGeneral = Regex.Replace(physicalPower.PP_Walk5MileGeneral, @"param\d", "").Split(new char[] { ',' });
-            if (ppWalk5MileGeneral[0] == "基本方法"|| ppWalk5MileGeneral[0] == "Basic")
+            if (LanguageUtils.EqualsResource(ppWalk5MileGeneral[0], "PhysicalEvaluationFormView.Basic"))
             {
                 c26.IsChecked = true;
             }
-            else if (ppWalk5MileGeneral[0] == "常规外方法"|| ppWalk5MileGeneral[0] == "Modified")
+            else if (LanguageUtils.EqualsResource(ppWalk5MileGeneral[0], "PhysicalEvaluationFormView.Modified"))
             {
                 c27.IsChecked = true;
             }
             five1_first.Text = ppWalk5MileGeneral[1];
             five1_second.Text = ppWalk5MileGeneral[2];
-            if (ppWalk5MileGeneral[3] == "独自步行"|| ppWalk5MileGeneral[3] == "Independent")
+            if (LanguageUtils.EqualsResource(ppWalk5MileGeneral[3], "PhysicalEvaluationFormView.Independent"))
             {
                 c28.IsChecked = true;
             }
-            else if (list.Contains(ppWalk5MileGeneral[3]))
+            else if (LanguageUtils.EqualsResource(ppWalk5MileGeneral[3], "PhysicalEvaluationFormView.T-Kane"))
             {
                 c29.IsChecked = true;
-                comBox4.Text = ppWalk5MileGeneral[3];
+                comBox4.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.T-Kane");
+            }
+            else if (LanguageUtils.EqualsResource(ppWalk5MileGeneral[3], "PhysicalEvaluationFormView.Qtr-Cane"))
+            {
+                c29.IsChecked = true;
+                comBox4.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Qtr-Cane");
+            }
+            else if (LanguageUtils.EqualsResource(ppWalk5MileGeneral[3], "PhysicalEvaluationFormView.Walker"))
+            {
+                c29.IsChecked = true;
+                comBox4.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Walker");
+            }
+            else if (LanguageUtils.EqualsResource(ppWalk5MileGeneral[3], "PhysicalEvaluationFormView.Other"))
+            {
+                c29.IsChecked = true;
+                comBox4.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Other");
             }
             else if (ppWalk5MileGeneral[3] != "")
             {
@@ -275,25 +348,40 @@ namespace spms.view.Pages.ChildWin
 
             //5m步行，最快
             string[] ppWalk5MileFast = Regex.Replace(physicalPower.PP_Walk5MileFast, @"param\d", "").Split(new char[] { ',' });
-            if (ppWalk5MileFast[0] == "基本方法"|| ppWalk5MileFast[0] == "Basic")
+            if (LanguageUtils.EqualsResource(ppWalk5MileFast[0], "PhysicalEvaluationFormView.Basic"))
             {
                 c31.IsChecked = true;
             }
-            else if (ppWalk5MileFast[0] == "常规外方法"|| ppWalk5MileFast[0] == "Modified")
+            else if (LanguageUtils.EqualsResource(ppWalk5MileFast[0], "PhysicalEvaluationFormView.Modified"))
             {
                 c32.IsChecked = true;
             }
 
             five2_first.Text = ppWalk5MileFast[1];
             five2_second.Text = ppWalk5MileFast[2];
-            if (ppWalk5MileFast[3] == "独自步行"|| ppWalk5MileFast[3] == "Independent")
+            if (LanguageUtils.EqualsResource(ppWalk5MileFast[3], "PhysicalEvaluationFormView.Independent"))
             {
                 c33.IsChecked = true;
             }
-            else if (list.Contains(ppWalk5MileFast[3]))
+            else if (LanguageUtils.EqualsResource(ppWalk5MileFast[3], "PhysicalEvaluationFormView.T-Kane"))
             {
                 c34.IsChecked = true;
-                comBox5.Text = ppWalk5MileFast[3];
+                comBox5.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.T-Kane");
+            }
+            else if (LanguageUtils.EqualsResource(ppWalk5MileFast[3], "PhysicalEvaluationFormView.Qtr-Cane"))
+            {
+                c34.IsChecked = true;
+                comBox5.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Qtr-Cane");
+            }
+            else if (LanguageUtils.EqualsResource(ppWalk5MileFast[3], "PhysicalEvaluationFormView.Walker"))
+            {
+                c34.IsChecked = true;
+                comBox5.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Walker");
+            }
+            else if (LanguageUtils.EqualsResource(ppWalk5MileFast[3], "PhysicalEvaluationFormView.Other"))
+            {
+                c34.IsChecked = true;
+                comBox5.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Other");
             }
             else if (ppWalk5MileFast[3] != "")
             {
@@ -308,11 +396,11 @@ namespace spms.view.Pages.ChildWin
             string methodStr = "";
             if (ppWalk10Mile[0].Contains("通常")|| ppWalk10Mile[0].Contains("Normal"))
             {
-                methodStr = LanguageUtils.ConvertLanguage("通常", "Normal");
+                methodStr = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Normal");
             }
             else if (ppWalk10Mile[0].Contains("最快")|| ppWalk10Mile[0].Contains("utmost"))
             {
-                methodStr = LanguageUtils.ConvertLanguage("最快", "utmost");
+                methodStr = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.utmost");
             }
             method.Text = methodStr;
             if (ppWalk10Mile[0].Contains("基本方法")|| ppWalk10Mile[0].Contains("Basic"))
@@ -326,14 +414,29 @@ namespace spms.view.Pages.ChildWin
 
             ten_first.Text = ppWalk10Mile[1];
             ten_second.Text = ppWalk10Mile[2];
-            if (ppWalk10Mile[3] == "独自步行"|| ppWalk10Mile[3] == "Independent")
+            if (LanguageUtils.EqualsResource(ppWalk10Mile[3], "PhysicalEvaluationFormView.Independent"))
             {
                 c38.IsChecked = true;
             }
-            else if (list.Contains(ppWalk10Mile[3]))
+            else if (LanguageUtils.EqualsResource(ppWalk10Mile[3], "PhysicalEvaluationFormView.T-Kane"))
             {
                 c39.IsChecked = true;
-                comBox6.Text = ppWalk10Mile[3];
+                comBox6.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.T-Kane");
+            }
+            else if (LanguageUtils.EqualsResource(ppWalk10Mile[3], "PhysicalEvaluationFormView.Qtr-Cane"))
+            {
+                c39.IsChecked = true;
+                comBox6.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Qtr-Cane");
+            }
+            else if (LanguageUtils.EqualsResource(ppWalk10Mile[3], "PhysicalEvaluationFormView.Walker"))
+            {
+                c39.IsChecked = true;
+                comBox6.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Walker");
+            }
+            else if (LanguageUtils.EqualsResource(ppWalk10Mile[3], "PhysicalEvaluationFormView.Other"))
+            {
+                c39.IsChecked = true;
+                comBox6.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Other");
             }
             else if (ppWalk10Mile[3] != "")
             {
@@ -347,14 +450,29 @@ namespace spms.view.Pages.ChildWin
             string[] ppWalk6Minute = Regex.Replace(physicalPower.PP_Walk6Minute, @"param\d", "").Split(new char[] { ',' });
             six_first.Text = ppWalk6Minute[1];
             six_second.Text = ppWalk6Minute[2];
-            if (ppWalk6Minute[3] == "独自步行"|| ppWalk6Minute[3] == "Independent")
+            if (LanguageUtils.EqualsResource(ppWalk6Minute[3], "PhysicalEvaluationFormView.Independent"))
             {
                 c43.IsChecked = true;
             }
-            else if (list.Contains(ppWalk6Minute[3]))
+            else if (LanguageUtils.EqualsResource(ppWalk6Minute[3], "PhysicalEvaluationFormView.T-Kane"))
             {
                 c44.IsChecked = true;
-                comBox7.Text = ppWalk6Minute[3];
+                comBox7.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.T-Kane");
+            }
+            else if (LanguageUtils.EqualsResource(ppWalk6Minute[3], "PhysicalEvaluationFormView.Qtr-Cane"))
+            {
+                c44.IsChecked = true;
+                comBox7.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Qtr-Cane");
+            }
+            else if (LanguageUtils.EqualsResource(ppWalk6Minute[3], "PhysicalEvaluationFormView.Walker"))
+            {
+                c44.IsChecked = true;
+                comBox7.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Walker");
+            }
+            else if (LanguageUtils.EqualsResource(ppWalk6Minute[3], "PhysicalEvaluationFormView.Other"))
+            {
+                c44.IsChecked = true;
+                comBox7.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Other");
             }
             else if (ppWalk6Minute[3] != "")
             {
@@ -368,14 +486,29 @@ namespace spms.view.Pages.ChildWin
             string[] ppStep2Minute = Regex.Replace(physicalPower.PP_Step2Minute, @"param\d", "").Split(new char[] { ',' });
             two_first.Text = ppStep2Minute[1];
             two_second.Text = ppStep2Minute[2];
-            if (ppStep2Minute[3] == "独自步行"|| ppStep2Minute[3] == "Independent")
+            if (LanguageUtils.EqualsResource(ppStep2Minute[3], "PhysicalEvaluationFormView.Independent"))
             {
                 c46.IsChecked = true;
             }
-            else if (list.Contains(ppStep2Minute[3]))
+            else if (LanguageUtils.EqualsResource(ppStep2Minute[3], "PhysicalEvaluationFormView.T-Kane"))
             {
                 c47.IsChecked = true;
-                comBox8.Text = ppStep2Minute[3];
+                comBox8.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.T-Kane");
+            }
+            else if (LanguageUtils.EqualsResource(ppStep2Minute[3], "PhysicalEvaluationFormView.Qtr-Cane"))
+            {
+                c47.IsChecked = true;
+                comBox8.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Qtr-Cane");
+            }
+            else if (LanguageUtils.EqualsResource(ppStep2Minute[3], "PhysicalEvaluationFormView.Walker"))
+            {
+                c47.IsChecked = true;
+                comBox8.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Walker");
+            }
+            else if (LanguageUtils.EqualsResource(ppStep2Minute[3], "PhysicalEvaluationFormView.Other"))
+            {
+                c47.IsChecked = true;
+                comBox8.Text = LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Other");
             }
             else if (ppStep2Minute[3] != "")
             {
@@ -389,11 +522,11 @@ namespace spms.view.Pages.ChildWin
             string[] ppLegRaise2Minute = Regex.Replace(physicalPower.PP_LegRaise2Minute, @"param\d", "").Split(new char[] { ',' });
             twoleg_first.Text = ppLegRaise2Minute[1];
             twoleg_second.Text = ppLegRaise2Minute[2];
-            if (ppLegRaise2Minute[3] == "站姿"|| ppLegRaise2Minute[3] == "Standing")
+            if (LanguageUtils.EqualsResource(ppLegRaise2Minute[3], "PhysicalEvaluationFormView.Standing"))
             {
                 c49.IsChecked = true;
             }
-            else if (ppLegRaise2Minute[3] == "坐姿"|| ppLegRaise2Minute[3] == "Seated")
+            else if (LanguageUtils.EqualsResource(ppLegRaise2Minute[3], "PhysicalEvaluationFormView.Seated"))
             {
                 c50.IsChecked = true;
             }

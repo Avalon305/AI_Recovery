@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.util;
 
 namespace spms
 {
@@ -26,7 +27,7 @@ namespace spms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            LanguageUtils.EqualsResource("倒计时", "TrainingListView.CountReverse");
         }
     }
 }

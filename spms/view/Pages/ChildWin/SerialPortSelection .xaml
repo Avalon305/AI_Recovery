@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
-       Title="宝德龙" Height="230" Width="380"
+       Title="{DynamicResource Title.Title}" Height="230" Width="380"
         PreviewKeyDown="key_dowm"
         Loaded="Window_Loaded">
     <StackPanel Orientation="Vertical">

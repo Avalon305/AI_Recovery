@@ -112,8 +112,10 @@ namespace spms.view.Pages
             if (!File.Exists(path))
             {
 
+
                 BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
-                //UserPhoto.Source = bitmap.Clone();
+
+                UserPhoto.Source = bitmap;
 
                 return;
             }
@@ -204,7 +206,7 @@ namespace spms.view.Pages
         {
             // 切换用户图片的显示，解决线程占用问题
             BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
-            //UserPhoto.Source = bitmap.Clone();
+            UserPhoto.Source = bitmap;
 
             //检查是否选中
             if (selectUser == null)

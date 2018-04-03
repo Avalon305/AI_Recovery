@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="352" Width="470"
+        Title="{DynamicResource Title.Title}" Height="352" Width="470"
            ResizeMode = "NoResize"
         Loaded="Window_Loaded"
          LocationChanged="windowmove">

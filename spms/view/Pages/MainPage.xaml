@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:spms.view.Pages"
       xmlns:converter="clr-namespace:spms.view.converter"
       mc:Ignorable="d" 
-        Title="宝德龙"
+        Title="{DynamicResource Title.Title}"
        Loaded="Page_Loaded"
     >
     <Page.Resources>

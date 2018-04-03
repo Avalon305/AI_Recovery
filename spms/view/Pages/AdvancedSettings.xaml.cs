@@ -3,6 +3,7 @@ using spms.constant;
 using spms.dao;
 using spms.entity;
 using spms.protocol;
+using spms.service;
 using spms.util;
 using spms.view.Pages.ChildWin;
 using System;
@@ -39,6 +40,7 @@ namespace spms.view.Pages
         DeviceSetDAO deviceSetDAO = new DeviceSetDAO();
         SetterDAO SetterDAO = new SetterDAO();
         Auther auther = new Auther();
+        AuthService authService = new AuthService();
         DeviceSet deviceSet = new DeviceSet();
         List<entity.Setter> setterList = new List<entity.Setter>();
         SetterDAO setterDao = new SetterDAO();
@@ -148,6 +150,7 @@ namespace spms.view.Pages
                     };
                     addAuther.ShowDialog();
                     FlushAuther();
+                    authService.UpLoadAuth();
                 }
                 else
                 {

@@ -165,7 +165,7 @@ namespace spms.view.Pages
             }
             //切换语言
             LanguageUtils.SetLanguage();
-            
+            GoBack(null, null);
         }
 
         

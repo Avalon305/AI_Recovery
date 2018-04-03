@@ -10,7 +10,7 @@
          PreviewKeyDown="key_dowm"
         ResizeMode="NoResize"
 Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="700" Width="880"
+        Title="{DynamicResource Title.Title}" Height="700" Width="880"
         Loaded="Window_Loaded">
     <Viewbox Stretch="Fill">
     <StackPanel Orientation="Vertical">

@@ -10,7 +10,7 @@
          PreviewKeyDown="key_dowm"
          xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙"
+        Title="{DynamicResource Title.Title}"
          ResizeMode = "NoResize" Height="710.6" Width="850"
         Loaded="Window_Loaded">
     <Window.Resources>
@@ -394,11 +394,11 @@
                 <Label  Grid.Row="12" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <StackPanel Grid.Row="12" Grid.Column="2" Orientation="Horizontal">
                     <TextBox Margin="5,11,0,11" Name="step2_first" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                    <Label Content="次" Margin="1,11,1,9.6"/>
+                    <Label Content="{DynamicResource PhysicalEvaluationFormView.N}" Margin="1,11,1,9.6"/>
                 </StackPanel>
                 <StackPanel Grid.Row="12" Grid.Column="3" Orientation="Horizontal">
                     <TextBox Margin="5,11,0,11" Name="step2_second" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                    <Label Content="次" Margin="1,11,1,9.6"/>
+                    <Label Content="{DynamicResource PhysicalEvaluationFormView.N}" Margin="1,11,1,9.6"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"  Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="2" Margin="129.2,0.8,1.6,0.8"   >
                     <CheckBox  Name="step2_walk" FontSize="10" Checked="c46_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False"  Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
@@ -413,11 +413,11 @@
 
                 <StackPanel Grid.Row="13" Grid.Column="2" Orientation="Horizontal">
                     <TextBox Margin="5,5,0,5" Name="leg2_first" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                    <Label Content="次" VerticalAlignment="Center"/>
+                    <Label Content="{DynamicResource PhysicalEvaluationFormView.N}" VerticalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Grid.Row="13" Grid.Column="3" Orientation="Horizontal">
                     <TextBox Margin="5,5,0,5" Name="leg2_second" Width="71" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                    <Label Content="次" VerticalAlignment="Center" />
+                    <Label Content="{DynamicResource PhysicalEvaluationFormView.N}" VerticalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Orientation="Vertical"  Grid.Row="12" Grid.Column="4" Margin="0,44.8,1.2,45.2" Grid.RowSpan="3"   >
                     <CheckBox  Name="leg2_stand" FontSize="10" Checked="c49_Checked"  Height="14" HorizontalAlignment="Left" Width="123" Margin="9,1.5,0,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Standing}"></CheckBox>
