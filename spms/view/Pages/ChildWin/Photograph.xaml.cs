@@ -158,7 +158,7 @@ namespace spms.view.Pages.ChildWin
             photoName += ".jpg";
             
             CreateDir(CommUtil.GetUserPic());
-            PicZipUtil.GetPicThumbnail(bmcpy, CommUtil.GetUserPic() + photoName, 50);
+            PicZipUtil.GetPicThumbnail(bmcpy, CommUtil.GetUserPic() + photoName, 90);
             //bmcpy.Save(CommUtil.GetUserPic() + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
 
 
