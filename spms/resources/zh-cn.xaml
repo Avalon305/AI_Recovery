@@ -326,6 +326,7 @@
     <s:String x:Key="PhysicalEvaluationFormView.LeftLateral">左手侧面支持</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.BothFrontal">两手前面支持</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.BothLateral">两手侧面支持</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.N">次</s:String>
 
     <!-- 制作体力评价报告界面 -->
     <s:String x:Key="CreateTrainingReportView.CreateTrainingReport">制作体力评价报告</s:String>

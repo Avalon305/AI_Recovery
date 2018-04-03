@@ -322,6 +322,7 @@
     <s:String x:Key="PhysicalEvaluationFormView.LeftLateral">Left Lateral</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.BothFrontal">Both Frontal</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.BothLateral">Both Lateral</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.N">N</s:String>
 
     <!-- 制作体力评价报告界面 -->
     <s:String x:Key="CreateTrainingReportView.CreateTrainingReport">Create Training Report</s:String>

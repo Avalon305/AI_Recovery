@@ -1345,7 +1345,7 @@ namespace spms.view.Pages.ChildWin
             TrainInfo trainInfo = new TrainService().GetTrainInfoByUserIdAndStatus(user.Pk_User_Id, (int)TrainInfoStatus.Normal);
             if (trainInfo != null)
             {
-                MessageBox.Show("是否覆盖");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("是否覆盖", "Whether or not to cover"));
             }
 
             if (user != null)
@@ -1439,7 +1439,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (UnauthorizedAccessException ex)
                     {
-                        MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
                         //清空缓存
                         SerialPortUtil.SerialPort = null;
                         serialPort = null;
@@ -1447,7 +1447,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (IOException ex)
                     {
-                        MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
                         SerialPortUtil.SerialPort = null;
                         serialPort = null;
                         return;
@@ -1463,12 +1463,12 @@ namespace spms.view.Pages.ChildWin
                         }
                         catch (UnauthorizedAccessException ex)
                         {
-                            MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
                             return;
                         }
                         catch (IOException ex)
                         {
-                            MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
                             return;
                         }
                     }
@@ -1509,12 +1509,12 @@ namespace spms.view.Pages.ChildWin
                         }
                         catch (UnauthorizedAccessException ex)
                         {
-                            MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
                             return;
                         }
                         catch (IOException ex)
                         {
-                            MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
                             return;
                         }
                     }
@@ -1531,7 +1531,7 @@ namespace spms.view.Pages.ChildWin
                 SerialPortUtil.ClosePort(ref serialPort);
                 Dispatcher.Invoke(new Action(() =>
                 {
-                    MessageBox.Show("设备长时间未应答，请查看是否选对串口，或设备未启动");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("设备长时间未应答，请查看是否选对串口，或设备未启动", "The device has not answered for a long time. Check whether the serial port is selected or the device is not started."));
                     Button_Write.IsEnabled = true;
                 }));
                
@@ -1631,14 +1631,15 @@ namespace spms.view.Pages.ChildWin
                                     return;
                                 }
                             }));
+                            
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("写卡成功", "Write card success"));
 
-                            MessageBox.Show("写卡成功");
                         }
                         else
                         {
                             //this.Close();
                             //Console.WriteLine("发卡失败");
-                            MessageBox.Show("写卡失败");
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("写卡失败", "Failed to write to card"));
                         }
                     }
                 }
@@ -1669,8 +1670,8 @@ namespace spms.view.Pages.ChildWin
                 Console.WriteLine("捕获异常了");
                 return;
             }
-            
-            MessageBox.Show("已写卡");
+
+            MessageBox.Show(LanguageUtils.ConvertLanguage("写卡成功", "Write card success"));
             this.Close();
         }
         //回车按钮

@@ -452,7 +452,7 @@ namespace spms.view.Pages.ChildWin
 
             if (new PhysicaleValuationService().AddPhysicalPower(physicalPower) == 1)
             {
-                MessageBox.Show("保存成功");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
                 this.Close();
             } 
         }
