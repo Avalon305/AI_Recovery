@@ -103,30 +103,30 @@
                         <ColumnDefinition Width="109.6"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBox Grid.Row="0" Grid.Column="0" Margin="17.2,2,72.2,1.8" Name="bloodlow_1" VerticalContentAlignment="Center"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                    <TextBox Grid.Row="0" CaretBrush="Black" Grid.Column="0" Margin="17.2,2,72.2,1.8" Name="bloodlow_1" VerticalContentAlignment="Center"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                     <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="50.2,0,50.2,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
-                    <TextBox Grid.Row="0" Grid.Column="0" Margin="72.2,2,17.4,1.8"  Name="bloodhight_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                    <TextBox Grid.Row="0" Margin="118,0,0.2,23.6" Grid.RowSpan="2" Name="heartRate_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Grid.ColumnSpan="2"/>
+                    <TextBox Grid.Row="0" CaretBrush="Black" Grid.Column="0" Margin="72.2,2,17.4,1.8"  Name="bloodhight_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                    <TextBox Grid.Row="0"  CaretBrush="Black" Margin="118,0,0.2,23.6" Grid.RowSpan="2" Name="heartRate_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Grid.ColumnSpan="2"/>
                     <GroupBox Grid.Row="0" Grid.Column="1"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="92.6,2,0.2,0.8" Width="140" Grid.ColumnSpan="2" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="140" Margin="-6,0,-6.8,-6" >
                             <RadioButton VerticalAlignment="Center" Width="64" VerticalContentAlignment="Center" Margin="0,0,0,0.4" Name="rule_1"  IsTabStop="False" Content="{DynamicResource VitalInfoView.Regular}" Height="22" ></RadioButton>
                             <RadioButton VerticalAlignment="Center" VerticalContentAlignment="Center" Width="70" Name="irregular_1" IsTabStop="False" Content="{DynamicResource VitalInfoView.Irregular}" Height="22" Margin="0,0,0,0.4"  ></RadioButton>
                         </StackPanel>
                     </GroupBox>
-                    <TextBox Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"   Name="heat_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Margin="139.8,0,0.8,24.6" Grid.ColumnSpan="2"/>
+                    <TextBox Grid.Row="0" CaretBrush="Black" Grid.Column="2" Grid.RowSpan="2"   Name="heat_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Margin="139.8,0,0.8,24.6" Grid.ColumnSpan="2"/>
 
 
-                    <TextBox Grid.Row="1" Grid.Column="0" Margin="17.2,2,72.2,1.8"  Name="bloodlow_2" VerticalContentAlignment="Center"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                    <TextBox Grid.Row="1" CaretBrush="Black" Grid.Column="0" Margin="17.2,2,72.2,1.8"  Name="bloodlow_2" VerticalContentAlignment="Center"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                     <Label Content="/" Grid.Row="1" Grid.Column="0" Margin="50,0.2,50,0.6"  HorizontalContentAlignment="Center" />
-                    <TextBox Grid.Row="1" Grid.Column="0" Margin="72.2,2,17.4,1.8" Name="bloodhight_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Margin="0.6,0.2,0,-0.4" Name="heartRate_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                    <TextBox Grid.Row="1" CaretBrush="Black" Grid.Column="0" Margin="72.2,2,17.4,1.8" Name="bloodhight_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                    <TextBox Grid.Row="1" CaretBrush="Black" Grid.Column="1" Margin="0.6,0.2,0,-0.4" Name="heartRate_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                     <GroupBox Grid.Row="1" Grid.Column="1"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Margin="92.6,0.2,0.2,0.6" Width="140" Grid.ColumnSpan="2" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="139" Margin="-6,0,-5.8,-6.4" >
                             <RadioButton VerticalAlignment="Center" Width="65" Margin="0,0,0,-0.2" VerticalContentAlignment="Center" Name="rule_2"  IsTabStop="False" Content="{DynamicResource VitalInfoView.Regular}" Height="25"></RadioButton>
                             <RadioButton VerticalAlignment="Center"  Width="70" Name="irregular_2" VerticalContentAlignment="Center" IsTabStop="False"  Content="{DynamicResource VitalInfoView.Irregular}" Height="25" Margin="0,0,0,-0.2"   ></RadioButton>
                         </StackPanel>
                     </GroupBox>
-                    <TextBox Grid.Row="1" Grid.Column="2" Margin="139.8,0.2,0.8,-0.4" Name="heat_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Grid.ColumnSpan="2"/>
+                    <TextBox Grid.Row="1" CaretBrush="Black" Grid.Column="2" Margin="139.8,0.2,0.8,-0.4" Name="heat_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Grid.ColumnSpan="2"/>
                     <Border Grid.Row="0" Grid.Column="0" BorderBrush="Silver" BorderThickness="1,1,0,1"  Margin="0,0,0,24.6" Grid.RowSpan="2"/>
                     <Border Grid.Row="0" BorderBrush="Silver" BorderThickness="1,1,1,1" Margin="0.6,0,0,24.6" Grid.RowSpan="2" Grid.Column="1" />
                     <Border Grid.Row="0" Grid.Column="1" BorderBrush="Silver" BorderThickness="1" Margin="92.0,0,0,24.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
@@ -188,7 +188,7 @@
             <!--水分摄取-->
             <StackPanel Orientation="Horizontal" Margin="10,10,10,10">
                 <Label  Content="{DynamicResource VitalInfoView.Water}" Background="Gray" Foreground="White"  Width="80"/>
-                <TextBox Margin="20,0" Width="41" x:Name="amunt" VerticalContentAlignment="Center" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                <TextBox Margin="20,0" Width="41" CaretBrush="Black" x:Name="amunt" VerticalContentAlignment="Center" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="(cc)"/>
             </StackPanel>
             <!--结束：水分摄取-->
@@ -207,7 +207,7 @@
                     </FlowDocument>
                 </RichTextBox.Document>
             </RichTextBox>-->
-                <TextBox Margin="3,0,0,0.4" Width="461" Name="Record" AcceptsReturn="True" TextWrapping="Wrap"/>
+                <TextBox Margin="3,0,0,0.4" CaretBrush="Black" Width="461" Name="Record" AcceptsReturn="True" TextWrapping="Wrap"/>
             </StackPanel>
             <!--结束：看护记录-->
             <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="128" Height="27" VerticalAlignment="Bottom"  Margin="0,15,11,10">

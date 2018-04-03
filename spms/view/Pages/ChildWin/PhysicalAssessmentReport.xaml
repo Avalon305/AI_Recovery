@@ -108,7 +108,7 @@
 
             <Border BorderBrush="Black" BorderThickness="1" Width="362" Height="100">
                 <Grid>
-                    <RichTextBox  AcceptsReturn="True">
+                        <RichTextBox CaretBrush="Black"  AcceptsReturn="True">
                         <!--行间距-->
                         <RichTextBox.Document>
                             <FlowDocument Focusable="True" LineHeight="1">

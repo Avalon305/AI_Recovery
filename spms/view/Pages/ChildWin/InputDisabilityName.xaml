@@ -31,7 +31,7 @@
             </Grid>
         </Border>
         <!--输入框-->
-        <TextBox Name="Diagnosis" LostFocus="Text_LostFocus" VerticalAlignment="Center" Margin="5,15,5,5" BorderBrush="Gray" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Name="Diagnosis" LostFocus="Text_LostFocus"  CaretBrush="Black" VerticalAlignment="Center" Margin="5,15,5,5" BorderBrush="Gray" VerticalContentAlignment="Center"></TextBox>
         <!-- 保存及取消按钮-->
         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="146" Height="26" VerticalAlignment="Bottom"  BorderThickness="0" Margin="0,0,4.6,0" >
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
