@@ -43,7 +43,7 @@ namespace spms.util
             var dataCodeCache = DataCodeCache.GetInstance();
             if (all != null && all.Count != 0)
             {
-                if (dataCodeCache.GetCodeDValue(DataCodeTypeEnum.Language, all[0].Set_Language.ToString()) == "英语")
+                if (dataCodeCache.GetCodeDValue(DataCodeTypeEnum.Language, all[0].Set_Language.ToString()) == "English")
                 {
                     return false;
                 }

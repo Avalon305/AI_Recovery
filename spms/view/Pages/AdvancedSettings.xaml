@@ -7,7 +7,7 @@
       xmlns:my="clr-namespace:spms.view.controls"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="宝德龙"
+      Title="{DynamicResource Title.Title}"
       Height="700" Width="1290" Loaded="Page_Loaded"
      PreviewKeyDown="key_dowm"
       >

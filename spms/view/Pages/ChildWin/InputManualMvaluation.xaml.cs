@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.util;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -45,10 +46,10 @@ namespace spms.view.Pages.ChildWin
 
             List<String> list = new List<string>
             {
-                "T字拐杖",
-                "4字拐杖",
-                "步行器",
-                "其他"
+                LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.T-Kane"),
+                LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Qtr-Cane"),
+                LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Walker"),
+                LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Other")
             };
             stand_tools_selected.ItemsSource = list;
             time_up_other_selected.ItemsSource = list;
@@ -60,18 +61,18 @@ namespace spms.view.Pages.ChildWin
 
             stand_tools_selected2.ItemsSource = new List<string>
             {
-                "右手前面支持",
-                "右手侧面支持",
-                "左手前面支持",
-                "左手侧面支持",
-                "两手前面支持",
-                "两手侧面支持"
+                LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.RightFrontal"),
+                LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.RightLateral"),
+                LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.LeftFrontal"),
+                LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.LeftLateral"),
+                LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.BothFrontal"),
+                LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.BothLateral")
             };
 
             walk10_comboBox.ItemsSource = new List<string>
             {
-                "通常",
-                "最快"
+                LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.Normal"),
+                LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.utmost")
             };
             walk10_comboBox.SelectedIndex = 0;
         }

@@ -18,6 +18,9 @@
     <!-- 主界面 -->
     <s:String x:Key="MainView.Settings">设置</s:String>
     <s:String x:Key="MainView.Close">关闭</s:String>
+    
+    <!-- 标题 -->
+    <s:String x:Key="Title.Title">宝德龙</s:String>
 
     <!-- 设备 -->
     <s:String x:Key="Dev.HorizontalLegPress">腿部推蹬机</s:String>

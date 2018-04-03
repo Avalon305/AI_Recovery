@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="302" Width="436"
+        Title="{DynamicResource Title.Title}" Height="302" Width="436"
          ResizeMode = "NoResize"
         Loaded="Window_Loaded">
 

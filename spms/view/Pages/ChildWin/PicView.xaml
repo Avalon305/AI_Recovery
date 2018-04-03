@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="450" Width="800"
+        Title="{DynamicResource Title.Title}" Height="450" Width="800"
         Loaded="Window_Loaded">
     <StackPanel Orientation="Vertical">
         <Grid Height="30">

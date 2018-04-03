@@ -10,7 +10,7 @@
         PreviewKeyDown="key_dowm"
         ResizeMode="NoResize"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="720" Width="1290"
+        Title="{DynamicResource Title.Title}" Height="720" Width="1290"
         Loaded="Window_Loaded"
         LocationChanged="windowmove"
         >

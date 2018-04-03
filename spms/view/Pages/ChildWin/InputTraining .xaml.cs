@@ -1031,7 +1031,7 @@ namespace spms.view.Pages.ChildWin
             combobox_01.ItemsSource = Add(1, 3, 2);
             combobox_02.ItemsSource = Add(1, 20, 2);
             combobox_03.ItemsSource = Add(1, 60, 2);
-            combobox_04.ItemsSource = Add(1.0, 84.0, 2);
+            combobox_04.ItemsSource = Add(0.5, 32.0, 1);
             combobox_05.ItemsSource = dataItems;
 
             com_11.ItemsSource = Add(0, 70, 2);
@@ -1041,7 +1041,7 @@ namespace spms.view.Pages.ChildWin
             combobox_11.ItemsSource = Add(1, 3, 2);
             combobox_12.ItemsSource = Add(1, 20, 2);
             combobox_13.ItemsSource = Add(1, 60, 2);
-            combobox_14.ItemsSource = Add(1.0, 32.0, 1);
+            combobox_14.ItemsSource = Add(0.5, 32.0, 1);
             combobox_15.ItemsSource = dataItems;
 
             com_21.ItemsSource = Add(0, 40, 2);
@@ -1062,7 +1062,7 @@ namespace spms.view.Pages.ChildWin
             combobox_31.ItemsSource = Add(1, 3, 2);
             combobox_32.ItemsSource = Add(1, 20, 2);
             combobox_33.ItemsSource = Add(1, 60, 2);
-            combobox_34.ItemsSource = Add(1.0, 32.0, 1);
+            combobox_34.ItemsSource = Add(0.5, 32.0, 1);
             combobox_35.ItemsSource = dataItems;
 
             com_41.ItemsSource = Add(0, 50, 2);
@@ -1071,7 +1071,7 @@ namespace spms.view.Pages.ChildWin
             combobox_41.ItemsSource = Add(1, 3, 2);
             combobox_42.ItemsSource = Add(1, 20, 2);
             combobox_43.ItemsSource = Add(1, 60, 2);
-            combobox_44.ItemsSource = Add(1.0, 32.0, 1);
+            combobox_44.ItemsSource = Add(0.5, 32.0, 1);
             combobox_45.ItemsSource = dataItems;
 
             com_51.ItemsSource = Add(0, 18, 2);
@@ -1080,7 +1080,7 @@ namespace spms.view.Pages.ChildWin
             combobox_51.ItemsSource = Add(1, 3, 2);
             combobox_52.ItemsSource = Add(1, 20, 2);
             combobox_53.ItemsSource = Add(1, 60, 2);
-            combobox_54.ItemsSource = Add(1.0, 32.0, 1);
+            combobox_54.ItemsSource = Add(0.5, 32.0, 1);
             combobox_55.ItemsSource = dataItems;
 
             List<DevicePrescription> devicePrescriptions = new TrainService().GetSaveDevicePrescriptionsByUser(user);

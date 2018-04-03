@@ -10,7 +10,7 @@
          xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="656.993" Width="600"
+        Title="{DynamicResource Title.Title}" Height="656.993" Width="600"
          ResizeMode = "NoResize"
         Loaded="Window_Loaded"
         PreviewKeyDown="key_dowm"

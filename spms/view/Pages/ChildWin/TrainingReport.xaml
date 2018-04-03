@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="718.827" Width="480"
+        Title="{DynamicResource Title.Title}" Height="718.827" Width="480"
         Loaded="Window_Loaded">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
