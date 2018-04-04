@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using spms.entity;
+using spms.util;
 
 namespace spms.view.dto
 {
@@ -46,17 +47,75 @@ namespace spms.view.dto
             this.CareInfo = symptomInfo.SI_CareInfo;
             this.Inquiry = symptomInfo.SI_Inquiry;
             this.WaterInput = symptomInfo.SI_WaterInput;
-            this.Join = symptomInfo.SI_IsJoin == 0 ? "否" : "是";
+            this.Join = symptomInfo.SI_IsJoin == 0 ? LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Yes") : LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.No");
 
             this.Pre_Pressure = symptomInfo.SI_Pre_HighPressure + " / " + symptomInfo.SI_Pre_LowPressure;
             this.Pre_AnimalHeat = symptomInfo.SI_Pre_AnimalHeat;
-            this.Pre_Pulse = symptomInfo.SI_Pre_Pulse == 0 ? "规律脉" : "脉律不齐";
+            this.Pre_Pulse = symptomInfo.SI_Pre_Pulse == 0 ? LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Regular") : LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Irregular");
             this.Pre_HeartRate = symptomInfo.SI_Pre_HeartRate;
 
             this.Suf_AnimalHeat = symptomInfo.SI_Suf_AnimalHeat;
             this.Suf_HeartRate = symptomInfo.SI_Suf_HeartRate;
-            this.Suf_Pulse = symptomInfo.SI_Suf_Pulse == 0 ? "规律脉" : "脉律不齐";
+            this.Suf_Pulse = symptomInfo.SI_Suf_Pulse == 0 ? LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Regular") : LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Irregular");
             this.Suf_Pressure = symptomInfo.SI_Suf_HighPressure + " / " + symptomInfo.SI_Suf_LowPressure;
+            List<string> inquiryList = new List<string>();
+            //翻译问卷票
+            foreach (string inquiry in symptomInfo.SI_Inquiry.Split(new char[] { ',' }))
+            {
+                if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Janguidness"))
+                {
+                    inquiryList.Add(LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Janguidness"));
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Diarrhea"))
+                {
+                    inquiryList.Add(LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Diarrhea"));
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Wamble"))
+                {
+                    inquiryList.Add(LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Wamble"));
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.BeingBreathless"))
+                {
+                    inquiryList.Add(LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.BeingBreathless"));
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.CoughAndPhlegm"))
+                {
+                    inquiryList.Add(LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.CoughAndPhlegm"));
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Fever"))
+                {
+                    inquiryList.Add(LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Fever"));
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Stomachache"))
+                {
+                    inquiryList.Add(LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Stomachache"));
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.APoorAppetite"))
+                {
+                    inquiryList.Add(LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.APoorAppetite"));
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Constipation"))
+                {
+                    inquiryList.Add(LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Constipation"));
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Dizziness"))
+                {
+                    inquiryList.Add(LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Dizziness"));
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Headache"))
+                {
+                    inquiryList.Add(LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Headache"));
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Other"))
+                {
+                    inquiryList.Add(LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Other"));
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.NotApplicable"))
+                {
+                    inquiryList.Add(LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.NotApplicable"));
+                }
+            }
+            Inquiry = string.Join(",", inquiryList.ToArray());
         }
     }
 }

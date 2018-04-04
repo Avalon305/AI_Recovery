@@ -172,21 +172,21 @@
                 <Border Width="461" Height="190" Margin="3,0,0,0" BorderBrush="Silver" BorderThickness="1">
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="0,8,0,0.8" Width="236" Orientation="Vertical" Name="stackPanel_1">
-                            <CheckBox Margin="20,1,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.Janguidness}"  ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.Diarrhea}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.Wamble}"  ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.BeingBreathless}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.CoughAndPhlegm}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15"  IsEnabled="False"  Content="{DynamicResource VitalInfoView.Fever}"></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsEnabled="False" Content="{DynamicResource VitalInfoView.Stomachache}"  ></CheckBox>
+                            <CheckBox Name="Janguidness" Margin="20,1,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.Janguidness}"  ></CheckBox>
+                            <CheckBox Name="Diarrhea"  Margin="20,-5,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.Diarrhea}" ></CheckBox>
+                            <CheckBox Name="Wamble"  Margin="20,-5,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.Wamble}"  ></CheckBox>
+                            <CheckBox Name="BeingBreathless"  Margin="20,-5,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.BeingBreathless}" ></CheckBox>
+                            <CheckBox Name="CoughAndPhlegm"  Margin="20,-5,20,15"  IsEnabled="False" Content="{DynamicResource VitalInfoView.CoughAndPhlegm}" ></CheckBox>
+                            <CheckBox Name="Fever"  Margin="20,-5,20,15"  IsEnabled="False"  Content="{DynamicResource VitalInfoView.Fever}"></CheckBox>
+                            <CheckBox Name="Stomachache"  Margin="20,-5,20,15" IsEnabled="False" Content="{DynamicResource VitalInfoView.Stomachache}"  ></CheckBox>
                         </StackPanel>
                         <StackPanel Margin="0,8,3,0.8" Width="227" Orientation="Vertical" Name="stackPanel_2">
-                            <CheckBox Margin="20,1,20,15"  IsEnabled="False"  Content="{DynamicResource VitalInfoView.APoorAppetite}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Constipation}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsEnabled="False" Content="{DynamicResource VitalInfoView.Dizziness}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Headache}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsEnabled="False" Content="{DynamicResource VitalInfoView.Other}"  ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsEnabled="False" Content="{DynamicResource VitalInfoView.NotApplicable}"  ></CheckBox>
+                            <CheckBox Name="APoorAppetite"  Margin="20,1,20,15"  IsEnabled="False"  Content="{DynamicResource VitalInfoView.APoorAppetite}" ></CheckBox>
+                            <CheckBox Name="Constipation"  Margin="20,-5,20,15" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Constipation}" ></CheckBox>
+                            <CheckBox Name="Dizziness"  Margin="20,-5,20,15" IsEnabled="False" Content="{DynamicResource VitalInfoView.Dizziness}" ></CheckBox>
+                            <CheckBox Name="Headache"  Margin="20,-5,20,15" IsEnabled="False"  Content="{DynamicResource VitalInfoView.Headache}" ></CheckBox>
+                            <CheckBox Name="Other"  Margin="20,-5,20,15" IsEnabled="False" Content="{DynamicResource VitalInfoView.Other}"  ></CheckBox>
+                            <CheckBox Name="NotApplicable"  Margin="20,-5,20,15" IsEnabled="False" Content="{DynamicResource VitalInfoView.NotApplicable}"  ></CheckBox>
                         </StackPanel>
                     </StackPanel>
 

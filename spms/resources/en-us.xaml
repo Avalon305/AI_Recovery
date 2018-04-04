@@ -14,6 +14,7 @@
     <s:String x:Key="FormView.InputUserName">Input UserName</s:String>
     <s:String x:Key="FormView.InputPasswd">Input Passwd</s:String>
     <s:String x:Key="FormView.UserOrPasswdErro">User Or Passwd Erro</s:String>
+    <s:String x:Key="FormView.RememberPassword">Remember Password</s:String>
 
     <!-- 主界面 -->
     <s:String x:Key="MainView.Settings">Settings</s:String>

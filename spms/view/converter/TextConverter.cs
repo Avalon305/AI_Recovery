@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using spms.util;
 
 namespace spms.view.converter
 {
@@ -15,15 +16,15 @@ namespace spms.view.converter
         {
             if(value == null)
             {
-                return "未填写";
+                return LanguageUtils.ConvertLanguage("未填写", "Unfilled");
             }
             else { 
             String text = value.ToString();
             
             if (String.IsNullOrEmpty(text.Trim()))
             {
-                return "未填写";
-            }
+                return LanguageUtils.ConvertLanguage("未填写", "Unfilled");
+                }
             else
             {
                 return text;
@@ -35,15 +36,15 @@ namespace spms.view.converter
         {
             if (value == null)
             {
-                return "未填写";
+                return LanguageUtils.ConvertLanguage("未填写", "Unfilled");
             }
             else
             {
                 String text = value.ToString();
 
-                if (value.ToString().Equals("未填写"))
+                if (value.ToString().Equals("未填写") || value.ToString().Equals("Unfilled"))
                 {
-                    return "未填写";
+                    return LanguageUtils.ConvertLanguage("未填写", "Unfilled");
                 }
                 else
                 {

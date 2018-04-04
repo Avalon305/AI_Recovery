@@ -64,7 +64,7 @@
                                     <Path SnapsToDevicePixels="False" StrokeThickness="3" Data="M8,17 L20,4" Stroke="White"/>
                                 </Grid>
                             </Grid>
-                            <TextBlock Grid.Column="1" Text="记住密码" FontFamily="{StaticResource 微软雅黑}" FontSize="18" Foreground="Black" VerticalAlignment="Center" Margin="14,0,0,0"/>
+                            <TextBlock Grid.Column="1" Text="{DynamicResource FormView.RememberPassword}" FontFamily="{StaticResource 微软雅黑}" FontSize="18" Foreground="Black" VerticalAlignment="Center" Margin="14,0,0,0"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="True">
@@ -182,7 +182,7 @@
                 <Label Name="textBlock"  Margin="500,360,381,320" VerticalAlignment="Center" FontSize="20" Content="{DynamicResource FormView.InputPasswd}"  Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic"/>
                 <PasswordBox Name="User_Password"  CaretBrush="Black" Margin="500,360,380,320" Foreground="DimGray"  FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="25" LostFocus="User_Password_LostFocus"  Style="{StaticResource Watermark}"/>
 
-                <CheckBox Margin="500,380,381,260" Style="{StaticResource CheckBoxStyle}"  FontSize="20" Content="记住密码"></CheckBox>
+                <CheckBox Margin="500,380,381,260" Style="{StaticResource CheckBoxStyle}"  FontSize="20"></CheckBox>
                 <Button Content="{DynamicResource FormView.LogIn}" TabIndex="0" Foreground="White" Width="150"  Height="30" Click="Button_Click" Style="{StaticResource Btn}" IsTabStop="False"   FontSize="15"   Margin="460,439,580,200" />
                 <Button Content="{DynamicResource FormView.Reset}" TabIndex="0" Foreground="White" Height="30" Width="150" Style="{StaticResource Btn}" Click="Resetting_Button" IsTabStop="False" FontSize="15"   Margin="717,439,350,200" RenderTransformOrigin="1.511,-2.152" />
             </Grid>

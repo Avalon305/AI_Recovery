@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
+using spms.util;
 
 namespace spms.view.converter
 {
@@ -13,11 +14,11 @@ namespace spms.view.converter
             string sex;
             if (reValue == 1)
             {
-                sex = "男";
+                sex = LanguageUtils.GetCurrentLanuageStrByKey("SearchSubjectView.M");
             }
             else
             {
-                sex = "女";
+                sex = LanguageUtils.GetCurrentLanuageStrByKey("SearchSubjectView.F");
             }
             return sex;
         }
@@ -26,7 +27,7 @@ namespace spms.view.converter
         {
             string sexString= value.ToString();
             int sex;
-            if (sexString.Equals("男"))
+            if (LanguageUtils.EqualsResource(sexString, "SearchSubjectView.M"))
             {
                 sex = 1;
             }
