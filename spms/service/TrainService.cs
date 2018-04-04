@@ -42,8 +42,7 @@ namespace spms.service
                             break;
                         case (int)TrainInfoStatus.Normal:
                             //如果是写卡后的插入，废弃原来的记录
-                            trainInfoFromDB.Status = (int)TrainInfoStatus.Abandon;
-                            trainInfoDao.UpdateByPrimaryKey(trainInfoFromDB);
+                            trainInfoDao.UpdateStatusByUserId(trainInfo.FK_User_Id);
                             break;
                     }
                 }

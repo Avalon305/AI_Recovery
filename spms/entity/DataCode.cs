@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using spms.util;
 
 namespace spms.entity
 {
@@ -20,7 +21,24 @@ namespace spms.entity
         //存储值
         public string Code_S_Value { get; set; }
         //显示值
-        public string Code_D_Value { get; set; }
+        public string Code_D_Value{
+            get
+            {
+                if (LanguageUtils.IsChainese())
+                {
+                    return this.Code_C_Value;
+                }
+                else
+                {
+                    return this.Code_E_Value;
+                }
+            }
+            set {}
+        }
+        //中文值
+        public string Code_C_Value{get;set;}
+        //英文值
+        public string Code_E_Value { get; set; }
         //启用状态
         public byte Code_State { get; set; }
        
@@ -28,5 +46,6 @@ namespace spms.entity
         public DataCode() {
             this.Code_State = 1;
         }
+        
     }
 }
