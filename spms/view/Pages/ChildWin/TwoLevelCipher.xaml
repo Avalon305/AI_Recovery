@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="145" Width="380"
+        Title="{DynamicResource Title.Title}" Height="145" Width="380"
         Loaded="Window_Loaded"
      >
     <StackPanel Orientation="Vertical">
@@ -32,7 +32,7 @@
             </Grid>
         </Border>
         <Label Content="{DynamicResource InputPasswdView.PleaseInputPassword}" FontWeight="Bold" Margin="5,2,5,2"></Label>
-        <TextBox  VerticalAlignment="Center" Margin="5,0,5,3" BorderBrush="Gray" VerticalContentAlignment="Center"></TextBox>
+        <TextBox  VerticalAlignment="Center"  CaretBrush="Black" Margin="5,0,5,3" BorderBrush="Gray" VerticalContentAlignment="Center"></TextBox>
         <!-- 四个按钮排放位置-->
         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="141" Height="25" VerticalAlignment="Bottom"  BorderThickness="0" Margin="0,0,4.6,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >

@@ -52,6 +52,8 @@ namespace spms.view.Pages
         {
 
             InitializeComponent();
+            //this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            //this.MaxWidth = SystemParameters.WorkArea.Size.Width;
 
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)

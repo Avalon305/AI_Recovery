@@ -8,7 +8,7 @@
          PreviewKeyDown="key_dowm"
         ResizeMode="NoResize"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙" Height="711.086" Width="480"
+        Title="{DynamicResource Title.Title}" Height="711.086" Width="480"
         Loaded="Window_Loaded">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -40,7 +40,7 @@
         </Style>
 
     </Window.Resources>-->
-    <Viewbox Name="viewbox">
+    <Viewbox Name="viewbox" Stretch="Fill">
     <StackPanel Orientation="Vertical">
         <!--标题栏-->
         <Border CornerRadius="5,5,0,0" Height="38" Margin="10,0,10,0"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0">
@@ -108,7 +108,7 @@
 
             <Border BorderBrush="Black" BorderThickness="1" Width="362" Height="100">
                 <Grid>
-                    <RichTextBox  AcceptsReturn="True">
+                        <RichTextBox CaretBrush="Black"  AcceptsReturn="True">
                         <!--行间距-->
                         <RichTextBox.Document>
                             <FlowDocument Focusable="True" LineHeight="1">

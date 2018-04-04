@@ -18,6 +18,9 @@
     <!-- 主界面 -->
     <s:String x:Key="MainView.Settings">设置</s:String>
     <s:String x:Key="MainView.Close">关闭</s:String>
+    
+    <!-- 标题 -->
+    <s:String x:Key="Title.Title">宝德龙</s:String>
 
     <!-- 设备 -->
     <s:String x:Key="Dev.HorizontalLegPress">腿部推蹬机</s:String>
@@ -323,6 +326,7 @@
     <s:String x:Key="PhysicalEvaluationFormView.LeftLateral">左手侧面支持</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.BothFrontal">两手前面支持</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.BothLateral">两手侧面支持</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.N">次</s:String>
 
     <!-- 制作体力评价报告界面 -->
     <s:String x:Key="CreateTrainingReportView.CreateTrainingReport">制作体力评价报告</s:String>
@@ -351,7 +355,8 @@
     <s:String x:Key="TrainingResultView.Weight">砝码</s:String>
     <s:String x:Key="TrainingResultView.Transfer">移乘方式</s:String>
     <s:String x:Key="TrainingResultView.BorgScale">自觉运动强度</s:String>
-    <s:String x:Key="TrainingResultView.Time(sec)">时间（秒）</s:String>
+    <s:String x:Key="TrainingResultView.TrainTime(min)">训练时间（分钟）</s:String>
+    <s:String x:Key="TrainingResultView.Time(min)">处方完成时间（分钟）</s:String>
     <s:String x:Key="TrainingResultView.Distance(m)">距离（mm）</s:String>
     <s:String x:Key="TrainingResultView.TotalWork(J)">总工作量（J）</s:String>
     <s:String x:Key="TrainingResultView.Calorie(cal)">热量（cal）</s:String>

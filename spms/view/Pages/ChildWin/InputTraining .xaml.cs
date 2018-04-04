@@ -38,6 +38,8 @@ namespace spms.view.Pages.ChildWin
         public InputTraining()
         {
             InitializeComponent();
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
@@ -1006,8 +1008,7 @@ namespace spms.view.Pages.ChildWin
             //确定哪些设备可用
             Certain_Dev();
             //去除窗体叉号
-            viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
+           
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             //
@@ -1031,7 +1032,7 @@ namespace spms.view.Pages.ChildWin
             combobox_01.ItemsSource = Add(1, 3, 2);
             combobox_02.ItemsSource = Add(1, 20, 2);
             combobox_03.ItemsSource = Add(1, 60, 2);
-            combobox_04.ItemsSource = Add(1.0, 84.0, 2);
+            combobox_04.ItemsSource = Add(0.5, 32.0, 1);
             combobox_05.ItemsSource = dataItems;
 
             com_11.ItemsSource = Add(0, 70, 2);
@@ -1041,7 +1042,7 @@ namespace spms.view.Pages.ChildWin
             combobox_11.ItemsSource = Add(1, 3, 2);
             combobox_12.ItemsSource = Add(1, 20, 2);
             combobox_13.ItemsSource = Add(1, 60, 2);
-            combobox_14.ItemsSource = Add(1.0, 32.0, 1);
+            combobox_14.ItemsSource = Add(0.5, 32.0, 1);
             combobox_15.ItemsSource = dataItems;
 
             com_21.ItemsSource = Add(0, 40, 2);
@@ -1062,7 +1063,7 @@ namespace spms.view.Pages.ChildWin
             combobox_31.ItemsSource = Add(1, 3, 2);
             combobox_32.ItemsSource = Add(1, 20, 2);
             combobox_33.ItemsSource = Add(1, 60, 2);
-            combobox_34.ItemsSource = Add(1.0, 32.0, 1);
+            combobox_34.ItemsSource = Add(0.5, 32.0, 1);
             combobox_35.ItemsSource = dataItems;
 
             com_41.ItemsSource = Add(0, 50, 2);
@@ -1071,7 +1072,7 @@ namespace spms.view.Pages.ChildWin
             combobox_41.ItemsSource = Add(1, 3, 2);
             combobox_42.ItemsSource = Add(1, 20, 2);
             combobox_43.ItemsSource = Add(1, 60, 2);
-            combobox_44.ItemsSource = Add(1.0, 32.0, 1);
+            combobox_44.ItemsSource = Add(0.5, 32.0, 1);
             combobox_45.ItemsSource = dataItems;
 
             com_51.ItemsSource = Add(0, 18, 2);
@@ -1080,7 +1081,7 @@ namespace spms.view.Pages.ChildWin
             combobox_51.ItemsSource = Add(1, 3, 2);
             combobox_52.ItemsSource = Add(1, 20, 2);
             combobox_53.ItemsSource = Add(1, 60, 2);
-            combobox_54.ItemsSource = Add(1.0, 32.0, 1);
+            combobox_54.ItemsSource = Add(0.5, 32.0, 1);
             combobox_55.ItemsSource = dataItems;
 
             List<DevicePrescription> devicePrescriptions = new TrainService().GetSaveDevicePrescriptionsByUser(user);
@@ -1345,7 +1346,7 @@ namespace spms.view.Pages.ChildWin
             TrainInfo trainInfo = new TrainService().GetTrainInfoByUserIdAndStatus(user.Pk_User_Id, (int)TrainInfoStatus.Normal);
             if (trainInfo != null)
             {
-                MessageBox.Show("是否覆盖");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("是否覆盖", "Whether or not to cover"));
             }
 
             if (user != null)
@@ -1439,7 +1440,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (UnauthorizedAccessException ex)
                     {
-                        MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
                         //清空缓存
                         SerialPortUtil.SerialPort = null;
                         serialPort = null;
@@ -1447,7 +1448,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (IOException ex)
                     {
-                        MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
                         SerialPortUtil.SerialPort = null;
                         serialPort = null;
                         return;
@@ -1463,12 +1464,12 @@ namespace spms.view.Pages.ChildWin
                         }
                         catch (UnauthorizedAccessException ex)
                         {
-                            MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
                             return;
                         }
                         catch (IOException ex)
                         {
-                            MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
                             return;
                         }
                     }
@@ -1509,12 +1510,12 @@ namespace spms.view.Pages.ChildWin
                         }
                         catch (UnauthorizedAccessException ex)
                         {
-                            MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
                             return;
                         }
                         catch (IOException ex)
                         {
-                            MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
                             return;
                         }
                     }
@@ -1531,7 +1532,7 @@ namespace spms.view.Pages.ChildWin
                 SerialPortUtil.ClosePort(ref serialPort);
                 Dispatcher.Invoke(new Action(() =>
                 {
-                    MessageBox.Show("设备长时间未应答，请查看是否选对串口，或设备未启动");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("设备长时间未应答，请查看是否选对串口，或设备未启动", "The device has not answered for a long time. Check whether the serial port is selected or the device is not started."));
                     Button_Write.IsEnabled = true;
                 }));
                
@@ -1631,14 +1632,15 @@ namespace spms.view.Pages.ChildWin
                                     return;
                                 }
                             }));
+                            
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("写卡成功", "Write card success"));
 
-                            MessageBox.Show("写卡成功");
                         }
                         else
                         {
                             //this.Close();
                             //Console.WriteLine("发卡失败");
-                            MessageBox.Show("写卡失败");
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("写卡失败", "Failed to write to card"));
                         }
                     }
                 }
@@ -1669,8 +1671,8 @@ namespace spms.view.Pages.ChildWin
                 Console.WriteLine("捕获异常了");
                 return;
             }
-            
-            MessageBox.Show("已写卡");
+
+            MessageBox.Show(LanguageUtils.ConvertLanguage("写卡成功", "Write card success"));
             this.Close();
         }
         //回车按钮

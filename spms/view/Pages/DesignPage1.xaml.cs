@@ -48,6 +48,8 @@ namespace spms.view.Pages
         public DesignPage1()
         {
             InitializeComponent();
+            //this.Height = SystemParameters.WorkArea.Size.Height;
+            //this.Width = SystemParameters.WorkArea.Size.Width;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -163,7 +165,7 @@ namespace spms.view.Pages
             }
             //切换语言
             LanguageUtils.SetLanguage();
-            
+            GoBack(null, null);
         }
 
         

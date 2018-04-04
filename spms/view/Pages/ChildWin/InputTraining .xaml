@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙"
+        Title="{DynamicResource Title.Title}"
 ResizeMode="NoResize"
          PreviewKeyDown="key_dowm"
-        Height="765.2" Width="1300"
+        Height="720.2" Width="1280"
         Loaded="Window_Loaded">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -75,8 +75,9 @@ ResizeMode="NoResize"
             <Setter  Property="BorderBrush" Value="Gray"></Setter>
         </Style>
     </Window.Resources>
-    <Viewbox Name="viewbox">
-    <!-- 整体框架用的 StackPanel 布局-->
+    <Viewbox Name="viewbox" Stretch="Fill">
+      
+            <!-- 整体框架用的 StackPanel 布局-->
     <StackPanel Orientation="Vertical" Margin="0,0,3.6,-0.4">
         <!--Border 使用者一览表以及按钮  开始-->
         <Border Height="40" CornerRadius="5,5,0,0"  Margin="11,5,10,0">
@@ -1062,7 +1063,7 @@ ResizeMode="NoResize"
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border5">
                         <Label Content="{DynamicResource TrainingListView.TrainingCaution}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}"  Foreground="White" />
                 </Border>
-                <TextBox Name="t1" Height="170" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
+                    <TextBox Name="t1" Height="170" Margin="10,0,10,3"  CaretBrush="Black" IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
             </StackPanel>
 
             <!--第二个-->
@@ -1070,7 +1071,7 @@ ResizeMode="NoResize"
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border15">
                         <Label Content="{DynamicResource TrainingListView.TrainingCaution}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}"  Foreground="White" />
                 </Border>
-                <TextBox Name="t2" Height="170" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
+                    <TextBox Name="t2" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
             </StackPanel>
             <!--<StackPanel Grid.Row="3" Grid.Column="1" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
@@ -1084,7 +1085,7 @@ ResizeMode="NoResize"
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border25">
                         <Label Content="{DynamicResource TrainingListView.TrainingCaution}"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}"  Foreground="White" />
                 </Border>
-                <TextBox Name="t3" Height="170" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
+                    <TextBox Name="t3" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
             </StackPanel>
             <!--<StackPanel Grid.Row="3" Grid.Column="2" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
@@ -1098,7 +1099,7 @@ ResizeMode="NoResize"
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border35">
                         <Label  Content="{DynamicResource TrainingListView.TrainingCaution}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}"  Foreground="White" />
                 </Border>
-                <TextBox Name="t4" Height="170" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
+                    <TextBox Name="t4" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
             </StackPanel>
             <!--<StackPanel Grid.Row="3" Grid.Column="3" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
@@ -1112,7 +1113,7 @@ ResizeMode="NoResize"
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border45">
                         <Label  Content="{DynamicResource TrainingListView.TrainingCaution}"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}"  Foreground="White" />
                 </Border>
-                <TextBox Name="t5" Height="170" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
+                    <TextBox Name="t5" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
             </StackPanel>
             <!--<StackPanel Grid.Row="3" Grid.Column="4" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
@@ -1126,7 +1127,7 @@ ResizeMode="NoResize"
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border55">
                         <Label  Content="{DynamicResource TrainingListView.TrainingCaution}"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}"  Foreground="White" />
                 </Border>
-                <TextBox Name="t6" Height="170" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
+                    <TextBox Name="t6" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
             </StackPanel>
             <!--<StackPanel Grid.Row="3" Grid.Column="5" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
@@ -1140,8 +1141,8 @@ ResizeMode="NoResize"
         </Grid>
         <!--Grid 使用器材选择 结束-->
         <!-- 按钮排放位置-->
-        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="742" Height="28" VerticalAlignment="Bottom" Margin="0,0,9.6,0" >
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="742" Height="41" VerticalAlignment="Bottom" Margin="0,0,9.6,0" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <!--<Button Width="140"  Height="25"  IsTabStop="False"  Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom">下一页</Button>-->
                     <Button Width="140"  Height="25" IsTabStop="False"   Margin="2,0,0,0"  RenderTransformOrigin="0.5,0.508" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Save"  Content="{DynamicResource TrainingListView.Save}"></Button>
                     <Button Width="140" Height="25"  IsTabStop="False"   Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="ButtonBase_OnClick" Name="Button_Write"  Content="{DynamicResource TrainingListView.WritetoCard}"></Button>

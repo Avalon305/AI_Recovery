@@ -22,7 +22,6 @@ namespace spms.view.converter
             
             if (String.IsNullOrEmpty(text.Trim()))
             {
-                Console.WriteLine("未填写");
                 return "未填写";
             }
             else
@@ -34,7 +33,23 @@ namespace spms.view.converter
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return null;
+            if (value == null)
+            {
+                return "未填写";
+            }
+            else
+            {
+                String text = value.ToString();
+
+                if (value.ToString().Equals("未填写"))
+                {
+                    return "未填写";
+                }
+                else
+                {
+                    return text;
+                }
+            }
         }
     }
 }

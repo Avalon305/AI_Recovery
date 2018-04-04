@@ -66,6 +66,9 @@ namespace spms.view.Pages.ChildWin
         public Photograph()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
 
             // combox 获得摄像头列表
             cb.ItemsSource = MultimediaUtil.VideoInputNames;
@@ -158,7 +161,7 @@ namespace spms.view.Pages.ChildWin
             photoName += ".jpg";
             
             CreateDir(CommUtil.GetUserPic());
-            PicZipUtil.GetPicThumbnail(bmcpy, CommUtil.GetUserPic() + photoName, 50);
+            PicZipUtil.GetPicThumbnail(bmcpy, CommUtil.GetUserPic() + photoName, 90);
             //bmcpy.Save(CommUtil.GetUserPic() + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
 
 
