@@ -142,7 +142,7 @@ namespace spms
         //获得aes加密insert
         private void Button_Click_14(object sender, RoutedEventArgs e)
         {
-            string mac = System.Text.Encoding.Default.GetString(AesUtil.Encrypt(System.Text.Encoding.Default.GetBytes("E4:02:9B:55:8E:30"), ProtocolConstant.USB_DOG_PASSWORD));
+            string mac = System.Text.Encoding.Default.GetString(AesUtil.Encrypt(System.Text.Encoding.Default.GetBytes("00:16:3E:0C:B2:B3"), ProtocolConstant.USB_DOG_PASSWORD));
             //string mac = AesUtil.AesEncrypt("E4:02:9B:55:8E:30", "E4:02:9B:55:8E:30");
             SetterService setterService = new SetterService();
             entity.Setter setter = new entity.Setter();
@@ -178,6 +178,7 @@ namespace spms
             //Console.WriteLine(stringBuilder.ToString());
             entity.Setter setter = new entity.Setter();
             //mac地址先变为byte[]再aes加密
+            //远程服务器mac:"00:16:3E:0C:B2:B3"
             byte[] byteMac = Encoding.GetEncoding("GBK").GetBytes(stringBuilder.ToString());
             byte[] AesMac = AesUtil.Encrypt(byteMac, ProtocolConstant.USB_DOG_PASSWORD);
             //存入数据库
