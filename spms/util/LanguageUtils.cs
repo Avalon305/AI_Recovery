@@ -40,10 +40,9 @@ namespace spms.util
         public static bool IsChainese()
         {
             List<Setter> all = new SetterDAO().ListAll();
-            var dataCodeCache = DataCodeCache.GetInstance();
             if (all != null && all.Count != 0)
             {
-                if (dataCodeCache.GetCodeDValue(DataCodeTypeEnum.Language, all[0].Set_Language.ToString()) == "English")
+                if (all[0].Set_Language == 0)
                 {
                     return false;
                 }

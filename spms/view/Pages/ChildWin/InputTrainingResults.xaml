@@ -142,7 +142,7 @@
             </Grid.Resources>
             <Grid Margin="0,0,0,10">
                 <TabControl Name="TabControl1"  Margin="9,0,10,0"  >
-                        <TabItem Name="tab1" Header="{DynamicResource Dev.ChestPress}" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}">
+                        <TabItem Name="tab1" Header="{DynamicResource Dev.ChestPress}" Width="115" IsTabStop="False" FocusVisualStyle="{x:Null}">
                         <StackPanel Name="sp1" Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -333,7 +333,7 @@
 
                         </StackPanel>
                     </TabItem>
-                        <TabItem Name="tab2"  Header="{DynamicResource Dev.Rowing}" Width="95">
+                        <TabItem Name="tab2"  Header="{DynamicResource Dev.Rowing}" Width="115">
                         <StackPanel Name="sp2"  Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -527,7 +527,7 @@
                         </StackPanel>
                     </TabItem>
 
-                        <TabItem Name="tab3"  Header="{DynamicResource Dev.TorsoFlexion}" Width="95">
+                        <TabItem Name="tab3"  Header="{DynamicResource Dev.TorsoFlexion}" Width="115">
                         <StackPanel Name="sp3"  Orientation="Horizontal">
 
                             <Grid Margin="30,50,0,128.4" Width="296">
@@ -718,7 +718,7 @@
 
                         </StackPanel>
                     </TabItem>
-                        <TabItem Name="tab4"  Header="{DynamicResource Dev.LegExtension}" Width="95">
+                        <TabItem Name="tab4"  Header="{DynamicResource Dev.LegExtension}" Width="115">
                         <StackPanel Name="sp4"  Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -910,7 +910,7 @@
 
                         </StackPanel>
                     </TabItem>
-                        <TabItem Name="tab5"  Header="{DynamicResource Dev.HorizontalLegPress}" Width="95" Height="21" Margin="0.2,0,0,0" VerticalAlignment="Top">
+                        <TabItem Name="tab5"  Header="{DynamicResource Dev.HorizontalLegPress}" Width="115" Height="21" Margin="0.2,0,0,0" VerticalAlignment="Top">
                         <StackPanel Name="sp5"  Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>
@@ -1100,7 +1100,7 @@
 
                         </StackPanel>
                     </TabItem>
-                        <TabItem Name="tab6"  Header="{DynamicResource Dev.HipAbduction}" Width="95">
+                        <TabItem Name="tab6"  Header="{DynamicResource Dev.HipAbduction}" Width="115">
                         <StackPanel Name="sp6"  Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>

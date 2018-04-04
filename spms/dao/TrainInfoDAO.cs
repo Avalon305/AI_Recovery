@@ -26,6 +26,16 @@ namespace spms.dao
                 return conn.Query<TrainInfo>(query, new { FK_User_Id = userId, Status = status }).ToList();
             }
         }
+
+        public void UpdateStatusByUserId(int userId)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "update bdl_traininfo set status = 3 where fk_user_id = @FK_User_Id and status = 0";
+
+                conn.Execute(query, new { FK_User_Id = userId});
+            }
+        }
         /// <summary>
         /// 根据用户id获取
         /// </summary>
