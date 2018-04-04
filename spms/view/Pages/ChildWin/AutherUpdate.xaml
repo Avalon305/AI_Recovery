@@ -47,8 +47,7 @@
                         <Label Content="{DynamicResource RegisterView.UserName}"  VerticalAlignment="Center"  Foreground="White"/>
                     </Border>
                         <TextBox Grid.Row="0"  CaretBrush="Black" LostFocus="Name_LostFocus"  Name="UserName" Grid.Column="1"  Margin="0.2,0.2,0,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-                    <Label  Grid.Row="0" Grid.Column="2"  FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
-                    <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
+                        <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                         <Label Content="{DynamicResource RegisterView.Password}"  FontStyle="Normal"  Foreground="White"/>
                     </Border>
                         <PasswordBox  Grid.Row="2" Name="Pass"  CaretBrush="Black" Grid.Column="1"  Margin="0.2,0.2,0,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>

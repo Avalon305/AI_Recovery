@@ -149,17 +149,17 @@
                                 <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
                                 <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="HLPTime2" VerticalContentAlignment="Center"  IsEnabled="False" />
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="HLPFinishgroup" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
+                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="HLPFinishgroup" VerticalContentAlignment="Center"  IsEnabled="False" />-->
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="HLPEvaluate"  IsEnabled="False"/>
-                                <Label Grid.Row="14" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTimer" IsTabStop="False" IsEnabled="False"  >
+                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
+                                <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0"  Name="HLPEvaluate"  IsEnabled="False"/>
+                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
+                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTimer" IsTabStop="False" IsEnabled="False"  >
                                 </TextBox>
 
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Name="HLPTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                <TextBox Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTime" IsTabStop="False" IsEnabled="False" Visibility="Hidden">
+                                <Label Grid.Row="14" Grid.Column="0" Background="White" Name="HLPTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
+                                <TextBox Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTime" IsTabStop="False" IsEnabled="False" Visibility="Hidden">
                                    
                                 </TextBox>
 
