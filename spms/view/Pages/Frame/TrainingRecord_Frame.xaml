@@ -12,7 +12,7 @@
     </Page.Resources>
     <Grid>
         <TabControl Name="TabControl1" HorizontalAlignment="Left" Height="337" Margin="2.3,8,0,0" VerticalAlignment="Top" Width="948">
-            <TabItem Header="{DynamicResource Dev.ChestPress}" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
+            <TabItem Header="{DynamicResource Dev.ChestPress}" Width="115" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="64*"/>
@@ -101,7 +101,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource Dev.Rowing}" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
+            <TabItem Header="{DynamicResource Dev.Rowing}" Width="115" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="TrainingRecord2" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
                         <!--选中行失去焦点时的颜色-->
@@ -187,7 +187,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource Dev.TorsoFlexion}" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
+            <TabItem Header="{DynamicResource Dev.TorsoFlexion}" Width="115" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="TrainingRecord3" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" KeyboardNavigation.TabNavigation="None"  SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False"  BorderThickness="0" IsReadOnly="true">
                         <!--选中行失去焦点时的颜色-->
@@ -270,7 +270,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource Dev.LegExtension}" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
+            <TabItem Header="{DynamicResource Dev.LegExtension}" Width="115" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220*"/>
@@ -359,7 +359,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource Dev.HorizontalLegPress}" Width="95" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
+            <TabItem Header="{DynamicResource Dev.HorizontalLegPress}" Width="115" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="TrainingRecord5" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
                         <!--选中行失去焦点时的颜色-->
@@ -444,7 +444,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource Dev.HipAbduction}" Width="95" KeyboardNavigation.TabNavigation="None" FocusVisualStyle="{x:Null}" IsTabStop="False">
+            <TabItem Header="{DynamicResource Dev.HipAbduction}" Width="115" KeyboardNavigation.TabNavigation="None" FocusVisualStyle="{x:Null}" IsTabStop="False">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20*"/>
