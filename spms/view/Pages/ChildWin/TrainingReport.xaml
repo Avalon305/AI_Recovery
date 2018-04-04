@@ -104,7 +104,13 @@
                     <Label Margin="0,-2,0,-4" VerticalContentAlignment="Center" Content="{DynamicResource CreateTrainingReportView.Date}"></Label>
                 </Border>
                 <Border Margin="0,0,0,0" Width="153" Grid.Row="0" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" >
-                    <DatePicker HorizontalAlignment="Left"  x:Name="start_date" VerticalAlignment="Top" Height="25" Width="150" ></DatePicker>
+                    <DatePicker HorizontalAlignment="Left"  x:Name="start_date" VerticalAlignment="Top" Height="25" Width="150" >
+                        <DatePicker.Resources>
+                            <Style TargetType="DatePickerTextBox">
+                                <Setter Property="IsReadOnly" Value="True"/>
+                            </Style>
+                        </DatePicker.Resources>
+                    </DatePicker>
                     
                     <!--<DatePicker Name="implementation_date" Height="23" Margin="0.2,0,-1,0" VerticalAlignment="Bottom" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
                 </Border>
@@ -112,7 +118,13 @@
                     <Label Content="~" ></Label>
                 </Border>
                 <Border Margin="0,0,0,0" Width="153" Grid.Row="0" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" >
-                    <DatePicker HorizontalAlignment="Left"  x:Name="end_date" VerticalAlignment="Top" Height="25" Width="150" ></DatePicker>
+                    <DatePicker HorizontalAlignment="Left"  x:Name="end_date" VerticalAlignment="Top" Height="25" Width="150" >
+                        <DatePicker.Resources>
+                            <Style TargetType="DatePickerTextBox">
+                                <Setter Property="IsReadOnly" Value="True"/>
+                            </Style>
+                        </DatePicker.Resources>
+                    </DatePicker>
                     <!--<DatePicker Name="implementation_date" Height="23" Margin="0.2,0,-1,0" VerticalAlignment="Bottom" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
                 </Border>
             </StackPanel>
