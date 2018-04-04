@@ -19,6 +19,7 @@
     <!-- 主界面 -->
     <s:String x:Key="MainView.Settings">Settings</s:String>
     <s:String x:Key="MainView.Close">Close</s:String>
+    <s:String x:Key="MainView.Title">Pass On The Concept Of Health, Develop Together With You</s:String>
 
     <!-- 标题 -->
     <s:String x:Key="Title.Title">Body Strong</s:String>

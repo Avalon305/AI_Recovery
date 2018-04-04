@@ -70,10 +70,23 @@ namespace spms.view.Pages
             //this.Width = SystemParameters.WorkArea.Size.Width;
             ///心跳线程部分-load方法启动
             //WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            this.UsersInfo.LoadingRow += new EventHandler<DataGridRowEventArgs>(this.dataGridEquipment_LoadingRow);
             //加载表头
             Radio_Check_Action();
 
         }
+
+        private void dataGridEquipment_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = e.Row.GetIndex() + 1;
+
+        }
+        //private void dgData_LoadingRow(object sender, DataGridRowEventArgs e)
+        //{
+        //    e.Row.Header = e.Row.GetIndex() + 1;
+        //}
+
 
 
         /// <summary>
@@ -137,13 +150,13 @@ namespace spms.view.Pages
             //加载图片
             if (LanguageUtils.IsChainese())
             {
-                title_pic.Source = new BitmapImage(new Uri(@"\view\Images1.PNG", UriKind.Relative));
+                title_pic.Source = new BitmapImage(new Uri(@"\view\Images\12.PNG", UriKind.Relative));
                 DesignerHead4.Source = new BitmapImage(new Uri(@"\view\images\6.png", UriKind.Relative));
             }
             else
             {
                 //TODO 英文图片
-                title_pic.Source = new BitmapImage(new Uri(@"\view\Images1.PNG", UriKind.Relative));
+                title_pic.Source = new BitmapImage(new Uri(@"\view\Images\12.PNG", UriKind.Relative));
                 DesignerHead4.Source = new BitmapImage(new Uri(@"\view\images\6.png", UriKind.Relative));
             }
             ///载入时数据装填到list,默认选中第一个
@@ -440,8 +453,11 @@ namespace spms.view.Pages
                     Owner = Window.GetWindow(this),
                     ShowActivated = true,
                     ShowInTaskbar = false,
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen
-                };
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                MaxHeight = SystemParameters.WorkArea.Size.Height,
+                MaxWidth = SystemParameters.WorkArea.Size.Width
+
+            };
 
                 //设置用户信息
                 if (selectUser != null)
@@ -485,7 +501,9 @@ namespace spms.view.Pages
                     Owner = Window.GetWindow(this),
                     ShowActivated = true,
                     ShowInTaskbar = false,
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                    MaxHeight = SystemParameters.WorkArea.Size.Height,
+                    MaxWidth = SystemParameters.WorkArea.Size.Width
                 };
 
                 //设置用户信息
