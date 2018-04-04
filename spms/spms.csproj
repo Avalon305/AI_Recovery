@@ -633,6 +633,12 @@
     <Resource Include="view\Images\bitbug_favicon.ico" />
     <Resource Include="view\Images\icon2.jpg" />
     <Resource Include="view\Images\excel\1234.gif" />
+    <Resource Include="doc\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="doc\none.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="lib\libmupdf.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -744,6 +750,7 @@
     <Error Condition="!Exists('..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WPFMediaKit.2.2.0\build\WPFMediaKit.targets'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y /d  "$(ProjectDir)lib\libmupdf.dll" "$(ProjectDir)$(OutDir)"</PostBuildEvent>
+    <PostBuildEvent>xcopy /y /d  "$(ProjectDir)lib\libmupdf.dll" "$(ProjectDir)$(OutDir)"
+xcopy /y /d  "$(ProjectDir)doc\*.png" "$(ProjectDir)$(OutDir)doc"</PostBuildEvent>
   </PropertyGroup>
 </Project>
