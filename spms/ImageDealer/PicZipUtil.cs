@@ -163,7 +163,6 @@ namespace WpfApp2
         
         public static bool GetPicThumbnail(Bitmap sFile,string outPath, int flag)
         {
-            
             System.Drawing.Image iSource = sFile;
             ImageFormat tFormat = iSource.RawFormat;
 
