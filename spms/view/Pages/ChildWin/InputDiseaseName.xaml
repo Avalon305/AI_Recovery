@@ -8,7 +8,7 @@
         Icon="/view/Images/icon2.png"
         Loaded="Window_Loaded"
          PreviewKeyDown="key_dowm"
-        Title="宝德龙" Height="145" Width="380"
+        Title="{DynamicResource Title.Title}" Height="145" Width="380"
         >
     <StackPanel Orientation="Vertical">
         <Border Height="37" CornerRadius="5,5,0,0"  Margin="10,0,10,0">
@@ -34,7 +34,7 @@
             </Grid>
         </Border>
         <!--输入框-->
-        <TextBox Name="DiseaseName"  LostFocus="Text_LostFocus" VerticalAlignment="Center" Margin="10,15,10,5" BorderBrush="Gray" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Name="DiseaseName"  LostFocus="Text_LostFocus"  CaretBrush="Black" VerticalAlignment="Center" Margin="10,15,10,5" BorderBrush="Gray" VerticalContentAlignment="Center"></TextBox>
         <!--保存及取消按钮-->
         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="116" Height="29" VerticalAlignment="Bottom"  BorderThickness="0" Margin="0,0,0,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">

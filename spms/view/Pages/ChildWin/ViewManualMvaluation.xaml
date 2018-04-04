@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
-        Title="宝德龙"
+        Title="{DynamicResource Title.Title}"
          ResizeMode = "NoResize" Height="710.6" Width="850"
         Loaded="Window_Loaded">
     <Window.Resources>
@@ -24,7 +24,7 @@
             <Setter Property="Margin" Value="1"/>
         </Style>
     </Window.Resources>
-    <Viewbox Name="viewbox">
+    <Viewbox Name="viewbox" Stretch="Fill">
         <StackPanel Orientation="Vertical" Margin="0,0,0.2,11.8">
             <!--Border 使用者一览表以及按钮  开始-->
             <Border Height="40" CornerRadius="5,5,0,0" Margin="5,5,5,0" BorderThickness="0" BorderBrush="White">
@@ -502,11 +502,11 @@
                 <Label  Grid.Row="12" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <StackPanel Grid.Row="12" Grid.Column="2" Orientation="Horizontal">
                     <TextBox Name="two_first" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="次" Margin="1,11,1,9.6"/>
+                    <Label Content="{DynamicResource PhysicalEvaluationFormView.N}" Margin="1,11,1,9.6"/>
                 </StackPanel>
                 <StackPanel Grid.Row="12" Grid.Column="3" Orientation="Horizontal">
                     <TextBox Name="two_second" Margin="5,11,0,11" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="次" Margin="1,11,1,9.6"/>
+                    <Label Content="{DynamicResource PhysicalEvaluationFormView.N}" Margin="1,11,1,9.6"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"  Grid.Row="12" Grid.Column="4"   >
                     <CheckBox  Name="c46" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.Independent}"></CheckBox>
@@ -521,11 +521,11 @@
 
                 <StackPanel Grid.Row="13" Grid.Column="2" Orientation="Horizontal">
                     <TextBox Name="twoleg_first" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="次" VerticalAlignment="Center"/>
+                    <Label Content="{DynamicResource PhysicalEvaluationFormView.N}" VerticalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Grid.Row="13" Grid.Column="3" Orientation="Horizontal">
                     <TextBox Name="twoleg_second" Margin="5,5,0,5" Width="71" IsEnabled="False" VerticalContentAlignment="Center"/>
-                    <Label Content="次" VerticalAlignment="Center"/>
+                    <Label Content="{DynamicResource PhysicalEvaluationFormView.N}" VerticalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"  Grid.Row="13" Grid.Column="4"   >
                     <CheckBox  Name="c49" FontSize="10" Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsEnabled="False"  Content="{DynamicResource PhysicalEvaluationFormView.Standing}"></CheckBox>

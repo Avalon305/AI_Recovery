@@ -166,7 +166,7 @@ namespace spms.view.Pages.ChildWin
                         ROWCal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
                         ROWIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
                         ROWTime2.Text = trainDto.prescriptionResult.PR_Time2.ToString();
-                        ROWFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
+                        //ROWFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
                         ROWEvaluate.Text = trainDto.evaluate;
                         ROWAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
                         ROWUserthoughts.Text = trainDto.prescriptionResult.PR_UserThoughts;
@@ -212,7 +212,7 @@ namespace spms.view.Pages.ChildWin
                         TFCal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
                         TFIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
                         TFTime2.Text = trainDto.prescriptionResult.PR_Time2.ToString();
-                        TFFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
+                        //TFFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
                         TFEvaluate.Text = trainDto.evaluate;
                         TFAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
                         TFUserthoughts.Text = trainDto.prescriptionResult.PR_UserThoughts;
@@ -259,7 +259,7 @@ namespace spms.view.Pages.ChildWin
                         LECal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
                         LEIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
                         LETime2.Text = trainDto.prescriptionResult.PR_Time2.ToString();
-                        LEFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
+                        //LEFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
                         LEEvaluate.Text = trainDto.evaluate;
                         LEAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
                         LEUserthoughts.Text = trainDto.prescriptionResult.PR_UserThoughts;
@@ -304,7 +304,7 @@ namespace spms.view.Pages.ChildWin
                         HACal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
                         HAIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
                         HATime2.Text = trainDto.prescriptionResult.PR_Time2.ToString();
-                        HAFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
+                        //HAFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
                         HAEvaluate.Text = trainDto.evaluate;
                         HAAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
                         HAUserthoughts.Text = trainDto.prescriptionResult.PR_UserThoughts;
@@ -349,7 +349,7 @@ namespace spms.view.Pages.ChildWin
                         CPCal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
                         CPIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
                         CPTime2.Text = trainDto.prescriptionResult.PR_Time2.ToString();
-                        CPFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
+                        //CPFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
                         CPEvaluate.Text = trainDto.evaluate;
                         CPAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
                         CPUserthoughts.Text = trainDto.prescriptionResult.PR_UserThoughts;

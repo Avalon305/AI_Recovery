@@ -6,7 +6,7 @@
          xmlns:imageDealer="clr-namespace:TestImageDealer.ImageDealer"
         xmlns:local="clr-namespace:spms"
         mc:Ignorable="d"
-        Title="PhotoCutWindow" Height="557.328" Width="568.534" Loaded="Window_Loaded">
+        Title="{DynamicResource Title.Title}" Height="557.328" Width="568.534" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"></ColumnDefinition>

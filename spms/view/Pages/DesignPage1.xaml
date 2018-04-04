@@ -6,11 +6,11 @@
       xmlns:local="clr-namespace:spms.view.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-        Title="宝德龙"
+        Title="{DynamicResource Title.Title}"
       PreviewKeyDown="key_dowm"
-      Height="700" Width="1290" Loaded="Page_Loaded"
+       Loaded="Page_Loaded"
     >
-
+    <Viewbox Name="viewbox" Stretch="Fill">
     <StackPanel Orientation="Vertical"  >
 
         <!--<Border Height="50" CornerRadius="5,5,0,0" Background="Gray" Margin="0,200,-0.4,0" >
@@ -31,7 +31,7 @@
 
                     <!--</StackPanel>-->
                     <!--</Border>-->
-                    <Image Source="/view\Images\bdl.PNG" Stretch="UniformToFill" Height="180" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,24.6,-179.2" Width="1255"   />
+                    <Image Source="/view\Images\bdl.PNG" Stretch="UniformToFill" Height="180" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,10,-179.2" Width="1255"   />
                     <Button Width="80" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" IsTabStop="False"  Foreground="Black" Content="{DynamicResource SettingsView.Return}"  Click="GoBack" Style="{StaticResource Btn}" Margin="0,24,40,-58.2"/>
 
                 </Grid>
@@ -40,7 +40,7 @@
         <!--结束：图片-->
         <!--标题栏-->
         <Grid >
-            <Border CornerRadius="5,5,0,0" Height="38" Margin="10,180,25,2">
+            <Border CornerRadius="5,5,0,0" Height="38" Margin="10,180,10,2">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                         <GradientStop Color="Silver" Offset="0.1"/>
@@ -149,7 +149,7 @@
             </Grid>
 
             <!--高级设置按钮-->
-            <Border Margin="30,0,0,0" Width="352">
+            <Border Margin="40,0,0,0" Width="328">
                 <StackPanel Orientation="Horizontal">
                     <Button Width="141"  Height="38" IsTabStop="False" VerticalAlignment="Center" HorizontalAlignment="Center"   Foreground="Black" Content="{DynamicResource SettingsView.Confirm}" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
                     <Button Content="{DynamicResource SettingsView.AdvancedSettings}" Width="141" Margin="10,0,0,0" IsTabStop="False" Height="38" Click="AdvancedSettings" Style="{StaticResource Btn}"/>
@@ -273,7 +273,7 @@
             <!--结束：残障名称-->
         </StackPanel>
         <!--小组名称——添加、更新、删除按钮-->
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
             <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="10,0,0,0" Width="410" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" >
                     <Border CornerRadius="5" Margin="40,0,50,-0.277" Height="39" VerticalAlignment="Bottom">
@@ -334,4 +334,5 @@
         </StackPanel>
 
     </StackPanel>
+    </Viewbox>
 </Page>

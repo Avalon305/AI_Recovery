@@ -19,6 +19,9 @@
     <s:String x:Key="MainView.Settings">Settings</s:String>
     <s:String x:Key="MainView.Close">Close</s:String>
 
+    <!-- 标题 -->
+    <s:String x:Key="Title.Title">Body Strong</s:String>
+
     <!-- 设备 -->
     <s:String x:Key="Dev.HorizontalLegPress">Horizontal Leg Press</s:String>
     <s:String x:Key="Dev.Rowing">Rowing</s:String>
@@ -319,6 +322,7 @@
     <s:String x:Key="PhysicalEvaluationFormView.LeftLateral">Left Lateral</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.BothFrontal">Both Frontal</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.BothLateral">Both Lateral</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.N">N</s:String>
 
     <!-- 制作体力评价报告界面 -->
     <s:String x:Key="CreateTrainingReportView.CreateTrainingReport">Create Training Report</s:String>
@@ -347,6 +351,8 @@
     <s:String x:Key="TrainingResultView.Weight">Weight</s:String>
     <s:String x:Key="TrainingResultView.Transfer">Transfer</s:String>
     <s:String x:Key="TrainingResultView.BorgScale">Borg Scale</s:String>
+    <s:String x:Key="TrainingResultView.TrainTime(min)">Training Time</s:String>
+    <s:String x:Key="TrainingResultView.Time(min)">Prescription Time</s:String>
     <s:String x:Key="TrainingResultView.Time(sec)">Time(sec)</s:String>
     <s:String x:Key="TrainingResultView.Distance(m)">Distance(m)</s:String>
     <s:String x:Key="TrainingResultView.TotalWork(J)">Total Work(J)</s:String>

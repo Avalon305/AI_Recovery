@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:spms.view.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="DesignPage"
+      Title="{DynamicResource Title.Title}"
       Height="720" Width="1290">
 
     <StackPanel Orientation="Vertical" >

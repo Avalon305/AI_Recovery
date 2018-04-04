@@ -315,13 +315,13 @@ namespace spms.view.Pages.ChildWin
                 {
                 }
 
-                try
-                {
-                    prescriptionResult.PR_FinishGroup = Convert.ToInt32(HLPFinishgroup.Text);
-                }
-                catch (Exception exception)
-                {
-                }
+                //try
+                //{
+                //    prescriptionResult.PR_FinishGroup = Convert.ToInt32(HLPFinishgroup.Text);
+                //}
+                //catch (Exception exception)
+                //{
+                //}
 
                 try
                 {
@@ -508,15 +508,15 @@ namespace spms.view.Pages.ChildWin
                     
                 }
 
-                try
-                {
-                    prescriptionResult.PR_FinishGroup = Convert.ToInt32(ROWFinishgroup.Text);
-                }
-                catch (Exception exception)
-                {
+                //try
+                //{
+                //    prescriptionResult.PR_FinishGroup = Convert.ToInt32(ROWFinishgroup.Text);
+                //}
+                //catch (Exception exception)
+                //{
                     
                     
-                }
+                //}
 
                 try
                 {
@@ -705,15 +705,15 @@ namespace spms.view.Pages.ChildWin
                     
                 }
 
-                try
-                {
-                    prescriptionResult.PR_FinishGroup = Convert.ToInt32(TFFinishgroup.Text);
-                }
-                catch (Exception exception)
-                {
+                //try
+                //{
+                //    prescriptionResult.PR_FinishGroup = Convert.ToInt32(TFFinishgroup.Text);
+                //}
+                //catch (Exception exception)
+                //{
                     
                     
-                }
+                //}
 
                 try
                 {
@@ -904,15 +904,15 @@ namespace spms.view.Pages.ChildWin
                     
                 }
 
-                try
-                {
-                    prescriptionResult.PR_FinishGroup = Convert.ToInt32(LEFinishgroup.Text);
-                }
-                catch (Exception exception)
-                {
+                //try
+                //{
+                //    prescriptionResult.PR_FinishGroup = Convert.ToInt32(LEFinishgroup.Text);
+                //}
+                //catch (Exception exception)
+                //{
                     
                     
-                }
+                //}
 
                 try
                 {
@@ -1100,15 +1100,15 @@ namespace spms.view.Pages.ChildWin
                     
                 }
 
-                try
-                {
-                    prescriptionResult.PR_FinishGroup = Convert.ToInt32(HAFinishgroup.Text);
-                }
-                catch (Exception exception)
-                {
+                //try
+                //{
+                //    prescriptionResult.PR_FinishGroup = Convert.ToInt32(HAFinishgroup.Text);
+                //}
+                //catch (Exception exception)
+                //{
                     
                     
-                }
+                //}
 
                 try
                 {
@@ -1295,15 +1295,15 @@ namespace spms.view.Pages.ChildWin
                     
                 }
 
-                try
-                {
-                    prescriptionResult.PR_FinishGroup = Convert.ToInt32(CPFinishgroup.Text);
-                }
-                catch (Exception exception)
-                {
+                //try
+                //{
+                //    prescriptionResult.PR_FinishGroup = Convert.ToInt32(CPFinishgroup.Text);
+                //}
+                //catch (Exception exception)
+                //{
                     
                     
-                }
+                //}
 
                 try
                 {

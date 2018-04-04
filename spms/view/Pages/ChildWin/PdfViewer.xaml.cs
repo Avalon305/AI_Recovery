@@ -36,9 +36,12 @@ namespace spms.view.Pages.ChildWin
         //页面预加载
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
             //左上角图标去掉
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+            
             //
         }
 
@@ -47,6 +50,8 @@ namespace spms.view.Pages.ChildWin
         public PdfViewer()
         {
             InitializeComponent();
+            
+            
             //pDFViewer = this;
         }
 
@@ -63,6 +68,7 @@ namespace spms.view.Pages.ChildWin
             //二、将Excel转PDF
             new Thread(new ThreadStart(ExcelToPdf)).Start();
             Open_File();
+            a.Visibility = Visibility.Hidden;
 
         }
 
@@ -193,5 +199,12 @@ namespace spms.view.Pages.ChildWin
         {
             this.Close();
         }
+
+        //private void abc(object sender, RoutedEventArgs e)
+        //{
+        //    LoadCompleted
+        //        a.Visibility = Visibility.Hidden;
+            
+        //}
     }
 }

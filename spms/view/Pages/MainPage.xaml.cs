@@ -65,10 +65,11 @@ namespace spms.view.Pages
         public MainPage()
         {
             InitializeComponent();
-            viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
+            //WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //this.Height = SystemParameters.WorkArea.Size.Height;
+            //this.Width = SystemParameters.WorkArea.Size.Width;
             ///心跳线程部分-load方法启动
-
+            //WindowStartupLocation = WindowStartupLocation.CenterScreen;
             //加载表头
             Radio_Check_Action();
 
@@ -578,6 +579,7 @@ namespace spms.view.Pages
             //打开训练详细信息
             else if (is_trainingrecord.IsChecked == true)
             {
+                
                 ViewTrainingResults viewTrainingResults = new ViewTrainingResults
                 {
                     Owner = Window.GetWindow(this),

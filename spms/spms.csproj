@@ -203,6 +203,8 @@
     </Compile>
     <Compile Include="ImageDealer\PicZipUtil.cs" />
     <Compile Include="util\LanguageUtils.cs" />
+    <Compile Include="view\converter\IDCardConverter.cs" />
+    <Compile Include="view\converter\TimeConverter.cs" />
     <Compile Include="view\Pages\ChildWin\PhotoCutWindow.xaml.cs">
       <DependentUpon>PhotoCutWindow.xaml</DependentUpon>
     </Compile>

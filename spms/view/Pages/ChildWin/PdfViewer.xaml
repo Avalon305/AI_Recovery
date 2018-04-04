@@ -5,214 +5,218 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mpp="clr-namespace:MoonPdfLib;assembly=MoonPdfLib"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
+        
         mc:Ignorable="d"
+        
         Loaded="Window_Loaded"
-        Title="宝德龙" Height="900" Width="950" ContentRendered="WPFPdfViewerWindow_Activated" >
-    <!--<Grid>
+        Title="{DynamicResource Title.Title}" Height="800" Width="850" ContentRendered="WPFPdfViewerWindow_Activated" >
+    <Grid>
+        <Viewbox Name="viewbox">
+            <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>-->
-    <Grid Margin="0,10,0,0.4" >
-        <Border Background="#f0f0f0" Margin="0,0,0,800">
-            
-            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" >
-                <Button x:Name="btn_print" HorizontalAlignment="Left" ToolTip="打印" Width="30" Height="20" Click="Print_Click" Margin="5,5,5,0" >
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Image Name="btnbg" Source="/view/Images/excel/print.png" />
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Source"  Value="/view/Images/excel/print.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsPressed" Value="True">
-                                                <Setter Property="Source" Value="/view/Images/excel/print.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Source" Value="/view/Images/excel/print.png" TargetName="btnbg" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <Button x:Name="btn_zoomin" HorizontalAlignment="Left" Width="30" ToolTip="缩小" Height="20" Click="ZoomInButton_Click" Margin="5">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Image Name="btnbg" Source="/view/Images/excel/zoom-in.png" />
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Source"  Value="/view/Images/excel/zoom-in.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsPressed" Value="True">
-                                                <Setter Property="Source" Value="/view/Images/excel/zoom-in.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Source" Value="/view/Images/excel/zoom-in.png" TargetName="btnbg" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <Button x:Name="btn_zoomout" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="放大" Click="ZoomOutButton_Click" Margin="5">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Image Name="btnbg" Source="/view/Images/excel/zoom-out.png" />
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Source"  Value="/view/Images/excel/zoom-out.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsPressed" Value="True">
-                                                <Setter Property="Source" Value="/view/Images/excel/zoom-out.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Source" Value="/view/Images/excel/zoom-out.png" TargetName="btnbg" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <Button x:Name="btn_singlepage" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="单页模式" Click="SinglePageButton_Click" Margin="5">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Image Name="btnbg" Source="/view/Images/excel/single.png" />
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Source"  Value="/view/Images/excel/single.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsPressed" Value="True">
-                                                <Setter Property="Source" Value="/view/Images/excel/single.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Source" Value="/view/Images/excel/single.png" TargetName="btnbg" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <Button x:Name="btn_facing" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="双页模式" Click="FacingButton_Click" Margin="5">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Image Name="btnbg" Source="/view/Images/excel/template.png" />
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Source"  Value="/view/Images/excel/template.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsPressed" Value="True">
-                                                <Setter Property="Source" Value="/view/Images/excel/template.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Source" Value="/view/Images/excel/template.png" TargetName="btnbg" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <Button x:Name="btn_100" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="100%显示" Click="NormalButton_Click" Margin="5">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Image Name="btnbg" Source="/view/Images/excel/100%.png" />
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Source"  Value="/view/Images/excel/100%.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsPressed" Value="True">
-                                                <Setter Property="Source" Value="/view/Images/excel/100%.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Source" Value="/view/Images/excel/100%.png" TargetName="btnbg" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <Button x:Name="btn_FitToHeight" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="正常显示" Click="FitToHeightButton_Click" Margin="5">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Image Name="btnbg" Source="/view/Images/excel/document.png" />
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Source"  Value="/view/Images/excel/document.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsPressed" Value="True">
-                                                <Setter Property="Source" Value="/view/Images/excel/document.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Source" Value="/view/Images/excel/document.png" TargetName="btnbg" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <Button x:Name="close" HorizontalAlignment="Right" ToolTip="关闭" Width="30" Height="20" Click="print_close" Margin="620,5,5,0" >
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Image Name="btnbg" Source="/view/Images/excel/close.png" />
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Source"  Value="/view/Images/excel/close.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsPressed" Value="True">
-                                                <Setter Property="Source" Value="/view/Images/excel/close.png" TargetName="btnbg" />
-                                            </Trigger>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Source" Value="/view/Images/excel/close.png" TargetName="btnbg" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <!--<Button Content="100%" Width="50" Click="NormalButton_Click" Margin="0,5"/>-->
+            <Grid Margin="0,10,0,0.4" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                <Border Background="#f0f0f0" Margin="0,0,0,800">
 
-                <!--<Button Content="整页" Width="50" Click="FitToHeightButton_Click" Margin="5,5"/>-->
-                <!--<Button Content="文件" Width="50" Click="FileButton_Click" Margin="5"/>
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" >
+                        <Button x:Name="btn_print" HorizontalAlignment="Left" ToolTip="打印" Width="30" Height="20" Click="Print_Click" Margin="5,5,5,0" >
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Image Name="btnbg" Source="/view/Images/excel/print.png" />
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Source"  Value="/view/Images/excel/print.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsPressed" Value="True">
+                                                        <Setter Property="Source" Value="/view/Images/excel/print.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsEnabled" Value="false">
+                                                        <Setter Property="Source" Value="/view/Images/excel/print.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="btn_zoomin" HorizontalAlignment="Left" Width="30" ToolTip="缩小" Height="20" Click="ZoomInButton_Click" Margin="5">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Image Name="btnbg" Source="/view/Images/excel/zoom-in.png" />
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Source"  Value="/view/Images/excel/zoom-in.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsPressed" Value="True">
+                                                        <Setter Property="Source" Value="/view/Images/excel/zoom-in.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsEnabled" Value="false">
+                                                        <Setter Property="Source" Value="/view/Images/excel/zoom-in.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="btn_zoomout" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="放大" Click="ZoomOutButton_Click" Margin="5">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Image Name="btnbg" Source="/view/Images/excel/zoom-out.png" />
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Source"  Value="/view/Images/excel/zoom-out.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsPressed" Value="True">
+                                                        <Setter Property="Source" Value="/view/Images/excel/zoom-out.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsEnabled" Value="false">
+                                                        <Setter Property="Source" Value="/view/Images/excel/zoom-out.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="btn_singlepage" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="单页模式" Click="SinglePageButton_Click" Margin="5">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Image Name="btnbg" Source="/view/Images/excel/single.png" />
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Source"  Value="/view/Images/excel/single.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsPressed" Value="True">
+                                                        <Setter Property="Source" Value="/view/Images/excel/single.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsEnabled" Value="false">
+                                                        <Setter Property="Source" Value="/view/Images/excel/single.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="btn_facing" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="双页模式" Click="FacingButton_Click" Margin="5">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Image Name="btnbg" Source="/view/Images/excel/template.png" />
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Source"  Value="/view/Images/excel/template.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsPressed" Value="True">
+                                                        <Setter Property="Source" Value="/view/Images/excel/template.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsEnabled" Value="false">
+                                                        <Setter Property="Source" Value="/view/Images/excel/template.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="btn_100" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="100%显示" Click="NormalButton_Click" Margin="5">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Image Name="btnbg" Source="/view/Images/excel/100%.png" />
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Source"  Value="/view/Images/excel/100%.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsPressed" Value="True">
+                                                        <Setter Property="Source" Value="/view/Images/excel/100%.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsEnabled" Value="false">
+                                                        <Setter Property="Source" Value="/view/Images/excel/100%.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="btn_FitToHeight" HorizontalAlignment="Left" Width="30" Height="20" ToolTip="正常显示" Click="FitToHeightButton_Click" Margin="5">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Image Name="btnbg" Source="/view/Images/excel/document.png" />
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Source"  Value="/view/Images/excel/document.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsPressed" Value="True">
+                                                        <Setter Property="Source" Value="/view/Images/excel/document.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsEnabled" Value="false">
+                                                        <Setter Property="Source" Value="/view/Images/excel/document.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="close" HorizontalAlignment="Right" ToolTip="关闭" Width="30" Height="20" Click="print_close" Margin="620,5,5,0" >
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Image Name="btnbg" Source="/view/Images/excel/close.png" />
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Source"  Value="/view/Images/excel/close.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsPressed" Value="True">
+                                                        <Setter Property="Source" Value="/view/Images/excel/close.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsEnabled" Value="false">
+                                                        <Setter Property="Source" Value="/view/Images/excel/close.png" TargetName="btnbg" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <!--<Button Content="100%" Width="50" Click="NormalButton_Click" Margin="0,5"/>-->
+
+                        <!--<Button Content="整页" Width="50" Click="FitToHeightButton_Click" Margin="5,5"/>-->
+                        <!--<Button Content="文件" Width="50" Click="FileButton_Click" Margin="5"/>
 
                 <Button Content="放大" Width="50" Click="ZoomInButton_Click" Margin="0,5"/>
 
@@ -228,113 +232,117 @@
                 <Button Content="打印" Width="50" Click="Print_Click" Margin="5"/>
                 <Button Content="excel转pdf" Width="50" Click="Test_Click" Margin="5"/>-->
 
-            </StackPanel>
-        </Border>
-        <!--加载动画-->
-        <Grid Margin="0,60,10,-10" Height="810" VerticalAlignment="Top" RenderTransformOrigin="0.509,0.481">
+                    </StackPanel>
+                </Border>
+                <!--加载动画-->
+                <Grid Margin="0,60,10,-10" Height="810" ScrollViewer.VerticalScrollBarVisibility="Hidden" VerticalAlignment="Top" Name="a" RenderTransformOrigin="0.509,0.481">
 
-            <Grid Height="83" Grid.Row="0" VerticalAlignment="Bottom" Margin="432,0,411,375">
-                <Grid.Resources>
-                    <DrawingBrush x:Key="brush" Stretch="None" AlignmentX="Center" AlignmentY="Top">
-                        <DrawingBrush.Drawing>
-                            <GeometryDrawing Brush="Black">
-                                <GeometryDrawing.Geometry>
-                                    <EllipseGeometry RadiusX="2" RadiusY="5"/>
-                                </GeometryDrawing.Geometry>
-                            </GeometryDrawing>
-                        </DrawingBrush.Drawing>
-                    </DrawingBrush>
-                </Grid.Resources>
+                    <Grid Height="83" Grid.Row="0" VerticalAlignment="Bottom" Margin="432,0,411,375">
+                        <Grid.Resources>
+                            <DrawingBrush x:Key="brush" Stretch="None" AlignmentX="Center" AlignmentY="Top">
+                                <DrawingBrush.Drawing>
+                                    <GeometryDrawing Brush="Black">
+                                        <GeometryDrawing.Geometry>
+                                            <EllipseGeometry RadiusX="2" RadiusY="5"/>
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                </DrawingBrush.Drawing>
+                            </DrawingBrush>
+                        </Grid.Resources>
 
-                <Rectangle x:Name="r01" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="0"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle x:Name="r02" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="30"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle x:Name="r03" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="60"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle x:Name="r04" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="90"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle x:Name="r05" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="120"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle x:Name="r06" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="150"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle x:Name="r07" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="180"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle x:Name="r08" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="210"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle x:Name="r09" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="240"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle x:Name="r10" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="270"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle x:Name="r11" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="300"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle x:Name="r12" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <RotateTransform Angle="330"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
+                        <Rectangle x:Name="r01" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <RotateTransform Angle="0"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle x:Name="r02" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <RotateTransform Angle="30"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle x:Name="r03" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <RotateTransform Angle="60"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle x:Name="r04" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle x:Name="r05" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <RotateTransform Angle="120"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle x:Name="r06" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <RotateTransform Angle="150"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle x:Name="r07" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <RotateTransform Angle="180"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle x:Name="r08" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <RotateTransform Angle="210"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle x:Name="r09" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <RotateTransform Angle="240"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle x:Name="r10" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <RotateTransform Angle="270"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle x:Name="r11" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <RotateTransform Angle="300"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle x:Name="r12" Fill="{StaticResource brush}" Opacity="0.7" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <RotateTransform Angle="330"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
 
-                <Grid.Triggers>
-                    <EventTrigger RoutedEvent="Grid.Loaded">
-                        <BeginStoryboard>
-                            <Storyboard RepeatBehavior="Forever">
-                                <DoubleAnimation Storyboard.TargetName="r01" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.00000" To="0"/>
-                                <DoubleAnimation Storyboard.TargetName="r02" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.08333" To="0"/>
-                                <DoubleAnimation Storyboard.TargetName="r03" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.16666" To="0"/>
-                                <DoubleAnimation Storyboard.TargetName="r04" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.24999" To="0"/>
-                                <DoubleAnimation Storyboard.TargetName="r05" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.33332" To="0"/>
-                                <DoubleAnimation Storyboard.TargetName="r06" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.41665" To="0"/>
-                                <DoubleAnimation Storyboard.TargetName="r07" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.49998" To="0"/>
-                                <DoubleAnimation Storyboard.TargetName="r08" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.58331" To="0"/>
-                                <DoubleAnimation Storyboard.TargetName="r09" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.66664" To="0"/>
-                                <DoubleAnimation Storyboard.TargetName="r10" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.74997" To="0"/>
-                                <DoubleAnimation Storyboard.TargetName="r11" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.83330" To="0"/>
-                                <DoubleAnimation Storyboard.TargetName="r12" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.91663" To="0"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </Grid.Triggers>
+                        <Grid.Triggers>
+                            <EventTrigger RoutedEvent="Grid.Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <DoubleAnimation Storyboard.TargetName="r01" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.00000" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="r02" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.08333" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="r03" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.16666" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="r04" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.24999" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="r05" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.33332" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="r06" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.41665" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="r07" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.49998" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="r08" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.58331" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="r09" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.66664" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="r10" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.74997" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="r11" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.83330" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="r12" Storyboard.TargetProperty="Opacity" AutoReverse="True" Duration="0:0:0.08333" BeginTime="0:0:0.91663" To="0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Grid.Triggers>
+                    </Grid>
+                    <Label Name="lbl1" Content="{DynamicResource PdfView.loading...}" FontSize="20" Background="Transparent" Foreground="Black" Height="35" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="391,461,333,0" Width="210"/>
+                </Grid>
+                <!--加载动画 结束-->
             </Grid>
-            <Label Name="lbl1" Content="{DynamicResource PdfView.loading...}" FontSize="20" Background="Transparent" Foreground="Black" Height="35" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="391,461,333,0" Width="210"/>
-        </Grid>
-        <!--加载动画 结束-->
-        <Border Background="Transparent" Margin="0,42,0,0.4">
+        </Viewbox>
+        <Border Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden"  Margin="0,70,0,0.4">
+           
         <!--<Border Background="#d3d3d3" Grid.Row="1">-->
-            <mpp:MoonPdfPanel x:Name="moonPdfPanel" Background="Transparent"  ViewType="SinglePage" PageRowDisplay="ContinuousPageRows" PageMargin="0,2,4,2" AllowDrop="True"/>
+            <mpp:MoonPdfPanel x:Name="moonPdfPanel" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" Background="Transparent"  ViewType="SinglePage" PageRowDisplay="ContinuousPageRows" PageMargin="0,2,4,2" AllowDrop="True"/>
         </Border>
+
     </Grid>
 </Window>
 
