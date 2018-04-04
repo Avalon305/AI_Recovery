@@ -1346,7 +1346,14 @@ namespace spms.view.Pages.ChildWin
             TrainInfo trainInfo = new TrainService().GetTrainInfoByUserIdAndStatus(user.Pk_User_Id, (int)TrainInfoStatus.Normal);
             if (trainInfo != null)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("是否覆盖", "Whether or not to cover"));
+                //MessageBox.Show(LanguageUtils.ConvertLanguage("是否覆盖", "Whether or not to cover"));
+
+                MessageBoxResult dr = MessageBox.Show(LanguageUtils.ConvertLanguage("是否覆盖", "Whether or not to cover?"), LanguageUtils.ConvertLanguage("提示", "Point"), MessageBoxButton.OKCancel,
+                    MessageBoxImage.Question);
+                if (dr == MessageBoxResult.Cancel)
+                {
+                    return;
+                }
             }
 
             if (user != null)
