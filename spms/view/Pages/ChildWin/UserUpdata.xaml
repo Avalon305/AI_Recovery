@@ -8,6 +8,7 @@
         xmlns:converter="clr-namespace:spms.view.converter"
         xmlns:bubble="clr-namespace:spms.view.bubblemove"
          xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}" Height="656.993" Width="600"
@@ -135,8 +136,9 @@
                     <Border Grid.Row="5" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.IdCard}" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                        <TextBox Grid.Row="5"  CaretBrush="Black" Name="IDCard" Grid.Column="1" LostFocus="IsIDCard" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IDCard,Converter={StaticResource idcardconverter}}" VerticalContentAlignment="Center"/>
-                    <!--气泡-->
+                        <TextBox Grid.Row="5"  CaretBrush="Black" Name="idcard" Grid.Column="1" LostFocus="IsIDCard" PreviewKeyDown="idcard_encrypt"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IDCard,Converter={StaticResource idcardconverter}}" VerticalContentAlignment="Center"/>
+                        <TextBox Grid.Row="5"  CaretBrush="Black" Name="IDCard" Grid.Column="1" LostFocus="IsIDCard" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IDCard}" VerticalContentAlignment="Center" Visibility="Hidden"/>
+                        <!--气泡-->
                     <bubble:CCPopup x:Name="bubble_IDCard" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=IDCard}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
                             <StackPanel Orientation="Horizontal">

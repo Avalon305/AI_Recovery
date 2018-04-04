@@ -25,12 +25,13 @@
                     <!--图片-->
                     <Grid>
                         <!--<StackPanel Orientation="Horizontal" Margin="5,0,25,0">-->
-
-                        <!--图片及按钮-->
+                    
+                    <!--图片及按钮-->
                         <Grid>
                             <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left">
                                 <Canvas>
-                                    <Image Source="/view/Images/1.PNG" Stretch="Fill" Canvas.Left="11" Canvas.Top="1" Width="1269" Height="71"/>
+                                    <Image Source="/view/Images/12.PNG" Stretch="Fill" Canvas.Left="11" Canvas.Top="1" Width="1269" Height="71"/>
+                                    
                                 </Canvas>
                             </Border>
                             <Border Margin="0,20,40,19" HorizontalAlignment="Right" Width="160">
@@ -41,7 +42,8 @@
                                 </StackPanel>
 
                             </Border>
-                        </Grid>
+                        <Label Content="传递健康理念，与您共同发展" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="15,0,0,0" Foreground="PowderBlue"></Label>
+                    </Grid>
                         <!-- logo -->
                         <!--
                 <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="11,0,0,0">
