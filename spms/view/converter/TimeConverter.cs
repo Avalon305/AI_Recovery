@@ -21,9 +21,14 @@ namespace spms.view.converter
             {
                 //object转float
                 double temp = System.Convert.ToSingle(value.ToString());
-                int hours = (int)temp / 60;
-                //int minute = int
-                return temp * 60;
+                int hours = (int)(temp / 60);
+                int minute = (int)(temp - hours * 60);
+                int second = (int)(temp % 1 * 60);
+                DateTime time = new DateTime();
+                time.AddHours(hours);
+                time.AddMinutes(minute);
+                time.AddSeconds(second);
+                return time;
             }
         }
 
@@ -35,8 +40,8 @@ namespace spms.view.converter
             }
             else
             {
-                int time = System.Convert.ToInt32(value);
-                return time / 60;
+                DateTime time = System.Convert.ToDateTime(value.ToString());
+                return (int)(time.Hour*60+time.Minute+time.Second/60);
             }
         }
     }

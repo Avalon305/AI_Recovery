@@ -75,6 +75,7 @@ namespace spms.view.Pages.ChildWin
             origin_phone = phoneNum.Text;
             //获得最初的身份证号
             origin_IDCard = IDCard.Text;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
             viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;

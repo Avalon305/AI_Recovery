@@ -132,7 +132,7 @@
                                 <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="HLPSportstrength" VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="HLPTime1" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="HLPTime1"  VerticalContentAlignment="Center"  IsEnabled="False" />
 
                                 <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
                                 <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="HLPDistance" VerticalContentAlignment="Center"  IsEnabled="False" />

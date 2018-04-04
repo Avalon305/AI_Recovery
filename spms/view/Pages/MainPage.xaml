@@ -201,21 +201,70 @@
                                             <Setter Property="Foreground" Value="White" />
                                         </Trigger>
                                     </Style.Triggers>
-                                </Style>
+                                <!--单元格tooltip效果-->
+                                <Setter Property="ToolTipService.ToolTip"  Value="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content.Text}" />
+                            </Style>
 
                             </DataGrid.CellStyle>
                             <DataGrid.Columns >
-                                <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="{DynamicResource SubjectListView.SubjectID}" Width="140" />
+                            <DataGridTemplateColumn Header="{DynamicResource SubjectListView.SubjectID}" Width="140"  IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DataGridRow}}, Path=Header}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <!--<DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="{DynamicResource SubjectListView.SubjectID}" Width="140" />-->
                                 <DataGridTextColumn Binding="{Binding User_Name}" Header="{DynamicResource SubjectListView.LastName}" Width="140"/>
                                 <DataGridTextColumn Binding="{Binding User_Namepinyin}" Header="{DynamicResource SubjectListView.FirstName}" Width="150"/>
-                                <DataGridTextColumn Binding="{Binding User_Sex, Converter={StaticResource sexconverter}}" Header="{DynamicResource SubjectListView.Gender}" Width="50"/>
+                                <DataGridTextColumn Binding="{Binding User_Sex, Converter={StaticResource sexconverter}}" Header="{DynamicResource SubjectListView.Gender}" Width="60"/>
                                 <DataGridTextColumn Binding="{Binding User_Birth, Converter={StaticResource ageconverter}}" Header="{DynamicResource SubjectInfoView.Age}" Width="50"/>
                                 <DataGridTextColumn Binding="{Binding User_GroupName}" Header="{DynamicResource SubjectInfoView.Group}" Width="140"/>
                                 <DataGridTextColumn Binding="{Binding User_InitCare}" Header="{DynamicResource SubjectListView.InitialCareLevel}" Width="120"/>
                                 <DataGridTextColumn Binding="{Binding User_Nowcare}" Header="{DynamicResource SubjectListView.CurrentCareLevel}" Width="120"/>
-                                <DataGridTextColumn Binding="{Binding User_IllnessName}" Header="{DynamicResource SubjectListView.Disease}" Width="179"/>
-                                <DataGridTextColumn Binding="{Binding User_PhysicalDisabilities}" Header="{DynamicResource SubjectListView.Diagnosis}" Width="179"/>
-                            </DataGrid.Columns>
+                                <!--<DataGridTextColumn Binding="{Binding User_IllnessName}" Header="{DynamicResource SubjectListView.Disease}" Width="179"/>-->
+                            <DataGridTemplateColumn Header="{DynamicResource SubjectListView.Diagnosis}" Width="175">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding User_IllnessName}" TextTrimming="WordEllipsis" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                                <Setter Property="Foreground" Value="White"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding User_IllnessName}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
+                            <!--<DataGridTextColumn Binding="{Binding User_PhysicalDisabilities}" Header="{DynamicResource SubjectListView.Diagnosis}" Width="179"/>-->
+                                <DataGridTemplateColumn Header="{DynamicResource SubjectListView.Diagnosis}" Width="175">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <!--设置当单元格内容超过最大长度时，显示...-->
+                                            <TextBlock Text="{Binding User_PhysicalDisabilities}" TextTrimming="WordEllipsis" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                    <DataGridTemplateColumn.CellStyle>
+                                        <Style TargetType="DataGridCell" >
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="BorderThickness" Value="0"/>
+                                                <Setter Property="Foreground" Value="White"/>
+                                            </Trigger>
+                                            </Style.Triggers>
+                                            <!--加tooltip，显示单元格内容-->
+                                            <Setter Property="ToolTipService.ToolTip" Value="{Binding User_PhysicalDisabilities}"/>
+                                        </Style>
+                                    </DataGridTemplateColumn.CellStyle>
+                                </DataGridTemplateColumn>   
+                        </DataGrid.Columns>
                         </DataGrid>
                     </Border>
                     <!--结束：使用者一览表_数据-->
