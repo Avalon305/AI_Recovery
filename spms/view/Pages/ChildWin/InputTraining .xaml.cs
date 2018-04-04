@@ -1992,6 +1992,9 @@ namespace spms.view.Pages.ChildWin
             t5.Text = "";
         }
 
- 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            SaveTrainInfo2DB(TrainInfoStatus.Normal);
+        }
     }
 }
