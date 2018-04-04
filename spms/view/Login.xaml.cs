@@ -159,7 +159,7 @@ namespace spms.view
             Console.WriteLine("loginResult:" + loginResult);
            
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(password)) {
-                loginResult = "用户名或者密码不能为空";
+                loginResult = LanguageUtils.ConvertLanguage("用户名或者密码不能为空", "User name or password cannot be empty");
             }
             //U盾监测，无误后登录
             if (loginResult.Equals("check_U"))

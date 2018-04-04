@@ -71,7 +71,7 @@ namespace spms.view.Pages.ChildWin
                 SerialPortUtil.CheckPort();
                 if (SerialPortUtil.portName == "")
                 {
-                    MessageBox.Show("请先连接串口");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("请先连接串口", "Please connect the serial port first"));
                     return;
                 }
                 if (SerialPortUtil.SerialPort != null)
@@ -88,12 +88,12 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (UnauthorizedAccessException ex)
                     {
-                        MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder"), MessageBoxButton.OK, MessageBoxImage.Warning);
                         return;
                     }
                     catch (IOException ex)
                     {
-                        MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder"), MessageBoxButton.OK, MessageBoxImage.Warning);
                         this.Close();
                         return;
                     }
@@ -125,7 +125,7 @@ namespace spms.view.Pages.ChildWin
                 //}
             }
             else {
-                MessageBox.Show("密码错误，请重新输入");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("密码错误，请重新输入", "Password error, please retype"));
             }
         }
 
@@ -148,12 +148,12 @@ namespace spms.view.Pages.ChildWin
                         }
                         catch (UnauthorizedAccessException ex)
                         {
-                            MessageBox.Show("串口被占用", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder"), MessageBoxButton.OK, MessageBoxImage.Warning);
                             return;
                         }
                         catch (IOException ex)
                         {
-                            MessageBox.Show("串口不存在", "温馨提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder"), MessageBoxButton.OK, MessageBoxImage.Warning);
                             return;
                         }
                     }
@@ -168,7 +168,8 @@ namespace spms.view.Pages.ChildWin
                 SerialPortUtil.ClosePort(ref serialPort);
                 Dispatcher.Invoke(new Action(() =>
                 {
-                    MessageBox.Show("设备长时间未应答，请查看是否选对串口，或设备未启动");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("设备长时间未应答，请查看是否选对串口，或设备未启动", "The device has not answered for a long time. Check whether the serial port is selected or the device is not started."));
+                    
                     this.Close();
                 }));
             }
@@ -280,7 +281,7 @@ namespace spms.view.Pages.ChildWin
                             //MessageBox.Show("激活成功");
                             //todo 全局变量
                             ProtocolConstant.USB_SUCCESS = 1;
-                            MessageBox.Show("激活成功");
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("激活成功", "Activated successfully"));
                             Console.WriteLine("激活成功");
                         }
                         else

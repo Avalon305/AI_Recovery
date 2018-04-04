@@ -64,7 +64,7 @@ namespace spms.view.Pages
                 {
                     if (SetterDAO.getSetter().Set_Unique_Id != "" && SetterDAO.getSetter().Set_Unique_Id != null)//判断是否激活
                     {
-                        Status.Content = "已激活";
+                        Status.Content = LanguageUtils.GetCurrentLanuageStrByKey("SettingsView.Activated");
                         Color color = Color.FromArgb(255, 2, 200, 5);
                         Status.Foreground = new SolidColorBrush(color);
                         BtnActivite.IsEnabled = false;
@@ -154,12 +154,12 @@ namespace spms.view.Pages
                 }
                 else
                 {
-                    MessageBox.Show("最多只允许存在一个用户");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("最多只允许存在一个用户", "Only one user is allowed"));
                 }
             }
             else
             {
-                MessageBox.Show("您没有添加权限请先激活");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("您没有添加权限请先激活", "You did not add permission, please activate first"));
             }
         }
         //删除按钮的事件
@@ -167,7 +167,7 @@ namespace spms.view.Pages
         {
             if (selected == 1)
             {
-                if (MessageBox.Show("你确认要删除所选项吗", "提示：", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                if (MessageBox.Show(LanguageUtils.ConvertLanguage("你确认要删除所选项吗", "Do you want to delete the selected item?"), LanguageUtils.ConvertLanguage("提示：", "Tips"), MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                 {
                     authDAO.DeleteByPrimaryKey(auther);//在数据库中删除
                     FlushAuther();
@@ -176,7 +176,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show("请选择删除的一行");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
             }
 
         }
@@ -215,12 +215,12 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show("请选择更新的一行");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
             }
         }
         private void Btn_Confirm(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("你确认要保存更改吗", "提示：", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            if (MessageBox.Show(LanguageUtils.ConvertLanguage("你确认要保存更改吗", "Are you sure you want to save your changes?"), LanguageUtils.ConvertLanguage("提示：", "Tips"), MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 deviceSortDAO.UpdateDeviceSorts(DeviceSortList);
             }
@@ -279,14 +279,14 @@ namespace spms.view.Pages
 
 
 
-                Status.Content = "已激活";
+                Status.Content = LanguageUtils.GetCurrentLanuageStrByKey("SettingsView.Activated");
                 Color color = Color.FromArgb(255, 2, 200, 5);
                 Status.Foreground = new SolidColorBrush(color);
                 BtnActivite.IsEnabled = false;
             }
             else
             {
-                MessageBox.Show("激活失败");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("激活失败", "Activation fails"));
             }
 
 

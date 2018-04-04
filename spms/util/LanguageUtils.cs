@@ -35,6 +35,8 @@ namespace spms.util
                 dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals(requestedCulture));
             Application.Current.Resources.MergedDictionaries.Remove(resourceDictionary);
             Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+            //清空下拉框缓存
+            DataCodeCache.GetInstance().ClearCache();
         }
 
         public static bool IsChainese()

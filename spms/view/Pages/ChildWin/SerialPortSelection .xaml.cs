@@ -60,7 +60,7 @@ namespace spms.view.Pages.ChildWin
             }
             else
             {
-                MessageBox.Show("请选择串口");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择串口", "Please select the serial port"));
             }
         }
 

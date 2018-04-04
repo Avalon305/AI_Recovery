@@ -1,4 +1,5 @@
-﻿using spms.constant;
+﻿using NLog;
+using spms.constant;
 using spms.entity;
 using spms.service;
 using spms.util;
@@ -12,6 +13,7 @@ namespace spms.protocol
 {
     class MakerTCPFrame
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private MakerTCPFrame() { }
 
         private static MakerTCPFrame instance = new MakerTCPFrame();
@@ -158,6 +160,10 @@ namespace spms.protocol
             byte[] arr;
             //获取处方信息
             var prescription = new TrainService().GetDevicePrescriptionByIdCardDeviceType(idcard, deviceType);
+
+            logger.Info("获取到处方信息：" + prescription.ToString());
+         
+            
             UserService userService = new UserService();
             var u = userService.GetByIdCard(idcard);
 

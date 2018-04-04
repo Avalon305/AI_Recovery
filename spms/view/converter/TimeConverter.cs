@@ -21,6 +21,8 @@ namespace spms.view.converter
             {
                 //object转float
                 double temp = System.Convert.ToSingle(value.ToString());
+                int hours = (int)temp / 60;
+                //int minute = int
                 return temp * 60;
             }
         }

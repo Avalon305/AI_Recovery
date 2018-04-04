@@ -41,10 +41,10 @@ Icon="/view/Images/icon2.png"
         <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Height="513">
             <Border Width="366" Height="512" Margin="0,0,25,0" BorderThickness="1" BorderBrush="Black">
 
-                <wpfmedia:VideoCaptureElement Name="vce" Width="366" Stretch="UniformToFill"  FPS="30"    />
+                    <wpfmedia:VideoCaptureElement Name="vce" Width="366" VerticalAlignment="Center"  HorizontalAlignment="Center"  Stretch="UniformToFill"  FPS="30"    />
 
             </Border>
-            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                 <Image Source="/view/Images/Arrow.jpg" Width="50" Margin="0,0,0,10" RenderTransformOrigin="0.5,0.5" >
                     <Image.RenderTransform>
                         <TransformGroup>

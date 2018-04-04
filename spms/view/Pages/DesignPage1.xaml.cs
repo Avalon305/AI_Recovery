@@ -125,11 +125,11 @@ namespace spms.view.Pages
                 }
                 else
                 {
-                    MessageBox.Show("当前用户没有权限，请与管理员取得联系");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("当前用户没有权限，请与管理员取得联系", "The current user does not have permission. Please contact the administrator"));
                 }
             }
             catch (Exception ee){
-                MessageBox.Show("请先登陆");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请先登陆", "Log in first, please"));
             }
            
         }
@@ -148,7 +148,7 @@ namespace spms.view.Pages
 
         private void Btn_Confirm(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("你确认要保存更改吗", "提示：", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            if (MessageBox.Show(LanguageUtils.ConvertLanguage("你确认要保存更改吗", "Are you sure you want to save your changes?"), LanguageUtils.ConvertLanguage("提示：", "Tips"), MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 string textValue1 = textBox1.Text;//机构团体名称
                 string textValue2 = textBox2.Text;//照片保存文档
@@ -271,7 +271,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show("请选择更新的一行");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
             }
 
 
@@ -298,7 +298,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show("请选择更新的一行");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
             }
         }
         private void Diagnosis_Update(object sender, RoutedEventArgs e)
@@ -323,14 +323,14 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show("请选择更新的一行");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
             }
         }
         private void Group_Delete(object sender, RoutedEventArgs e)
         {
             if (Selected[0] == 1)
             {
-                if (MessageBox.Show("你确认要删除所选项吗", "提示：", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                if (MessageBox.Show(LanguageUtils.ConvertLanguage("确认要删除所选项吗", "Are you sure you want to delete the selected item?"), LanguageUtils.ConvertLanguage("提示：", "Tips"), MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                 {
                     customDataDAO.DeleteCustomDataByPrimaryKey(group.Pk_CD_Id);//在数据库中删除
                     FlushGroup();
@@ -339,14 +339,14 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show("请选择删除的一行");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
             }
         }
         private void Disease_Delete(object sender, RoutedEventArgs e)
         {
             if (Selected[1] == 1)
             {
-                if (MessageBox.Show("你确认要删除所选项吗", "提示：", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                if (MessageBox.Show(LanguageUtils.ConvertLanguage("你确认要删除所选项吗", "Do you want to delete the selected item?"), LanguageUtils.ConvertLanguage("提示：", "Tips"), MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                 {
                     customDataDAO.DeleteCustomDataByPrimaryKey(disease.Pk_CD_Id);//在数据库中删除
                     FlushDisease();
@@ -355,14 +355,14 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show("请选择删除的一行");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
             }
         }
         private void Diagnosis_Delete(object sender, RoutedEventArgs e)
         {
             if (Selected[2] == 1)
             {
-                if (MessageBox.Show("你确认要删除所选项吗", "提示：", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                if (MessageBox.Show(LanguageUtils.ConvertLanguage("你确认要删除所选项吗", "Do you want to delete the selected item?"), LanguageUtils.ConvertLanguage("提示：", "Tips"), MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                 {
                     customDataDAO.DeleteCustomDataByPrimaryKey(diagnosis.Pk_CD_Id);//在数据库中删除
                     FlushDiagnosis();
@@ -371,7 +371,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show("请选择删除的一行");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
             }
         }
         private void Output_Document(object sender, RoutedEventArgs e)

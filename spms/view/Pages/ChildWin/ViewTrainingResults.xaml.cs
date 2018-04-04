@@ -121,7 +121,7 @@ namespace spms.view.Pages.ChildWin
                         HLPCal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
                         HLPIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
                         HLPTime2.Text = trainDto.prescriptionResult.PR_Time2.ToString();
-                        HLPFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
+                        //HLPFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
                         HLPEvaluate.Text = trainDto.evaluate;
                         HLPAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
                         HLPUserthoughts.Text = trainDto.prescriptionResult.PR_UserThoughts;

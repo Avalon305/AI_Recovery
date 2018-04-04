@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.util;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -50,7 +51,7 @@ namespace spms.view.Pages.ChildWin
             Auther AutherTemp = authDAO.GetByName(Name);
             if (AutherTemp != null)
             {
-                MessageBox.Show("用户名已存在");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("用户名已存在", "The username has already existed"));
             }
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -88,10 +89,10 @@ namespace spms.view.Pages.ChildWin
             }
             else if ((PassWord.Equals(REPassword) && PassWord == ""))
             {
-                MessageBox.Show("密码不能为空");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("密码不能为空", "The password can not be empty"));
             }
             else {
-                MessageBox.Show("密码的两次输入不一致");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("密码的两次输入不一致", "Two inconsistencies in the password are inconsistencies"));
             }
             
         }
