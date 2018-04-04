@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.util;
 using static spms.entity.CustomData;
 
 namespace spms.view.Pages.ChildWin
@@ -62,7 +63,7 @@ namespace spms.view.Pages.ChildWin
             CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Diagiosis, Name);
             if (CustomData != null)
             {
-                MessageBox.Show("残障名称已存在");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("残障名称已存在", "The name of the handicap has already existed"));
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -130,6 +130,14 @@ namespace spms.util
             }
             return result;
         }
+        /// <summary>
+        /// 用于切换语言后清空缓存
+        /// </summary>
+        public void ClearCache()
+        {
+            codeMapSValue.Clear();
+            codeMapDValue.Clear();
+        }
 
     }
 }

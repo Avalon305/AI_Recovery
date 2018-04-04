@@ -62,7 +62,7 @@ namespace spms.view.Pages.ChildWin
             CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Disease, Name);
             if (CustomData != null)
             {
-                MessageBox.Show("疾病名称已存在");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("疾病名称已存在", "Disease name already exists"));
             }
         }
         private void Button_SaveClick(object sender, RoutedEventArgs e)

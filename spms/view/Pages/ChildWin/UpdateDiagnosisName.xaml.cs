@@ -61,7 +61,7 @@ namespace spms.view.Pages.ChildWin
             CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Diagiosis, Name);
             if (CustomData != null)
             {
-                MessageBox.Show("残障名称已存在");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("残障名称已存在", "Disability name already exists"));
             }
         }
         private void Button_SaveClick(object sender, RoutedEventArgs e)

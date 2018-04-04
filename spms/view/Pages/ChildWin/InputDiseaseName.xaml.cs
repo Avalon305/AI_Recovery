@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.util;
 using static spms.entity.CustomData;
 
 namespace spms.view.Pages.ChildWin
@@ -59,7 +60,7 @@ namespace spms.view.Pages.ChildWin
             CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Disease, Name);
             if (CustomData != null)
             {
-                MessageBox.Show("疾病名称已存在");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("疾病名称已存在", "The name of the disease has already existed"));
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)

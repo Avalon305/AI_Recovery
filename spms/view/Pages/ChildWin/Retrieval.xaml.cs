@@ -111,7 +111,7 @@ namespace spms.view.Pages.ChildWin
             user.User_Name = userName;
             user.User_Namepinyin = usernamePY;
 
-            user.User_Sex =  (byte?)(usersex.Equals("男") ? 1 : usersex.Equals("女") ? 0 : 2);
+            user.User_Sex =  (byte?)(LanguageUtils.EqualsResource(usersex, "AddOrEditView.M") ? 1 : LanguageUtils.EqualsResource(usersex, "AddOrEditView.F") ? 0 : 2);
             user.User_Phone = phone;
             user.User_IDCard = IDCard;
 
@@ -179,7 +179,7 @@ namespace spms.view.Pages.ChildWin
             UserService userService = new UserService();
             if (!String.IsNullOrEmpty(IDCard.Text)&& IDCard.Text.Length == 18 && !inputlimited.InputLimited.IsIDcard(IDCard.Text) )
             {
-                Error_Info_IDCard.Content = "请输入正确的身份证号";
+                Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入正确的身份证号码", "Please enter a valid ID number");
                 bubble_IDCard.IsOpen = true;
             }
            else
@@ -191,7 +191,7 @@ namespace spms.view.Pages.ChildWin
         private void IsPhone(object sender, RoutedEventArgs e)
         {
             if(!inputlimited.InputLimited.IsHandset(phone.Text) && !String.IsNullOrEmpty(phone.Text)){
-                Error_Info_Phone.Content = "请输入正确的手机号";
+                Error_Info_Phone.Content = LanguageUtils.ConvertLanguage("请输入正确的手机号", "Please enter a valid phone number");
                 bubble_phone.IsOpen = true;
             }
             else
@@ -219,7 +219,7 @@ namespace spms.view.Pages.ChildWin
             Console.WriteLine(c4.Text);
             if (!diseaseList.Contains(c4.Text) && !String.IsNullOrEmpty(c4.Text))
             {
-                Error_Info_disease.Content = "不存在该疾病名称";
+                Error_Info_disease.Content = LanguageUtils.ConvertLanguage("不存在该疾病名称", "There is no name for the disease");
                 bubble_disease.IsOpen = true;
             }
             else
@@ -232,7 +232,7 @@ namespace spms.view.Pages.ChildWin
         {
             if (!diagnosisList.Contains(c3.Text) && !String.IsNullOrEmpty(c3.Text))
             {
-                Error_Info_Diagnosis.Content = "不存在该残障名称";
+                Error_Info_Diagnosis.Content = LanguageUtils.ConvertLanguage("不存在该残障名称", "There is no such disability name");
                 bubble_Diagnosis.IsOpen = true;
             }
             else

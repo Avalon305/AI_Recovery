@@ -76,16 +76,16 @@ namespace spms.util
                 //worksheet.Column(10).Width = 16;
 
 
-                worksheet.Cells[2, 1].Value = user.Pk_User_Id;
-                worksheet.Cells[2, 2].Value = user.User_Name;
-                worksheet.Cells[2, 3].Value = user.User_Namepinyin;
-                worksheet.Cells[2, 4].Value = user.User_Sex;
-                worksheet.Cells[2, 5].Value = ConvertAge(user.User_Birth);
-                worksheet.Cells[2, 6].Value = user.User_GroupName;
-                worksheet.Cells[2, 7].Value = user.User_InitCare;
-                worksheet.Cells[2, 8].Value = user.User_Nowcare;
-                worksheet.Cells[2, 9].Value = user.User_IllnessName;
-                worksheet.Cells[2, 10].Value = user.User_PhysicalDisabilities;
+                worksheet.Cells[2, 1].Value = GetObjContent(user.Pk_User_Id);
+                worksheet.Cells[2, 2].Value = GetObjContent(user.User_Name);
+                worksheet.Cells[2, 3].Value = GetObjContent(user.User_Namepinyin);
+                worksheet.Cells[2, 4].Value = GetObjContent(user.User_Sex);
+                worksheet.Cells[2, 5].Value = GetObjContent(ConvertAge(user.User_Birth));
+                worksheet.Cells[2, 6].Value = GetObjContent(user.User_GroupName);
+                worksheet.Cells[2, 7].Value = GetObjContent(user.User_InitCare);
+                worksheet.Cells[2, 8].Value = GetObjContent(user.User_Nowcare);
+                worksheet.Cells[2, 9].Value = GetObjContent(user.User_IllnessName);
+                worksheet.Cells[2, 10].Value = GetObjContent(user.User_PhysicalDisabilities);
 
                 //设置用户信息的样式
                 using (ExcelRange range = worksheet.Cells[1, 1, 1, 10])
@@ -258,11 +258,17 @@ namespace spms.util
 
         public static int ConvertAge(Object value)
         {
-            DateTime revalue = System.Convert.ToDateTime(value);
-            //Console.WriteLine(revalue);
-            //Console.WriteLine(DateTime.Now.Year - revalue.Year);
-            int age = DateTime.Now.Year - revalue.Year;
-            return age;
+            try
+            {
+                DateTime revalue = System.Convert.ToDateTime(value);
+                int age = DateTime.Now.Year - revalue.Year;
+                return age;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+
         }
 
 
@@ -302,7 +308,8 @@ namespace spms.util
             //Console.WriteLine(fn);
             int henderRow = 0;
             string Path = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0, Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
-            OfficeOpenXml.Drawing.ExcelPicture picture = worksheet.Drawings.AddPicture("logo", System.Drawing.Image.FromFile(Path+"//view//Images//logo.png"));//插入图片
+            //OfficeOpenXml.Drawing.ExcelPicture picture = worksheet.Drawings.AddPicture("logo", System.Drawing.Image.FromFile(Path+"//view//Images//logo.png"));//插入图片
+            OfficeOpenXml.Drawing.ExcelPicture picture = worksheet.Drawings.AddPicture("logo", System.Drawing.Image.FromFile(CommUtil.GetDocPath("logo.png")));//插入图片
             picture.SetPosition(8, 5);//设置图片的位置
             picture.SetSize(120, 47);//设置图片的大小
 
@@ -351,7 +358,7 @@ namespace spms.util
             worksheet.Cells[userRow + 5, 8, userRow + 5, 9].Merge = true;
 
             worksheet.Cells[userRow, 1].Value = "姓名";
-            worksheet.Cells[userRow, 3].Value = user.User_Name;
+            worksheet.Cells[userRow, 3].Value = GetObjContent(user.User_Name);
             worksheet.Cells[userRow, 6].Value = "性别";
             if (user.User_Sex == 0x01)
             {
@@ -364,21 +371,21 @@ namespace spms.util
 
             worksheet.Cells[userRow, 8].Value = "年龄";
             worksheet.Cells[userRow, 9].Value = ConvertAge(user.User_Birth);
-            worksheet.Cells[userRow + 1, 3].Value = user.User_Namepinyin;
+            worksheet.Cells[userRow + 1, 3].Value = GetObjContent(user.User_Namepinyin);
             worksheet.Cells[userRow + 1, 6].Value = "出生年月日";
-            worksheet.Cells[userRow + 1, 8].Value = string.Format("{0:d}", user.User_Birth);
+            worksheet.Cells[userRow + 1, 8].Value = GetObjContent(string.Format("{0:d}", user.User_Birth));
             worksheet.Cells[userRow + 2, 1].Value = "利用者ID";
-            worksheet.Cells[userRow + 2, 3].Value = user.Pk_User_Id;
+            worksheet.Cells[userRow + 2, 3].Value = GetObjContent(user.Pk_User_Id);
             worksheet.Cells[userRow + 2, 6].Value = "小组名称";
-            worksheet.Cells[userRow + 2, 8].Value = user.User_GroupName;
+            worksheet.Cells[userRow + 2, 8].Value = GetObjContent(user.User_GroupName);
             worksheet.Cells[userRow + 4, 1].Value = "初期要介护度";
-            worksheet.Cells[userRow + 4, 4].Value = user.User_InitCare;
+            worksheet.Cells[userRow + 4, 4].Value = GetObjContent(user.User_InitCare);
             worksheet.Cells[userRow + 4, 6].Value = "疾病名称";
-            worksheet.Cells[userRow + 4, 8].Value = user.User_IllnessName;
+            worksheet.Cells[userRow + 4, 8].Value = GetObjContent(user.User_IllnessName);
             worksheet.Cells[userRow + 5, 1].Value = "现在要介护度";
-            worksheet.Cells[userRow + 5, 4].Value = user.User_Nowcare;
+            worksheet.Cells[userRow + 5, 4].Value = GetObjContent(user.User_Nowcare);
             worksheet.Cells[userRow + 5, 6].Value = "残障名称";
-            worksheet.Cells[userRow + 5, 8].Value = user.User_PhysicalDisabilities;
+            worksheet.Cells[userRow + 5, 8].Value = GetObjContent(user.User_PhysicalDisabilities);
 
             //插入用户图片
             //OfficeOpenXml.Drawing.ExcelPicture userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(user.User_PhotoLocation));//插入图片
@@ -395,7 +402,7 @@ namespace spms.util
             catch (Exception e)
             {
                 Console.WriteLine("用户指定照片路径下没有图片，照片不存在");
-                userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(Path + "\\view\\Images\\excel\\none.png"));//插入图片
+                userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(CommUtil.GetDocPath("none.png")));//插入图片
             }
             userPicture.SetPosition(userRow - 1, 0, 9, 8);//设置图片的位置
             userPicture.SetSize(150, 145);//设置图片的大小
@@ -512,6 +519,36 @@ namespace spms.util
                 newFile = new FileInfo(CommUtil.GetDocPath("test.xlsx"));
             }
             return newFile;
+        }
+
+
+        /// <summary>
+        /// 返回对象的内容
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static string GetObjContent(object obj)
+        {
+            if (obj != null)
+            {
+                if (obj.GetType() == typeof(String))
+                {
+                    return obj.ToString();
+                }
+                else if (obj.GetType() == typeof(DateTime))
+                {
+                    return obj.ToString();
+                }
+                else if (obj.GetType() == typeof(int) || obj.GetType() == typeof(double) || obj.GetType() == typeof(float))
+                {
+                    return obj + "";
+                }
+            }
+            else
+            {
+                return "";
+            }
+            return "";
         }
 
     }
