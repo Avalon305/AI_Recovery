@@ -139,7 +139,7 @@ namespace spms.view.Pages.ChildWin
                 this.Width = 710;
             }
             else {
-                MessageBox.Show("密码不正确！");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("密码不正确！", "Incorrect password!"));
             }
             
         }
@@ -195,7 +195,7 @@ namespace spms.view.Pages.ChildWin
                     if (userService.GetByIdCard(IDCard) != null)
                     {
                         //身份证重复气泡提示
-                        Error_Info_IDCard.Content = "该身份证已注册";
+                        Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("该身份证已注册", "This ID is registered");
                         bubble_IDCard.IsOpen = true;
                         return;
 
@@ -203,14 +203,14 @@ namespace spms.view.Pages.ChildWin
                 }
                 else if (!inputlimited.InputLimited.IsIDcard(IDCard))
                 {
-                    Error_Info_IDCard.Content = "请输入正确的身份证号码";
+                    Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入正确的身份证号码", "Please enter a valid ID number");
                     bubble_IDCard.IsOpen = true;
                     return;
                 }
                 else if (userService.GetByIdCard(IDCard) != null)
                 {
                     //身份证重复气泡提示
-                    Error_Info_IDCard.Content = "该身份证已注册";
+                    Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("该身份证已注册", "This ID is registered");
                     bubble_IDCard.IsOpen = true;
                     return;
 
@@ -224,13 +224,13 @@ namespace spms.view.Pages.ChildWin
             }
             else
             {
-                Error_Info_IDCard.Content = "请输入身份证号码";
+                Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入身份证号码", "Please enter the ID number");
                 bubble_IDCard.IsOpen = true;
                 return;
             }
             if (String.IsNullOrEmpty(phone))
             {
-                Error_Info_Phone.Content = "请输入手机号";
+                Error_Info_Phone.Content = LanguageUtils.ConvertLanguage("请输入手机号", "Please enter phone number");
                 bubble_phone.IsOpen = true;
                 return;
             }
@@ -238,13 +238,13 @@ namespace spms.view.Pages.ChildWin
                 if (userService.GetByPhone(phone) != null)
                 {
                     //手机重复气泡提示
-                    Error_Info_Phone.Content = "该手机号已注册";
+                    Error_Info_Phone.Content = LanguageUtils.ConvertLanguage("该手机号已注册", "The phone number is registered");
                     bubble_phone.IsOpen = true;
                     return;
                 }
                 else if (!inputlimited.InputLimited.IsHandset(phone) && !String.IsNullOrEmpty(phone))
                 {
-                    Error_Info_Phone.Content = "请输入正确的手机号";
+                    Error_Info_Phone.Content = LanguageUtils.ConvertLanguage("请输入正确的手机号", "Please enter a valid phone number");
                     bubble_phone.IsOpen = true;
                     return;
                 }
@@ -276,7 +276,7 @@ namespace spms.view.Pages.ChildWin
             //user.User_Privateinfo = secretMessage==null?"":secretMessage;
             if (IdCard == null || name == null || IDCard == "" || name == "")
             {
-                System.Windows.MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
+                System.Windows.MessageBox.Show(LanguageUtils.ConvertLanguage("没有填写身份证或者名字（拼音）", "No identity card or First Name"), LanguageUtils.ConvertLanguage("信息提示", "Tips"));
                 return;
             }
 
@@ -288,7 +288,7 @@ namespace spms.view.Pages.ChildWin
             user.User_Namepinyin = usernamePY;
             user.User_Nowcare = now;
             user.User_PhysicalDisabilities = disabilityName;
-            user.User_Sex = (byte?)(usersex.Equals("男") ? 1 : 0);
+            user.User_Sex = (byte?)(LanguageUtils.EqualsResource(usersex, "AddOrEditView.M") ? 1 : 0);
             user.User_Phone = phone;
 
             // 如果用户是自己选择现成的图片，将图片保存在安装目录下
@@ -328,7 +328,7 @@ namespace spms.view.Pages.ChildWin
                 // 如果图片太大就重新选择
                 if (picLen > 40)
                 {
-                    MessageBox.Show("图片过大，请重新选择，不能超过40KB");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("图片过大，请重新选择，不能超过40KB", "The picture is too large. Please select it again. Cannot exceed 40KB"));
                     File.Delete(targetPic);
                     return;
                 }
@@ -339,7 +339,7 @@ namespace spms.view.Pages.ChildWin
             }
             else if(userIfSelectPic != false)
             {
-                MessageBox.Show("没有填写身份证或者名字（拼音）", "信息提示");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("没有填写身份证或者名字（拼音）", "No identity card or First Name"), LanguageUtils.ConvertLanguage("信息提示", "Tips"));
                 return;
             }
 
@@ -364,7 +364,7 @@ namespace spms.view.Pages.ChildWin
         {
             if (t3.Text == "" || IDCard.Text == "")
             {
-                MessageBox.Show("请填写完整信息");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请填写完整信息", "Please fill in the complete information"));
                 return;
             }
            
@@ -401,7 +401,7 @@ namespace spms.view.Pages.ChildWin
 
             if (t3.Text == "" || IDCard.Text == "")
             {
-                MessageBox.Show("请填写完整信息");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请填写完整信息", "Please fill in the complete information"));
                 return;
             }
             
@@ -462,16 +462,16 @@ namespace spms.view.Pages.ChildWin
             UserService userService = new UserService();
             if (String.IsNullOrEmpty(IDCard.Text))
             {
-                Error_Info_IDCard.Content = "请输入身份证号码";
+                Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入身份证号码", "Please enter the ID number");
                 bubble_IDCard.IsOpen = true;
             }else if (IDCard.Text.Length == 18&&!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text))
             {
-                Error_Info_IDCard.Content = "请输入正确的身份证号码";
+                Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入正确的身份证号码", "Please enter a valid ID number");
                 bubble_IDCard.IsOpen = true;
             }
             else if (userService.GetByIdCard(IDCard.Text) != null)
             {
-                Error_Info_IDCard.Content = "该身份证已注册";
+                Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("该身份证已注册", "This ID is registered");
                 bubble_IDCard.IsOpen = true;
             }
             else
@@ -485,16 +485,16 @@ namespace spms.view.Pages.ChildWin
         {
             if (String.IsNullOrEmpty(phoneNum.Text))
             {
-                Error_Info_Phone.Content = "请输入手机号";
+                Error_Info_Phone.Content = LanguageUtils.ConvertLanguage("请输入手机号", "Please enter phone number");
                 bubble_phone.IsOpen = true;
             }else if (!inputlimited.InputLimited.IsHandset(phoneNum.Text) && !String.IsNullOrEmpty(phoneNum.Text))
             {
-                Error_Info_Phone.Content = "请输入正确的手机号";
+                Error_Info_Phone.Content = LanguageUtils.ConvertLanguage("请输入正确的手机号", "Please enter a valid phone number");
                 bubble_phone.IsOpen = true;
             }
             else if (userService.GetByPhone(phoneNum.Text) != null)
             {
-                Error_Info_Phone.Content = "该手机号已注册";
+                Error_Info_Phone.Content = LanguageUtils.ConvertLanguage("该手机号已注册", "The phone number is registered");
                 bubble_phone.IsOpen = true;
             }
             else
@@ -525,7 +525,7 @@ namespace spms.view.Pages.ChildWin
             userService.SelectByCondition(user);
             if(userService.SelectByCondition(user).Count != 0 && !String.IsNullOrEmpty(t2.Text))
             {
-                Error_Info_Name.Content = "该用户名已注册";
+                Error_Info_Name.Content = LanguageUtils.ConvertLanguage("该用户名已注册", "The username is registered");
                 bubble_name.IsOpen = true;
             }
             else
@@ -539,7 +539,7 @@ namespace spms.view.Pages.ChildWin
 
             if (!diseaseList.Contains(c5.Text)&&!String.IsNullOrEmpty(c5.Text))
             {
-                Error_Info_disease.Content = "不存在该疾病名称";
+                Error_Info_disease.Content = LanguageUtils.ConvertLanguage("不存在该疾病名称", "There is no name for the disease");
                 bubble_disease.IsOpen = true;
             }
             else
@@ -552,7 +552,7 @@ namespace spms.view.Pages.ChildWin
         {
             if (!diagnosisList.Contains(c6.Text) && !String.IsNullOrEmpty(c6.Text))
             {
-                Error_Info_Diagnosis.Content = "不存在该残障名称";
+                Error_Info_Diagnosis.Content = LanguageUtils.ConvertLanguage("不存在该残障名称", "There is no such disability name");
                 bubble_Diagnosis.IsOpen = true;
             }
             else

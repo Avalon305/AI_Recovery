@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.util;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -46,7 +47,7 @@ namespace spms.view.Pages.ChildWin
                 this.Close();
             }
             else {
-                MessageBox.Show("密码错误，请重新输入");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("密码错误，请重新输入", "Password error, please retype"));
             }
             
 

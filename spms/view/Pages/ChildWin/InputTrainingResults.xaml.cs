@@ -229,7 +229,7 @@ namespace spms.view.Pages.ChildWin
                 {
                 }
                 devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
-                if (HLPTimer.Text == "有效" || HLPTimer.Text == "Valid")
+                if (LanguageUtils.EqualsResource(HLPTimer.Text, "TrainingListView.Valid"))
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -248,7 +248,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (HLPTiming.Text == "倒计时" || HLPTiming.Text == "Count Reverse")
+                if (LanguageUtils.EqualsResource(HLPTiming.Text, "TrainingListView.CountReverse"))
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -408,7 +408,7 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X05;
-                if (ROWTimer.Text == "有效" || ROWTimer.Text == "Valid")
+                if (LanguageUtils.EqualsResource(ROWTimer.Text, "TrainingListView.Valid"))
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -427,7 +427,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (ROWTiming.Text == "倒计时" || ROWTiming.Text == "Count Reverse")
+                if (LanguageUtils.EqualsResource(ROWTiming.Text, "TrainingListView.CountReverse"))
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -605,7 +605,7 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
-                if (TFTimer.Text == "有效" || TFTimer.Text == "Valid")
+                if (LanguageUtils.EqualsResource(TFTimer.Text, "TrainingListView.Valid"))
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -624,7 +624,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (TFTiming.Text == "倒计时" || TFTiming.Text == "Count Reverse")
+                if (LanguageUtils.EqualsResource(TFTiming.Text, "TrainingListView.CountReverse"))
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -804,7 +804,7 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
-                if (LETimer.Text == "有效" || LETimer.Text == "Valid")
+                if (LanguageUtils.EqualsResource(LETimer.Text, "TrainingListView.Valid"))
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -823,7 +823,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (LETiming.Text == "倒计时" || LETiming.Text == "Count Reverse")
+                if (LanguageUtils.EqualsResource(LETiming.Text, "TrainingListView.CountReverse"))
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -999,7 +999,7 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
-                if (HATimer.Text == "有效" || HATimer.Text == "Valid")
+                if (LanguageUtils.EqualsResource(HATimer.Text, "TrainingListView.Valid"))
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -1018,7 +1018,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (HATiming.Text == "倒计时" || HATiming.Text == "Count Reverse")
+                if (LanguageUtils.EqualsResource(HATiming.Text, "TrainingListView.CountReverse"))
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -1195,7 +1195,7 @@ namespace spms.view.Pages.ChildWin
                     
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
-                if (CPTimer.Text == "有效" || CPTimer.Text == "Valid")
+                if (LanguageUtils.EqualsResource(CPTimer.Text, "TrainingListView.Valid"))
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
 
@@ -1214,7 +1214,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
                 }
-                if (CPTiming.Text == "倒计时" || CPTiming.Text == "Count Reverse")
+                if (LanguageUtils.EqualsResource(CPTiming.Text, "TrainingListView.CountReverse"))
                 {
                     devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
                 }
@@ -1407,7 +1407,7 @@ namespace spms.view.Pages.ChildWin
         private void HLPselect_change(object sender, EventArgs e)
         {
 
-            if (HLPTimer.Text.Equals("无效") || HLPTimer.Text.Equals("Invalid"))
+            if (LanguageUtils.EqualsResource(HLPTimer.Text, "TrainingListView.Invalid"))
             {
                 HLPTime_Label.Background = Brushes.White;
                 HLPTiming_Label.Background = Brushes.White;
@@ -1416,7 +1416,7 @@ namespace spms.view.Pages.ChildWin
                 HLPTime.Visibility = Visibility.Hidden;
                 
             }
-            else if (HLPTimer.Text.Equals("有效") || HLPTimer.Text.Equals("Valid"))
+            else if (LanguageUtils.EqualsResource(HLPTimer.Text, "TrainingListView.Valid"))
             {
                 HLPTime_Label.Background = Brushes.Gray;
                 HLPTiming_Label.Background = Brushes.Gray;
@@ -1428,7 +1428,7 @@ namespace spms.view.Pages.ChildWin
         private void ROWselect_change(object sender, EventArgs e)
         {
 
-            if (ROWTimer.Text.Equals("无效") || ROWTimer.Text.Equals("Invalid"))
+            if (LanguageUtils.EqualsResource(ROWTimer.Text, "TrainingListView.Invalid"))
             {
                 ROWTime_Label.Background = Brushes.White;
                 ROWTiming_Label.Background = Brushes.White;
@@ -1437,7 +1437,7 @@ namespace spms.view.Pages.ChildWin
                 ROWTime.Visibility = Visibility.Hidden;
 
             }
-            else if (ROWTimer.Text.Equals("有效") || ROWTimer.Text.Equals("Valid"))
+            else if (LanguageUtils.EqualsResource(ROWTimer.Text, "TrainingListView.Valid"))
             {
                 ROWTime_Label.Background = Brushes.Gray;
                 ROWTiming_Label.Background = Brushes.Gray;
@@ -1449,7 +1449,7 @@ namespace spms.view.Pages.ChildWin
         private void TFselect_change(object sender, EventArgs e)
         {
 
-            if (TFTimer.Text.Equals("无效") || TFTimer.Text.Equals("Invalid"))
+            if (LanguageUtils.EqualsResource(TFTimer.Text, "TrainingListView.Invalid"))
             {
                 TFTime_Label.Background = Brushes.White;
                 TFTiming_Label.Background = Brushes.White;
@@ -1458,7 +1458,7 @@ namespace spms.view.Pages.ChildWin
                 TFTime.Visibility = Visibility.Hidden;
 
             }
-            else if (TFTimer.Text.Equals("有效") || TFTimer.Text.Equals("Valid"))
+            else if (LanguageUtils.EqualsResource(TFTimer.Text, "TrainingListView.Valid"))
             {
                 TFTime_Label.Background = Brushes.Gray;
                 TFTiming_Label.Background = Brushes.Gray;
@@ -1470,7 +1470,7 @@ namespace spms.view.Pages.ChildWin
         private void LEselect_change(object sender, EventArgs e)
         {
 
-            if (LETimer.Text.Equals("无效") || LETimer.Text.Equals("Invalid"))
+            if (LanguageUtils.EqualsResource(LETimer.Text, "TrainingListView.Invalid"))
             {
                 LETime_Label.Background = Brushes.White;
                 LETiming_Label.Background = Brushes.White;
@@ -1479,7 +1479,7 @@ namespace spms.view.Pages.ChildWin
                 LETime.Visibility = Visibility.Hidden;
 
             }
-            else if (LETimer.Text.Equals("有效") || LETimer.Text.Equals("Valid"))
+            else if (LanguageUtils.EqualsResource(LETimer.Text, "TrainingListView.Valid"))
             {
                 LETime_Label.Background = Brushes.Gray;
                 LETiming_Label.Background = Brushes.Gray;
@@ -1491,7 +1491,7 @@ namespace spms.view.Pages.ChildWin
         private void HAselect_change(object sender, EventArgs e)
         {
 
-            if (HATimer.Text.Equals("无效") || HATimer.Text.Equals("Invalid"))
+            if (LanguageUtils.EqualsResource(HATimer.Text, "TrainingListView.Invalid"))
             {
                 HATime_Label.Background = Brushes.White;
                 HATiming_Label.Background = Brushes.White;
@@ -1500,7 +1500,7 @@ namespace spms.view.Pages.ChildWin
                 HATime.Visibility = Visibility.Hidden;
 
             }
-            else if (HATimer.Text.Equals("有效") || HATimer.Text.Equals("Valid"))
+            else if (LanguageUtils.EqualsResource(HATimer.Text, "TrainingListView.Valid"))
             {
                 HATime_Label.Background = Brushes.Gray;
                 HATiming_Label.Background = Brushes.Gray;
@@ -1512,7 +1512,7 @@ namespace spms.view.Pages.ChildWin
         private void CPselect_change(object sender, EventArgs e)
         {
 
-            if (CPTimer.Text.Equals("无效") || CPTimer.Text.Equals("Invalid"))
+            if (LanguageUtils.EqualsResource(CPTimer.Text, "TrainingListView.Invalid"))
             {
                 CPTime_Label.Background = Brushes.White;
                 CPTiming_Label.Background = Brushes.White;
@@ -1521,7 +1521,7 @@ namespace spms.view.Pages.ChildWin
                 CPTime.Visibility = Visibility.Hidden;
 
             }
-            else if (CPTimer.Text.Equals("有效") || CPTimer.Text.Equals("Valid"))
+            else if (LanguageUtils.EqualsResource(CPTimer.Text, "TrainingListView.Valid"))
             {
                 CPTime_Label.Background = Brushes.Gray;
                 CPTiming_Label.Background = Brushes.Gray;

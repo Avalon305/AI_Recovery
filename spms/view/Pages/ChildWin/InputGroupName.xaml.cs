@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.util;
 using static spms.entity.CustomData;
 
 namespace spms.view.Pages.ChildWin
@@ -58,7 +59,7 @@ namespace spms.view.Pages.ChildWin
             CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Group, Name);
             if (CustomData != null)
             {
-                MessageBox.Show("小组名称已存在");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("小组名称已存在", "The group has already existed"));
             }
         }
         private void Button_SaveClick(object sender, RoutedEventArgs e)

@@ -61,7 +61,7 @@ namespace spms.view.Pages.ChildWin
             CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Group, Name);
             if (CustomData != null)
             {
-                MessageBox.Show("小组名称已存在");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("小组名称已存在", "Group already exists"));
             }
         }
         private void Button_SaveClick(object sender, RoutedEventArgs e)

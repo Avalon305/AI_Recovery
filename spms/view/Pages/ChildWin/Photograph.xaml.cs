@@ -78,7 +78,7 @@ namespace spms.view.Pages.ChildWin
             }
             else
             {
-                System.Windows.MessageBox.Show("电脑没有安装任何可用摄像头");
+                System.Windows.MessageBox.Show(LanguageUtils.ConvertLanguage("电脑没有安装任何可用摄像头", "Computer does not have any available camera"));
             }
 
         }
