@@ -134,6 +134,18 @@ namespace spms.view.Pages
         /// <param name="e"></param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            //加载图片
+            if (LanguageUtils.IsChainese())
+            {
+                title_pic.Source = new BitmapImage(new Uri(@"\view\Images1.PNG", UriKind.Relative));
+                DesignerHead4.Source = new BitmapImage(new Uri(@"\view\images\6.png", UriKind.Relative));
+            }
+            else
+            {
+                //TODO 英文图片
+                title_pic.Source = new BitmapImage(new Uri(@"\view\Images1.PNG", UriKind.Relative));
+                DesignerHead4.Source = new BitmapImage(new Uri(@"\view\images\6.png", UriKind.Relative));
+            }
             ///载入时数据装填到list,默认选中第一个
             users = userService.GetAllUsers();
             UsersInfo.ItemsSource = users;

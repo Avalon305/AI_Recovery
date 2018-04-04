@@ -48,9 +48,16 @@ namespace spms.view
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-           
-            
-            
+            //加载图片
+            if (LanguageUtils.IsChainese())
+            {
+                DesignerHead4.Source = new BitmapImage(new Uri(@"\view\images\6.png", UriKind.Relative));
+            }
+            else
+            {
+                //TODO 英文图片
+                DesignerHead4.Source = new BitmapImage(new Uri(@"\view\images\6.png", UriKind.Relative));
+            }
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
 
