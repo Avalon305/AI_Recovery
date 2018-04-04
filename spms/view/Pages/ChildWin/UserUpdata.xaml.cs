@@ -551,12 +551,13 @@ namespace spms.view.Pages.ChildWin
         //身份证号验证和查重
         private void IsIDCard(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine("length:    " + IDCard.Text.Length);
             if (String.IsNullOrEmpty(IDCard.Text))
             {
                 Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入身份证号码", "Please enter the ID number");
                 bubble_IDCard.IsOpen = true;
             }
-            else if (!String.IsNullOrEmpty(IDCard.Text)&&IDCard.Text.Length == 18&&!inputlimited.InputLimited.IsIDcard(IDCard.Text) )
+            else if (IDCard.Text.Length>18||(IDCard.Text.Length == 18&&!inputlimited.InputLimited.IsIDcard(IDCard.Text)) )
             {
                 Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入正确的身份证号码", "Please enter a valid ID number");
                 bubble_IDCard.IsOpen = true;
@@ -680,63 +681,71 @@ namespace spms.view.Pages.ChildWin
 
         private void idcard_encrypt(object sender, KeyEventArgs e)
         {
-
+            
+            
             if(e.Key == Key.Delete || e.Key == Key.Back )
             {
-                IDCard.Text = IDCard.Text.Substring(0, IDCard.Text.Length - 1);
-                //Console.WriteLine("删除：  "+IDCard.Text.Length+"         "+IDCard.Text);
-            }else if(e.Key == Key.NumPad0)
+                IDCard.Text = IDCard.Text.Substring(0, IDCard.Text.Length-1);
+                Console.WriteLine("删除：  "+IDCard.Text.Length+"         "+IDCard.Text);
+            }else if(e.Key == Key.NumPad0 || e.Key == Key.D0)
                     {
                 IDCard.Text = IDCard.Text + 0;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
-            else if (e.Key == Key.NumPad1)
+            else if (e.Key == Key.NumPad1 || e.Key == Key.D1)
             {
                 IDCard.Text = IDCard.Text + 1;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
-            else if (e.Key == Key.NumPad2)
+            else if (e.Key == Key.NumPad2 || e.Key == Key.D2)
             {
                 IDCard.Text = IDCard.Text + 2;
                // Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
 
             }
-            else if (e.Key == Key.NumPad3)
+            else if (e.Key == Key.NumPad3 || e.Key == Key.D3)
             {
                 IDCard.Text = IDCard.Text + 3;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
-            else if (e.Key == Key.NumPad4)
+            else if (e.Key == Key.NumPad4 || e.Key == Key.D4)
             {
                 IDCard.Text = IDCard.Text + 4;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
-            else if (e.Key == Key.NumPad5)
+            else if (e.Key == Key.NumPad5 || e.Key == Key.D5)
             {
                 IDCard.Text = IDCard.Text + 5;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
-            else if (e.Key == Key.NumPad6)
+            else if (e.Key == Key.NumPad6 || e.Key == Key.D6)
             {
                 IDCard.Text = IDCard.Text + 6;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
-            else if (e.Key == Key.NumPad7)
+            else if (e.Key == Key.NumPad7 || e.Key == Key.D7)
             {
                 IDCard.Text = IDCard.Text + 7;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
-            else if (e.Key == Key.NumPad8)
+            else if (e.Key == Key.NumPad8 || e.Key == Key.D8)
             {
                 IDCard.Text = IDCard.Text + 86;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
-            else if (e.Key == Key.NumPad9)
+            else if (e.Key == Key.NumPad9 || e.Key == Key.D9)
             {
                 IDCard.Text = IDCard.Text + 9;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
+            }else if(e.Key == Key.X)
+            {
+                IDCard.Text = IDCard.Text + "x";
             }
+           
+            //Console.WriteLine("IDCard:  " + IDCard.Text);
 
         }
+
+        
     }
 }
