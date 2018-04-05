@@ -36,7 +36,7 @@ namespace spms.view.Pages.ChildWin
 
         
         private User user;
-        private TrainDTO trainDto;
+        //private TrainDTO trainDto;
         public InputSymptomInformation()
         {
             InitializeComponent();
@@ -153,7 +153,7 @@ namespace spms.view.Pages.ChildWin
                 return;
             }
 
-            int tiId = new DevicePrescriptionDAO().GetTIIdByPRId(trainDto.prescriptionResult.Pk_PR_Id);
+            //int tiId = new DevicePrescriptionDAO().GetTIIdByPRId(trainDto.prescriptionResult.Pk_PR_Id);
             //摄取水分量
             string waterInput = amunt.Text;
             if (waterInput.Trim() == "" || Double.Parse(waterInput) < 0)
@@ -178,7 +178,8 @@ namespace spms.view.Pages.ChildWin
             symptomInfo.SI_Inquiry = inquiryStr;
             symptomInfo.SI_IsJoin = isJoin;
             symptomInfo.SI_WaterInput = waterInput;
-            symptomInfo.Fk_TI_Id = tiId;
+            //TODO 通过时间查找到训练id
+            //symptomInfo.Fk_TI_Id = tiId;
             //康复前
             symptomInfo.SI_Pre_AnimalHeat = preAnimalheat;
             symptomInfo.SI_Pre_HeartRate = preHeartRate;
@@ -208,9 +209,10 @@ namespace spms.view.Pages.ChildWin
             //
             Dictionary<string, Object> dictionary = (Dictionary<string, Object>)DataContext;
             user = (User)dictionary["user"];
-            trainDto = (TrainDTO) dictionary["trainDto"];
+            //trainDto = (TrainDTO) dictionary["trainDto"];
             l1.Content = user.User_Name;
             user_id.Content = user.Pk_User_Id;
+            //TODO 通过用户查找到还没有关联的训练信息填充到下拉框
         }
 
         //错误：OnlyInputNumbers

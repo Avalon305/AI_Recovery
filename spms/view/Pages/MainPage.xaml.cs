@@ -827,12 +827,12 @@ namespace spms.view.Pages
                 MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
-            if (trainDto == null)
-            {
-                //判断是否选择了训练信息
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择训练信息再进行操作！", "Please Select A Train Info!"));
-                return;
-            }
+            //if (trainDto == null)
+            //{
+            //    //判断是否选择了训练信息
+            //    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择训练信息再进行操作！", "Please Select A Train Info!"));
+            //    return;
+            //}
 
             InputSymptomInformation w2 = new InputSymptomInformation
             {
@@ -843,7 +843,7 @@ namespace spms.view.Pages
             };
             Dictionary<string, Object> dic = new Dictionary<string, object>();
             dic.Add("user", user);
-            dic.Add("trainDto", trainDto);
+            //dic.Add("trainDto", trainDto);
             w2.DataContext = dic;
             w2.ShowDialog();
             Refresh_RecordFrame_Action();
