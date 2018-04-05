@@ -635,6 +635,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\img6.jpg" />
     <Resource Include="view\Images\5_6.png" />
     <Resource Include="view\Images\q.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
