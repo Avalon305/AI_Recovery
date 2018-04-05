@@ -428,4 +428,15 @@
     <s:String x:Key="SerialPortView.Confirm">确认</s:String>
     <s:String x:Key="SerialPortView.Cancel">取消</s:String>
 
+
+    <!-- 打印预览 -->
+    <s:String x:Key="PdfViewer.Print">打印</s:String>
+    <s:String x:Key="PdfViewer.ZoomIn">放大</s:String>
+    <s:String x:Key="PdfViewer.ZoomOut">缩小</s:String>
+    <s:String x:Key="PdfViewer.SinglePage">单页模式</s:String>
+    <s:String x:Key="PdfViewer.DoublePage">双页模式</s:String>
+    <s:String x:Key="PdfViewer.Display">100% 显示</s:String>
+    <s:String x:Key="PdfViewer.FitToHeight">适合高度</s:String>
+    <s:String x:Key="PdfViewer.Close">关闭</s:String>
+
 </ResourceDictionary>

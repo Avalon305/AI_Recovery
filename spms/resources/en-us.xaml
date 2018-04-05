@@ -424,5 +424,15 @@
     <s:String x:Key="SerialPortView.CurrentSerialPort">Current SerialPort</s:String>
     <s:String x:Key="SerialPortView.Confirm">Confirm</s:String>
     <s:String x:Key="SerialPortView.cancel">cancel</s:String>
+    
+    <!-- 打印预览 -->
+    <s:String x:Key="PdfViewer.Print">Print</s:String>
+    <s:String x:Key="PdfViewer.ZoomIn">Zoom In</s:String>
+    <s:String x:Key="PdfViewer.ZoomOut">Zoom Out</s:String>
+    <s:String x:Key="PdfViewer.SinglePage">Single Page</s:String>
+    <s:String x:Key="PdfViewer.DoublePage">Double Page</s:String>
+    <s:String x:Key="PdfViewer.Display">100% Display</s:String>
+    <s:String x:Key="PdfViewer.FitToHeight">Fit To Height</s:String>
+    <s:String x:Key="PdfViewer.Close">Close</s:String>
 
 </ResourceDictionary>
