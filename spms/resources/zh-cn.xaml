@@ -6,7 +6,7 @@
     <!-- 开始界面 -->
     <s:String x:Key="FormView.Title">宝德龙康复医疗系统</s:String>
     <s:String x:Key="FormView.UserName">用户名:</s:String>
-    <s:String x:Key="FormView.Password">密  码:</s:String>
+    <s:String x:Key="FormView.Password" xml:space="preserve">密&#160;&#160;&#160;&#160;码:</s:String>
     <s:String x:Key="FormView.LogIn">登录</s:String>
     <s:String x:Key="FormView.Reset">重置</s:String>
     <s:String x:Key="FormView.Settings">设置</s:String>
@@ -427,5 +427,16 @@
     <s:String x:Key="SerialPortView.CurrentSerialPort">当前串口</s:String>
     <s:String x:Key="SerialPortView.Confirm">确认</s:String>
     <s:String x:Key="SerialPortView.Cancel">取消</s:String>
+
+
+    <!-- 打印预览 -->
+    <s:String x:Key="PdfViewer.Print">打印</s:String>
+    <s:String x:Key="PdfViewer.ZoomIn">放大</s:String>
+    <s:String x:Key="PdfViewer.ZoomOut">缩小</s:String>
+    <s:String x:Key="PdfViewer.SinglePage">单页模式</s:String>
+    <s:String x:Key="PdfViewer.DoublePage">双页模式</s:String>
+    <s:String x:Key="PdfViewer.Display">100% 显示</s:String>
+    <s:String x:Key="PdfViewer.FitToHeight">适合高度</s:String>
+    <s:String x:Key="PdfViewer.Close">关闭</s:String>
 
 </ResourceDictionary>

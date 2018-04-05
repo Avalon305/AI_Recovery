@@ -593,7 +593,7 @@
 
                         </StackPanel>
                     </TabItem>
-                        <TabItem Header="{DynamicResource Dev.HorizontalLegPress}" Width="115" FocusVisualStyle="{x:Null}">
+                        <TabItem Header="{DynamicResource Dev.HorizontalLegPress}" Width="145" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>

@@ -50,16 +50,16 @@ namespace spms.util
                 worksheet.Cells.Style.WrapText = true;
                 worksheet.Cells.Style.ShrinkToFit = false;//单元格自动适应大小
 
-                worksheet.Cells[1, 1].Value = "利用者ID";
-                worksheet.Cells[1, 2].Value = "利用者名称";
-                worksheet.Cells[1, 3].Value = "利用者拼音";
-                worksheet.Cells[1, 4].Value = "性别";
-                worksheet.Cells[1, 5].Value = "年龄";
-                worksheet.Cells[1, 6].Value = "小组名称";
-                worksheet.Cells[1, 7].Value = "初期要介护度";
-                worksheet.Cells[1, 8].Value = "现在要介护度";
-                worksheet.Cells[1, 9].Value = "疾病名称";
-                worksheet.Cells[1, 10].Value = "残障名称";
+                worksheet.Cells[1, 1].Value = LanguageUtils.ConvertLanguage("利用者ID", "User ID");
+                worksheet.Cells[1, 2].Value = LanguageUtils.ConvertLanguage("利用者名称", "User name");
+                worksheet.Cells[1, 3].Value = LanguageUtils.ConvertLanguage("利用者拼音", "User name pinyin");
+                worksheet.Cells[1, 4].Value = LanguageUtils.ConvertLanguage("性别", "Gender"); 
+                worksheet.Cells[1, 5].Value = LanguageUtils.ConvertLanguage("年龄", "Age");
+                worksheet.Cells[1, 6].Value = LanguageUtils.ConvertLanguage("小组名称", "Group name");
+                worksheet.Cells[1, 7].Value = LanguageUtils.ConvertLanguage("初期要介护度", "Initial care"); 
+                worksheet.Cells[1, 8].Value = LanguageUtils.ConvertLanguage("现在要介护度", "Now care"); 
+                worksheet.Cells[1, 9].Value = LanguageUtils.ConvertLanguage("疾病名称", "Illness name"); 
+                worksheet.Cells[1, 10].Value = LanguageUtils.ConvertLanguage("残障名称", "Physical disabilities");
 
                 //设置用户基本信息的列宽
                 for (int i = 1; i <= 10; i++)
@@ -105,22 +105,32 @@ namespace spms.util
                 }
 
                 //设置用户信息的行高
-                for (int i = 0; i < 2; i++)
+                if (LanguageUtils.IsChainese())
                 {
-                    worksheet.Row(i + 1).Height = 25;
+                    for (int i = 0; i < 2; i++)
+                    {
+                        worksheet.Row(i + 1).Height = 25;
+                    }
                 }
+                else
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        worksheet.Row(i + 1).Height = 30;
+                    }
+                }  
 
                 int tableRow = 4;
 
                 if (dataTable != null)
                 {
                     //症状信息
-                    if (dataTable.TableName == "症状信息记录")
+                    if (dataTable.TableName == LanguageUtils.ConvertLanguage("症状信息记录", "Symptom information record"))
                     {
                         worksheet.Cells[tableRow , 2, tableRow, 5].Merge = true;
                         worksheet.Cells[tableRow , 6, tableRow, 9].Merge = true;
-                        worksheet.Cells[tableRow, 2].Value = "康复前";
-                        worksheet.Cells[tableRow, 6].Value = "康复后";
+                        worksheet.Cells[tableRow, 2].Value = LanguageUtils.ConvertLanguage("康复前", "Before recovery");
+                        worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("康复后", "After rehabilitation"); 
 
 
                         using (ExcelRange range = worksheet.Cells[tableRow, 2, tableRow, 9])
@@ -136,14 +146,14 @@ namespace spms.util
                     }
 
                     //体力评价记录
-                    if (dataTable.TableName == "体力评价记录")
+                    if (dataTable.TableName == LanguageUtils.ConvertLanguage("体力评价记录", "Physical Assessment Record"))
                     {
                         worksheet.Cells[tableRow, 2, tableRow, 5].Merge = true;
                         worksheet.Cells[tableRow, 6, tableRow, 9].Merge = true;
                         worksheet.Cells[tableRow, 10, tableRow, 22].Merge = true;
-                        worksheet.Cells[tableRow, 2].Value = "康复前";
-                        worksheet.Cells[tableRow, 6].Value = "康复后";
-                        worksheet.Cells[tableRow, 10].Value = "问诊票";
+                        worksheet.Cells[tableRow, 2].Value = LanguageUtils.ConvertLanguage("康复前", "Before recovery"); 
+                        worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("康复后", "After rehabilitation");
+                        worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("问诊票", "Question ticket"); 
 
 
                         using (ExcelRange range = worksheet.Cells[tableRow, 2, tableRow, 22])
@@ -192,10 +202,20 @@ namespace spms.util
 
                     //设置所有的行高
                     int maxRow = dataTable.Rows.Count + tableRow;
-                    for (int i = 2; i < maxRow; i++)
+                    if (LanguageUtils.IsChainese())
                     {
-                        worksheet.Row(i + 1).Height = 25;
+                        for (int i = 2; i < maxRow; i++)
+                        {
+                            worksheet.Row(i + 1).Height = 25;
+                        }
                     }
+                    else
+                    {
+                        for (int i = 2; i < maxRow; i++)
+                        {
+                            worksheet.Row(i + 1).Height = 30;
+                        }
+                    }  
 
                     using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow, dataTable.Columns.Count])
                     {
@@ -314,18 +334,18 @@ namespace spms.util
             picture.SetSize(120, 47);//设置图片的大小
 
             //标题
-            worksheet.Cells[henderRow + 1, 5, henderRow + 2, 8].Merge = true;//合并单元格
-            worksheet.Cells[henderRow + 1, 5].Value = title;
-            worksheet.Cells[henderRow + 1, 5].Style.Font.Bold = true;
-            worksheet.Cells[henderRow + 1, 5].Style.Font.Name = "微软雅黑";
-            worksheet.Cells[henderRow + 1, 5].Style.Font.Size = 27;
+            worksheet.Cells[henderRow + 1, 4, henderRow + 2, 9].Merge = true;//合并单元格
+            worksheet.Cells[henderRow + 1, 4].Value = title;
+            worksheet.Cells[henderRow + 1, 4].Style.Font.Bold = true;
+            worksheet.Cells[henderRow + 1, 4].Style.Font.Name = "微软雅黑";
+            worksheet.Cells[henderRow + 1, 4].Style.Font.Size = 27;
 
-            worksheet.Cells[henderRow + 1, 5].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-            worksheet.Cells[henderRow + 1, 5].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+            worksheet.Cells[henderRow + 1, 4].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            worksheet.Cells[henderRow + 1, 4].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
 
             //时间
             worksheet.Cells[henderRow + 2, 10, henderRow + 2, 11].Merge = true;//合并单元格
-            worksheet.Cells[henderRow + 2, 10].Value = "作成日期：" + DateTime.Now.ToString("yyyy-MM-dd");
+            worksheet.Cells[henderRow + 2, 10].Value = LanguageUtils.ConvertLanguage("作成日期", "Date")+" : " + DateTime.Now.ToString("yyyy-MM-dd");
             worksheet.Cells[henderRow + 2, 10].Style.Font.Name = "等线";
             worksheet.Cells[henderRow + 2, 10].Style.Font.Bold = true;
             worksheet.Cells[henderRow + 2, 10].Style.Font.Size = 10;
@@ -357,34 +377,34 @@ namespace spms.util
             worksheet.Cells[userRow + 5, 6, userRow + 5, 7].Merge = true;
             worksheet.Cells[userRow + 5, 8, userRow + 5, 9].Merge = true;
 
-            worksheet.Cells[userRow, 1].Value = "姓名";
+            worksheet.Cells[userRow, 1].Value = LanguageUtils.ConvertLanguage("姓名", "User name"); 
             worksheet.Cells[userRow, 3].Value = GetObjContent(user.User_Name);
-            worksheet.Cells[userRow, 6].Value = "性别";
+            worksheet.Cells[userRow, 6].Value = LanguageUtils.ConvertLanguage("性别", "Gender"); 
             if (user.User_Sex == 0x01)
             {
-                worksheet.Cells[userRow, 7].Value = "男";
+                worksheet.Cells[userRow, 7].Value = LanguageUtils.ConvertLanguage("男", "male");
             }
             else
             {
-                worksheet.Cells[userRow, 7].Value = "女";
+                worksheet.Cells[userRow, 7].Value = LanguageUtils.ConvertLanguage("女", "female");
             }
 
-            worksheet.Cells[userRow, 8].Value = "年龄";
+            worksheet.Cells[userRow, 8].Value = LanguageUtils.ConvertLanguage("年龄", "Age"); 
             worksheet.Cells[userRow, 9].Value = ConvertAge(user.User_Birth);
             worksheet.Cells[userRow + 1, 3].Value = GetObjContent(user.User_Namepinyin);
-            worksheet.Cells[userRow + 1, 6].Value = "出生年月日";
+            worksheet.Cells[userRow + 1, 6].Value = LanguageUtils.ConvertLanguage("出生年月日", "Date of birth"); 
             worksheet.Cells[userRow + 1, 8].Value = GetObjContent(string.Format("{0:d}", user.User_Birth));
-            worksheet.Cells[userRow + 2, 1].Value = "利用者ID";
+            worksheet.Cells[userRow + 2, 1].Value = LanguageUtils.ConvertLanguage("利用者ID", "User ID");
             worksheet.Cells[userRow + 2, 3].Value = GetObjContent(user.Pk_User_Id);
-            worksheet.Cells[userRow + 2, 6].Value = "小组名称";
+            worksheet.Cells[userRow + 2, 6].Value = LanguageUtils.ConvertLanguage("小组名称", "Group name"); 
             worksheet.Cells[userRow + 2, 8].Value = GetObjContent(user.User_GroupName);
-            worksheet.Cells[userRow + 4, 1].Value = "初期要介护度";
+            worksheet.Cells[userRow + 4, 1].Value = LanguageUtils.ConvertLanguage("初期要介护度", "Initial care"); 
             worksheet.Cells[userRow + 4, 4].Value = GetObjContent(user.User_InitCare);
-            worksheet.Cells[userRow + 4, 6].Value = "疾病名称";
+            worksheet.Cells[userRow + 4, 6].Value = LanguageUtils.ConvertLanguage("疾病名称", "Illness name");
             worksheet.Cells[userRow + 4, 8].Value = GetObjContent(user.User_IllnessName);
-            worksheet.Cells[userRow + 5, 1].Value = "现在要介护度";
+            worksheet.Cells[userRow + 5, 1].Value = LanguageUtils.ConvertLanguage("现在要介护度", "Now care"); 
             worksheet.Cells[userRow + 5, 4].Value = GetObjContent(user.User_Nowcare);
-            worksheet.Cells[userRow + 5, 6].Value = "残障名称";
+            worksheet.Cells[userRow + 5, 6].Value = LanguageUtils.ConvertLanguage("残障名称", "Physical disabilities");
             worksheet.Cells[userRow + 5, 8].Value = GetObjContent(user.User_PhysicalDisabilities);
 
             //插入用户图片
@@ -402,7 +422,15 @@ namespace spms.util
             catch (Exception e)
             {
                 Console.WriteLine("用户指定照片路径下没有图片，照片不存在");
-                userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(CommUtil.GetDocPath("none.png")));//插入图片
+                if (LanguageUtils.IsChainese())
+                {
+                    userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(CommUtil.GetDocPath("none.png")));//插入图片
+                }
+                else
+                {
+                    userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(CommUtil.GetDocPath("none_english.png")));//插入图片
+                }
+                
             }
             userPicture.SetPosition(userRow - 1, 0, 9, 8);//设置图片的位置
             userPicture.SetSize(150, 145);//设置图片的大小
@@ -473,7 +501,7 @@ namespace spms.util
         public static void GenerateRemark(ref ExcelWorksheet worksheet, int remarkRow, string remark)
         {
             worksheet.Cells[remarkRow, 1, remarkRow, 2].Merge = true;
-            worksheet.Cells[remarkRow, 1].Value = "备注";
+            worksheet.Cells[remarkRow, 1].Value = LanguageUtils.ConvertLanguage("备注", "Remark");
             using (ExcelRange range = worksheet.Cells["A" + remarkRow + ":B" + remarkRow])
             {
                 range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;

@@ -143,7 +143,7 @@
                     <TextBox Grid.Row="1" Grid.Column="0" Margin="17,2.2,72.4,1.6"  Name="bloodlow_2" IsEnabled="False" VerticalContentAlignment="Center"  />
                     <Label Content="/" Grid.Row="1" Grid.Column="0" Margin="50,0.2,50.4,0.6"  HorizontalContentAlignment="Center" />
                     <TextBox Grid.Row="1" Grid.Column="0" Margin="72,2.2,17.4,1.6" Name="bloodhight_2" IsEnabled="False" VerticalContentAlignment="Center" />
-                    <TextBox Grid.Row="1" Margin="118,0.2,139.2,-0.4" Name="heartRate_2" IsEnabled="False" VerticalContentAlignment="Center" Grid.ColumnSpan="3" Height="25" VerticalAlignment="Top"/>
+                    <TextBox Grid.Row="1" Margin="118,0.2,139.2,-0.4" Name="heartRate_2" IsEnabled="False" VerticalContentAlignment="Center" BorderThickness="1,1,0,1" Grid.ColumnSpan="3" Height="25" VerticalAlignment="Top"/>
                     <GroupBox Grid.Row="1" Grid.Column="2" Height="24" Margin="0.8,0.2,108.8,0" VerticalAlignment="Top" BorderBrush="White" Grid.ColumnSpan="2">
                         <StackPanel Orientation="Horizontal" Margin="-6,0,-5.8,-6.4" HorizontalAlignment="Center" Width="139">
                             <RadioButton VerticalAlignment="Center" Width="65" Margin="2,0,0,0.4" Name="rule_2" IsEnabled="False" Content="{DynamicResource VitalInfoView.Regular}"></RadioButton>
@@ -151,12 +151,12 @@
                         </StackPanel>
                     </GroupBox>
                     <TextBox Grid.Row="1" Grid.Column="2" Margin="139.8,0.2,-0.2,-0.4" Name="heat_2" BorderThickness="0,1,1,1" IsEnabled="False" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
-                    <Border Grid.Row="0" Grid.Column="0"  BorderBrush="Silver" BorderThickness="1" Margin="0,0,0.4,24.6" Grid.RowSpan="2"/>
+                    <Border Grid.Row="0" Grid.Column="0"  BorderBrush="Silver" BorderThickness="1,1,0,1" Margin="0,0,0.4,23.6" Grid.RowSpan="2"/>
                     <Border Grid.Row="0" BorderBrush="Silver" BorderThickness="0,0,1,0" Margin="0.6,0,139.2,24.6" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
                     <Border Grid.Row="0" Grid.Column="2" BorderBrush="Silver" BorderThickness="1,0,0,0" Margin="139.8,0,-0.2,24.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
                     <Border Grid.Row="0" Grid.Column="3" BorderBrush="White" BorderThickness="0" Margin="0.8,0,-0.2,24.6" Grid.RowSpan="2"/>
 
-                    <Border Grid.Row="1" Grid.Column="0" BorderBrush="Silver" BorderThickness="1" Margin="0,0.2,0.4,-0.4"/>
+                    <Border Grid.Row="1" Grid.Column="0" BorderBrush="Silver" BorderThickness="1,0,0,1" Margin="0,0.2,0.4,-0.4"/>
                     <Border Grid.Row="1" BorderBrush="White" BorderThickness="0" Margin="118,0.2,26.2,-0.4" Grid.ColumnSpan="2"/>
                     <Border Grid.Column="1" BorderBrush="Silver" BorderThickness="1" Margin="92.6,0.2,108.8,-0.4" Grid.Row="1" Grid.ColumnSpan="3"/>
                     <Border Grid.Row="1" Grid.Column="2" BorderBrush="Silver" BorderThickness="1" Margin="139.8,0.2,-0.2,-0.4" Grid.ColumnSpan="2"/>
@@ -211,7 +211,7 @@
             <!--水分摄取-->
             <StackPanel Orientation="Horizontal" Margin="10,10,10,10">
                 <Label Content="{DynamicResource VitalInfoView.Water}" Background="Gray" Foreground="White"  Width="80"/>
-                <TextBox Margin="15,0" Width="41"  Name="amunt" IsEnabled="False" VerticalContentAlignment="Center"/>
+                <TextBox Margin="15,0,5,0" Width="41"  Name="amunt" IsEnabled="False" VerticalContentAlignment="Center"/>
                 <Label Content="(cc)"/>
             </StackPanel>
             <!--结束：水分摄取-->

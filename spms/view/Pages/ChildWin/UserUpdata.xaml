@@ -137,7 +137,7 @@
                             <Label Content="{DynamicResource AddOrEditView.IdCard}" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
                         <TextBox Grid.Row="5"  CaretBrush="Black" Name="idcard" Grid.Column="1"  LostFocus="IsIDCard" PreviewKeyDown="idcard_encrypt"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IDCard,Converter={StaticResource idcardconverter}}" VerticalContentAlignment="Center"/>
-                        <TextBox Grid.Row="5"  CaretBrush="Black" Name="IDCard" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IDCard,Mode=OneTime}" VerticalContentAlignment="Center" Visibility="Hidden"/>
+                        <TextBox Grid.Column="3"  CaretBrush="Black" Name="IDCard"  Text="{Binding User_IDCard,Mode=OneTime}" VerticalContentAlignment="Center"  Visibility="Hidden"/>
                         <!--气泡-->
                     <bubble:CCPopup x:Name="bubble_IDCard" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=idcard}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
