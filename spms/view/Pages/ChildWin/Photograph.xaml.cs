@@ -159,16 +159,37 @@ namespace spms.view.Pages.ChildWin
             }
 
             photoName += ".jpg";
-            
+
+
+            var bytes = Bitmap2Byte(bmcpy);
+
             CreateDir(CommUtil.GetUserPic());
-            PicZipUtil.GetPicThumbnail(bmcpy, CommUtil.GetUserPic() + photoName, 90);
-            //bmcpy.Save(CommUtil.GetUserPic() + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
+            //大于10K再压缩
+            if (bytes.Length > 1024 * 10)
+            {
+                PicZipUtil.GetPicThumbnail(bmcpy, CommUtil.GetUserPic() + photoName, 80);
+            }
+            else
+            {
+               bmcpy.Save(CommUtil.GetUserPic() + "haha" + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+
 
 
 
             this.Close();
         }
-
+        public static byte[] Bitmap2Byte(Bitmap bitmap)
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                bitmap.Save(stream, ImageFormat.Jpeg);
+                byte[] data = new byte[stream.Length];
+                stream.Seek(0, SeekOrigin.Begin);
+                stream.Read(data, 0, Convert.ToInt32(stream.Length));
+                return data;
+            }
+        }
 
         // 加载摄像头按钮
         private void cb_SelectionChanged(object sender, SelectionChangedEventArgs e)

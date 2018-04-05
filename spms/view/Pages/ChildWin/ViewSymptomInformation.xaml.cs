@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using spms.entity;
+using spms.util;
 using spms.view.dto;
 
 namespace spms.view.Pages.ChildWin
@@ -61,7 +62,7 @@ namespace spms.view.Pages.ChildWin
             bloodlow_1.Text = symptomInfoDTO.Pre_Pressure.Split(new char[] {'/'})[1].Trim();
             bloodhight_1.Text = symptomInfoDTO.Pre_Pressure.Split(new char[] {'/'})[0].Trim();
             heartRate_1.Text = symptomInfoDTO.Pre_HeartRate;
-            if (symptomInfoDTO.Pre_Pulse == "规律脉")
+            if (LanguageUtils.EqualsResource(symptomInfoDTO.Pre_Pulse, "VitalInfoView.Regular"))
             {
                 rule_1.IsChecked = true;
                 irregular_1.IsChecked = false;
@@ -77,7 +78,7 @@ namespace spms.view.Pages.ChildWin
             bloodlow_2.Text = symptomInfoDTO.Suf_Pressure.Split(new char[] {'/'})[1].Trim();
             bloodhight_2.Text = symptomInfoDTO.Suf_Pressure.Split(new char[] {'/'})[0].Trim();
             heartRate_2.Text = symptomInfoDTO.Suf_HeartRate;
-            if (symptomInfoDTO.Suf_Pulse == "规律脉")
+            if (LanguageUtils.EqualsResource(symptomInfoDTO.Suf_Pulse, "VitalInfoView.Regular"))
             {
                 rule_2.IsChecked = true;
                 irregular_2.IsChecked = false;
@@ -90,24 +91,63 @@ namespace spms.view.Pages.ChildWin
 
             heat_2.Text = symptomInfoDTO.Suf_AnimalHeat;
 
-            foreach (CheckBox chk in this.stackPanel_1.Children.OfType<CheckBox>())
+            foreach (string inquiry in symptomInfoDTO.Inquiry.Split(new char[]{','}))
             {
-                if (symptomInfoDTO.Inquiry.Contains(chk.Content.ToString()))
+                if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Janguidness"))
                 {
-                    chk.IsChecked = true;
+                    Janguidness.IsChecked = true;
+                }
+                else if(LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Diarrhea"))
+                {
+                    Diarrhea.IsChecked = true;
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Wamble"))
+                {
+                    Wamble.IsChecked = true;
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.BeingBreathless"))
+                {
+                    BeingBreathless.IsChecked = true;
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.CoughAndPhlegm"))
+                {
+                    CoughAndPhlegm.IsChecked = true;
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Fever"))
+                {
+                    Fever.IsChecked = true;
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Stomachache"))
+                {
+                    Stomachache.IsChecked = true;
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.APoorAppetite"))
+                {
+                    APoorAppetite.IsChecked = true;
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Constipation"))
+                {
+                    Constipation.IsChecked = true;
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Dizziness"))
+                {
+                    Dizziness.IsChecked = true;
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Headache"))
+                {
+                    Headache.IsChecked = true;
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.Other"))
+                {
+                    Other.IsChecked = true;
+                }
+                else if (LanguageUtils.EqualsResource(inquiry, "VitalInfoView.NotApplicable"))
+                {
+                    NotApplicable.IsChecked = true;
                 }
             }
-
-            foreach (CheckBox chk in this.stackPanel_2.Children.OfType<CheckBox>())
-            {
-                if (symptomInfoDTO.Inquiry.Contains(chk.Content.ToString()))
-                {
-                    chk.IsChecked = true;
-                }
-            }
-
-
-            if (symptomInfoDTO.Join == "是")
+            
+            if (LanguageUtils.EqualsResource(symptomInfoDTO.Join, "VitalInfoView.Yes"))
             {
                 join_1.IsChecked = true;
                 join_2.IsChecked = false;

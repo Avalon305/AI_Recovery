@@ -58,6 +58,16 @@ namespace spms.view.Pages
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            //加载图片
+            if (LanguageUtils.IsChainese())
+            {
+                title_pic.Source = new BitmapImage(new Uri(@"\view\Images\bdl.PNG", UriKind.Relative));
+            }
+            else
+            {
+                //TODO 英文图片
+                title_pic.Source = new BitmapImage(new Uri(@"\view\Images\bdl.PNG", UriKind.Relative));
+            }
             try
             {
                 if (SetterDAO.getSetter() != null)

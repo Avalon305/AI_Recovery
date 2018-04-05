@@ -15,35 +15,36 @@
     </Page.Resources>
     <Viewbox Name="viewbox"  Stretch=" fill">
 
-            <Grid >
+        <Grid >
 
-                <!--<StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top">
+            <!--<StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top">
             <Image Source="C:\Users\lenovo\source\repos\UI\UI\Images\5920.jpg"  VerticalAlignment="Top" Width="50" Height="30" Margin="10,10,10,0"/>
             <Button MinHeight="70" MinWidth="70" MaxWidth="70" MaxHeight="70" HorizontalAlignment="Right" Content="后退" Margin="0,10,0,-30.4" Width="55"/>
         </StackPanel>-->
-                <StackPanel Orientation="Vertical" >
-                    <!--图片-->
+            <StackPanel Orientation="Vertical" >
+                <!--图片-->
+                <Grid>
+                    <!--<StackPanel Orientation="Horizontal" Margin="5,0,25,0">-->
+
+                    <!--图片及按钮-->
                     <Grid>
-                        <!--<StackPanel Orientation="Horizontal" Margin="5,0,25,0">-->
+                        <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <Canvas>
+                                <Image Name="title_pic" Source="/view/Images/12.PNG" Stretch="Fill" Canvas.Left="11" Canvas.Top="1" Width="1269" Height="71"/>
+                            </Canvas>
+                        </Border>
+                        <Border Margin="0,20,40,19" HorizontalAlignment="Right" Width="160">
+                            <StackPanel Orientation="Horizontal">
 
-                        <!--图片及按钮-->
-                        <Grid>
-                            <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <Canvas>
-                                    <Image Source="/view/Images/1.PNG" Stretch="Fill" Canvas.Left="11" Canvas.Top="1" Width="1269" Height="71"/>
-                                </Canvas>
-                            </Border>
-                            <Border Margin="0,20,40,19" HorizontalAlignment="Right" Width="160">
-                                <StackPanel Orientation="Horizontal">
+                                <Button Name="BtnSetting" Style="{StaticResource Btn}" IsTabStop="False" Height="25" Width="75" Click="BtnSetting_Click" Content="{DynamicResource MainView.Settings}"></Button>
+                                <Button Name="BtnClose" Style="{StaticResource Btn}" Click="GoBack" Height="25" Width="75" Margin="10,0,0,0" Content="{DynamicResource MainView.Close}"></Button>
+                            </StackPanel>
 
-                                    <Button Name="BtnSetting" Style="{StaticResource Btn}" IsTabStop="False" Height="25" Width="75" Click="BtnSetting_Click" Content="{DynamicResource MainView.Settings}"></Button>
-                                    <Button Name="BtnClose" Style="{StaticResource Btn}" Click="GoBack" Height="25" Width="75" Margin="10,0,0,0" Content="{DynamicResource MainView.Close}"></Button>
-                                </StackPanel>
-
-                            </Border>
-                        </Grid>
-                        <!-- logo -->
-                        <!--
+                        </Border>
+                        <Label Content="{DynamicResource MainView.Title}"  FontSize="18" HorizontalAlignment="Center" Name="subhead" VerticalAlignment="Bottom" Margin="15,0,0,0" Foreground="PowderBlue"></Label>
+                    </Grid>
+                    <!-- logo -->
+                    <!--
                 <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="11,0,0,0">
                     <Border.Resources>
 
@@ -71,249 +72,300 @@
                     </Image>
                 </Border>
                 -->
-                        <!--结束：logo-->
-                        <!-- logo -->
-                        <Border Margin="10,0,1034.6,0">
-                            <Image  x:Name="DesignerHead3"  RenderTransformOrigin="0.4,0.5" Source="/view/images/3-1.png" Stretch="Fill" Width="245" Height="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-0.2,0" >
-                                <Image.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleX="1" ScaleY="1"  />
-                                    </TransformGroup>
-                                </Image.RenderTransform>
-                            </Image>
-                        </Border>
-                        <!-- logo -->
-                        <Border Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="23,13,0,0" Width="80" RenderTransformOrigin="0.5,0.5">
-                            <Border.Resources>
-                                <Storyboard x:Key="LoadHeadStoryboard">
-                                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:02"    Duration="00:00:12.5" RepeatBehavior="Forever"  Storyboard.TargetName="DesignerHead" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
-                                        <LinearDoubleKeyFrame KeyTime="0:0:0.5" Value="-1"/>
-                                        <LinearDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
-                                    </DoubleAnimationUsingKeyFrames>
-                                </Storyboard>
-
-                            </Border.Resources>
-                            <Border.RenderTransform>
+                    <!--结束：logo-->
+                    <!-- logo -->
+                    <Border Margin="10,0,1034.6,0">
+                        <Image  x:Name="DesignerHead3"  RenderTransformOrigin="0.4,0.5" Source="/view/images/3-1.png" Stretch="Fill" Width="245" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                            <!--<Image  x:Name="DesignerHead3"  RenderTransformOrigin="0.4,0.5" Source="/view/images/3-1.png" Stretch="Fill" Width="245" Height="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-0.2,0" >-->
+                            <Image.RenderTransform>
                                 <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform AngleY="0.509"/>
-                                    <RotateTransform/>
-                                    <TranslateTransform Y="0.391"/>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"  />
                                 </TransformGroup>
-                            </Border.RenderTransform>
-                            <Border.Triggers>
-                                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                                    <BeginStoryboard Storyboard="{StaticResource LoadHeadStoryboard}"/>
-                                </EventTrigger>
-                            </Border.Triggers>
-
-                            <Image  x:Name="DesignerHead"  RenderTransformOrigin="0.4,0.5" Source="/view/images/4-7.png" Stretch="Fill" Width="90" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-10,0" >
-                                <Image.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleX="1" ScaleY="1"  />
-                                    </TransformGroup>
-                                </Image.RenderTransform>
-                            </Image>
-                        </Border>
-                        <!-- logo -->
-                        <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="116,0,0,0" Width="109">
-                            <Border.Resources>
-
-                                <Storyboard x:Key="LoadHeadStoryboard">
-                                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:3.5"    Duration="00:00:12.5"   RepeatBehavior="1"  Storyboard.TargetName="DesignerHead2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
-                                        <LinearDoubleKeyFrame KeyTime="0:0:0.5" Value="1.23"/>
-                                        <LinearDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
-
-                                    </DoubleAnimationUsingKeyFrames>
-
-                                </Storyboard>
-
-                            </Border.Resources>
-                            <Border.Triggers>
-                                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                                    <BeginStoryboard Storyboard="{StaticResource LoadHeadStoryboard}"/>
-                                </EventTrigger>
-                            </Border.Triggers>
-
-                            <Image  x:Name="DesignerHead2"  RenderTransformOrigin="0.4,0.5" Source="/view/images/5-4.png" Stretch="Fill" Width="120" Height="21" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,-11.2,29">
-                                <Image.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleX="1" ScaleY="1"  />
-                                    </TransformGroup>
-                                </Image.RenderTransform>
-                            </Image>
-                        </Border>
-                        <Border Margin="10,10,1034.6,0.4">
-                            <Image  x:Name="DesignerHead4"  RenderTransformOrigin="0.4,0.5" Source="/view/images/6.png" Stretch="Fill" Width="225" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">
-                                <Image.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleX="1" ScaleY="1"  />
-                                    </TransformGroup>
-                                </Image.RenderTransform>
-                            </Image>
-                        </Border>
-                        <!--结束：logo-->
-                        <!--结束：图片及按钮-->
-                        <!--</StackPanel>-->
-                    </Grid>
-                    <!--结束：图片-->
-                    <!--使用者一览表_按钮-->
-                    <Border Height="39" CornerRadius="5,5,0,0" Margin="10,0,10,0" >
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="Silver" Offset="0.1"/>
-                                <GradientStop Color="Gray" Offset="0.9"/>
-                            </LinearGradientBrush>
-
-                        </Border.Background>
-                        <Grid>
-                            <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38" Content="{DynamicResource SubjectListView.SubjectList}"></Label>
-                            <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="568" Height="29" VerticalAlignment="Bottom">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <Button Width="140" Height="25" Foreground="Black" Margin="2,0,0,0" Click="Retrieval" Style="{StaticResource Btn}" Content="{DynamicResource SubjectListView.Search}"></Button>
-                                    <Button Width="140" Height="25" Foreground="Black"  Margin="2,0,0,0" Click="Register" Style="{StaticResource Btn}" Content="{DynamicResource SubjectListView.AddSubject}"></Button>
-                                    <Button Width="140" Height="25" Foreground="Black"  Margin="2,0,0,0" Click="UserUpdata" Style="{StaticResource Btn}" Content="{DynamicResource SubjectListView.EditSubject}"></Button>
-                                    <Button Width="140"  Height="25" Foreground="Black"  Content="{DynamicResource SubjectListView.DeleteSubject}"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="Delete_User"/>
-                                </StackPanel>
-                            </Border>
-                        </Grid>
+                            </Image.RenderTransform>
+                        </Image>
                     </Border>
-                    <!--结束：使用者一览表_按钮-->
-                    <!--使用者一览表_数据-->
-                    <Border>
-                        <DataGrid x:Name="UsersInfo" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None" SelectionMode="Single" RowHeaderWidth="0" DataGridRow.MouseUp="Grid_Click"   IsReadOnly="true" Margin="11,5,11,0" VerticalAlignment="Top"  Height="150" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" Width="1270" SelectionChanged="UsersInfo_SelectionChanged"  >
-                            <!--选中行失去焦点时的颜色-->
-                            <DataGrid.Resources>
-                                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DodgerBlue"/>
-                            </DataGrid.Resources>
-                            <!--固定行高，取消拉伸-->
-                            <DataGrid.RowStyle>
-                                <Style TargetType="DataGridRow">
-                                    <Setter Property="Height" Value="18" />
-                                </Style>
-                            </DataGrid.RowStyle>
-                            <!--去掉选中单元格的框线-->
-                            <DataGrid.CellStyle>
-                                <Style TargetType="DataGridCell" >
-                                    <Style.Triggers>
-                                        <Trigger Property="IsSelected" Value="True">
-                                            <Setter Property="BorderThickness" Value="0"/>
-                                            <Setter Property="Foreground" Value="White" />
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
+                    <!-- logo -->
+                    <Border Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="23,13,0,0" Width="80" RenderTransformOrigin="0.5,0.5">
+                        <Border.Resources>
+                            <Storyboard x:Key="LoadHeadStoryboard">
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:02"    Duration="00:00:12.5" RepeatBehavior="Forever"  Storyboard.TargetName="DesignerHead" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                    <LinearDoubleKeyFrame KeyTime="0:0:0.5" Value="-1"/>
+                                    <LinearDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
 
-                            </DataGrid.CellStyle>
-                            <DataGrid.Columns >
-                                <DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="{DynamicResource SubjectListView.SubjectID}" Width="140" />
-                                <DataGridTextColumn Binding="{Binding User_Name}" Header="{DynamicResource SubjectListView.LastName}" Width="140"/>
-                                <DataGridTextColumn Binding="{Binding User_Namepinyin}" Header="{DynamicResource SubjectListView.FirstName}" Width="150"/>
-                                <DataGridTextColumn Binding="{Binding User_Sex, Converter={StaticResource sexconverter}}" Header="{DynamicResource SubjectListView.Gender}" Width="50"/>
-                                <DataGridTextColumn Binding="{Binding User_Birth, Converter={StaticResource ageconverter}}" Header="{DynamicResource SubjectInfoView.Age}" Width="50"/>
-                                <DataGridTextColumn Binding="{Binding User_GroupName}" Header="{DynamicResource SubjectInfoView.Group}" Width="140"/>
-                                <DataGridTextColumn Binding="{Binding User_InitCare}" Header="{DynamicResource SubjectListView.InitialCareLevel}" Width="120"/>
-                                <DataGridTextColumn Binding="{Binding User_Nowcare}" Header="{DynamicResource SubjectListView.CurrentCareLevel}" Width="120"/>
-                                <DataGridTextColumn Binding="{Binding User_IllnessName}" Header="{DynamicResource SubjectListView.Disease}" Width="179"/>
-                                <DataGridTextColumn Binding="{Binding User_PhysicalDisabilities}" Header="{DynamicResource SubjectListView.Diagnosis}" Width="179"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                        </Border.Resources>
+                        <Border.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleY="0.509"/>
+                                <RotateTransform/>
+                                <TranslateTransform Y="0.391"/>
+                            </TransformGroup>
+                        </Border.RenderTransform>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                                <BeginStoryboard Storyboard="{StaticResource LoadHeadStoryboard}"/>
+                            </EventTrigger>
+                        </Border.Triggers>
+
+                        <Image  x:Name="DesignerHead"  RenderTransformOrigin="0.4,0.5" Source="/view/images/4-7.png" Stretch="Fill" Width="90" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-10,0" >
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"  />
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
                     </Border>
-                    <!--结束：使用者一览表_数据-->
-                    <!--使用者信息_按钮-->
-                    <Border Height="40" CornerRadius="5,5,0,0"  Margin="10,5,10,0">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="Silver" Offset="0.1"/>
-                                <GradientStop Color="Gray" Offset="0.9"/>
-                            </LinearGradientBrush>
+                    <!-- logo -->
+                    <Border Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="116,0,0,0" Width="109">
+                        <Border.Resources>
 
-                        </Border.Background>
-                        <Grid>
-                            <Label VerticalAlignment="Bottom" Margin="10,0,0.4,0" Foreground="White" FontSize="20" Height="38" Content="{DynamicResource SubjectInfoView.SubjectInfo}"></Label>
-                            <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="568" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <Button Width="140" Height="25"    Foreground="Black"  Margin="2,0,0,0" Click="InputSymptomInformation" Style="{StaticResource Btn}" Content="{DynamicResource SubjectInfoView.VitalInformation}"></Button>
-                                    <Button Width="140" Height="25"     Foreground="Black"  Margin="2,0,0,0" Click="InputTraining" Style="{StaticResource Btn}" Content="{DynamicResource SubjectInfoView.SetTraining}"></Button>
-                                    <Button Width="140"   Foreground="Black"  Content="{DynamicResource SubjectInfoView.PhysicalEvaluation}"  Margin="2,0,0,0" Click="InputManualMvaluation" Style="{StaticResource Btn}"/>
-                                    <Button Width="140"   Foreground="Black"  Content="{DynamicResource SubjectInfoView.Report}"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="MakeReport"/>
-                                </StackPanel>
-                            </Border>
-                        </Grid>
+                            <Storyboard x:Key="LoadHeadStoryboard">
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:3.5"    Duration="00:00:12.5"   RepeatBehavior="1"  Storyboard.TargetName="DesignerHead2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                    <LinearDoubleKeyFrame KeyTime="0:0:0.5" Value="1.23"/>
+                                    <LinearDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+
+                                </DoubleAnimationUsingKeyFrames>
+
+                            </Storyboard>
+
+                        </Border.Resources>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                                <BeginStoryboard Storyboard="{StaticResource LoadHeadStoryboard}"/>
+                            </EventTrigger>
+                        </Border.Triggers>
+
+                        <Image  x:Name="DesignerHead2"  RenderTransformOrigin="0.4,0.5" Source="/view/images/5-4.png" Stretch="Fill" Width="120" Height="21" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,-11.2,29">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"  />
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
                     </Border>
-                    <!--结束：使用者信息_按钮-->
+                    <Border Margin="10,10,1034.6,0.4">
+                        <Image  x:Name="DesignerHead4" Loaded="image_load" RenderTransformOrigin="0.4,0.5" Source="/view/images/5_5.png" Stretch="Fill" Width="136" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,18,0,0">
+                            <!--<Image  x:Name="DesignerHead4" Loaded="image_load" RenderTransformOrigin="0.4,0.5" Source="/view/images/5_5.png" Stretch="Fill" Width="225" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">-->
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"  />
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Border>
+                    <!--结束：logo-->
+                    <!--结束：图片及按钮-->
+                    <!--</StackPanel>-->
+                </Grid>
+                <!--结束：图片-->
+                <!--使用者一览表_按钮-->
+                <Border Height="39" CornerRadius="5,5,0,0" Margin="10,0,10,0" >
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="Silver" Offset="0.1"/>
+                            <GradientStop Color="Gray" Offset="0.9"/>
+                        </LinearGradientBrush>
 
-                    <StackPanel Orientation="Horizontal">
-                        <!--使用者信息展示-->
-                        <Border BorderBrush="Black" BorderThickness="1" Width="300" Height="360" HorizontalAlignment="Left" Margin="11,5,5,5" >
-                            <Border.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                    <GradientStop Color="Silver" Offset="0.1"/>
-                                    <GradientStop Color="Gray" Offset="0.9"/>
-                                </LinearGradientBrush>
-
-                            </Border.Background>
-                            <StackPanel Orientation="Vertical">
-                                <Border BorderBrush="Black" BorderThickness="1" Width="250" Height="145" VerticalAlignment="Top" Margin="0,0,0,0" Background="White">
-                                    <Image Name="UserPhoto" Width="250" Height="143" Margin="0,0,0,0" />
-                                </Border>
-                                <Grid Margin="20,0,0,0" Name="UserInfo">
-                                    <Grid.ColumnDefinitions >
-                                        <ColumnDefinition Width="110"/>
-                                        <ColumnDefinition Width="20"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="20"/>
-                                    </Grid.RowDefinitions>
-                                    <Label Grid.Row="0" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.SubjectID}"></Label>
-                                    <Label Grid.Row="0" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                                    <Label Grid.Row="0" Grid.Column="2" Content="{Binding Pk_User_Id}" Margin="0,0,0,-4"></Label>
-                                    <Label Grid.Row="1" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.LastName}"></Label>
-                                    <Label Grid.Row="1" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                                    <Label Grid.Row="1" Grid.Column="2" Content="{Binding User_Name}" Margin="0,0,0,-6"></Label>
-                                    <Label Grid.Row="2" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.FirstName}"></Label>
-                                    <Label Grid.Row="2" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                                    <Label Grid.Row="2" Grid.Column="2" Content="{Binding User_Namepinyin}" Margin="0,0,0,-6"></Label>
-                                    <Label Grid.Row="3" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.Gender}"></Label>
-                                    <Label Grid.Row="3" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                                    <Label Grid.Row="3" Grid.Column="2" Content="{Binding User_Sex, Converter={StaticResource sexconverter}}" Margin="0,0,0,-6"></Label>
-                                    <Label Grid.Row="4" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.Age}"></Label>
-                                    <Label Grid.Row="4" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                                    <Label Grid.Row="4" Grid.Column="2" Content="{Binding User_Birth, Converter={StaticResource ageconverter}}" Margin="0,0,0,-6"></Label>
-                                    <Label Grid.Row="5" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.Group}"></Label>
-                                    <Label Grid.Row="5" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                                    <Label Grid.Row="5" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_GroupName}"></Label>
-                                    <Label Grid.Row="6" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.InitialCareLevel}"></Label>
-                                    <Label Grid.Row="6" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                                    <Label Grid.Row="6" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_InitCare}"></Label>
-                                    <Label Grid.Row="7" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.CurrentCareLevel}"></Label>
-                                    <Label Grid.Row="7" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                                    <Label Grid.Row="7" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_Nowcare}"></Label>
-                                    <Label Grid.Row="8" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.Disease}"></Label>
-                                    <Label Grid.Row="8" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                                    <Label Grid.Row="8" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_IllnessName}"></Label>
-                                    <Label Grid.Row="9" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.Diagnosis}"></Label>
-                                    <Label Grid.Row="9" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                                    <Label Grid.Row="9" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_PhysicalDisabilities}"></Label>
-                                </Grid>
+                    </Border.Background>
+                    <Grid>
+                        <Label VerticalAlignment="Bottom"  Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38" Content="{DynamicResource SubjectListView.SubjectList}"></Label>
+                        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="568" Height="29" VerticalAlignment="Bottom">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button Width="140" Height="25" Foreground="Black" Margin="2,0,0,0" Click="Retrieval" Style="{StaticResource Btn}" Content="{DynamicResource SubjectListView.Search}"></Button>
+                                <Button Width="140" Height="25" Foreground="Black"  Margin="2,0,0,0" Click="Register" Style="{StaticResource Btn}" Content="{DynamicResource SubjectListView.AddSubject}"></Button>
+                                <Button Width="140" Height="25" Foreground="Black"  Margin="2,0,0,0" Click="UserUpdata" Style="{StaticResource Btn}" Content="{DynamicResource SubjectListView.EditSubject}"></Button>
+                                <Button Width="140"  Height="25" Foreground="Black"  Content="{DynamicResource SubjectListView.DeleteSubject}"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="Delete_User"/>
                             </StackPanel>
                         </Border>
-                        <!--结束：使用者信息展示-->
-                        <!--训练信息-->
-                        <Border BorderBrush="Black" BorderThickness="1" Margin="0,5,10,0" Height="360" VerticalAlignment="Top" Width="964">
-                            <WrapPanel Orientation="Vertical" Height="360" VerticalAlignment="Top" Margin="0,0.2,0,-0.8" >
-                                <WrapPanel Orientation="Vertical">
-                                    <Frame Width="961" Height="315" IsTabStop="False" Name="record" NavigationUIVisibility="Hidden" SourceUpdated="record_SourceUpdated"></Frame>
-                                    <!--<Grid Margin="0,14,0,0">
+                    </Grid>
+                </Border>
+                <!--结束：使用者一览表_按钮-->
+                <!--使用者一览表_数据-->
+                <Border>
+                    <DataGrid x:Name="UsersInfo" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None" SelectionMode="Single" RowHeaderWidth="0" DataGridRow.MouseUp="Grid_Click"   IsReadOnly="true" Margin="11,5,11,0" VerticalAlignment="Top"  Height="150" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" Width="1270" SelectionChanged="UsersInfo_SelectionChanged"  >
+                        <!--选中行失去焦点时的颜色-->
+                        <DataGrid.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DodgerBlue"/>
+                        </DataGrid.Resources>
+                        <!--固定行高，取消拉伸-->
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Height" Value="18" />
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <!--去掉选中单元格的框线-->
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell" >
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
+                                <!--单元格tooltip效果-->
+                                <Setter Property="ToolTipService.ToolTip"  Value="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content.Text}" />
+                            </Style>
+
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns >
+                            <DataGridTemplateColumn Header="{DynamicResource SubjectListView.SubjectID}" Width="140"  IsReadOnly="True">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DataGridRow}}, Path=Header}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <!--<DataGridTextColumn Binding="{Binding Pk_User_Id}" Header="{DynamicResource SubjectListView.SubjectID}" Width="140" />-->
+                            <DataGridTextColumn Binding="{Binding User_Name}" Header="{DynamicResource SubjectListView.LastName}" Width="140"/>
+                            <DataGridTextColumn Binding="{Binding User_Namepinyin}" Header="{DynamicResource SubjectListView.FirstName}" Width="150"/>
+                            <DataGridTextColumn Binding="{Binding User_Sex, Converter={StaticResource sexconverter}}" Header="{DynamicResource SubjectListView.Gender}" Width="60"/>
+                            <DataGridTextColumn Binding="{Binding User_Birth, Converter={StaticResource ageconverter}}" Header="{DynamicResource SubjectInfoView.Age}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding User_GroupName}" Header="{DynamicResource SubjectInfoView.Group}" Width="140"/>
+                            <DataGridTextColumn Binding="{Binding User_InitCare}" Header="{DynamicResource SubjectListView.InitialCareLevel}" Width="120"/>
+                            <DataGridTextColumn Binding="{Binding User_Nowcare}" Header="{DynamicResource SubjectListView.CurrentCareLevel}" Width="120"/>
+                            <!--<DataGridTextColumn Binding="{Binding User_IllnessName}" Header="{DynamicResource SubjectListView.Disease}" Width="179"/>-->
+                            <DataGridTemplateColumn Header="{DynamicResource SubjectListView.Diagnosis}" Width="175">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding User_IllnessName}" TextTrimming="WordEllipsis" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                                <Setter Property="Foreground" Value="White"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding User_IllnessName}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
+                            <!--<DataGridTextColumn Binding="{Binding User_PhysicalDisabilities}" Header="{DynamicResource SubjectListView.Diagnosis}" Width="179"/>-->
+                            <DataGridTemplateColumn Header="{DynamicResource SubjectListView.Diagnosis}" Width="175">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--设置当单元格内容超过最大长度时，显示...-->
+                                        <TextBlock Text="{Binding User_PhysicalDisabilities}" TextTrimming="WordEllipsis" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                                <Setter Property="Foreground" Value="White"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <!--加tooltip，显示单元格内容-->
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding User_PhysicalDisabilities}"/>
+                                    </Style>
+                                </DataGridTemplateColumn.CellStyle>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+                <!--结束：使用者一览表_数据-->
+                <!--使用者信息_按钮-->
+                <Border Height="40" CornerRadius="5,5,0,0"  Margin="10,5,10,0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="Silver" Offset="0.1"/>
+                            <GradientStop Color="Gray" Offset="0.9"/>
+                        </LinearGradientBrush>
+
+                    </Border.Background>
+                    <Grid>
+                        <Label VerticalAlignment="Bottom" Margin="10,0,0.4,0" Foreground="White" FontSize="20" Height="38" Content="{DynamicResource SubjectInfoView.SubjectInfo}"></Label>
+                        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="568" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button Width="140" Height="25"    Foreground="Black"  Margin="2,0,0,0" Click="InputSymptomInformation" Style="{StaticResource Btn}" Content="{DynamicResource SubjectInfoView.VitalInformation}"></Button>
+                                <Button Width="140" Height="25"     Foreground="Black"  Margin="2,0,0,0" Click="InputTraining" Style="{StaticResource Btn}" Content="{DynamicResource SubjectInfoView.SetTraining}"></Button>
+                                <Button Width="140"   Foreground="Black"  Content="{DynamicResource SubjectInfoView.PhysicalEvaluation}"  Margin="2,0,0,0" Click="InputManualMvaluation" Style="{StaticResource Btn}"/>
+                                <Button Width="140"   Foreground="Black"  Content="{DynamicResource SubjectInfoView.Report}"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="MakeReport"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+                <!--结束：使用者信息_按钮-->
+
+                <StackPanel Orientation="Horizontal">
+                    <!--使用者信息展示-->
+                    <Border BorderBrush="Black" BorderThickness="1" Width="300" Height="360" HorizontalAlignment="Left" Margin="11,5,5,5" >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="Silver" Offset="0.1"/>
+                                <GradientStop Color="Gray" Offset="0.9"/>
+                            </LinearGradientBrush>
+
+                        </Border.Background>
+                        <StackPanel Orientation="Vertical">
+                            <Border BorderBrush="Black" BorderThickness="1" Width="250" Height="145" VerticalAlignment="Top" Margin="0,0,0,0" Background="White">
+                                <Image Name="UserPhoto" Width="250" Height="143" Margin="0,0,0,0" />
+                            </Border>
+                            <Grid Margin="20,0,0,0" Name="UserInfo">
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="110"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.SubjectID}"></Label>
+                                <Label Grid.Row="0" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                                <Label Grid.Row="0" Grid.Column="2" Content="{Binding Pk_User_Id}" Margin="0,0,0,-4"></Label>
+                                <Label Grid.Row="1" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.LastName}"></Label>
+                                <Label Grid.Row="1" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                                <Label Grid.Row="1" Grid.Column="2" Content="{Binding User_Name}" Margin="0,0,0,-6"></Label>
+                                <Label Grid.Row="2" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.FirstName}"></Label>
+                                <Label Grid.Row="2" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                                <Label Grid.Row="2" Grid.Column="2" Content="{Binding User_Namepinyin}" Margin="0,0,0,-6"></Label>
+                                <Label Grid.Row="3" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.Gender}"></Label>
+                                <Label Grid.Row="3" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                                <Label Grid.Row="3" Grid.Column="2" Content="{Binding User_Sex, Converter={StaticResource sexconverter}}" Margin="0,0,0,-6"></Label>
+                                <Label Grid.Row="4" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.Age}"></Label>
+                                <Label Grid.Row="4" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                                <Label Grid.Row="4" Grid.Column="2" Content="{Binding User_Birth, Converter={StaticResource ageconverter}}" Margin="0,0,0,-6"></Label>
+                                <Label Grid.Row="5" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.Group}"></Label>
+                                <Label Grid.Row="5" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                                <Label Grid.Row="5" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_GroupName}"></Label>
+                                <Label Grid.Row="6" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.InitialCareLevel}"></Label>
+                                <Label Grid.Row="6" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                                <Label Grid.Row="6" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_InitCare}"></Label>
+                                <Label Grid.Row="7" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.CurrentCareLevel}"></Label>
+                                <Label Grid.Row="7" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                                <Label Grid.Row="7" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_Nowcare}"></Label>
+                                <Label Grid.Row="8" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.Disease}"></Label>
+                                <Label Grid.Row="8" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                                <Label Grid.Row="8" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_IllnessName}"></Label>
+                                <Label Grid.Row="9" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.Diagnosis}"></Label>
+                                <Label Grid.Row="9" Grid.Column="1" Margin="0,0,0,-6">:</Label>
+                                <Label Grid.Row="9" Grid.Column="2" Margin="0,0,0,-6" Content="{Binding User_PhysicalDisabilities}"></Label>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                    <!--结束：使用者信息展示-->
+                    <!--训练信息-->
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="0,5,10,0" Height="360" VerticalAlignment="Top" Width="964">
+                        <WrapPanel Orientation="Vertical" Height="360" VerticalAlignment="Top" Margin="0,0.2,0,-0.8" >
+                            <WrapPanel Orientation="Vertical">
+                                <Frame Width="961" Height="315" IsTabStop="False" Name="record" NavigationUIVisibility="Hidden" SourceUpdated="record_SourceUpdated"></Frame>
+                                <!--<Grid Margin="0,14,0,0">
                             <Border Background="Gray" Margin="117,3,607.6,-3.4" BorderBrush="Black" BorderThickness="1">
                                 <Label HorizontalAlignment="Center" Margin="94.2,-4.8,85.2,-4.6" VerticalAlignment="Center" Height="24" Width="51" RenderTransformOrigin="0.562,0.656">康复前</Label>
                             </Border>
@@ -340,40 +392,40 @@
                                 <DataGridTextColumn Binding="{Binding User_Physicaildisabilities}" Header="看护记录" Width="180"/>
                             </DataGrid.Columns>
                         </DataGrid>-->
-                                </WrapPanel>
-
-                                <Grid   Margin="0,0,0,-0.2" Width="962" >
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*">
-                                        </ColumnDefinition>
-                                        <ColumnDefinition Width="*">
-                                        </ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <DockPanel  Height="25" Margin="20,7,0,0" Grid.Column="0" HorizontalAlignment="Left"  Width="931">
-
-                                        <RadioButton DockPanel.Dock="Left" Content="{DynamicResource SubjectInfoView.VitalHistory}" VerticalAlignment="Center" IsChecked="True" FocusVisualStyle="{x:Null}" IsTabStop="False" KeyboardNavigation.ControlTabNavigation="None" GroupName="record_radio" Name="is_signinformationrecord" Click="Radio_Check" RenderTransformOrigin="0.5,0.5" ></RadioButton>
-                                        <RadioButton DockPanel.Dock="Left" VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Margin="10,0,0,0" Name="is_trainingrecord" Click="Radio_Check" Content="{DynamicResource SubjectInfoView.TrainingHistory}"></RadioButton>
-                                        <RadioButton DockPanel.Dock="Left" VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Margin="10,0,0,0" Name="is_physicalevaluation" Click="Radio_Check" Content="{DynamicResource SubjectInfoView.PhysicalEvaluationHistory}"></RadioButton>
-
-                                    </DockPanel>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0.2,0,10,0.2">
-                                        <Button DockPanel.Dock="Right" Content="{DynamicResource SubjectInfoView.InputTrainingResult}" Margin="2,0,0,0" Height="25" Style="{StaticResource Btn}" Width="140" Click="InputTrainingResults"/>
-                                        <Button   Content="{DynamicResource SubjectInfoView.Details}" Margin="2,0,0,0" Style="{StaticResource Btn}" Height="25" Width="140" Click="ViewDetails"/>
-
-
-                                        <Button DockPanel.Dock="Right" Content="{DynamicResource SubjectInfoView.Export}" Margin="2,0,0,0" Height="25" Style="{StaticResource Btn}" Width="140" Click="Output_Document"/>
-                                    </StackPanel>
-                                </Grid>
-
-
                             </WrapPanel>
-                        </Border>
-                        <!--结束：训练信息展示-->
-                    </StackPanel>
+
+                            <Grid   Margin="0,0,0,-0.2" Width="962" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*">
+                                    </ColumnDefinition>
+                                    <ColumnDefinition Width="*">
+                                    </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <DockPanel  Height="25" Margin="20,7,0,0" Grid.Column="0" HorizontalAlignment="Left"  Width="931">
+
+                                    <RadioButton DockPanel.Dock="Left" Content="{DynamicResource SubjectInfoView.VitalHistory}" VerticalAlignment="Center" IsChecked="True" FocusVisualStyle="{x:Null}" IsTabStop="False" KeyboardNavigation.ControlTabNavigation="None" GroupName="record_radio" Name="is_signinformationrecord" Click="Radio_Check" RenderTransformOrigin="0.5,0.5" ></RadioButton>
+                                    <RadioButton DockPanel.Dock="Left" VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Margin="10,0,0,0" Name="is_trainingrecord" Click="Radio_Check" Content="{DynamicResource SubjectInfoView.TrainingHistory}"></RadioButton>
+                                    <RadioButton DockPanel.Dock="Left" VerticalAlignment="Center" GroupName="record_radio" FocusVisualStyle="{x:Null}" IsTabStop="False" Margin="10,0,0,0" Name="is_physicalevaluation" Click="Radio_Check" Content="{DynamicResource SubjectInfoView.PhysicalEvaluationHistory}"></RadioButton>
+
+                                </DockPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0.2,0,10,0.2">
+                                    <Button DockPanel.Dock="Right" Content="{DynamicResource SubjectInfoView.InputTrainingResult}" Margin="2,0,0,0" Height="25" Style="{StaticResource Btn}" Width="140" Click="InputTrainingResults"/>
+                                    <Button   Content="{DynamicResource SubjectInfoView.Details}" Margin="2,0,0,0" Style="{StaticResource Btn}" Height="25" Width="140" Click="ViewDetails"/>
+
+
+                                    <Button DockPanel.Dock="Right" Content="{DynamicResource SubjectInfoView.Export}" Margin="2,0,0,0" Height="25" Style="{StaticResource Btn}" Width="140" Click="Output_Document"/>
+                                </StackPanel>
+                            </Grid>
+
+
+                        </WrapPanel>
+                    </Border>
+                    <!--结束：训练信息展示-->
                 </StackPanel>
+            </StackPanel>
 
 
-            </Grid>
+        </Grid>
 
     </Viewbox>
 

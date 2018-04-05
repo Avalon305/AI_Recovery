@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using spms.entity;
+using spms.util;
 
 namespace spms.view.dto
 {
@@ -44,7 +45,7 @@ namespace spms.view.dto
 
             if (result.Contains("param"))
             {
-                return "未填写";
+                return LanguageUtils.ConvertLanguage("未填写", "Unfilled");
             }
             else
             {
@@ -56,7 +57,7 @@ namespace spms.view.dto
         {
             if (val == null || val.Trim() == "")
             {
-                return "未填写";
+                return LanguageUtils.ConvertLanguage("未填写", "Unfilled");
             }
             else
             {

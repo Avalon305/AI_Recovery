@@ -209,6 +209,9 @@
       <DependentUpon>PhotoCutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\converter\TextConverter.cs" />
+    <Compile Include="view\Pages\MessageBoxX.xaml.cs">
+      <DependentUpon>MessageBoxX.xaml</DependentUpon>
+    </Compile>
     <Compile Include="zero.xaml.cs">
       <DependentUpon>zero.xaml</DependentUpon>
     </Compile>
@@ -411,6 +414,10 @@
     <Page Include="view\Pages\ChildWin\PhotoCutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Pages\MessageBoxX.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="zero.xaml">
       <SubType>Designer</SubType>
@@ -628,6 +635,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\5_6.png" />
+    <Resource Include="view\Images\q.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\Images\5_5.png" />
+    <Resource Include="view\fonts\iconfont.ttf" />
+    <Resource Include="view\Images\12.PNG" />
     <Resource Include="view\Images\123.ico" />
     <Resource Include="view\Images\excel\close.png" />
     <Resource Include="view\Images\bitbug_favicon.ico" />

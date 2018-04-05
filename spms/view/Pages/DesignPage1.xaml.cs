@@ -54,6 +54,16 @@ namespace spms.view.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            //加载图片
+            if (LanguageUtils.IsChainese())
+            {
+                title_pic.Source = new BitmapImage(new Uri(@"\view\Images\bdl.PNG", UriKind.Relative));
+            }
+            else
+            {
+                //TODO 英文图片
+                title_pic.Source = new BitmapImage(new Uri(@"\view\Images\bdl.PNG", UriKind.Relative));
+            }
             entity.Setter setter = new entity.Setter();
             //setter.Pk_Set_Id = 5;
             //setterList.Add(setterDao.Load(setter.Pk_Set_Id));
@@ -406,6 +416,18 @@ namespace spms.view.Pages
                 Keyboard.ClearFocus();
             }
 
+        }
+
+        private void image_load(object sender, RoutedEventArgs e)
+        {
+            List<spms.entity.Setter> all = new SetterDAO().ListAll();
+            if (all != null && all.Count != 0)
+            {
+                if (all[0].Set_Language == 0)
+                {
+                    title_pic.Source = new BitmapImage(new Uri("/view/Images/q.jpg", UriKind.RelativeOrAbsolute));
+                }
+            }
         }
     }
 }

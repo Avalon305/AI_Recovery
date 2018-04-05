@@ -64,7 +64,7 @@
                                     <Path SnapsToDevicePixels="False" StrokeThickness="3" Data="M8,17 L20,4" Stroke="White"/>
                                 </Grid>
                             </Grid>
-                            <TextBlock Grid.Column="1" Text="记住密码" FontFamily="{StaticResource 微软雅黑}" FontSize="18" Foreground="Black" VerticalAlignment="Center" Margin="14,0,0,0"/>
+                            <TextBlock Grid.Column="1" Text="{DynamicResource FormView.RememberPassword}" FontFamily="{StaticResource 微软雅黑}" FontSize="18" Foreground="Black" VerticalAlignment="Center" Margin="14,0,0,0"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="True">
@@ -80,8 +80,8 @@
         </Style>
     </Window.Resources>
     <Viewbox Name="viewbox" Stretch=" fill">
-    <Border BorderBrush="Gray" BorderThickness="2" Margin="2,0,2,2">
-        
+        <Border BorderBrush="Gray" BorderThickness="2" Margin="2,0,2,2">
+
 
             <Grid  Height="720" Width="1290">
                 <Grid.Background>
@@ -92,7 +92,8 @@
                 <Button  Name="EndBtn" Style="{StaticResource Btn}"  Width="140" Height="25" Margin="1110,25,15,615" IsTabStop="False" Content="{DynamicResource FormView.Close}" FontSize="15" Foreground="White" Click="EndBtn_Click" />
                 <Image  Source="/view/Images/body3.png"  Margin="0,31,1029.2,580.4"/>
                 <Border Margin="1020,568,0,53.4">
-                    <Image  x:Name="DesignerHead3"  RenderTransformOrigin="0.4,0.5" Source="/view/images/3.png" Stretch="Fill" Width="245" Height="85" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <!--<Image  x:Name="DesignerHead3"  RenderTransformOrigin="0.4,0.5" Source="/view/images/3.png" Stretch="Fill" Width="245" Height="85" HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
+                    <Image  x:Name="DesignerHead3"  RenderTransformOrigin="0.4,0.5" Source="/view/images/3.png" Stretch="Fill" Width="245" Height="65" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </Border>
                 <!-- logo -->
                 <Border Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="1035,582,0,0" Width="76" RenderTransformOrigin="0.5,0.5">
@@ -147,7 +148,7 @@
                         </EventTrigger>
                     </Border.Triggers>
 
-                    <Image  x:Name="DesignerHead2"  RenderTransformOrigin="0.4,0.5" Source="/view/images/5-4.png" Stretch="Fill" Width="120" Height="21" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,-11.2,29">
+                    <Image  x:Name="DesignerHead2"  RenderTransformOrigin="0.4,0.5" Source="/view/images/5-5.png" Stretch="Fill" Width="120" Height="21" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,-11.2,29">
                         <Image.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="1" ScaleY="1"  />
@@ -156,7 +157,8 @@
                     </Image>
                 </Border>
                 <Border Margin="1023,577,0,37.4">
-                    <Image  x:Name="DesignerHead4"  RenderTransformOrigin="0.4,0.5" Source="/view/images/6.png" Stretch="Fill" Width="225" Height="65" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">
+                    <!--<Image  x:Name="DesignerHead4"  RenderTransformOrigin="0.4,0.5" Source="/view/images/5_6.png" Stretch="Fill" Width="225" Height="65" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">-->
+                    <Image  x:Name="DesignerHead4" Loaded="image_load"  RenderTransformOrigin="0.4,0.5" Source="/view/images/5_6.png" Stretch="Fill" Width="135" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,23,0,0">
                         <Image.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="1" ScaleY="1"  />
@@ -182,12 +184,12 @@
                 <Label Name="textBlock"  Margin="500,360,381,320" VerticalAlignment="Center" FontSize="20" Content="{DynamicResource FormView.InputPasswd}"  Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic"/>
                 <PasswordBox Name="User_Password"  CaretBrush="Black" Margin="500,360,380,320" Foreground="DimGray"  FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="25" LostFocus="User_Password_LostFocus"  Style="{StaticResource Watermark}"/>
 
-                <CheckBox Margin="500,380,381,260" Style="{StaticResource CheckBoxStyle}"  FontSize="20" Content="记住密码"></CheckBox>
+                <CheckBox Margin="500,390,381,260" Style="{StaticResource CheckBoxStyle}" IsTabStop="False"  FontSize="20"></CheckBox>
                 <Button Content="{DynamicResource FormView.LogIn}" TabIndex="0" Foreground="White" Width="150"  Height="30" Click="Button_Click" Style="{StaticResource Btn}" IsTabStop="False"   FontSize="15"   Margin="460,439,580,200" />
                 <Button Content="{DynamicResource FormView.Reset}" TabIndex="0" Foreground="White" Height="30" Width="150" Style="{StaticResource Btn}" Click="Resetting_Button" IsTabStop="False" FontSize="15"   Margin="717,439,350,200" RenderTransformOrigin="1.511,-2.152" />
             </Grid>
 
-      
-    </Border>
+
+        </Border>
     </Viewbox>
 </Window>

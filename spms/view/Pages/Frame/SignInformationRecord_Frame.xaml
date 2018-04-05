@@ -9,11 +9,11 @@
     <Grid>
         <WrapPanel Orientation="Vertical">
             <Grid Margin="0,8,0,0">
-                <Border Background="Silver" Margin="135,3,572.2,-5.4" BorderBrush="Black" BorderThickness="1,1,1,0">
+                <Border Background="Silver" Margin="136,3,571.2,-5.4" BorderBrush="Black" BorderThickness="1,1,1,0">
                     <Label HorizontalAlignment="Center" Margin="-0.8,-2.8,-1.6,-3.6" VerticalAlignment="Center" Height="24" Width="212" RenderTransformOrigin="0.562,0.656" HorizontalContentAlignment="Center" Content="{DynamicResource VitalHistoryView.BeforePowerRehab}"></Label>
                 </Border>
-                <Border Height="20" Background="Silver" Margin="374.82,3,330.2,-5.4" BorderBrush="Black" BorderThickness="1,1,1,0">
-                    <Label HorizontalAlignment="Left" Margin="90.2,-3.8,0,-4.6" VerticalAlignment="Center" Height="26" Width="56" Content="{DynamicResource VitalHistoryView.AfterPowerRehab}"></Label>
+                <Border Height="20" Background="Silver" Margin="375.82,3,330.2,-5.4" BorderBrush="Black" BorderThickness="1,1,1,0">
+                    <Label HorizontalAlignment="Left" Margin="-0.8,-2.8,-1.2,-4" HorizontalContentAlignment="Center" VerticalAlignment="Center" Height="26" Width="242" Content="{DynamicResource VitalHistoryView.AfterPowerRehab}"></Label>
                 </Border>
             </Grid>
 
