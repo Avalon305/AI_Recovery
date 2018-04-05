@@ -353,7 +353,7 @@ namespace spms.view.Pages
         {
             Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog
             {
-                Filter = "Excel表格（*.xlsx）|*.xlsx"
+                Filter = LanguageUtils.ConvertLanguage("Excel表格（*.xlsx）|*.xlsx", "Excel Sheet (*.xlsx)|*.xlsx")
             };
             //设置默认文件类型显示顺序
             sfd.FilterIndex = 1;
@@ -379,9 +379,16 @@ namespace spms.view.Pages
                             }
 
                             //存放信息导出的列名
-                            string[] colNames = { "训练日期", "血压(前)", "脉搏(前)", "心率(前)", "体温(前)", "血压(后)", "脉搏(后)", "心率(后)", "体温(后)", "水分摄取", "问诊确认单", "参加/不参加", "看护记录" };
-
-                            ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("症状信息记录", colNames, symptomInfoDtos));
+                            if (LanguageUtils.IsChainese())
+                            {
+                                string[] colNames = { "训练日期", "血压(前)", "脉搏(前)", "心率(前)", "体温(前)", "血压(后)", "脉搏(后)", "心率(后)", "体温(后)", "水分摄取", "问诊确认单", "参加/不参加", "看护记录" };
+                                ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("症状信息记录", colNames, symptomInfoDtos));
+                            }
+                            else
+                            {
+                                string[] colNames = { "Training date", "Blood pressure (front)", "Pulse (front)", "Heart rate (front)", "Body temperature (front)", "Blood pressure (after)", "Pulse (after)", "Heart rate (after)", "Body temperature (after)", "Moisture intake", "Inquiry confirmation", "Participate/Do not participate", "Care record" };
+                                ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("Symptom information record", colNames, symptomInfoDtos));
+                            }
                         }
                         else
                         {
@@ -404,8 +411,16 @@ namespace spms.view.Pages
                             }
                             //Console.WriteLine(lists.ToString());
                             //存放信息导出的列名
-                            string[] colNames = { "实施日期", "使用器械", "组数", "组的个数", "组间隔休息时间", " 砝码", "移乘方法", "自觉运动强度", "时间（秒）", " 距离（mm）", "总工作量（J）", "热量（cal）", "指数", "已完成组数", "时机、姿势", "备忘", "注意点", "利用者感想" };
-                            ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("训练记录", colNames, excelLists));
+                            if (LanguageUtils.IsChainese())
+                            {
+                                string[] colNames = { "实施日期", "使用器械", "组数", "组的个数", "组间隔休息时间", " 砝码", "移乘方法", "自觉运动强度", "时间（秒）", " 距离（mm）", "总工作量（J）", "热量（cal）", "指数", "已完成组数", "时机、姿势", "备忘", "注意点", "利用者感想" };
+                                ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("训练记录", colNames, excelLists));
+                            }
+                            else
+                            {
+                                string[] colNames = { "Date", "Device name", "Groups", "Number", "Break time", " Weights", "Transfer method", "Conscious exercise intensity", "Time (seconds)", " Distance (mm)", "Total workload (J)", "Calories (cal)", "Index", "Completed groups", "Timing, posture", "Remark", "Be careful", "User feelings" };
+                                ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("Training record", colNames, excelLists));
+                            }
                         }
                         else
                         {
@@ -428,10 +443,21 @@ namespace spms.view.Pages
                             }
 
                             //存放信息导出的列名
-                            string[] colNames = { "实施日期", "血压（前）", "心率（前）", "脉搏（前）", "体温（前）", "血压（后）", "心率（后）", "脉搏（后）", "体温（后）", "身体倦怠", "腹泻", "摇晃", "心跳、气喘", "咳嗽、有痰", "发烧", "胸部、肚子痛", "没有食欲", "持续便秘", "感到头晕", "头痛", "其他", "没有相关症状", "是否参加", "水分摄取", "看护记录" };
+                            if (LanguageUtils.IsChainese())
+                            {
+                                string[] colNames = { "实施日期", "血压（前）", "心率（前）", "脉搏（前）", "体温（前）", "血压（后）", "心率（后）", "脉搏（后）", "体温（后）", "身体倦怠", "腹泻", "摇晃", "心跳、气喘", "咳嗽、有痰", "发烧", "胸部、肚子痛", "没有食欲", "持续便秘", "感到头晕", "头痛", "其他", "没有相关症状", "是否参加", "水分摄取", "看护记录" };
 
-                            ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
-                                ExcelUtil.ToDataTable("体力评价记录", colNames, excelLists));
+                                ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
+                                    ExcelUtil.ToDataTable("体力评价记录", colNames, excelLists));
+                            }
+                            else
+                            {
+                                string[] colNames = { "Date", "Blood pressure (front)", "Pulse (front)", "Heart rate (front)", "Body temperature (front)", "Blood pressure (after)", "Pulse (after)", "eart rate (after)", "Body temperature (after)", "Physical exhaustion", "Diarrhea", "Shake", "Heartbeat, asthma", "Cough with phlegm", "Fever", "Chest and stomach pain", "No appetite", "Continuous constipation", "Feeling dizzy", "Headache", "Other", "No related symptoms", "Whether to participate", "Moisture intake", "Care record" };
+
+                                ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
+                                    ExcelUtil.ToDataTable("Physical Assessment Record", colNames, excelLists));
+                            }
+                               
                         }
                         else
                         {

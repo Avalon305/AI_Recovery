@@ -653,6 +653,7 @@
     <Resource Include="doc\none.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="doc\none_english.png" />
     <Content Include="lib\libmupdf.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

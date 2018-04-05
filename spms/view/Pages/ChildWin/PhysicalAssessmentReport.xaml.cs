@@ -106,7 +106,7 @@ namespace spms.view.Pages.ChildWin
             FileInfo newFile = ExcelUtil.GetExcelFile();
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("体力评价报告");
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment"));
 
                 int tableRow = 11;
                 int length = list.Count;
@@ -117,7 +117,7 @@ namespace spms.view.Pages.ChildWin
                 }
 
                 int userRow = 4;
-                ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, "体力评价报告", Current_User);
+                ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment"), Current_User);
 
                 worksheet.Cells[tableRow, 1, tableRow, 3].Merge = true;
                 worksheet.Cells[tableRow + 1, 1, tableRow + 1, 3].Merge = true;
@@ -127,12 +127,12 @@ namespace spms.view.Pages.ChildWin
                 worksheet.Cells[tableRow + 5, 1, tableRow + 5, 3].Merge = true;
                 worksheet.Cells[tableRow + 6, 1, tableRow + 6, 3].Merge = true;
 
-                worksheet.Cells[tableRow + 1, 1].Value = "身高（cm）";
-                worksheet.Cells[tableRow + 2, 1].Value = "体重（kg）";
-                worksheet.Cells[tableRow + 3, 1].Value = "握力（kg）";
-                worksheet.Cells[tableRow + 4, 1].Value = "睁眼单脚站立（秒）";
-                worksheet.Cells[tableRow + 5, 1].Value = "功能性前伸（cm）";
-                worksheet.Cells[tableRow + 6, 1].Value = "坐姿体前驱（cm）";
+                worksheet.Cells[tableRow + 1, 1].Value = LanguageUtils.ConvertLanguage("身高（cm）", "Height (cm)");
+                worksheet.Cells[tableRow + 2, 1].Value = LanguageUtils.ConvertLanguage("体重（kg）", "Weight (kg)"); 
+                worksheet.Cells[tableRow + 3, 1].Value = LanguageUtils.ConvertLanguage("握力（kg）", "Grip (kg)"); 
+                worksheet.Cells[tableRow + 4, 1].Value = LanguageUtils.ConvertLanguage("睁眼单脚站立（秒）", "Wink stand on one foot (seconds)"); 
+                worksheet.Cells[tableRow + 5, 1].Value = LanguageUtils.ConvertLanguage("功能性前伸（cm）", "Functional reach (cm)");
+                worksheet.Cells[tableRow + 6, 1].Value = LanguageUtils.ConvertLanguage("坐姿体前驱（cm）", "Sitting body precursor (cm)"); 
 
 
                 for (int i = 0; i < 24; i++)
@@ -168,7 +168,7 @@ namespace spms.view.Pages.ChildWin
                    
                 }
 
-                worksheet.Cells[tableRow, 10].Value = "初次未变化";
+                worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("初次未变化", " No change for           the first time"); 
 
                 worksheet.Cells[tableRow, 10, tableRow, 11].Merge = true;
                 worksheet.Cells[tableRow + 1, 10, tableRow + 1, 11].Merge = true;
@@ -241,7 +241,7 @@ namespace spms.view.Pages.ChildWin
 
                 chart.SetPosition(25, 0, 0, 0);
                 chart.SetSize(726, 300);
-                chart.Title.Text = "体力检测";
+                chart.Title.Text = LanguageUtils.ConvertLanguage("体力检测", "Physical testing");
                 chart.Title.Font.Color = System.Drawing.Color.FromArgb(89, 89, 89);
                 chart.Title.Font.Size = 15;
                 chart.Title.Font.Bold = true;
@@ -262,7 +262,7 @@ namespace spms.view.Pages.ChildWin
                 }
 
                 int remarkRow = 42;
-                ExcelUtil.GenerateRemark(ref worksheet, remarkRow, "备注信息");
+                ExcelUtil.GenerateRemark(ref worksheet, remarkRow, Current_User.User_PhysicalDisabilities);
                 //保存
                 package.Save();
             }
@@ -326,8 +326,8 @@ namespace spms.view.Pages.ChildWin
         private void Button_Click_OutputDocument(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog();
-            sfd.Filter = "PDF文档（*.pdf）|*.pdf";
-            sfd.FileName = Current_User.User_Name + "-体力评价报告-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
+            sfd.Filter = LanguageUtils.ConvertLanguage("PDF文档（*.pdf）|*.pdf", "PDF document (*.pdf)|*.pdf");
+            sfd.FileName = Current_User.User_Name + "-"+ LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment Report") +"-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
 
             //设置默认文件类型显示顺序
             sfd.FilterIndex = 1;
