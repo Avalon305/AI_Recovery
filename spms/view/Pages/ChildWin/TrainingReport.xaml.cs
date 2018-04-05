@@ -175,13 +175,13 @@ namespace spms.view.Pages.ChildWin
                 }
 
                 int userRow = 4;
-                ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, "训练报告", Current_User);
+                ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("训练报告", "Training report"), Current_User);
 
                 /*
                     2.设置实施状况的表格
                  */
                 worksheet.Cells[userRow + 7, 1, userRow + 7, 2].Merge = true;
-                worksheet.Cells[userRow + 7, 1].Value = "实施状况";
+                worksheet.Cells[userRow + 7, 1].Value = LanguageUtils.ConvertLanguage("实施状况", "Status");
                 using (ExcelRange range = worksheet.Cells[userRow + 7, 1, userRow + 7, 2])
                 {
                     range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
@@ -204,15 +204,15 @@ namespace spms.view.Pages.ChildWin
                 worksheet.Cells[tableRow, 7, tableRow + 1, 7].Merge = true;
                 worksheet.Cells[tableRow, 8, tableRow + 1, 8].Merge = true;
                 worksheet.Cells[tableRow, 9, tableRow + 1, 11].Merge = true;
-                worksheet.Cells[tableRow, 1].Value = "实施日期";
-                worksheet.Cells[tableRow, 3].Value = "血压";
-                worksheet.Cells[tableRow, 5].Value = "水分摄取量";
-                worksheet.Cells[tableRow, 6].Value = "平均指数";
-                worksheet.Cells[tableRow, 7].Value = "总运动时间";
-                worksheet.Cells[tableRow, 8].Value = "总消耗热量";
-                worksheet.Cells[tableRow, 9].Value = "看护记录";
-                worksheet.Cells[tableRow + 1, 3].Value = "运动前";
-                worksheet.Cells[tableRow + 1, 4].Value = "运动后";
+                worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("实施日期", "Date"); 
+                worksheet.Cells[tableRow, 3].Value = LanguageUtils.ConvertLanguage("血压", "Blood pressure");
+                worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("水分摄取量", "Moisture intake");
+                worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("平均指数", "Average index");
+                worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("总运动时间", "Total exercise time");
+                worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("总消耗热量", "Total calories consumed");
+                worksheet.Cells[tableRow, 9].Value = LanguageUtils.ConvertLanguage("看护记录", "Care record");
+                worksheet.Cells[tableRow + 1, 3].Value = LanguageUtils.ConvertLanguage("运动前", "Before exercise");
+                worksheet.Cells[tableRow + 1, 4].Value = LanguageUtils.ConvertLanguage("运动后", "After exercise");
 
                 using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + 1, 11])
                 {
@@ -279,7 +279,7 @@ namespace spms.view.Pages.ChildWin
                 //图表的相关设置
                 chart.SetPosition(29, 0, 0, 0);
                 chart.SetSize(726, 300);
-                chart.Title.Text = "实施报告";
+                chart.Title.Text = LanguageUtils.ConvertLanguage("实施报告", "Implementation report");
                 chart.Title.Font.Color = System.Drawing.Color.FromArgb(89, 89, 89);
                 chart.Title.Font.Size = 15;
                 chart.Title.Font.Bold = true;
@@ -289,7 +289,8 @@ namespace spms.view.Pages.ChildWin
 
                 //备注
                 int remarkRow = 46;
-                ExcelUtil.GenerateRemark(ref worksheet, remarkRow, "备注信息");
+                //TODO
+                ExcelUtil.GenerateRemark(ref worksheet, remarkRow, ExcelUtil.GetObjContent(Current_User.User_PhysicalDisabilities));
 
                 //保存
                 package.Save();
@@ -314,7 +315,7 @@ namespace spms.view.Pages.ChildWin
             FileInfo newFile = ExcelUtil.GetExcelFile();
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("详细训练报告");
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("详细训练报告", "Detailed report"));
 
                 int tableRow = 11;
                 int length = list.Count;
@@ -328,18 +329,18 @@ namespace spms.view.Pages.ChildWin
                     worksheet.Row(i).Height = 25;
                 }
                 int userRow = 4;
-                ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, "详细训练报告", Current_User);
+                ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("详细训练报告", "Detailed report"), Current_User);
 
                 worksheet.Cells[tableRow, 1, tableRow, 3].Merge = true;//合并单元格
                 worksheet.Cells[tableRow, 10, tableRow, 11].Merge = true;//合并单元格
-                worksheet.Cells[tableRow, 1].Value = "器械名称";
-                worksheet.Cells[tableRow, 4].Value = "实施日期";
-                worksheet.Cells[tableRow, 5].Value = "移乘方法";
-                worksheet.Cells[tableRow, 6].Value = "砝码";
-                worksheet.Cells[tableRow, 7].Value = "组数";
-                worksheet.Cells[tableRow, 8].Value = "个数";
+                worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("器械名称", "Device name");
+                worksheet.Cells[tableRow, 4].Value = LanguageUtils.ConvertLanguage("实施日期", "Date");
+                worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("移乘方法", "Transfer method"); 
+                worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("砝码", "Weights");
+                worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("组数", "Groups");
+                worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("个数", "Number");
                 worksheet.Cells[tableRow, 9].Value = "Borg";
-                worksheet.Cells[tableRow, 10].Value = "动作时机、姿势等";
+                worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("动作时机、姿势等", "Movement timing,posture..");
 
                 using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow, 11])
                 {
@@ -415,7 +416,7 @@ namespace spms.view.Pages.ChildWin
             //}
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("看护记录报告");
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("看护记录报告", "Care record report"));
 
                 int tableRow = 12;
                 int length = list.Count;
@@ -426,14 +427,14 @@ namespace spms.view.Pages.ChildWin
                 }
 
                 int userRow = 4;
-                ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, "看护记录报告", Current_User);
+                ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("看护记录报告", "Care record report"), Current_User);
 
 
                 /*
                    2.设置实施状况的表格
                 */
                 worksheet.Cells[userRow + 7, 1, userRow + 7, 2].Merge = true;
-                worksheet.Cells[userRow + 7, 1].Value = "实施状况";
+                worksheet.Cells[userRow + 7, 1].Value = LanguageUtils.ConvertLanguage("实施状况", "Status");
                 using (ExcelRange range = worksheet.Cells[userRow + 7, 1, userRow + 7, 2])
                 {
                     range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
@@ -455,14 +456,14 @@ namespace spms.view.Pages.ChildWin
                 worksheet.Cells[tableRow, 7, tableRow + 1, 7].Merge = true;//平均指数
                 worksheet.Cells[tableRow, 8, tableRow + 1, 9].Merge = true;//总运动时间
                 worksheet.Cells[tableRow, 10, tableRow + 1, 11].Merge = true;//总消耗热量
-                worksheet.Cells[tableRow, 1].Value = "实施日期";
-                worksheet.Cells[tableRow, 3].Value = "血压";
-                worksheet.Cells[tableRow, 5].Value = "水分摄取量";
-                worksheet.Cells[tableRow, 7].Value = "平均指数";
-                worksheet.Cells[tableRow, 8].Value = "总运动时间";
-                worksheet.Cells[tableRow, 10].Value = "总消耗热量";
-                worksheet.Cells[tableRow + 1, 3].Value = "运动前";
-                worksheet.Cells[tableRow + 1, 4].Value = "运动后";
+                worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("实施日期", "Date");
+                worksheet.Cells[tableRow, 3].Value = LanguageUtils.ConvertLanguage("血压", "Blood pressure");
+                worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("水分摄取量", "Moisture intake");
+                worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("平均指数", "Average index");
+                worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("总运动时间", "Total exercise time");
+                worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("总消耗热量", "Total calories consumed");
+                worksheet.Cells[tableRow + 1, 3].Value = LanguageUtils.ConvertLanguage("运动前", "Before exercise");
+                worksheet.Cells[tableRow + 1, 4].Value = LanguageUtils.ConvertLanguage("运动后", "After exercise");
 
                 using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + 1, 11])
                 {
@@ -563,18 +564,18 @@ namespace spms.view.Pages.ChildWin
                         {
                             if (is_comprehensiv.IsChecked == true)
                             {
-                                if (text_output_document.Text.IndexOf("综合报告") == -1)
+                                if (text_output_document.Text.IndexOf(LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report")) == -1)
                                 {
-                                    text_output_document.Text = text_output_document.Text.Replace("详细报告", "综合报告");
-                                    text_output_document.Text = text_output_document.Text.Replace("看护记录报告", "综合报告");
+                                    text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("详细报告", "Detailed report"), LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report"));
+                                    text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("看护记录报告", " Care record report"), LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report"));
                                 }
                             }
                             if (is_nurse.IsChecked == true)
                             {
-                                if (text_output_document.Text.IndexOf("看护记录报告") == -1)
+                                if (text_output_document.Text.IndexOf(LanguageUtils.ConvertLanguage("看护记录报告", " Care record report")) == -1)
                                 {
-                                    text_output_document.Text = text_output_document.Text.Replace("详细报告", "看护记录报告");
-                                    text_output_document.Text = text_output_document.Text.Replace("综合报告", "看护记录报告");
+                                    text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("详细报告", "Detailed report"), LanguageUtils.ConvertLanguage("看护记录报告", " Care record report"));
+                                    text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report"), LanguageUtils.ConvertLanguage("看护记录报告", " Care record report"));
                                 }
                             }
 
@@ -599,10 +600,10 @@ namespace spms.view.Pages.ChildWin
                     {
                         if (text_output_document.Text != "")
                         {
-                            if (text_output_document.Text.IndexOf("详细报告") == -1)
+                            if (text_output_document.Text.IndexOf(LanguageUtils.ConvertLanguage("详细报告", "Detailed report")) == -1)
                             {
-                                text_output_document.Text = text_output_document.Text.Replace("综合报告", "详细报告");
-                                text_output_document.Text = text_output_document.Text.Replace("看护记录报告", "详细报告");
+                                text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report"), LanguageUtils.ConvertLanguage("详细报告", "Detailed report"));
+                                text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("看护记录报告", " Care record report"), LanguageUtils.ConvertLanguage("详细报告", "Detailed report"));
                             }
                         }
                     }
@@ -618,18 +619,18 @@ namespace spms.view.Pages.ChildWin
         private void Button_Click_OutputDocument(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog();
-            sfd.Filter = "PDF文档（*.pdf）|*.pdf";
+            sfd.Filter = LanguageUtils.ConvertLanguage("PDF文档（*.pdf）|*.pdf", "PDF document (*.pdf)|*.pdf");
             if (is_comprehensiv.IsChecked == true)
             {
-                sfd.FileName = Current_User.User_Name + "-综合报告-"+DateTime.Now.ToString("yyyyMMddHHmm")+".pdf";
+                sfd.FileName = Current_User.User_Name + "-"+ LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report") + "-"+DateTime.Now.ToString("yyyyMMddHHmm")+".pdf";
             }
              if (is_detail.IsChecked == true)
             {
-                sfd.FileName = Current_User.User_Name + "-详细报告-"+DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
+                sfd.FileName = Current_User.User_Name + "-"+ LanguageUtils.ConvertLanguage("详细报告", "Detailed report") + "-"+DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
             }
              if (is_nurse.IsChecked == true)
             {
-                sfd.FileName = Current_User.User_Name + "-看护记录报告-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
+                sfd.FileName = Current_User.User_Name + "-"+ LanguageUtils.ConvertLanguage("看护记录报告", " Care record report") + "-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
             }
             
             //设置默认文件类型显示顺序
