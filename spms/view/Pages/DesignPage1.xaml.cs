@@ -425,7 +425,11 @@ namespace spms.view.Pages
             {
                 if (all[0].Set_Language == 0)
                 {
-                    title_pic.Source = new BitmapImage(new Uri("/view/Images/q.jpg", UriKind.RelativeOrAbsolute));
+                    title_pic.Source = new BitmapImage(new Uri("/view/Images/p.jpg", UriKind.RelativeOrAbsolute));
+                }
+                else
+                {
+                    title_pic.Source = new BitmapImage(new Uri("/view/Images/p.jpg", UriKind.RelativeOrAbsolute));
                 }
             }
         }

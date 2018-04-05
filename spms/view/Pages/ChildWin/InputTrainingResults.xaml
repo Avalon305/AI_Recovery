@@ -910,7 +910,7 @@
 
                         </StackPanel>
                     </TabItem>
-                        <TabItem Name="tab5"  Header="{DynamicResource Dev.HorizontalLegPress}" Width="115" Height="21" Margin="0.2,0,0,0" VerticalAlignment="Top">
+                        <TabItem Name="tab5"  Header="{DynamicResource Dev.HorizontalLegPress}" Width="145" Height="21" Margin="0.2,0,0,0" VerticalAlignment="Top">
                         <StackPanel Name="sp5"  Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
                                 <Grid.Background>

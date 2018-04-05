@@ -166,7 +166,7 @@
                         </Image.RenderTransform>
                     </Image>
                 </Border>
-                <Label Content="{DynamicResource FormView.Title}" FontWeight="DemiBold" Foreground="DimGray" FontFamily="{StaticResource ResourceKey=微软雅黑}" FontSize="50"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="84" Margin="200.2,44,200.2,442.4" />
+                <Label Content="{DynamicResource FormView.Title}" FontWeight="DemiBold" Foreground="DimGray" FontFamily="{StaticResource ResourceKey=微软雅黑}" FontSize="50"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="84" Margin="100.2,44,100.2,442.4" />
                 <Label Content="Version 1.0.0" Margin="709,218,301.2,419.4" Foreground="Gray"  FontFamily="{StaticResource ResourceKey=MAGNETOB}" FontSize="20"/>
                 <!--<Label Content="错误提示" FontWeight="DemiBold" FontSize="15" FontFamily="{StaticResource 微软雅黑}" Foreground="Red" Margin="509,273,381.2,340.4" Name="Error_Info"></Label>-->
                 <Label Content="{DynamicResource FormView.UserName}" HorizontalContentAlignment="Right" HorizontalAlignment="Right" FontSize="30" Foreground="DimGray" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" Margin="0,294,795,376" Width="176" />
