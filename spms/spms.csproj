@@ -635,6 +635,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\5_6.png" />
+    <Resource Include="view\Images\q.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\Images\5_5.png" />
     <Resource Include="view\fonts\iconfont.ttf" />
     <Resource Include="view\Images\12.PNG" />
     <Resource Include="view\Images\123.ico" />

@@ -984,5 +984,31 @@ namespace spms.view.Pages
         {
             Refresh_RecordFrame_Action();
         }
+
+        private void image_load(object sender, RoutedEventArgs e)
+        {
+            List<spms.entity.Setter> all = new SetterDAO().ListAll();
+            if (all != null && all.Count != 0)
+            {
+                if (all[0].Set_Language == 0)
+                {
+                    DesignerHead4.Source = new BitmapImage(new Uri("/view/Images/5_5.png", UriKind.RelativeOrAbsolute));
+                    DesignerHead4.Margin = new Thickness(97, 18, 0, 0);
+                    DesignerHead4.Height = 25;
+                    DesignerHead4.Width = 136;
+                    DesignerHead3.Height = 60;
+                    subhead.FontSize = 15;
+                }
+                else
+                {
+                    DesignerHead4.Source = new BitmapImage(new Uri("/view/Images/6.png", UriKind.RelativeOrAbsolute));
+                    DesignerHead4.Margin = new Thickness(10, 0, 0, 0);
+                    DesignerHead4.Height = 60;
+                    DesignerHead4.Width = 225;
+                    DesignerHead3.Height = 70;
+                    subhead.FontSize = 18;
+                }
+            }
+        }
     }
 }

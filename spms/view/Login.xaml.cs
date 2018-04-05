@@ -239,5 +239,29 @@ namespace spms.view
             }
 
         }
+
+        private void image_load(object sender, RoutedEventArgs e)
+        {
+            List<spms.entity.Setter> all = new SetterDAO().ListAll();
+            if (all != null && all.Count != 0)
+            {
+                if (all[0].Set_Language == 0)
+                {
+                    DesignerHead4.Source = new BitmapImage(new Uri("/view/Images/5_6.png", UriKind.RelativeOrAbsolute));
+                    DesignerHead4.Margin = new Thickness(99, 23, 0, 0);
+                    DesignerHead4.Height = 25;
+                    DesignerHead4.Width = 135;
+                    DesignerHead3.Height = 65;
+                }
+                else
+                {
+                    DesignerHead4.Source = new BitmapImage(new Uri("/view/Images/6.png", UriKind.RelativeOrAbsolute));
+                    DesignerHead4.Margin = new Thickness(10, 0, 0, 0);
+                    DesignerHead4.Height = 65;
+                    DesignerHead4.Width = 225;
+                    DesignerHead3.Height = 85;
+                }
+            }
+        }
     }
 }

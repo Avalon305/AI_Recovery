@@ -417,5 +417,17 @@ namespace spms.view.Pages
             }
 
         }
+
+        private void image_load(object sender, RoutedEventArgs e)
+        {
+            List<spms.entity.Setter> all = new SetterDAO().ListAll();
+            if (all != null && all.Count != 0)
+            {
+                if (all[0].Set_Language == 0)
+                {
+                    title_pic.Source = new BitmapImage(new Uri("/view/Images/q.jpg", UriKind.RelativeOrAbsolute));
+                }
+            }
+        }
     }
 }
