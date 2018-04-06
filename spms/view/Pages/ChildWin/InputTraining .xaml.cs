@@ -999,8 +999,16 @@ namespace spms.view.Pages.ChildWin
             trainInfo.Gmt_Modified = DateTime.Now;
             trainInfo.FK_User_Id = user.Pk_User_Id;
             trainInfo.Status = (int) status;
-            //存储到数据库
-            new TrainService().SaveTraininfo(trainInfo, devicePrescriptions);
+            if (!string.IsNullOrEmpty(symp.Text))
+            {
+                //如果选择了症状记录
+                new TrainService().SaveTraininfo(symp.SelectedValue, trainInfo, devicePrescriptions);
+            }
+            else
+            {
+                //存储到数据库
+                new TrainService().SaveTraininfo(null, trainInfo, devicePrescriptions);
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -1025,6 +1033,8 @@ namespace spms.view.Pages.ChildWin
 
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
+            var nullTiIdByUserId = new SymptomInfoDao().GetNullTiIdByUserId(user.Pk_User_Id);
+            symp.ItemsSource = nullTiIdByUserId;
             com_01.ItemsSource = Add(0, 70, 2);
             //com_02.ItemsSource = Add(0, 30, 2);
             com_03.ItemsSource = Add(1, 5, 2);

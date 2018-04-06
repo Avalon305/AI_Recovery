@@ -63,6 +63,8 @@ namespace spms.view.Pages.ChildWin
             CPAttr1.ItemsSource = Add(0, 180, 2);
             //com_52.ItemsSource = Add(0, 30, 1);
             CPAttr3.ItemsSource = Add(1, 8, 2);
+            var nullTiIdByUserId = new SymptomInfoDao().GetNullTiIdByUserId(user.Pk_User_Id);
+            symp.ItemsSource = nullTiIdByUserId;
         }
 
         private void Certain_Dev()
@@ -1326,8 +1328,17 @@ namespace spms.view.Pages.ChildWin
                 MessageBox.Show(LanguageUtils.ConvertLanguage("没有输入训练结果", "No input of training results"));
                 return;
             }
-            //插入训练结果
-            new TrainService().AddPrescriptionResult(trainInfo, prescription);
+            if (!string.IsNullOrEmpty(symp.Text))
+            {
+                //插入训练结果
+                new TrainService().AddPrescriptionResult(symp.SelectedValue, trainInfo, prescription);
+            }
+            else
+            {
+                //插入训练结果
+                new TrainService().AddPrescriptionResult(null, trainInfo, prescription);
+            }
+            
             //打印
             MessageBox.Show(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
             this.Close();
