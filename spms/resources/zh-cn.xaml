@@ -161,6 +161,7 @@
     <s:String x:Key="SubjectInfoView.Disease">疾病名称</s:String>
     <s:String x:Key="SubjectInfoView.Diagnosis">残障名称</s:String>
     <s:String x:Key="SubjectInfoView.VitalInformation">输入症状信息</s:String>
+    <s:String x:Key="SubjectInfoView.UpdateInformation">修改症状信息</s:String>
     <s:String x:Key="SubjectInfoView.SetTraining">输入训练</s:String>
     <s:String x:Key="SubjectInfoView.PhysicalEvaluation">输入体力评价</s:String>
     <s:String x:Key="SubjectInfoView.Report">制作报告</s:String>

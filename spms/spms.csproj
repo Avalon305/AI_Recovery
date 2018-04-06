@@ -209,6 +209,9 @@
       <DependentUpon>PhotoCutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\converter\TextConverter.cs" />
+    <Compile Include="view\Pages\ChildWin\UpdateSymptominfo.xaml.cs">
+      <DependentUpon>UpdateSymptominfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\MessageBoxX.xaml.cs">
       <DependentUpon>MessageBoxX.xaml</DependentUpon>
     </Compile>
@@ -412,6 +415,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="view\Pages\ChildWin\PhotoCutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Pages\ChildWin\UpdateSymptominfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -157,6 +157,7 @@
     <s:String x:Key="SubjectInfoView.Disease">Disease</s:String>
     <s:String x:Key="SubjectInfoView.Diagnosis">Diagnosis</s:String>
     <s:String x:Key="SubjectInfoView.VitalInformation">Vital Information</s:String>
+    <s:String x:Key="SubjectInfoView.UpdateInformation">Update Information</s:String>
     <s:String x:Key="SubjectInfoView.SetTraining">Set Training</s:String>
     <s:String x:Key="SubjectInfoView.PhysicalEvaluation">Physical Evaluation</s:String>
     <s:String x:Key="SubjectInfoView.Report">Report</s:String>
@@ -203,6 +204,7 @@
     <!-- 输入症状信息界面 -->
     <s:String x:Key="VitalInfoView.VitalInformation">Vital Information</s:String>
     <s:String x:Key="VitalInfoView.ViewInformation">View Information</s:String>
+    <s:String x:Key="VitalInfoView.UpdateInformation">Update Information</s:String>
     <s:String x:Key="VitalInfoView.Confirm">Confirm</s:String>
     <s:String x:Key="VitalInfoView.Cancel">Cancel</s:String>
     <s:String x:Key="VitalInfoView.Close">Close</s:String>

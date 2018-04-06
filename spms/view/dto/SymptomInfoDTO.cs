@@ -14,6 +14,8 @@ namespace spms.view.dto
     class SymptomInfoDTO
     {
         
+        public int ID { get; set; }
+        public int TI_ID { get; set; }
         //数据创建时间
         public DateTime Create { get; set; }
         //血压（康复前）
@@ -43,6 +45,8 @@ namespace spms.view.dto
        
         public SymptomInfoDTO(SymptomInfo symptomInfo)
         {
+            this.TI_ID = symptomInfo.Fk_TI_Id;
+            this.ID = symptomInfo.Pk_SI_Id;
             this.Create = symptomInfo.Gmt_Create.Value;
             this.CareInfo = symptomInfo.SI_CareInfo;
             this.Inquiry = symptomInfo.SI_Inquiry;
