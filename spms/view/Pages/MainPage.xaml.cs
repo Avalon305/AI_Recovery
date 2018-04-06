@@ -472,7 +472,7 @@ namespace spms.view.Pages
             }
         }
 
-        //按钮：制作报告
+        //按钮：制作报告，报表
         private void MakeReport(object sender, RoutedEventArgs e)
         {
             //打开训练报告
@@ -498,6 +498,7 @@ namespace spms.view.Pages
 
                     List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(selectUser.Pk_User_Id);
                     trainingReport.datalist.DataContext = list;
+                    trainingReport.trainingAndSymptomBeans = list;//赋值全局变量
                     Console.WriteLine(list.ToString());
                     trainingReport.ShowDialog();
                 }
@@ -545,6 +546,7 @@ namespace spms.view.Pages
 
                     List<PhysicalPowerExcekVO> list = excelService.ListPhysicalPowerExcekVOByUserId(selectUser.Pk_User_Id);
                     physicalAssessmentReport.datalist.DataContext = list;
+                    physicalAssessmentReport.physicalPowerExcekVOs = list;
                     physicalAssessmentReport.ShowDialog();
                 }
                 //List<TrainInfo> list = new List<TrainInfo>();
