@@ -45,6 +45,19 @@ namespace spms.dao
         {
             return GetTrainInfoByUserIdAndStatus(userId, (int) TrainInfoStatus.Finish);
         }
+        /// <summary>
+        /// 查找没有关联症状信息的有效训练信息
+        /// </summary>
+        /// <returns></returns>
+        public List<TrainInfo> GetTrainInfoNoSymp(int userId)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query =
+                    "SELECT * FROM bdl_traininfo LEFT JOIN bdl_symptominfo ON bdl_traininfo.pk_ti_id = bdl_symptominfo.fk_ti_id WHERE bdl_symptominfo.pk_si_id IS NULL AND bdl_traininfo.fk_user_id = @FK_User_Id AND status in (0, 2)";
+                return conn.Query<TrainInfo>(query, new { FK_User_Id = userId }).ToList();
+            }
+        }
     }
 
     public class DevicePrescriptionDAO : BaseDAO<DevicePrescription>

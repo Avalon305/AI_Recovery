@@ -19,6 +19,7 @@ namespace spms.service
         static UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
         static DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
         static TrainInfoDAO trainInfoDao = new TrainInfoDAO();
+        static SymptomInfoDao symptomInfoDao = new SymptomInfoDao();
         static DevicePrescriptionDAO devicePrescriptionDAO = new DevicePrescriptionDAO();
         static PrescriptionResultDAO prescriptionResultDAO = new PrescriptionResultDAO();
         /// <summary>
@@ -26,7 +27,7 @@ namespace spms.service
         /// </summary>
         /// <param name="trainInfo"></param>
         /// <param name="devicePrescriptions"></param>
-        public void SaveTraininfo(TrainInfo trainInfo, List<DevicePrescription> devicePrescriptions)
+        public void SaveTraininfo(object siId,TrainInfo trainInfo, List<DevicePrescription> devicePrescriptions)
         {
             using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
             {
@@ -43,6 +44,7 @@ namespace spms.service
                         case (int)TrainInfoStatus.Normal:
                             //如果是写卡后的插入，废弃原来的记录
                             trainInfoDao.UpdateStatusByUserId(trainInfo.FK_User_Id);
+                            
                             break;
                     }
                 }
@@ -50,6 +52,13 @@ namespace spms.service
                 //插入症状信息、插入上传表
                 int tiId = (int)trainInfoDao.Insert(trainInfo);
                 uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo"));
+                if (trainInfo.Status == (int)TrainInfoStatus.Normal && siId != null)
+                {
+                    //如果是写卡，并且选了症状记录，改变症状表外键关联
+                    var symptomInfo = symptomInfoDao.Load((int)siId);
+                    symptomInfo.Fk_TI_Id = tiId;
+                    symptomInfoDao.UpdateByPrimaryKey(symptomInfo);
+                }
 
                 int dpId;
                 //插入设备处方
@@ -133,7 +142,7 @@ namespace spms.service
         /// <summary>
         /// 添加训练结果，返回主键
         /// </summary>
-        public void AddPrescriptionResult(TrainInfo trainInfo,
+        public void AddPrescriptionResult(object siId, TrainInfo trainInfo,
             Dictionary<DevicePrescription, PrescriptionResult> prescriptionDic)
         {
             UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
@@ -145,7 +154,13 @@ namespace spms.service
                 //插入训练信息和上传表
                 int tiId = (int) new TrainInfoDAO().Insert(trainInfo);
                 uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo"));
-
+                if (siId != null)
+                {
+                    //改变症状表外键关联
+                    var symptomInfo = symptomInfoDao.Load((int)siId);
+                    symptomInfo.Fk_TI_Id = tiId;
+                    symptomInfoDao.UpdateByPrimaryKey(symptomInfo);
+                }
                 if (prescriptionDic != null)
                 {
                     int dpId;

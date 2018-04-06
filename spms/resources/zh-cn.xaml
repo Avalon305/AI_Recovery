@@ -213,6 +213,7 @@
     <s:String x:Key="VitalInfoView.SubjectID">用户编号:</s:String>
     <s:String x:Key="VitalInfoView.LastName">用户姓名:</s:String>
     <s:String x:Key="VitalInfoView.Date">日期</s:String>
+    <s:String x:Key="VitalInfoView.TrainInfo">训练记录</s:String>
     <s:String x:Key="VitalInfoView.BeforeRehab">康复前</s:String>
     <s:String x:Key="VitalInfoView.AfterRehab">康复后</s:String>
     <s:String x:Key="VitalInfoView.BP">血压（mmHg)</s:String>
@@ -243,6 +244,7 @@
 
     <!-- 输入训练界面 -->
     <s:String x:Key="TrainingListView.TrainingList">输入训练</s:String>
+    <s:String x:Key="TrainingListView.SympInfo">症状记录</s:String>
     <s:String x:Key="TrainingListView.SubjectID">用户编号:</s:String>
     <s:String x:Key="TrainingListView.LastName">用户姓名:</s:String>
     <s:String x:Key="TrainingListView.#ofSets">组数</s:String>

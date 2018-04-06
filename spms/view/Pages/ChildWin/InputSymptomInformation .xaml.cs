@@ -83,37 +83,22 @@ namespace spms.view.Pages.ChildWin
             //康复后血压
             string sufLowPressure = bloodlow_2.Text;
             string sufHighPressure = bloodhight_2.Text;
-            if (sufLowPressure.Trim() == "" || sufHighPressure.Trim() == "" || preLowPressure.Trim() == "" || preHighPressure.Trim() == "" || !(Double.Parse(sufLowPressure) > 0 && Double.Parse(sufLowPressure) < 300) || !(Double.Parse(sufHighPressure) > 0 && Double.Parse(sufHighPressure) < 300) || !(Double.Parse(preHighPressure) > 0 && Double.Parse(preHighPressure) < 300) || !(Double.Parse(preLowPressure) > 0 && Double.Parse(preLowPressure) < 300))
+            if (preLowPressure.Trim() == "" || preHighPressure.Trim() == "" || !(Double.Parse(preHighPressure) > 0 && Double.Parse(preHighPressure) < 300) || !(Double.Parse(preLowPressure) > 0 && Double.Parse(preLowPressure) < 300))
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的血压", "Please enter the right blood pressure"));
                 return;
             }
             //康复后心率
             string sufHeartRate = heartRate_2.Text;
-            if (sufHeartRate.Trim() == "" || preHeartRate.Trim() == "" || !(Int32.Parse(sufHeartRate) > 0 && Int32.Parse(sufHeartRate) < 200) || !(Int32.Parse(preHeartRate) > 0 && Int32.Parse(preHeartRate) < 200))
+            if (preHeartRate.Trim() == "" || !(Int32.Parse(preHeartRate) > 0 && Int32.Parse(preHeartRate) < 200))
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的心率", "Please enter the right heartrate"));
                 return;
             }
-            //康复后脉
-            int sufPulse = 0;
-            if (rule_2.IsChecked == true)
-            {//规律脉
-                sufPulse = 0;
-            }
-            else if (irregular_2.IsChecked == true)
-            {//脉律不齐
-                sufPulse = 1;
-            }
-            else
-            {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择康复后脉症状", "Please choose the symptoms of the post recovery pulse"));
-                return;
-            }
-
+            
             //康复后体温
             string sufAnimalheat = heat_2.Text;
-            if (sufAnimalheat.Trim() == "" || preAnimalheat.Trim() == "" || !(Double.Parse(sufAnimalheat) < 50 && Double.Parse(sufAnimalheat) > 30) || !(Double.Parse(preAnimalheat) < 50 && Double.Parse(preAnimalheat) > 30))
+            if ( preAnimalheat.Trim() == "" || !(Double.Parse(preAnimalheat) < 50 && Double.Parse(preAnimalheat) > 30))
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的体温", "Please enter the right temperature"));
                 return;
@@ -178,7 +163,11 @@ namespace spms.view.Pages.ChildWin
             symptomInfo.SI_Inquiry = inquiryStr;
             symptomInfo.SI_IsJoin = isJoin;
             symptomInfo.SI_WaterInput = waterInput;
-            //TODO 通过时间查找到训练id
+            if (!string.IsNullOrEmpty(train.Text))
+            {
+                //如果选择了训练记录
+                symptomInfo.Fk_TI_Id = (int) train.SelectedValue;
+            }
             //symptomInfo.Fk_TI_Id = tiId;
             //康复前
             symptomInfo.SI_Pre_AnimalHeat = preAnimalheat;
@@ -212,7 +201,9 @@ namespace spms.view.Pages.ChildWin
             //trainDto = (TrainDTO) dictionary["trainDto"];
             l1.Content = user.User_Name;
             user_id.Content = user.Pk_User_Id;
-            //TODO 通过用户查找到还没有关联的训练信息填充到下拉框
+            
+            List<TrainInfo> trainInfoNoSymp = new TrainInfoDAO().GetTrainInfoNoSymp(user.Pk_User_Id);
+            train.ItemsSource = trainInfoNoSymp;
         }
 
         //错误：OnlyInputNumbers
@@ -232,5 +223,7 @@ namespace spms.view.Pages.ChildWin
             }
 
         }
+        
+
     }
 }
