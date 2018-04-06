@@ -105,165 +105,329 @@ namespace spms.view.Pages.ChildWin
             }
 
             FileInfo newFile = ExcelUtil.GetExcelFile();
+            int count = 3;//包含的数据条数
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment"));
-
-                int tableRow = 11;
-                int length = list.Count;
-                //设置所有的行高
-                for (int i = 1; i <= tableRow + 14; i++)
+                int pageSize = list.Count % count == 0 ? list.Count / count : (list.Count / count) + 1;
+                for (int j = 0; j < pageSize; j++)
                 {
-                    worksheet.Row(i).Height = 20;
-                }
 
-                int userRow = 4;
-                ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment"), Current_User);
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("体力评价报告"+j, "Physical Assessment"+j));
 
-                worksheet.Cells[tableRow, 1, tableRow, 3].Merge = true;
-                worksheet.Cells[tableRow + 1, 1, tableRow + 1, 3].Merge = true;
-                worksheet.Cells[tableRow + 2, 1, tableRow + 2, 3].Merge = true;
-                worksheet.Cells[tableRow + 3, 1, tableRow + 3, 3].Merge = true;
-                worksheet.Cells[tableRow + 4, 1, tableRow + 4, 3].Merge = true;
-                worksheet.Cells[tableRow + 5, 1, tableRow + 5, 3].Merge = true;
-                worksheet.Cells[tableRow + 6, 1, tableRow + 6, 3].Merge = true;
-
-                worksheet.Cells[tableRow + 1, 1].Value = LanguageUtils.ConvertLanguage("身高（cm）", "Height (cm)");
-                worksheet.Cells[tableRow + 2, 1].Value = LanguageUtils.ConvertLanguage("体重（kg）", "Weight (kg)"); 
-                worksheet.Cells[tableRow + 3, 1].Value = LanguageUtils.ConvertLanguage("握力（kg）", "Grip (kg)"); 
-                worksheet.Cells[tableRow + 4, 1].Value = LanguageUtils.ConvertLanguage("睁眼单脚站立（秒）", "Wink stand on one foot (seconds)"); 
-                worksheet.Cells[tableRow + 5, 1].Value = LanguageUtils.ConvertLanguage("功能性前伸（cm）", "Functional reach (cm)");
-                worksheet.Cells[tableRow + 6, 1].Value = LanguageUtils.ConvertLanguage("坐姿体前驱（cm）", "Sitting body precursor (cm)"); 
-
-
-                for (int i = 0; i < 24; i++)
-                {
-                    worksheet.Cells[tableRow + i, 1, tableRow + i, 3].Merge = true;
-                    worksheet.Cells[tableRow + i, 4, tableRow + i, 5].Merge = true;
-                    worksheet.Cells[tableRow + i, 6, tableRow + i, 7].Merge = true;
-                    worksheet.Cells[tableRow + i, 8, tableRow + i, 9].Merge = true;
-                    worksheet.Cells[tableRow + i, 10, tableRow + i, 11].Merge = true;
-                }
-
-                int col = 4;
-                //体力报告只有三条记录
-                for (int i = 0; i < list.Count; i++)
-                {
-                    col = i * 2 + 4;
-                    //表头行+两个表头，必须是数值
-                    try
+                    int tableRow = 11;
+                    int length = list.Count;
+                    //设置所有的行高
+                    for (int i = 1; i <= tableRow + 14; i++)
                     {
-                        worksheet.Cells[tableRow, col].Value = string.Format("{0:d}", list[i].Gmt_Create);////ToShortDateString().ToString();
-                        worksheet.Cells[tableRow + 1, col].Value = SubstringParams(list[i].PP_High);
-                        worksheet.Cells[tableRow + 2, col].Value = SubstringParams(list[i].PP_Weight);
-                        worksheet.Cells[tableRow + 3, col].Value = SubstringParams(list[i].PP_Grip);
-                        worksheet.Cells[tableRow + 4, col].Value = SubstringParams(list[i].PP_EyeOpenStand);
-                        worksheet.Cells[tableRow + 5, col].Value = SubstringParams(list[i].PP_FunctionProtract);
-                        worksheet.Cells[tableRow + 6, col].Value = SubstringParams(list[i].PP_SitandReach);
+                        worksheet.Row(i).Height = 20;
+                    }
+
+                    int userRow = 4;
+                    ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment"), Current_User);
+
+                    worksheet.Cells[tableRow, 1, tableRow, 3].Merge = true;
+                    worksheet.Cells[tableRow + 1, 1, tableRow + 1, 3].Merge = true;
+                    worksheet.Cells[tableRow + 2, 1, tableRow + 2, 3].Merge = true;
+                    worksheet.Cells[tableRow + 3, 1, tableRow + 3, 3].Merge = true;
+                    worksheet.Cells[tableRow + 4, 1, tableRow + 4, 3].Merge = true;
+                    worksheet.Cells[tableRow + 5, 1, tableRow + 5, 3].Merge = true;
+                    worksheet.Cells[tableRow + 6, 1, tableRow + 6, 3].Merge = true;
+
+                    worksheet.Cells[tableRow + 1, 1].Value = LanguageUtils.ConvertLanguage("身高（cm）", "Height (cm)");
+                    worksheet.Cells[tableRow + 2, 1].Value = LanguageUtils.ConvertLanguage("体重（kg）", "Weight (kg)");
+                    worksheet.Cells[tableRow + 3, 1].Value = LanguageUtils.ConvertLanguage("握力（kg）", "Grip (kg)");
+                    worksheet.Cells[tableRow + 4, 1].Value = LanguageUtils.ConvertLanguage("睁眼单脚站立（秒）", "Wink stand on one foot (seconds)");
+                    worksheet.Cells[tableRow + 5, 1].Value = LanguageUtils.ConvertLanguage("功能性前伸（cm）", "Functional reach (cm)");
+                    worksheet.Cells[tableRow + 6, 1].Value = LanguageUtils.ConvertLanguage("坐姿体前驱（cm）", "Sitting body precursor (cm)");
+
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        worksheet.Cells[tableRow + i, 1, tableRow + i, 3].Merge = true;
+                        worksheet.Cells[tableRow + i, 4, tableRow + i, 5].Merge = true;
+                        worksheet.Cells[tableRow + i, 6, tableRow + i, 7].Merge = true;
+                        worksheet.Cells[tableRow + i, 8, tableRow + i, 9].Merge = true;
+                        worksheet.Cells[tableRow + i, 10, tableRow + i, 11].Merge = true;
+                    }
+
+                    int col = 4;
+                    //体力报告只有三条记录
+                    for (int i = 0,k=j* count; k < (j+1)* count && k < list.Count; i++,k++)
+                    {
+                        col = i * 2 + 4;
+                        //表头行+两个表头，必须是数值
+                        try
+                        {
+                            worksheet.Cells[tableRow, col].Value = string.Format("{0:d}", list[k].Gmt_Create);////ToShortDateString().ToString();
+                            worksheet.Cells[tableRow + 1, col].Value = SubstringParams(list[k].PP_High);
+                            worksheet.Cells[tableRow + 2, col].Value = SubstringParams(list[k].PP_Weight);
+                            worksheet.Cells[tableRow + 3, col].Value = SubstringParams(list[k].PP_Grip);
+                            worksheet.Cells[tableRow + 4, col].Value = SubstringParams(list[k].PP_EyeOpenStand);
+                            worksheet.Cells[tableRow + 5, col].Value = SubstringParams(list[k].PP_FunctionProtract);
+                            worksheet.Cells[tableRow + 6, col].Value = SubstringParams(list[k].PP_SitandReach);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("含有非法数据");
+                        }
 
                     }
-                    catch (Exception ex)
+
+                    worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("初次未变化", " No change for           the first time");
+
+                    worksheet.Cells[tableRow, 10, tableRow, 11].Merge = true;
+                    worksheet.Cells[tableRow + 1, 10, tableRow + 1, 11].Merge = true;
+                    worksheet.Cells[tableRow + 2, 10, tableRow + 2, 11].Merge = true;
+                    worksheet.Cells[tableRow + 3, 10, tableRow + 3, 11].Merge = true;
+                    worksheet.Cells[tableRow + 4, 10, tableRow + 4, 11].Merge = true;
+                    worksheet.Cells[tableRow + 5, 10, tableRow + 5, 11].Merge = true;
+                    worksheet.Cells[tableRow + 6, 10, tableRow + 6, 11].Merge = true;
+                    //初次未变化
+
+                    using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow, 11])
                     {
-                        Console.WriteLine("含有非法数据");
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        range.Style.Font.Bold = true;
+                        range.Style.Font.Color.SetColor(System.Drawing.Color.White);
+                        range.Style.Font.Name = "等线";
+                        range.Style.Font.Size = 11;
+                        //设置边框
+                        range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                        range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(0, 0, 139));
                     }
+
+                    worksheet.Cells[tableRow, 3].Style.Border.Right.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                    worksheet.Cells[tableRow, 4].Style.Border.Left.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                    worksheet.Cells[tableRow, 5].Style.Border.Right.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                    worksheet.Cells[tableRow, 6].Style.Border.Left.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                    worksheet.Cells[tableRow, 7].Style.Border.Right.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                    worksheet.Cells[tableRow, 8].Style.Border.Left.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                    worksheet.Cells[tableRow, 9].Style.Border.Right.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                    worksheet.Cells[tableRow, 10].Style.Border.Left.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+
+                    //空表表格
+                    using (ExcelRange range = worksheet.Cells[tableRow + 1, 1, tableRow + 6, 11])
+                    {
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        range.Style.Font.Bold = true;
+                        range.Style.Font.Name = "等线";
+                        range.Style.Font.Size = 11;
+                        //设置边框
+                        range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    }
+
+                    //插入图表
+                    ExcelChart chart = worksheet.Drawings.AddChart("chart3", eChartType.RadarFilled);
+                    //Y轴数据源，X轴数据源
+                    ExcelChartSerie serie1 = chart.Series.Add(worksheet.Cells[tableRow + 1, 4, tableRow + 6, 4], worksheet.Cells[tableRow + 1, 1, tableRow + 6, 1]);
+                    serie1.HeaderAddress = worksheet.Cells[tableRow, 4];
+                    serie1.Border.Fill.Color = System.Drawing.Color.Red;
+                    if (list.Count >= 2)
+                    {
+                        ExcelChartSerie serie2 = chart.Series.Add(worksheet.Cells[tableRow + 1, 6, tableRow + 6, 6], worksheet.Cells[tableRow + 1, 1, tableRow + 6, 1]);
+                        serie2.HeaderAddress = worksheet.Cells[tableRow, 6];
+                        serie2.Border.Fill.Color = System.Drawing.Color.Green;
+                        if (list.Count == 3)
+                        {
+                            ExcelChartSerie serie3 = chart.Series.Add(worksheet.Cells[tableRow + 1, 8, tableRow + 6, 8], worksheet.Cells[tableRow + 1, 1, tableRow + 6, 1]);
+                            serie3.HeaderAddress = worksheet.Cells[tableRow, 8];
+                            serie3.Border.Fill.Color = System.Drawing.Color.Blue;
+                        }
+                    }
+
+                    chart.SetPosition(25, 0, 0, 0);
+                    chart.SetSize(726, 300);
+                    chart.Title.Text = LanguageUtils.ConvertLanguage("体力检测", "Physical testing");
+                    chart.Title.Font.Color = System.Drawing.Color.FromArgb(89, 89, 89);
+                    chart.Title.Font.Size = 15;
+                    chart.Title.Font.Bold = true;
+                    chart.Style = eChartStyle.Style15;
+                    //chart.Legend.Border.LineStyle = eLineStyle.Solid;
+                    //chart.Legend.Border.Fill.Color = Color.FromArgb(217, 217, 217);
+
+
+                    using (ExcelRange range = worksheet.Cells[tableRow + 1, 1, 24, 11])
+                    {
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        //设置边框
+                        range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    }
+
+                    int remarkRow = 42;
+                    ExcelUtil.GenerateRemark(ref worksheet, remarkRow, Current_User.User_PhysicalDisabilities);
+                }
+
+                //ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment"));
+
+                //int tableRow = 11;
+                //int length = list.Count;
+                ////设置所有的行高
+                //for (int i = 1; i <= tableRow + 14; i++)
+                //{
+                //    worksheet.Row(i).Height = 20;
+                //}
+
+                //int userRow = 4;
+                //ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment"), Current_User);
+
+                //worksheet.Cells[tableRow, 1, tableRow, 3].Merge = true;
+                //worksheet.Cells[tableRow + 1, 1, tableRow + 1, 3].Merge = true;
+                //worksheet.Cells[tableRow + 2, 1, tableRow + 2, 3].Merge = true;
+                //worksheet.Cells[tableRow + 3, 1, tableRow + 3, 3].Merge = true;
+                //worksheet.Cells[tableRow + 4, 1, tableRow + 4, 3].Merge = true;
+                //worksheet.Cells[tableRow + 5, 1, tableRow + 5, 3].Merge = true;
+                //worksheet.Cells[tableRow + 6, 1, tableRow + 6, 3].Merge = true;
+
+                //worksheet.Cells[tableRow + 1, 1].Value = LanguageUtils.ConvertLanguage("身高（cm）", "Height (cm)");
+                //worksheet.Cells[tableRow + 2, 1].Value = LanguageUtils.ConvertLanguage("体重（kg）", "Weight (kg)"); 
+                //worksheet.Cells[tableRow + 3, 1].Value = LanguageUtils.ConvertLanguage("握力（kg）", "Grip (kg)"); 
+                //worksheet.Cells[tableRow + 4, 1].Value = LanguageUtils.ConvertLanguage("睁眼单脚站立（秒）", "Wink stand on one foot (seconds)"); 
+                //worksheet.Cells[tableRow + 5, 1].Value = LanguageUtils.ConvertLanguage("功能性前伸（cm）", "Functional reach (cm)");
+                //worksheet.Cells[tableRow + 6, 1].Value = LanguageUtils.ConvertLanguage("坐姿体前驱（cm）", "Sitting body precursor (cm)"); 
+
+
+                //for (int i = 0; i < 24; i++)
+                //{
+                //    worksheet.Cells[tableRow + i, 1, tableRow + i, 3].Merge = true;
+                //    worksheet.Cells[tableRow + i, 4, tableRow + i, 5].Merge = true;
+                //    worksheet.Cells[tableRow + i, 6, tableRow + i, 7].Merge = true;
+                //    worksheet.Cells[tableRow + i, 8, tableRow + i, 9].Merge = true;
+                //    worksheet.Cells[tableRow + i, 10, tableRow + i, 11].Merge = true;
+                //}
+
+                //int col = 4;
+                ////体力报告只有三条记录
+                //for (int i = 0; i < list.Count; i++)
+                //{
+                //    col = i * 2 + 4;
+                //    //表头行+两个表头，必须是数值
+                //    try
+                //    {
+                //        worksheet.Cells[tableRow, col].Value = string.Format("{0:d}", list[i].Gmt_Create);////ToShortDateString().ToString();
+                //        worksheet.Cells[tableRow + 1, col].Value = SubstringParams(list[i].PP_High);
+                //        worksheet.Cells[tableRow + 2, col].Value = SubstringParams(list[i].PP_Weight);
+                //        worksheet.Cells[tableRow + 3, col].Value = SubstringParams(list[i].PP_Grip);
+                //        worksheet.Cells[tableRow + 4, col].Value = SubstringParams(list[i].PP_EyeOpenStand);
+                //        worksheet.Cells[tableRow + 5, col].Value = SubstringParams(list[i].PP_FunctionProtract);
+                //        worksheet.Cells[tableRow + 6, col].Value = SubstringParams(list[i].PP_SitandReach);
+
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        Console.WriteLine("含有非法数据");
+                //    }
                    
-                }
+                //}
 
-                worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("初次未变化", " No change for           the first time"); 
+                //worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("初次未变化", " No change for           the first time"); 
 
-                worksheet.Cells[tableRow, 10, tableRow, 11].Merge = true;
-                worksheet.Cells[tableRow + 1, 10, tableRow + 1, 11].Merge = true;
-                worksheet.Cells[tableRow + 2, 10, tableRow + 2, 11].Merge = true;
-                worksheet.Cells[tableRow + 3, 10, tableRow + 3, 11].Merge = true;
-                worksheet.Cells[tableRow + 4, 10, tableRow + 4, 11].Merge = true;
-                worksheet.Cells[tableRow + 5, 10, tableRow + 5, 11].Merge = true;
-                worksheet.Cells[tableRow + 6, 10, tableRow + 6, 11].Merge = true;
-                //初次未变化
+                //worksheet.Cells[tableRow, 10, tableRow, 11].Merge = true;
+                //worksheet.Cells[tableRow + 1, 10, tableRow + 1, 11].Merge = true;
+                //worksheet.Cells[tableRow + 2, 10, tableRow + 2, 11].Merge = true;
+                //worksheet.Cells[tableRow + 3, 10, tableRow + 3, 11].Merge = true;
+                //worksheet.Cells[tableRow + 4, 10, tableRow + 4, 11].Merge = true;
+                //worksheet.Cells[tableRow + 5, 10, tableRow + 5, 11].Merge = true;
+                //worksheet.Cells[tableRow + 6, 10, tableRow + 6, 11].Merge = true;
+                ////初次未变化
 
-                using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow, 11])
-                {
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    range.Style.Font.Bold = true;
-                    range.Style.Font.Color.SetColor(System.Drawing.Color.White);
-                    range.Style.Font.Name = "等线";
-                    range.Style.Font.Size = 11;
-                    //设置边框
-                    range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                    range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(0, 0, 139));
-                }
+                //using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow, 11])
+                //{
+                //    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                //    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                //    range.Style.Font.Bold = true;
+                //    range.Style.Font.Color.SetColor(System.Drawing.Color.White);
+                //    range.Style.Font.Name = "等线";
+                //    range.Style.Font.Size = 11;
+                //    //设置边框
+                //    range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                //    range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                //    range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                //    range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                //    range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                //    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(0, 0, 139));
+                //}
 
-                worksheet.Cells[tableRow, 3].Style.Border.Right.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
-                worksheet.Cells[tableRow, 4].Style.Border.Left.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
-                worksheet.Cells[tableRow, 5].Style.Border.Right.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
-                worksheet.Cells[tableRow, 6].Style.Border.Left.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
-                worksheet.Cells[tableRow, 7].Style.Border.Right.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
-                worksheet.Cells[tableRow, 8].Style.Border.Left.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
-                worksheet.Cells[tableRow, 9].Style.Border.Right.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
-                worksheet.Cells[tableRow, 10].Style.Border.Left.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                //worksheet.Cells[tableRow, 3].Style.Border.Right.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                //worksheet.Cells[tableRow, 4].Style.Border.Left.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                //worksheet.Cells[tableRow, 5].Style.Border.Right.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                //worksheet.Cells[tableRow, 6].Style.Border.Left.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                //worksheet.Cells[tableRow, 7].Style.Border.Right.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                //worksheet.Cells[tableRow, 8].Style.Border.Left.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                //worksheet.Cells[tableRow, 9].Style.Border.Right.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
+                //worksheet.Cells[tableRow, 10].Style.Border.Left.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
 
-                //空表表格
-                using (ExcelRange range = worksheet.Cells[tableRow + 1, 1, tableRow + 6, 11])
-                {
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    range.Style.Font.Bold = true;
-                    range.Style.Font.Name = "等线";
-                    range.Style.Font.Size = 11;
-                    //设置边框
-                    range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                }
+                ////空表表格
+                //using (ExcelRange range = worksheet.Cells[tableRow + 1, 1, tableRow + 6, 11])
+                //{
+                //    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                //    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                //    range.Style.Font.Bold = true;
+                //    range.Style.Font.Name = "等线";
+                //    range.Style.Font.Size = 11;
+                //    //设置边框
+                //    range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                //    range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                //    range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                //    range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                //}
 
-                //插入图表
-                ExcelChart chart = worksheet.Drawings.AddChart("chart3", eChartType.RadarFilled);
-                //Y轴数据源，X轴数据源
-                ExcelChartSerie serie1 = chart.Series.Add(worksheet.Cells[tableRow + 1, 4, tableRow + 6, 4], worksheet.Cells[tableRow + 1, 1, tableRow + 6, 1]);
-                serie1.HeaderAddress = worksheet.Cells[tableRow, 4];
-                serie1.Border.Fill.Color = System.Drawing.Color.Red;
-                if (list.Count >= 2)
-                {
-                    ExcelChartSerie serie2 = chart.Series.Add(worksheet.Cells[tableRow + 1, 6, tableRow + 6, 6], worksheet.Cells[tableRow + 1, 1, tableRow + 6, 1]);
-                    serie2.HeaderAddress = worksheet.Cells[tableRow, 6];
-                    serie2.Border.Fill.Color = System.Drawing.Color.Green;
-                    if (list.Count == 3)
-                    {
-                        ExcelChartSerie serie3 = chart.Series.Add(worksheet.Cells[tableRow + 1, 8, tableRow + 6, 8], worksheet.Cells[tableRow + 1, 1, tableRow + 6, 1]);
-                        serie3.HeaderAddress = worksheet.Cells[tableRow, 8];
-                        serie3.Border.Fill.Color = System.Drawing.Color.Blue;
-                    }
-                }
+                ////插入图表
+                //ExcelChart chart = worksheet.Drawings.AddChart("chart3", eChartType.RadarFilled);
+                ////Y轴数据源，X轴数据源
+                //ExcelChartSerie serie1 = chart.Series.Add(worksheet.Cells[tableRow + 1, 4, tableRow + 6, 4], worksheet.Cells[tableRow + 1, 1, tableRow + 6, 1]);
+                //serie1.HeaderAddress = worksheet.Cells[tableRow, 4];
+                //serie1.Border.Fill.Color = System.Drawing.Color.Red;
+                //if (list.Count >= 2)
+                //{
+                //    ExcelChartSerie serie2 = chart.Series.Add(worksheet.Cells[tableRow + 1, 6, tableRow + 6, 6], worksheet.Cells[tableRow + 1, 1, tableRow + 6, 1]);
+                //    serie2.HeaderAddress = worksheet.Cells[tableRow, 6];
+                //    serie2.Border.Fill.Color = System.Drawing.Color.Green;
+                //    if (list.Count == 3)
+                //    {
+                //        ExcelChartSerie serie3 = chart.Series.Add(worksheet.Cells[tableRow + 1, 8, tableRow + 6, 8], worksheet.Cells[tableRow + 1, 1, tableRow + 6, 1]);
+                //        serie3.HeaderAddress = worksheet.Cells[tableRow, 8];
+                //        serie3.Border.Fill.Color = System.Drawing.Color.Blue;
+                //    }
+                //}
 
-                chart.SetPosition(25, 0, 0, 0);
-                chart.SetSize(726, 300);
-                chart.Title.Text = LanguageUtils.ConvertLanguage("体力检测", "Physical testing");
-                chart.Title.Font.Color = System.Drawing.Color.FromArgb(89, 89, 89);
-                chart.Title.Font.Size = 15;
-                chart.Title.Font.Bold = true;
-                chart.Style = eChartStyle.Style15;
-                //chart.Legend.Border.LineStyle = eLineStyle.Solid;
-                //chart.Legend.Border.Fill.Color = Color.FromArgb(217, 217, 217);
+                //chart.SetPosition(25, 0, 0, 0);
+                //chart.SetSize(726, 300);
+                //chart.Title.Text = LanguageUtils.ConvertLanguage("体力检测", "Physical testing");
+                //chart.Title.Font.Color = System.Drawing.Color.FromArgb(89, 89, 89);
+                //chart.Title.Font.Size = 15;
+                //chart.Title.Font.Bold = true;
+                //chart.Style = eChartStyle.Style15;
+                ////chart.Legend.Border.LineStyle = eLineStyle.Solid;
+                ////chart.Legend.Border.Fill.Color = Color.FromArgb(217, 217, 217);
 
 
-                using (ExcelRange range = worksheet.Cells[tableRow + 1, 1, 24, 11])
-                {
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    //设置边框
-                    range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                }
+                //using (ExcelRange range = worksheet.Cells[tableRow + 1, 1, 24, 11])
+                //{
+                //    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                //    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                //    //设置边框
+                //    range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                //    range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                //    range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                //    range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                //}
 
-                int remarkRow = 42;
-                ExcelUtil.GenerateRemark(ref worksheet, remarkRow, Current_User.User_PhysicalDisabilities);
+                //int remarkRow = 42;
+                //ExcelUtil.GenerateRemark(ref worksheet, remarkRow, Current_User.User_PhysicalDisabilities);
                 //保存
                 package.Save();
             }
