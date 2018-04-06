@@ -160,6 +160,23 @@ namespace spms.view.Pages.ChildWin
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 int pageSize = list.Count % count == 0 ? list.Count / count : (list.Count / count) + 1;
+
+                if (pageSize == 0)
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("训练报告", "Training report"));
+
+                    int tableRow = 12;
+                    int length = list.Count;
+                    //设置所有的行高
+                    for (int i = 1; i <= tableRow; i++)
+                    {
+                        worksheet.Row(i).Height = 20;
+                    }
+
+                    int userRow = 4;
+                    ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("训练报告", "Training report"), Current_User);
+                }
+
                 for (int j=0; j<pageSize; j++)
                 {
 
@@ -174,7 +191,7 @@ namespace spms.view.Pages.ChildWin
                     }
 
                     //设置数据的高度
-                    for (int i = tableRow + 2; i <= tableRow + 1 + length; i++)
+                    for (int i = tableRow + 2; i <= tableRow + 11; i++)
                     {
                         worksheet.Row(i).Height = 25;
                     }
@@ -268,16 +285,16 @@ namespace spms.view.Pages.ChildWin
                     ExcelChart chart = worksheet.Drawings.AddChart("chart", eChartType.LineMarkersStacked);
                     //Y轴数据源，X轴数据源
                     var cs2 = chart.PlotArea.ChartTypes.Add(eChartType.Line);
-                    var s = cs2.Series.Add(worksheet.Cells[tableRow + 2, 6, tableRow + 1 + length, 6], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + length, 2]);
+                    var s = cs2.Series.Add(worksheet.Cells[tableRow + 2, 6, tableRow + 1 + borderRows, 6], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + borderRows, 2]);
                     s.Border.Fill.Color = System.Drawing.Color.Red;
                     s.HeaderAddress = worksheet.Cells[tableRow, 6];
                     var cs3 = chart.PlotArea.ChartTypes.Add(eChartType.Line);
-                    s = cs3.Series.Add(worksheet.Cells[tableRow + 2, 7, tableRow + 1 + length, 7], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + length, 2]);
+                    s = cs3.Series.Add(worksheet.Cells[tableRow + 2, 7, tableRow + 1 + borderRows, 7], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + borderRows, 2]);
                     s.HeaderAddress = worksheet.Cells[tableRow, 7];
                     s.Border.Fill.Color = System.Drawing.Color.Green;
                     cs3.UseSecondaryAxis = true;
                     var cs4 = chart.PlotArea.ChartTypes.Add(eChartType.Line);
-                    s = cs4.Series.Add(worksheet.Cells[tableRow + 2, 8, tableRow + 1 + length, 8], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + length, 2]);
+                    s = cs4.Series.Add(worksheet.Cells[tableRow + 2, 8, tableRow + 1 + borderRows, 8], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + borderRows, 2]);
                     s.HeaderAddress = worksheet.Cells[tableRow, 8];
                     s.Border.Fill.Color = System.Drawing.Color.Blue;
                     cs4.UseSecondaryAxis = true;
@@ -292,7 +309,7 @@ namespace spms.view.Pages.ChildWin
                     chart.Style = eChartStyle.Style15;
 
                     //备注
-                    int remarkRow = 40;
+                    int remarkRow = 41;
                     ExcelUtil.GenerateRemark(ref worksheet, remarkRow, ExcelUtil.GetObjContent(Current_User.User_PhysicalDisabilities));
                 }
 
@@ -321,6 +338,22 @@ namespace spms.view.Pages.ChildWin
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 int pageSize = list.Count % count == 0 ? list.Count / count : (list.Count / count) + 1;
+
+                if (pageSize == 0)
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("详细训练报告", "Detailed report"));
+
+                    int tableRow = 11;
+                    int length = list.Count;
+                    //设置所有的行高
+                    for (int i = 1; i <= tableRow; i++)
+                    {
+                        worksheet.Row(i).Height = 20;
+                    }
+                    int userRow = 4;
+                    ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("详细训练报告", "Detailed report"), Current_User);
+                }
+
                 for (int j = 0; j < pageSize; j++)
                 {
                     ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("详细训练报告"+j, "Detailed report" + j));
@@ -427,6 +460,23 @@ namespace spms.view.Pages.ChildWin
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 int pageSize = list.Count % count == 0 ? list.Count / count : (list.Count / count) + 1;
+
+                if (pageSize == 0)
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("看护记录报告", "Care record report"));
+
+                    int tableRow = 12;
+                    int length = list.Count;
+                    //设置所有的行高
+                    for (int i = 1; i <= tableRow + length * 2 + 2; i++)
+                    {
+                        worksheet.Row(i).Height = 20;
+                    }
+
+                    int userRow = 4;
+                    ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("看护记录报告", "Care record report"), Current_User);
+                }
+
                 for (int j = 0; j < pageSize; j++)
                 {
                     ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("看护记录报告"+j, "Care record report"+j));
@@ -562,6 +612,8 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Document_Type_Checked (object sender, RoutedEventArgs e)
         {
+            //清空之前选中的时间
+            selectedDate.Clear();
             if (is_comprehensiv.IsChecked == true || is_nurse.IsChecked == true)//训练报告或看护记录报告
             {
                 if (Current_User != null)
