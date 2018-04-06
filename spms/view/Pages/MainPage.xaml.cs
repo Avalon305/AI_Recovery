@@ -546,6 +546,7 @@ namespace spms.view.Pages
 
                     List<PhysicalPowerExcekVO> list = excelService.ListPhysicalPowerExcekVOByUserId(selectUser.Pk_User_Id);
                     physicalAssessmentReport.datalist.DataContext = list;
+                    physicalAssessmentReport.physicalPowerExcekVOs = list;
                     physicalAssessmentReport.ShowDialog();
                 }
                 //List<TrainInfo> list = new List<TrainInfo>();

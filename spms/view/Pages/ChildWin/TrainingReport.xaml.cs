@@ -720,7 +720,7 @@ namespace spms.view.Pages.ChildWin
             {
                 if (DateTime.Compare(startTime, (DateTime)endTime) > 0)
                 {
-                    MessageBox.Show("起始时间不能大于终止时间");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("起始时间不能大于终止时间", "Start time cannot be greater than termination time"));
                 }
             }
 
@@ -738,7 +738,7 @@ namespace spms.view.Pages.ChildWin
             {
                 if (DateTime.Compare(endTime, (DateTime)startTime) < 0)
                 {
-                    MessageBox.Show("终止时间不能小于起始时间");
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("终止时间不能小于起始时间", "The termination time cannot be less than the start time"));
                 }
             }
 
@@ -754,7 +754,7 @@ namespace spms.view.Pages.ChildWin
             return null;
         }
 
-        public List<object> listBeansByStartToEndTime(DateTime? startTime, DateTime? endTime)
+        private List<object> listBeansByStartToEndTime(DateTime? startTime, DateTime? endTime)
         {
             List<object> newList = new List<object>();
             if (is_comprehensiv.IsChecked == true || is_nurse.IsChecked == true)
