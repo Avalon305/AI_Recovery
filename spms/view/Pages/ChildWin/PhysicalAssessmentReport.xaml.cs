@@ -59,6 +59,7 @@ namespace spms.view.Pages.ChildWin
 
         //当前需要打印的用户
         public User Current_User { set; get; }
+        public List<PhysicalPowerExcekVO> physicalPowerExcekVOs { get; set; }
         //用户存放选中的时间
         private List<DateTime?> selectedDate = new List<DateTime?>();
         private ExcelService excelService = new ExcelService();
@@ -365,6 +366,89 @@ namespace spms.view.Pages.ChildWin
                 Keyboard.ClearFocus();
             }
 
+        }
+
+        private void start_date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //时间范围 - 开始时间
+            DateTime startTime = Convert.ToDateTime(start_date.Text);
+            DateTime? endTime = getDateByStr(end_date.Text);
+
+            if (endTime != null)
+            {
+                if (DateTime.Compare(startTime, (DateTime)endTime) > 0)
+                {
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("起始时间不能大于终止时间", "Start time cannot be greater than termination time"));
+                }
+            }
+
+            datalist.DataContext = listBeansByStartToEndTime(startTime, endTime);
+        }
+
+        private void end_date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //时间范围 - 开始时间
+            DateTime endTime = Convert.ToDateTime(end_date.Text);
+            DateTime? startTime = getDateByStr(start_date.Text);
+
+            if (startTime != null)
+            {
+                if (DateTime.Compare(endTime, (DateTime)startTime) < 0)
+                {
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("终止时间不能小于起始时间", "The termination time cannot be less than the start time"));
+                }
+            }
+
+            datalist.DataContext = listBeansByStartToEndTime(startTime, endTime);
+        }
+
+        private DateTime? getDateByStr(string time)
+        {
+            if (time != "")
+            {
+                return (DateTime?)(Convert.ToDateTime(time));
+            }
+            return null;
+        }
+
+        private List<object> listBeansByStartToEndTime(DateTime? startTime, DateTime? endTime)
+        {
+            List<object> newList = new List<object>();
+            if (Current_User != null)
+            {
+                for (int i = 0; i < physicalPowerExcekVOs.Count; i++)
+                {
+                    //判断选中哪些时间
+                    //记录的时间
+                    DateTime gmt_Create = (DateTime)physicalPowerExcekVOs[i].Gmt_Create;
+                    if (startTime != null && endTime == null)
+                    {
+                        if (DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0)
+                        {
+                            newList.Add(physicalPowerExcekVOs[i]);
+                        }
+                    }
+                    else if (startTime == null && endTime != null)
+                    {
+                        if (DateTime.Compare((DateTime)endTime, gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
+                        {
+                            newList.Add(physicalPowerExcekVOs[i]);
+                        }
+                    }
+                    else if (startTime != null && endTime != null)
+                    {
+                        if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, (DateTime)endTime) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
+                        {
+                            newList.Add(physicalPowerExcekVOs[i]);
+                        }
+                    }
+                    else
+                    {
+                        newList.Add(physicalPowerExcekVOs[i]);
+                    }
+                }
+            }
+            return newList;
         }
     }
 }

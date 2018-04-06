@@ -83,10 +83,10 @@
         <!--结束：输入报告-->
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Border Background="Silver" Width="80" Height="25" VerticalAlignment="Center" Margin="8,0,4,0">
-                    <Label Margin="0,-2,0,-4" VerticalContentAlignment="Center" Content="{DynamicResource CreateTrainingReportView.Date}"></Label>
+                    <Label Margin="0,-2,0,-4" VerticalContentAlignment="Center" Content="{DynamicResource CreateTrainingReportView.SelectDate}"></Label>
                 </Border>
                 <Border Margin="0,0,0,0" Width="153" Grid.Row="0" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" >
-                    <DatePicker HorizontalAlignment="Left"  x:Name="start_date" VerticalAlignment="Top" Height="25" Width="150" >
+                    <DatePicker HorizontalAlignment="Left" SelectedDateChanged="start_date_SelectedDateChanged" x:Name="start_date" VerticalAlignment="Top" Height="25" Width="150" >
                         <DatePicker.Resources>
                             <Style TargetType="DatePickerTextBox">
                                 <Setter Property="IsReadOnly" Value="True"/>
@@ -100,7 +100,7 @@
                     <Label Content="~"></Label>
                 </Border>
                 <Border Margin="0,0,0,0" Width="153" Grid.Row="0" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" >
-                    <DatePicker HorizontalAlignment="Left"  x:Name="end_date" VerticalAlignment="Top" Height="25" Width="150" >
+                    <DatePicker HorizontalAlignment="Left" SelectedDateChanged="end_date_SelectedDateChanged"  x:Name="end_date" VerticalAlignment="Top" Height="25" Width="150" >
                         <DatePicker.Resources>
                             <Style TargetType="DatePickerTextBox">
                                 <Setter Property="IsReadOnly" Value="True"/>

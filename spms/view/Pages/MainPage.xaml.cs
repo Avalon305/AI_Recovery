@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -97,7 +98,10 @@ namespace spms.view.Pages
         private void Grid_Click(object sender, MouseButtonEventArgs e)
         {
             ifSelecUser = true;
+            
+            id.Content = UsersInfo.SelectedIndex + 1;//使用者详细信息展示框id设置
             selectUser = (User)UsersInfo.SelectedItem;
+            
             //UserInfo
             UserInfo.DataContext = selectUser;
             string path = null;
@@ -468,7 +472,7 @@ namespace spms.view.Pages
             }
         }
 
-        //按钮：制作报告
+        //按钮：制作报告，报表
         private void MakeReport(object sender, RoutedEventArgs e)
         {
             //打开训练报告
@@ -494,6 +498,7 @@ namespace spms.view.Pages
 
                     List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(selectUser.Pk_User_Id);
                     trainingReport.datalist.DataContext = list;
+                    trainingReport.trainingAndSymptomBeans = list;//赋值全局变量
                     Console.WriteLine(list.ToString());
                     trainingReport.ShowDialog();
                 }
@@ -541,6 +546,7 @@ namespace spms.view.Pages
 
                     List<PhysicalPowerExcekVO> list = excelService.ListPhysicalPowerExcekVOByUserId(selectUser.Pk_User_Id);
                     physicalAssessmentReport.datalist.DataContext = list;
+                    physicalAssessmentReport.physicalPowerExcekVOs = list;
                     physicalAssessmentReport.ShowDialog();
                 }
                 //List<TrainInfo> list = new List<TrainInfo>();
@@ -1013,28 +1019,26 @@ namespace spms.view.Pages
 
         private void image_load(object sender, RoutedEventArgs e)
         {
-            List<spms.entity.Setter> all = new SetterDAO().ListAll();
-            if (all != null && all.Count != 0)
+            //加载图片
+            if (LanguageUtils.IsChainese())
             {
-                if (all[0].Set_Language == 0)
-                {
-                    DesignerHead4.Source = new BitmapImage(new Uri("/view/Images/5_5.png", UriKind.RelativeOrAbsolute));
-                    DesignerHead4.Margin = new Thickness(97, 18, 0, 0);
-                    DesignerHead4.Height = 25;
-                    DesignerHead4.Width = 136;
-                    DesignerHead3.Height = 60;
-                    subhead.FontSize = 15;
-                }
+                DesignerHead4.Source = new BitmapImage(new Uri("/view/Images/6.png", UriKind.RelativeOrAbsolute));
+                DesignerHead4.Margin = new Thickness(10, 0, 0, 0);
+                DesignerHead4.Height = 60;
+                DesignerHead4.Width = 225;
+                DesignerHead3.Height = 70;
+                subhead.FontSize = 18;
+            }
                 else
                 {
-                    DesignerHead4.Source = new BitmapImage(new Uri("/view/Images/6.png", UriKind.RelativeOrAbsolute));
-                    DesignerHead4.Margin = new Thickness(10, 0, 0, 0);
-                    DesignerHead4.Height = 60;
-                    DesignerHead4.Width = 225;
-                    DesignerHead3.Height = 70;
-                    subhead.FontSize = 18;
+                DesignerHead4.Source = new BitmapImage(new Uri("/view/Images/5_5.png", UriKind.RelativeOrAbsolute));
+                DesignerHead4.Margin = new Thickness(97, 18, 0, 0);
+                DesignerHead4.Height = 25;
+                DesignerHead4.Width = 136;
+                DesignerHead3.Height = 60;
+                subhead.FontSize = 15;
+               
                 }
             }
         }
     }
-}
