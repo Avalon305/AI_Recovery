@@ -208,6 +208,7 @@
     <!-- 输入症状信息界面 -->
     <s:String x:Key="VitalInfoView.VitalInformation">输入症状信息</s:String>
     <s:String x:Key="VitalInfoView.ViewInformation">查看症状信息</s:String>
+    <s:String x:Key="VitalInfoView.UpdateInformation">修改症状信息</s:String>
     <s:String x:Key="VitalInfoView.Confirm">确认</s:String>
     <s:String x:Key="VitalInfoView.Cancel">取消</s:String>
     <s:String x:Key="VitalInfoView.Close">关闭</s:String>
