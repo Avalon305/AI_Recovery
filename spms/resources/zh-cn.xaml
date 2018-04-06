@@ -334,6 +334,7 @@
     <s:String x:Key="CreateTrainingReportView.CreateTrainingReport">制作体力评价报告</s:String>
     <s:String x:Key="CreateTrainingReportView.SubjectID">用户编号</s:String>
     <s:String x:Key="CreateTrainingReportView.LastName">用户姓名</s:String>
+    <s:String x:Key="CreateTrainingReportView.SelectDate">选择日期</s:String>
     <s:String x:Key="CreateTrainingReportView.Date">日期</s:String>
     <s:String x:Key="CreateTrainingReportView.Comment">评论</s:String>
     <s:String x:Key="CreateTrainingReportView.Export">文档输出</s:String>

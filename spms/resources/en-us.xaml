@@ -331,6 +331,7 @@
     <s:String x:Key="CreateTrainingReportView.SubjectID">Subject ID</s:String>
     <s:String x:Key="CreateTrainingReportView.LastName">Last Name</s:String>
     <s:String x:Key="CreateTrainingReportView.Date">Date</s:String>
+    <s:String x:Key="CreateTrainingReportView.SelectDate">SelectDate</s:String>
     <s:String x:Key="CreateTrainingReportView.Comment">Comment</s:String>
     <s:String x:Key="CreateTrainingReportView.Export">Export</s:String>
     <s:String x:Key="CreateTrainingReportView.Output">Output</s:String>
