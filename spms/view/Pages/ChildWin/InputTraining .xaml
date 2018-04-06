@@ -76,1086 +76,1088 @@ ResizeMode="NoResize"
         </Style>
     </Window.Resources>
     <Viewbox Name="viewbox" Stretch="Fill">
-      
-            <!-- 整体框架用的 StackPanel 布局-->
-    <StackPanel Orientation="Vertical" Margin="0,0,3.6,-0.4">
-        <!--Border 使用者一览表以及按钮  开始-->
-        <Border Height="40" CornerRadius="5,5,0,0"  Margin="11,5,10,0">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="Silver" Offset="0.1"/>
-                    <GradientStop Color="Gray" Offset="0.9"/>
-                </LinearGradientBrush>
 
-            </Border.Background>
-            <Grid>
+        <!-- 整体框架用的 StackPanel 布局-->
+        <StackPanel Orientation="Vertical" Margin="0,0,3.6,-0.4">
+            <!--Border 使用者一览表以及按钮  开始-->
+            <Border Height="40" CornerRadius="5,5,0,0"  Margin="11,5,10,0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Silver" Offset="0.1"/>
+                        <GradientStop Color="Gray" Offset="0.9"/>
+                    </LinearGradientBrush>
+
+                </Border.Background>
+                <Grid>
                     <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38" Content="{DynamicResource TrainingListView.TrainingList}"></Label>
-            </Grid>
-        </Border>
-        <!--Border 使用者一览表以及按钮  结束-->
+                </Grid>
+            </Border>
+            <!--Border 使用者一览表以及按钮  结束-->
 
-        <!--Grid 使用者信息展示 开始-->
-        <Grid Height="34" Margin="12,10,18.6,0">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="15*"/>
-                <ColumnDefinition Width="82*"/>
-            </Grid.ColumnDefinitions>
+            <!--Grid 使用者信息展示 开始-->
+            <Grid Height="34" Margin="12,10,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="82*"/>
+                </Grid.ColumnDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource TrainingListView.SubjectID}" Margin="0,-6,120.4,15.6" Grid.RowSpan="2"/>
-            <Label Grid.Row="0"  Margin="79,-6,0.2,15.6" Name="l2" Content="{Binding User_Name}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Grid.Row="0"  Margin="79,-6,210.2,15.6" Name="l2" Content="{Binding User_Name}" Grid.RowSpan="2"/>
                 <Label Grid.Column="0"  Content="{DynamicResource TrainingListView.LastName}" Margin="0,11,120.4,-1.4" Grid.RowSpan="2"/>
-                <Label Content="{DynamicResource TrainingListView.SympInfo}" Height="25" Margin="1000,0,0,0" Background="Gray" Foreground="White" Width="80"/>
-                <ComboBox ItemsSource="{Binding SymptomInfo,Mode=OneWay}" DisplayMemberPath="Gmt_Create" SelectedValuePath="Pk_SI_Id" SelectedItem="{Binding SymptomInfo}" Margin="1200,0,0,0"  Name="symp" Height="25" Width="131" />
-                <Label  Margin="79,11,0.2,-1.4" Name="l1" Grid.ColumnSpan="2" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2"/>
-        </Grid>
-        <!--Grid 使用者信息展示 结束-->
+                <Label Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top" Content="{DynamicResource TrainingListView.SympInfo}" Height="25" Margin="1126,0,131.2,0" Background="Gray" Foreground="White"/>
+                <ComboBox  Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top" ItemsSource="{Binding SymptomInfo,Mode=OneWay}" DisplayMemberPath="Gmt_Create" SelectedValuePath="Pk_SI_Id" SelectedItem="{Binding SymptomInfo}" Margin="1200,0,0,0"  Name="symp" Height="25" Width="131" />
+                <Label  Margin="79,11,205.2,-1.4" Name="l1" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2"/>
+            </Grid>
+            <!--Grid 使用者信息展示 结束-->
 
-        <!--Grid 使用器材选择 开始-->
-        <Grid Height="593" Margin="0,0,0,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="23"/>
-                <RowDefinition Height="200"/>
-                <RowDefinition  Height="193"/>
-                <RowDefinition Height="200"/>
-            </Grid.RowDefinitions>
+            <!--Grid 使用器材选择 开始-->
+            <Grid Height="593" Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="23"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition  Height="193"/>
+                    <RowDefinition Height="200"/>
+                </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <!--器材名称开始-->
-            <Border Grid.Row="0"  Grid.Column="0" Background="Gray" Margin="11,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!--器材名称开始-->
+                <Border Grid.Row="0"  Grid.Column="0" Background="Gray" Margin="11,0,10,0">
                     <CheckBox Name="checkbox1" Checked="Checkbox1_OnChecked" Unchecked="checkbox1_Unchecked" IsTabStop="False"  Foreground="White"  Margin="0,3,0,0" Content="{DynamicResource Dev.ChestPress}"></CheckBox>
-            </Border>
-            <Border Grid.Row="0"  Grid.Column="1" Background="Gray" Margin="10,0,10,0">
+                </Border>
+                <Border Grid.Row="0"  Grid.Column="1" Background="Gray" Margin="10,0,10,0">
                     <CheckBox Name="checkbox2" Checked="Checkbox2_OnChecked"   IsTabStop="False" Unchecked="checkbox2_Unchecked"  Foreground="White"  Margin="00,3,0,0" Content="{DynamicResource Dev.Rowing}"></CheckBox>
-            </Border>
-            <Border Grid.Row="0"  Grid.Column="2" Background="Gray" Margin="10,0,10,0">
+                </Border>
+                <Border Grid.Row="0"  Grid.Column="2" Background="Gray" Margin="10,0,10,0">
                     <CheckBox Name="checkbox3" Checked="Checkbox3_OnChecked"   IsTabStop="False" Unchecked="checkbox3_Unchecked" Foreground="White"  Margin="0,3,0,0"  Content="{DynamicResource Dev.TorsoFlexion}" ></CheckBox>
-            </Border>
-            <Border Grid.Row="0"  Grid.Column="3" Background="Gray" Margin="10,0,10,0">
+                </Border>
+                <Border Grid.Row="0"  Grid.Column="3" Background="Gray" Margin="10,0,10,0">
                     <CheckBox Name="checkbox4"  Checked="Checkbox4_OnChecked"  IsTabStop="False" Unchecked="checkbox4_Unchecked" Foreground="White"  Margin="0,3,0,0"   Content="{DynamicResource Dev.LegExtension}"></CheckBox>
-            </Border>
-            <Border Grid.Row="0"  Grid.Column="4" Background="Gray" Margin="10,0,10,0">
+                </Border>
+                <Border Grid.Row="0"  Grid.Column="4" Background="Gray" Margin="10,0,10,0">
                     <CheckBox Name="checkbox5"  Checked="Checkbox5_OnChecked"  IsTabStop="False" Unchecked="checkbox5_Unchecked" Foreground="White"  Margin="0,3,0,0"  Content="{DynamicResource Dev.HorizontalLegPress}" ></CheckBox>
-            </Border>
-            <Border Grid.Row="0"  Grid.Column="5" Background="Gray" Margin="10,0,10,0">
+                </Border>
+                <Border Grid.Row="0"  Grid.Column="5" Background="Gray" Margin="10,0,10,0">
                     <CheckBox  Name="checkbox6" Checked="Checkbox6_OnChecked"  IsTabStop="False" Unchecked="checkbox6_Unchecked" Foreground="White"  Margin="0,3,0,0"   Content="{DynamicResource Dev.HipAbduction}"></CheckBox>
-            </Border>
-            <!--器材名称结束-->
+                </Border>
+                <!--器材名称结束-->
 
-            <!--器材图片开始-->
-            <Border Grid.Row="1" Grid.Column="0" Margin="10,3,10,3">
-                <Grid Margin="0,0,-0.2,10.8">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="115*"/>
-                        <ColumnDefinition Width="78*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
-                    </Grid.Background>
+                <!--器材图片开始-->
+                <Border Grid.Row="1" Grid.Column="0" Margin="10,3,10,3">
+                    <Grid Margin="0,0,-0.2,10.8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="115*"/>
+                            <ColumnDefinition Width="78*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
+                        </Grid.Background>
                         <ComboBox Name="com_01" ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" IsTabStop="False" Margin="10,94,54.7,66" RenderTransformOrigin="0.502,0.5"   IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
-                    <!--<ComboBox Name="com_02" ToolTip="砝码重量" Height="20" Width="50" IsTabStop="False"  Margin="0,141,66,49"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>-->
-                    <ComboBox Name="com_03" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" Height="20" Width="50" IsTabStop="False"  Margin="66,49,0,111"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
-                    <ComboBox Name="com_04" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" IsTabStop="False"  Margin="0,143,29.2,17"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}" Grid.Column="1"/>
-                </Grid>
-            </Border>
+                        <!--<ComboBox Name="com_02" ToolTip="砝码重量" Height="20" Width="50" IsTabStop="False"  Margin="0,141,66,49"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>-->
+                        <ComboBox Name="com_03" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" Height="20" Width="50" IsTabStop="False"  Margin="66,49,0,111"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
+                        <ComboBox Name="com_04" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" IsTabStop="False"  Margin="0,143,29.2,17"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}" Grid.Column="1"/>
+                    </Grid>
+                </Border>
 
-            <Border Grid.Row="1" Grid.Column="1" Margin="10,3,10,3">
-                <Grid Margin="0,0,-0.2,10.8">
-                    <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
-                    </Grid.Background>
-                    <ComboBox Name="com_11" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="11,54,133.6,106" IsEnabled="{Binding IsChecked, ElementName=checkbox2}" ></ComboBox>
+                <Border Grid.Row="1" Grid.Column="1" Margin="10,3,10,3">
+                    <Grid Margin="0,0,-0.2,10.8">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
+                        </Grid.Background>
+                        <ComboBox Name="com_11" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="11,54,133.6,106" IsEnabled="{Binding IsChecked, ElementName=checkbox2}" ></ComboBox>
 
-                    <!--<ComboBox Name="com_12" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="0,126,144.6,64" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>-->
-                    <ComboBox Name="com_13" ToolTip="{DynamicResource TrainingListView.TrunkPad}" IsTabStop="False"  Height="20" Width="50" Margin="125,82,20.6,68" RenderTransformOrigin="1.002,-0.44" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
-                    <ComboBox Name="com_14" ToolTip="{DynamicResource TrainingListView.SeatPosition}" IsTabStop="False"  Height="20" Width="50" Margin="95,137,49.6,13" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
-                </Grid>
+                        <!--<ComboBox Name="com_12" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="0,126,144.6,64" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>-->
+                        <ComboBox Name="com_13" ToolTip="{DynamicResource TrainingListView.TrunkPad}" IsTabStop="False"  Height="20" Width="50" Margin="125,82,20.6,68" RenderTransformOrigin="1.002,-0.44" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+                        <ComboBox Name="com_14" ToolTip="{DynamicResource TrainingListView.SeatPosition}" IsTabStop="False"  Height="20" Width="50" Margin="95,137,49.6,13" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+                    </Grid>
 
-            </Border>
-            <Border Grid.Row="1" Grid.Column="2" Margin="10,3,10,3">
-                <Grid Margin="0,0,-0.2,10.8">
-                    <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
-                    </Grid.Background>
-                    <ComboBox Name="com_21" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}"  Height="20" Width="50" Margin="10,19,135.4,131" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
-                    <!--<ComboBox Name="com_22" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="0,108,145.4,82" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>-->
-                    <ComboBox Name="com_23" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Height="20" Width="50" Margin="122,69,23.4,91" IsEnabled="{Binding IsChecked, ElementName=checkbox3}" RenderTransformOrigin="0.34,1.49"></ComboBox>
-                    <ComboBox Name="com_24" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Height="20" Width="50" Margin="122,22,23.4,168" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="2" Margin="10,3,10,3">
+                    <Grid Margin="0,0,-0.2,10.8">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
+                        </Grid.Background>
+                        <ComboBox Name="com_21" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}"  Height="20" Width="50" Margin="10,19,135.4,131" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
+                        <!--<ComboBox Name="com_22" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="0,108,145.4,82" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>-->
+                        <ComboBox Name="com_23" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Height="20" Width="50" Margin="122,69,23.4,91" IsEnabled="{Binding IsChecked, ElementName=checkbox3}" RenderTransformOrigin="0.34,1.49"></ComboBox>
+                        <ComboBox Name="com_24" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Height="20" Width="50" Margin="122,22,23.4,168" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
 
-                </Grid>
-            </Border>
-            <Border Grid.Row="1" Grid.Column="3" Margin="10,3,10,3">
-                <Grid Margin="0,0,-0.2,10.8">
-                    <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
-                    </Grid.Background>
-                    <ComboBox Name="com_31" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="10,23,135.4,137" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
-                    <!--<ComboBox Name="com_32" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="0,106,145.4,84" RenderTransformOrigin="-0.672,0.78" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>-->
-                    <ComboBox Name="com_33" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Height="20" Width="50" Margin="70,64,75.4,96" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
-                    <ComboBox Name="com_34" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Height="20" Width="50" Margin="39,133,106.4,27" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
-                    <ComboBox Name="com_35" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="145,96,0.4,60" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
-                </Grid>
-            </Border>
-            <Border Grid.Row="1" Grid.Column="4" Margin="10,3,10,3">
-                <Grid Margin="0,0,-0.2,10.8">
-                    <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
-                    </Grid.Background>
-                    <ComboBox Name="com_41" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="111,20,33.6,140"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
-                    <!--<ComboBox Name="com_42" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="41,101,103.6,89" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>-->
-                    <ComboBox Name="com_43" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="135,108,9.6,52" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="3" Margin="10,3,10,3">
+                    <Grid Margin="0,0,-0.2,10.8">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
+                        </Grid.Background>
+                        <ComboBox Name="com_31" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="10,23,135.4,137" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                        <!--<ComboBox Name="com_32" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="0,106,145.4,84" RenderTransformOrigin="-0.672,0.78" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>-->
+                        <ComboBox Name="com_33" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Height="20" Width="50" Margin="70,64,75.4,96" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                        <ComboBox Name="com_34" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Height="20" Width="50" Margin="39,133,106.4,27" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                        <ComboBox Name="com_35" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="145,96,0.4,60" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="4" Margin="10,3,10,3">
+                    <Grid Margin="0,0,-0.2,10.8">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
+                        </Grid.Background>
+                        <ComboBox Name="com_41" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="111,20,33.6,140"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
+                        <!--<ComboBox Name="com_42" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="41,101,103.6,89" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>-->
+                        <ComboBox Name="com_43" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="135,108,9.6,52" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
 
-                </Grid>
-            </Border>
-            <Border Grid.Row="1" Grid.Column="5" Margin="10,3,10,3" >
-                <Grid Margin="0,0,-0.2,10.8">
-                    <Grid.Background>
-                        <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
-                    </Grid.Background>
-                    <ComboBox Name="com_51" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="80,19,65.4,131" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>
-                    <!--<ComboBox Name="com_52" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="10,104,133.8,86" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>-->
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="5" Margin="10,3,10,3" >
+                    <Grid Margin="0,0,-0.2,10.8">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
+                        </Grid.Background>
+                        <ComboBox Name="com_51" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="80,19,65.4,131" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>
+                        <!--<ComboBox Name="com_52" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="10,104,133.8,86" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>-->
                         <ComboBox Name="com_53" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" IsTabStop="False"  Height="20" Width="50" Margin="113,114,32.4,46" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05"></ComboBox>
 
-                </Grid>
-            </Border>
-            <!--器材名称结束-->
+                    </Grid>
+                </Border>
+                <!--器材名称结束-->
 
-            <!--器材数据设置 开始-->
-            <!--第一个器材-->
-            <Grid Grid.Row="2" Grid.Column="0" Name="test1">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                <!--器材数据设置 开始-->
+                <!--第一个器材-->
+                <Grid Grid.Row="2" Grid.Column="0" Name="test1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" VerticalContentAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top"  Height="21" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}"  Content="{DynamicResource TrainingListView.#ofSets}"></Label>
-                </Border>
-                <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_01"  IsTabStop="False" Height="21" IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_01"  IsTabStop="False" Height="21" IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
+                    </Border>
 
-                <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" IsTabStop="False" VerticalContentAlignment="Center" Margin="0,0,0,0" Padding="4" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}"  Content="{DynamicResource TrainingListView.Reps}"></Label>
-                </Border>
-                <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_02" IsTabStop="False"  Height="21"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_02" IsTabStop="False"  Height="21"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
+                    </Border>
 
-                <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White"  Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0"  VerticalAlignment="Bottom" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}" Content="{DynamicResource TrainingListView.Resttime}"></Label>
-                </Border>
-                <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,3,10,0.2">
-                    <ComboBox Name="combobox_03" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,3,10,0.2">
+                        <ComboBox Name="combobox_03" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
+                    </Border>
 
-                <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0" Padding="4" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}" Content="{DynamicResource TrainingListView.Weight}"></Label>
-                </Border>
-                <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_04" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_04" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
+                    </Border>
 
-                <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}" Content="{DynamicResource TrainingListView.Transfer}"></Label>
-                </Border>
-                <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_05" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_05" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
+                    </Border>
 
-                <Border Grid.Row="5" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="5" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}" Content="{DynamicResource TrainingListView.Timer}"></Label>
-                </Border>
-                <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_06" IsTabStop="False" Height="21"  DropDownClosed="select_change"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}">
+                    </Border>
+                    <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_06" IsTabStop="False" Height="21"  DropDownClosed="select_change"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}">
                             <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
                             <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
-                    </ComboBox>
-                </Border>
-                <Border Grid.Row="6" Grid.Column="0" Name="border1" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
+                        </ComboBox>
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="0" Name="border1" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
                         <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}" Content="{DynamicResource TrainingListView.TimerCount}"></Label>
-                </Border>
-                <Border Grid.Row="6" Grid.Column="1" Name="border2" Background="White" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_07" IsTabStop="False"  Height="21"   Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox1}">
-                        <ComboBoxItem>1</ComboBoxItem>
-                        <ComboBoxItem>2</ComboBoxItem>
-                        <ComboBoxItem>3</ComboBoxItem>
-                        <ComboBoxItem>4</ComboBoxItem>
-                        <ComboBoxItem>5</ComboBoxItem>
-                        <ComboBoxItem>6</ComboBoxItem>
-                        <ComboBoxItem>7</ComboBoxItem>
-                        <ComboBoxItem>8</ComboBoxItem>
-                        <ComboBoxItem>9</ComboBoxItem>
-                        <ComboBoxItem>10</ComboBoxItem>
-                        <ComboBoxItem>11</ComboBoxItem>
-                        <ComboBoxItem>12</ComboBoxItem>
-                        <ComboBoxItem>13</ComboBoxItem>
-                        <ComboBoxItem>14</ComboBoxItem>
-                        <ComboBoxItem>15</ComboBoxItem>
-                        <ComboBoxItem>16</ComboBoxItem>
-                        <ComboBoxItem>17</ComboBoxItem>
-                        <ComboBoxItem>18</ComboBoxItem>
-                        <ComboBoxItem>19</ComboBoxItem>
-                        <ComboBoxItem>20</ComboBoxItem>
-                        <ComboBoxItem>21</ComboBoxItem>
-                        <ComboBoxItem>22</ComboBoxItem>
-                        <ComboBoxItem>23</ComboBoxItem>
-                        <ComboBoxItem>24</ComboBoxItem>
-                        <ComboBoxItem>25</ComboBoxItem>
-                        <ComboBoxItem>26</ComboBoxItem>
-                        <ComboBoxItem>27</ComboBoxItem>
-                        <ComboBoxItem>28</ComboBoxItem>
-                        <ComboBoxItem>29</ComboBoxItem>
-                        <ComboBoxItem>30</ComboBoxItem>
-                        <ComboBoxItem>31</ComboBoxItem>
-                        <ComboBoxItem>32</ComboBoxItem>
-                        <ComboBoxItem>33</ComboBoxItem>
-                        <ComboBoxItem>34</ComboBoxItem>
-                        <ComboBoxItem>35</ComboBoxItem>
-                        <ComboBoxItem>36</ComboBoxItem>
-                        <ComboBoxItem>37</ComboBoxItem>
-                        <ComboBoxItem>38</ComboBoxItem>
-                        <ComboBoxItem>39</ComboBoxItem>
-                        <ComboBoxItem>40</ComboBoxItem>
-                        <ComboBoxItem>41</ComboBoxItem>
-                        <ComboBoxItem>42</ComboBoxItem>
-                        <ComboBoxItem>43</ComboBoxItem>
-                        <ComboBoxItem>44</ComboBoxItem>
-                        <ComboBoxItem>45</ComboBoxItem>
-                        <ComboBoxItem>46</ComboBoxItem>
-                        <ComboBoxItem>47</ComboBoxItem>
-                        <ComboBoxItem>48</ComboBoxItem>
-                        <ComboBoxItem>49</ComboBoxItem>
-                        <ComboBoxItem>50</ComboBoxItem>
-                        <ComboBoxItem>51</ComboBoxItem>
-                        <ComboBoxItem>52</ComboBoxItem>
-                        <ComboBoxItem>53</ComboBoxItem>
-                        <ComboBoxItem>54</ComboBoxItem>
-                        <ComboBoxItem>55</ComboBoxItem>
-                        <ComboBoxItem>56</ComboBoxItem>
-                        <ComboBoxItem>57</ComboBoxItem>
-                        <ComboBoxItem>58</ComboBoxItem>
-                        <ComboBoxItem>59</ComboBoxItem>
-                    </ComboBox>
-                </Border>
-                <Border Grid.Row="7" Grid.Column="0" Name="border3" Background="White" Margin="10,3,0,0" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="1" Name="border2" Background="White" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_07" IsTabStop="False"  Height="21"   Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox1}">
+                            <ComboBoxItem>1</ComboBoxItem>
+                            <ComboBoxItem>2</ComboBoxItem>
+                            <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem>4</ComboBoxItem>
+                            <ComboBoxItem>5</ComboBoxItem>
+                            <ComboBoxItem>6</ComboBoxItem>
+                            <ComboBoxItem>7</ComboBoxItem>
+                            <ComboBoxItem>8</ComboBoxItem>
+                            <ComboBoxItem>9</ComboBoxItem>
+                            <ComboBoxItem>10</ComboBoxItem>
+                            <ComboBoxItem>11</ComboBoxItem>
+                            <ComboBoxItem>12</ComboBoxItem>
+                            <ComboBoxItem>13</ComboBoxItem>
+                            <ComboBoxItem>14</ComboBoxItem>
+                            <ComboBoxItem>15</ComboBoxItem>
+                            <ComboBoxItem>16</ComboBoxItem>
+                            <ComboBoxItem>17</ComboBoxItem>
+                            <ComboBoxItem>18</ComboBoxItem>
+                            <ComboBoxItem>19</ComboBoxItem>
+                            <ComboBoxItem>20</ComboBoxItem>
+                            <ComboBoxItem>21</ComboBoxItem>
+                            <ComboBoxItem>22</ComboBoxItem>
+                            <ComboBoxItem>23</ComboBoxItem>
+                            <ComboBoxItem>24</ComboBoxItem>
+                            <ComboBoxItem>25</ComboBoxItem>
+                            <ComboBoxItem>26</ComboBoxItem>
+                            <ComboBoxItem>27</ComboBoxItem>
+                            <ComboBoxItem>28</ComboBoxItem>
+                            <ComboBoxItem>29</ComboBoxItem>
+                            <ComboBoxItem>30</ComboBoxItem>
+                            <ComboBoxItem>31</ComboBoxItem>
+                            <ComboBoxItem>32</ComboBoxItem>
+                            <ComboBoxItem>33</ComboBoxItem>
+                            <ComboBoxItem>34</ComboBoxItem>
+                            <ComboBoxItem>35</ComboBoxItem>
+                            <ComboBoxItem>36</ComboBoxItem>
+                            <ComboBoxItem>37</ComboBoxItem>
+                            <ComboBoxItem>38</ComboBoxItem>
+                            <ComboBoxItem>39</ComboBoxItem>
+                            <ComboBoxItem>40</ComboBoxItem>
+                            <ComboBoxItem>41</ComboBoxItem>
+                            <ComboBoxItem>42</ComboBoxItem>
+                            <ComboBoxItem>43</ComboBoxItem>
+                            <ComboBoxItem>44</ComboBoxItem>
+                            <ComboBoxItem>45</ComboBoxItem>
+                            <ComboBoxItem>46</ComboBoxItem>
+                            <ComboBoxItem>47</ComboBoxItem>
+                            <ComboBoxItem>48</ComboBoxItem>
+                            <ComboBoxItem>49</ComboBoxItem>
+                            <ComboBoxItem>50</ComboBoxItem>
+                            <ComboBoxItem>51</ComboBoxItem>
+                            <ComboBoxItem>52</ComboBoxItem>
+                            <ComboBoxItem>53</ComboBoxItem>
+                            <ComboBoxItem>54</ComboBoxItem>
+                            <ComboBoxItem>55</ComboBoxItem>
+                            <ComboBoxItem>56</ComboBoxItem>
+                            <ComboBoxItem>57</ComboBoxItem>
+                            <ComboBoxItem>58</ComboBoxItem>
+                            <ComboBoxItem>59</ComboBoxItem>
+                        </ComboBox>
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="0" Name="border3" Background="White" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21"   VerticalContentAlignment="Center" Padding="4" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}" Content="{DynamicResource TrainingListView.TimeType}"></Label>
-                </Border>
-                <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border4" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_08" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox1}">
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border4" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_08" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox1}">
                             <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
                             <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
-                    </ComboBox>
-                </Border>
-            </Grid>
+                        </ComboBox>
+                    </Border>
+                </Grid>
 
-            <!--第二个器材-->
-            <Grid Grid.Row="2" Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                <!--第二个器材-->
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White"  VerticalContentAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top"  Height="21" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}" Content="{DynamicResource TrainingListView.#ofSets}"></Label>
-                </Border>
-                <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_11"  IsTabStop="False" Height="21" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_11"  IsTabStop="False" Height="21" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
+                    </Border>
 
-                <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" IsTabStop="False" VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}" Content="{DynamicResource TrainingListView.Reps}"></Label>
-                </Border>
-                <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_12" IsTabStop="False"  Height="21"  IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_12" IsTabStop="False"  Height="21"  IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
+                    </Border>
 
-                <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White"  Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0"  VerticalAlignment="Bottom" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}" Content="{DynamicResource TrainingListView.Resttime}"></Label>
-                </Border>
-                <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,3,10,0.2">
-                    <ComboBox Name="combobox_13" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,3,10,0.2">
+                        <ComboBox Name="combobox_13" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
+                    </Border>
 
-                <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0" Padding="4" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}" Content="{DynamicResource TrainingListView.Weight}"></Label>
-                </Border>
-                <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_14" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_14" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
+                    </Border>
 
-                <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}" Content="{DynamicResource TrainingListView.Transfer}"></Label>
-                </Border>
-                <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_15" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_15" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
+                    </Border>
 
-                <Border Grid.Row="5" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="5" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}" Content="{DynamicResource TrainingListView.Timer}"></Label>
-                </Border>
-                <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_16" IsTabStop="False" Height="21"  DropDownClosed="select_change2"  IsEnabled="{Binding IsChecked, ElementName=checkbox2}">
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                    </Border>
+                    <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_16" IsTabStop="False" Height="21"  DropDownClosed="select_change2"  IsEnabled="{Binding IsChecked, ElementName=checkbox2}">
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
                         </ComboBox>
-                </Border>
-                <Border Grid.Row="6" Grid.Column="0" Name="border11" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="0" Name="border11" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
                         <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}" Content="{DynamicResource TrainingListView.TimerCount}"></Label>
-                </Border>
-                <Border Grid.Row="6" Grid.Column="1" Name="border12" Background="White" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_17" IsTabStop="False"  Height="21"   Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox2}">
-                        <ComboBoxItem>1</ComboBoxItem>
-                        <ComboBoxItem>2</ComboBoxItem>
-                        <ComboBoxItem>3</ComboBoxItem>
-                        <ComboBoxItem>4</ComboBoxItem>
-                        <ComboBoxItem>5</ComboBoxItem>
-                        <ComboBoxItem>6</ComboBoxItem>
-                        <ComboBoxItem>7</ComboBoxItem>
-                        <ComboBoxItem>8</ComboBoxItem>
-                        <ComboBoxItem>9</ComboBoxItem>
-                        <ComboBoxItem>10</ComboBoxItem>
-                        <ComboBoxItem>11</ComboBoxItem>
-                        <ComboBoxItem>12</ComboBoxItem>
-                        <ComboBoxItem>13</ComboBoxItem>
-                        <ComboBoxItem>14</ComboBoxItem>
-                        <ComboBoxItem>15</ComboBoxItem>
-                        <ComboBoxItem>16</ComboBoxItem>
-                        <ComboBoxItem>17</ComboBoxItem>
-                        <ComboBoxItem>18</ComboBoxItem>
-                        <ComboBoxItem>19</ComboBoxItem>
-                        <ComboBoxItem>20</ComboBoxItem>
-                        <ComboBoxItem>21</ComboBoxItem>
-                        <ComboBoxItem>22</ComboBoxItem>
-                        <ComboBoxItem>23</ComboBoxItem>
-                        <ComboBoxItem>24</ComboBoxItem>
-                        <ComboBoxItem>25</ComboBoxItem>
-                        <ComboBoxItem>26</ComboBoxItem>
-                        <ComboBoxItem>27</ComboBoxItem>
-                        <ComboBoxItem>28</ComboBoxItem>
-                        <ComboBoxItem>29</ComboBoxItem>
-                        <ComboBoxItem>30</ComboBoxItem>
-                        <ComboBoxItem>31</ComboBoxItem>
-                        <ComboBoxItem>32</ComboBoxItem>
-                        <ComboBoxItem>33</ComboBoxItem>
-                        <ComboBoxItem>34</ComboBoxItem>
-                        <ComboBoxItem>35</ComboBoxItem>
-                        <ComboBoxItem>36</ComboBoxItem>
-                        <ComboBoxItem>37</ComboBoxItem>
-                        <ComboBoxItem>38</ComboBoxItem>
-                        <ComboBoxItem>39</ComboBoxItem>
-                        <ComboBoxItem>40</ComboBoxItem>
-                        <ComboBoxItem>41</ComboBoxItem>
-                        <ComboBoxItem>42</ComboBoxItem>
-                        <ComboBoxItem>43</ComboBoxItem>
-                        <ComboBoxItem>44</ComboBoxItem>
-                        <ComboBoxItem>45</ComboBoxItem>
-                        <ComboBoxItem>46</ComboBoxItem>
-                        <ComboBoxItem>47</ComboBoxItem>
-                        <ComboBoxItem>48</ComboBoxItem>
-                        <ComboBoxItem>49</ComboBoxItem>
-                        <ComboBoxItem>50</ComboBoxItem>
-                        <ComboBoxItem>51</ComboBoxItem>
-                        <ComboBoxItem>52</ComboBoxItem>
-                        <ComboBoxItem>53</ComboBoxItem>
-                        <ComboBoxItem>54</ComboBoxItem>
-                        <ComboBoxItem>55</ComboBoxItem>
-                        <ComboBoxItem>56</ComboBoxItem>
-                        <ComboBoxItem>57</ComboBoxItem>
-                        <ComboBoxItem>58</ComboBoxItem>
-                        <ComboBoxItem>59</ComboBoxItem>
-                    </ComboBox>
-                </Border>
-                <Border Grid.Row="7" Grid.Column="0" Name="border13" Background="White" Margin="10,3,0,0" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="1" Name="border12" Background="White" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_17" IsTabStop="False"  Height="21"   Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox2}">
+                            <ComboBoxItem>1</ComboBoxItem>
+                            <ComboBoxItem>2</ComboBoxItem>
+                            <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem>4</ComboBoxItem>
+                            <ComboBoxItem>5</ComboBoxItem>
+                            <ComboBoxItem>6</ComboBoxItem>
+                            <ComboBoxItem>7</ComboBoxItem>
+                            <ComboBoxItem>8</ComboBoxItem>
+                            <ComboBoxItem>9</ComboBoxItem>
+                            <ComboBoxItem>10</ComboBoxItem>
+                            <ComboBoxItem>11</ComboBoxItem>
+                            <ComboBoxItem>12</ComboBoxItem>
+                            <ComboBoxItem>13</ComboBoxItem>
+                            <ComboBoxItem>14</ComboBoxItem>
+                            <ComboBoxItem>15</ComboBoxItem>
+                            <ComboBoxItem>16</ComboBoxItem>
+                            <ComboBoxItem>17</ComboBoxItem>
+                            <ComboBoxItem>18</ComboBoxItem>
+                            <ComboBoxItem>19</ComboBoxItem>
+                            <ComboBoxItem>20</ComboBoxItem>
+                            <ComboBoxItem>21</ComboBoxItem>
+                            <ComboBoxItem>22</ComboBoxItem>
+                            <ComboBoxItem>23</ComboBoxItem>
+                            <ComboBoxItem>24</ComboBoxItem>
+                            <ComboBoxItem>25</ComboBoxItem>
+                            <ComboBoxItem>26</ComboBoxItem>
+                            <ComboBoxItem>27</ComboBoxItem>
+                            <ComboBoxItem>28</ComboBoxItem>
+                            <ComboBoxItem>29</ComboBoxItem>
+                            <ComboBoxItem>30</ComboBoxItem>
+                            <ComboBoxItem>31</ComboBoxItem>
+                            <ComboBoxItem>32</ComboBoxItem>
+                            <ComboBoxItem>33</ComboBoxItem>
+                            <ComboBoxItem>34</ComboBoxItem>
+                            <ComboBoxItem>35</ComboBoxItem>
+                            <ComboBoxItem>36</ComboBoxItem>
+                            <ComboBoxItem>37</ComboBoxItem>
+                            <ComboBoxItem>38</ComboBoxItem>
+                            <ComboBoxItem>39</ComboBoxItem>
+                            <ComboBoxItem>40</ComboBoxItem>
+                            <ComboBoxItem>41</ComboBoxItem>
+                            <ComboBoxItem>42</ComboBoxItem>
+                            <ComboBoxItem>43</ComboBoxItem>
+                            <ComboBoxItem>44</ComboBoxItem>
+                            <ComboBoxItem>45</ComboBoxItem>
+                            <ComboBoxItem>46</ComboBoxItem>
+                            <ComboBoxItem>47</ComboBoxItem>
+                            <ComboBoxItem>48</ComboBoxItem>
+                            <ComboBoxItem>49</ComboBoxItem>
+                            <ComboBoxItem>50</ComboBoxItem>
+                            <ComboBoxItem>51</ComboBoxItem>
+                            <ComboBoxItem>52</ComboBoxItem>
+                            <ComboBoxItem>53</ComboBoxItem>
+                            <ComboBoxItem>54</ComboBoxItem>
+                            <ComboBoxItem>55</ComboBoxItem>
+                            <ComboBoxItem>56</ComboBoxItem>
+                            <ComboBoxItem>57</ComboBoxItem>
+                            <ComboBoxItem>58</ComboBoxItem>
+                            <ComboBoxItem>59</ComboBoxItem>
+                        </ComboBox>
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="0" Name="border13" Background="White" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0" Padding="4" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}" Content="{DynamicResource TrainingListView.TimeType}"></Label>
-                </Border>
-                <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border14" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_18" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox2}">
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border14" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_18" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox2}">
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
                         </ComboBox>
-                </Border>
-            </Grid>
+                    </Border>
+                </Grid>
 
-            <!--第三个器材-->
-            <Grid Grid.Row="2" Grid.Column="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                <!--第三个器材-->
+                <Grid Grid.Row="2" Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" VerticalContentAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top"  Height="21" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}" Content="{DynamicResource TrainingListView.#ofSets}"></Label>
-                </Border>
-                <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_21"  IsTabStop="False" Height="21" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_21"  IsTabStop="False" Height="21" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
+                    </Border>
 
-                <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" IsTabStop="False" VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}" Content="{DynamicResource TrainingListView.Reps}"></Label>
-                </Border>
-                <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_22" IsTabStop="False"  Height="21"  IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_22" IsTabStop="False"  Height="21"  IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
+                    </Border>
 
-                <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White"  Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0"  VerticalAlignment="Bottom" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}" Content="{DynamicResource TrainingListView.Resttime}"></Label>
-                </Border>
-                <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,3,10,0.2">
-                    <ComboBox Name="combobox_23" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,3,10,0.2">
+                        <ComboBox Name="combobox_23" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
+                    </Border>
 
-                <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0" Padding="4" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}" Content="{DynamicResource TrainingListView.Weight}"></Label>
-                </Border>
-                <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,3.2,10,0">
-                    <ComboBox Name="combobox_24" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,3.2,10,0">
+                        <ComboBox Name="combobox_24" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
+                    </Border>
 
-                <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}" Content="{DynamicResource TrainingListView.Transfer}"></Label>
-                </Border>
-                <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_25" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_25" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
+                    </Border>
 
-                <Border Grid.Row="5" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="5" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}" Content="{DynamicResource TrainingListView.Timer}"></Label>
-                </Border>
-                <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_26" IsTabStop="False" Height="21"  DropDownClosed="select_change3"  IsEnabled="{Binding IsChecked, ElementName=checkbox3}">
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                    </Border>
+                    <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_26" IsTabStop="False" Height="21"  DropDownClosed="select_change3"  IsEnabled="{Binding IsChecked, ElementName=checkbox3}">
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
                         </ComboBox>
-                </Border>
-                <Border Grid.Row="6" Grid.Column="0" Name="border21" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="0" Name="border21" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}" Content="{DynamicResource TrainingListView.TimerCount}"></Label>
-                </Border>
-                <Border Grid.Row="6" Grid.Column="1" Name="border22" Background="White" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_27" IsTabStop="False"  Height="21"  Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox3}">
-                        <ComboBoxItem>1</ComboBoxItem>
-                        <ComboBoxItem>2</ComboBoxItem>
-                        <ComboBoxItem>3</ComboBoxItem>
-                        <ComboBoxItem>4</ComboBoxItem>
-                        <ComboBoxItem>5</ComboBoxItem>
-                        <ComboBoxItem>6</ComboBoxItem>
-                        <ComboBoxItem>7</ComboBoxItem>
-                        <ComboBoxItem>8</ComboBoxItem>
-                        <ComboBoxItem>9</ComboBoxItem>
-                        <ComboBoxItem>10</ComboBoxItem>
-                        <ComboBoxItem>11</ComboBoxItem>
-                        <ComboBoxItem>12</ComboBoxItem>
-                        <ComboBoxItem>13</ComboBoxItem>
-                        <ComboBoxItem>14</ComboBoxItem>
-                        <ComboBoxItem>15</ComboBoxItem>
-                        <ComboBoxItem>16</ComboBoxItem>
-                        <ComboBoxItem>17</ComboBoxItem>
-                        <ComboBoxItem>18</ComboBoxItem>
-                        <ComboBoxItem>19</ComboBoxItem>
-                        <ComboBoxItem>20</ComboBoxItem>
-                        <ComboBoxItem>21</ComboBoxItem>
-                        <ComboBoxItem>22</ComboBoxItem>
-                        <ComboBoxItem>23</ComboBoxItem>
-                        <ComboBoxItem>24</ComboBoxItem>
-                        <ComboBoxItem>25</ComboBoxItem>
-                        <ComboBoxItem>26</ComboBoxItem>
-                        <ComboBoxItem>27</ComboBoxItem>
-                        <ComboBoxItem>28</ComboBoxItem>
-                        <ComboBoxItem>29</ComboBoxItem>
-                        <ComboBoxItem>30</ComboBoxItem>
-                        <ComboBoxItem>31</ComboBoxItem>
-                        <ComboBoxItem>32</ComboBoxItem>
-                        <ComboBoxItem>33</ComboBoxItem>
-                        <ComboBoxItem>34</ComboBoxItem>
-                        <ComboBoxItem>35</ComboBoxItem>
-                        <ComboBoxItem>36</ComboBoxItem>
-                        <ComboBoxItem>37</ComboBoxItem>
-                        <ComboBoxItem>38</ComboBoxItem>
-                        <ComboBoxItem>39</ComboBoxItem>
-                        <ComboBoxItem>40</ComboBoxItem>
-                        <ComboBoxItem>41</ComboBoxItem>
-                        <ComboBoxItem>42</ComboBoxItem>
-                        <ComboBoxItem>43</ComboBoxItem>
-                        <ComboBoxItem>44</ComboBoxItem>
-                        <ComboBoxItem>45</ComboBoxItem>
-                        <ComboBoxItem>46</ComboBoxItem>
-                        <ComboBoxItem>47</ComboBoxItem>
-                        <ComboBoxItem>48</ComboBoxItem>
-                        <ComboBoxItem>49</ComboBoxItem>
-                        <ComboBoxItem>50</ComboBoxItem>
-                        <ComboBoxItem>51</ComboBoxItem>
-                        <ComboBoxItem>52</ComboBoxItem>
-                        <ComboBoxItem>53</ComboBoxItem>
-                        <ComboBoxItem>54</ComboBoxItem>
-                        <ComboBoxItem>55</ComboBoxItem>
-                        <ComboBoxItem>56</ComboBoxItem>
-                        <ComboBoxItem>57</ComboBoxItem>
-                        <ComboBoxItem>58</ComboBoxItem>
-                        <ComboBoxItem>59</ComboBoxItem>
-                    </ComboBox>
-                </Border>
-                <Border Grid.Row="7" Grid.Column="0" Name="border23" Background="White" Margin="10,3,0,0" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="1" Name="border22" Background="White" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_27" IsTabStop="False"  Height="21"  Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox3}">
+                            <ComboBoxItem>1</ComboBoxItem>
+                            <ComboBoxItem>2</ComboBoxItem>
+                            <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem>4</ComboBoxItem>
+                            <ComboBoxItem>5</ComboBoxItem>
+                            <ComboBoxItem>6</ComboBoxItem>
+                            <ComboBoxItem>7</ComboBoxItem>
+                            <ComboBoxItem>8</ComboBoxItem>
+                            <ComboBoxItem>9</ComboBoxItem>
+                            <ComboBoxItem>10</ComboBoxItem>
+                            <ComboBoxItem>11</ComboBoxItem>
+                            <ComboBoxItem>12</ComboBoxItem>
+                            <ComboBoxItem>13</ComboBoxItem>
+                            <ComboBoxItem>14</ComboBoxItem>
+                            <ComboBoxItem>15</ComboBoxItem>
+                            <ComboBoxItem>16</ComboBoxItem>
+                            <ComboBoxItem>17</ComboBoxItem>
+                            <ComboBoxItem>18</ComboBoxItem>
+                            <ComboBoxItem>19</ComboBoxItem>
+                            <ComboBoxItem>20</ComboBoxItem>
+                            <ComboBoxItem>21</ComboBoxItem>
+                            <ComboBoxItem>22</ComboBoxItem>
+                            <ComboBoxItem>23</ComboBoxItem>
+                            <ComboBoxItem>24</ComboBoxItem>
+                            <ComboBoxItem>25</ComboBoxItem>
+                            <ComboBoxItem>26</ComboBoxItem>
+                            <ComboBoxItem>27</ComboBoxItem>
+                            <ComboBoxItem>28</ComboBoxItem>
+                            <ComboBoxItem>29</ComboBoxItem>
+                            <ComboBoxItem>30</ComboBoxItem>
+                            <ComboBoxItem>31</ComboBoxItem>
+                            <ComboBoxItem>32</ComboBoxItem>
+                            <ComboBoxItem>33</ComboBoxItem>
+                            <ComboBoxItem>34</ComboBoxItem>
+                            <ComboBoxItem>35</ComboBoxItem>
+                            <ComboBoxItem>36</ComboBoxItem>
+                            <ComboBoxItem>37</ComboBoxItem>
+                            <ComboBoxItem>38</ComboBoxItem>
+                            <ComboBoxItem>39</ComboBoxItem>
+                            <ComboBoxItem>40</ComboBoxItem>
+                            <ComboBoxItem>41</ComboBoxItem>
+                            <ComboBoxItem>42</ComboBoxItem>
+                            <ComboBoxItem>43</ComboBoxItem>
+                            <ComboBoxItem>44</ComboBoxItem>
+                            <ComboBoxItem>45</ComboBoxItem>
+                            <ComboBoxItem>46</ComboBoxItem>
+                            <ComboBoxItem>47</ComboBoxItem>
+                            <ComboBoxItem>48</ComboBoxItem>
+                            <ComboBoxItem>49</ComboBoxItem>
+                            <ComboBoxItem>50</ComboBoxItem>
+                            <ComboBoxItem>51</ComboBoxItem>
+                            <ComboBoxItem>52</ComboBoxItem>
+                            <ComboBoxItem>53</ComboBoxItem>
+                            <ComboBoxItem>54</ComboBoxItem>
+                            <ComboBoxItem>55</ComboBoxItem>
+                            <ComboBoxItem>56</ComboBoxItem>
+                            <ComboBoxItem>57</ComboBoxItem>
+                            <ComboBoxItem>58</ComboBoxItem>
+                            <ComboBoxItem>59</ComboBoxItem>
+                        </ComboBox>
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="0" Name="border23" Background="White" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Padding="4" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}" Content="{DynamicResource TrainingListView.TimeType}"></Label>
-                </Border>
-                <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border24" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_28" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox3}">
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border24" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_28" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox3}">
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
                         </ComboBox>
-                </Border>
-            </Grid>
+                    </Border>
+                </Grid>
 
-            <!--第四个器材-->
-            <Grid Grid.Row="2" Grid.Column="3">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                <!--第四个器材-->
+                <Grid Grid.Row="2" Grid.Column="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" VerticalContentAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top"  Height="21" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}" Content="{DynamicResource TrainingListView.#ofSets}"></Label>
-                </Border>
-                <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_31"  IsTabStop="False" Height="21" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_31"  IsTabStop="False" Height="21" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
+                    </Border>
 
-                <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" IsTabStop="False" VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}" Content="{DynamicResource TrainingListView.Reps}"></Label>
-                </Border>
-                <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_32" IsTabStop="False"  Height="21"  IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_32" IsTabStop="False"  Height="21"  IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
+                    </Border>
 
-                <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White"  Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0"  VerticalAlignment="Bottom" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}" Content="{DynamicResource TrainingListView.Resttime}"></Label>
-                </Border>
-                <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,3,10,0.2">
-                    <ComboBox Name="combobox_33" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,3,10,0.2">
+                        <ComboBox Name="combobox_33" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
+                    </Border>
 
-                <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0" Padding="4" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}" Content="{DynamicResource TrainingListView.Weight}"></Label>
-                </Border>
-                <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_34" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_34" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
+                    </Border>
 
-                <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}" Content="{DynamicResource TrainingListView.Transfer}"></Label>
-                </Border>
-                <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_35" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_35" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
+                    </Border>
 
-                <Border Grid.Row="5" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="5" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}" Content="{DynamicResource TrainingListView.Timer}"></Label>
-                </Border>
-                <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_36" IsTabStop="False" Height="21"  DropDownClosed="select_change4"  IsEnabled="{Binding IsChecked, ElementName=checkbox4}">
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                    </Border>
+                    <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_36" IsTabStop="False" Height="21"  DropDownClosed="select_change4"  IsEnabled="{Binding IsChecked, ElementName=checkbox4}">
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
                         </ComboBox>
-                </Border>
-                <Border Grid.Row="6" Grid.Column="0" Name="border31" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="0" Name="border31" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}" Content="{DynamicResource TrainingListView.TimerCount}"></Label>
-                </Border>
-                <Border Grid.Row="6" Grid.Column="1" Name="border32" Background="White" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_37" IsTabStop="False"  Height="21"   Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox4}">
-                        <ComboBoxItem>1</ComboBoxItem>
-                        <ComboBoxItem>2</ComboBoxItem>
-                        <ComboBoxItem>3</ComboBoxItem>
-                        <ComboBoxItem>4</ComboBoxItem>
-                        <ComboBoxItem>5</ComboBoxItem>
-                        <ComboBoxItem>6</ComboBoxItem>
-                        <ComboBoxItem>7</ComboBoxItem>
-                        <ComboBoxItem>8</ComboBoxItem>
-                        <ComboBoxItem>9</ComboBoxItem>
-                        <ComboBoxItem>10</ComboBoxItem>
-                        <ComboBoxItem>11</ComboBoxItem>
-                        <ComboBoxItem>12</ComboBoxItem>
-                        <ComboBoxItem>13</ComboBoxItem>
-                        <ComboBoxItem>14</ComboBoxItem>
-                        <ComboBoxItem>15</ComboBoxItem>
-                        <ComboBoxItem>16</ComboBoxItem>
-                        <ComboBoxItem>17</ComboBoxItem>
-                        <ComboBoxItem>18</ComboBoxItem>
-                        <ComboBoxItem>19</ComboBoxItem>
-                        <ComboBoxItem>20</ComboBoxItem>
-                        <ComboBoxItem>21</ComboBoxItem>
-                        <ComboBoxItem>22</ComboBoxItem>
-                        <ComboBoxItem>23</ComboBoxItem>
-                        <ComboBoxItem>24</ComboBoxItem>
-                        <ComboBoxItem>25</ComboBoxItem>
-                        <ComboBoxItem>26</ComboBoxItem>
-                        <ComboBoxItem>27</ComboBoxItem>
-                        <ComboBoxItem>28</ComboBoxItem>
-                        <ComboBoxItem>29</ComboBoxItem>
-                        <ComboBoxItem>30</ComboBoxItem>
-                        <ComboBoxItem>31</ComboBoxItem>
-                        <ComboBoxItem>32</ComboBoxItem>
-                        <ComboBoxItem>33</ComboBoxItem>
-                        <ComboBoxItem>34</ComboBoxItem>
-                        <ComboBoxItem>35</ComboBoxItem>
-                        <ComboBoxItem>36</ComboBoxItem>
-                        <ComboBoxItem>37</ComboBoxItem>
-                        <ComboBoxItem>38</ComboBoxItem>
-                        <ComboBoxItem>39</ComboBoxItem>
-                        <ComboBoxItem>40</ComboBoxItem>
-                        <ComboBoxItem>41</ComboBoxItem>
-                        <ComboBoxItem>42</ComboBoxItem>
-                        <ComboBoxItem>43</ComboBoxItem>
-                        <ComboBoxItem>44</ComboBoxItem>
-                        <ComboBoxItem>45</ComboBoxItem>
-                        <ComboBoxItem>46</ComboBoxItem>
-                        <ComboBoxItem>47</ComboBoxItem>
-                        <ComboBoxItem>48</ComboBoxItem>
-                        <ComboBoxItem>49</ComboBoxItem>
-                        <ComboBoxItem>50</ComboBoxItem>
-                        <ComboBoxItem>51</ComboBoxItem>
-                        <ComboBoxItem>52</ComboBoxItem>
-                        <ComboBoxItem>53</ComboBoxItem>
-                        <ComboBoxItem>54</ComboBoxItem>
-                        <ComboBoxItem>55</ComboBoxItem>
-                        <ComboBoxItem>56</ComboBoxItem>
-                        <ComboBoxItem>57</ComboBoxItem>
-                        <ComboBoxItem>58</ComboBoxItem>
-                        <ComboBoxItem>59</ComboBoxItem>
-                    </ComboBox>
-                </Border>
-                <Border Grid.Row="7" Grid.Column="0" Name="border33" Background="White" Margin="10,3,0,0" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="1" Name="border32" Background="White" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_37" IsTabStop="False"  Height="21"   Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox4}">
+                            <ComboBoxItem>1</ComboBoxItem>
+                            <ComboBoxItem>2</ComboBoxItem>
+                            <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem>4</ComboBoxItem>
+                            <ComboBoxItem>5</ComboBoxItem>
+                            <ComboBoxItem>6</ComboBoxItem>
+                            <ComboBoxItem>7</ComboBoxItem>
+                            <ComboBoxItem>8</ComboBoxItem>
+                            <ComboBoxItem>9</ComboBoxItem>
+                            <ComboBoxItem>10</ComboBoxItem>
+                            <ComboBoxItem>11</ComboBoxItem>
+                            <ComboBoxItem>12</ComboBoxItem>
+                            <ComboBoxItem>13</ComboBoxItem>
+                            <ComboBoxItem>14</ComboBoxItem>
+                            <ComboBoxItem>15</ComboBoxItem>
+                            <ComboBoxItem>16</ComboBoxItem>
+                            <ComboBoxItem>17</ComboBoxItem>
+                            <ComboBoxItem>18</ComboBoxItem>
+                            <ComboBoxItem>19</ComboBoxItem>
+                            <ComboBoxItem>20</ComboBoxItem>
+                            <ComboBoxItem>21</ComboBoxItem>
+                            <ComboBoxItem>22</ComboBoxItem>
+                            <ComboBoxItem>23</ComboBoxItem>
+                            <ComboBoxItem>24</ComboBoxItem>
+                            <ComboBoxItem>25</ComboBoxItem>
+                            <ComboBoxItem>26</ComboBoxItem>
+                            <ComboBoxItem>27</ComboBoxItem>
+                            <ComboBoxItem>28</ComboBoxItem>
+                            <ComboBoxItem>29</ComboBoxItem>
+                            <ComboBoxItem>30</ComboBoxItem>
+                            <ComboBoxItem>31</ComboBoxItem>
+                            <ComboBoxItem>32</ComboBoxItem>
+                            <ComboBoxItem>33</ComboBoxItem>
+                            <ComboBoxItem>34</ComboBoxItem>
+                            <ComboBoxItem>35</ComboBoxItem>
+                            <ComboBoxItem>36</ComboBoxItem>
+                            <ComboBoxItem>37</ComboBoxItem>
+                            <ComboBoxItem>38</ComboBoxItem>
+                            <ComboBoxItem>39</ComboBoxItem>
+                            <ComboBoxItem>40</ComboBoxItem>
+                            <ComboBoxItem>41</ComboBoxItem>
+                            <ComboBoxItem>42</ComboBoxItem>
+                            <ComboBoxItem>43</ComboBoxItem>
+                            <ComboBoxItem>44</ComboBoxItem>
+                            <ComboBoxItem>45</ComboBoxItem>
+                            <ComboBoxItem>46</ComboBoxItem>
+                            <ComboBoxItem>47</ComboBoxItem>
+                            <ComboBoxItem>48</ComboBoxItem>
+                            <ComboBoxItem>49</ComboBoxItem>
+                            <ComboBoxItem>50</ComboBoxItem>
+                            <ComboBoxItem>51</ComboBoxItem>
+                            <ComboBoxItem>52</ComboBoxItem>
+                            <ComboBoxItem>53</ComboBoxItem>
+                            <ComboBoxItem>54</ComboBoxItem>
+                            <ComboBoxItem>55</ComboBoxItem>
+                            <ComboBoxItem>56</ComboBoxItem>
+                            <ComboBoxItem>57</ComboBoxItem>
+                            <ComboBoxItem>58</ComboBoxItem>
+                            <ComboBoxItem>59</ComboBoxItem>
+                        </ComboBox>
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="0" Name="border33" Background="White" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Padding="4" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}" Content="{DynamicResource TrainingListView.TimeType}"></Label>
-                </Border>
-                <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border34" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_38" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox4}">
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border34" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_38" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox4}">
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
                         </ComboBox>
-                </Border>
-            </Grid>
+                    </Border>
+                </Grid>
 
-            <!--第五个器材-->
-            <Grid Grid.Row="2" Grid.Column="4">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                <!--第五个器材-->
+                <Grid Grid.Row="2" Grid.Column="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" VerticalContentAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top"  Height="21" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}" Content="{DynamicResource TrainingListView.#ofSets}"></Label>
-                </Border>
-                <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_41"  IsTabStop="False" Height="21" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_41"  IsTabStop="False" Height="21" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
+                    </Border>
 
-                <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" IsTabStop="False" VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}" Content="{DynamicResource TrainingListView.Reps}"></Label>
-                </Border>
-                <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_42" IsTabStop="False"  Height="21"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_42" IsTabStop="False"  Height="21"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
+                    </Border>
 
-                <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White"  Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0"  VerticalAlignment="Bottom" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}" Content="{DynamicResource TrainingListView.Resttime}"></Label>
-                </Border>
-                <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,3,10,0.2">
-                    <ComboBox Name="combobox_43" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,3,10,0.2">
+                        <ComboBox Name="combobox_43" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
+                    </Border>
 
-                <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Padding="4" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}" Content="{DynamicResource TrainingListView.Weight}"></Label>
-                </Border>
-                <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_44" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_44" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
+                    </Border>
 
-                <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}" Content="{DynamicResource TrainingListView.Transfer}"></Label>
-                </Border>
-                <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_45" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_45" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
+                    </Border>
 
-                <Border Grid.Row="5" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="5" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}" Content="{DynamicResource TrainingListView.Timer}"></Label>
-                </Border>
-                <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_46" IsTabStop="False" Height="21"  DropDownClosed="select_change5"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}">
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                    </Border>
+                    <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_46" IsTabStop="False" Height="21"  DropDownClosed="select_change5"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}">
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
                         </ComboBox>
-                </Border>
-                <Border Grid.Row="6" Grid.Column="0" Name="border41" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="0" Name="border41" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}" Content="{DynamicResource TrainingListView.TimerCount}"></Label>
-                </Border>
-                <Border Grid.Row="6" Grid.Column="1" Name="border42" Background="White" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_47" IsTabStop="False"  Height="21"  Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox5}">
-                        <ComboBoxItem>1</ComboBoxItem>
-                        <ComboBoxItem>2</ComboBoxItem>
-                        <ComboBoxItem>3</ComboBoxItem>
-                        <ComboBoxItem>4</ComboBoxItem>
-                        <ComboBoxItem>5</ComboBoxItem>
-                        <ComboBoxItem>6</ComboBoxItem>
-                        <ComboBoxItem>7</ComboBoxItem>
-                        <ComboBoxItem>8</ComboBoxItem>
-                        <ComboBoxItem>9</ComboBoxItem>
-                        <ComboBoxItem>10</ComboBoxItem>
-                        <ComboBoxItem>11</ComboBoxItem>
-                        <ComboBoxItem>12</ComboBoxItem>
-                        <ComboBoxItem>13</ComboBoxItem>
-                        <ComboBoxItem>14</ComboBoxItem>
-                        <ComboBoxItem>15</ComboBoxItem>
-                        <ComboBoxItem>16</ComboBoxItem>
-                        <ComboBoxItem>17</ComboBoxItem>
-                        <ComboBoxItem>18</ComboBoxItem>
-                        <ComboBoxItem>19</ComboBoxItem>
-                        <ComboBoxItem>20</ComboBoxItem>
-                        <ComboBoxItem>21</ComboBoxItem>
-                        <ComboBoxItem>22</ComboBoxItem>
-                        <ComboBoxItem>23</ComboBoxItem>
-                        <ComboBoxItem>24</ComboBoxItem>
-                        <ComboBoxItem>25</ComboBoxItem>
-                        <ComboBoxItem>26</ComboBoxItem>
-                        <ComboBoxItem>27</ComboBoxItem>
-                        <ComboBoxItem>28</ComboBoxItem>
-                        <ComboBoxItem>29</ComboBoxItem>
-                        <ComboBoxItem>30</ComboBoxItem>
-                        <ComboBoxItem>31</ComboBoxItem>
-                        <ComboBoxItem>32</ComboBoxItem>
-                        <ComboBoxItem>33</ComboBoxItem>
-                        <ComboBoxItem>34</ComboBoxItem>
-                        <ComboBoxItem>35</ComboBoxItem>
-                        <ComboBoxItem>36</ComboBoxItem>
-                        <ComboBoxItem>37</ComboBoxItem>
-                        <ComboBoxItem>38</ComboBoxItem>
-                        <ComboBoxItem>39</ComboBoxItem>
-                        <ComboBoxItem>40</ComboBoxItem>
-                        <ComboBoxItem>41</ComboBoxItem>
-                        <ComboBoxItem>42</ComboBoxItem>
-                        <ComboBoxItem>43</ComboBoxItem>
-                        <ComboBoxItem>44</ComboBoxItem>
-                        <ComboBoxItem>45</ComboBoxItem>
-                        <ComboBoxItem>46</ComboBoxItem>
-                        <ComboBoxItem>47</ComboBoxItem>
-                        <ComboBoxItem>48</ComboBoxItem>
-                        <ComboBoxItem>49</ComboBoxItem>
-                        <ComboBoxItem>50</ComboBoxItem>
-                        <ComboBoxItem>51</ComboBoxItem>
-                        <ComboBoxItem>52</ComboBoxItem>
-                        <ComboBoxItem>53</ComboBoxItem>
-                        <ComboBoxItem>54</ComboBoxItem>
-                        <ComboBoxItem>55</ComboBoxItem>
-                        <ComboBoxItem>56</ComboBoxItem>
-                        <ComboBoxItem>57</ComboBoxItem>
-                        <ComboBoxItem>58</ComboBoxItem>
-                        <ComboBoxItem>59</ComboBoxItem>
-                    </ComboBox>
-                </Border>
-                <Border Grid.Row="7" Grid.Column="0" Name="border43" Background="White" Margin="10,3,0,0" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="1" Name="border42" Background="White" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_47" IsTabStop="False"  Height="21"  Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox5}">
+                            <ComboBoxItem>1</ComboBoxItem>
+                            <ComboBoxItem>2</ComboBoxItem>
+                            <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem>4</ComboBoxItem>
+                            <ComboBoxItem>5</ComboBoxItem>
+                            <ComboBoxItem>6</ComboBoxItem>
+                            <ComboBoxItem>7</ComboBoxItem>
+                            <ComboBoxItem>8</ComboBoxItem>
+                            <ComboBoxItem>9</ComboBoxItem>
+                            <ComboBoxItem>10</ComboBoxItem>
+                            <ComboBoxItem>11</ComboBoxItem>
+                            <ComboBoxItem>12</ComboBoxItem>
+                            <ComboBoxItem>13</ComboBoxItem>
+                            <ComboBoxItem>14</ComboBoxItem>
+                            <ComboBoxItem>15</ComboBoxItem>
+                            <ComboBoxItem>16</ComboBoxItem>
+                            <ComboBoxItem>17</ComboBoxItem>
+                            <ComboBoxItem>18</ComboBoxItem>
+                            <ComboBoxItem>19</ComboBoxItem>
+                            <ComboBoxItem>20</ComboBoxItem>
+                            <ComboBoxItem>21</ComboBoxItem>
+                            <ComboBoxItem>22</ComboBoxItem>
+                            <ComboBoxItem>23</ComboBoxItem>
+                            <ComboBoxItem>24</ComboBoxItem>
+                            <ComboBoxItem>25</ComboBoxItem>
+                            <ComboBoxItem>26</ComboBoxItem>
+                            <ComboBoxItem>27</ComboBoxItem>
+                            <ComboBoxItem>28</ComboBoxItem>
+                            <ComboBoxItem>29</ComboBoxItem>
+                            <ComboBoxItem>30</ComboBoxItem>
+                            <ComboBoxItem>31</ComboBoxItem>
+                            <ComboBoxItem>32</ComboBoxItem>
+                            <ComboBoxItem>33</ComboBoxItem>
+                            <ComboBoxItem>34</ComboBoxItem>
+                            <ComboBoxItem>35</ComboBoxItem>
+                            <ComboBoxItem>36</ComboBoxItem>
+                            <ComboBoxItem>37</ComboBoxItem>
+                            <ComboBoxItem>38</ComboBoxItem>
+                            <ComboBoxItem>39</ComboBoxItem>
+                            <ComboBoxItem>40</ComboBoxItem>
+                            <ComboBoxItem>41</ComboBoxItem>
+                            <ComboBoxItem>42</ComboBoxItem>
+                            <ComboBoxItem>43</ComboBoxItem>
+                            <ComboBoxItem>44</ComboBoxItem>
+                            <ComboBoxItem>45</ComboBoxItem>
+                            <ComboBoxItem>46</ComboBoxItem>
+                            <ComboBoxItem>47</ComboBoxItem>
+                            <ComboBoxItem>48</ComboBoxItem>
+                            <ComboBoxItem>49</ComboBoxItem>
+                            <ComboBoxItem>50</ComboBoxItem>
+                            <ComboBoxItem>51</ComboBoxItem>
+                            <ComboBoxItem>52</ComboBoxItem>
+                            <ComboBoxItem>53</ComboBoxItem>
+                            <ComboBoxItem>54</ComboBoxItem>
+                            <ComboBoxItem>55</ComboBoxItem>
+                            <ComboBoxItem>56</ComboBoxItem>
+                            <ComboBoxItem>57</ComboBoxItem>
+                            <ComboBoxItem>58</ComboBoxItem>
+                            <ComboBoxItem>59</ComboBoxItem>
+                        </ComboBox>
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="0" Name="border43" Background="White" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Padding="4" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}" Content="{DynamicResource TrainingListView.TimeType}"></Label>
-                </Border>
-                <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border44" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_48" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox5}">
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border44" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_48" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox5}">
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
                         </ComboBox>
-                </Border>
-            </Grid>
+                    </Border>
+                </Grid>
 
-            <!--第六个器材-->
-            <Grid Grid.Row="2" Grid.Column="5">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                <!--第六个器材-->
+                <Grid Grid.Row="2" Grid.Column="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" VerticalContentAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top"  Height="21" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.#ofSets}"></Label>
-                </Border>
-                <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_51"  IsTabStop="False" Height="21" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_51"  IsTabStop="False" Height="21" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
+                    </Border>
 
-                <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" IsTabStop="False" VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.Reps}"></Label>
-                </Border>
-                <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_52" IsTabStop="False"  Height="21"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_52" IsTabStop="False"  Height="21"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
+                    </Border>
 
-                <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White"  Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0"  VerticalAlignment="Bottom" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.Resttime}"></Label>
-                </Border>
-                <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,3,10,0.2">
-                    <ComboBox Name="combobox_53" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="1" Background="Gray" Margin="10,3,10,0.2">
+                        <ComboBox Name="combobox_53" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
+                    </Border>
 
-                <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="3" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0" Padding="4" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.Weight}"></Label>
-                </Border>
-                <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_54" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_54" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
+                    </Border>
 
-                <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.Transfer}"></Label>
-                </Border>
-                <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_55" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
-                </Border>
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_55" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
+                    </Border>
 
-                <Border Grid.Row="5" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                    <Border Grid.Row="5" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.Timer}"></Label>
-                </Border>
-                <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_56" IsTabStop="False" Height="21"  DropDownClosed="select_change6"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                    </Border>
+                    <Border Grid.Row="5" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_56" IsTabStop="False" Height="21"  DropDownClosed="select_change6"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
                         </ComboBox>
-                </Border>
-                <Border Grid.Row="6" Grid.Column="0" Name="border51" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="0" Name="border51" Background="White" Margin="10,3,0.2,0" Height="22" Grid.RowSpan="2" VerticalAlignment="Top" >
                         <Label  FontSize="10" Foreground="White" Height="21" VerticalContentAlignment="Center" Margin="0,0,0,0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.TimerCount}"></Label>
-                </Border>
-                <Border Grid.Row="6" Grid.Column="1" Name="border52" Background="White" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_57" IsTabStop="False"  Height="21"   Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
-                        <ComboBoxItem>1</ComboBoxItem>
-                        <ComboBoxItem>2</ComboBoxItem>
-                        <ComboBoxItem>3</ComboBoxItem>
-                        <ComboBoxItem>4</ComboBoxItem>
-                        <ComboBoxItem>5</ComboBoxItem>
-                        <ComboBoxItem>6</ComboBoxItem>
-                        <ComboBoxItem>7</ComboBoxItem>
-                        <ComboBoxItem>8</ComboBoxItem>
-                        <ComboBoxItem>9</ComboBoxItem>
-                        <ComboBoxItem>10</ComboBoxItem>
-                        <ComboBoxItem>11</ComboBoxItem>
-                        <ComboBoxItem>12</ComboBoxItem>
-                        <ComboBoxItem>13</ComboBoxItem>
-                        <ComboBoxItem>14</ComboBoxItem>
-                        <ComboBoxItem>15</ComboBoxItem>
-                        <ComboBoxItem>16</ComboBoxItem>
-                        <ComboBoxItem>17</ComboBoxItem>
-                        <ComboBoxItem>18</ComboBoxItem>
-                        <ComboBoxItem>19</ComboBoxItem>
-                        <ComboBoxItem>20</ComboBoxItem>
-                        <ComboBoxItem>21</ComboBoxItem>
-                        <ComboBoxItem>22</ComboBoxItem>
-                        <ComboBoxItem>23</ComboBoxItem>
-                        <ComboBoxItem>24</ComboBoxItem>
-                        <ComboBoxItem>25</ComboBoxItem>
-                        <ComboBoxItem>26</ComboBoxItem>
-                        <ComboBoxItem>27</ComboBoxItem>
-                        <ComboBoxItem>28</ComboBoxItem>
-                        <ComboBoxItem>29</ComboBoxItem>
-                        <ComboBoxItem>30</ComboBoxItem>
-                        <ComboBoxItem>31</ComboBoxItem>
-                        <ComboBoxItem>32</ComboBoxItem>
-                        <ComboBoxItem>33</ComboBoxItem>
-                        <ComboBoxItem>34</ComboBoxItem>
-                        <ComboBoxItem>35</ComboBoxItem>
-                        <ComboBoxItem>36</ComboBoxItem>
-                        <ComboBoxItem>37</ComboBoxItem>
-                        <ComboBoxItem>38</ComboBoxItem>
-                        <ComboBoxItem>39</ComboBoxItem>
-                        <ComboBoxItem>40</ComboBoxItem>
-                        <ComboBoxItem>41</ComboBoxItem>
-                        <ComboBoxItem>42</ComboBoxItem>
-                        <ComboBoxItem>43</ComboBoxItem>
-                        <ComboBoxItem>44</ComboBoxItem>
-                        <ComboBoxItem>45</ComboBoxItem>
-                        <ComboBoxItem>46</ComboBoxItem>
-                        <ComboBoxItem>47</ComboBoxItem>
-                        <ComboBoxItem>48</ComboBoxItem>
-                        <ComboBoxItem>49</ComboBoxItem>
-                        <ComboBoxItem>50</ComboBoxItem>
-                        <ComboBoxItem>51</ComboBoxItem>
-                        <ComboBoxItem>52</ComboBoxItem>
-                        <ComboBoxItem>53</ComboBoxItem>
-                        <ComboBoxItem>54</ComboBoxItem>
-                        <ComboBoxItem>55</ComboBoxItem>
-                        <ComboBoxItem>56</ComboBoxItem>
-                        <ComboBoxItem>57</ComboBoxItem>
-                        <ComboBoxItem>58</ComboBoxItem>
-                        <ComboBoxItem>59</ComboBoxItem>
-                    </ComboBox>
-                </Border>
-                <Border Grid.Row="7" Grid.Column="0" Name="border53" Background="White" Margin="10,3,0,0" >
-                        <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Padding="4" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.TimeType}"></Label>
-                </Border>
-                <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border54" Margin="10,3,10,0">
-                    <ComboBox Name="combobox_58" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
-                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                    </Border>
+                    <Border Grid.Row="6" Grid.Column="1" Name="border52" Background="White" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_57" IsTabStop="False"  Height="21"   Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
+                            <ComboBoxItem>1</ComboBoxItem>
+                            <ComboBoxItem>2</ComboBoxItem>
+                            <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem>4</ComboBoxItem>
+                            <ComboBoxItem>5</ComboBoxItem>
+                            <ComboBoxItem>6</ComboBoxItem>
+                            <ComboBoxItem>7</ComboBoxItem>
+                            <ComboBoxItem>8</ComboBoxItem>
+                            <ComboBoxItem>9</ComboBoxItem>
+                            <ComboBoxItem>10</ComboBoxItem>
+                            <ComboBoxItem>11</ComboBoxItem>
+                            <ComboBoxItem>12</ComboBoxItem>
+                            <ComboBoxItem>13</ComboBoxItem>
+                            <ComboBoxItem>14</ComboBoxItem>
+                            <ComboBoxItem>15</ComboBoxItem>
+                            <ComboBoxItem>16</ComboBoxItem>
+                            <ComboBoxItem>17</ComboBoxItem>
+                            <ComboBoxItem>18</ComboBoxItem>
+                            <ComboBoxItem>19</ComboBoxItem>
+                            <ComboBoxItem>20</ComboBoxItem>
+                            <ComboBoxItem>21</ComboBoxItem>
+                            <ComboBoxItem>22</ComboBoxItem>
+                            <ComboBoxItem>23</ComboBoxItem>
+                            <ComboBoxItem>24</ComboBoxItem>
+                            <ComboBoxItem>25</ComboBoxItem>
+                            <ComboBoxItem>26</ComboBoxItem>
+                            <ComboBoxItem>27</ComboBoxItem>
+                            <ComboBoxItem>28</ComboBoxItem>
+                            <ComboBoxItem>29</ComboBoxItem>
+                            <ComboBoxItem>30</ComboBoxItem>
+                            <ComboBoxItem>31</ComboBoxItem>
+                            <ComboBoxItem>32</ComboBoxItem>
+                            <ComboBoxItem>33</ComboBoxItem>
+                            <ComboBoxItem>34</ComboBoxItem>
+                            <ComboBoxItem>35</ComboBoxItem>
+                            <ComboBoxItem>36</ComboBoxItem>
+                            <ComboBoxItem>37</ComboBoxItem>
+                            <ComboBoxItem>38</ComboBoxItem>
+                            <ComboBoxItem>39</ComboBoxItem>
+                            <ComboBoxItem>40</ComboBoxItem>
+                            <ComboBoxItem>41</ComboBoxItem>
+                            <ComboBoxItem>42</ComboBoxItem>
+                            <ComboBoxItem>43</ComboBoxItem>
+                            <ComboBoxItem>44</ComboBoxItem>
+                            <ComboBoxItem>45</ComboBoxItem>
+                            <ComboBoxItem>46</ComboBoxItem>
+                            <ComboBoxItem>47</ComboBoxItem>
+                            <ComboBoxItem>48</ComboBoxItem>
+                            <ComboBoxItem>49</ComboBoxItem>
+                            <ComboBoxItem>50</ComboBoxItem>
+                            <ComboBoxItem>51</ComboBoxItem>
+                            <ComboBoxItem>52</ComboBoxItem>
+                            <ComboBoxItem>53</ComboBoxItem>
+                            <ComboBoxItem>54</ComboBoxItem>
+                            <ComboBoxItem>55</ComboBoxItem>
+                            <ComboBoxItem>56</ComboBoxItem>
+                            <ComboBoxItem>57</ComboBoxItem>
+                            <ComboBoxItem>58</ComboBoxItem>
+                            <ComboBoxItem>59</ComboBoxItem>
                         </ComboBox>
-                </Border>
-            </Grid>
-            <!--器材数据设置 结束-->
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="0" Name="border53" Background="White" Margin="10,3,0,0" >
+                        <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Padding="4" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.TimeType}"></Label>
+                    </Border>
+                    <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border54" Margin="10,3,10,0">
+                        <ComboBox Name="combobox_58" IsTabStop="False" Height="21"   SelectionChanged="select_change" Visibility="Hidden" IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                            <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                        </ComboBox>
+                    </Border>
+                </Grid>
+                <!--器材数据设置 结束-->
 
-            <!--备注 开始-->
-            <!--第一个-->
-            <StackPanel Grid.Row="2" Grid.Column="0" Margin="0,149.8,0.2,37.2" Name="stackpanel" Orientation="Vertical" Grid.RowSpan="2" >
-                <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border5">
+                <!--备注 开始-->
+                <!--第一个-->
+                <StackPanel Grid.Row="2" Grid.Column="0" Margin="0,149.8,0.2,37.2" Name="stackpanel" Orientation="Vertical" Grid.RowSpan="2" >
+                    <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border5">
                         <Label Content="{DynamicResource TrainingListView.TrainingCaution}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}"  Foreground="White" />
-                </Border>
+                    </Border>
                     <TextBox Name="t1" Height="170" Margin="10,0,10,3"  CaretBrush="Black" IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
-            </StackPanel>
+                </StackPanel>
 
-            <!--第二个-->
-            <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,149.8,0.2,37.2" Name="stackpanel2" Orientation="Vertical" Grid.RowSpan="2" >
-                <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border15">
+                <!--第二个-->
+                <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,149.8,0.2,37.2" Name="stackpanel2" Orientation="Vertical" Grid.RowSpan="2" >
+                    <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border15">
                         <Label Content="{DynamicResource TrainingListView.TrainingCaution}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}"  Foreground="White" />
-                </Border>
+                    </Border>
                     <TextBox Name="t2" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
-            </StackPanel>
-            <!--<StackPanel Grid.Row="3" Grid.Column="1" Orientation="Vertical">
+                </StackPanel>
+                <!--<StackPanel Grid.Row="3" Grid.Column="1" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
                     <Label Content="注意点、运动方法的指示等" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}"  Foreground="White" />
                 </Border>
                 <TextBox Name="t2" Height="174" Margin="10,0,10,3" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
             </StackPanel>-->
 
-            <!--第三个-->
-            <StackPanel Grid.Row="2" Grid.Column="2" Margin="0,149.8,0.2,37.2" Name="stackpanel3" Orientation="Vertical" Grid.RowSpan="2" >
-                <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border25">
+                <!--第三个-->
+                <StackPanel Grid.Row="2" Grid.Column="2" Margin="0,149.8,0.2,37.2" Name="stackpanel3" Orientation="Vertical" Grid.RowSpan="2" >
+                    <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border25">
                         <Label Content="{DynamicResource TrainingListView.TrainingCaution}"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}"  Foreground="White" />
-                </Border>
+                    </Border>
                     <TextBox Name="t3" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
-            </StackPanel>
-            <!--<StackPanel Grid.Row="3" Grid.Column="2" Orientation="Vertical">
+                </StackPanel>
+                <!--<StackPanel Grid.Row="3" Grid.Column="2" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
                     <Label Content="注意点、运动方法的指示等" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}"  Foreground="White" />
                 </Border>
                 <TextBox Name="t3" Height="174" Margin="10,0,10,3" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
             </StackPanel>-->
 
-            <!--第四个-->
-            <StackPanel Grid.Row="2" Grid.Column="3" Margin="0,149.8,0.2,37.2" Name="stackpanel4" Orientation="Vertical" Grid.RowSpan="2" >
-                <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border35">
+                <!--第四个-->
+                <StackPanel Grid.Row="2" Grid.Column="3" Margin="0,149.8,0.2,37.2" Name="stackpanel4" Orientation="Vertical" Grid.RowSpan="2" >
+                    <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border35">
                         <Label  Content="{DynamicResource TrainingListView.TrainingCaution}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}"  Foreground="White" />
-                </Border>
+                    </Border>
                     <TextBox Name="t4" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
-            </StackPanel>
-            <!--<StackPanel Grid.Row="3" Grid.Column="3" Orientation="Vertical">
+                </StackPanel>
+                <!--<StackPanel Grid.Row="3" Grid.Column="3" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
                     <Label Content="注意点、运动方法的指示等" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}"  Foreground="White" />
                 </Border>
                 <TextBox Name="t4" Height="174" Margin="10,0,10,3" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
             </StackPanel>-->
 
-            <!--第五个-->
-            <StackPanel Grid.Row="2" Grid.Column="4" Margin="0,149.8,0.2,37.2" Name="stackpanel5" Orientation="Vertical" Grid.RowSpan="2" >
-                <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border45">
+                <!--第五个-->
+                <StackPanel Grid.Row="2" Grid.Column="4" Margin="0,149.8,0.2,37.2" Name="stackpanel5" Orientation="Vertical" Grid.RowSpan="2" >
+                    <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border45">
                         <Label  Content="{DynamicResource TrainingListView.TrainingCaution}"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}"  Foreground="White" />
-                </Border>
+                    </Border>
                     <TextBox Name="t5" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
-            </StackPanel>
-            <!--<StackPanel Grid.Row="3" Grid.Column="4" Orientation="Vertical">
+                </StackPanel>
+                <!--<StackPanel Grid.Row="3" Grid.Column="4" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
                     <Label Content="注意点、运动方法的指示等" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}"  Foreground="White" />
                 </Border>
                 <TextBox Name="t5" Height="174" Margin="10,0,10,3" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
             </StackPanel>-->
 
-            <!--第六个-->
-            <StackPanel Grid.Row="2" Grid.Column="5" Margin="0,149.8,0.2,37.2" Name="stackpanel6" Orientation="Vertical" Grid.RowSpan="2" >
-                <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border55">
+                <!--第六个-->
+                <StackPanel Grid.Row="2" Grid.Column="5" Margin="0,149.8,0.2,37.2" Name="stackpanel6" Orientation="Vertical" Grid.RowSpan="2" >
+                    <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border55">
                         <Label  Content="{DynamicResource TrainingListView.TrainingCaution}"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}"  Foreground="White" />
-                </Border>
+                    </Border>
                     <TextBox Name="t6" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
-            </StackPanel>
-            <!--<StackPanel Grid.Row="3" Grid.Column="5" Orientation="Vertical">
+                </StackPanel>
+                <!--<StackPanel Grid.Row="3" Grid.Column="5" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
                     <Label Content="注意点、运动方法的指示等" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}"  Foreground="White" />
                 </Border>
-                --><!--<Label Content="注意点、运动方法的指示等" Background="Gray" Foreground="White" Margin="10,5,10,0"/>--><!--
+                -->
+                <!--<Label Content="注意点、运动方法的指示等" Background="Gray" Foreground="White" Margin="10,5,10,0"/>-->
+                <!--
                 <TextBox Name="t6" Height="174" Margin="10,0,10,3" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
             </StackPanel>-->
-            
-            <!--备注结束 -->
-        </Grid>
-        <!--Grid 使用器材选择 结束-->
-        <!-- 按钮排放位置-->
-        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="742" Height="41" VerticalAlignment="Bottom" Margin="0,0,9.6,0" >
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-                <!--<Button Width="140"  Height="25"  IsTabStop="False"  Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom">下一页</Button>-->
+
+                <!--备注结束 -->
+            </Grid>
+            <!--Grid 使用器材选择 结束-->
+            <!-- 按钮排放位置-->
+            <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="742" Height="41" VerticalAlignment="Bottom" Margin="0,0,9.6,0" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <!--<Button Width="140"  Height="25"  IsTabStop="False"  Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom">下一页</Button>-->
                     <Button Width="140"  Height="25" IsTabStop="False"   Margin="2,0,0,0"  RenderTransformOrigin="0.5,0.508" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Click_1"  Content="模拟写卡"></Button>
 
                     <Button Width="140"  Height="25" IsTabStop="False"   Margin="2,0,0,0"  RenderTransformOrigin="0.5,0.508" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Save"  Content="{DynamicResource TrainingListView.Save}"></Button>
                     <Button Width="140" Height="25"  IsTabStop="False"   Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="ButtonBase_OnClick" Name="Button_Write"  Content="{DynamicResource TrainingListView.WritetoCard}"></Button>
                     <Button Width="140" Height="25"  IsTabStop="False" Content="{DynamicResource TrainingListView.Cancel}" Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Cancel"/>
-                
-            </StackPanel>
-        </Border>
-        <!-- 结束：按钮排放位置-->
-    </StackPanel>
+
+                </StackPanel>
+            </Border>
+            <!-- 结束：按钮排放位置-->
+        </StackPanel>
     </Viewbox>
 </Window>
  
