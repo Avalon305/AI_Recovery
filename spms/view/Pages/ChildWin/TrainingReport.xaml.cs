@@ -191,7 +191,7 @@ namespace spms.view.Pages.ChildWin
                     }
 
                     //设置数据的高度
-                    for (int i = tableRow + 2; i <= tableRow + 1 + length; i++)
+                    for (int i = tableRow + 2; i <= tableRow + 11; i++)
                     {
                         worksheet.Row(i).Height = 25;
                     }
@@ -309,7 +309,7 @@ namespace spms.view.Pages.ChildWin
                     chart.Style = eChartStyle.Style15;
 
                     //备注
-                    int remarkRow = 40;
+                    int remarkRow = 41;
                     ExcelUtil.GenerateRemark(ref worksheet, remarkRow, ExcelUtil.GetObjContent(Current_User.User_PhysicalDisabilities));
                 }
 
@@ -612,6 +612,8 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Document_Type_Checked (object sender, RoutedEventArgs e)
         {
+            //清空之前选中的时间
+            selectedDate.Clear();
             if (is_comprehensiv.IsChecked == true || is_nurse.IsChecked == true)//训练报告或看护记录报告
             {
                 if (Current_User != null)
