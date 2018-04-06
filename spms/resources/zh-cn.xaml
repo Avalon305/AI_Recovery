@@ -53,6 +53,8 @@
     <s:String x:Key="SettingsView.Language">语言</s:String>
     <s:String x:Key="SettingsView.Chinese">中文</s:String>
     <s:String x:Key="SettingsView.English">英语</s:String>
+    <s:String x:Key="SettingsView.CurrentVersion">当前版本</s:String>
+    <s:String x:Key="SettingsView.OnlineUpgrade">在线升级</s:String>
     <s:String x:Key="SettingsView.Password">密码</s:String>
     <s:String x:Key="SettingsView.SetPassword">设置密码</s:String>
     <s:String x:Key="SettingsView.Current">当前密码</s:String>

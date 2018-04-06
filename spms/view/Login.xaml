@@ -158,7 +158,7 @@
                 </Border>
                 <Border Margin="1023,577,0,37.4">
                     <!--<Image  x:Name="DesignerHead4"  RenderTransformOrigin="0.4,0.5" Source="/view/images/5_6.png" Stretch="Fill" Width="225" Height="65" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">-->
-                    <Image  x:Name="DesignerHead4" Loaded="image_load"  RenderTransformOrigin="0.4,0.5" Source="/view/images/5_6.png" Stretch="Fill" Width="135" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,23,0,0">
+                    <Image  x:Name="DesignerHead4" Loaded="image_load"  RenderTransformOrigin="0.4,0.5" Source="/view/images/5_6.png" Stretch="Fill" Width="125" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,23,0,0">
                         <Image.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="1" ScaleY="1"  />

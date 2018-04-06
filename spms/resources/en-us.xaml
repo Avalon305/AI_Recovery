@@ -54,6 +54,8 @@
     <s:String x:Key="SettingsView.Language">Language</s:String>
     <s:String x:Key="SettingsView.Chinese">Chinese</s:String>
     <s:String x:Key="SettingsView.English">English</s:String>
+    <s:String x:Key="SettingsView.CurrentVersion">Current Version</s:String>
+    <s:String x:Key="SettingsView.OnlineUpgrade">Online Upgrade</s:String>
     <s:String x:Key="SettingsView.Password">Password</s:String>
     <s:String x:Key="SettingsView.SetPassword">Set Password</s:String>
     <s:String x:Key="SettingsView.Current">Current</s:String>

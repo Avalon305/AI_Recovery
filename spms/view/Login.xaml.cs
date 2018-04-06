@@ -250,7 +250,7 @@ namespace spms.view
                     DesignerHead4.Source = new BitmapImage(new Uri("/view/Images/5_6.png", UriKind.RelativeOrAbsolute));
                     DesignerHead4.Margin = new Thickness(99, 23, 0, 0);
                     DesignerHead4.Height = 25;
-                    DesignerHead4.Width = 135;
+                    DesignerHead4.Width = 125;
                     DesignerHead3.Height = 65;
                 }
                 else
