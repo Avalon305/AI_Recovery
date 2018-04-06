@@ -359,7 +359,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource Dev.HorizontalLegPress}" Width="115" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
+            <TabItem Header="{DynamicResource Dev.HorizontalLegPress}" Width="145" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="TrainingRecord5" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
                         <!--选中行失去焦点时的颜色-->

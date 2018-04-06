@@ -6,6 +6,7 @@ using spms.util;
 using spms.view;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -112,6 +113,22 @@ namespace spms
         {
             var a = new AuthDAO().GetByAuthLevel(2);
             MessageBox.Show(a.User_Status.ToString());
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+            //空格分隔
+            /*
+                当前版本号（0.9.0.0）
+                升级的版本号（1.0.0.0）
+                更新说明URL（https://github.com/WELL-E）
+                更新包文件URL（ http://localhost:9090/UpdateFile.zip）
+                更新后文件释放路径（E:\PlatformPath）
+                更新包文件MD5码（2b406701f8ad92922feb537fc789561a）
+           
+             */
+            string args = "0.12.2 1.0.0 http://github.com http://localhost:9090/UpdateFile.zip E:\\pppl 2b406701f8ad92922feb537fc789561a";
+            Process.Start("AutoUpdater.exe", args);
         }
     }
 }

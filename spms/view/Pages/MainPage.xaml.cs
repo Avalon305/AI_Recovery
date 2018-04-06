@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -97,7 +98,10 @@ namespace spms.view.Pages
         private void Grid_Click(object sender, MouseButtonEventArgs e)
         {
             ifSelecUser = true;
+            
+            id.Content = UsersInfo.SelectedIndex + 1;//使用者详细信息展示框id设置
             selectUser = (User)UsersInfo.SelectedItem;
+            
             //UserInfo
             UserInfo.DataContext = selectUser;
             string path = null;
@@ -854,12 +858,12 @@ namespace spms.view.Pages
                 MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
-            if (trainDto == null)
-            {
-                //判断是否选择了训练信息
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择训练信息再进行操作！", "Please Select A Train Info!"));
-                return;
-            }
+            //if (trainDto == null)
+            //{
+            //    //判断是否选择了训练信息
+            //    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择训练信息再进行操作！", "Please Select A Train Info!"));
+            //    return;
+            //}
 
             InputSymptomInformation w2 = new InputSymptomInformation
             {
@@ -870,7 +874,7 @@ namespace spms.view.Pages
             };
             Dictionary<string, Object> dic = new Dictionary<string, object>();
             dic.Add("user", user);
-            dic.Add("trainDto", trainDto);
+            //dic.Add("trainDto", trainDto);
             w2.DataContext = dic;
             w2.ShowDialog();
             Refresh_RecordFrame_Action();
@@ -1014,28 +1018,26 @@ namespace spms.view.Pages
 
         private void image_load(object sender, RoutedEventArgs e)
         {
-            List<spms.entity.Setter> all = new SetterDAO().ListAll();
-            if (all != null && all.Count != 0)
+            //加载图片
+            if (LanguageUtils.IsChainese())
             {
-                if (all[0].Set_Language == 0)
-                {
-                    DesignerHead4.Source = new BitmapImage(new Uri("/view/Images/5_5.png", UriKind.RelativeOrAbsolute));
-                    DesignerHead4.Margin = new Thickness(97, 18, 0, 0);
-                    DesignerHead4.Height = 25;
-                    DesignerHead4.Width = 136;
-                    DesignerHead3.Height = 60;
-                    subhead.FontSize = 15;
-                }
+                DesignerHead4.Source = new BitmapImage(new Uri("/view/Images/6.png", UriKind.RelativeOrAbsolute));
+                DesignerHead4.Margin = new Thickness(10, 0, 0, 0);
+                DesignerHead4.Height = 60;
+                DesignerHead4.Width = 225;
+                DesignerHead3.Height = 70;
+                subhead.FontSize = 18;
+            }
                 else
                 {
-                    DesignerHead4.Source = new BitmapImage(new Uri("/view/Images/6.png", UriKind.RelativeOrAbsolute));
-                    DesignerHead4.Margin = new Thickness(10, 0, 0, 0);
-                    DesignerHead4.Height = 60;
-                    DesignerHead4.Width = 225;
-                    DesignerHead3.Height = 70;
-                    subhead.FontSize = 18;
+                DesignerHead4.Source = new BitmapImage(new Uri("/view/Images/5_5.png", UriKind.RelativeOrAbsolute));
+                DesignerHead4.Margin = new Thickness(97, 18, 0, 0);
+                DesignerHead4.Height = 25;
+                DesignerHead4.Width = 136;
+                DesignerHead3.Height = 60;
+                subhead.FontSize = 15;
+               
                 }
             }
         }
     }
-}

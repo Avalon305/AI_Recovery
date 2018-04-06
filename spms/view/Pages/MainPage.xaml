@@ -328,7 +328,7 @@
                                 </Grid.RowDefinitions>
                                 <Label Grid.Row="0" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.SubjectID}"></Label>
                                 <Label Grid.Row="0" Grid.Column="1" Margin="0,0,0,-6">:</Label>
-                                <Label Grid.Row="0" Grid.Column="2" Content="{Binding Pk_User_Id}" Margin="0,0,0,-4"></Label>
+                                <Label Grid.Row="0" Grid.Column="2" Name="id" Margin="0,0,0,-4"></Label>
                                 <Label Grid.Row="1" Grid.Column="0" Margin="0,0,0,-6" Content="{DynamicResource SubjectInfoView.LastName}"></Label>
                                 <Label Grid.Row="1" Grid.Column="1" Margin="0,0,0,-6">:</Label>
                                 <Label Grid.Row="1" Grid.Column="2" Content="{Binding User_Name}" Margin="0,0,0,-6"></Label>

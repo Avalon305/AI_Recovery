@@ -31,7 +31,7 @@
 
                     <!--</StackPanel>-->
                     <!--</Border>-->
-                    <Image Name="title_pic" Source="/view\Images\bdl.PNG" Stretch="UniformToFill" Height="180" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,10,-179.2" Width="1255"   />
+                    <Image Name="title_pic" Source="/view\Images\img6.jpg" Stretch="Fill" Height="180" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,10,-179.2" Width="1255"   />
                         <!--<Image Name="title_pic" Source="/view\Images\q.jpg" Stretch="Fill" Loaded="image_load" Height="180" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,10,-179.2" Width="1255"   />-->
                         <Button Width="80" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" IsTabStop="False"  Foreground="Black" Content="{DynamicResource SettingsView.Return}"  Click="GoBack" Style="{StaticResource Btn}" Margin="0,24,40,-58.2"/>
 
@@ -76,7 +76,8 @@
                     <RowDefinition Height="25"/>
                     <RowDefinition Height="25"/>
                     <RowDefinition Height="25"/>
-                    <!-- <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <!-- <RowDefinition Height="25"/>
                     <RowDefinition Height="25"/>
                     <RowDefinition Height="25"/>-->
                 </Grid.RowDefinitions>
@@ -140,7 +141,16 @@
                     </ComboBox>
                 </Border>
                 <!--结束：语言-->
-                <!--
+                    <Border Grid.Row="4" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,0,0,2">
+                        <Label Foreground="White" VerticalContentAlignment="Center" Background="Black" Content="当前版本"></Label>
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="1"  Margin="0,0,0,2">
+                        <TextBox VerticalContentAlignment="Center"  IsEnabled="False" ></TextBox>
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="2"  Margin="2,0,0,2">
+                        <Button Click="upgrade" IsTabStop="False" Style="{StaticResource Btn}" Content="在线升级"></Button>
+                    </Border>
+                    <!--
                 <Border Grid.Row="6" Grid.Column="0" Padding="5" Width="140" HorizontalAlignment="Left">
                     <Label Foreground="White" Background="Black">密码</Label>
                 </Border>
@@ -198,7 +208,7 @@
 
         <StackPanel Orientation="Horizontal" >
             <!--小组名称-->
-            <DataGrid DataGridRow.MouseUp="Grid_Group_Click" KeyboardNavigation.TabNavigation="None"  x:Name="DataGrid2" HorizontalAlignment="Left" RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+            <DataGrid DataGridRow.MouseUp="Grid_Group_Click" KeyboardNavigation.TabNavigation="None" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" x:Name="DataGrid2" HorizontalAlignment="Left" RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="10,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
                 <!--选中行失去焦点-->
                 <DataGrid.Resources>
                     <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>
@@ -223,7 +233,7 @@
             </DataGrid>
             <!--结束小组名称-->
             <!--疾病名称-->
-            <DataGrid x:Name="DataGrid3"  DataGridRow.MouseUp="Grid_Disease_Click" KeyboardNavigation.TabNavigation="None" HorizontalAlignment="Left"  RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+                <DataGrid x:Name="DataGrid3"  DataGridRow.MouseUp="Grid_Disease_Click" KeyboardNavigation.TabNavigation="None" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
                 <!--选中行失去焦点-->
                 <DataGrid.Resources>
                     <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>
@@ -248,7 +258,7 @@
             </DataGrid>
             <!--结束：疾病名称-->
             <!--残障名称-->
-            <DataGrid x:Name="DataGrid4" DataGridRow.MouseUp="Grid_Diagnosis_Click" KeyboardNavigation.TabNavigation="None" HorizontalAlignment="Left"  RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+                <DataGrid x:Name="DataGrid4" DataGridRow.MouseUp="Grid_Diagnosis_Click" KeyboardNavigation.TabNavigation="None" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
                 <!--选中行失去焦点-->
                 <DataGrid.Resources>
                     <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>

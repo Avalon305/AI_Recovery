@@ -171,7 +171,7 @@ namespace spms.view.Pages.ChildWin
             }
             else
             {
-               bmcpy.Save(CommUtil.GetUserPic() + "haha" + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
+               bmcpy.Save(CommUtil.GetUserPic() +  photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
             }
 
 

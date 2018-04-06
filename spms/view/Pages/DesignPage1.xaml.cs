@@ -62,7 +62,7 @@ namespace spms.view.Pages
             else
             {
                 //TODO 英文图片
-                title_pic.Source = new BitmapImage(new Uri(@"\view\Images\bdl.PNG", UriKind.Relative));
+                title_pic.Source = new BitmapImage(new Uri(@"\view\Images\img6.jpg", UriKind.Relative));
             }
             entity.Setter setter = new entity.Setter();
             //setter.Pk_Set_Id = 5;
@@ -425,9 +425,18 @@ namespace spms.view.Pages
             {
                 if (all[0].Set_Language == 0)
                 {
-                    title_pic.Source = new BitmapImage(new Uri("/view/Images/q.jpg", UriKind.RelativeOrAbsolute));
+                    title_pic.Source = new BitmapImage(new Uri("/view/Images/p.jpg", UriKind.RelativeOrAbsolute));
+                }
+                else
+                {
+                    title_pic.Source = new BitmapImage(new Uri("/view/Images/p.jpg", UriKind.RelativeOrAbsolute));
                 }
             }
+        }
+
+        private void upgrade(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
