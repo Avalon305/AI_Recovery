@@ -209,6 +209,7 @@
     <s:String x:Key="VitalInfoView.SubjectID">Subject ID</s:String>
     <s:String x:Key="VitalInfoView.LastName">Last Name</s:String>
     <s:String x:Key="VitalInfoView.Date">Date</s:String>
+    <s:String x:Key="VitalInfoView.TrainInfo">Train Info</s:String>
     <s:String x:Key="VitalInfoView.BeforeRehab">Before Rehab</s:String>
     <s:String x:Key="VitalInfoView.AfterRehab">After Rehab</s:String>
     <s:String x:Key="VitalInfoView.BP">BP(mmHg)</s:String>
@@ -239,6 +240,7 @@
 
     <!-- 输入训练界面 -->
     <s:String x:Key="TrainingListView.TrainingList">Training List</s:String>
+    <s:String x:Key="TrainingListView.SympInfo">Symptom Info</s:String>
     <s:String x:Key="TrainingListView.SubjectID">Subject ID</s:String>
     <s:String x:Key="TrainingListView.LastName">Last Name</s:String>
     <s:String x:Key="TrainingListView.#ofSets"># of Sets</s:String>
@@ -331,6 +333,7 @@
     <s:String x:Key="CreateTrainingReportView.SubjectID">Subject ID</s:String>
     <s:String x:Key="CreateTrainingReportView.LastName">Last Name</s:String>
     <s:String x:Key="CreateTrainingReportView.Date">Date</s:String>
+    <s:String x:Key="CreateTrainingReportView.SelectDate">SelectDate</s:String>
     <s:String x:Key="CreateTrainingReportView.Comment">Comment</s:String>
     <s:String x:Key="CreateTrainingReportView.Export">Export</s:String>
     <s:String x:Key="CreateTrainingReportView.Output">Output</s:String>

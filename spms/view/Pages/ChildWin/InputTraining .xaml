@@ -107,7 +107,9 @@ ResizeMode="NoResize"
                 <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource TrainingListView.SubjectID}" Margin="0,-6,120.4,15.6" Grid.RowSpan="2"/>
             <Label Grid.Row="0"  Margin="79,-6,0.2,15.6" Name="l2" Content="{Binding User_Name}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 <Label Grid.Column="0"  Content="{DynamicResource TrainingListView.LastName}" Margin="0,11,120.4,-1.4" Grid.RowSpan="2"/>
-            <Label  Margin="79,11,0.2,-1.4" Name="l1" Grid.ColumnSpan="2" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2"/>
+                <Label Content="{DynamicResource TrainingListView.SympInfo}" Height="25" Margin="1000,0,0,0" Background="Gray" Foreground="White" Width="80"/>
+                <ComboBox ItemsSource="{Binding SymptomInfo,Mode=OneWay}" DisplayMemberPath="Gmt_Create" SelectedValuePath="Pk_SI_Id" SelectedItem="{Binding SymptomInfo}" Margin="1200,0,0,0"  Name="symp" Height="25" Width="131" />
+                <Label  Margin="79,11,0.2,-1.4" Name="l1" Grid.ColumnSpan="2" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2"/>
         </Grid>
         <!--Grid 使用者信息展示 结束-->
 
