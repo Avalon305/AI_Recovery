@@ -552,7 +552,11 @@ namespace spms.view.Pages.ChildWin
                 if (Current_User != null)
                 {
                     List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(Current_User.Pk_User_Id);
-                    datalist.DataContext = list;
+                    trainingAndSymptomBeans = list;//赋值全局
+                    //更新数据
+                    DateTime? startTime = getDateByStr(start_date.Text); 
+                    DateTime? endTime = getDateByStr(end_date.Text);
+                    datalist.DataContext = listBeansByStartToEndTime(startTime, endTime);
                 }
 
                 //修改输出文档的名称
@@ -589,8 +593,11 @@ namespace spms.view.Pages.ChildWin
                 if (Current_User != null)
                 {
                     List<DevicePrescriptionExcel> list = excelService.ListTrainingDetailByUserId(Current_User.Pk_User_Id);
-                    Console.WriteLine(list.ToString());
-                    datalist.DataContext = list;
+                    devicePrescriptionExcels = list;//赋值全局
+                    //更新数据
+                    DateTime? startTime = getDateByStr(start_date.Text);
+                    DateTime? endTime = getDateByStr(end_date.Text);
+                    datalist.DataContext = listBeansByStartToEndTime(startTime, endTime);
                 }
 
                 //修改输出文档的名称
@@ -692,6 +699,139 @@ namespace spms.view.Pages.ChildWin
                 Keyboard.ClearFocus();
             }
 
+        }
+
+        //所有的训练信息
+        public List<TrainingAndSymptomBean> trainingAndSymptomBeans { get; set; }
+        //所有的看护记录
+        public List<DevicePrescriptionExcel> devicePrescriptionExcels { get; set; }
+        /// <summary>
+        /// 开始时间
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void start_date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //时间范围 - 开始时间
+            DateTime startTime = Convert.ToDateTime(start_date.Text);
+            DateTime? endTime = getDateByStr(end_date.Text);
+
+            if (endTime != null)
+            {
+                if (DateTime.Compare(startTime, (DateTime)endTime) > 0)
+                {
+                    MessageBox.Show("起始时间不能大于终止时间");
+                }
+            }
+
+            datalist.DataContext = listBeansByStartToEndTime(startTime, endTime);
+        }
+
+        //结束时间
+        private void end_date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //时间范围 - 开始时间
+            DateTime endTime = Convert.ToDateTime(end_date.Text);
+            DateTime? startTime = getDateByStr(start_date.Text);
+
+            if (startTime != null)
+            {
+                if (DateTime.Compare(endTime, (DateTime)startTime) < 0)
+                {
+                    MessageBox.Show("终止时间不能小于起始时间");
+                }
+            }
+
+            datalist.DataContext = listBeansByStartToEndTime(startTime, endTime);
+        }
+
+        private DateTime? getDateByStr(string time)
+        {
+            if (time != "")
+            {
+                return (DateTime?)(Convert.ToDateTime(time));
+            }
+            return null;
+        }
+
+        public List<object> listBeansByStartToEndTime(DateTime? startTime, DateTime? endTime)
+        {
+            List<object> newList = new List<object>();
+            if (is_comprehensiv.IsChecked == true || is_nurse.IsChecked == true)
+            {
+                if (Current_User != null)
+                {
+                    for (int i = 0; i < trainingAndSymptomBeans.Count; i++)
+                    {
+                        //判断选中哪些时间
+                        //记录的时间
+                        DateTime gmt_Create = (DateTime)trainingAndSymptomBeans[i].Gmt_Create;
+                        if (startTime != null && endTime == null)
+                        {
+                            if (DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0)
+                            {
+                                newList.Add(trainingAndSymptomBeans[i]);
+                            }
+                        }
+                        else if (startTime == null && endTime != null)
+                        {
+                            if (DateTime.Compare((DateTime)endTime, gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
+                            {
+                                newList.Add(trainingAndSymptomBeans[i]);
+                            }
+                        }
+                        else if (startTime != null && endTime != null)
+                        {
+                            if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, (DateTime)endTime) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
+                            {
+                                 newList.Add(trainingAndSymptomBeans[i]);
+                            }
+                        }
+                        else
+                        {
+                            newList.Add(trainingAndSymptomBeans[i]);
+                        }
+                    }
+                }
+            }
+            else if (is_detail.IsChecked == true)
+            {
+                if (Current_User != null)
+                {
+                    for (int i = 0; i < devicePrescriptionExcels.Count; i++)
+                    {
+                        //判断选中哪些时间
+                        //记录的时间
+                        DateTime gmt_Create = (DateTime)devicePrescriptionExcels[i].Gmt_Create;
+                        if (startTime != null && endTime == null)
+                        {
+                            if (DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0)
+                            {
+                                newList.Add(devicePrescriptionExcels[i]);
+                            }
+                        }
+                        else if (startTime == null && endTime != null)
+                        {
+                            if (DateTime.Compare((DateTime)endTime, gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
+                            {
+                                newList.Add(devicePrescriptionExcels[i]);
+                            }
+                        }
+                        else if (startTime != null && endTime != null)
+                        {
+                            if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, (DateTime)endTime) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
+                            {
+                                newList.Add(devicePrescriptionExcels[i]);
+                            }
+                        }
+                        else
+                        {
+                            newList.Add(devicePrescriptionExcels[i]);
+                        }
+                    }
+                }
+            }
+            return newList;
         }
     }
 }
