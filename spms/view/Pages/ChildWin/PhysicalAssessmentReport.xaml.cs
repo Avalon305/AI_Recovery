@@ -109,6 +109,23 @@ namespace spms.view.Pages.ChildWin
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 int pageSize = list.Count % count == 0 ? list.Count / count : (list.Count / count) + 1;
+
+                if (pageSize == 0)
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment"));
+
+                    int tableRow = 11;
+                    int length = list.Count;
+                    //设置所有的行高
+                    for (int i = 1; i <= tableRow + 14; i++)
+                    {
+                        worksheet.Row(i).Height = 20;
+                    }
+
+                    int userRow = 4;
+                    ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment"), Current_User);
+                }
+
                 for (int j = 0; j < pageSize; j++)
                 {
 

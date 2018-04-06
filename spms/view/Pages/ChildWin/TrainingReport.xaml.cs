@@ -160,6 +160,23 @@ namespace spms.view.Pages.ChildWin
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 int pageSize = list.Count % count == 0 ? list.Count / count : (list.Count / count) + 1;
+
+                if (pageSize == 0)
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("训练报告", "Training report"));
+
+                    int tableRow = 12;
+                    int length = list.Count;
+                    //设置所有的行高
+                    for (int i = 1; i <= tableRow; i++)
+                    {
+                        worksheet.Row(i).Height = 20;
+                    }
+
+                    int userRow = 4;
+                    ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("训练报告", "Training report"), Current_User);
+                }
+
                 for (int j=0; j<pageSize; j++)
                 {
 
@@ -321,6 +338,22 @@ namespace spms.view.Pages.ChildWin
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 int pageSize = list.Count % count == 0 ? list.Count / count : (list.Count / count) + 1;
+
+                if (pageSize == 0)
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("详细训练报告", "Detailed report"));
+
+                    int tableRow = 11;
+                    int length = list.Count;
+                    //设置所有的行高
+                    for (int i = 1; i <= tableRow; i++)
+                    {
+                        worksheet.Row(i).Height = 20;
+                    }
+                    int userRow = 4;
+                    ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("详细训练报告", "Detailed report"), Current_User);
+                }
+
                 for (int j = 0; j < pageSize; j++)
                 {
                     ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("详细训练报告"+j, "Detailed report" + j));
@@ -427,6 +460,23 @@ namespace spms.view.Pages.ChildWin
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
                 int pageSize = list.Count % count == 0 ? list.Count / count : (list.Count / count) + 1;
+
+                if (pageSize == 0)
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("看护记录报告", "Care record report"));
+
+                    int tableRow = 12;
+                    int length = list.Count;
+                    //设置所有的行高
+                    for (int i = 1; i <= tableRow + length * 2 + 2; i++)
+                    {
+                        worksheet.Row(i).Height = 20;
+                    }
+
+                    int userRow = 4;
+                    ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("看护记录报告", "Care record report"), Current_User);
+                }
+
                 for (int j = 0; j < pageSize; j++)
                 {
                     ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("看护记录报告"+j, "Care record report"+j));
