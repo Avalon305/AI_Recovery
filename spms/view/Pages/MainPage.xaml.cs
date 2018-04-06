@@ -476,7 +476,7 @@ namespace spms.view.Pages
         private void MakeReport(object sender, RoutedEventArgs e)
         {
             //打开训练报告
-            if (is_signinformationrecord.IsChecked == true)
+            if (is_signinformationrecord.IsChecked == true || is_trainingrecord.IsChecked == true)
             {
                 TrainingReport trainingReport = new TrainingReport
                 {

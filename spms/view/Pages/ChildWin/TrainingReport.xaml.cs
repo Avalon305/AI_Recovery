@@ -156,141 +156,145 @@ namespace spms.view.Pages.ChildWin
             }
 
             FileInfo newFile = ExcelUtil.GetExcelFile();
+            int count = 10;//包含的数据条数
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("训练报告");
-
-                int tableRow = 12;
-                int length = list.Count;
-                //设置所有的行高
-                for (int i = 1; i <= tableRow; i++)
+                int pageSize = list.Count % count == 0 ? list.Count / count : (list.Count / count) + 1;
+                for (int j=0; j<pageSize; j++)
                 {
-                    worksheet.Row(i).Height = 20;
+
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("训练报告" + j, "Training report" + j));
+
+                    int tableRow = 12;
+                    int length = list.Count;
+                    //设置所有的行高
+                    for (int i = 1; i <= tableRow; i++)
+                    {
+                        worksheet.Row(i).Height = 20;
+                    }
+
+                    //设置数据的高度
+                    for (int i = tableRow + 2; i <= tableRow + 1 + length; i++)
+                    {
+                        worksheet.Row(i).Height = 25;
+                    }
+
+                    int userRow = 4;
+                    ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("训练报告", "Training report"), Current_User);
+
+                    /*
+                        2.设置实施状况的表格
+                     */
+                    worksheet.Cells[userRow + 7, 1, userRow + 7, 2].Merge = true;
+                    worksheet.Cells[userRow + 7, 1].Value = LanguageUtils.ConvertLanguage("实施状况", "Status");
+                    using (ExcelRange range = worksheet.Cells[userRow + 7, 1, userRow + 7, 2])
+                    {
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        range.Style.Font.Bold = true;
+                        range.Style.Font.Name = "等线";
+                        range.Style.Font.Size = 11;
+                        range.Style.Font.Color.SetColor(System.Drawing.Color.White);
+                        range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(0, 0, 139));
+                        //设置边框
+                        range.Style.Border.BorderAround(ExcelBorderStyle.Thin);
+                    }
+                    //设置表头
+                    worksheet.Cells[tableRow, 1, tableRow + 1, 2].Merge = true;
+                    worksheet.Cells[tableRow, 3, tableRow, 4].Merge = true;
+                    worksheet.Cells[tableRow, 1, tableRow + 1, 2].Merge = true;
+                    worksheet.Cells[tableRow, 5, tableRow + 1, 5].Merge = true;
+                    worksheet.Cells[tableRow, 6, tableRow + 1, 6].Merge = true;
+                    worksheet.Cells[tableRow, 7, tableRow + 1, 7].Merge = true;
+                    worksheet.Cells[tableRow, 8, tableRow + 1, 8].Merge = true;
+                    worksheet.Cells[tableRow, 9, tableRow + 1, 11].Merge = true;
+                    worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("实施日期", "Date");
+                    worksheet.Cells[tableRow, 3].Value = LanguageUtils.ConvertLanguage("血压", "Blood pressure");
+                    worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("水分摄取量", "Moisture intake");
+                    worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("平均指数", "Average index");
+                    worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("总运动时间", "Total exercise time");
+                    worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("总消耗热量", "Total calories consumed");
+                    worksheet.Cells[tableRow, 9].Value = LanguageUtils.ConvertLanguage("看护记录", "Care record");
+                    worksheet.Cells[tableRow + 1, 3].Value = LanguageUtils.ConvertLanguage("运动前", "Before exercise");
+                    worksheet.Cells[tableRow + 1, 4].Value = LanguageUtils.ConvertLanguage("运动后", "After exercise");
+
+                    using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + 1, 11])
+                    {
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        //range.Style.Font.Bold = true;
+                        range.Style.Font.Name = "等线";
+                        range.Style.Font.Size = 11;
+                        range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(255, 240, 244));
+                    }
+
+
+                    for (int i = 0,k=j* count; k < (j + 1) * count && k < list.Count; i++,k++)
+                    {
+                        Console.WriteLine(k);
+                        //表头行+两个表头
+                        int row = tableRow + 2 + i;
+                        worksheet.Cells[row, 1, row, 2].Merge = true;
+                        worksheet.Cells[row, 9, row, 11].Merge = true;
+                        worksheet.Cells[row, 1].Value = ((DateTime)list[k].Gmt_Create).ToString();
+                        worksheet.Cells[row, 3].Value = list[k].SI_Pre_HighPressure + "/" + list[k].SI_Pre_LowPressure;
+                        worksheet.Cells[row, 4].Value = list[k].SI_Suf_HighPressure + "/" + list[k].SI_Suf_LowPressure;
+                        worksheet.Cells[row, 5].Value = list[k].SI_WaterInput;
+                        worksheet.Cells[row, 6].Value = list[k].PR_Index;
+                        worksheet.Cells[row, 7].Value = list[k].PR_Time2 - list[i].PR_Time1;
+                        worksheet.Cells[row, 8].Value = list[k].PR_Cal;
+                        worksheet.Cells[row, 9].Value = list[k].SI_CareInfo;
+                    }
+
+                    int borderRows = (j + 1) * count < list.Count ? count : list.Count - j * count;
+                    using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + 1 + borderRows, 11])
+                    {
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        range.Style.Font.Bold = true;
+                        range.Style.Font.Name = "等线";
+                        range.Style.Font.Size = 10;
+                        //设置边框
+                        range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    }
+
+                    //图表
+                    //定义数据源
+                    ExcelChart chart = worksheet.Drawings.AddChart("chart", eChartType.LineMarkersStacked);
+                    //Y轴数据源，X轴数据源
+                    var cs2 = chart.PlotArea.ChartTypes.Add(eChartType.Line);
+                    var s = cs2.Series.Add(worksheet.Cells[tableRow + 2, 6, tableRow + 1 + length, 6], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + length, 2]);
+                    s.Border.Fill.Color = System.Drawing.Color.Red;
+                    s.HeaderAddress = worksheet.Cells[tableRow, 6];
+                    var cs3 = chart.PlotArea.ChartTypes.Add(eChartType.Line);
+                    s = cs3.Series.Add(worksheet.Cells[tableRow + 2, 7, tableRow + 1 + length, 7], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + length, 2]);
+                    s.HeaderAddress = worksheet.Cells[tableRow, 7];
+                    s.Border.Fill.Color = System.Drawing.Color.Green;
+                    cs3.UseSecondaryAxis = true;
+                    var cs4 = chart.PlotArea.ChartTypes.Add(eChartType.Line);
+                    s = cs4.Series.Add(worksheet.Cells[tableRow + 2, 8, tableRow + 1 + length, 8], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + length, 2]);
+                    s.HeaderAddress = worksheet.Cells[tableRow, 8];
+                    s.Border.Fill.Color = System.Drawing.Color.Blue;
+                    cs4.UseSecondaryAxis = true;
+
+                    //图表的相关设置
+                    chart.SetPosition(24, 0, 0, 0);
+                    chart.SetSize(726, 300);
+                    chart.Title.Text = LanguageUtils.ConvertLanguage("实施报告", "Implementation report");
+                    chart.Title.Font.Color = System.Drawing.Color.FromArgb(89, 89, 89);
+                    chart.Title.Font.Size = 15;
+                    chart.Title.Font.Bold = true;
+                    chart.Style = eChartStyle.Style15;
+
+                    //备注
+                    int remarkRow = 40;
+                    ExcelUtil.GenerateRemark(ref worksheet, remarkRow, ExcelUtil.GetObjContent(Current_User.User_PhysicalDisabilities));
                 }
-
-                //设置数据的高度
-                for (int i = tableRow + 2; i <= tableRow + 2 + length; i++)
-                {
-                    worksheet.Row(i).Height = 25;
-                }
-
-                int userRow = 4;
-                ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("训练报告", "Training report"), Current_User);
-
-                /*
-                    2.设置实施状况的表格
-                 */
-                worksheet.Cells[userRow + 7, 1, userRow + 7, 2].Merge = true;
-                worksheet.Cells[userRow + 7, 1].Value = LanguageUtils.ConvertLanguage("实施状况", "Status");
-                using (ExcelRange range = worksheet.Cells[userRow + 7, 1, userRow + 7, 2])
-                {
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    range.Style.Font.Bold = true;
-                    range.Style.Font.Name = "等线";
-                    range.Style.Font.Size = 11;
-                    range.Style.Font.Color.SetColor(System.Drawing.Color.White);
-                    range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(0, 0, 139));
-                    //设置边框
-                    range.Style.Border.BorderAround(ExcelBorderStyle.Thin);
-                }
-                //设置表头
-                worksheet.Cells[tableRow, 1, tableRow + 1, 2].Merge = true;
-                worksheet.Cells[tableRow, 3, tableRow, 4].Merge = true;
-                worksheet.Cells[tableRow, 1, tableRow + 1, 2].Merge = true;
-                worksheet.Cells[tableRow, 5, tableRow + 1, 5].Merge = true;
-                worksheet.Cells[tableRow, 6, tableRow + 1, 6].Merge = true;
-                worksheet.Cells[tableRow, 7, tableRow + 1, 7].Merge = true;
-                worksheet.Cells[tableRow, 8, tableRow + 1, 8].Merge = true;
-                worksheet.Cells[tableRow, 9, tableRow + 1, 11].Merge = true;
-                worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("实施日期", "Date"); 
-                worksheet.Cells[tableRow, 3].Value = LanguageUtils.ConvertLanguage("血压", "Blood pressure");
-                worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("水分摄取量", "Moisture intake");
-                worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("平均指数", "Average index");
-                worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("总运动时间", "Total exercise time");
-                worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("总消耗热量", "Total calories consumed");
-                worksheet.Cells[tableRow, 9].Value = LanguageUtils.ConvertLanguage("看护记录", "Care record");
-                worksheet.Cells[tableRow + 1, 3].Value = LanguageUtils.ConvertLanguage("运动前", "Before exercise");
-                worksheet.Cells[tableRow + 1, 4].Value = LanguageUtils.ConvertLanguage("运动后", "After exercise");
-
-                using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + 1, 11])
-                {
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    //range.Style.Font.Bold = true;
-                    range.Style.Font.Name = "等线";
-                    range.Style.Font.Size = 11;
-                    range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(255, 240, 244));
-                }
-
-
-                for (int i = 0; i < length; i++)
-                {
-                    //表头行+两个表头
-                    int row = tableRow + 2 + i;
-                    worksheet.Cells[row, 1, row, 2].Merge = true;
-                    worksheet.Cells[row, 9, row, 11].Merge = true;
-                    worksheet.Cells[row, 1].Value = ((DateTime)list[i].Gmt_Create).ToString();
-                    worksheet.Cells[row, 3].Value = list[i].SI_Pre_HighPressure + "/" + list[i].SI_Pre_LowPressure;
-                    worksheet.Cells[row, 4].Value = list[i].SI_Suf_HighPressure + "/" + list[i].SI_Suf_LowPressure;
-                    worksheet.Cells[row, 5].Value = list[i].SI_WaterInput;
-                    worksheet.Cells[row, 6].Value = list[i].PR_Index;
-                    worksheet.Cells[row, 7].Value = list[i].PR_Time2 - list[i].PR_Time1;
-                    worksheet.Cells[row, 8].Value = list[i].PR_Cal;
-                    worksheet.Cells[row, 9].Value = list[i].SI_CareInfo;
-                }
-
-
-                using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + 1 + list.Count, 11])
-                {
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    range.Style.Font.Bold = true;
-                    range.Style.Font.Name = "等线";
-                    range.Style.Font.Size = 10;
-                    //设置边框
-                    range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                }
-
-                //图表
-                //定义数据源
-                ExcelChart chart = worksheet.Drawings.AddChart("chart", eChartType.LineMarkersStacked);
-                //Y轴数据源，X轴数据源
-                var cs2 = chart.PlotArea.ChartTypes.Add(eChartType.Line);
-                var s = cs2.Series.Add(worksheet.Cells[tableRow + 2, 6, tableRow + 1 + length, 6], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + length, 2]);
-                s.Border.Fill.Color = System.Drawing.Color.Red;
-                s.HeaderAddress = worksheet.Cells[tableRow, 6];
-                var cs3 = chart.PlotArea.ChartTypes.Add(eChartType.Line);
-                s = cs3.Series.Add(worksheet.Cells[tableRow + 2, 7, tableRow + 1 + length, 7], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + length, 2]);
-                s.HeaderAddress = worksheet.Cells[tableRow, 7];
-                s.Border.Fill.Color = System.Drawing.Color.Green;
-                cs3.UseSecondaryAxis = true;
-                var cs4 = chart.PlotArea.ChartTypes.Add(eChartType.Line);
-                s = cs4.Series.Add(worksheet.Cells[tableRow + 2, 8, tableRow + 1 + length, 8], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + length, 2]);
-                s.HeaderAddress = worksheet.Cells[tableRow, 8];
-                s.Border.Fill.Color = System.Drawing.Color.Blue;
-                cs4.UseSecondaryAxis = true;
-
-                //图表的相关设置
-                chart.SetPosition(29, 0, 0, 0);
-                chart.SetSize(726, 300);
-                chart.Title.Text = LanguageUtils.ConvertLanguage("实施报告", "Implementation report");
-                chart.Title.Font.Color = System.Drawing.Color.FromArgb(89, 89, 89);
-                chart.Title.Font.Size = 15;
-                chart.Title.Font.Bold = true;
-                chart.Style = eChartStyle.Style15;
-                //chart.Legend.Border.LineStyle = eLineStyle.Solid;
-                //chart.Legend.Border.Fill.Color = Color.FromArgb(217, 217, 217);
-
-                //备注
-                int remarkRow = 46;
-                //TODO
-                ExcelUtil.GenerateRemark(ref worksheet, remarkRow, ExcelUtil.GetObjContent(Current_User.User_PhysicalDisabilities));
 
                 //保存
                 package.Save();
@@ -313,77 +317,82 @@ namespace spms.view.Pages.ChildWin
                 }
             }
             FileInfo newFile = ExcelUtil.GetExcelFile();
+            int count = 22;//包含的数据条数
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("详细训练报告", "Detailed report"));
-
-                int tableRow = 11;
-                int length = list.Count;
-                //设置所有的行高
-                for (int i = 1; i <= tableRow; i++)
+                int pageSize = list.Count % count == 0 ? list.Count / count : (list.Count / count) + 1;
+                for (int j = 0; j < pageSize; j++)
                 {
-                    worksheet.Row(i).Height = 20;
-                }
-                for (int i = tableRow; i <= tableRow + length; i++)
-                {
-                    worksheet.Row(i).Height = 25;
-                }
-                int userRow = 4;
-                ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("详细训练报告", "Detailed report"), Current_User);
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("详细训练报告"+j, "Detailed report" + j));
 
-                worksheet.Cells[tableRow, 1, tableRow, 3].Merge = true;//合并单元格
-                worksheet.Cells[tableRow, 10, tableRow, 11].Merge = true;//合并单元格
-                worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("器械名称", "Device name");
-                worksheet.Cells[tableRow, 4].Value = LanguageUtils.ConvertLanguage("实施日期", "Date");
-                worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("移乘方法", "Transfer method"); 
-                worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("砝码", "Weights");
-                worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("组数", "Groups");
-                worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("个数", "Number");
-                worksheet.Cells[tableRow, 9].Value = "Borg";
-                worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("动作时机、姿势等", "Movement timing,posture..");
+                    int tableRow = 11;
+                    int length = list.Count;
+                    //设置所有的行高
+                    for (int i = 1; i <= tableRow; i++)
+                    {
+                        worksheet.Row(i).Height = 20;
+                    }
+                    for (int i = tableRow; i <= tableRow + length; i++)
+                    {
+                        worksheet.Row(i).Height = 25;
+                    }
+                    int userRow = 4;
+                    ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("详细训练报告", "Detailed report"), Current_User);
 
-                using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow, 11])
-                {
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    //range.Style.Font.Bold = true;
-                    range.Style.Font.Name = "等线";
-                    range.Style.Font.Size = 11;
-                    range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(255, 240, 244));
-                }
+                    worksheet.Cells[tableRow, 1, tableRow, 3].Merge = true;//合并单元格
+                    worksheet.Cells[tableRow, 10, tableRow, 11].Merge = true;//合并单元格
+                    worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("器械名称", "Device name");
+                    worksheet.Cells[tableRow, 4].Value = LanguageUtils.ConvertLanguage("实施日期", "Date");
+                    worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("移乘方法", "Transfer method");
+                    worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("砝码", "Weights");
+                    worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("组数", "Groups");
+                    worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("个数", "Number");
+                    worksheet.Cells[tableRow, 9].Value = "Borg";
+                    worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("动作时机、姿势等", "Movement timing,posture..");
 
-                length = list.Count;
-                int row = 0;
-                for (int i = 0; i < length; i++)
-                {
-                    //表头行+两个表头
-                    row = tableRow + 1 + i;
-                    worksheet.Cells[row, 1, row, 3].Merge = true;
-                    worksheet.Cells[row, 10, row, 11].Merge = true;
-                    worksheet.Cells[row, 1].Value = list[i].DS_name;
-                    worksheet.Cells[row, 4].Value =  ((DateTime)list[i].Gmt_Create).ToString();//string.Format("{0:d}", list[i].Gmt_Create);
-                    worksheet.Cells[row, 5].Value = list[i].dp_moveway;
-                    worksheet.Cells[row, 6].Value = list[i].dp_weight;
-                    worksheet.Cells[row, 7].Value = list[i].dp_groupcount;
-                    worksheet.Cells[row, 8].Value = list[i].dp_groupnum;
-                    worksheet.Cells[row, 9].Value = list[i].dp_relaxtime;
-                    worksheet.Cells[row, 10].Value = list[i].DP_Memo;
-                }
+                    using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow, 11])
+                    {
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        //range.Style.Font.Bold = true;
+                        range.Style.Font.Name = "等线";
+                        range.Style.Font.Size = 11;
+                        range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(255, 240, 244));
+                    }
 
+                    length = list.Count;
+                    int row = 0;
+                    for (int i = 0,k=j* count; k< (j + 1) * count && k < length; i++,k++)
+                    {
+                        //表头行+两个表头
+                        row = tableRow + 1 + i;
+                        worksheet.Cells[row, 1, row, 3].Merge = true;
+                        worksheet.Cells[row, 10, row, 11].Merge = true;
+                        worksheet.Cells[row, 1].Value = list[k].DS_name;
+                        worksheet.Cells[row, 4].Value = ((DateTime)list[k].Gmt_Create).ToString();//string.Format("{0:d}", list[i].Gmt_Create);
+                        worksheet.Cells[row, 5].Value = list[k].dp_moveway;
+                        worksheet.Cells[row, 6].Value = list[k].dp_weight;
+                        worksheet.Cells[row, 7].Value = list[k].dp_groupcount;
+                        worksheet.Cells[row, 8].Value = list[k].dp_groupnum;
+                        worksheet.Cells[row, 9].Value = list[k].dp_relaxtime;
+                        worksheet.Cells[row, 10].Value = list[k].DP_Memo;
+                    }
 
-                using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + length, 11])
-                {
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    range.Style.Font.Bold = true;
-                    range.Style.Font.Name = "等线";
-                    range.Style.Font.Size = 10;
-                    //设置边框
-                    range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    int borderRows = (j + 1) * count < list.Count ? count : list.Count - j * count;
+                    using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + borderRows, 11])
+                    {
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        range.Style.Font.Bold = true;
+                        range.Style.Font.Name = "等线";
+                        range.Style.Font.Size = 10;
+                        //设置边框
+                        range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    }
                 }
 
                 package.Save();
@@ -414,101 +423,107 @@ namespace spms.view.Pages.ChildWin
             //    newFile.Delete();
             //    newFile = new FileInfo(CommUtil.GetDocPath("test.xlsx"));
             //}
+            int count = 9;//包含的数据条数
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("看护记录报告", "Care record report"));
-
-                int tableRow = 12;
-                int length = list.Count;
-                //设置所有的行高
-                for (int i = 1; i <= tableRow + length*2+2; i++)
+                int pageSize = list.Count % count == 0 ? list.Count / count : (list.Count / count) + 1;
+                for (int j = 0; j < pageSize; j++)
                 {
-                    worksheet.Row(i).Height = 20;
-                }
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("看护记录报告"+j, "Care record report"+j));
 
-                int userRow = 4;
-                ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("看护记录报告", "Care record report"), Current_User);
+                    int tableRow = 12;
+                    int length = list.Count;
+                    //设置所有的行高
+                    for (int i = 1; i <= tableRow + length * 2 + 2; i++)
+                    {
+                        worksheet.Row(i).Height = 20;
+                    }
 
-
-                /*
-                   2.设置实施状况的表格
-                */
-                worksheet.Cells[userRow + 7, 1, userRow + 7, 2].Merge = true;
-                worksheet.Cells[userRow + 7, 1].Value = LanguageUtils.ConvertLanguage("实施状况", "Status");
-                using (ExcelRange range = worksheet.Cells[userRow + 7, 1, userRow + 7, 2])
-                {
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    range.Style.Font.Bold = true;
-                    range.Style.Font.Name = "等线";
-                    range.Style.Font.Size = 11;
-                    range.Style.Font.Color.SetColor(System.Drawing.Color.White);
-                    range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(0, 0, 139));
-                    //设置边框
-                    worksheet.Cells[userRow + 7, 1, userRow + 7, 2].Style.Border.BorderAround(ExcelBorderStyle.Thin);
-                }
-                //设置表头
-                worksheet.Cells[tableRow, 1, tableRow + 1, 2].Merge = true;//试试日期
-                worksheet.Cells[tableRow, 3, tableRow, 4].Merge = true;//血压
-                worksheet.Cells[tableRow, 1, tableRow + 1, 2].Merge = true;
-                worksheet.Cells[tableRow, 5, tableRow + 1, 6].Merge = true;//水分摄取量
-                worksheet.Cells[tableRow, 7, tableRow + 1, 7].Merge = true;//平均指数
-                worksheet.Cells[tableRow, 8, tableRow + 1, 9].Merge = true;//总运动时间
-                worksheet.Cells[tableRow, 10, tableRow + 1, 11].Merge = true;//总消耗热量
-                worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("实施日期", "Date");
-                worksheet.Cells[tableRow, 3].Value = LanguageUtils.ConvertLanguage("血压", "Blood pressure");
-                worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("水分摄取量", "Moisture intake");
-                worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("平均指数", "Average index");
-                worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("总运动时间", "Total exercise time");
-                worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("总消耗热量", "Total calories consumed");
-                worksheet.Cells[tableRow + 1, 3].Value = LanguageUtils.ConvertLanguage("运动前", "Before exercise");
-                worksheet.Cells[tableRow + 1, 4].Value = LanguageUtils.ConvertLanguage("运动后", "After exercise");
-
-                using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + 1, 11])
-                {
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    //range.Style.Font.Bold = true;
-                    range.Style.Font.Name = "等线";
-                    range.Style.Font.Size = 11;
-                    range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(255, 240, 244));
-                }
+                    int userRow = 4;
+                    ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("看护记录报告", "Care record report"), Current_User);
 
 
-                for (int i = 0; i < length; i++)
-                {
-                    //表头行+两个表头
-                    int row = tableRow + 2 + i * 3;
-                    worksheet.Cells[row, 1, row, 2].Merge = true;//实施日期
-                    worksheet.Cells[row, 5, row, 6].Merge = true;//水分摄取量
-                    worksheet.Cells[row, 8, row, 9].Merge = true;//总运动时间
-                    worksheet.Cells[row, 10, row, 11].Merge = true;//总消耗热量
-                    worksheet.Cells[row + 1, 1, row + 2, 11].Merge = true;
+                    /*
+                       2.设置实施状况的表格
+                    */
+                    worksheet.Cells[userRow + 7, 1, userRow + 7, 2].Merge = true;
+                    worksheet.Cells[userRow + 7, 1].Value = LanguageUtils.ConvertLanguage("实施状况", "Status");
+                    using (ExcelRange range = worksheet.Cells[userRow + 7, 1, userRow + 7, 2])
+                    {
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        range.Style.Font.Bold = true;
+                        range.Style.Font.Name = "等线";
+                        range.Style.Font.Size = 11;
+                        range.Style.Font.Color.SetColor(System.Drawing.Color.White);
+                        range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(0, 0, 139));
+                        //设置边框
+                        worksheet.Cells[userRow + 7, 1, userRow + 7, 2].Style.Border.BorderAround(ExcelBorderStyle.Thin);
+                    }
+                    //设置表头
+                    worksheet.Cells[tableRow, 1, tableRow + 1, 2].Merge = true;//试试日期
+                    worksheet.Cells[tableRow, 3, tableRow, 4].Merge = true;//血压
+                    worksheet.Cells[tableRow, 1, tableRow + 1, 2].Merge = true;
+                    worksheet.Cells[tableRow, 5, tableRow + 1, 6].Merge = true;//水分摄取量
+                    worksheet.Cells[tableRow, 7, tableRow + 1, 7].Merge = true;//平均指数
+                    worksheet.Cells[tableRow, 8, tableRow + 1, 9].Merge = true;//总运动时间
+                    worksheet.Cells[tableRow, 10, tableRow + 1, 11].Merge = true;//总消耗热量
+                    worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("实施日期", "Date");
+                    worksheet.Cells[tableRow, 3].Value = LanguageUtils.ConvertLanguage("血压", "Blood pressure");
+                    worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("水分摄取量", "Moisture intake");
+                    worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("平均指数", "Average index");
+                    worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("总运动时间", "Total exercise time");
+                    worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("总消耗热量", "Total calories consumed");
+                    worksheet.Cells[tableRow + 1, 3].Value = LanguageUtils.ConvertLanguage("运动前", "Before exercise");
+                    worksheet.Cells[tableRow + 1, 4].Value = LanguageUtils.ConvertLanguage("运动后", "After exercise");
 
-                    worksheet.Cells[row, 1].Value = ((DateTime)list[i].Gmt_Create).ToString(); 
-                    worksheet.Cells[row, 3].Value = list[i].SI_Pre_HighPressure + "/" + list[i].SI_Pre_LowPressure;
-                    worksheet.Cells[row, 4].Value = list[i].SI_Suf_HighPressure + "/" + list[i].SI_Suf_LowPressure;
-                    worksheet.Cells[row, 5].Value = list[i].SI_WaterInput;
-                    worksheet.Cells[row, 7].Value = list[i].PR_Index;
-                    worksheet.Cells[row, 8].Value = list[i].PR_Time2 - list[i].PR_Time1;
-                    worksheet.Cells[row, 10].Value = list[i].PR_Cal;
-                    worksheet.Cells[row + 1, 1].Value = list[i].SI_CareInfo;
-                }
+                    using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + 1, 11])
+                    {
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        //range.Style.Font.Bold = true;
+                        range.Style.Font.Name = "等线";
+                        range.Style.Font.Size = 11;
+                        range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.FromArgb(255, 240, 244));
+                    }
 
-                using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + 1 + length * 3, 11])
-                {
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    range.Style.Font.Bold = true;
-                    range.Style.Font.Name = "等线";
-                    range.Style.Font.Size = 10;
-                    //设置边框
-                    range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                    range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+
+                    for (int i = 0, k=j* count; k<(j+1)* count && k < length; i++,k++)
+                    {
+                        //表头行+两个表头
+                        int row = tableRow + 2 + i * 3;
+                        worksheet.Cells[row, 1, row, 2].Merge = true;//实施日期
+                        worksheet.Cells[row, 5, row, 6].Merge = true;//水分摄取量
+                        worksheet.Cells[row, 8, row, 9].Merge = true;//总运动时间
+                        worksheet.Cells[row, 10, row, 11].Merge = true;//总消耗热量
+                        worksheet.Cells[row + 1, 1, row + 2, 11].Merge = true;
+
+                        worksheet.Cells[row, 1].Value = ((DateTime)list[k].Gmt_Create).ToString();
+                        worksheet.Cells[row, 3].Value = list[k].SI_Pre_HighPressure + "/" + list[k].SI_Pre_LowPressure;
+                        worksheet.Cells[row, 4].Value = list[k].SI_Suf_HighPressure + "/" + list[k].SI_Suf_LowPressure;
+                        worksheet.Cells[row, 5].Value = list[k].SI_WaterInput;
+                        worksheet.Cells[row, 7].Value = list[k].PR_Index;
+                        worksheet.Cells[row, 8].Value = list[k].PR_Time2 - list[i].PR_Time1;
+                        worksheet.Cells[row, 10].Value = list[k].PR_Cal;
+                        worksheet.Cells[row + 1, 1].Value = list[k].SI_CareInfo;
+                    }
+
+                    int borderRows = (j + 1) * count < list.Count ? count : list.Count - j * count;
+                    using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow + 1 + borderRows * 3, 11])
+                    {
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        range.Style.Font.Bold = true;
+                        range.Style.Font.Name = "等线";
+                        range.Style.Font.Size = 10;
+                        //设置边框
+                        range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                        range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    }
                 }
 
                 package.Save();

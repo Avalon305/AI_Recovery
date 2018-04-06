@@ -95,7 +95,15 @@ namespace spms.view.Pages.ChildWin
                 MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的心率", "Please enter the right heartrate"));
                 return;
             }
-            
+            int sufPulse = 0;
+            if (rule_2.IsChecked == true)
+            {//规律脉
+                sufPulse = 0;
+            }
+            else if (irregular_2.IsChecked == true)
+            {//脉律不齐
+                sufPulse = 1;
+            }
             //康复后体温
             string sufAnimalheat = heat_2.Text;
             if ( preAnimalheat.Trim() == "" || !(Double.Parse(preAnimalheat) < 50 && Double.Parse(preAnimalheat) > 30))
