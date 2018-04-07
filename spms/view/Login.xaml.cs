@@ -263,5 +263,20 @@ namespace spms.view
                 }
             }
         }
+
+        private void User_Name_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!User_Name.Text.Equals(""))
+            {
+
+                User_Name.Style = null;
+            }
+            else
+
+            {
+                Style xxStyle = (Style)this.FindResource("watermark");
+                User_Name.Style = xxStyle;
+            }
+        }
     }
 }
