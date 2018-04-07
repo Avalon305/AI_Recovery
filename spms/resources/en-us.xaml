@@ -287,7 +287,7 @@
     <s:String x:Key="PhysicalEvaluationFormView.SingleLegStanding(OE)" xml:space="preserve">Single Leg&#13;Standing(OE)</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.FunctionalReach">Functional Reach</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.AnteflextionSeated">Anteflextion Seated</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.TimeedUpGo">Timeed Up Go</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.TimedUpGo">Timed Up Go</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.5mWalk(normal)">5m Walk(normal)</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.5mWalk(utmost)">5m Walk(utmost)</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.10mWalk">10m Walk</s:String>

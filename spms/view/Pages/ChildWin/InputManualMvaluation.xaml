@@ -170,7 +170,7 @@
                 <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.SingleLegStanding(OE)}" Grid.Row="4" Grid.Column="0" HorizontalContentAlignment="Center" />
                 <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.FunctionalReach}" Grid.Row="5" Grid.Column="0" HorizontalContentAlignment="Center"/>
                 <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.AnteflextionSeated}" Grid.Row="6" Grid.Column="0" HorizontalContentAlignment="Center"/>
-                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.TimeedUpGo}" Grid.Row="7" Grid.Column="0" HorizontalContentAlignment="Center" Margin="1,0.8,0,0.8"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.TimedUpGo}" Grid.Row="7" Grid.Column="0" HorizontalContentAlignment="Center" Margin="1,0.8,0,0.8"/>
                 <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.5mWalk(normal)}" Grid.Row="8" Grid.Column="0" HorizontalContentAlignment="Center"/>
                 <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.5mWalk(utmost)}" Grid.Row="9" Grid.Column="0" HorizontalContentAlignment="Center"/>
                 <StackPanel Grid.Row="10" Grid.Column="0" Background="LightGray" Margin="1,0,1,44.6" Grid.RowSpan="2">
