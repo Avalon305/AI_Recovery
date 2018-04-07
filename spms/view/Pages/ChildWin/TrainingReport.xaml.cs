@@ -285,16 +285,16 @@ namespace spms.view.Pages.ChildWin
                     ExcelChart chart = worksheet.Drawings.AddChart("chart", eChartType.LineMarkersStacked);
                     //Y轴数据源，X轴数据源
                     var cs2 = chart.PlotArea.ChartTypes.Add(eChartType.Line);
-                    var s = cs2.Series.Add(worksheet.Cells[tableRow + 2, 6, tableRow + 1 + borderRows, 6], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + borderRows, 2]);
+                    var s = cs2.Series.Add(worksheet.Cells[tableRow + 2, 6, tableRow + 1 + length, 6], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + length, 2]);
                     s.Border.Fill.Color = System.Drawing.Color.Red;
                     s.HeaderAddress = worksheet.Cells[tableRow, 6];
                     var cs3 = chart.PlotArea.ChartTypes.Add(eChartType.Line);
-                    s = cs3.Series.Add(worksheet.Cells[tableRow + 2, 7, tableRow + 1 + borderRows, 7], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + borderRows, 2]);
+                    s = cs3.Series.Add(worksheet.Cells[tableRow + 2, 7, tableRow + 1 + length, 7], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + length, 2]);
                     s.HeaderAddress = worksheet.Cells[tableRow, 7];
                     s.Border.Fill.Color = System.Drawing.Color.Green;
                     cs3.UseSecondaryAxis = true;
                     var cs4 = chart.PlotArea.ChartTypes.Add(eChartType.Line);
-                    s = cs4.Series.Add(worksheet.Cells[tableRow + 2, 8, tableRow + 1 + borderRows, 8], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + borderRows, 2]);
+                    s = cs4.Series.Add(worksheet.Cells[tableRow + 2, 8, tableRow + 1 + length, 8], worksheet.Cells[tableRow + 2, 1, tableRow + 1 + length, 2]);
                     s.HeaderAddress = worksheet.Cells[tableRow, 8];
                     s.Border.Fill.Color = System.Drawing.Color.Blue;
                     cs4.UseSecondaryAxis = true;
