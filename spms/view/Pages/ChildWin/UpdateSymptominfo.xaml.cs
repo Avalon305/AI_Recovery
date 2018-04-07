@@ -191,7 +191,7 @@ namespace spms.view.Pages.ChildWin
         {
             //获取日期
             //DateTime? da = date.SelectedDate;
-            DateTime? da = date.DateTime;
+            DateTime? da = Convert.ToDateTime(date.Content);
             //康复前血压
             string preLowPressure = bloodlow_1.Text;
             string preHighPressure = bloodhight_1.Text;

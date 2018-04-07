@@ -9,8 +9,21 @@ using System.Threading.Tasks;
 
 namespace spms.dao
 {
-    class SetterDAO : BaseDAO<Setter>
+    public class SetterDAO : BaseDAO<Setter>
     {
+        /// <summary>
+        /// 更新版本号
+        /// </summary>
+        /// <param name="version"></param>
+        public void UpdateVersion(string version)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "update bdl_set set set_version = @Version";
+                conn.Open();
+                conn.Execute(query, new { Version = version });
+            }
+        }
         /*获得唯一设置者
          */
         public Setter getSetter()

@@ -81,6 +81,22 @@ namespace spms.view
             }
 
             #endregion
+
+            //打开时，是否记住密码的勾选，如果是就勾选，并且填充登录名和密码 如果不是就没有操作
+            //bool? checkRemind = isRemind.IsChecked;
+            String ckeckStr = CommUtil.GetSettingString("isRemind");
+            bool? checkRemind = ckeckStr == "true" ? true : false;
+            if (checkRemind==true) {
+                //UI效果
+                isRemind.IsChecked = true;
+                //获取用户名
+                String name = CommUtil.GetSettingString("userName");
+                this.User_Name.Text = name;
+                //获取密码
+                String password = CommUtil.GetSettingString("password");
+                this.User_Password.Password = password;
+            }
+            
         }
         #region 绑定通知公告
         private void BindNotice()
@@ -171,6 +187,7 @@ namespace spms.view
             //U盾监测，无误后登录
             if (loginResult.Equals("check_U"))
             {
+                //admin不能记住密码  很危险
                 //验证U盾后跳转
                 //暂时不验证U盾
                 MainPage mainpage = new MainPage();
@@ -180,6 +197,20 @@ namespace spms.view
             }
             else if (loginResult.Equals("success"))
             {
+                //普通用户，点击记住密码，登陆成功后，登录用户与密码加入缓存
+                bool? checkRemind = isRemind.IsChecked;
+                if (checkRemind == true)
+                {
+                    CommUtil.UpdateSettingString("isRemind", "true");
+                    CommUtil.UpdateSettingString("userName", name);
+                    CommUtil.UpdateSettingString("password", password);
+                }
+                else {
+                    //不选中就不记住，清空缓存的密码
+                    CommUtil.UpdateSettingString("isRemind","false");
+                    CommUtil.UpdateSettingString("userName", "");
+                    CommUtil.UpdateSettingString("password", "");
+                }
 
                 //成功登陆，跳转
                 MainPage mainpage = new MainPage();
@@ -261,6 +292,19 @@ namespace spms.view
                     DesignerHead4.Width = 225;
                     DesignerHead3.Height = 85;
                 }
+            }
+        }
+
+        private void User_Name_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!User_Name.Text.Equals(""))
+            {
+                User_Name.Style = null;
+            }
+            else
+            {
+                Style xxStyle = (Style)this.FindResource("watermark");
+                User_Name.Style = xxStyle;
             }
         }
     }

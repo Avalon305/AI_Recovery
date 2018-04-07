@@ -44,22 +44,32 @@ namespace spms.util
                 }
                 else
                 {
-                    worksheet = package.Workbook.Worksheets.Add("默认");
+                    worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("默认", "Default"));
                 }
 
                 worksheet.Cells.Style.WrapText = true;
                 worksheet.Cells.Style.ShrinkToFit = false;//单元格自动适应大小
 
-                worksheet.Cells[1, 1].Value = LanguageUtils.ConvertLanguage("利用者ID", "User ID");
-                worksheet.Cells[1, 2].Value = LanguageUtils.ConvertLanguage("利用者名称", "User name");
-                worksheet.Cells[1, 3].Value = LanguageUtils.ConvertLanguage("利用者拼音", "User name pinyin");
-                worksheet.Cells[1, 4].Value = LanguageUtils.ConvertLanguage("性别", "Gender"); 
-                worksheet.Cells[1, 5].Value = LanguageUtils.ConvertLanguage("年龄", "Age");
-                worksheet.Cells[1, 6].Value = LanguageUtils.ConvertLanguage("小组名称", "Group name");
-                worksheet.Cells[1, 7].Value = LanguageUtils.ConvertLanguage("初期要介护度", "Initial care"); 
-                worksheet.Cells[1, 8].Value = LanguageUtils.ConvertLanguage("现在要介护度", "Now care"); 
-                worksheet.Cells[1, 9].Value = LanguageUtils.ConvertLanguage("疾病名称", "Illness name"); 
-                worksheet.Cells[1, 10].Value = LanguageUtils.ConvertLanguage("残障名称", "Physical disabilities");
+                //worksheet.Cells[1, 1].Value = LanguageUtils.ConvertLanguage("利用者ID", "User ID");
+                //worksheet.Cells[1, 2].Value = LanguageUtils.ConvertLanguage("利用者名称", "User name");
+                //worksheet.Cells[1, 3].Value = LanguageUtils.ConvertLanguage("利用者拼音", "User name pinyin");
+                //worksheet.Cells[1, 4].Value = LanguageUtils.ConvertLanguage("性别", "Gender"); 
+                //worksheet.Cells[1, 5].Value = LanguageUtils.ConvertLanguage("年龄", "Age");
+                //worksheet.Cells[1, 6].Value = LanguageUtils.ConvertLanguage("小组名称", "Group name");
+                //worksheet.Cells[1, 7].Value = LanguageUtils.ConvertLanguage("初期要介护度", "Initial care"); 
+                //worksheet.Cells[1, 8].Value = LanguageUtils.ConvertLanguage("现在要介护度", "Now care"); 
+                //worksheet.Cells[1, 9].Value = LanguageUtils.ConvertLanguage("疾病名称", "Illness name"); 
+                //worksheet.Cells[1, 10].Value = LanguageUtils.ConvertLanguage("残障名称", "Physical disabilities");
+                worksheet.Cells[1, 1].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.SubjectID");
+                worksheet.Cells[1, 2].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.LastName");
+                worksheet.Cells[1, 3].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.FirstName");
+                worksheet.Cells[1, 4].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.Gender");
+                worksheet.Cells[1, 5].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.Age"); 
+                worksheet.Cells[1, 6].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.Group"); 
+                worksheet.Cells[1, 7].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.InitialCareLevel");
+                worksheet.Cells[1, 8].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.CurrentCareLevel"); 
+                worksheet.Cells[1, 9].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.Disease"); 
+                worksheet.Cells[1, 10].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.Diagnosis"); 
 
                 //设置用户基本信息的列宽
                 for (int i = 1; i <= 10; i++)
@@ -79,7 +89,7 @@ namespace spms.util
                 worksheet.Cells[2, 1].Value = GetObjContent(user.Pk_User_Id);
                 worksheet.Cells[2, 2].Value = GetObjContent(user.User_Name);
                 worksheet.Cells[2, 3].Value = GetObjContent(user.User_Namepinyin);
-                worksheet.Cells[2, 4].Value = GetObjContent(user.User_Sex);
+                worksheet.Cells[2, 4].Value = GetObjContent(user.User_Sex == 0 ? LanguageUtils.GetCurrentLanuageStrByKey("AddOrEditView.F") : LanguageUtils.GetCurrentLanuageStrByKey("AddOrEditView.M"));
                 worksheet.Cells[2, 5].Value = GetObjContent(ConvertAge(user.User_Birth));
                 worksheet.Cells[2, 6].Value = GetObjContent(user.User_GroupName);
                 worksheet.Cells[2, 7].Value = GetObjContent(user.User_InitCare);
@@ -134,29 +144,6 @@ namespace spms.util
 
 
                         using (ExcelRange range = worksheet.Cells[tableRow, 2, tableRow, 9])
-                        {
-                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                            range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                            range.Style.Font.Bold = true;
-                            range.Style.Font.Name = "微软雅黑";
-                            range.Style.Font.Size = 11;
-                        }
-
-                        tableRow += 1;
-                    }
-
-                    //体力评价记录
-                    if (dataTable.TableName == LanguageUtils.ConvertLanguage("体力评价记录", "Physical Assessment Record"))
-                    {
-                        worksheet.Cells[tableRow, 2, tableRow, 5].Merge = true;
-                        worksheet.Cells[tableRow, 6, tableRow, 9].Merge = true;
-                        worksheet.Cells[tableRow, 10, tableRow, 22].Merge = true;
-                        worksheet.Cells[tableRow, 2].Value = LanguageUtils.ConvertLanguage("康复前", "Before recovery"); 
-                        worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("康复后", "After rehabilitation");
-                        worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("问诊票", "Question ticket"); 
-
-
-                        using (ExcelRange range = worksheet.Cells[tableRow, 2, tableRow, 22])
                         {
                             range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                             range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
@@ -327,9 +314,18 @@ namespace spms.util
             //string fn = System.IO.Path.Combine((Application.StartupPath + @"\..\..\图片\"),"1.jpg");
             //Console.WriteLine(fn);
             int henderRow = 0;
-            string Path = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0, Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
+            //string Path = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0, Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
             //OfficeOpenXml.Drawing.ExcelPicture picture = worksheet.Drawings.AddPicture("logo", System.Drawing.Image.FromFile(Path+"//view//Images//logo.png"));//插入图片
-            OfficeOpenXml.Drawing.ExcelPicture picture = worksheet.Drawings.AddPicture("logo", System.Drawing.Image.FromFile(CommUtil.GetDocPath("logo.png")));//插入图片
+            OfficeOpenXml.Drawing.ExcelPicture picture = null;
+            if (LanguageUtils.IsChainese())
+            {
+                picture = worksheet.Drawings.AddPicture("logo", System.Drawing.Image.FromFile(CommUtil.GetDocPath("logo.png")));//插入图片
+            }
+            else
+            {
+                picture = worksheet.Drawings.AddPicture("logo", System.Drawing.Image.FromFile(CommUtil.GetDocPath("logo_english.png")));//插入图片
+            }   
+
             picture.SetPosition(8, 5);//设置图片的位置
             picture.SetSize(120, 47);//设置图片的大小
 
@@ -377,34 +373,34 @@ namespace spms.util
             worksheet.Cells[userRow + 5, 6, userRow + 5, 7].Merge = true;
             worksheet.Cells[userRow + 5, 8, userRow + 5, 9].Merge = true;
 
-            worksheet.Cells[userRow, 1].Value = LanguageUtils.ConvertLanguage("姓名", "User name"); 
+            worksheet.Cells[userRow, 1].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.LastName");
             worksheet.Cells[userRow, 3].Value = GetObjContent(user.User_Name);
-            worksheet.Cells[userRow, 6].Value = LanguageUtils.ConvertLanguage("性别", "Gender"); 
+            worksheet.Cells[userRow, 6].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.Gender");
             if (user.User_Sex == 0x01)
             {
-                worksheet.Cells[userRow, 7].Value = LanguageUtils.ConvertLanguage("男", "male");
+                worksheet.Cells[userRow, 7].Value = LanguageUtils.GetCurrentLanuageStrByKey("AddOrEditView.M");
             }
             else
             {
-                worksheet.Cells[userRow, 7].Value = LanguageUtils.ConvertLanguage("女", "female");
+                worksheet.Cells[userRow, 7].Value = LanguageUtils.GetCurrentLanuageStrByKey("AddOrEditView.F");
             }
 
-            worksheet.Cells[userRow, 8].Value = LanguageUtils.ConvertLanguage("年龄", "Age"); 
+            worksheet.Cells[userRow, 8].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.Age");
             worksheet.Cells[userRow, 9].Value = ConvertAge(user.User_Birth);
             worksheet.Cells[userRow + 1, 3].Value = GetObjContent(user.User_Namepinyin);
             worksheet.Cells[userRow + 1, 6].Value = LanguageUtils.ConvertLanguage("出生年月日", "Date of birth"); 
             worksheet.Cells[userRow + 1, 8].Value = GetObjContent(string.Format("{0:d}", user.User_Birth));
-            worksheet.Cells[userRow + 2, 1].Value = LanguageUtils.ConvertLanguage("利用者ID", "User ID");
+            worksheet.Cells[userRow + 2, 1].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.SubjectID");
             worksheet.Cells[userRow + 2, 3].Value = GetObjContent(user.Pk_User_Id);
-            worksheet.Cells[userRow + 2, 6].Value = LanguageUtils.ConvertLanguage("小组名称", "Group name"); 
+            worksheet.Cells[userRow + 2, 6].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.Group");
             worksheet.Cells[userRow + 2, 8].Value = GetObjContent(user.User_GroupName);
-            worksheet.Cells[userRow + 4, 1].Value = LanguageUtils.ConvertLanguage("初期要介护度", "Initial care"); 
+            worksheet.Cells[userRow + 4, 1].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.InitialCareLevel");
             worksheet.Cells[userRow + 4, 4].Value = GetObjContent(user.User_InitCare);
-            worksheet.Cells[userRow + 4, 6].Value = LanguageUtils.ConvertLanguage("疾病名称", "Illness name");
+            worksheet.Cells[userRow + 4, 6].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.Disease");
             worksheet.Cells[userRow + 4, 8].Value = GetObjContent(user.User_IllnessName);
-            worksheet.Cells[userRow + 5, 1].Value = LanguageUtils.ConvertLanguage("现在要介护度", "Now care"); 
+            worksheet.Cells[userRow + 5, 1].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.CurrentCareLevel");
             worksheet.Cells[userRow + 5, 4].Value = GetObjContent(user.User_Nowcare);
-            worksheet.Cells[userRow + 5, 6].Value = LanguageUtils.ConvertLanguage("残障名称", "Physical disabilities");
+            worksheet.Cells[userRow + 5, 6].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.Diagnosis");
             worksheet.Cells[userRow + 5, 8].Value = GetObjContent(user.User_PhysicalDisabilities);
 
             //插入用户图片

@@ -28,6 +28,8 @@ namespace spms.entity
         public string Set_PhotoLocation { get; set; }
         //机构电话
         public string Set_OrganizationPhone { get; set; }
+        //版本号
+        public string Set_Version { get; set; }
  
 
     }

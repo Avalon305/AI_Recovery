@@ -12,6 +12,14 @@ namespace spms.service
     public class SetterService
     {
         SetterDAO setterDAO = new SetterDAO();
+        /// <summary>
+        /// 方便查询
+        /// </summary>
+        /// <returns></returns>
+        public SetterDAO GetSetterDAO()
+        {
+            return setterDAO;
+        }
 
         public void updateTest()
         {
@@ -20,8 +28,6 @@ namespace spms.service
             {
 
                 SetterDAO setterDAO = new SetterDAO();
-
-               
 
                 ts.Complete();
 
