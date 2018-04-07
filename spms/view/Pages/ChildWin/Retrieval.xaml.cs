@@ -90,9 +90,48 @@ namespace spms.view.Pages.ChildWin
             string usersex = c1.Text;
             //手机号
             string phone = this.phone.Text;
+            if (!inputlimited.InputLimited.IsHandset(phone) && !String.IsNullOrEmpty(phone))
+            {
+                Error_Info_Phone.Content = LanguageUtils.ConvertLanguage("请输入正确的手机号", "Please enter a valid phone number");
+                bubble_phone.IsOpen = true;
+                return;
+            }
+            else
+            {
+                bubble_phone.IsOpen = false;
+            }
+            
             //身份证号
-            string IDCard = this.IDCard.Text;
 
+            string IDCard = this.IDCard.Text;
+            if (!String.IsNullOrEmpty(IDCard))
+            {
+                if (IDCard.Length > 18)
+                {
+                    Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入正确的身份证号码", "Please enter a valid ID number");
+                    bubble_IDCard.IsOpen = true;
+                    return;
+                }
+                if (IDCard.Length < 18)
+                {
+                    
+                    for(int i = 0; i < 18 - IDCard.Length; i++)
+                    {
+                        IDCard += "0";
+                    }
+                }
+                else if (IDCard.Length == 18 && !inputlimited.InputLimited.IsIDcard(IDCard))
+                {
+                    Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入正确的身份证号码", "Please enter a valid ID number");
+                    bubble_IDCard.IsOpen = true;
+                    return;
+                }
+                else
+                {
+                    bubble_IDCard.IsOpen = false;
+                }
+            }
+               
 
             //获取小组名称的内容
             string groupName = comboBox1.Text;
@@ -177,15 +216,27 @@ namespace spms.view.Pages.ChildWin
         private void IsIDCard(object sender, RoutedEventArgs e)
         {
             UserService userService = new UserService();
-            if (!String.IsNullOrEmpty(IDCard.Text)&& IDCard.Text.Length == 18 && !inputlimited.InputLimited.IsIDcard(IDCard.Text) )
+            if (!String.IsNullOrEmpty(IDCard.Text))
             {
-                Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入正确的身份证号码", "Please enter a valid ID number");
-                bubble_IDCard.IsOpen = true;
+                if(IDCard.Text.Length > 18)
+                {
+                    Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入正确的身份证号码", "Please enter a valid ID number");
+                    bubble_IDCard.IsOpen = true;
+                }else if ((IDCard.Text.Length == 15||IDCard.Text.Length == 18) && !inputlimited.InputLimited.IsIDcard(IDCard.Text))
+                {
+                    Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入正确的身份证号码", "Please enter a valid ID number");
+                    bubble_IDCard.IsOpen = true;
+                }
+                else
+                {
+                    bubble_IDCard.IsOpen = false;
+                }
             }
-           else
+            else
             {
                 bubble_IDCard.IsOpen = false;
             }
+            
         }
         //手机号验证和查重
         private void IsPhone(object sender, RoutedEventArgs e)

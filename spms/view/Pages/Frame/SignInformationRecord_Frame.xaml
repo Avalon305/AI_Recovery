@@ -9,17 +9,23 @@
     <Grid>
         <WrapPanel Orientation="Vertical">
             <Grid Margin="0,8,0,0">
-                <Border Background="Silver" Margin="136,3,571.2,-5.4" BorderBrush="Black" BorderThickness="1,1,1,0">
+                <Border Background="Silver" Margin="135,3,572.2,-5.4" BorderBrush="Black" BorderThickness="1,1,1,0">
                     <Label HorizontalAlignment="Center" Margin="-0.8,-2.8,-1.6,-3.6" VerticalAlignment="Center" Height="24" Width="212" RenderTransformOrigin="0.562,0.656" HorizontalContentAlignment="Center" Content="{DynamicResource VitalHistoryView.BeforePowerRehab}"></Label>
                 </Border>
-                <Border Height="20" Background="Silver" Margin="375.82,3,330.2,-5.4" BorderBrush="Black" BorderThickness="1,1,1,0">
+                <Border Height="20" Background="Silver" Margin="375,3,333,-5.4" BorderBrush="Black" BorderThickness="1,1,1,0">
                     <Label HorizontalAlignment="Left" Margin="-0.8,-2.8,-1.2,-4" HorizontalContentAlignment="Center" VerticalAlignment="Center" Height="26" Width="242" Content="{DynamicResource VitalHistoryView.AfterPowerRehab}"></Label>
                 </Border>
             </Grid>
 
 
-            <DataGrid x:Name="SignInformationRecord" KeyboardNavigation.TabNavigation="None" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" SelectionMode="Single" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="280" Width="942" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False"  AutoGenerateColumns="False" IsReadOnly="true" >
-
+            <DataGrid x:Name="SignInformationRecord"  KeyboardNavigation.TabNavigation="None" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" SelectionMode="Single" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="280" Width="942" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False"  AutoGenerateColumns="False" IsReadOnly="true" >
+                <!--<DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="BorderBrush" Value="Silver"></Setter>
+                        <Setter Property="BorderThickness" Value="0,0,1,0"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>-->
                 <!--选中行失去焦点时的颜色-->
                 <DataGrid.Resources>
                     <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -45,14 +51,14 @@
                     </Style>
                 </DataGrid.CellStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource VitalHistoryView.Date}" Width="130"/>
-                    <DataGridTextColumn Binding="{Binding Pre_Pressure}" Header="{DynamicResource VitalHistoryView.BP}" Width="60"/>
+                    <DataGridTextColumn  Binding="{Binding Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource VitalHistoryView.Date}" Width="130"/>
+                    <DataGridTextColumn Binding="{Binding Pre_Pressure}" Header="{DynamicResource VitalHistoryView.BP}" Width="62"/>
                     <DataGridTextColumn Binding="{Binding Pre_Pulse}" Header="{DynamicResource VitalHistoryView.Pulse}" Width="80"/>
                     <DataGridTextColumn Binding="{Binding Pre_HeartRate}"  Header="{DynamicResource VitalHistoryView.HR}" Width="50"/>
-                    <DataGridTextColumn Binding="{Binding Pre_AnimalHeat}" Header="{DynamicResource VitalHistoryView.Tmp}" Width="50"/>
-                    <DataGridTextColumn Binding="{Binding Suf_Pressure}"  Header="{DynamicResource VitalHistoryView.BP}" Width="60"/>
+                    <DataGridTextColumn Binding="{Binding Pre_AnimalHeat}" Header="{DynamicResource VitalHistoryView.Tmp}" Width="48"/>
+                    <DataGridTextColumn Binding="{Binding Suf_Pressure}"  Header="{DynamicResource VitalHistoryView.BP}" Width="62"/>
                     <DataGridTextColumn Binding="{Binding Suf_Pulse}" Header="{DynamicResource VitalHistoryView.Pulse}" Width="80"/>
-                    <DataGridTextColumn Binding="{Binding Suf_HeartRate}"  Header="{DynamicResource VitalHistoryView.HR}" Width="50"/>
+                    <DataGridTextColumn Binding="{Binding Suf_HeartRate}"  Header="{DynamicResource VitalHistoryView.HR}" Width="48"/>
                     <DataGridTextColumn Binding="{Binding Suf_AnimalHeat}" Header="{DynamicResource VitalHistoryView.Tmp}" Width="50"/>
                     <DataGridTextColumn Binding="{Binding WaterInput}" Header="{DynamicResource VitalHistoryView.Water}" Width="60"/>
                     <!--<DataGridTextColumn Binding="{Binding Inquiry}" Header="问诊确认单"  Width="80">
