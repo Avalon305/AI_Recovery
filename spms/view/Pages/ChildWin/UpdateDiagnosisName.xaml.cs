@@ -40,6 +40,9 @@ namespace spms.view.Pages.ChildWin
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
         public CustomData selectedDiagnosis = new CustomData();
+        public User user = new User();
+        //联合更新使用
+        public string OldDiagnosisName;
         /// <summary>
         /// 自定义三项service
         /// </summary>
@@ -68,9 +71,15 @@ namespace spms.view.Pages.ChildWin
         {
             string value = this.DiagnosisName.Text;
             selectedDiagnosis.CD_CustomName = value;
+            // MessageBox.Show("OldDiagnosisName:"+ OldDiagnosisName+"Newvalue"+value);
+            DynamicParameters Parameters = new DynamicParameters();
+            Parameters.Add("User_PhysicalDisabilities", value);
+            Parameters.Add("old", OldDiagnosisName);
             using (var conn = DbUtil.getConn())
             {
                 conn.Execute("update bdl_customdata set CD_CustomName=@CD_CustomName where Pk_CD_Id=@Pk_CD_Id", selectedDiagnosis);
+                string query = "update bdl_user SET user_physicaldisabilities = @User_PhysicalDisabilities where user_physicaldisabilities=@old";
+                conn.Execute(query, Parameters);
             }
             this.Close();
         }

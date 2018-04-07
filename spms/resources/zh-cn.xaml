@@ -29,7 +29,7 @@
     <s:String x:Key="Dev.Rowing">坐姿划船机</s:String>
     <s:String x:Key="Dev.TorsoFlexion">身体伸展弯曲机</s:String>
     <s:String x:Key="Dev.LegExtension">腿部伸展弯曲机</s:String>
-    <s:String x:Key="Dev.HipAbduction">腿部内外展机</s:String>
+    <s:String x:Key="Dev.HipAbduction">腿部内外弯机</s:String>
     <s:String x:Key="Dev.ChestPress">胸部推举机</s:String>
 
     <!-- 设定界面 -->
@@ -63,7 +63,7 @@
     <s:String x:Key="SettingsView.Refer">打开</s:String>
     <s:String x:Key="SettingsView.Video">设定视频</s:String>
     <s:String x:Key="SettingsView.SeriesofMachines">选择器械系列</s:String>
-    <s:String x:Key="SettingsView.PRexerSeries">PRexer 系列</s:String>
+    <s:String x:Key="SettingsView.PRexerSeries">当前系列设备</s:String>
     <s:String x:Key="SettingsView.TrainingMachines">使用器械</s:String>
     <s:String x:Key="SettingsView.Group">小组名称</s:String>
     <s:String x:Key="SettingsView.Disease">疾病名称</s:String>
@@ -291,7 +291,7 @@
     <s:String x:Key="PhysicalEvaluationFormView.SingleLegStanding(OE)">睁眼单脚站立</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.FunctionalReach">功能性前伸</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.AnteflextionSeated">坐姿体前屈</s:String>
-    <s:String x:Key="PhysicalEvaluationFormView.TimeedUpGo">Timeed Up Go</s:String>
+    <s:String x:Key="PhysicalEvaluationFormView.TimedUpGo">Timed Up Go</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.5mWalk(normal)">5m步行（通常）</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.5mWalk(utmost)">5m步行（最快）</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.10mWalk">10米步行</s:String>
