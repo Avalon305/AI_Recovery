@@ -102,7 +102,7 @@
                         <Label Foreground="White" Padding="4" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.Phone}"></Label>
                     </Border>
                     <Border Grid.Row="2" Grid.Column="1"    Margin="0.2,0.4,0,2">
-                        <TextBox VerticalContentAlignment="Center"  IsTabStop="False" Text="{Binding Set_OrganizationPhone}" ></TextBox>
+                        <TextBox  Name="textBox3" VerticalContentAlignment="Center"  IsTabStop="False" Text="{Binding Set_OrganizationPhone}" ></TextBox>
                     </Border>
                     <!--结束：机构区分-->
                     <!-- <Border Grid.Row="2" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,0,0,2">
