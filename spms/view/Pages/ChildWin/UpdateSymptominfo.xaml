@@ -53,7 +53,13 @@
             <!--实施日期-->
             <StackPanel Height="25" Margin="10,15,-0.4,0" Orientation="Horizontal">
                 <Label Content="{DynamicResource VitalInfoView.Date}" Height="25" Margin="0,0,0,0" Background="Gray" Foreground="White" Width="80"/>
-                <my:DateTimePicker   Margin="3,0,0,-0.2" KeyboardNavigation.TabNavigation="None"  x:Name="date" VerticalAlignment="Top" Height="25" Width="159" />
+                <Border BorderBrush="Gray" BorderThickness="1">
+                <StackPanel Orientation="Horizontal"  >
+                    <Label x:Name="date" Width="125" VerticalContentAlignment="Center" IsEnabled="False" Height="23" BorderBrush="Gray" BorderThickness="0"></Label>
+                    <Image Source="/view/Images/date.png" Margin="5,5,0,5"></Image>
+                </StackPanel>
+                </Border>
+                <!--<my:DateTimePicker   Margin="3,0,0,-0.2" KeyboardNavigation.TabNavigation="None"  x:Name="date" VerticalAlignment="Top" Height="25" Width="159" />-->
                 <Label Content="{DynamicResource VitalInfoView.TrainInfo}" Height="25" Margin="97.5,0,0,0" Background="Gray" Foreground="White" Width="80"/>
                 <ComboBox ItemsSource="{Binding TrainInfo,Mode=OneWay}" DisplayMemberPath="Gmt_Create" SelectedValuePath="Pk_TI_Id" SelectedItem="{Binding TrainInfo}" Margin="3,0,0,0"  Name="train" Height="25" Width="131" />
                 <!--<DatePicker Name="date"  Height="23"  KeyboardNavigation.TabNavigation="None" Margin="3,0,0,0" VerticalAlignment="Bottom" Width="155" SelectedDate="{x:Static sys:DateTime.Now}"/>-->

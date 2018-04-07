@@ -299,11 +299,9 @@ namespace spms.view
         {
             if (!User_Name.Text.Equals(""))
             {
-
                 User_Name.Style = null;
             }
             else
-
             {
                 Style xxStyle = (Style)this.FindResource("watermark");
                 User_Name.Style = xxStyle;
