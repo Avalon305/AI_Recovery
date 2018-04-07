@@ -21,7 +21,7 @@ namespace spms.view.converter
             else { 
             String text = value.ToString();
             
-            if (String.IsNullOrEmpty(text.Trim().TrimEnd('\n').TrimEnd('\r')))
+            if (String.IsNullOrEmpty(text.Trim().TrimEnd('\n').TrimEnd('\r').Trim('\0')))
             {
                     //Console.WriteLine("text:        "+ text.Trim());
                 return LanguageUtils.ConvertLanguage("未填写", "Unfilled");
