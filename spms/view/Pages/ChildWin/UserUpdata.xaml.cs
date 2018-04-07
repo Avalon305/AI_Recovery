@@ -681,68 +681,120 @@ namespace spms.view.Pages.ChildWin
 
         private void idcard_encrypt(object sender, KeyEventArgs e)
         {
-            
-            
-            if(e.Key == Key.Delete || e.Key == Key.Back )
+
+            //Console.WriteLine("IDCARD LEngth:   "+IDCard.Text.Length);
+            if (e.Key == Key.Delete || e.Key == Key.Back )
             {
-                IDCard.Text = IDCard.Text.Substring(0, IDCard.Text.Length-1);
-                Console.WriteLine("删除：  "+IDCard.Text.Length+"         "+IDCard.Text);
+                if(!String.IsNullOrEmpty(idcard.SelectedText))
+                {
+                    IDCard.Text = IDCard.Text.Substring(0, idcard.Text.Length - idcard.SelectedText.Length);
+                }
+                else
+                {
+                    IDCard.Text = IDCard.Text.Substring(0, idcard.Text.Length - 1);
+                }
+                
+                //Console.WriteLine("删除：  "+IDCard.Text.Length+"         "+IDCard.Text);
             }else if(e.Key == Key.NumPad0 || e.Key == Key.D0)
                     {
+                if (!String.IsNullOrEmpty(idcard.SelectedText))
+                {
+                    IDCard.Text = IDCard.Text.Substring(0, idcard.Text.Length - idcard.SelectedText.Length);
+                }
                 IDCard.Text = IDCard.Text + 0;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
             else if (e.Key == Key.NumPad1 || e.Key == Key.D1)
             {
+                if (!String.IsNullOrEmpty(idcard.SelectedText))
+                {
+                    IDCard.Text = IDCard.Text.Substring(0, idcard.Text.Length - idcard.SelectedText.Length);
+                }
                 IDCard.Text = IDCard.Text + 1;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
             else if (e.Key == Key.NumPad2 || e.Key == Key.D2)
             {
+                if (!String.IsNullOrEmpty(idcard.SelectedText))
+                {
+                    IDCard.Text = IDCard.Text.Substring(0, idcard.Text.Length - idcard.SelectedText.Length);
+                }
                 IDCard.Text = IDCard.Text + 2;
                // Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
 
             }
             else if (e.Key == Key.NumPad3 || e.Key == Key.D3)
             {
+                if (!String.IsNullOrEmpty(idcard.SelectedText))
+                {
+                    IDCard.Text = IDCard.Text.Substring(0, idcard.Text.Length - idcard.SelectedText.Length);
+                }
                 IDCard.Text = IDCard.Text + 3;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
             else if (e.Key == Key.NumPad4 || e.Key == Key.D4)
             {
+                if (!String.IsNullOrEmpty(idcard.SelectedText))
+                {
+                    IDCard.Text = IDCard.Text.Substring(0, idcard.Text.Length - idcard.SelectedText.Length);
+                }
                 IDCard.Text = IDCard.Text + 4;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
             else if (e.Key == Key.NumPad5 || e.Key == Key.D5)
             {
+                if (!String.IsNullOrEmpty(idcard.SelectedText))
+                {
+                    IDCard.Text = IDCard.Text.Substring(0, idcard.Text.Length - idcard.SelectedText.Length);
+                }
                 IDCard.Text = IDCard.Text + 5;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
             else if (e.Key == Key.NumPad6 || e.Key == Key.D6)
             {
+                if (!String.IsNullOrEmpty(idcard.SelectedText))
+                {
+                    IDCard.Text = IDCard.Text.Substring(0, idcard.Text.Length - idcard.SelectedText.Length);
+                }
                 IDCard.Text = IDCard.Text + 6;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
             else if (e.Key == Key.NumPad7 || e.Key == Key.D7)
             {
+                if (!String.IsNullOrEmpty(idcard.SelectedText))
+                {
+                    IDCard.Text = IDCard.Text.Substring(0, idcard.Text.Length - idcard.SelectedText.Length);
+                }
                 IDCard.Text = IDCard.Text + 7;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
             else if (e.Key == Key.NumPad8 || e.Key == Key.D8)
             {
-                IDCard.Text = IDCard.Text + 86;
+                if (!String.IsNullOrEmpty(idcard.SelectedText))
+                {
+                    IDCard.Text = IDCard.Text.Substring(0, idcard.Text.Length - idcard.SelectedText.Length);
+                }
+                IDCard.Text = IDCard.Text + 8;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }
             else if (e.Key == Key.NumPad9 || e.Key == Key.D9)
             {
+                if (!String.IsNullOrEmpty(idcard.SelectedText))
+                {
+                    IDCard.Text = IDCard.Text.Substring(0, idcard.Text.Length - idcard.SelectedText.Length);
+                }
                 IDCard.Text = IDCard.Text + 9;
                 //Console.WriteLine("添加：   " + IDCard.Text.Length + "         " + IDCard.Text);
             }else if(e.Key == Key.X)
             {
+                if (!String.IsNullOrEmpty(idcard.SelectedText))
+                {
+                    IDCard.Text = IDCard.Text.Substring(0, idcard.Text.Length - idcard.SelectedText.Length);
+                }
                 IDCard.Text = IDCard.Text + "x";
             }
            
-            //Console.WriteLine("IDCard:  " + IDCard.Text);
+            //Console.WriteLine("IDCard:  " + IDCard.Text.Length);
 
         }
 
