@@ -226,8 +226,13 @@ namespace spms.view.Pages
             //刷新界面
             users = retrieval.QueryResult;
             UsersInfo.ItemsSource = users;
-            //检索后设置无用户被选中
-            selectUser = null;
+            //检索后若结果唯一，则用户被选中
+            //selectUser = null;
+            if (users!=null&& users.Count==1) {
+                UsersInfo.SelectedIndex = 0;
+                Grid_Click(null,null);
+            }
+            //Grid_Click
         }
 
         //按钮：更新

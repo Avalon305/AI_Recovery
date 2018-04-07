@@ -36,7 +36,7 @@
 
                 <MultiTrigger.Conditions>
 
-                    <Condition Property="Text" Value=""/>
+                    <!--<Condition Property="Text" Value=""/>-->
 
                     <Condition Property="TextBox.IsFocused" Value="false"/>
 
