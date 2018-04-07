@@ -37,7 +37,7 @@ namespace spms.util
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>
-        private string Encrypt(string content)
+        public static string Encrypt(string content)
         {
             string random = RandomUtil.GenerateRandomNumber(10);
             var ip = AesUtil.Encrypt(Encoding.GetEncoding("GBK").GetBytes(random + content), PASSWORD);
@@ -85,7 +85,7 @@ namespace spms.util
 
 
 
-
+         
         private static string Decrypt(ref Result state, string content)
         {
             state = Result.SUCCESS;
