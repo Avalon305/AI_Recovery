@@ -238,7 +238,8 @@ namespace spms.view.Pages
             UserPhoto.Source = bitmap;
 
             //检查是否选中
-            if (selectUser == null)
+            if((User)UsersInfo.SelectedItem == null)
+            //if (selectUser == null)//4.7 lzh
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
@@ -257,9 +258,9 @@ namespace spms.view.Pages
             userUpdata.SelectUser = user;
             //UI中使用
             userUpdata.selectUser.DataContext = user;
-            Console.WriteLine("123123:   " + user.User_Privateinfo);
+            //Console.WriteLine("123123:   " + user.User_Privateinfo);
             userUpdata.noPublicInfoText.Text = user.User_Privateinfo;
-            Console.WriteLine("123123aaaaa:   " + userUpdata.noPublicInfoText.Text);
+            //Console.WriteLine("123123aaaaa:   " + userUpdata.noPublicInfoText.Text);
             userUpdata.ShowDialog();
 
             //关闭后刷新界面
