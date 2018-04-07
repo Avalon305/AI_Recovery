@@ -175,6 +175,7 @@
     </ApplicationDefinition>
     <Compile Include="bean\ComprehensiveReportBean.cs" />
     <Compile Include="bean\TcpFrameBean.cs" />
+    <Compile Include="bean\VersionInfo.cs" />
     <Compile Include="constant\CodeConstant.cs" />
     <Compile Include="constant\DevConstants.cs" />
     <Compile Include="constant\ProtocolConstant.cs" />
@@ -202,6 +203,7 @@
       <DependentUpon>ImageDealerUnsafe.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageDealer\PicZipUtil.cs" />
+    <Compile Include="util\ConfigUtil.cs" />
     <Compile Include="util\LanguageUtils.cs" />
     <Compile Include="view\converter\IDCardConverter.cs" />
     <Compile Include="view\converter\TimeConverter.cs" />
@@ -419,8 +421,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\ChildWin\UpdateSymptominfo.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="view\Pages\MessageBoxX.xaml">
       <Generator>MSBuild:Compile</Generator>
