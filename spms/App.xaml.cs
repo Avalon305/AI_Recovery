@@ -60,9 +60,13 @@ namespace spms
                 Dictionary<string, string> param = new Dictionary<string, string>();
                 var setter = new SetterService().GetSetterDAO().getSetter();
                 param.Add("version", setter.Set_Version);
-                var result = HttpSender.GET("http://127.0.0.1:8080/pcms/th", param);
+                var result = HttpSender.GET("http://125.0.0.13:8080/pcms/th", param);
+                if (string.IsNullOrEmpty(result))
+                {
+                    return;
+                }
                 var info = JsonTools.DeserializeJsonToObject<VersionInfo>(result);
-                MessageBox.Show(info.GetProcessString());
+             
                 Process.Start("AutoUpdater.exe", info.GetProcessString());
 
             });
