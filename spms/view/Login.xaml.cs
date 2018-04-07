@@ -261,6 +261,8 @@ namespace spms.view
             {
 
                 User_Password.Style = null;
+                
+                //User_Password.SelectionStart = User_Password.Text.Length;
             }
             else
 
@@ -300,6 +302,7 @@ namespace spms.view
             if (!User_Name.Text.Equals(""))
             {
                 User_Name.Style = null;
+                //User_Name.SelectionStart = User_Name.Text.Length;
             }
             else
             {
