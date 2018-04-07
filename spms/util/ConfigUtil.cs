@@ -33,11 +33,11 @@ namespace spms.util
         }
 
         /// <summary>
-        /// 10个随机数+内容
+        /// 加密，10个随机数+内容
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>
-        private string Encrypt(string content)
+        public string Encrypt(string content)
         {
             string random = RandomUtil.GenerateRandomNumber(10);
             var ip = AesUtil.Encrypt(Encoding.GetEncoding("GBK").GetBytes(random + content), PASSWORD);

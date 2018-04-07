@@ -115,7 +115,10 @@ namespace spms.http
             {
                 res = (HttpWebResponse) ex.Response;
             }
-
+            if(res ==null)
+            {
+                return "";
+            }
             StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
             string content = sr.ReadToEnd(); //响应转化为String字符串
             return content;
@@ -161,7 +164,10 @@ namespace spms.http
             {
                 res = (HttpWebResponse) ex.Response;
             }
-
+            if (res == null)
+            {
+                return "";
+            }
             StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
             string content = sr.ReadToEnd(); //获得响应字符串
             return content;
