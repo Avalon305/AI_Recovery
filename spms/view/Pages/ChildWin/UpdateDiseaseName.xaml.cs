@@ -40,6 +40,9 @@ namespace spms.view.Pages.ChildWin
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
         public CustomData selectedDisease = new CustomData();
+        public User user = new User();
+        //联合更新使用
+        public string OldDiseaseName;
         /// <summary>
         /// 自定义三项service
         /// </summary>
@@ -69,9 +72,14 @@ namespace spms.view.Pages.ChildWin
         {
             string value = this.DiseaseName.Text;
             selectedDisease.CD_CustomName = value;
+            DynamicParameters Parameters = new DynamicParameters();
+            Parameters.Add("user_illnessname", value);
+            Parameters.Add("old", OldDiseaseName);
             using (var conn = DbUtil.getConn())
             {
                 conn.Execute("update bdl_customdata set CD_CustomName=@CD_CustomName where Pk_CD_Id=@Pk_CD_Id", selectedDisease);
+                string query = "update bdl_user SET user_illnessname = @user_illnessname where user_illnessname=@old";
+                conn.Execute(query, Parameters);
             }
             this.Close();
         }

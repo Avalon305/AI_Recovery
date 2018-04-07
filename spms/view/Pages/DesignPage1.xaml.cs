@@ -275,6 +275,7 @@ namespace spms.view.Pages
                 groupUpdata.selectedGroup = group;
                 //UI中使用
                 groupUpdata.GroupName.Text = group.CD_CustomName;
+                groupUpdata.OldGroupName = group.CD_CustomName;
                 groupUpdata.ShowDialog();
                 FlushGroup();
                 Selected[0] = 0;
@@ -301,7 +302,8 @@ namespace spms.view.Pages
                 CustomData disease = (CustomData)DataGrid3.SelectedItem;
                 diseaseUpdata.selectedDisease = disease;
                 //UI中使用
-                diseaseUpdata.DiseaseName.Text = disease.CD_CustomName;
+                diseaseUpdata.DiseaseName.Text = disease.CD_CustomName; 
+                diseaseUpdata.OldDiseaseName = disease.CD_CustomName;
                 diseaseUpdata.ShowDialog();
                 FlushDisease();
                 Selected[1] = 0;
@@ -327,6 +329,7 @@ namespace spms.view.Pages
                 diagnosisUpdata.selectedDiagnosis = diagnosis;
                 //UI中使用
                 diagnosisUpdata.DiagnosisName.Text = diagnosis.CD_CustomName;
+                diagnosisUpdata.OldDiagnosisName = diagnosis.CD_CustomName;
                 diagnosisUpdata.ShowDialog();
                 FlushDiagnosis();
                 Selected[2] = 0;
