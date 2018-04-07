@@ -369,6 +369,23 @@ namespace spms.view.Pages
             sfd.FilterIndex = 1;
             //保存对话框是否记忆上次打开的目录
             sfd.RestoreDirectory = true;
+
+            if (selectUser != null)
+            {
+                if (is_signinformationrecord.IsChecked == true)
+                {
+                    sfd.FileName = selectUser.User_Name + "-" + LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.VitalHistory") + "-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".xlsx";
+                }
+                if (is_trainingrecord.IsChecked == true)
+                {
+                    sfd.FileName = selectUser.User_Name + "-" + LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.TrainingHistory") + "-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".xlsx";
+                }
+                if (is_physicalevaluation.IsChecked == true)
+                {
+                    sfd.FileName = selectUser.User_Name + "-" + LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.PhysicalEvaluationHistory") + "-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".xlsx";
+                }
+            }
+
             if (sfd.ShowDialog() == true)
             {
                 //此处做你想做的事 ...=ofd.FileName; 
