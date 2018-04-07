@@ -38,6 +38,7 @@ namespace spms.server
 
         public async Task Start()
         {
+
             int port = 6860;
             string p = ConfigurationManager.AppSettings["NettyPort"];
             if (p == null || "".Equals(p))
