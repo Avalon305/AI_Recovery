@@ -607,7 +607,7 @@ namespace spms.view.Pages
                 Owner = Window.GetWindow(this),
                 ShowActivated = true,
                 ShowInTaskbar = false,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen
+                //WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             User user = (User)UsersInfo.SelectedItem;
             if (user == null)
