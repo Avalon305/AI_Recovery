@@ -184,7 +184,7 @@
                 <Label Name="textBlock"  Margin="500,360,381,320" VerticalAlignment="Center" FontSize="20" Content="{DynamicResource FormView.InputPasswd}"  Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic"/>
                 <PasswordBox Name="User_Password"  CaretBrush="Black" Margin="500,360,380,320" Foreground="DimGray"  FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="25" LostFocus="User_Password_LostFocus"  Style="{StaticResource Watermark}"/>
 
-                <CheckBox Margin="500,390,381,260" Style="{StaticResource CheckBoxStyle}" IsTabStop="False"  FontSize="20"></CheckBox>
+                <CheckBox Name="isRemind" Margin="500,390,381,260" Style="{StaticResource CheckBoxStyle}" IsTabStop="False"  FontSize="20" ></CheckBox>
                 <Button Content="{DynamicResource FormView.LogIn}" TabIndex="0" Foreground="White" Width="150"  Height="30" Click="Button_Click" Style="{StaticResource Btn}" IsTabStop="False"   FontSize="15"   Margin="460,439,580,200" />
                 <Button Content="{DynamicResource FormView.Reset}" TabIndex="0" Foreground="White" Height="30" Width="150" Style="{StaticResource Btn}" Click="Resetting_Button" IsTabStop="False" FontSize="15"   Margin="717,439,350,200" RenderTransformOrigin="1.511,-2.152" />
             </Grid>
