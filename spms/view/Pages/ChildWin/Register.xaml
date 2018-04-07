@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         
         Icon="/view/Images/icon2.png"
-        Title="{DynamicResource Title.Title}" Height="656.993" Width="600"
+        Title="{DynamicResource Title.Title}" Height="1080" Width="800"
          ResizeMode = "NoResize"
         PreviewKeyDown="key_dowm"
         Loaded="Window_Loaded"
@@ -148,7 +148,7 @@
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.LastName}"  VerticalAlignment="Center"  Foreground="White"/>
                     </Border>
-                        <TextBox Grid.Row="0"  CaretBrush="Red" Name="t2" Grid.Column="1" LostFocus="IsName" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                        <TextBox Grid.Row="0"  CaretBrush="Black" Name="t2" Grid.Column="1" LostFocus="IsName" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <!--气泡-->
                     <bubble:CCPopup x:Name="bubble_name" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=t2}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
@@ -162,7 +162,7 @@
                     <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.FirstName}"  FontStyle="Normal"  Foreground="White"/>
                     </Border>
-                        <TextBox Grid.Row="1" CaretBrush="Red" Name="t3" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" PreviewTextInput="limit_input" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                        <TextBox Grid.Row="1" CaretBrush="Black" Name="t3" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" PreviewTextInput="limit_input" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <Label Grid.Row="1" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
 
                     <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
@@ -189,7 +189,7 @@
                     <Border Grid.Row="4" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.Phone}" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                        <TextBox Grid.Row="4" Name="phoneNum" CaretBrush="Red" Grid.Column="1" LostFocus="IsPhone" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                        <TextBox Grid.Row="4" Name="phoneNum" CaretBrush="Black" Grid.Column="1" LostFocus="IsPhone" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                     <!--气泡-->
                     <bubble:CCPopup x:Name="bubble_phone" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=phoneNum}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
@@ -201,7 +201,7 @@
                     <Border Grid.Row="5" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.IdCard}" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                        <TextBox Grid.Row="5" Name="IDCard" CaretBrush="Red" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" LostFocus="IsIDCard" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                        <TextBox Grid.Row="5" Name="IDCard" CaretBrush="Black" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" LostFocus="IsIDCard" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <!--气泡-->
                     <bubble:CCPopup x:Name="bubble_IDCard" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=IDCard}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">

@@ -90,12 +90,10 @@ namespace spms.view
                 //UI效果
                 isRemind.IsChecked = true;
                 //获取用户名
-                String name = "";
-                name = ConfigUtil.Get(CommUtil.GetSettingString("userName"));
+                String name = ConfigUtil.GetEncrypt("userName", "");
                 this.User_Name.Text = name;
                 //获取密码
-                String password = "";
-                password = ConfigUtil.Get(CommUtil.GetSettingString("password"));
+                String password = ConfigUtil.GetEncrypt("password", ""); ;
                 this.User_Password.Password = password;
             }
             

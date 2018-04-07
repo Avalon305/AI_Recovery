@@ -1,4 +1,5 @@
-﻿using spms.bean;
+﻿using NLog;
+using spms.bean;
 using spms.dao;
 using spms.http;
 using spms.server;
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Navigation;
 using System.Windows.Threading;
 using Setter = spms.entity.Setter;
 
@@ -23,13 +25,24 @@ namespace spms
     /// </summary>
     public partial class App : Application
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
+        protected override void OnLoadCompleted(NavigationEventArgs e)
+        {
+          
+            base.OnLoadCompleted(e);
+        }
         /// <summary>
         /// 应用启动的时候生命周期
         /// </summary>
         /// <param name="e"></param>
         protected override void OnStartup(StartupEventArgs e)
         {
-  
+            //全局异常处理机制，UI异常
+            Current.DispatcherUnhandledException += App_OnDispatcherUnhandledException;
+            //全局异常处理机制，线程异常
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
             //加载语言
             LanguageUtils.SetLanguage();
 
@@ -56,44 +69,50 @@ namespace spms
             //启动远程更新
             Thread updateTh = new Thread(() =>
             {
-                Thread.Sleep(1000 * 3);
-                Dictionary<string, string> param = new Dictionary<string, string>();
-                var setter = new SetterService().GetSetterDAO().getSetter();
-                param.Add("version", setter.Set_Version);
-                var result = HttpSender.GET("http://125.0.0.13:8080/pcms/th", param);
-                if (string.IsNullOrEmpty(result))
+                try
+                {
+                    Thread.Sleep(1000 * 3);
+                    Dictionary<string, string> param = new Dictionary<string, string>();
+                    var setter = new SetterService().GetSetterDAO().getSetter();
+                    param.Add("version", setter.Set_Version);
+                    var result = HttpSender.GET("http://125.0.0.13:8080/pcms/th", param);
+                    if (string.IsNullOrEmpty(result))
+                    {
+                        return;
+                    }
+                    var info = JsonTools.DeserializeJsonToObject<VersionInfo>(result);
+
+                    Process.Start("AutoUpdater.exe", info.GetProcessString());
+                }
+                catch(Exception ex)
                 {
                     return;
                 }
-                var info = JsonTools.DeserializeJsonToObject<VersionInfo>(result);
-             
-                Process.Start("AutoUpdater.exe", info.GetProcessString());
 
             });
-
+          
             updateTh.Start();
 
-
-
+           
 
             //大数据线程
 
             Thread bdth = new Thread(() =>
-        {
-            SetterDAO setterDao = new SetterDAO();
-            while (true)
             {
-                if (setterDao.ListAll().Count == 0)
+                SetterDAO setterDao = new SetterDAO();
+                while (true)
                 {
-                    continue;
-                }
-                BigDataOfficer bigDataOfficer = new BigDataOfficer();
-                bigDataOfficer.Run();
-                int heartBeatRate = (int)CommUtil.GetBigDataRate();
-                Thread.Sleep(1000 * 300);
+                    if (setterDao.ListAll().Count == 0)
+                    {
+                        continue;
+                    }
+                    BigDataOfficer bigDataOfficer = new BigDataOfficer();
+                    bigDataOfficer.Run();
+                    int heartBeatRate = (int)CommUtil.GetBigDataRate();
+                    Thread.Sleep(1000 * 300);
 
-            }
-        });
+                }
+            });
             bdth.Start();
 
             base.OnStartup(e);
@@ -106,6 +125,50 @@ namespace spms
         {
             System.Environment.Exit(0);
             base.OnExit(e);
+        }
+
+        /// <summary>
+        /// UI线程抛出全局异常事件处理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void App_OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            try
+            {
+                logger.Error(  "UI线程全局异常"+e.Exception.ToString());
+                e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(  "不可恢复的UI线程全局异常"+ex.ToString());
+                MessageBox.Show("应用程序异常，将要退出！");
+                System.Environment.Exit(0);
+            }
+        }
+
+        /// <summary>
+        /// 非UI线程抛出全局异常事件处理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            try
+            {
+                var exception = e.ExceptionObject as Exception;
+                if (exception != null)
+                {
+                    logger.Error(  "非UI线程全局异常"+exception.ToString());
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(  "不可恢复的非UI线程全局异常"+ex.ToString());
+                MessageBox.Show("应用程序发生异常，将要退出！");
+                System.Environment.Exit(0);
+            }
         }
 
     }
