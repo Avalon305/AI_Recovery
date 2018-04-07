@@ -29,10 +29,11 @@ namespace spms.util
         /// </summary>
         static DbUtil()
         {
-            DbName = ConfigurationManager.AppSettings["DbName"];
-            DbUserName = ConfigurationManager.AppSettings["DbUserName"];
-            DbPassword = ConfigurationManager.AppSettings["DbPassword"];
-            DbUrl = ConfigurationManager.AppSettings["DbUrl"];
+            
+            DbName = ConfigUtil.GetEncrypt("DbName", "");
+            DbUserName = ConfigUtil.GetEncrypt("DbUserName", "");  
+            DbPassword = ConfigUtil.GetEncrypt("DbPassword","");
+            DbUrl = ConfigUtil.GetEncrypt("DbUrl","");
 
             connstr = string.Format("server={0};user id={1}; password={2}; database={3}; pooling=true", DbUrl, DbUserName, DbPassword, DbName);
         }

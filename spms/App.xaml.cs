@@ -28,8 +28,7 @@ namespace spms
         /// <param name="e"></param>
         protected override void OnStartup(StartupEventArgs e)
         {
-            var a = ConfigUtil.GetEncrypt("test");
-            MessageBox.Show(a);
+  
             //加载语言
             LanguageUtils.SetLanguage();
 
