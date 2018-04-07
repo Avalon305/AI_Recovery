@@ -18,7 +18,7 @@
 
     <!-- 主界面 -->
     <s:String x:Key="MainView.Settings">设置</s:String>
-    <s:String x:Key="MainView.Close">关闭</s:String>
+    <s:String x:Key="MainView.Close">返回</s:String>
     <s:String x:Key="MainView.Title">传递健康理念，与您共同发展</s:String>
 
     <!-- 标题 -->

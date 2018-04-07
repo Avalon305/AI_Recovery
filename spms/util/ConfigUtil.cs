@@ -33,11 +33,11 @@ namespace spms.util
         }
 
         /// <summary>
-        /// 加密，10个随机数+内容
+        /// 10个随机数+内容
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>
-        public string Encrypt(string content)
+        public static string Encrypt(string content)
         {
             string random = RandomUtil.GenerateRandomNumber(10);
             var ip = AesUtil.Encrypt(Encoding.GetEncoding("GBK").GetBytes(random + content), PASSWORD);
@@ -84,12 +84,8 @@ namespace spms.util
         }
 
 
-        /// <summary>
-        /// 解密，ref Result 是解密结果，有两个状态
-        /// </summary>
-        /// <param name="state"></param>
-        /// <param name="content"></param>
-        /// <returns></returns>
+
+         
         private static string Decrypt(ref Result state, string content)
         {
             state = Result.SUCCESS;
