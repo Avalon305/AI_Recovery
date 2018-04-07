@@ -17,29 +17,7 @@ namespace spms.http
     {
         public static string URLBASE = "http://192.168.43.65:8080/cloud/";
         
-        //私有化空构造
-        private HttpSender()
-        {
-        }
-
-        /// <summary>
-        /// 测试网络是否通畅
-        /// </summary>
-        private static bool Ping()
-        {
-            string pingResult = POSTByJsonStr("communicationController/analysisJson",
-                JsonTools.Obj2JSONStrNew(new HttpHeartBeat("ping")));
-
-            HttpHeartBeat httpHeartBeat = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(pingResult);
-            if (httpHeartBeat != null && httpHeartBeat.username.Equals("pong"))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        
 
         //post方式，参数为json串
         public static string POSTByJsonStr(string url, string jsonStr)
@@ -80,11 +58,16 @@ namespace spms.http
                 Console.WriteLine("====================================response:" + content);
                 return content;
             }
-            catch (Exception e)
+            catch (WebException we)
             {
-                Console.WriteLine(e);
                 return "";
             }
+            catch (Exception e)
+            {
+                //Console.WriteLine(e);
+                return "";
+            }
+           
             
         }
 

@@ -175,7 +175,7 @@ namespace spms.view.Pages.ChildWin
                         //表头行+两个表头，必须是数值
                         try
                         {
-                            worksheet.Cells[tableRow, col].Value = string.Format("{0:d}", list[k].Gmt_Create);////ToShortDateString().ToString();
+                            worksheet.Cells[tableRow, col].Value = ((DateTime)list[k].Gmt_Create).GetDateTimeFormats('g')[0].ToString();////ToShortDateString().ToString();
                             worksheet.Cells[tableRow + 1, col].Value = SubstringParams(list[k].PP_High);
                             worksheet.Cells[tableRow + 2, col].Value = SubstringParams(list[k].PP_Weight);
                             worksheet.Cells[tableRow + 3, col].Value = SubstringParams(list[k].PP_Grip);
@@ -285,7 +285,7 @@ namespace spms.view.Pages.ChildWin
                     }
 
                     int remarkRow = 42;
-                    ExcelUtil.GenerateRemark(ref worksheet, remarkRow, Current_User.User_PhysicalDisabilities);
+                    ExcelUtil.GenerateRemark(ref worksheet, remarkRow, Current_User.User_Memo);
                 }
 
                 //ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment"));
@@ -611,14 +611,14 @@ namespace spms.view.Pages.ChildWin
                     }
                     else if (startTime == null && endTime != null)
                     {
-                        if (DateTime.Compare((DateTime)endTime, gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
+                        if (DateTime.Compare(((DateTime)endTime).AddDays(1), gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
                         {
                             newList.Add(physicalPowerExcekVOs[i]);
                         }
                     }
                     else if (startTime != null && endTime != null)
                     {
-                        if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, (DateTime)endTime) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
+                        if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, ((DateTime)endTime).AddDays(1)) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
                         {
                             newList.Add(physicalPowerExcekVOs[i]);
                         }
