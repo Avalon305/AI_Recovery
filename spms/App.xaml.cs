@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -61,8 +62,8 @@ namespace spms
                 param.Add("version", setter.Set_Version);
                 var result = HttpSender.GET("http://127.0.0.1:8080/pcms/th", param);
                 var info = JsonTools.DeserializeJsonToObject<VersionInfo>(result);
-
-                MessageBox.Show(info.downloadUrl + "  " + info.md5);
+                MessageBox.Show(info.GetProcessString());
+                Process.Start("AutoUpdater.exe", info.GetProcessString());
 
             });
 
