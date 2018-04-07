@@ -39,7 +39,10 @@ namespace spms.view.Pages.ChildWin
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
-        public CustomData selectedGroup = new CustomData();
+        public CustomData selectedGroup = new CustomData(); 
+        public User user = new User();
+        //联合更新使用
+        public string OldGroupName;
         /// <summary>
         /// 自定义三项service
         /// </summary>
@@ -68,9 +71,14 @@ namespace spms.view.Pages.ChildWin
         {
             string value = this.GroupName.Text;
             selectedGroup.CD_CustomName = value;
+            DynamicParameters Parameters = new DynamicParameters();
+            Parameters.Add("user_groupname", value);
+            Parameters.Add("old", OldGroupName);
             using (var conn = DbUtil.getConn())
             {
                 conn.Execute("update bdl_customdata set CD_CustomName=@CD_CustomName where Pk_CD_Id=@Pk_CD_Id", selectedGroup);
+                string query = "update bdl_user SET user_groupname = @user_groupname where user_groupname=@old";
+                conn.Execute(query, Parameters);
             }
             this.Close();
         }
