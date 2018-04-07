@@ -62,15 +62,18 @@ namespace spms.view.Pages.ChildWin
 
         private void Button_OK(object sender, RoutedEventArgs e)
         { //获取控件值
-            selectedAuther.Auth_UserName = UserName.Text;
-            selectedAuther.Gmt_Modified = DateTime.Now;
-            if ((bool)No.IsChecked)
+            if (UserName.Text != null && UserName.Text != "")
             {
-                selectedAuther.Auth_OfflineTime = Confirm_Date.SelectedDate;
-                selectedAuther.User_Status = 0;
+                selectedAuther.Auth_UserName = UserName.Text;
             }
             else
             {
+                MessageBox.Show(LanguageUtils.ConvertLanguage("用户名不能为空", "The username can not be empty"));
+            }
+            selectedAuther.Gmt_Modified = DateTime.Now;
+            if ((bool)Yes.IsChecked)
+            {
+
                 DateTime date = (DateTime)Auther.Auth_OFFLINETIMEFREE;
                 string sdate = string.Format("{0:yyyy-MM-dd}", date);
                 DateTimeFormatInfo dtFormat = new DateTimeFormatInfo();
@@ -78,23 +81,38 @@ namespace spms.view.Pages.ChildWin
                 selectedAuther.Auth_OfflineTime = Convert.ToDateTime(sdate, dtFormat);
                 selectedAuther.User_Status = 2;
             }
+            else
+            {
+                if (Confirm_Date.SelectedDate == null)
+                {
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("离线时间不能为空", "The offlinetime can not be empty"));
+                }
+                else
+                {
+                    selectedAuther.Auth_OfflineTime = Confirm_Date.SelectedDate;
+                    selectedAuther.User_Status = 0;
+                    
+                }
+
+            }
             string PassWord = Pass.Password;
             string REPassword = Confirm_Pass.Password;
-            if (PassWord.Equals(REPassword) && PassWord != "")
+            if (UserName.Text != ""&& selectedAuther.User_Status != null && PassWord.Equals(REPassword) && PassWord != "")
             {
                 selectedAuther.Auth_UserPass = PassWord;
                 authDAO.UpdateByPrimaryKey(selectedAuther);
                 this.Close();
 
             }
-            else if ((PassWord.Equals(REPassword) && PassWord == ""))
+            else if (UserName.Text != "" && PassWord == "")
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("密码不能为空", "The password can not be empty"));
             }
-            else {
+            else if (!PassWord.Equals(REPassword))
+            {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("密码的两次输入不一致", "Two inconsistencies in the password are inconsistencies"));
             }
-            
+
         }
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)

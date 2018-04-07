@@ -50,7 +50,7 @@ namespace spms.view.Pages.ChildWin
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
-        //用户名失去焦点触发事件进行姓名查重
+        //用户名失去焦点触发事件进行姓名查重,没用到！
         private void Name_LostFocus(object sender, RoutedEventArgs e)
         {
             //获取文本框的值
@@ -75,12 +75,7 @@ namespace spms.view.Pages.ChildWin
             }
             auther.Gmt_Create = DateTime.Now;
             auther.Gmt_Modified = DateTime.Now;
-            if ((bool)No.IsChecked)
-            {
-                auther.Auth_OfflineTime = Confirm_Date.SelectedDate;
-                auther.User_Status = 0;
-            }
-            else//默认启用
+            if ((bool)Yes.IsChecked)
             {
 
                 DateTime date = (DateTime)Auther.Auth_OFFLINETIMEFREE;
@@ -89,27 +84,43 @@ namespace spms.view.Pages.ChildWin
                 dtFormat.ShortDatePattern = "yyyy-MM-dd";
                 auther.Auth_OfflineTime = Convert.ToDateTime(sdate, dtFormat);
                 auther.User_Status = 2;
-            }
-            if (Pass.Password != null && Pass.Password != "")
-            {
-                PassWord = Pass.Password;
+                this.Close();
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("密码不能为空", "The password can not be empty"));
+                if (Confirm_Date.SelectedDate == null)
+                {
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("离线时间不能为空", "The offlinetime can not be empty"));
+
+                }
+                else
+                {
+                    auther.Auth_OfflineTime = Confirm_Date.SelectedDate;
+                    auther.User_Status = 0;
+                    
+                }
+
+
             }
+            PassWord = Pass.Password;
+          
             string REPassword = Confirm_Pass.Password;
             auther.Auth_Level = 0x01;
-            if (PassWord.Equals(REPassword) && PassWord != "")
+            if (UserName.Text != ""&& auther.User_Status != null && PassWord.Equals(REPassword) && PassWord != "")
             {
                 auther.Auth_UserPass = PassWord;
                 authDAO.Insert(auther);
                 this.Close();
             }
+            else if (UserName.Text != ""&&PassWord == "")
+            {
+                MessageBox.Show(LanguageUtils.ConvertLanguage("密码不能为空", "The password can not be empty"));
+            }
             else if (!PassWord.Equals(REPassword))
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("密码的两次输入不一致", "Two inconsistencies in the password are inconsistencies"));
             }
+           
 
         }
         //回车按钮
