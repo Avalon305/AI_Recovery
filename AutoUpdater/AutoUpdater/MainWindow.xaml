@@ -66,7 +66,7 @@
                     Background="White"
                     CornerRadius="5,5,0,0" />
 
-            <Image Grid.Row="0" Margin="0,-2,0,0">
+            <Image Grid.Row="0" Margin="0,-2,0,0" Stretch="Fill">
                 <Image.OpacityMask>
                     <VisualBrush Visual="{Binding ElementName=ImgBorder, Mode=OneTime}" />
                 </Image.OpacityMask>
