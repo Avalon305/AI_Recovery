@@ -71,7 +71,6 @@ namespace spms
             {
                 try
                 {
-                    throw new NullReferenceException();
                     Thread.Sleep(1000 * 3);
                     Dictionary<string, string> param = new Dictionary<string, string>();
                     var setter = new SetterService().GetSetterDAO().getSetter();
