@@ -1040,5 +1040,46 @@ namespace spms.view.Pages
                
                 }
             }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Object o = record.Content;
+            User user = (User)UsersInfo.SelectedItem;
+
+            if (user == null)
+            {
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                return;
+            }
+
+            if (is_signinformationrecord.IsChecked ==false || record.Content == null)
+            {
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择症状信息再进行操作！", "Please Select A Symptom Info!"));
+                return;
+            }
+
+            DataGrid dataGrid = ((SignInformationRecord_Frame)record.Content).SignInformationRecord;
+
+            SymptomInfoDTO symptomInfoDto = (SymptomInfoDTO)dataGrid.SelectedItem;
+            if (symptomInfoDto == null)
+            {
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择症状信息再进行操作！", "Please Select A Symptom Info!"));
+                return;
+            }
+
+            UpdateSymptominfo w2 = new UpdateSymptominfo
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            Dictionary<string, Object> dic = new Dictionary<string, object>();
+            dic.Add("user", user);
+            dic.Add("symptom", symptomInfoDto);
+            w2.DataContext = dic;
+            w2.ShowDialog();
+            Refresh_RecordFrame_Action();
         }
+    }
     }
