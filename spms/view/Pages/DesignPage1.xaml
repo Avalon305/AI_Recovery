@@ -77,25 +77,32 @@
                         <RowDefinition Height="25"/>
                         <RowDefinition Height="25"/>
                         <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
                         <!-- <RowDefinition Height="25"/>
                     <RowDefinition Height="25"/>
                     <RowDefinition Height="25"/>-->
                     </Grid.RowDefinitions>
                     <!--机构团体名称-->
-                    <Border Grid.Row="0" Grid.Column="0"  Width="140" HorizontalAlignment="Left" Margin="0,0,0,1.6">
-                        <Label Foreground="White" VerticalContentAlignment="Center" Background="Black" FontSize="10"  Content="{DynamicResource SettingsView.FacilityName}"></Label>
+                    <Border Grid.Row="0" Grid.Column="0"  Width="140" HorizontalAlignment="Left" Margin="0,0,0,2">
+                        <Label Foreground="White" Padding="4" VerticalContentAlignment="Center" Background="Black"   Content="{DynamicResource SettingsView.FacilityName}"></Label>
                     </Border>
 
-                    <Border Grid.Row="0" Grid.Column="1" Margin="0.2,0,0,1.6" >
+                    <Border Grid.Row="0" Grid.Column="1" Margin="0.2,0,0,2" >
                         <TextBox x:Name="textBox1" VerticalContentAlignment="Center" Text="{Binding Set_OrganizationName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                     </Border>
                     <!--结束：机构团体名称-->
                     <!--机构区分-->
-                    <Border Grid.Row="1" Grid.Column="0"  Width="140" HorizontalAlignment="Left" Margin="0,0.4,0,2.4">
-                        <Label Foreground="White" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.FacilityType}"></Label>
+                    <Border Grid.Row="1" Grid.Column="0"  Width="140" HorizontalAlignment="Left" Margin="0,0.4,0,2">
+                        <Label Foreground="White" Padding="4" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.FacilityType}"></Label>
                     </Border>
-                    <Border Grid.Row="1" Grid.Column="1"    Margin="0.2,0.4,0,2.4">
+                    <Border Grid.Row="1" Grid.Column="1"    Margin="0.2,0.4,0,2">
                         <ComboBox VerticalContentAlignment="Center" x:Name="comboBox1" IsTabStop="False" ItemsSource="{Binding}" SelectedIndex ="0"  SelectedValuePath="Code_S_Value" DisplayMemberPath="Code_D_Value" ></ComboBox>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="0"  Width="140" HorizontalAlignment="Left" Margin="0,0.4,0,2">
+                        <Label Foreground="White" Padding="4" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.Phone}"></Label>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="1"    Margin="0.2,0.4,0,2">
+                        <TextBox VerticalContentAlignment="Center"  IsTabStop="False" Text="{Binding Set_OrganizationPhone}" ></TextBox>
                     </Border>
                     <!--结束：机构区分-->
                     <!-- <Border Grid.Row="2" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,0,0,2">
@@ -120,32 +127,33 @@
                         <Button>设定视频</Button>
                     </Border>-->
                     <!--照片保存文档-->
-                    <Border Grid.Row="1" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,24.4,0,2.2" Grid.RowSpan="2">
-                        <Label Foreground="White" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.PictureFolder}"></Label>
+                    <Border Grid.Row="3" Grid.Column="0"  Width="140" HorizontalAlignment="Left"   Margin="0,0,0,2">
+                        <Label Foreground="White" Padding="4" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.PictureFolder}"></Label>
                     </Border>
-                    <Border Grid.Row="1" Grid.Column="1"  Margin="0.2,24.4,0,2.2" Grid.RowSpan="2">
+                    <Border Grid.Row="3" Grid.Column="1" Margin="0,0,0,2" >
                         <TextBox VerticalContentAlignment="Center" Name="textBox2" Text="{Binding Set_PhotoLocation}" ></TextBox>
                     </Border>
 
-                    <Border Grid.Row="1" Grid.Column="2"  Margin="2,24.4,0.4,2.2" Grid.RowSpan="2">
+                    <Border Grid.Row="3" Grid.Column="2"  Margin="2,0,0.4,2" >
                         <Button Click="Output_Document" IsTabStop="False" Style="{StaticResource Btn}" Content="{DynamicResource SettingsView.Refer}"></Button>
                     </Border>
                     <!--结束：照片保存文档-->
-                    <Label  Grid.Row="1" Grid.Column="2" Foreground="Red" Content="{DynamicResource SettingsView.Alert}" Margin="114,24.4,-13.4,10" Grid.RowSpan="3" Grid.ColumnSpan="2"></Label>
+                    <Label  Grid.Row="3" Grid.Column="3" VerticalAlignment="Top" Grid.ColumnSpan="3"  VerticalContentAlignment="Top" Foreground="Red" Content="{DynamicResource SettingsView.Alert}" Margin="0,0,-13.4,6.6" Grid.RowSpan="2" ></Label>
                     <!--语言-->
-                    <Border Grid.Row="2" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,24.6,0,2" Grid.RowSpan="2">
-                        <Label Foreground="White" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.Language}"></Label>
+                    <Border Grid.Row="4" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,0,0,2" >
+                        <Label Foreground="White" Padding="4" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.Language}"></Label>
                     </Border>
-                    <Border Grid.Row="2" Grid.Column="1"  Margin="0.2,24.6,0,2" Grid.RowSpan="2">
+                    <Border Grid.Row="4" Grid.Column="1"  Margin="0.2,0,0,2" >
                         <ComboBox VerticalContentAlignment="Center" x:Name="comboBox2" IsTabStop="False" ItemsSource="{Binding}" SelectedIndex="0"  SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value" >
                         </ComboBox>
                     </Border>
                     <!--结束：语言-->
-                    <Border Grid.Row="4" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,0,0,1.8">
-                        <Label Foreground="White" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.CurrentVersion}"></Label>
+                    <Border Grid.Row="5" Grid.Column="0"  Width="140" HorizontalAlignment="Left"  Margin="0,0,0,1.8">
+                        <Label Foreground="White" Padding="4" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.CurrentVersion}"></Label>
                     </Border>
-                    <Border Grid.Row="4" Grid.Column="1"  Margin="0.2,0,0,1.8">
-                        <TextBox VerticalContentAlignment="Center"  IsEnabled="False" ></TextBox>
+                    <Border Grid.Row="5" Grid.Column="1"  Margin="0.2,0,0,1.8">
+                        <TextBox VerticalContentAlignment="Center" Text="{Binding Set_Version}" IsEnabled="False" ></TextBox>
+
                     </Border>
                     <!--<Border Grid.Row="4" Grid.Column="2"  Margin="2,0,0.4,1.8">
                         <Button Click="upgrade" IsTabStop="False" Style="{StaticResource Btn}" Content="{DynamicResource SettingsView.OnlineUpgrade}"></Button>

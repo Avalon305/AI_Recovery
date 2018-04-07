@@ -768,10 +768,20 @@ namespace spms.view.Pages
 
         private void GoBack(object sender, RoutedEventArgs e)
         {
+           // Window window = (Window)this.Parent;
+            //window.Content = new Login();
             System.Environment.Exit(0);
-            //Window window = (Window)this.Parent;
-            //window.Show();
-            //window.Content = new MainWindow();
+            //Login login = new Login
+            //{
+            //    Owner = Window.GetWindow(this),
+            //    ShowActivated = true,
+            //    ShowInTaskbar = false,
+            //    WindowStartupLocation = WindowStartupLocation.CenterScreen
+            //};
+            
+            //login.ShowDialog();
+            //window.Close();
+
         }
 
         /// <summary>
