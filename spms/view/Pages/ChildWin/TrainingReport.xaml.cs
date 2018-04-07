@@ -783,6 +783,8 @@ namespace spms.view.Pages.ChildWin
             DateTime startTime = Convert.ToDateTime(start_date.Text);
             DateTime? endTime = getDateByStr(end_date.Text);
 
+            Console.WriteLine("时间改变了");
+
             if (endTime != null)
             {
                 if (DateTime.Compare(startTime, (DateTime)endTime) > 0)
@@ -823,6 +825,7 @@ namespace spms.view.Pages.ChildWin
 
         private List<object> listBeansByStartToEndTime(DateTime? startTime, DateTime? endTime)
         {
+            Console.WriteLine("调用了");
             List<object> newList = new List<object>();
             if (is_comprehensiv.IsChecked == true || is_nurse.IsChecked == true)
             {

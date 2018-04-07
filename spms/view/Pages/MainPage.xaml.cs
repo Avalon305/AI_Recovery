@@ -499,7 +499,11 @@ namespace spms.view.Pages
                     List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(selectUser.Pk_User_Id);
                     trainingReport.datalist.DataContext = list;
                     trainingReport.trainingAndSymptomBeans = list;//赋值全局变量
-                    Console.WriteLine(list.ToString());
+                    if (list.Count != 0)
+                    {
+                        trainingReport.start_date.SelectedDate = list[0].Gmt_Create;//起始时间
+                        trainingReport.end_date.SelectedDate = list[list.Count - 1].Gmt_Create;//终止时间
+                    }
                     trainingReport.ShowDialog();
                 }
             }
@@ -547,6 +551,11 @@ namespace spms.view.Pages
                     List<PhysicalPowerExcekVO> list = excelService.ListPhysicalPowerExcekVOByUserId(selectUser.Pk_User_Id);
                     physicalAssessmentReport.datalist.DataContext = list;
                     physicalAssessmentReport.physicalPowerExcekVOs = list;
+                    if (list.Count != 0)
+                    {
+                        physicalAssessmentReport.start_date.SelectedDate = list[0].Gmt_Create;//起始时间
+                        physicalAssessmentReport.end_date.SelectedDate = list[list.Count - 1].Gmt_Create;//终止时间
+                    }
                     physicalAssessmentReport.ShowDialog();
                 }
                 //List<TrainInfo> list = new List<TrainInfo>();
