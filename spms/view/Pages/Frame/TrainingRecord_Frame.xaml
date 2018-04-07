@@ -19,6 +19,7 @@
                         <ColumnDefinition Width="407*"/>
                     </Grid.ColumnDefinitions>
                     <DataGrid x:Name="TrainingRecord1" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" FocusVisualStyle="{x:Null}" IsTabStop="False" KeyboardNavigation.TabNavigation="None" RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="2" Margin="0,0,-12.6,0">
+                        
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>

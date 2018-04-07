@@ -80,8 +80,8 @@
         </Grid>
         <!--结束：用户ID和姓名-->
         <!--输入报告-->
-        <StackPanel Orientation="Horizontal" Height="65" Margin="0,5,8,0">
-            <Border Background="Silver" Width="80" Height="25" VerticalAlignment="Top" Margin="8,0,4,0">
+        <StackPanel Orientation="Horizontal" Height="67" Margin="0,5,10,0">
+            <Border Background="Silver" Width="95" Height="25" VerticalAlignment="Top" Margin="8,0,4,0">
                     <Label Margin="0,-2,0,-4" VerticalContentAlignment="Center" Content="{DynamicResource CreateTrainingReportView.OutputReport}"></Label>
             </Border>
             <Border BorderBrush="Black" BorderThickness="1" Width="365">
@@ -100,11 +100,11 @@
         </StackPanel>
         <!--结束：输入报告-->
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                <Border Background="Silver" Width="80" Height="25" VerticalAlignment="Center" Margin="8,0,4,0">
+                <Border Background="Silver" Width="95" Height="25" VerticalAlignment="Center" Margin="8,0,4,0">
                     <Label Margin="0,-2,0,-4" VerticalContentAlignment="Center" Content="{DynamicResource CreateTrainingReportView.SelectDate}"></Label>
                 </Border>
                 <Border Margin="0,0,0,0" Width="153" Grid.Row="0" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" >
-                    <DatePicker HorizontalAlignment="Left"  x:Name="start_date" SelectedDateChanged="start_date_SelectedDateChanged" VerticalAlignment="Top" Height="25" Width="150" >
+                    <DatePicker HorizontalAlignment="Left"  x:Name="start_date" VerticalAlignment="Top" Height="25" Width="150" >
                         <DatePicker.Resources>
                             <Style TargetType="DatePickerTextBox">
                                 <Setter Property="IsReadOnly" Value="True"/>
@@ -118,7 +118,7 @@
                     <Label Content="~" ></Label>
                 </Border>
                 <Border Margin="0,0,0,0" Width="153" Grid.Row="0" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" >
-                    <DatePicker HorizontalAlignment="Left"  x:Name="end_date" SelectedDateChanged="end_date_SelectedDateChanged" VerticalAlignment="Top" Height="25" Width="150" >
+                    <DatePicker HorizontalAlignment="Left"  x:Name="end_date" VerticalAlignment="Top" Height="25" Width="150" >
                         <DatePicker.Resources>
                             <Style TargetType="DatePickerTextBox">
                                 <Setter Property="IsReadOnly" Value="True"/>
@@ -129,8 +129,8 @@
                 </Border>
             </StackPanel>
         <!--实施日期-->
-        <StackPanel Orientation="Horizontal" Height="300" Margin="0,10,0,0">
-            <Border Background="Silver" Width="80" Height="25" VerticalAlignment="Top" Margin="8,0,4,0">
+        <StackPanel Orientation="Horizontal" Height="300" Margin="0,10,10,0" Width="472">
+            <Border Background="Silver" Width="95" Height="25" VerticalAlignment="Top" Margin="8,0,4,0">
                     <Label Margin="0,-2,0,-4" VerticalContentAlignment="Center" Content="{DynamicResource CreateTrainingReportView.Date}"></Label>
             </Border>
                 
@@ -157,7 +157,7 @@
         <!--结束：实施日期-->
         <!--评论-->
         <StackPanel Orientation="Horizontal" Height="100" Margin="0,10,0,0">
-            <Border Background="Silver" Width="80" Height="20" VerticalAlignment="Top" Margin="8,0,4,0">
+            <Border Background="Silver" Width="95" Height="20" VerticalAlignment="Top" Margin="10,0,4,0">
                     <Label Margin="0,-2,0,-4" Content="{DynamicResource CreateTrainingReportView.Comment}"></Label>
             </Border>
 
@@ -176,17 +176,17 @@
         </StackPanel>
         <!--结束：评论-->
         <!--文档输出-->
-        <StackPanel Orientation="Vertical" Height="51" Margin="7,10,0,0">
+        <StackPanel Orientation="Vertical" Height="51" Margin="10,10,10,0">
                 <CheckBox Content="{DynamicResource CreateTrainingReportView.Export}" Name="DocumentInput_Check" IsTabStop="False"/>
             <StackPanel Orientation="Horizontal">
                     <Button Click="Button_Click_OutputDocument" Content="{DynamicResource CreateTrainingReportView.Output}" Width="80" Height="25" IsTabStop="False"  HorizontalAlignment="Left" Margin="0,6,8,-3" Style="{StaticResource Btn}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"/>
-                <TextBox Name="text_output_document" Width="364" VerticalAlignment="Center"  Height="25"  Margin="0,8,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"></TextBox>
+                    <TextBox Name="text_output_document" Width="374" VerticalAlignment="Center"  Height="25"  Margin="0,8,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"></TextBox>
             </StackPanel>
         </StackPanel>
         <!--结束：文档输出-->
         <!--按钮部分-->
-        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="143" Height="34" VerticalAlignment="Bottom"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0" Margin="0,0,5,0">
-            <StackPanel Orientation="Horizontal" Margin="-60,0,10,7"  >
+        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="220" Height="34" VerticalAlignment="Bottom"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0" >
+            <StackPanel Orientation="Horizontal" Margin="18,0,10,6.6"  >
                     <Button Width="59" Height="25" VerticalAlignment="Bottom" IsTabStop="False"   Foreground="Black" Content="{DynamicResource CreateTrainingReportView.Go}" Margin="4,0,0,-0.2" Style="{StaticResource Btn}" Click="Button_Click_Print"/>
                     <Button Width="59" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"  Foreground="Black" Content="{DynamicResource CreateTrainingReportView.Preview}" Margin="4,0,0,-0.2" Style="{StaticResource Btn}" Click="Button_Click_Print_View"/>
                     <Button Width="62" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"  Content="{DynamicResource CreateTrainingReportView.Cancel}"  Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>
