@@ -90,10 +90,12 @@ namespace spms.view
                 //UI效果
                 isRemind.IsChecked = true;
                 //获取用户名
-                String name = CommUtil.GetSettingString("userName");
+                String name = "";
+                name = ConfigUtil.Get(CommUtil.GetSettingString("userName"));
                 this.User_Name.Text = name;
                 //获取密码
-                String password = CommUtil.GetSettingString("password");
+                String password = "";
+                password = ConfigUtil.Get(CommUtil.GetSettingString("password"));
                 this.User_Password.Password = password;
             }
             
@@ -201,6 +203,9 @@ namespace spms.view
                 bool? checkRemind = isRemind.IsChecked;
                 if (checkRemind == true)
                 {
+                    //加密后存储在config中
+                    name = ConfigUtil.Encrypt(name);
+                    password = ConfigUtil.Encrypt(password);
                     CommUtil.UpdateSettingString("isRemind", "true");
                     CommUtil.UpdateSettingString("userName", name);
                     CommUtil.UpdateSettingString("password", password);
