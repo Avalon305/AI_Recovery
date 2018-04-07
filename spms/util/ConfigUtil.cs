@@ -84,8 +84,12 @@ namespace spms.util
         }
 
 
-
-
+        /// <summary>
+        /// 解密，ref Result 是解密结果，有两个状态
+        /// </summary>
+        /// <param name="state"></param>
+        /// <param name="content"></param>
+        /// <returns></returns>
         private static string Decrypt(ref Result state, string content)
         {
             state = Result.SUCCESS;
