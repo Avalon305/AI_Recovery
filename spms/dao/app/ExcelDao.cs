@@ -47,7 +47,7 @@ namespace spms.dao
         }
 
         /// <summary>
-        /// 根据用户id查询体力评价记录
+        /// 根据用户id查询体力评价记录 - 页面的展示
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
@@ -73,6 +73,21 @@ namespace spms.dao
                 const string query = "SELECT ti.gmt_create, ds.ds_name, dp.dp_groupcount, dp.dp_groupnum, dp.dp_relaxtime, dp.dp_weight,dp.dp_moveway,pr.pr_sportstrength,pr.pr_time1,pr.pr_time2,pr.pr_distance,pr.pr_countworkquantity,pr.pr_cal,pr.pr_index,pr.pr_finishgroup,pr.pr_evaluate,pr.pr_memo,pr.pr_attentionpoint,pr.pr_userthoughts FROM bdl_deviceprescription dp,bdl_prescriptionresult pr,bdl_devicesort ds,bdl_traininfo ti WHERE dp.pk_dp_id = pr.fk_dp_id AND dp.fk_ds_id = ds.pk_ds_id AND dp.fk_ti_id = ti.pk_ti_id AND ti.fk_user_id =@User_Id ORDER BY ti.gmt_create";
 
                 return conn.Query<TrainComprehensive>(query, new { User_Id = userId }).ToList();
+            }
+        }
+
+        /// <summary>
+        /// 根据用户id查询体力评价记录 - 文档导出
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public List<PhysicalPower> ListPhysicalPowerExcelVO(int userId)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "SELECT gmt_create,pp_high,pp_weight,pp_grip,pp_eyeopenstand,pp_functionprotract,pp_sitandreach,pp_timeupgo,pp_walk5milegeneral,pp_walk5milefast,pp_walk10mile,pp_walk6minute,pp_step2minute,pp_legraise2minute,pp_usermemo,pp_workermemo FROM bdl_physicalpower pp WHERE pp.fk_user_id=@User_Id ORDER BY gmt_create";
+
+                return conn.Query<PhysicalPower>(query, new { User_Id = userId }).ToList();
             }
         }
     }
