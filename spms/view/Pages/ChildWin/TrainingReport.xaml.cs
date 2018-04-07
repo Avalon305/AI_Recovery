@@ -310,7 +310,7 @@ namespace spms.view.Pages.ChildWin
 
                     //备注
                     int remarkRow = 41;
-                    ExcelUtil.GenerateRemark(ref worksheet, remarkRow, ExcelUtil.GetObjContent(Current_User.User_PhysicalDisabilities));
+                    ExcelUtil.GenerateRemark(ref worksheet, remarkRow, ExcelUtil.GetObjContent(Current_User.User_Memo));
                 }
 
                 //保存
@@ -842,14 +842,14 @@ namespace spms.view.Pages.ChildWin
                         }
                         else if (startTime == null && endTime != null)
                         {
-                            if (DateTime.Compare((DateTime)endTime, gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
+                            if (DateTime.Compare(((DateTime)endTime).AddDays(1), gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
                             {
                                 newList.Add(trainingAndSymptomBeans[i]);
                             }
                         }
                         else if (startTime != null && endTime != null)
                         {
-                            if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, (DateTime)endTime) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
+                            if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, ((DateTime)endTime).AddDays(1)) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
                             {
                                  newList.Add(trainingAndSymptomBeans[i]);
                             }
@@ -879,14 +879,14 @@ namespace spms.view.Pages.ChildWin
                         }
                         else if (startTime == null && endTime != null)
                         {
-                            if (DateTime.Compare((DateTime)endTime, gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
+                            if (DateTime.Compare(((DateTime)endTime).AddDays(1), gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
                             {
                                 newList.Add(devicePrescriptionExcels[i]);
                             }
                         }
                         else if (startTime != null && endTime != null)
                         {
-                            if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, (DateTime)endTime) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
+                            if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, ((DateTime)endTime).AddDays(1)) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
                             {
                                 newList.Add(devicePrescriptionExcels[i]);
                             }
