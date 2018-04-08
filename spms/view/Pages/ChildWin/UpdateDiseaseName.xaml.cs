@@ -58,7 +58,8 @@ namespace spms.view.Pages.ChildWin
         {
             this.Close();
         }
-        private void Text_LostFocus(object sender, RoutedEventArgs e)
+
+        private void Button_SaveClick(object sender, RoutedEventArgs e)
         {
             //获取文本框的值
             string Name = DiseaseName.Text;
@@ -67,9 +68,6 @@ namespace spms.view.Pages.ChildWin
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("疾病名称已存在", "Disease name already exists"));
             }
-        }
-        private void Button_SaveClick(object sender, RoutedEventArgs e)
-        {
             string value = this.DiseaseName.Text;
             selectedDisease.CD_CustomName = value;
             DynamicParameters Parameters = new DynamicParameters();

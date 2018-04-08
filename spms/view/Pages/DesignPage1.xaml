@@ -144,7 +144,7 @@
                         <Label Foreground="White" Padding="4" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.Language}"></Label>
                     </Border>
                     <Border Grid.Row="4" Grid.Column="1"  Margin="0.2,0,0,2" >
-                        <ComboBox VerticalContentAlignment="Center" x:Name="comboBox2" IsTabStop="False" ItemsSource="{Binding}" SelectedIndex="0"  SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value" >
+                        <ComboBox VerticalContentAlignment="Center" x:Name="comboBox2" IsTabStop="False" ItemsSource="{Binding}" SelectedIndex="1"  SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value" >
                         </ComboBox>
                     </Border>
                     <!--结束：语言-->

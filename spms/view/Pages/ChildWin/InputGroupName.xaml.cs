@@ -52,7 +52,7 @@ namespace spms.view.Pages.ChildWin
         {
             this.Close();
         }
-        private void Text_LostFocus(object sender, RoutedEventArgs e)
+        private void Button_SaveClick(object sender, RoutedEventArgs e)
         {
             //获取文本框的值
             string Name = GroupName.Text;
@@ -61,9 +61,6 @@ namespace spms.view.Pages.ChildWin
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("小组名称已存在", "The group has already existed"));
             }
-        }
-        private void Button_SaveClick(object sender, RoutedEventArgs e)
-        {
             string value = this.GroupName.Text;
             customDataService.InsertCustomData(CustomDataEnum.Group, value);
             this.Close();

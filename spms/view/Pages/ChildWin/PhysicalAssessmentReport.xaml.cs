@@ -167,21 +167,59 @@ namespace spms.view.Pages.ChildWin
                     int userRow = 4;
                     ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment"), Current_User);
 
-                    worksheet.Cells[tableRow, 1, tableRow, 3].Merge = true;
-                    worksheet.Cells[tableRow + 1, 1, tableRow + 1, 3].Merge = true;
-                    worksheet.Cells[tableRow + 2, 1, tableRow + 2, 3].Merge = true;
-                    worksheet.Cells[tableRow + 3, 1, tableRow + 3, 3].Merge = true;
-                    worksheet.Cells[tableRow + 4, 1, tableRow + 4, 3].Merge = true;
-                    worksheet.Cells[tableRow + 5, 1, tableRow + 5, 3].Merge = true;
-                    worksheet.Cells[tableRow + 6, 1, tableRow + 6, 3].Merge = true;
+                    //worksheet.Cells[tableRow, 1, tableRow, 3].Merge = true;
+                    //worksheet.Cells[tableRow + 1, 1, tableRow + 1, 3].Merge = true;
+                    //worksheet.Cells[tableRow + 2, 1, tableRow + 2, 3].Merge = true;
+                    //worksheet.Cells[tableRow + 3, 1, tableRow + 3, 3].Merge = true;
+                    //worksheet.Cells[tableRow + 4, 1, tableRow + 4, 3].Merge = true;
+                    //worksheet.Cells[tableRow + 5, 1, tableRow + 5, 3].Merge = true;
+                    //worksheet.Cells[tableRow + 6, 1, tableRow + 6, 3].Merge = true;
 
-                    worksheet.Cells[tableRow + 1, 1].Value = LanguageUtils.ConvertLanguage("身高（cm）", "Height (cm)");
-                    worksheet.Cells[tableRow + 2, 1].Value = LanguageUtils.ConvertLanguage("体重（kg）", "Weight (kg)");
-                    worksheet.Cells[tableRow + 3, 1].Value = LanguageUtils.ConvertLanguage("握力（kg）", "Grip (kg)");
-                    worksheet.Cells[tableRow + 4, 1].Value = LanguageUtils.ConvertLanguage("睁眼单脚站立（秒）", "Wink stand on one foot (seconds)");
-                    worksheet.Cells[tableRow + 5, 1].Value = LanguageUtils.ConvertLanguage("功能性前伸（cm）", "Functional reach (cm)");
-                    worksheet.Cells[tableRow + 6, 1].Value = LanguageUtils.ConvertLanguage("坐姿体前驱（cm）", "Sitting body precursor (cm)");
+                    //worksheet.Cells[tableRow + 1, 1].Value = LanguageUtils.ConvertLanguage("身高（cm）", "Height (cm)");
+                    //worksheet.Cells[tableRow + 2, 1].Value = LanguageUtils.ConvertLanguage("体重（kg）", "Weight (kg)");
+                    //worksheet.Cells[tableRow + 3, 1].Value = LanguageUtils.ConvertLanguage("握力（kg）", "Grip (kg)");
+                    //worksheet.Cells[tableRow + 4, 1].Value = LanguageUtils.ConvertLanguage("睁眼单脚站立（秒）", "Wink stand on one foot (seconds)");
+                    //worksheet.Cells[tableRow + 5, 1].Value = LanguageUtils.ConvertLanguage("功能性前伸（cm）", "Functional reach (cm)");
+                    //worksheet.Cells[tableRow + 6, 1].Value = LanguageUtils.ConvertLanguage("坐姿体前驱（cm）", "Sitting body precursor (cm)");
 
+                    int r = 1;
+                    try
+                    {
+                        if (SubstringParams(list[j * count].PP_High) != null)
+                        {
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("身高（cm）", "Height (cm)");
+                            r++;
+                        }
+                       if (SubstringParams(list[j * count].PP_Weight) != null)
+                        {
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("体重（kg）", "Weight (kg)");
+                            r++;
+                        }
+                        if (SubstringParams(list[j * count].PP_Grip) != null)
+                        {
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("握力（kg）", "Grip (kg)");
+                            r++;
+                        }
+                        if (SubstringParams(list[j * count].PP_EyeOpenStand) != null)
+                        {
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("睁眼单脚站立（秒）", "Wink stand on one foot (seconds)");
+                            r++;
+                        }
+                        if (SubstringParams(list[j * count].PP_FunctionProtract) != null)
+                        {
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("功能性前伸（cm）", "Functional reach (cm)");
+                            r++;
+                        }
+                        if (SubstringParams(list[j * count].PP_SitandReach) != null)
+                        {
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("坐姿体前驱（cm）", "Sitting body precursor (cm)");
+                            r++;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("含有非法数据");
+                    }
 
                     for (int i = 0; i < 24; i++)
                     {
@@ -197,16 +235,47 @@ namespace spms.view.Pages.ChildWin
                     for (int i = 0,k=j* count; k < (j+1)* count && k < list.Count; i++,k++)
                     {
                         col = i * 2 + 4;
+                        int r2 = 1;
                         //表头行+两个表头，必须是数值
                         try
                         {
                             worksheet.Cells[tableRow, col].Value = ((DateTime)list[k].Gmt_Create).GetDateTimeFormats('g')[0].ToString();////ToShortDateString().ToString();
-                            worksheet.Cells[tableRow + 1, col].Value = SubstringParams(list[k].PP_High);
-                            worksheet.Cells[tableRow + 2, col].Value = SubstringParams(list[k].PP_Weight);
-                            worksheet.Cells[tableRow + 3, col].Value = SubstringParams(list[k].PP_Grip);
-                            worksheet.Cells[tableRow + 4, col].Value = SubstringParams(list[k].PP_EyeOpenStand);
-                            worksheet.Cells[tableRow + 5, col].Value = SubstringParams(list[k].PP_FunctionProtract);
-                            worksheet.Cells[tableRow + 6, col].Value = SubstringParams(list[k].PP_SitandReach);
+                            if (SubstringParams(list[k].PP_High) != null)
+                            {
+                                worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_High);
+                                r2++;
+                            }
+                            if (SubstringParams(list[k].PP_High) != null)
+                            {
+                                worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_Weight);
+                                r2++;
+                            }
+                            if (SubstringParams(list[k].PP_High) != null)
+                            {
+                                worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_Grip);
+                                r2++;
+                            }
+                            if (SubstringParams(list[k].PP_High) != null)
+                            {
+                                worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_EyeOpenStand);
+                                r2++;
+                            }
+                            if (SubstringParams(list[k].PP_High) != null)
+                            {
+                                worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_FunctionProtract);
+                                r2++;
+                            }
+                            if (SubstringParams(list[k].PP_High) != null)
+                            {
+                                worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_SitandReach);
+                                r2++;
+                            }
+                            //worksheet.Cells[tableRow + 1, col].Value = SubstringParams(list[k].PP_High);
+                            //worksheet.Cells[tableRow + 2, col].Value = SubstringParams(list[k].PP_Weight);
+                            //worksheet.Cells[tableRow + 3, col].Value = SubstringParams(list[k].PP_Grip);
+                            //worksheet.Cells[tableRow + 4, col].Value = SubstringParams(list[k].PP_EyeOpenStand);
+                            //worksheet.Cells[tableRow + 5, col].Value = SubstringParams(list[k].PP_FunctionProtract);
+                            //worksheet.Cells[tableRow + 6, col].Value = SubstringParams(list[k].PP_SitandReach);
 
                         }
                         catch (Exception ex)
