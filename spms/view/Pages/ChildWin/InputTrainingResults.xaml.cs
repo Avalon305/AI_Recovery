@@ -34,8 +34,7 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
+            
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             Load_Data();//载入数据
@@ -140,6 +139,9 @@ namespace spms.view.Pages.ChildWin
         public InputTrainingResults()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
         }
         //取消操作，关闭窗体
         private void Cancel(object sender, RoutedEventArgs e)

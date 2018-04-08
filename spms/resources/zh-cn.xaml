@@ -3,6 +3,12 @@
                     xmlns:s="clr-namespace:System;assembly=mscorlib"
                     xmlns:local="clr-namespace:TestMultLanguage.Resources">
 
+    <!--App.xaml.cs-->
+    <s:String x:Key="App.UpdateInfo">发现新版本，是否更新？</s:String>
+    <s:String x:Key="App.PortOccupy">通信端口被占用，建议重启计算机后再重试！</s:String>
+    <s:String x:Key="App.Tips">提示</s:String>
+
+
     <!-- 开始界面 -->
     <s:String x:Key="FormView.Title">宝德龙康复医疗系统</s:String>
     <s:String x:Key="FormView.UserName">用户名:</s:String>

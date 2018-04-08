@@ -42,7 +42,6 @@ namespace spms
             Current.DispatcherUnhandledException += App_OnDispatcherUnhandledException;
             //全局异常处理机制，线程异常
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-
             //加载语言
             LanguageUtils.SetLanguage();
 
@@ -58,7 +57,7 @@ namespace spms
                 {
                     App.Current.Dispatcher.Invoke(new Action(() =>
                     {
-                        MessageBox.Show("通信端口被占用，建议重启计算机后再重试");
+                        MessageBox.Show(LanguageUtils.GetCurrentLanuageStrByKey("App.PortOccupy"));
                         System.Environment.Exit(0);
                     }));
                 }
@@ -71,18 +70,32 @@ namespace spms
             {
                 try
                 {
-                    Thread.Sleep(1000 * 3);
+                    
+                    Thread.Sleep(1000 * 8);
                     Dictionary<string, string> param = new Dictionary<string, string>();
-                    var setter = new SetterService().GetSetterDAO().getSetter();
-                    param.Add("version", setter.Set_Version);
-                    var result = HttpSender.GET("http://125.0.0.13:8080/pcms/th", param);
+                     
+                    param.Add("version", CommUtil.GetCurrentVersion());
+                    var result = HttpSender.GET(HttpSender.URL_UPDATE, param);
                     if (string.IsNullOrEmpty(result))
                     {
                         return;
                     }
                     var info = JsonTools.DeserializeJsonToObject<VersionInfo>(result);
-
-                    Process.Start("AutoUpdater.exe", info.GetProcessString());
+                    if (info == null || info.update==false)
+                    {
+                        return;
+                    }
+                    App.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        
+                        MessageBoxResult dr = MessageBox.Show(LanguageUtils.GetCurrentLanuageStrByKey("App.UpdateInfo"), LanguageUtils.GetCurrentLanuageStrByKey("App.Tips"), MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                        if (dr == MessageBoxResult.OK)
+                        {
+                            Process.Start("AutoUpdater.exe", info.GetProcessString());
+                            Environment.Exit(0);
+                        }
+                    }));
+                  
                 }
                 catch(Exception ex)
                 {
@@ -142,7 +155,7 @@ namespace spms
             catch (Exception ex)
             {
                 logger.Error(  "不可恢复的UI线程全局异常"+ex.ToString());
-                MessageBox.Show("应用程序异常，将要退出！");
+                
                 System.Environment.Exit(0);
             }
         }
@@ -166,7 +179,7 @@ namespace spms
             catch (Exception ex)
             {
                 logger.Error(  "不可恢复的非UI线程全局异常"+ex.ToString());
-                MessageBox.Show("应用程序发生异常，将要退出！");
+ 
                 System.Environment.Exit(0);
             }
         }

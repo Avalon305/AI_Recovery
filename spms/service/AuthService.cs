@@ -95,7 +95,7 @@ namespace spms.service
             }
             catch (Exception ex)
             {
-                loginResult = "登录异常";
+                loginResult = "登录异常.";
                 return loginResult;
             }
             //如果解密后的setter中的mac不包含现在获得的mac 

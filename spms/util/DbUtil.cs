@@ -11,7 +11,7 @@ namespace spms.util
 {
 
 
-    class DbUtil
+   public class DbUtil
     {
 
         private static string DbName;

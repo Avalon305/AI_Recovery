@@ -21,6 +21,15 @@ namespace spms.util
         private static SetterDAO setterDAO = new SetterDAO();
 
         /// <summary>
+        /// 获取当前版本号
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCurrentVersion()
+        {
+            return  FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetEntryAssembly().Location).ProductVersion;
+        }
+
+        /// <summary>
         /// 获取web平台路径
         /// </summary>
         /// <param name="picName"></param>
@@ -145,6 +154,42 @@ namespace spms.util
             {
                 return null;
             }
+        }
+        public static List<string> GetMacByIPConfig()
+{
+            List<string> macs = new List<string>();
+            ProcessStartInfo startInfo = new ProcessStartInfo("ipconfig", "/all");
+            startInfo.UseShellExecute = false;
+            startInfo.RedirectStandardInput = true;
+            startInfo.RedirectStandardOutput = true;
+            startInfo.RedirectStandardError = true;
+            startInfo.CreateNoWindow = true;
+            Process p = Process.Start(startInfo);
+            //截取输出流
+            StreamReader reader = p.StandardOutput;
+            string line = reader.ReadLine();
+
+            while (!reader.EndOfStream)
+            {
+                if (!string.IsNullOrEmpty(line))
+                {
+                    line = line.Trim();
+
+                    if (line.StartsWith("物理地址"))
+                    {
+                        macs.Add(line);
+                    }
+                }
+
+                line = reader.ReadLine();
+            }
+
+            //等待程序执行完退出进程
+            p.WaitForExit();
+            p.Close();
+            reader.Close();
+
+            return macs;
         }
 
         //单个mac地址

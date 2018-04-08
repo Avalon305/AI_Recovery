@@ -43,7 +43,7 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "select * from bdl_auth where Auth_UserName = @Auth_UserName and Auth_UserPass = @Auth_UserPass";
+                const string query = "select * from bdl_auth where binary Auth_UserName = @Auth_UserName and binary Auth_UserPass = @Auth_UserPass";
 
                 return conn.QueryFirstOrDefault<Auther>(query, new { Auth_UserName = name, Auth_UserPass = password });
             }
@@ -66,7 +66,7 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "select * from bdl_auth where Auth_UserName = @Auth_UserName ";
+                const string query = "select * from bdl_auth where binary Auth_UserName = @Auth_UserName ";
 
                 return conn.QueryFirstOrDefault<Auther>(query, new { Auth_UserName = name});
             }

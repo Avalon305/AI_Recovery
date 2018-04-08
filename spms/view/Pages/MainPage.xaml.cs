@@ -390,107 +390,120 @@ namespace spms.view.Pages
             {
                 //此处做你想做的事 ...=ofd.FileName; 
                 //获取当前
-                if (is_signinformationrecord.IsChecked == true)
+                try
                 {
-                    //导出症状信息记录
-                    if (selectUser != null)
+                    if (is_signinformationrecord.IsChecked == true)
                     {
-                        //获取用户症状信息
-                        List<SymptomInfo> lists = new SymptomService().GetByUserId(selectUser);
-                        if (lists.Count > 0)
+                        //导出症状信息记录
+                        if (selectUser != null)
                         {
-                            List<object> symptomInfoDtos = new List<object>();
-                            foreach (SymptomInfo symptomInfo in lists)
+                            //获取用户症状信息
+                            List<SymptomInfo> lists = new SymptomService().GetByUserId(selectUser);
+                            if (lists.Count > 0)
                             {
-                                symptomInfoDtos.Add(new SymptomInfoExcelVO(symptomInfo));
-                            }
+                                List<object> symptomInfoDtos = new List<object>();
+                                foreach (SymptomInfo symptomInfo in lists)
+                                {
+                                    symptomInfoDtos.Add(new SymptomInfoExcelVO(symptomInfo));
+                                }
 
-                            //存放信息导出的列名
-                            if (LanguageUtils.IsChainese())
-                            {
-                                string[] colNames = { "训练日期", "血压(前)", "脉搏(前)", "心率(前)", "体温(前)", "血压(后)", "脉搏(后)", "心率(后)", "体温(后)", "身体倦怠", "腹泻", "摇晃", "心跳、气喘", "咳嗽、有痰", "发烧", "胸部、肚子痛", "没有食欲", "持续便秘", "感到头晕", "头痛", "其他", "没有相关症状", "是否参加", "水分摄取", "看护记录" };
-                                ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("症状信息记录", colNames, symptomInfoDtos));
+                                //存放信息导出的列名
+                                if (LanguageUtils.IsChainese())
+                                {
+                                    string[] colNames = { "训练日期", "血压(前)", "脉搏(前)", "心率(前)", "体温(前)", "血压(后)", "脉搏(后)", "心率(后)", "体温(后)", "身体倦怠", "腹泻", "摇晃", "心跳、气喘", "咳嗽、有痰", "发烧", "胸部、肚子痛", "没有食欲", "持续便秘", "感到头晕", "头痛", "其他", "没有相关症状", "是否参加", "水分摄取", "看护记录" };
+                                    ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("症状信息记录", colNames, symptomInfoDtos));
+                                }
+                                else
+                                {
+                                    string[] colNames = { "Training date", "Blood pressure (front)", "Pulse (front)", "Heart rate (front)", "Body temperature (front)", "Blood pressure (after)", "Pulse (after)", "Heart rate (after)", "Body temperature (after)", "Physical exhaustion", "Diarrhea", "Shake", "Heartbeat, asthma", "Cough with phlegm", "Fever", "Chest and stomach pain", "No appetite", "Continuous constipation", "Feeling dizzy", "Headache", "Other", "No related symptoms", "Whether to participate", "Moisture intake", "Care record" };
+                                    ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("Symptom information record", colNames, symptomInfoDtos));
+                                }
                             }
                             else
                             {
-                                string[] colNames = { "Training date", "Blood pressure (front)", "Pulse (front)", "Heart rate (front)", "Body temperature (front)", "Blood pressure (after)", "Pulse (after)", "Heart rate (after)", "Body temperature (after)", "Physical exhaustion", "Diarrhea", "Shake", "Heartbeat, asthma", "Cough with phlegm", "Fever", "Chest and stomach pain", "No appetite", "Continuous constipation", "Feeling dizzy", "Headache", "Other", "No related symptoms", "Whether to participate", "Moisture intake", "Care record" };
-                                ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("Symptom information record", colNames, symptomInfoDtos));
+                                MessageBox.Show(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
                             }
                         }
-                        else
+                    }
+                    else if (is_trainingrecord.IsChecked == true)
+                    {
+                        //导出训练记录
+                        if (selectUser != null)
                         {
-                            MessageBox.Show(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
+                            List<TrainComprehensive> lists = new ExcelService().ListTrainExcekVOByUserId(selectUser.Pk_User_Id);
+                            if (lists.Count > 0)
+                            {
+                                List<object> excelLists = new List<object>();
+                                foreach (TrainComprehensive trainComprehensive in lists)
+                                {
+                                    excelLists.Add(new TrainExcelVO(trainComprehensive));
+                                }
+                                //Console.WriteLine(lists.ToString());
+                                //存放信息导出的列名
+                                if (LanguageUtils.IsChainese())
+                                {
+                                    string[] colNames = { "实施日期", "使用器械", "组数", "组的个数", "组间隔休息时间", " 砝码", "移乘方法", "自觉运动强度", "时间（秒）", " 距离（mm）", "总工作量（J）", "热量（cal）", "指数", "已完成组数", "时机、姿势", "备忘", "注意点", "利用者感想" };
+                                    ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("训练记录", colNames, excelLists));
+                                }
+                                else
+                                {
+                                    string[] colNames = { "Date", "Device name", "Groups", "Number", "Break time", " Weights", "Transfer method", "Conscious exercise intensity", "Time (seconds)", " Distance (mm)", "Total workload (J)", "Calories (cal)", "Index", "Completed groups", "Timing, posture", "Remark", "Be careful", "User feelings" };
+                                    ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("Training record", colNames, excelLists));
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
+                            }
+                        }
+                    }
+                    else if (is_physicalevaluation.IsChecked == true)
+                    {
+                        //导出体力评价记录
+                        if (selectUser != null)
+                        {
+                            List<PhysicalPower> lists = new ExcelService().ListPhysicalPowerExcelVO(selectUser.Pk_User_Id);
+                            if (lists.Count > 0)
+                            {
+                                List<object> excelLists = new List<object>();
+                                foreach (PhysicalPower physicalPower in lists)
+                                {
+                                    excelLists.Add(new PhysicaleExcelVO(physicalPower));
+                                }
+
+                                //存放信息导出的列名
+                                if (LanguageUtils.IsChainese())
+                                {
+                                    string[] colNames = { "日期", "身高", "体重", "握力", "睁眼单脚站立", "功能性前伸", "坐姿体前屈", "time&up go", "5m步行-通常", "5m步行-最快", "10m步行", "6分钟步行", "2分钟踏步", "2分钟抬腿", "使用用者感想", "工作人员感想" };
+
+                                    ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
+                                        ExcelUtil.ToDataTable("体力评价记录", colNames, excelLists));
+                                }
+                                else
+                                {
+                                    string[] colNames = { "Date", "High", "Weight", "Grip", "Wink stand on one foot", "Functional reach", "Sitting body flexion", "time&up go", "5m walk - usually", "5m walk - fastest", "10m walk", "6 minutes walk", "2 String step", "2 minutes leg lift", "User experience", "Staff feelings" };
+
+                                    ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
+                                        ExcelUtil.ToDataTable("Physical Assessment Record", colNames, excelLists));
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
+                            }
                         }
                     }
                 }
-                else if (is_trainingrecord.IsChecked == true)
+                catch (IOException ex)
                 {
-                    //导出训练记录
-                    if (selectUser != null)
-                    {
-                        List<TrainComprehensive> lists = new ExcelService().ListTrainExcekVOByUserId(selectUser.Pk_User_Id);
-                        if (lists.Count > 0)
-                        {
-                            List<object> excelLists = new List<object>();
-                            foreach (TrainComprehensive trainComprehensive in lists)
-                            {
-                                excelLists.Add(new TrainExcelVO(trainComprehensive));
-                            }
-                            //Console.WriteLine(lists.ToString());
-                            //存放信息导出的列名
-                            if (LanguageUtils.IsChainese())
-                            {
-                                string[] colNames = { "实施日期", "使用器械", "组数", "组的个数", "组间隔休息时间", " 砝码", "移乘方法", "自觉运动强度", "时间（秒）", " 距离（mm）", "总工作量（J）", "热量（cal）", "指数", "已完成组数", "时机、姿势", "备忘", "注意点", "利用者感想" };
-                                ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("训练记录", colNames, excelLists));
-                            }
-                            else
-                            {
-                                string[] colNames = { "Date", "Device name", "Groups", "Number", "Break time", " Weights", "Transfer method", "Conscious exercise intensity", "Time (seconds)", " Distance (mm)", "Total workload (J)", "Calories (cal)", "Index", "Completed groups", "Timing, posture", "Remark", "Be careful", "User feelings" };
-                                ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("Training record", colNames, excelLists));
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
-                        }
-                    }
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("文件被占用，请先关闭文件", "The file is occupied. Please close the file first"));
+                    return;
                 }
-                else if (is_physicalevaluation.IsChecked == true)
+                catch (Exception ex)
                 {
-                    //导出体力评价记录
-                    if (selectUser != null)
-                    {
-                        List<PhysicalPower> lists = new ExcelService().ListPhysicalPowerExcelVO(selectUser.Pk_User_Id);
-                        if (lists.Count > 0)
-                        {
-                            List<object> excelLists = new List<object>();
-                            foreach (PhysicalPower physicalPower in lists)
-                            {
-                                excelLists.Add(new PhysicaleExcelVO(physicalPower));
-                            }
-
-                            //存放信息导出的列名
-                            if (LanguageUtils.IsChainese())
-                            {
-                                string[] colNames = { "日期", "身高", "体重", "握力", "睁眼单脚站立", "功能性前伸", "坐姿体前屈", "time&up go", "5m步行-通常", "5m步行-最快", "10m步行", "6分钟步行", "2分钟踏步", "2分钟抬腿", "使用用者感想", "工作人员感想"};
-
-                                ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
-                                    ExcelUtil.ToDataTable("体力评价记录", colNames, excelLists));
-                            }
-                            else
-                            {
-                                string[] colNames = { "Date", "High", "Weight", "Grip", "Wink stand on one foot", "Functional reach", "Sitting body flexion", "time&up go", "5m walk - usually", "5m walk - fastest", "10m walk", "6 minutes walk", "2 String step", "2 minutes leg lift", "User experience", "Staff feelings" };
-
-                                ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser,
-                                    ExcelUtil.ToDataTable("Physical Assessment Record", colNames, excelLists));
-                            }
-                               
-                        }
-                        else
-                        {
-                            MessageBox.Show(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
-                        }
-                    }
+                    Console.WriteLine("生成普通Excel异常");
+                    return;
                 }
             }
         }
@@ -526,6 +539,11 @@ namespace spms.view.Pages
                     {
                         trainingReport.start_date.SelectedDate = list[0].Gmt_Create;//起始时间
                         trainingReport.end_date.SelectedDate = list[list.Count - 1].Gmt_Create;//终止时间
+                    }
+                    else
+                    {
+                        trainingReport.start_date.SelectedDate = DateTime.Now;
+                        trainingReport.end_date.SelectedDate = DateTime.Now;
                     }
                     trainingReport.ShowDialog();
                 }
@@ -579,6 +597,11 @@ namespace spms.view.Pages
                         physicalAssessmentReport.start_date.SelectedDate = list[0].Gmt_Create;//起始时间
                         physicalAssessmentReport.end_date.SelectedDate = list[list.Count - 1].Gmt_Create;//终止时间
                     }
+                    else
+                    {
+                        physicalAssessmentReport.start_date.SelectedDate = DateTime.Now;
+                        physicalAssessmentReport.end_date.SelectedDate = DateTime.Now;
+                    }
                     physicalAssessmentReport.ShowDialog();
                 }
                 //List<TrainInfo> list = new List<TrainInfo>();
@@ -607,7 +630,7 @@ namespace spms.view.Pages
                 Owner = Window.GetWindow(this),
                 ShowActivated = true,
                 ShowInTaskbar = false,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen
+                //WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             User user = (User)UsersInfo.SelectedItem;
             if (user == null)
