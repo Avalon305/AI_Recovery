@@ -57,7 +57,8 @@ namespace spms.view.Pages.ChildWin
         {
             this.Close();
         }
-        private void Text_LostFocus(object sender, RoutedEventArgs e)
+
+        private void Button_SaveClick(object sender, RoutedEventArgs e)
         {
             //获取文本框的值
             string Name = DiagnosisName.Text;
@@ -66,9 +67,6 @@ namespace spms.view.Pages.ChildWin
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("残障名称已存在", "Disability name already exists"));
             }
-        }
-        private void Button_SaveClick(object sender, RoutedEventArgs e)
-        {
             string value = this.DiagnosisName.Text;
             selectedDiagnosis.CD_CustomName = value;
             // MessageBox.Show("OldDiagnosisName:"+ OldDiagnosisName+"Newvalue"+value);

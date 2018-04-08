@@ -101,6 +101,8 @@ namespace spms.service
             //如果解密后的setter中的mac不包含现在获得的mac 
             if (mac.IndexOf(SystemInfo.GetMacAddress()) == -1 )
             {
+                Console.WriteLine("DB:"+ mac);
+                Console.WriteLine("current:" + SystemInfo.GetMacAddress());
                 loginResult = "登录异常";
                 return loginResult;
             }

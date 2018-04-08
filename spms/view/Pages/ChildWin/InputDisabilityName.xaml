@@ -86,7 +86,7 @@
             </Grid>
         </Border>
         <!--输入框-->
-        <TextBox Name="Diagnosis" LostFocus="Text_LostFocus"  CaretBrush="Black" Style="{DynamicResource TextBoxStyle1}"  VerticalAlignment="Center" Margin="5,15,5,5" BorderBrush="Gray" VerticalContentAlignment="Center">
+        <TextBox Name="Diagnosis"   CaretBrush="Black" Style="{DynamicResource TextBoxStyle1}"  VerticalAlignment="Center" Margin="5,15,5,5" BorderBrush="Gray" VerticalContentAlignment="Center">
             
         </TextBox>
         <!-- 保存及取消按钮-->
