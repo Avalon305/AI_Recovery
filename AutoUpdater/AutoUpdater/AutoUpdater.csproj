@@ -46,6 +46,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -65,6 +66,7 @@
     </Page>
     <Compile Include="Controls\MetroProgressBar.cs" />
     <Compile Include="Utils\BindableBase.cs" />
+    <Compile Include="Utils\LanguageUtils.cs" />
     <Compile Include="Utils\Loger.cs" />
     <Compile Include="Utils\PropertySupport.cs" />
     <Compile Include="Utils\RegistryHepler.cs" />
@@ -84,6 +86,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="resources\en-us.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\zh-cn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\MetroProgressBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

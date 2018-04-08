@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
+        ResizeMode="CanMinimize"  
         Icon="/view/Images/icon2.png"
         Loaded="Window_Loaded"
          PreviewKeyDown="key_dowm"
