@@ -16,6 +16,7 @@ using spms.dao;
 using spms.entity;
 using spms.service;
 using spms.util;
+using spms.view.dto;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -63,7 +64,7 @@ namespace spms.view.Pages.ChildWin
             //com_52.ItemsSource = Add(0, 30, 1);
             CPAttr3.ItemsSource = Add(1, 8, 2);
             var nullTiIdByUserId = new SymptomInfoDao().GetNullTiIdByUserId(user.Pk_User_Id);
-            symp.ItemsSource = nullTiIdByUserId;
+            symp.ItemsSource = new SymptomInfoDTO().ConvertDtoList(nullTiIdByUserId);
         }
 
         private void Certain_Dev()

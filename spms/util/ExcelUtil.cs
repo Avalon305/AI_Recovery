@@ -13,6 +13,7 @@ using spms.entity;
 using System.Drawing;
 using System.Windows.Forms;
 using spms.view.dto;
+using NLog;
 
 namespace spms.util
 {
@@ -21,7 +22,7 @@ namespace spms.util
     /// </summary>
     class ExcelUtil
     {
-
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         /// <summary>
         /// 导出普通的Excel
         /// </summary>
@@ -238,27 +239,35 @@ namespace spms.util
         public static DataTable ToDataTable(string sheetName, string[] columnNames, List<object> list)
         {
             DataTable dataTable = null;
-            if (list != null)
+            try
             {
-                dataTable = new DataTable();
-                dataTable.TableName = sheetName;
-                PropertyInfo[] propertys = list[0].GetType().GetProperties();
-                for (int i = 0; i < propertys.Length; i++)
+                if (list != null)
                 {
-                    dataTable.Columns.Add(columnNames[i], propertys[i].PropertyType);
-                }
-
-                for (int i = 0; i < list.Count; i++)
-                {
-                    ArrayList tempList = new ArrayList();
-                    foreach (PropertyInfo pi in propertys)
+                    dataTable = new DataTable();
+                    dataTable.TableName = sheetName;
+                    PropertyInfo[] propertys = list[0].GetType().GetProperties();
+                    for (int i = 0; i < propertys.Length; i++)
                     {
-                        object obj = pi.GetValue(list[i], null);
-                        tempList.Add(obj);
+                        dataTable.Columns.Add(columnNames[i], propertys[i].PropertyType);
                     }
-                    object[] array = tempList.ToArray();
-                    dataTable.LoadDataRow(array, true);
+
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        ArrayList tempList = new ArrayList();
+                        foreach (PropertyInfo pi in propertys)
+                        {
+                            object obj = pi.GetValue(list[i], null);
+                            tempList.Add(obj);
+                        }
+                        object[] array = tempList.ToArray();
+                        dataTable.LoadDataRow(array, true);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("将数据转换成datatable发生异常");
+                logger.Error("将数据转换成datatable发生异常");
             }
             return dataTable;
         }
@@ -408,7 +417,8 @@ namespace spms.util
             OfficeOpenXml.Drawing.ExcelPicture userPicture = null;
             try
             {
-                Console.WriteLine("图片路径："+ CommUtil.GetUserPic(user.User_PhotoLocation));
+                //Console.WriteLine("图片路径："+ CommUtil.GetUserPic(user.User_PhotoLocation));
+                logger.Debug("图片路径：" + CommUtil.GetUserPic(user.User_PhotoLocation));
                 userPicture = worksheet.Drawings.AddPicture("user", Image.FromFile(CommUtil.GetUserPic(user.User_PhotoLocation)));//插入图片
                 
                 //userPicture.Border.LineStyle = eLineStyle.Solid;
@@ -417,7 +427,8 @@ namespace spms.util
             }
             catch (Exception e)
             {
-                Console.WriteLine("用户指定照片路径下没有图片，照片不存在");
+                //Console.WriteLine("用户指定照片路径下没有图片，照片不存在");
+                logger.Debug("用户指定照片路径下没有图片，照片不存在");
                 if (LanguageUtils.IsChainese())
                 {
                     userPicture = worksheet.Drawings.AddPicture("user", System.Drawing.Image.FromFile(CommUtil.GetDocPath("none.png")));//插入图片

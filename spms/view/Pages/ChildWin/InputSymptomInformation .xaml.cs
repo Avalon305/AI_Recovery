@@ -211,7 +211,7 @@ namespace spms.view.Pages.ChildWin
             user_id.Content = user.Pk_User_Id;
             
             List<TrainInfo> trainInfoNoSymp = new TrainInfoDAO().GetTrainInfoNoSymp(user.Pk_User_Id);
-            train.ItemsSource = trainInfoNoSymp;
+            train.ItemsSource = new TrainDTO().ConvertDtoList(trainInfoNoSymp);
         }
 
         //错误：OnlyInputNumbers
