@@ -35,7 +35,7 @@ namespace spms.http
             string mac = "";
             
             //获得当前主机的mac地址
-            mac = SystemInfo.GetMacAddress();
+            mac = SystemInfo.GetMacAddress().Replace(":", "-");
             AuthDAO authDAO = new AuthDAO();
             var result = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
 
