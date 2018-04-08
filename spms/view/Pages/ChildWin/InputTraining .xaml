@@ -12,6 +12,7 @@ ResizeMode="CanMinimize"
         Height="1050" Width="1867"
         Loaded="Window_Loaded">
     <Window.Resources>
+        <local:TextBoxText x:Key="text"/>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <Style TargetType="TextBlock">
             <Setter   Property="VerticalAlignment"  Value="Center"></Setter>
@@ -25,6 +26,7 @@ ResizeMode="CanMinimize"
             <Setter Property="FontFamily" Value="ArialMT"/>
             <Setter Property="HorizontalOffset" Value="0"/>
             <Setter Property="Placement" Value="Right"/>
+            <!--<Setter Property="IsOpen" Value="True"/>-->
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -1065,7 +1067,20 @@ ResizeMode="CanMinimize"
                     <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border5">
                         <Label Content="{DynamicResource TrainingListView.TrainingCaution}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox1}"  Foreground="White" />
                     </Border>
-                    <TextBox Name="t1" Height="170" Margin="10,0,10,3"  CaretBrush="Black" IsEnabled="{Binding IsChecked, ElementName=checkbox1}"/>
+                    <TextBox Name="t1" Height="170" DataContext="{StaticResource ResourceKey=text}" Margin="10,0,10,3" Width="205"  TextWrapping="Wrap" CaretBrush="Black" IsEnabled="{Binding IsChecked, ElementName=checkbox1}">
+                        <TextBox.Text>
+                            <Binding Path="Text1"  UpdateSourceTrigger="PropertyChanged">
+                                 <!--自定义的验证规格，当然可以是多个Check--> 
+                                <Binding.ValidationRules>
+                                    <local:NameCheck />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <TextBox.ToolTip>
+                            <!--将当前的错误信息显示在tooltip上-->
+                            <Binding RelativeSource="{RelativeSource Self}"  Path="(Validation.Errors)[0].ErrorContent"/>
+                        </TextBox.ToolTip>
+                    </TextBox>
                 </StackPanel>
 
                 <!--第二个-->
@@ -1073,7 +1088,20 @@ ResizeMode="CanMinimize"
                     <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border15">
                         <Label Content="{DynamicResource TrainingListView.TrainingCaution}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox2}"  Foreground="White" />
                     </Border>
-                    <TextBox Name="t2" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox2}"/>
+                    <TextBox Name="t2" Height="170" DataContext="{StaticResource ResourceKey=text}" CaretBrush="Black" Margin="10,0,10,3" Width="205" IsEnabled="{Binding IsChecked, ElementName=checkbox2}">
+                        <TextBox.Text>
+                            <Binding Path="Text2"  UpdateSourceTrigger="PropertyChanged">
+                                <!--自定义的验证规格，当然可以是多个Check-->
+                                <Binding.ValidationRules>
+                                    <local:NameCheck />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <TextBox.ToolTip>
+                            <!--将当前的错误信息显示在tooltip上-->
+                            <Binding RelativeSource="{RelativeSource Self}"  Path="(Validation.Errors)[0].ErrorContent"/>
+                        </TextBox.ToolTip>
+                    </TextBox>
                 </StackPanel>
                 <!--<StackPanel Grid.Row="3" Grid.Column="1" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
@@ -1087,7 +1115,20 @@ ResizeMode="CanMinimize"
                     <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border25">
                         <Label Content="{DynamicResource TrainingListView.TrainingCaution}"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox3}"  Foreground="White" />
                     </Border>
-                    <TextBox Name="t3" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
+                    <TextBox Name="t3" Height="170" DataContext="{StaticResource ResourceKey=text}" CaretBrush="Black" Margin="10,0,10,3" Width="205" IsEnabled="{Binding IsChecked, ElementName=checkbox3}">
+                        <TextBox.Text>
+                            <Binding Path="Text3"  UpdateSourceTrigger="PropertyChanged">
+                                <!--自定义的验证规格，当然可以是多个Check-->
+                                <Binding.ValidationRules>
+                                    <local:NameCheck />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <TextBox.ToolTip>
+                            <!--将当前的错误信息显示在tooltip上-->
+                            <Binding RelativeSource="{RelativeSource Self}"  Path="(Validation.Errors)[0].ErrorContent"/>
+                        </TextBox.ToolTip>
+                    </TextBox>
                 </StackPanel>
                 <!--<StackPanel Grid.Row="3" Grid.Column="2" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
@@ -1101,7 +1142,20 @@ ResizeMode="CanMinimize"
                     <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border35">
                         <Label  Content="{DynamicResource TrainingListView.TrainingCaution}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox4}"  Foreground="White" />
                     </Border>
-                    <TextBox Name="t4" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox4}"/>
+                    <TextBox Name="t4" Height="170" DataContext="{StaticResource ResourceKey=text}" CaretBrush="Black" Margin="10,0,10,3" Width="205" IsEnabled="{Binding IsChecked, ElementName=checkbox4}">
+                        <TextBox.Text>
+                            <Binding Path="Text4"  UpdateSourceTrigger="PropertyChanged">
+                                <!--自定义的验证规格，当然可以是多个Check-->
+                                <Binding.ValidationRules>
+                                    <local:NameCheck />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <TextBox.ToolTip>
+                            <!--将当前的错误信息显示在tooltip上-->
+                            <Binding RelativeSource="{RelativeSource Self}"  Path="(Validation.Errors)[0].ErrorContent"/>
+                        </TextBox.ToolTip>
+                    </TextBox>
                 </StackPanel>
                 <!--<StackPanel Grid.Row="3" Grid.Column="3" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
@@ -1115,7 +1169,20 @@ ResizeMode="CanMinimize"
                     <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border45">
                         <Label  Content="{DynamicResource TrainingListView.TrainingCaution}"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox5}"  Foreground="White" />
                     </Border>
-                    <TextBox Name="t5" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
+                    <TextBox Name="t5" Height="170" DataContext="{StaticResource ResourceKey=text}" CaretBrush="Black" Margin="10,0,10,3" Width="205" IsEnabled="{Binding IsChecked, ElementName=checkbox5}">
+                        <TextBox.Text>
+                            <Binding Path="Text5"  UpdateSourceTrigger="PropertyChanged">
+                                <!--自定义的验证规格，当然可以是多个Check-->
+                                <Binding.ValidationRules>
+                                    <local:NameCheck />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <TextBox.ToolTip>
+                            <!--将当前的错误信息显示在tooltip上-->
+                            <Binding RelativeSource="{RelativeSource Self}"  Path="(Validation.Errors)[0].ErrorContent"/>
+                        </TextBox.ToolTip>
+                    </TextBox>
                 </StackPanel>
                 <!--<StackPanel Grid.Row="3" Grid.Column="4" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
@@ -1129,7 +1196,20 @@ ResizeMode="CanMinimize"
                     <Border Background="Gray" Margin="10,5,10,0" Height="25.6" Name="border55">
                         <Label  Content="{DynamicResource TrainingListView.TrainingCaution}"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}"  Foreground="White" />
                     </Border>
-                    <TextBox Name="t6" Height="170" CaretBrush="Black" Margin="10,0,10,3"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
+                    <TextBox Name="t6" Height="170" DataContext="{StaticResource ResourceKey=text}" CaretBrush="Black" Margin="10,0,10,3" Width="205" IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
+                        <TextBox.Text>
+                            <Binding Path="Text6"  UpdateSourceTrigger="PropertyChanged">
+                                <!--自定义的验证规格，当然可以是多个Check-->
+                                <Binding.ValidationRules>
+                                    <local:NameCheck />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <TextBox.ToolTip>
+                            <!--将当前的错误信息显示在tooltip上-->
+                            <Binding RelativeSource="{RelativeSource Self}"  Path="(Validation.Errors)[0].ErrorContent"/>
+                        </TextBox.ToolTip>
+                    </TextBox>
                 </StackPanel>
                 <!--<StackPanel Grid.Row="3" Grid.Column="5" Orientation="Vertical">
                 <Border Background="Gray" Margin="10,5,10,0" Height="25.6" >
