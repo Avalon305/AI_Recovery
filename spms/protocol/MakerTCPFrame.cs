@@ -160,8 +160,10 @@ namespace spms.protocol
             byte[] arr;
             //获取处方信息
             var prescription = new TrainService().GetDevicePrescriptionByIdCardDeviceType(idcard, deviceType);
-
-            logger.Info("获取到处方信息：" + prescription.ToString());
+            if (prescription != null)
+            {
+               logger.Info("获取到处方信息：" + prescription.ToString());
+            }
          
             
             UserService userService = new UserService();
