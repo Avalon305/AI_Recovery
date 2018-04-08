@@ -2,7 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:s="clr-namespace:System;assembly=mscorlib"
                     xmlns:local="clr-namespace:TestMultLanguage.Resources">
-
+    <!--App.xaml.cs-->
+    <s:String x:Key="App.UpdateInfo">Discover a new version，update it？</s:String>
+    <s:String x:Key="App.PortOccupy">Port is occupied, try reboot your computer!</s:String>
+    <s:String x:Key="App.Tips">Tips</s:String>
+    
     <!-- 开始界面 -->
     <s:String x:Key="FormView.Title">Body Strong Medical rehabilitation system</s:String>
     <s:String x:Key="FormView.UserName">UserName</s:String>
