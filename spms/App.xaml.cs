@@ -57,7 +57,7 @@ namespace spms
                 {
                     App.Current.Dispatcher.Invoke(new Action(() =>
                     {
-                        MessageBox.Show("通信端口被占用，建议重启计算机后再重试");
+                        MessageBox.Show(LanguageUtils.GetCurrentLanuageStrByKey("App.PortOccupy"));
                         System.Environment.Exit(0);
                     }));
                 }
@@ -87,7 +87,8 @@ namespace spms
                     }
                     App.Current.Dispatcher.Invoke(new Action(() =>
                     {
-                        MessageBoxResult dr = MessageBox.Show("发现新版本，是否更新？", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                        
+                        MessageBoxResult dr = MessageBox.Show(LanguageUtils.GetCurrentLanuageStrByKey("App.UpdateInfo"), LanguageUtils.GetCurrentLanuageStrByKey("App.Tips"), MessageBoxButton.OKCancel, MessageBoxImage.Question);
                         if (dr == MessageBoxResult.OK)
                         {
                             Process.Start("AutoUpdater.exe", info.GetProcessString());
@@ -154,7 +155,7 @@ namespace spms
             catch (Exception ex)
             {
                 logger.Error(  "不可恢复的UI线程全局异常"+ex.ToString());
-                MessageBox.Show("应用程序异常，将要退出！");
+                
                 System.Environment.Exit(0);
             }
         }
@@ -178,7 +179,7 @@ namespace spms
             catch (Exception ex)
             {
                 logger.Error(  "不可恢复的非UI线程全局异常"+ex.ToString());
-                MessageBox.Show("应用程序发生异常，将要退出！");
+ 
                 System.Environment.Exit(0);
             }
         }

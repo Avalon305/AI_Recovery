@@ -93,6 +93,7 @@ namespace spms.view.Pages
             textBox1.DataContext = DataCollection;//设置机构团体名称
             textBox2.DataContext = DataCollection;//设置照片保存文档
             textBox3.DataContext = DataCollection;//设置机构电话
+            textBox4.DataContext = DataCollection;//设置机构电话
             ListDataCode = DataCodeDAO.ListByTypeId("OrganizationSort");//绑定组织区分
             comboBox1.ItemsSource = ListDataCode;
             ListDataCode = DataCodeDAO.ListByTypeId("Language");//绑定语言
@@ -164,6 +165,7 @@ namespace spms.view.Pages
                 string textValue1 = textBox1.Text;//机构团体名称
                 string textValue2 = textBox2.Text;//照片保存文档
                 string textValue3 = textBox3.Text;//机构电话
+                string textValue4 = textBox3.Text;//机构电话
                 int comboBox1Selected = comboBox1.SelectedIndex;//机构区分被选择的index
                 int comboBox2Selected = comboBox2.SelectedIndex;//语言被选择的index
                 entity.Setter setter = new entity.Setter();
@@ -171,6 +173,7 @@ namespace spms.view.Pages
                 setter.Set_OrganizationName = textValue1;
                 setter.Set_PhotoLocation = textValue2;
                 setter.Set_OrganizationPhone = textValue3;
+                setter.Set_Version = textValue4;
                 setter.Set_Language = comboBox2Selected;
                 setter.Set_OrganizationSort = comboBox1Selected.ToString();
                 setterDao.UpdateSetter(setter);
