@@ -12,7 +12,7 @@
         Title="{DynamicResource Title.Title}"
          Height="1024"
         Width="803.4"
-        ResizeMode="NoResize"
+        ResizeMode="CanMinimize"  
         Loaded="Window_Loaded">
     <!--
     ResizeMode="NoResize"

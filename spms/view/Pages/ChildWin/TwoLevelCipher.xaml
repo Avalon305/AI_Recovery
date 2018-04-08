@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
+        ResizeMode="CanMinimize"  
+        
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}" Height="250" Width="570"
         Loaded="Window_Loaded"

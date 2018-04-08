@@ -7,11 +7,11 @@
         xmlns:local="clr-namespace:spms.view.Pages"
         xmlns:my="clr-namespace:spms.view.controls"
         mc:Ignorable="d"
-         PreviewKeyDown="key_dowm"
+         PreviewKeyDown="key_dowm" ResizeMode="CanMinimize"  
          xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}"
-         ResizeMode = "NoResize"  Height="1000" Width="1197"
+          Height="1000" Width="1197"
         Loaded="Window_Loaded">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
