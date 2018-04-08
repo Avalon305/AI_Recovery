@@ -54,7 +54,6 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class InputTraining : Window
     {
-
         //去除窗体叉号
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
@@ -355,6 +354,7 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception exception)
             {
+                logger.Warn(exception);
                 return;
             }
             MessageBox.Show(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
