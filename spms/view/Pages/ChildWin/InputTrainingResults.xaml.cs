@@ -40,27 +40,27 @@ namespace spms.view.Pages.ChildWin
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             Load_Data();//载入数据
             Certain_Dev();//确定购买了哪些设备
-            HLPAttr1.ItemsSource = Add(0, 700, 2);
+            HLPAttr1.ItemsSource = Add(0, 70, 2);
             //com_02.ItemsSource = Add(0, 30, 2);
             HLPAttr3.ItemsSource = Add(1, 5, 2);
             HLPAttr4.ItemsSource = Add(1, 9, 2);
-            RowAttr1.ItemsSource = Add(0, 400, 2);
+            RowAttr1.ItemsSource = Add(0, 70, 2);
             //com_12.ItemsSource = Add(0, 30, 1);
             RowAttr3.ItemsSource = Add(1, 4, 2);
             RowAttr4.ItemsSource = Add(1, 4, 2);
-            TFAttr1.ItemsSource = Add(0, 700, 2);
+            TFAttr1.ItemsSource = Add(0, 40, 2);
             //com_22.ItemsSource = Add(0, 30, 1);
             TFAttr3.ItemsSource = Add(1, 6, 2);
             TFAttr4.ItemsSource = Add(1, 9, 2);
-            LEAttr1.ItemsSource = Add(0, 260, 1);
+            LEAttr1.ItemsSource = Add(0, 26, 1);
             //com_32.ItemsSource = Add(0, 30, 1);
             LEAttr3.ItemsSource = Add(1, 5, 2);
             LEAttr4.ItemsSource = Add(1, 5, 2);
             LEAttr5.ItemsSource = Add(1, 9, 2);
-            HAAttr1.ItemsSource = Add(0, 500, 2);
+            HAAttr1.ItemsSource = Add(0, 50, 2);
             //com_42.ItemsSource = Add(0, 30, 1);
             HAAttr3.ItemsSource = Add(1, 9, 2);
-            CPAttr1.ItemsSource = Add(0, 180, 2);
+            CPAttr1.ItemsSource = Add(0, 18, 2);
             //com_52.ItemsSource = Add(0, 30, 1);
             CPAttr3.ItemsSource = Add(1, 8, 2);
             var nullTiIdByUserId = new SymptomInfoDao().GetNullTiIdByUserId(user.Pk_User_Id);
