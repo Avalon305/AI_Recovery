@@ -18,7 +18,7 @@ namespace AutoUpdater
         static void Main(string[] args)
         {
          
-            if (args.Length != 6) return; 
+            if (args.Length != 6) return;
             if (SingleInstance<App>.InitializeAsFirstInstance(AppId))
             {
                 var win = new MainWindow();

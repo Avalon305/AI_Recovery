@@ -224,8 +224,9 @@ namespace spms.view
             else {
                 //问题登录  在登录提示框内显示信息
                 bubble.IsOpen = true;
-                Error_Info.Content = loginResult;
-                
+                //Error_Info.Content = loginResult;
+                 
+                Error_Info.Content = LanguageUtils.ConvertLanguage(loginResult, "login exist question!");
             }
             
         }

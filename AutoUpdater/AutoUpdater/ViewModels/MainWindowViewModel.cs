@@ -12,12 +12,10 @@ using System.Reflection;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
-using AutoUpdater.Dao;
 using AutoUpdater.Models;
 using AutoUpdater.Utils;
 using Microsoft.Win32;
-using spms.service;
-using spms.util;
+ 
 
 namespace AutoUpdater.ViewModels
 {
@@ -236,8 +234,7 @@ namespace AutoUpdater.ViewModels
             ExecuteStrategy();
             IsCopying = false;
             ProgressValue = +ProgressValue + 5;
-            //更新版本号
-            new VersionDAO().UpdateVersion(UpdateInfo.NewVersion);
+ 
             //启动平台
             StatusDescription = " 启动平台...";
             Directory.Delete(UpdateInfo.TempPath, true);

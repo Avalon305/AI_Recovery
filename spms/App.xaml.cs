@@ -42,7 +42,6 @@ namespace spms
             Current.DispatcherUnhandledException += App_OnDispatcherUnhandledException;
             //全局异常处理机制，线程异常
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-            MessageBox.Show(CommUtil.GetCurrentVersion());
             //加载语言
             LanguageUtils.SetLanguage();
 
@@ -74,8 +73,8 @@ namespace spms
                     
                     Thread.Sleep(1000 * 8);
                     Dictionary<string, string> param = new Dictionary<string, string>();
-                    var setter = new SetterService().GetSetterDAO().getSetter();
-                    param.Add("version", setter.Set_Version);
+                     
+                    param.Add("version", CommUtil.GetCurrentVersion());
                     var result = HttpSender.GET(HttpSender.URL_UPDATE, param);
                     if (string.IsNullOrEmpty(result))
                     {

@@ -11,19 +11,7 @@ namespace spms.dao
 {
     public class SetterDAO : BaseDAO<Setter>
     {
-        /// <summary>
-        /// 更新版本号
-        /// </summary>
-        /// <param name="version"></param>
-        public void UpdateVersion(string version)
-        {
-            using (var conn = DbUtil.getConn())
-            {
-                const string query = "update bdl_set set set_version = @Version";
-                conn.Open();
-                conn.Execute(query, new { Version = version });
-            }
-        }
+ 
         /*获得唯一设置者
          */
         public Setter getSetter()
@@ -56,7 +44,7 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())//更新Setter
             {
-                conn.Execute("update bdl_set set Set_Language=@Set_Language,Set_OrganizationSort=@Set_OrganizationSort,Set_OrganizationName=@Set_OrganizationName,Set_PhotoLocation=@Set_PhotoLocation，Set_OrganizationPhone=@Set_OrganizationPhone where Pk_Set_Id=@Pk_Set_Id", setter);
+                conn.Execute("update bdl_set set Set_Language=@Set_Language,Set_OrganizationSort=@Set_OrganizationSort,Set_OrganizationName=@Set_OrganizationName,Set_PhotoLocation=@Set_PhotoLocation,Set_OrganizationPhone=@Set_OrganizationPhone where Pk_Set_Id=@Pk_Set_Id", setter);
             }
         }
 
