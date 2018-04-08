@@ -11,7 +11,7 @@
         
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}" Height="876" Width="800"
-         ResizeMode = "NoResize"
+       ResizeMode="CanMinimize"  
         PreviewKeyDown="key_dowm"
         Loaded="Window_Loaded"
         LocationChanged="windowmove">

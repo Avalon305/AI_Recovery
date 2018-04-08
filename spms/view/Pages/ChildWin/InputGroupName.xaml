@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
-        Loaded="Window_Loaded"
+        Loaded="Window_Loaded" ResizeMode="CanMinimize"  
          PreviewKeyDown="key_dowm"
         Title="{DynamicResource Title.Title}" Height="210" Width="570"
         >
@@ -89,7 +89,7 @@
             </Grid>
         </Border>
         <!--输入框-->
-        <TextBox Name="GroupName"  LostFocus="Text_LostFocus" Style="{DynamicResource TextBoxStyle1}" VerticalAlignment="Center" CaretBrush="Black" Margin="10,15,10,5" BorderBrush="Gray" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Name="GroupName"  Style="{DynamicResource TextBoxStyle1}" VerticalAlignment="Center" CaretBrush="Black" Margin="10,15,10,5" BorderBrush="Gray" VerticalContentAlignment="Center"></TextBox>
         <!--保存及取消按钮-->
         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="116" Height="29" VerticalAlignment="Bottom"  BorderThickness="0" Margin="0,0,0,10">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">

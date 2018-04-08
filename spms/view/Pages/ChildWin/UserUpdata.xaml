@@ -12,7 +12,7 @@
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}" Height="876" Width="800"
-         ResizeMode = "NoResize"
+        ResizeMode="CanMinimize"  
         Loaded="Window_Loaded"
         PreviewKeyDown="key_dowm"
          LocationChanged="windowmove">

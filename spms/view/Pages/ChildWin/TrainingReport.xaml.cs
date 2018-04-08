@@ -260,7 +260,8 @@ namespace spms.view.Pages.ChildWin
                         worksheet.Cells[row, 4].Value = list[k].SI_Suf_HighPressure + "/" + list[k].SI_Suf_LowPressure;
                         worksheet.Cells[row, 5].Value = list[k].SI_WaterInput;
                         worksheet.Cells[row, 6].Value = list[k].PR_Index;
-                        worksheet.Cells[row, 7].Value = list[k].PR_Time2 - list[i].PR_Time1;
+                        //worksheet.Cells[row, 7].Value = list[k].PR_Time2 - list[i].PR_Time1;
+                        worksheet.Cells[row, 7].Value = list[k].PR_Time1;
                         worksheet.Cells[row, 8].Value = list[k].PR_Cal;
                         worksheet.Cells[row, 9].Value = list[k].SI_CareInfo;
                     }
@@ -404,12 +405,36 @@ namespace spms.view.Pages.ChildWin
                         worksheet.Cells[row, 10, row, 11].Merge = true;
                         worksheet.Cells[row, 1].Value = list[k].DS_name;
                         worksheet.Cells[row, 4].Value = ((DateTime)list[k].Gmt_Create).ToString();//string.Format("{0:d}", list[i].Gmt_Create);
-                        worksheet.Cells[row, 5].Value = list[k].dp_moveway;
+                        //worksheet.Cells[row, 5].Value = list[k].dp_moveway;
+                        if (list[k].dp_moveway == 0)
+                        {
+                            worksheet.Cells[row, 5].Value = LanguageUtils.ConvertLanguage("自理", "Self-care");
+                        }
+                        else if (list[k].dp_moveway == 1)
+                        {
+                            worksheet.Cells[row, 5].Value = LanguageUtils.ConvertLanguage("照看", "Look after");
+                        }
+                        else if (list[k].dp_moveway == 2)
+                        {
+                            worksheet.Cells[row, 5].Value = LanguageUtils.ConvertLanguage("完全失能", "Completely disabled");
+                        }
                         worksheet.Cells[row, 6].Value = list[k].dp_weight;
                         worksheet.Cells[row, 7].Value = list[k].dp_groupcount;
                         worksheet.Cells[row, 8].Value = list[k].dp_groupnum;
                         worksheet.Cells[row, 9].Value = list[k].dp_relaxtime;
-                        worksheet.Cells[row, 10].Value = list[k].DP_Memo;
+                        if (list[k].PR_Evaluate == 0)
+                        {
+                            worksheet.Cells[row, 10].Value = LanguageUtils.ConvertLanguage("没问题", "No problem");
+                        }
+                        else if (list[k].PR_Evaluate == 1)
+                        {
+                            worksheet.Cells[row, 10].Value = LanguageUtils.ConvertLanguage("有些许问题", "Some problems");
+                        }
+                        else if (list[k].PR_Evaluate == 2)
+                        {
+                            worksheet.Cells[row, 10].Value = LanguageUtils.ConvertLanguage("有问题", "Has a problem");
+                        }
+                        //worksheet.Cells[row, 10].Value = list[k].PR_Evaluate;
                     }
 
                     int borderRows = (j + 1) * count < list.Count ? count : list.Count - j * count;
@@ -555,7 +580,8 @@ namespace spms.view.Pages.ChildWin
                         worksheet.Cells[row, 4].Value = list[k].SI_Suf_HighPressure + "/" + list[k].SI_Suf_LowPressure;
                         worksheet.Cells[row, 5].Value = list[k].SI_WaterInput;
                         worksheet.Cells[row, 7].Value = list[k].PR_Index;
-                        worksheet.Cells[row, 8].Value = list[k].PR_Time2 - list[i].PR_Time1;
+                        //worksheet.Cells[row, 8].Value = list[k].PR_Time2 - list[i].PR_Time1;
+                        worksheet.Cells[row, 8].Value = list[k].PR_Time1;
                         worksheet.Cells[row, 10].Value = list[k].PR_Cal;
                         worksheet.Cells[row + 1, 1].Value = list[k].SI_CareInfo;
                     }

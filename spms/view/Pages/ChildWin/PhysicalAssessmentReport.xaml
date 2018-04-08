@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
          PreviewKeyDown="key_dowm"
-        ResizeMode="NoResize"
+       ResizeMode="CanMinimize"  
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}" Height="1000" Width="667"
         Loaded="Window_Loaded">
