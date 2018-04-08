@@ -35,6 +35,7 @@
     <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">机构、团体名称</s:String>
     <s:String x:Key="SettingsView.FacilityType">机构分区</s:String>
+    <s:String x:Key="SettingsView.Phone">机构电话</s:String>
     <s:String x:Key="SettingsView.Return">返回</s:String>
     <s:String x:Key="SettingsView.PremarySettings">初级设置</s:String>
     <s:String x:Key="SettingsView.AdvancedSettings">高级设置</s:String>
