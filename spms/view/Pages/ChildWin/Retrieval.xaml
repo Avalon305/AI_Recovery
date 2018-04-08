@@ -7,10 +7,11 @@
         xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
         xmlns:bubble="clr-namespace:spms.view.bubblemove"
         mc:Ignorable="d"
+        ResizeMode="CanMinimize"  
         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}" Height="600" Width="801"
-           ResizeMode = "NoResize"
+        
         Loaded="Window_Loaded"
          LocationChanged="windowmove">
     <Window.Resources>

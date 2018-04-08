@@ -62,11 +62,13 @@ namespace spms.view.Pages
             if (LanguageUtils.IsChainese())
             {
                 title_pic.Source = new BitmapImage(new Uri(@"\view\Images\bdl.PNG", UriKind.Relative));
+                title_pic.Height = 198.4;
             }
             else
             {
                 //TODO 英文图片
-                title_pic.Source = new BitmapImage(new Uri(@"\view\Images\img6.jpg", UriKind.Relative));
+                title_pic.Source = new BitmapImage(new Uri(@"\view\Images\design.png", UriKind.Relative));
+                title_pic.Height = 257;
             }
             try
             {
@@ -248,7 +250,7 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             passwordInput.ShowDialog();
-            if (ProtocolConstant.USB_SUCCESS == 1)//u盘成功读取
+            if (ProtocolConstant.USB_SUCCESS == 0)//u盘成功读取
             {   //获取mac地址
                 StringBuilder stringBuilder = new StringBuilder();
                 //string strMac = CommUtil.GetMacAddress();

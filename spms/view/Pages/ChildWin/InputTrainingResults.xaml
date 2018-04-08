@@ -11,7 +11,7 @@
         Icon="/view/Images/icon2.png"
          PreviewKeyDown="key_dowm"
         Title="{DynamicResource Title.Title}"
-         ResizeMode = "NoResize" Height="1000" Width="1216"
+        ResizeMode="CanMinimize"   Height="1000" Width="1216"
         Loaded="Window_Loaded">
     <Window.Resources>
         <Style TargetType="ToolTip">
@@ -125,7 +125,7 @@
                 <!--<DatePicker Height="25" Margin="0,3,-0.6,0" KeyboardNavigation.TabNavigation="None" VerticalAlignment="Bottom" Width="125" Name="dp" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
             </Border>
                 <Label Content="{DynamicResource TrainingListView.SympInfo}" Height="25"  Margin="405,0,0,0" Background="Gray" Foreground="White" Width="80"/>
-                <ComboBox ItemsSource="{Binding SymptomInfo,Mode=OneWay}" DisplayMemberPath="Gmt_Create" SelectedValuePath="Pk_SI_Id" SelectedItem="{Binding SymptomInfo}" Margin="3,0,0,0"  Name="symp" Height="25" Width="131" />
+                <ComboBox ItemsSource="{Binding SymptomInfoDTO,Mode=OneWay}" DisplayMemberPath="DateStr" SelectedValuePath="ID" SelectedItem="{Binding SymptomInfoDTO}" Margin="3,0,0,0"  Name="symp" Height="25" Width="131" />
 
 <!--<Border Margin="0,10,0,8" Background="LightGray" Height="25">
                     <Label  Content="{DynamicResource TrainingResultView.Date}" FontSize="12" Margin="0,0,0,0.2"/>

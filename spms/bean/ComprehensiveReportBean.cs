@@ -98,6 +98,20 @@ namespace spms.bean
         public string PP_FunctionProtract { get; set; }
         //坐姿体前屈
         public string PP_SitandReach { get; set; }
+        //8.time&up go
+        public string PP_TimeUpGo { get; set; }
+        //9.5m步行-通常
+        public string PP_Walk5MileGeneral { get; set; }
+        //10.5m步行-最快
+        public string PP_Walk5MileFast { get; set; }
+        //11.10m步行，第一个字段是模式
+        public string PP_Walk10Mile { get; set; }
+        //12.6分钟步行
+        public string PP_Walk6Minute { get; set; }
+        //13.2分钟踏步
+        public string PP_Step2Minute { get; set; }
+        //14.2分钟抬腿
+        public string PP_LegRaise2Minute { get; set; }
     }
 
     public class TrainComprehensive
@@ -423,7 +437,7 @@ namespace spms.bean
             //砝码
             public double dp_weight { get; set; }
             //注意点，指示
-            public string DP_Memo { get; set; }
+            public byte PR_Evaluate { get; set; }
 
         }
 

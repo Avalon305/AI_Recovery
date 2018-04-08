@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NLog;
 using spms.dao;
 using spms.entity;
 using spms.service;
@@ -26,6 +27,7 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class InputSymptomInformation : Window
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         //去除窗体叉号
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
@@ -189,7 +191,7 @@ namespace spms.view.Pages.ChildWin
             symptomInfo.SI_Suf_HighPressure = sufHighPressure;
             symptomInfo.SI_Suf_LowPressure = sufLowPressure;
             symptomInfo.SI_Suf_Pulse = sufPulse;
-
+            logger.Info("save:", symptomInfo.ToString());
             //存储
             new SymptomService().AddSymptomnInfo(symptomInfo);
             MessageBox.Show(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
@@ -211,7 +213,7 @@ namespace spms.view.Pages.ChildWin
             user_id.Content = user.Pk_User_Id;
             
             List<TrainInfo> trainInfoNoSymp = new TrainInfoDAO().GetTrainInfoNoSymp(user.Pk_User_Id);
-            train.ItemsSource = trainInfoNoSymp;
+            train.ItemsSource = new TrainDTO().ConvertDtoList(trainInfoNoSymp);
         }
 
         //错误：OnlyInputNumbers

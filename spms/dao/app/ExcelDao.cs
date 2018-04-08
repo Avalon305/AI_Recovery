@@ -40,7 +40,7 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "SELECT dp.gmt_create,dp.dp_groupcount,dp.dp_groupnum,dp.dp_relaxtime,dp.dp_moveway,dp.dp_memo,dp.dp_weight,ds.ds_name FROM bdl_traininfo ti, bdl_deviceprescription dp, bdl_devicesort ds WHERE ti.pk_ti_id = dp.fk_ti_id AND dp.fk_ds_id = ds.pk_ds_id AND ti.fk_user_id=@User_Id ORDER BY dp.gmt_create";
+                const string query = "SELECT dp.gmt_create,dp.dp_groupcount,dp.dp_groupnum,dp.dp_relaxtime,dp.dp_moveway,dp.dp_weight,ds.ds_name,pr.pr_evaluate FROM bdl_traininfo ti, bdl_deviceprescription dp, bdl_devicesort ds,bdl_prescriptionresult pr WHERE ti.pk_ti_id = dp.fk_ti_id AND dp.fk_ds_id = ds.pk_ds_id AND dp.pk_dp_id=pr.fk_dp_id AND ti.fk_user_id=@User_Id ORDER BY dp.gmt_create";
 
                 return conn.Query<DevicePrescriptionExcel>(query, new { User_Id = userId }).ToList();
             }
@@ -55,7 +55,7 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "SELECT gmt_create,pp_high,pp_weight,pp_grip,pp_eyeopenstand,pp_functionprotract,pp_sitandreach FROM bdl_physicalpower pp WHERE pp.fk_user_id=@User_Id ORDER BY gmt_create";
+                const string query = "SELECT gmt_create,pp_high,pp_weight,pp_grip,pp_eyeopenstand,pp_functionprotract,pp_sitandreach,pp_timeupgo,pp_walk5milegeneral,pp_walk5milefast,pp_walk10mile,pp_walk6minute,pp_step2minute,pp_legraise2minute FROM bdl_physicalpower pp WHERE pp.fk_user_id=@User_Id ORDER BY gmt_create";
 
                 return conn.Query<PhysicalPowerExcekVO>(query, new { User_Id = userId }).ToList();
             }

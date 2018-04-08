@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NLog;
 using spms.constant;
 using spms.dao;
 using spms.entity;
@@ -25,6 +26,7 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class ViewTrainingResults : Window
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         //去除窗体叉号
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
@@ -47,6 +49,7 @@ namespace spms.view.Pages.ChildWin
             Dictionary<string, object> dic = (Dictionary<string, Object>) DataContext;
             user = (User) dic["user"];
             trainDto = (TrainDTO) dic["trainDto"];
+            logger.Info("user:" + user + "trainDto:" + trainDto);
             //绑定数据
             Load_Data();
             certain_dev();
@@ -115,12 +118,12 @@ namespace spms.view.Pages.ChildWin
                             break;
                         }
                         HLPSportstrength.Text = trainDto.prescriptionResult.PR_SportStrength.ToString();
-                        HLPTime1.Text = trainDto.prescriptionResult.PR_Time1.ToString();
+                        HLPTime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
                         HLPDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
                         HLPCountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
                         HLPCal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
                         HLPIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
-                        HLPTime2.Text = trainDto.prescriptionResult.PR_Time2.ToString();
+                        HLPTime2.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time2).ToLongTimeString();
                         //HLPFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
                         HLPEvaluate.Text = trainDto.evaluate;
                         HLPAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
@@ -160,12 +163,12 @@ namespace spms.view.Pages.ChildWin
                             break;
                         }
                         ROWSportstrength.Text = trainDto.prescriptionResult.PR_SportStrength.ToString();
-                        ROWTime1.Text = trainDto.prescriptionResult.PR_Time1.ToString();
+                        ROWTime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
                         ROWDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
                         ROWCountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
                         ROWCal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
                         ROWIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
-                        ROWTime2.Text = trainDto.prescriptionResult.PR_Time2.ToString();
+                        ROWTime2.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time2).ToLongTimeString();
                         //ROWFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
                         ROWEvaluate.Text = trainDto.evaluate;
                         ROWAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
@@ -206,12 +209,12 @@ namespace spms.view.Pages.ChildWin
                             break;
                         }
                         TFSportstrength.Text = trainDto.prescriptionResult.PR_SportStrength.ToString();
-                        TFTime1.Text = trainDto.prescriptionResult.PR_Time1.ToString();
+                        TFTime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
                         TFDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
                         TFCountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
                         TFCal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
                         TFIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
-                        TFTime2.Text = trainDto.prescriptionResult.PR_Time2.ToString();
+                        TFTime2.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time2).ToLongTimeString();
                         //TFFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
                         TFEvaluate.Text = trainDto.evaluate;
                         TFAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
@@ -253,12 +256,12 @@ namespace spms.view.Pages.ChildWin
                             break;
                         }
                         LESportstrength.Text = trainDto.prescriptionResult.PR_SportStrength.ToString();
-                        LETime1.Text = trainDto.prescriptionResult.PR_Time1.ToString();
+                        LETime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
                         LEDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
                         LECountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
                         LECal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
                         LEIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
-                        LETime2.Text = trainDto.prescriptionResult.PR_Time2.ToString();
+                        LETime2.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time2).ToLongTimeString();
                         //LEFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
                         LEEvaluate.Text = trainDto.evaluate;
                         LEAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
@@ -298,12 +301,12 @@ namespace spms.view.Pages.ChildWin
                             break;
                         }
                         HASportstrength.Text = trainDto.prescriptionResult.PR_SportStrength.ToString();
-                        HATime1.Text = trainDto.prescriptionResult.PR_Time1.ToString();
+                        HATime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
                         HADistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
                         HACountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
                         HACal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
                         HAIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
-                        HATime2.Text = trainDto.prescriptionResult.PR_Time2.ToString();
+                        HATime2.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time2).ToLongTimeString();
                         //HAFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
                         HAEvaluate.Text = trainDto.evaluate;
                         HAAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
@@ -343,12 +346,12 @@ namespace spms.view.Pages.ChildWin
                             break;
                         }
                         CPSportstrength.Text = trainDto.prescriptionResult.PR_SportStrength.ToString();
-                        CPTime1.Text = trainDto.prescriptionResult.PR_Time1.ToString();
+                        CPTime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
                         CPDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
                         CPCountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
                         CPCal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
                         CPIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
-                        CPTime2.Text = trainDto.prescriptionResult.PR_Time2.ToString();
+                        CPTime2.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time2).ToLongTimeString();
                         //CPFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
                         CPEvaluate.Text = trainDto.evaluate;
                         CPAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
@@ -509,6 +512,17 @@ namespace spms.view.Pages.ChildWin
 
                 CPTime.Visibility = Visibility.Visible;
             }
+        }
+        private DateTime TimeConverter(double dateTime)
+        {
+            int hours = (int)(dateTime / 60);
+            int minute = (int)(dateTime - hours * 60);
+            int second = (int)(dateTime % 1 * 60);
+            DateTime time = new DateTime(0001,1,1,hours,minute,second);
+            //time.AddHours(hours);
+            //time.AddMinutes(minute);
+           // time.AddSeconds(second);
+            return time;
         }
     }
 }

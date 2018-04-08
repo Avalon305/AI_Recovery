@@ -8,7 +8,7 @@
         xmlns:imageDealer="clr-namespace:TestImageDealer.ImageDealer"
         mc:Ignorable="d"
          PreviewKeyDown="key_dowm"
-        ResizeMode="NoResize"
+        ResizeMode="CanMinimize"  
 Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}" Height="700" Width="880"
         Loaded="Window_Loaded">
