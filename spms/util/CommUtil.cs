@@ -155,6 +155,42 @@ namespace spms.util
                 return null;
             }
         }
+        public static List<string> GetMacByIPConfig()
+{
+            List<string> macs = new List<string>();
+            ProcessStartInfo startInfo = new ProcessStartInfo("ipconfig", "/all");
+            startInfo.UseShellExecute = false;
+            startInfo.RedirectStandardInput = true;
+            startInfo.RedirectStandardOutput = true;
+            startInfo.RedirectStandardError = true;
+            startInfo.CreateNoWindow = true;
+            Process p = Process.Start(startInfo);
+            //截取输出流
+            StreamReader reader = p.StandardOutput;
+            string line = reader.ReadLine();
+
+            while (!reader.EndOfStream)
+            {
+                if (!string.IsNullOrEmpty(line))
+                {
+                    line = line.Trim();
+
+                    if (line.StartsWith("物理地址"))
+                    {
+                        macs.Add(line);
+                    }
+                }
+
+                line = reader.ReadLine();
+            }
+
+            //等待程序执行完退出进程
+            p.WaitForExit();
+            p.Close();
+            reader.Close();
+
+            return macs;
+        }
 
         //单个mac地址
         public static string GetMacAddress()
