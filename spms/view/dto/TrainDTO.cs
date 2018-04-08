@@ -11,6 +11,8 @@ namespace spms.view.dto
 {
     class TrainDTO
     {
+        public int ID { get; set; }
+        public string DateStr { get; set; }
         public TrainInfo trainInfo { get; set; }
 
         public DevicePrescription devicePrescription { get; set; }
@@ -22,9 +24,25 @@ namespace spms.view.dto
 
         //时机，姿势，评价 0没问题 1 有些许问题 2 有问题
         public string evaluate { get; set; }
+        public List<TrainDTO> ConvertDtoList(List<TrainInfo> trainInfos)
+        {
+            List<TrainDTO> trainDtos = new List<TrainDTO>();
+            foreach (var trainInfo in trainInfos)
+            {
+                trainDtos.Add(new TrainDTO(trainInfo, null, null));
+            }
 
+            return trainDtos;
+        }
+
+        public TrainDTO()
+        {
+
+        }
         public TrainDTO(TrainInfo trainInfo, DevicePrescription devicePrescription, PrescriptionResult prescriptionResult)
         {
+            this.ID = trainInfo.Pk_TI_Id;
+            this.DateStr = trainInfo.Gmt_Create.ToString();
             this.trainInfo = trainInfo;
             this.devicePrescription = devicePrescription;
             this.prescriptionResult = prescriptionResult;

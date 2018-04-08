@@ -238,27 +238,34 @@ namespace spms.util
         public static DataTable ToDataTable(string sheetName, string[] columnNames, List<object> list)
         {
             DataTable dataTable = null;
-            if (list != null)
+            try
             {
-                dataTable = new DataTable();
-                dataTable.TableName = sheetName;
-                PropertyInfo[] propertys = list[0].GetType().GetProperties();
-                for (int i = 0; i < propertys.Length; i++)
+                if (list != null)
                 {
-                    dataTable.Columns.Add(columnNames[i], propertys[i].PropertyType);
-                }
-
-                for (int i = 0; i < list.Count; i++)
-                {
-                    ArrayList tempList = new ArrayList();
-                    foreach (PropertyInfo pi in propertys)
+                    dataTable = new DataTable();
+                    dataTable.TableName = sheetName;
+                    PropertyInfo[] propertys = list[0].GetType().GetProperties();
+                    for (int i = 0; i < propertys.Length; i++)
                     {
-                        object obj = pi.GetValue(list[i], null);
-                        tempList.Add(obj);
+                        dataTable.Columns.Add(columnNames[i], propertys[i].PropertyType);
                     }
-                    object[] array = tempList.ToArray();
-                    dataTable.LoadDataRow(array, true);
+
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        ArrayList tempList = new ArrayList();
+                        foreach (PropertyInfo pi in propertys)
+                        {
+                            object obj = pi.GetValue(list[i], null);
+                            tempList.Add(obj);
+                        }
+                        object[] array = tempList.ToArray();
+                        dataTable.LoadDataRow(array, true);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("将数据转换成datatable发生异常");
             }
             return dataTable;
         }

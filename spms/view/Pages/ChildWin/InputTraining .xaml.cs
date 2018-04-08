@@ -17,8 +17,10 @@ using System.Windows.Shapes;
 using spms.constant;
 using spms.dao;
 using spms.entity;
+using spms.http.dto;
 using spms.service;
 using spms.util;
+using SymptomInfoDTO = spms.view.dto.SymptomInfoDTO;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -1059,7 +1061,7 @@ namespace spms.view.Pages.ChildWin
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
             var nullTiIdByUserId = new SymptomInfoDao().GetNullTiIdByUserId(user.Pk_User_Id);
-            symp.ItemsSource = nullTiIdByUserId;
+            symp.ItemsSource = new SymptomInfoDTO().ConvertDtoList(nullTiIdByUserId);
             com_01.ItemsSource = Add(0, 70, 2);
             //com_02.ItemsSource = Add(0, 30, 2);
             com_03.ItemsSource = Add(1, 5, 2);
@@ -1377,155 +1379,163 @@ namespace spms.view.Pages.ChildWin
         private SerialPort serialPort;
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            //写卡
-            TrainInfo trainInfo = new TrainService().GetTrainInfoByUserIdAndStatus(user.Pk_User_Id, (int)TrainInfoStatus.Normal);
-            if (trainInfo != null)
+            try
             {
-                //MessageBox.Show(LanguageUtils.ConvertLanguage("是否覆盖", "Whether or not to cover"));
-
-                MessageBoxResult dr = MessageBox.Show(LanguageUtils.ConvertLanguage("是否覆盖", "Whether or not to cover?"), LanguageUtils.ConvertLanguage("提示", "Point"), MessageBoxButton.OKCancel,
-                    MessageBoxImage.Question);
-                if (dr == MessageBoxResult.Cancel)
+                //写卡
+                TrainInfo trainInfo = new TrainService().GetTrainInfoByUserIdAndStatus(user.Pk_User_Id, (int)TrainInfoStatus.Normal);
+                if (trainInfo != null)
                 {
-                    return;
-                }
-            }
+                    //MessageBox.Show(LanguageUtils.ConvertLanguage("是否覆盖", "Whether or not to cover"));
 
-            if (user != null)
-            {
-                byte[] data = new byte[90];
-                //用户id
-                string str = new UserService().getUserByUserId(user.Pk_User_Id).User_IDCard + "";
-                Console.WriteLine(str);
-                byte[] idBytes = Encoding.ASCII.GetBytes(str);
-                Array.Copy(idBytes, 0, data, 0, idBytes.Length);
-
-                //用户名
-                byte[] nameBytes = Encoding.GetEncoding("GBK").GetBytes(user.User_Name);
-                Array.Copy(nameBytes, 0, data, 32, nameBytes.Length);
-                //拼音
-                byte[] pingYinBytes = Encoding.ASCII.GetBytes(user.User_Namepinyin);
-                Array.Copy(pingYinBytes, 0, data, 52, pingYinBytes.Length);
-
-                int position = 84;
-                //设备
-                if (checkbox1.IsChecked == true)
-                {
-                    //胸部推举机0x01
-                    data[position] = (byte)DeviceType.X01;
-                    position += 1;
-                }
-
-                if (checkbox2.IsChecked == true)
-                {
-                    //坐姿划船机 0x05
-                    data[position] = (byte)DeviceType.X05;
-                    position += 1;
-                }
-
-                if (checkbox3.IsChecked == true)
-                {
-                    //身体伸展弯曲机 0x04
-                    data[position] = (byte)DeviceType.X04;
-                    position += 1;
-                }
-
-                if (checkbox4.IsChecked == true)
-                {
-                    //腿部伸展弯曲机 0x03
-                    data[position] = (byte)DeviceType.X03;
-                    position += 1;
-                }
-
-                if (checkbox5.IsChecked == true)
-                {
-                    //胸部推举机 0x06
-                    data[position] = (byte)DeviceType.X06;
-                    position += 1;
-                }
-
-                if (checkbox6.IsChecked == true)
-                {
-                    //腿部内外弯机 0x02
-                    data[position] = (byte)DeviceType.X02;
-                }
-
-                Console.WriteLine("发卡的内容：" + ProtocolUtil.ByteToStringOk(data));
-
-                byte[] send = ProtocolUtil.packHairpinData(0x01, data);
-
-                //检查当前是否有多个串口
-                if (SerialPortUtil.SerialPort == null)
-                {
-                    SerialPortUtil.CheckPort();
-                }
-                else
-                {
-                    SerialPortUtil.portName = SerialPortUtil.SerialPort.PortName;
-                }
-
-                if (SerialPortUtil.portName == "")
-                {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("请先连接串口", "Please Connect the serial port"));
-                    return;
-                }
-
-                if (serialPort == null)
-                {
-                    serialPort = SerialPortUtil.ConnectSerialPort(OnPortDataReceived);
-                    try
+                    MessageBoxResult dr = MessageBox.Show(LanguageUtils.ConvertLanguage("是否覆盖", "Whether or not to cover?"), LanguageUtils.ConvertLanguage("提示", "Point"), MessageBoxButton.OKCancel,
+                        MessageBoxImage.Question);
+                    if (dr == MessageBoxResult.Cancel)
                     {
-                        if (!serialPort.IsOpen)
-                        {
-                            serialPort.Open();
-                        }
-                    }
-                    catch (UnauthorizedAccessException ex)
-                    {
-                        MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
-                        //清空缓存
-                        SerialPortUtil.SerialPort = null;
-                        serialPort = null;
-                        return;
-                    }
-                    catch (IOException ex)
-                    {
-                        MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
-                        SerialPortUtil.SerialPort = null;
-                        serialPort = null;
                         return;
                     }
                 }
-                else
+
+                if (user != null)
                 {
-                    if (!serialPort.IsOpen)
+                    byte[] data = new byte[90];
+                    //用户id
+                    string str = new UserService().getUserByUserId(user.Pk_User_Id).User_IDCard + "";
+                    Console.WriteLine(str);
+                    byte[] idBytes = Encoding.ASCII.GetBytes(str);
+                    Array.Copy(idBytes, 0, data, 0, idBytes.Length);
+
+                    //用户名
+                    byte[] nameBytes = Encoding.GetEncoding("GBK").GetBytes(user.User_Name);
+                    Array.Copy(nameBytes, 0, data, 32, nameBytes.Length);
+                    //拼音
+                    byte[] pingYinBytes = Encoding.ASCII.GetBytes(user.User_Namepinyin);
+                    Array.Copy(pingYinBytes, 0, data, 52, pingYinBytes.Length);
+
+                    int position = 84;
+                    //设备
+                    if (checkbox1.IsChecked == true)
                     {
+                        //胸部推举机0x01
+                        data[position] = (byte)DeviceType.X01;
+                        position += 1;
+                    }
+
+                    if (checkbox2.IsChecked == true)
+                    {
+                        //坐姿划船机 0x05
+                        data[position] = (byte)DeviceType.X05;
+                        position += 1;
+                    }
+
+                    if (checkbox3.IsChecked == true)
+                    {
+                        //身体伸展弯曲机 0x04
+                        data[position] = (byte)DeviceType.X04;
+                        position += 1;
+                    }
+
+                    if (checkbox4.IsChecked == true)
+                    {
+                        //腿部伸展弯曲机 0x03
+                        data[position] = (byte)DeviceType.X03;
+                        position += 1;
+                    }
+
+                    if (checkbox5.IsChecked == true)
+                    {
+                        //胸部推举机 0x06
+                        data[position] = (byte)DeviceType.X06;
+                        position += 1;
+                    }
+
+                    if (checkbox6.IsChecked == true)
+                    {
+                        //腿部内外弯机 0x02
+                        data[position] = (byte)DeviceType.X02;
+                    }
+
+                    Console.WriteLine("发卡的内容：" + ProtocolUtil.ByteToStringOk(data));
+
+                    byte[] send = ProtocolUtil.packHairpinData(0x01, data);
+
+                    //检查当前是否有多个串口
+                    if (SerialPortUtil.SerialPort == null)
+                    {
+                        SerialPortUtil.CheckPort();
+                    }
+                    else
+                    {
+                        SerialPortUtil.portName = SerialPortUtil.SerialPort.PortName;
+                    }
+
+                    if (SerialPortUtil.portName == "")
+                    {
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请先连接串口", "Please Connect the serial port"));
+                        return;
+                    }
+
+                    if (serialPort == null)
+                    {
+                        serialPort = SerialPortUtil.ConnectSerialPort(OnPortDataReceived);
                         try
                         {
-                            serialPort.Open();
+                            if (!serialPort.IsOpen)
+                            {
+                                serialPort.Open();
+                            }
                         }
                         catch (UnauthorizedAccessException ex)
                         {
                             MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
+                            //清空缓存
+                            SerialPortUtil.SerialPort = null;
+                            serialPort = null;
                             return;
                         }
                         catch (IOException ex)
                         {
                             MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
+                            SerialPortUtil.SerialPort = null;
+                            serialPort = null;
                             return;
                         }
                     }
+                    else
+                    {
+                        if (!serialPort.IsOpen)
+                        {
+                            try
+                            {
+                                serialPort.Open();
+                            }
+                            catch (UnauthorizedAccessException ex)
+                            {
+                                MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
+                                return;
+                            }
+                            catch (IOException ex)
+                            {
+                                MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
+                                return;
+                            }
+                        }
+                    }
+
+                    isReceive = false;
+                    serialPort.Write(send, 0, send.Length);
+
+                    //发送的定时器
+                    Button_Write.IsEnabled = false;
+                    times = 0;//发送之前次数至空
+                    threadTimer = new Timer(new System.Threading.TimerCallback(ReissueThreeTimes), send, 500, 500);
+
                 }
-
-                isReceive = false;
-                serialPort.Write(send, 0, send.Length);
-
-                //发送的定时器
-                Button_Write.IsEnabled = false;
-                times = 0;//发送之前次数至空
-                threadTimer = new Timer(new System.Threading.TimerCallback(ReissueThreeTimes), send, 500, 500);
-                
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("写卡异常"); 
+            }
+           
 
             //保存到数据库,在接收数据方法中
             //SaveTrainInfo2DB(TrainInfoStatus.Normal);
