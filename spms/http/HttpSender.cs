@@ -49,7 +49,7 @@ namespace spms.http
         {
             try
             {
-                Console.WriteLine("====================================发数据啦" + jsonStr);
+                //Console.WriteLine("====================================发数据啦" + jsonStr);
                 HttpWebRequest request = WebRequest.Create(URLBASE + url) as HttpWebRequest; //创建请求
                 CookieContainer cookieContainer = new CookieContainer();
                 request.Timeout = 10 * 1000; //10s超时
