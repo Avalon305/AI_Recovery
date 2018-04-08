@@ -38,6 +38,7 @@ namespace spms
         /// <param name="e"></param>
         protected override void OnStartup(StartupEventArgs e)
         {
+
             //全局异常处理机制，UI异常
             Current.DispatcherUnhandledException += App_OnDispatcherUnhandledException;
             //全局异常处理机制，线程异常
@@ -175,7 +176,7 @@ namespace spms
                 if (exception != null)
                 {
                     logger.Error(  "非UI线程全局异常"+exception.ToString());
-                    
+
                 }
             }
             catch (Exception ex)
