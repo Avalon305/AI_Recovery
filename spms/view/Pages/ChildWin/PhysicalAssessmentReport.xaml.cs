@@ -202,7 +202,7 @@ namespace spms.view.Pages.ChildWin
                         }
                         if (SubstringParams(list[j * count].PP_EyeOpenStand) != null)
                         {
-                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("睁眼单脚站立（秒）", "Wink stand on one foot (seconds)");
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("睁眼单脚站立（秒）", "Wink stand on one foot (s)");
                             r++;
                         }
                         if (SubstringParams(list[j * count].PP_FunctionProtract) != null)
@@ -215,10 +215,121 @@ namespace spms.view.Pages.ChildWin
                             worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("坐姿体前驱（cm）", "Sitting body precursor (cm)");
                             r++;
                         }
+                        if (SubstringParams(list[j * count].PP_TimeUpGo) != null)
+                        {
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("time&up go（秒）", "time&up g(s)o");
+                            r++;
+                        }
+                        if (SubstringParams(list[j * count].PP_Walk5MileGeneral) != null)
+                        {
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("5m步行-通常（秒）", "5m walk - usually(s)");
+                            r++;
+                        }
+                        if (SubstringParams(list[j * count].PP_Walk5MileFast) != null)
+                        {
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("5m步行-最快（秒）", "5m walk - fastest(s)");
+                            r++;
+                        }
+                        if (SubstringParams(list[j * count].PP_Walk10Mile) != null)
+                        {
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("10m步行（秒）", "10m walk(s)");
+                            r++;
+                        }
+                        if (SubstringParams(list[j * count].PP_Walk6Minute) != null)
+                        {
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("6分钟步行（米）", "6 minutes walk(m)");
+                            r++;
+                        }
+                        if (SubstringParams(list[j * count].PP_Step2Minute) != null)
+                        {
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("2分钟踏步（次）", "2 String step(times)");
+                            r++;
+                        }
+                        if (SubstringParams(list[j * count].PP_LegRaise2Minute) != null)
+                        {
+                            worksheet.Cells[tableRow + r, 1].Value = LanguageUtils.ConvertLanguage("2分钟抬腿（次）", "2 minutes leg lift(times)");
+                            r++;
+                        }
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine("含有非法数据");
+                    }
+
+
+                    List<PhysicalPowerExcekVO> newList = new List<PhysicalPowerExcekVO>();
+                    for (int k = j * count; k < (j + 1) * count && k < list.Count;k++)
+                    {
+                        PhysicalPowerExcekVO pp = new PhysicalPowerExcekVO();
+                        int r2 = 1;
+                        pp.Gmt_Create = list[k].Gmt_Create;
+                        if ((string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("身高（cm）", "Height (cm)"))
+                        {
+                            pp.PP_High = list[k].PP_High;
+                            r2++;
+                        }
+                        if ((string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("体重（kg）", "Weight (kg)"))
+                        {
+                            pp.PP_Weight = list[k].PP_Weight;
+                            r2++;
+                        }
+                        if ((string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("握力（kg）", "Grip (kg)"))
+                        {
+                            pp.PP_Grip = list[k].PP_Grip;
+                            r2++;
+                        }
+                        if ((string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("睁眼单脚站立（秒）", "Wink stand on one foot (s)"))
+                        {
+                            pp.PP_EyeOpenStand = list[k].PP_EyeOpenStand;
+                            r2++;
+                        }
+                        if ((string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("功能性前伸（cm）", "Functional reach (cm)"))
+                        {
+                            pp.PP_FunctionProtract = list[k].PP_FunctionProtract;
+                            r2++;
+                        }
+                        if ((string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("坐姿体前驱（cm）", "Sitting body precursor (cm)"))
+                        {
+                            pp.PP_SitandReach = list[k].PP_SitandReach;
+                            r2++;
+                        }
+                        if ((string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("time&up go（秒）", "time&up g(s)o"))
+                        {
+                            pp.PP_TimeUpGo = list[k].PP_TimeUpGo;
+                            r2++;
+                        }
+                        if ((string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("5m步行-通常（秒）", "5m walk - usually(s)"))
+                        {
+                            pp.PP_Walk5MileGeneral = list[k].PP_Walk5MileGeneral;
+                            r2++;
+                        }
+                        if ((string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("5m步行-最快（秒）", "5m walk - fastest(s)"))
+                        {
+                            pp.PP_Walk5MileFast = list[k].PP_Walk5MileFast;
+                            r2++;
+                        }
+                        if ((string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("10m步行（秒）", "10m walk(s)"))
+                        {
+                            pp.PP_Walk10Mile = list[k].PP_Walk10Mile;
+                            r2++;
+                        }
+                        if ((string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("6分钟步行（米）", "6 minutes walk(m)"))
+                        {
+                            pp.PP_Walk6Minute = list[k].PP_Walk6Minute;
+                            r2++;
+                        }
+                        if ((string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("2分钟踏步（次）", "2 String step(times)"))
+                        {
+                            pp.PP_Step2Minute = list[k].PP_Step2Minute;
+                            r2++;
+                        }
+                        if ((string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("2分钟抬腿（次）", "2 minutes leg lift(times)"))
+                        {
+                            pp.PP_LegRaise2Minute = list[k].PP_LegRaise2Minute;
+                            r2++;
+                        }
+                        
+                        newList.Add(pp);
                     }
 
                     for (int i = 0; i < 24; i++)
@@ -231,59 +342,166 @@ namespace spms.view.Pages.ChildWin
                     }
 
                     int col = 4;
-                    //体力报告只有三条记录
-                    for (int i = 0,k=j* count; k < (j+1)* count && k < list.Count; i++,k++)
+                    for (int i = 0; i< newList.Count; i++)
                     {
                         col = i * 2 + 4;
                         int r2 = 1;
-                        //表头行+两个表头，必须是数值
-                        try
+                        worksheet.Cells[tableRow, col].Value = ((DateTime)newList[i].Gmt_Create).GetDateTimeFormats('g')[0].ToString();
+                        if (newList[i].PP_High != null)
                         {
-                            worksheet.Cells[tableRow, col].Value = ((DateTime)list[k].Gmt_Create).GetDateTimeFormats('g')[0].ToString();////ToShortDateString().ToString();
-                            if (SubstringParams(list[k].PP_High) != null)
-                            {
-                                worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_High);
-                                r2++;
-                            }
-                            if (SubstringParams(list[k].PP_High) != null)
-                            {
-                                worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_Weight);
-                                r2++;
-                            }
-                            if (SubstringParams(list[k].PP_High) != null)
-                            {
-                                worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_Grip);
-                                r2++;
-                            }
-                            if (SubstringParams(list[k].PP_High) != null)
-                            {
-                                worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_EyeOpenStand);
-                                r2++;
-                            }
-                            if (SubstringParams(list[k].PP_High) != null)
-                            {
-                                worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_FunctionProtract);
-                                r2++;
-                            }
-                            if (SubstringParams(list[k].PP_High) != null)
-                            {
-                                worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_SitandReach);
-                                r2++;
-                            }
-                            //worksheet.Cells[tableRow + 1, col].Value = SubstringParams(list[k].PP_High);
-                            //worksheet.Cells[tableRow + 2, col].Value = SubstringParams(list[k].PP_Weight);
-                            //worksheet.Cells[tableRow + 3, col].Value = SubstringParams(list[k].PP_Grip);
-                            //worksheet.Cells[tableRow + 4, col].Value = SubstringParams(list[k].PP_EyeOpenStand);
-                            //worksheet.Cells[tableRow + 5, col].Value = SubstringParams(list[k].PP_FunctionProtract);
-                            //worksheet.Cells[tableRow + 6, col].Value = SubstringParams(list[k].PP_SitandReach);
-
+                            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(newList[i].PP_High);
+                            r2++;
                         }
-                        catch (Exception ex)
+                        if (newList[i].PP_Weight != null)
                         {
-                            Console.WriteLine("含有非法数据");
+                            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(newList[i].PP_Weight);
+                            r2++;
                         }
-
+                        if (newList[i].PP_Grip != null)
+                        {
+                            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(newList[i].PP_Grip);
+                            r2++;
+                        }
+                        if (newList[i].PP_EyeOpenStand != null)
+                        {
+                            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(newList[i].PP_EyeOpenStand);
+                            r2++;
+                        }
+                        if (newList[i].PP_FunctionProtract != null)
+                        {
+                            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(newList[i].PP_FunctionProtract);
+                            r2++;
+                        }
+                        if (newList[i].PP_SitandReach != null)
+                        {
+                            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(newList[i].PP_SitandReach);
+                            r2++;
+                        }
+                        if (newList[i].PP_TimeUpGo != null)
+                        {
+                            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(newList[i].PP_TimeUpGo);
+                            r2++;
+                        }
+                        if (newList[i].PP_Walk5MileGeneral != null)
+                        {
+                            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(newList[i].PP_Walk5MileGeneral);
+                            r2++;
+                        }
+                        if (newList[i].PP_Walk5MileFast != null)
+                        {
+                            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(newList[i].PP_Walk5MileFast);
+                            r2++;
+                        }
+                        if (newList[i].PP_Walk10Mile != null)
+                        {
+                            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(newList[i].PP_Walk10Mile);
+                            r2++;
+                        }
+                        if (newList[i].PP_Walk6Minute != null)
+                        {
+                            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(newList[i].PP_Walk6Minute);
+                            r2++;
+                        }
+                        if (newList[i].PP_Step2Minute != null)
+                        {
+                            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(newList[i].PP_Step2Minute);
+                            r2++;
+                        }
+                        if (newList[i].PP_LegRaise2Minute != null)
+                        {
+                            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(newList[i].PP_LegRaise2Minute);
+                            r2++;
+                        }
                     }
+
+                    //体力报告只有三条记录
+                    //for (int i = 0,k=j* count; k < (j+1)* count && k < list.Count; i++,k++)
+                    //{
+                    //    col = i * 2 + 4;
+                    //    int r2 = 1;
+                    //    //表头行+两个表头，必须是数值
+                    //    try
+                    //    {
+                    //        worksheet.Cells[tableRow, col].Value = ((DateTime)list[k].Gmt_Create).GetDateTimeFormats('g')[0].ToString();////ToShortDateString().ToString();
+                    //        if (SubstringParams(list[k].PP_High) != null && (string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("身高（cm）", "Height (cm)"))
+                    //        {
+                    //            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_High);
+                    //            r2++;
+                    //        }
+                    //        if (SubstringParams(list[k].PP_Weight) != null && (string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("体重（kg）", "Weight (kg)"))
+                    //        {
+                    //            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_Weight);
+                    //            r2++;
+                    //        }
+                    //        if (SubstringParams(list[k].PP_Grip) != null && (string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("握力（kg）", "Grip (kg)"))
+                    //        {
+                    //            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_Grip);
+                    //            r2++;
+                    //        }
+                    //        if (SubstringParams(list[k].PP_EyeOpenStand) != null && (string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("睁眼单脚站立（秒）", "Wink stand on one foot (s)"))
+                    //        {
+                    //            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_EyeOpenStand);
+                    //            r2++;
+                    //        }
+                    //        if (SubstringParams(list[k].PP_FunctionProtract) != null && (string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("功能性前伸（cm）", "Functional reach (cm)"))
+                    //        {
+                    //            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_FunctionProtract);
+                    //            r2++;
+                    //        }
+                    //        if (SubstringParams(list[k].PP_SitandReach) != null && (string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("坐姿体前驱（cm）", "Sitting body precursor (cm)"))
+                    //        {
+                    //            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_SitandReach);
+                    //            r2++;
+                    //        }
+                    //        if (SubstringParams(list[j * count].PP_TimeUpGo) != null && (string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("time&up go（秒）", "time&up g(s)o"))
+                    //        {
+                    //            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_TimeUpGo);
+                    //            r2++;
+                    //        }
+                    //        if (SubstringParams(list[j * count].PP_Walk5MileGeneral) != null && (string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("5m步行-通常（秒）", "5m walk - usually(s)"))
+                    //        {
+                    //            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_Walk5MileGeneral);
+                    //            r2++;
+                    //        }
+                    //        if (SubstringParams(list[j * count].PP_Walk5MileFast) != null && (string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("5m步行-最快（秒）", "5m walk - fastest(s)"))
+                    //        {
+                    //            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_Walk5MileFast);
+                    //            r2++;
+                    //        }
+                    //        if (SubstringParams(list[j * count].PP_Walk10Mile) != null && (string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("10m步行（秒）", "10m walk(s)"))
+                    //        {
+                    //            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_Walk10Mile);
+                    //            r2++;
+                    //        }
+                    //        if (SubstringParams(list[j * count].PP_Walk6Minute) != null && (string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("6分钟步行（米）", "6 minutes walk(m)"))
+                    //        {
+                    //            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_Walk6Minute);
+                    //            r2++;
+                    //        }
+                    //        if (SubstringParams(list[j * count].PP_Step2Minute) != null && (string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("2分钟踏步（次）", "2 String step(times)"))
+                    //        {
+                    //            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_Step2Minute);
+                    //            r2++;
+                    //        }
+                    //        if (SubstringParams(list[j * count].PP_LegRaise2Minute) != null && (string)worksheet.Cells[tableRow + r2, 1].Value == LanguageUtils.ConvertLanguage("2分钟抬腿（次）", "2 minutes leg lift(times)"))
+                    //        {
+                    //            worksheet.Cells[tableRow + r2, col].Value = SubstringParams(list[k].PP_LegRaise2Minute);
+                    //            r2++;
+                    //        }
+                    //        //worksheet.Cells[tableRow + 1, col].Value = SubstringParams(list[k].PP_High);
+                    //        //worksheet.Cells[tableRow + 2, col].Value = SubstringParams(list[k].PP_Weight);
+                    //        //worksheet.Cells[tableRow + 3, col].Value = SubstringParams(list[k].PP_Grip);
+                    //        //worksheet.Cells[tableRow + 4, col].Value = SubstringParams(list[k].PP_EyeOpenStand);
+                    //        //worksheet.Cells[tableRow + 5, col].Value = SubstringParams(list[k].PP_FunctionProtract);
+                    //        //worksheet.Cells[tableRow + 6, col].Value = SubstringParams(list[k].PP_SitandReach);
+
+                    //    }
+                    //    catch (Exception ex)
+                    //    {
+                    //        Console.WriteLine("含有非法数据");
+                    //    }
+
+                    //}
 
                     worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("初次未变化", " No change for           the first time");
 
@@ -294,8 +512,40 @@ namespace spms.view.Pages.ChildWin
                     worksheet.Cells[tableRow + 4, 10, tableRow + 4, 11].Merge = true;
                     worksheet.Cells[tableRow + 5, 10, tableRow + 5, 11].Merge = true;
                     worksheet.Cells[tableRow + 6, 10, tableRow + 6, 11].Merge = true;
-                    //初次未变化
 
+                    for (int i = 1 ; i < tableRow + r ; i++)
+                    {
+                        if (worksheet.Cells[tableRow + i, 4].Value != null)
+                        {
+                            if (worksheet.Cells[tableRow + i, 8].Value != null)
+                            {
+                                int value = (int)worksheet.Cells[tableRow + i, 4].Value - (int)worksheet.Cells[tableRow + i, 8].Value;
+                                if (value < 0)
+                                {
+                                    worksheet.Cells[tableRow + i, 10].Value = value + "（↓）";
+                                }
+                                else if (value > 0)
+                                {
+                                    worksheet.Cells[tableRow + i, 10].Value = value + "（↑）";
+                                }
+                            }
+                            else if(worksheet.Cells[tableRow + i, 6].Value != null)
+                            {
+                                int value = (int)worksheet.Cells[tableRow + i, 4].Value - (int)worksheet.Cells[tableRow + i, 6].Value;
+                                if (value < 0)
+                                {
+                                    worksheet.Cells[tableRow + i, 10].Value = value + "（↓）";
+                                }
+                                else if (value > 0)
+                                {
+                                    worksheet.Cells[tableRow + i, 10].Value = value + "（↑）";
+                                }
+                            }
+                        }
+                    }
+
+
+                    //初次未变化
                     using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow, 11])
                     {
                         range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
@@ -323,7 +573,7 @@ namespace spms.view.Pages.ChildWin
                     worksheet.Cells[tableRow, 10].Style.Border.Left.Color.SetColor(System.Drawing.Color.FromArgb(255, 255, 255));
 
                     //空表表格
-                    using (ExcelRange range = worksheet.Cells[tableRow + 1, 1, tableRow + 6, 11])
+                    using (ExcelRange range = worksheet.Cells[tableRow + 1, 1, tableRow + r - 1, 11])
                     {
                         range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                         range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
@@ -337,20 +587,21 @@ namespace spms.view.Pages.ChildWin
                         range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
                     }
 
+                    int borderRows = (j + 1) * count < list.Count ? count : list.Count - j * count;
                     //插入图表
                     ExcelChart chart = worksheet.Drawings.AddChart("chart3", eChartType.RadarFilled);
                     //Y轴数据源，X轴数据源
-                    ExcelChartSerie serie1 = chart.Series.Add(worksheet.Cells[tableRow + 1, 4, tableRow + 6, 4], worksheet.Cells[tableRow + 1, 1, tableRow + 6, 1]);
+                    ExcelChartSerie serie1 = chart.Series.Add(worksheet.Cells[tableRow + 1, 4, tableRow + r - 1, 4], worksheet.Cells[tableRow + 1, 1, tableRow + r - 1, 1]);
                     serie1.HeaderAddress = worksheet.Cells[tableRow, 4];
                     serie1.Border.Fill.Color = System.Drawing.Color.Red;
-                    if (list.Count >= 2)
+                    if (borderRows >= 2)
                     {
-                        ExcelChartSerie serie2 = chart.Series.Add(worksheet.Cells[tableRow + 1, 6, tableRow + 6, 6], worksheet.Cells[tableRow + 1, 1, tableRow + 6, 1]);
+                        ExcelChartSerie serie2 = chart.Series.Add(worksheet.Cells[tableRow + 1, 6, tableRow + r - 1, 6], worksheet.Cells[tableRow + 1, 1, tableRow + r - 1, 1]);
                         serie2.HeaderAddress = worksheet.Cells[tableRow, 6];
                         serie2.Border.Fill.Color = System.Drawing.Color.Green;
-                        if (list.Count == 3)
+                        if (borderRows == 3)
                         {
-                            ExcelChartSerie serie3 = chart.Series.Add(worksheet.Cells[tableRow + 1, 8, tableRow + 6, 8], worksheet.Cells[tableRow + 1, 1, tableRow + 6, 1]);
+                            ExcelChartSerie serie3 = chart.Series.Add(worksheet.Cells[tableRow + 1, 8, tableRow + r - 1, 8], worksheet.Cells[tableRow + 1, 1, tableRow + r - 1, 1]);
                             serie3.HeaderAddress = worksheet.Cells[tableRow, 8];
                             serie3.Border.Fill.Color = System.Drawing.Color.Blue;
                         }
@@ -635,7 +886,22 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Button_Click_Print_View(object sender, RoutedEventArgs e)
         {
-            GeneralTrainEvaluate();
+
+            try
+            {
+                GeneralTrainEvaluate();
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(LanguageUtils.ConvertLanguage("文件可能被占用，请关闭相关文件", "The file may be occupied. Please close the relevant file"));
+                return;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("生成Excel异常");
+                return;
+            }
+
 
             //打印
             PdfViewer pDF = new PdfViewer();

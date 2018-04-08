@@ -55,7 +55,7 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "SELECT gmt_create,pp_high,pp_weight,pp_grip,pp_eyeopenstand,pp_functionprotract,pp_sitandreach FROM bdl_physicalpower pp WHERE pp.fk_user_id=@User_Id ORDER BY gmt_create";
+                const string query = "SELECT gmt_create,pp_high,pp_weight,pp_grip,pp_eyeopenstand,pp_functionprotract,pp_sitandreach,pp_timeupgo,pp_walk5milegeneral,pp_walk5milefast,pp_walk10mile,pp_walk6minute,pp_step2minute,pp_legraise2minute FROM bdl_physicalpower pp WHERE pp.fk_user_id=@User_Id ORDER BY gmt_create";
 
                 return conn.Query<PhysicalPowerExcekVO>(query, new { User_Id = userId }).ToList();
             }

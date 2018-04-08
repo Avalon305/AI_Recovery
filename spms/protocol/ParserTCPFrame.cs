@@ -95,7 +95,7 @@ namespace spms.protocol
         private void HandleRequestImageData(ref byte[] response, TcpFrameBean frameBean)
         {
             byte[] body = frameBean.DataBody;
-            string idcard = Encoding.GetEncoding("GBK").GetString(body, 0, 18);
+            string idcard =  ProtocolUtil.GetEndUserIdString(body,0);
 
             byte[] data = MakerTCPFrame.GetInstance().Make8007Frame(idcard);
             logger.Error(ProtocolUtil.BytesToString(data));
@@ -114,7 +114,8 @@ namespace spms.protocol
         private void HandleRequestUserInfo(ref byte[] response, TcpFrameBean frameBean)
         {
             byte[] body = frameBean.DataBody;
-            string idcard = Encoding.GetEncoding("GBK").GetString(body, 0, 18);
+            string idcard = ProtocolUtil.GetEndUserIdString(body, 0);
+
             byte[] data = MakerTCPFrame.GetInstance().Make800AFrame(idcard);
             logger.Error(ProtocolUtil.BytesToString(data));
             response = MakerTCPFrame.GetInstance().PackData(MsgId.X800A, frameBean.TerminalId, data);
@@ -128,7 +129,8 @@ namespace spms.protocol
         {
             ParserPricticeResult paser = new ParserPricticeResult();
             byte[] body = frameBean.DataBody;
-            string idCard = Encoding.GetEncoding("GBK").GetString(body, 0, 18);
+            string idCard = ProtocolUtil.GetEndUserIdString(body, 0);
+
             byte[] d = new byte[body.Length - 32];
             Array.Copy(body, 32, d, 0, d.Length);
             //设备类型
@@ -166,7 +168,8 @@ namespace spms.protocol
             var maker = MakerTCPFrame.GetInstance(); ;
 
             byte[] data = frameBean.DataBody;
-            string userId = Encoding.GetEncoding("GBK").GetString(data, 0, 18);
+            string userId = ProtocolUtil.GetEndUserIdString(data, 0);
+
             DeviceType deviceType = (DeviceType)data[32];
 
             byte[] d = maker.Make8008Frame(userId, deviceType);
@@ -175,6 +178,7 @@ namespace spms.protocol
       
 
         }
+       
         /// <summary>
         /// 处理心跳
         /// </summary>
