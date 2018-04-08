@@ -56,52 +56,59 @@ namespace spms.view.Pages.ChildWin
             String password = NonPublicInformationPassword.Password;
             if ("111" == password)
             {
-                //与U盘交互
-                //1.打包协议到result;
-                byte[] send = null;
-                //获取电脑的uuid字节数组-即加密狗的内容
-                ProtocolConstant.USB_DOG_CONTENT = Encoding.UTF8.GetBytes(Get_UUID());
-                new MakerUSBDogFrame().PackData(ref send, new byte[] { 0xF0 }, ProtocolConstant.USB_DOG_CONTENT);
-                //Console.WriteLine("加密后的报文" + ProtocolUtil.ByteToStringOk(send));
-                //byte[] test = null;
-                //new MakerUSBDogFrame().PackData(ref test, new byte[] { 0xF0 }, Encoding.UTF8.GetBytes("hello"));
-                //Console.WriteLine("测试:"+CRC16Util.ByteToStringOk(test));
+                try
+                {
+                    //与U盘交互
+                    //1.打包协议到result;
+                    byte[] send = null;
+                    //获取电脑的uuid字节数组-即加密狗的内容
+                    ProtocolConstant.USB_DOG_CONTENT = Encoding.UTF8.GetBytes(Get_UUID());
+                    new MakerUSBDogFrame().PackData(ref send, new byte[] { 0xF0 }, ProtocolConstant.USB_DOG_CONTENT);
+                    //Console.WriteLine("加密后的报文" + ProtocolUtil.ByteToStringOk(send));
+                    //byte[] test = null;
+                    //new MakerUSBDogFrame().PackData(ref test, new byte[] { 0xF0 }, Encoding.UTF8.GetBytes("hello"));
+                    //Console.WriteLine("测试:"+CRC16Util.ByteToStringOk(test));
 
-                //2.判断当前是否已经连接过串口
-                SerialPortUtil.CheckPort();
-                if (SerialPortUtil.portName == "")
-                {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("请先连接串口", "Please connect the serial port first"));
-                    return;
-                }
-                if (SerialPortUtil.SerialPort != null)
-                {
-                    SerialPortUtil.SerialPort = null;
-                }
-                if (serialPort == null)
-                {
-                    serialPort = SerialPortUtil.ConnectSerialPort(OnPortDataReceived);
-
-                    try
+                    //2.判断当前是否已经连接过串口
+                    SerialPortUtil.CheckPort();
+                    if (SerialPortUtil.portName == "")
                     {
-                        serialPort.Open();
-                    }
-                    catch (UnauthorizedAccessException ex)
-                    {
-                        MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder"), MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请先连接串口", "Please connect the serial port first"));
                         return;
                     }
-                    catch (IOException ex)
+                    if (SerialPortUtil.SerialPort != null)
                     {
-                        MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder"), MessageBoxButton.OK, MessageBoxImage.Warning);
-                        this.Close();
-                        return;
+                        SerialPortUtil.SerialPort = null;
                     }
+                    if (serialPort == null)
+                    {
+                        serialPort = SerialPortUtil.ConnectSerialPort(OnPortDataReceived);
 
-                    serialPort.Write(send, 0, send.Length);
+                        try
+                        {
+                            serialPort.Open();
+                        }
+                        catch (UnauthorizedAccessException ex)
+                        {
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder"), MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
+                        }
+                        catch (IOException ex)
+                        {
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder"), MessageBoxButton.OK, MessageBoxImage.Warning);
+                            this.Close();
+                            return;
+                        }
 
-                    //发送的定时器
-                    threadTimer = new System.Threading.Timer(new System.Threading.TimerCallback(ReissueThreeTimes), send, 500, 500);
+                        serialPort.Write(send, 0, send.Length);
+
+                        //发送的定时器
+                        threadTimer = new System.Threading.Timer(new System.Threading.TimerCallback(ReissueThreeTimes), send, 500, 500);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("激活异常");
                 }
                 //else
                 //{

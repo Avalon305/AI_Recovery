@@ -90,372 +90,380 @@ namespace spms.view.Pages.ChildWin
             StringBuilder builder = new StringBuilder();
             PhysicalPower physicalPower = new PhysicalPower();
 
-            //id
-            physicalPower.FK_user_Id = Current_User.Pk_User_Id;
-            //日期
-            physicalPower.Gmt_Create = implementation_date.DateTime;
-            physicalPower.Gmt_Modified = implementation_date.DateTime;
+            try
+            {
+                //id
+                physicalPower.FK_user_Id = Current_User.Pk_User_Id;
+                //日期
+                physicalPower.Gmt_Create = implementation_date.DateTime;
+                physicalPower.Gmt_Modified = implementation_date.DateTime;
 
-            //1.拼接身高
-            physicalPower.PP_High = "param1,"+(height_first.Text != "" ? height_first.Text + "," : "param2,") + "param3,"+ (height_condition.IsChecked == true ? height_condition.Content+"," : "param4,") + (height_duty.Text.ToString() != "" ? height_duty.Text.ToString() : "param5");
-            //2.拼接体重
-            physicalPower.PP_Weight = "param1," + (weight_first.Text != "" ? weight_first.Text + "," : "param2,") + "param3," + (weight_condition.IsChecked == true ? "服装:"+weight_condition_text.Text.ToString() + "," : "param4,") + (weight_duty.Text.ToString() != "" ? weight_duty.Text.ToString() : "param5");
-            //3.拼接握力
-            if (grip_left.IsChecked == true)
-            {
-                builder.Append(grip_left.Content + ",");
-            }
-            else if (grit_right.IsChecked == true)
-            {
-                builder.Append(grit_right.Content + ",");
-            }
-            else
-            {
-                builder.Append("param1,");
-            }
-            builder.Append(grip_first.Text != "" ? grip_first.Text + "," : "param2,");
-            builder.Append(grip_second.Text != "" ? grip_second.Text + "," : "param3,");
-            if (grid_stand.IsChecked == true)
-            {
-                builder.Append(grid_stand.Content + ",");
-            }
-            else if (grid_sit.IsChecked == true)
-            {
-                builder.Append(grid_sit.Content + ",");
-            }
-            else
-            {
-                builder.Append("param4,");
-            }
-            builder.Append(grip_duty.Text != "" ? grip_duty.Text : "param5");
-            physicalPower.PP_Grip = builder.ToString();
-            builder.Clear();
-            //4.睁眼单脚站立
-            if (stand_left.IsChecked == true)
-            {
-                builder.Append(stand_left.Content + ",");
-            }
-            else if (stand_right.IsChecked == true)
-            {
-                builder.Append(stand_right.Content + ",");
-            }
-            else
-            {
-                builder.Append("param1,");
-            }
-            builder.Append(stand_first.Text != "" ? stand_first.Text + "," : "param2,");
-            builder.Append(stand_second.Text != "" ? stand_second.Text + "," : "param3,");
-            if (stand_nosupport.IsChecked == true)
-            {
-                builder.Append(stand_nosupport.Content + ",");
-            }
-            else if (stand_toolsupport.IsChecked == true)
-            {
-                //比较特别，拼接睁眼单脚站立的使用支持用具
-                IsCheckedTools(ref builder,stand_toolsupport, stand_tools_selected);
-                if (stand_tools_selected2.SelectedValue != null)
+                //1.拼接身高
+                physicalPower.PP_High = "param1," + (height_first.Text != "" ? height_first.Text + "," : "param2,") + "param3," + (height_condition.IsChecked == true ? height_condition.Content + "," : "param4,") + (height_duty.Text.ToString() != "" ? height_duty.Text.ToString() : "param5");
+                //2.拼接体重
+                physicalPower.PP_Weight = "param1," + (weight_first.Text != "" ? weight_first.Text + "," : "param2,") + "param3," + (weight_condition.IsChecked == true ? "服装:" + weight_condition_text.Text.ToString() + "," : "param4,") + (weight_duty.Text.ToString() != "" ? weight_duty.Text.ToString() : "param5");
+                //3.拼接握力
+                if (grip_left.IsChecked == true)
                 {
-                    builder.Append("(" + stand_tools_selected2.SelectedValue.ToString() + ")");
+                    builder.Append(grip_left.Content + ",");
                 }
-                builder.Append(",");
-            }
-            else if (stand_support.IsChecked == true)
-            {
-                builder.Append(stand_support.Content + ",");
-            }
-            else
-            {
-                builder.Append("param4,");
-            }
-            builder.Append(stand_duty.Text != "" ? stand_duty.Text : "param5");
-            physicalPower.PP_EyeOpenStand = builder.ToString();
-            builder.Clear();
-            //5.功能性前伸
-            if (protrack_twohands.IsChecked == true)
-            {
-                builder.Append(protrack_twohands.Content + ",");
-            }
-            else if (protrack_left.IsChecked == true)
-            {
-                builder.Append(protrack_left.Content + ",");
-            }
-            else if (protrack_right.IsChecked == true)
-            {
-                builder.Append(protrack_right.Content + ",");
-            }
-            else
-            {
+                else if (grit_right.IsChecked == true)
+                {
+                    builder.Append(grit_right.Content + ",");
+                }
+                else
+                {
+                    builder.Append("param1,");
+                }
+                builder.Append(grip_first.Text != "" ? grip_first.Text + "," : "param2,");
+                builder.Append(grip_second.Text != "" ? grip_second.Text + "," : "param3,");
+                if (grid_stand.IsChecked == true)
+                {
+                    builder.Append(grid_stand.Content + ",");
+                }
+                else if (grid_sit.IsChecked == true)
+                {
+                    builder.Append(grid_sit.Content + ",");
+                }
+                else
+                {
+                    builder.Append("param4,");
+                }
+                builder.Append(grip_duty.Text != "" ? grip_duty.Text : "param5");
+                physicalPower.PP_Grip = builder.ToString();
+                builder.Clear();
+                //4.睁眼单脚站立
+                if (stand_left.IsChecked == true)
+                {
+                    builder.Append(stand_left.Content + ",");
+                }
+                else if (stand_right.IsChecked == true)
+                {
+                    builder.Append(stand_right.Content + ",");
+                }
+                else
+                {
+                    builder.Append("param1,");
+                }
+                builder.Append(stand_first.Text != "" ? stand_first.Text + "," : "param2,");
+                builder.Append(stand_second.Text != "" ? stand_second.Text + "," : "param3,");
+                if (stand_nosupport.IsChecked == true)
+                {
+                    builder.Append(stand_nosupport.Content + ",");
+                }
+                else if (stand_toolsupport.IsChecked == true)
+                {
+                    //比较特别，拼接睁眼单脚站立的使用支持用具
+                    IsCheckedTools(ref builder, stand_toolsupport, stand_tools_selected);
+                    if (stand_tools_selected2.SelectedValue != null)
+                    {
+                        builder.Append("(" + stand_tools_selected2.SelectedValue.ToString() + ")");
+                    }
+                    builder.Append(",");
+                }
+                else if (stand_support.IsChecked == true)
+                {
+                    builder.Append(stand_support.Content + ",");
+                }
+                else
+                {
+                    builder.Append("param4,");
+                }
+                builder.Append(stand_duty.Text != "" ? stand_duty.Text : "param5");
+                physicalPower.PP_EyeOpenStand = builder.ToString();
+                builder.Clear();
+                //5.功能性前伸
+                if (protrack_twohands.IsChecked == true)
+                {
+                    builder.Append(protrack_twohands.Content + ",");
+                }
+                else if (protrack_left.IsChecked == true)
+                {
+                    builder.Append(protrack_left.Content + ",");
+                }
+                else if (protrack_right.IsChecked == true)
+                {
+                    builder.Append(protrack_right.Content + ",");
+                }
+                else
+                {
+                    builder.Append("param1,");
+                }
+                builder.Append(protrack_first.Text != "" ? protrack_first.Text + "," : "param2,");
+                builder.Append(protrack_second.Text != "" ? protrack_second.Text + "," : "param3,");
+                if (protrack_curvature.IsChecked == true)
+                {
+                    builder.Append(protrack_curvature.Content + ",");
+                }
+                else if (protrack_sit.IsChecked == true)
+                {
+                    builder.Append(protrack_sit.Content + ",");
+                }
+                else
+                {
+                    builder.Append("param4,");
+                }
+                builder.Append(protrack_duty.Text != "" ? protrack_duty.Text : "param5");
+                physicalPower.PP_FunctionProtract = builder.ToString();
+                builder.Clear();
+                //6.坐姿体前屈
+                if (measuring_leg_left.IsChecked == true)
+                {
+                    builder.Append(measuring_leg_left.Content + ",");
+                }
+                else if (measuring_leg_right.IsChecked == true)
+                {
+                    builder.Append(measuring_leg_right.Content + ",");
+                }
+                else
+                {
+                    builder.Append("param1,");
+                }
+                builder.Append(sitand_reach_first.Text != "" ? sitand_reach_first.Text + "," : "param2,");
+                builder.Append(sitand_reach_second.Text != "" ? sitand_reach_second.Text + "," : "param3,");
+                if (knee_flexure_is.IsChecked == true)
+                {
+                    builder.Append(knee_flexure_is.Content + ",");
+                }
+                else if (knee_flexure_not.IsChecked == true)
+                {
+                    builder.Append(knee_flexure_not.Content + ",");
+                }
+                else
+                {
+                    builder.Append("param4,");
+                }
+                builder.Append(sitand_reach_duty.Text != "" ? sitand_reach_duty.Text : "param5");
+                physicalPower.PP_SitandReach = builder.ToString();
+                builder.Clear();
+                //7.time&up go
+                if (time_up_base.IsChecked == true)
+                {
+                    builder.Append(time_up_base.Content + ",");
+                }
+                else if (time_up_routine.IsChecked == true)
+                {
+                    builder.Append(time_up_routine.Content + ",");
+                }
+                else
+                {
+                    builder.Append("param1,");
+                }
+                builder.Append(time_up_first.Text != "" ? time_up_first.Text + "," : "param2,");
+                builder.Append(time_up_second.Text != "" ? time_up_second.Text + "," : "param3,");
+                if (time_up_walk.IsChecked == true)
+                {
+                    builder.Append(time_up_walk.Content + ",");
+                }
+                else if (time_up_tools.IsChecked == true)
+                {
+                    IsCheckedTools(ref builder, time_up_tools, time_up_other_selected);
+                    builder.Append(",");
+                }
+                else if (time_up_other.IsChecked == true)
+                {
+                    builder.Append(time_up_other_content.Text.ToString() + ",");
+                }
+                else
+                {
+                    builder.Append("param4,");
+                }
+                builder.Append(time_up_duty.Text != "" ? time_up_duty.Text : "param5");
+                physicalPower.PP_TimeUpGo = builder.ToString();
+                builder.Clear();
+                //7.5m步行&#13;（通常）
+                if (walk5_base.IsChecked == true)
+                {
+                    builder.Append(walk5_base.Content + ",");
+                }
+                else if (walk5_routine.IsChecked == true)
+                {
+                    builder.Append(walk5_routine.Content + ",");
+                }
+                else
+                {
+                    builder.Append("param1,");
+                }
+                builder.Append(walk5_first.Text != "" ? walk5_first.Text + "," : "param2,");
+                builder.Append(walk5_second.Text != "" ? walk5_second.Text + "," : "param3,");
+                if (walk5_walk.IsChecked == true)
+                {
+                    builder.Append(walk5_walk.Content + ",");
+                }
+                else if (walk5_tools.IsChecked == true)
+                {
+                    IsCheckedTools(ref builder, walk5_tools, walk5_tools_selected);
+                    builder.Append(",");
+                    //builder.Append(walk5_tools_selected.SelectedValue.ToString() + ",");
+                }
+                else if (walk5_other.IsChecked == true)
+                {
+                    builder.Append(walk5_other_content.Text.ToString() + ",");
+                }
+                else
+                {
+                    builder.Append("param4,");
+                }
+                builder.Append(walk5_duty.Text != "" ? walk5_duty.Text : "param5");
+                physicalPower.PP_Walk5MileGeneral = builder.ToString();
+                builder.Clear();
+                //8.5m步行&#13;（很快）
+                if (walk5_fastest_base.IsChecked == true)
+                {
+                    builder.Append(walk5_fastest_base.Content + ",");
+                }
+                else if (walk5_fastest_routine.IsChecked == true)
+                {
+                    builder.Append(walk5_fastest_routine.Content + ",");
+                }
+                else
+                {
+                    builder.Append("param1,");
+                }
+                builder.Append(walk5_fastest_first.Text != "" ? walk5_fastest_first.Text + "," : "param2,");
+                builder.Append(walk5_fastest_second.Text != "" ? walk5_fastest_second.Text + "," : "param3,");
+                if (walk5_fastest_walk.IsChecked == true)
+                {
+                    builder.Append(walk5_fastest_walk.Content + ",");
+                }
+                else if (walk5_fastest_tools.IsChecked == true)
+                {
+                    IsCheckedTools(ref builder, walk5_fastest_tools, walk5_fastest_tools_selected);
+                    builder.Append(",");
+                }
+                else if (walk5_fastest_other.IsChecked == true)
+                {
+                    builder.Append(walk5_fastest_other_content.Text.ToString() + ",");
+                }
+                else
+                {
+                    builder.Append("param4,");
+                }
+                builder.Append(walk5_fastest_duty.Text != "" ? walk5_fastest_duty.Text : "param5");
+                physicalPower.PP_Walk5MileFast = builder.ToString();
+                builder.Clear();
+                //9.10m步行
+                if (walk10_base.IsChecked == true)
+                {
+                    builder.Append(walk10_base.Content + "(" + walk10_comboBox.SelectedItem.ToString() + "),");
+                }
+                else if (walk10_routine.IsChecked == true)
+                {
+                    builder.Append(walk10_routine.Content + "(" + walk10_comboBox.SelectedItem.ToString() + "),");
+                }
+                else
+                {
+                    builder.Append(walk10_comboBox.SelectedItem.ToString() + ",");
+                }
+                builder.Append(walk10_first.Text != "" ? walk10_first.Text + "," : "param2,");
+                builder.Append(walk10_second.Text != "" ? walk10_second.Text + "," : "param3,");
+                if (walk10_walk.IsChecked == true)
+                {
+                    builder.Append(walk10_walk.Content + ",");
+                }
+                else if (walk10_tools.IsChecked == true)
+                {
+                    IsCheckedTools(ref builder, walk10_tools, walk10_tools_selected);
+                    builder.Append(",");
+                }
+                else if (walk10_other.IsChecked == true)
+                {
+                    builder.Append(walk10_other_content.Text.ToString() + ",");
+                }
+                else
+                {
+                    builder.Append("param4,");
+                }
+                builder.Append(walk10_duty.Text != "" ? walk10_duty.Text : "param5");
+                physicalPower.PP_Walk10Mile = builder.ToString();
+                builder.Clear();
+                //10.6分钟步行
                 builder.Append("param1,");
-            }
-            builder.Append(protrack_first.Text != "" ? protrack_first.Text + "," : "param2,");
-            builder.Append(protrack_second.Text != "" ? protrack_second.Text + "," : "param3,");
-            if (protrack_curvature.IsChecked == true)
-            {
-                builder.Append(protrack_curvature.Content + ",");
-            }
-            else if (protrack_sit.IsChecked == true)
-            {
-                builder.Append(protrack_sit.Content + ",");
-            }
-            else
-            {
-                builder.Append("param4,");
-            }
-            builder.Append(protrack_duty.Text != "" ? protrack_duty.Text : "param5");
-            physicalPower.PP_FunctionProtract = builder.ToString();
-            builder.Clear();
-            //6.坐姿体前屈
-            if (measuring_leg_left.IsChecked == true)
-            {
-                builder.Append(measuring_leg_left.Content + ",");
-            }
-            else if (measuring_leg_right.IsChecked == true)
-            {
-                builder.Append(measuring_leg_right.Content + ",");
-            }
-            else
-            {
+                builder.Append(walk6_first.Text != "" ? walk6_first.Text + "," : "param2,");
+                builder.Append(walk6_second.Text != "" ? walk6_second.Text + "," : "param3,");
+                if (walk6_walk.IsChecked == true)
+                {
+                    builder.Append(walk6_walk.Content + ",");
+                }
+                else if (walk6_tools.IsChecked == true)
+                {
+                    IsCheckedTools(ref builder, walk6_tools, walk6_tools_selected);
+                    builder.Append(",");
+                }
+                else if (walk6_other.IsChecked == true)
+                {
+                    builder.Append(walk6_other_content.Text.ToString() + ",");
+                }
+                else
+                {
+                    builder.Append("param4,");
+                }
+                builder.Append(walk6_duty.Text != "" ? walk6_duty.Text : "param5");
+                physicalPower.PP_Walk6Minute = builder.ToString();
+                builder.Clear();
+                //11.2分钟踏步
                 builder.Append("param1,");
-            }
-            builder.Append(sitand_reach_first.Text != "" ? sitand_reach_first.Text + "," : "param2,");
-            builder.Append(sitand_reach_second.Text != "" ? sitand_reach_second.Text + "," : "param3,");
-            if (knee_flexure_is.IsChecked == true)
-            {
-                builder.Append(knee_flexure_is.Content + ",");
-            }
-            else if (knee_flexure_not.IsChecked == true)
-            {
-                builder.Append(knee_flexure_not.Content + ",");
-            }
-            else
-            {
-                builder.Append("param4,");
-            }
-            builder.Append(sitand_reach_duty.Text != "" ? sitand_reach_duty.Text : "param5");
-            physicalPower.PP_SitandReach = builder.ToString();
-            builder.Clear();
-            //7.time&up go
-            if (time_up_base.IsChecked == true)
-            {
-                builder.Append(time_up_base.Content + ",");
-            }
-            else if (time_up_routine.IsChecked == true)
-            {
-                builder.Append(time_up_routine.Content + ",");
-            }
-            else
-            {
+                builder.Append(step2_first.Text != "" ? step2_first.Text + "," : "param2,");
+                builder.Append(step2_second.Text != "" ? step2_second.Text + "," : "param3,");
+                if (step2_walk.IsChecked == true)
+                {
+                    builder.Append(step2_walk.Content + ",");
+                }
+                else if (step2_tools.IsChecked == true)
+                {
+                    IsCheckedTools(ref builder, step2_tools, step2_tools_selected);
+                    builder.Append(",");
+                }
+                else if (step2_other.IsChecked == true)
+                {
+                    builder.Append(step2_other_content.Text.ToString() + ",");
+                }
+                else
+                {
+                    builder.Append("param4,");
+                }
+                builder.Append(step2_duty.Text != "" ? step2_duty.Text : "param5");
+                physicalPower.PP_Step2Minute = builder.ToString();
+                builder.Clear();
+                //12.2分钟抬腿
                 builder.Append("param1,");
-            }
-            builder.Append(time_up_first.Text != "" ? time_up_first.Text + "," : "param2,");
-            builder.Append(time_up_second.Text != "" ? time_up_second.Text + "," : "param3,");
-            if (time_up_walk.IsChecked == true)
-            {
-                builder.Append(time_up_walk.Content + ",");
-            }
-            else if (time_up_tools.IsChecked == true)
-            {
-                IsCheckedTools(ref builder, time_up_tools, time_up_other_selected);
-                builder.Append(",");
-            }
-            else if (time_up_other.IsChecked == true)
-            {
-                builder.Append(time_up_other_content.Text.ToString() + ",");
-            }
-            else
-            {
-                builder.Append("param4,");
-            }
-            builder.Append(time_up_duty.Text != "" ? time_up_duty.Text : "param5");
-            physicalPower.PP_TimeUpGo = builder.ToString();
-            builder.Clear();
-            //7.5m步行&#13;（通常）
-            if (walk5_base.IsChecked == true)
-            {
-                builder.Append(walk5_base.Content + ",");
-            }
-            else if (walk5_routine.IsChecked == true)
-            {
-                builder.Append(walk5_routine.Content + ",");
-            }
-            else
-            {
-                builder.Append("param1,");
-            }
-            builder.Append(walk5_first.Text != "" ? walk5_first.Text + "," : "param2,");
-            builder.Append(walk5_second.Text != "" ? walk5_second.Text + "," : "param3,");
-            if (walk5_walk.IsChecked == true)
-            {
-                builder.Append(walk5_walk.Content + ",");
-            }
-            else if (walk5_tools.IsChecked == true)
-            {
-                IsCheckedTools(ref builder, walk5_tools, walk5_tools_selected);
-                builder.Append(",");
-                //builder.Append(walk5_tools_selected.SelectedValue.ToString() + ",");
-            }
-            else if (walk5_other.IsChecked == true)
-            {
-                builder.Append(walk5_other_content.Text.ToString() + ",");
-            }
-            else
-            {
-                builder.Append("param4,");
-            }
-            builder.Append(walk5_duty.Text != "" ? walk5_duty.Text : "param5");
-            physicalPower.PP_Walk5MileGeneral = builder.ToString();
-            builder.Clear();
-            //8.5m步行&#13;（很快）
-            if (walk5_fastest_base.IsChecked == true)
-            {
-                builder.Append(walk5_fastest_base.Content + ",");
-            }
-            else if (walk5_fastest_routine.IsChecked == true)
-            {
-                builder.Append(walk5_fastest_routine.Content + ",");
-            }
-            else
-            {
-                builder.Append("param1,");
-            }
-            builder.Append(walk5_fastest_first.Text != "" ? walk5_fastest_first.Text + "," : "param2,");
-            builder.Append(walk5_fastest_second.Text != "" ? walk5_fastest_second.Text + "," : "param3,");
-            if (walk5_fastest_walk.IsChecked == true)
-            {
-                builder.Append(walk5_fastest_walk.Content + ",");
-            }
-            else if (walk5_fastest_tools.IsChecked == true)
-            {
-                IsCheckedTools(ref builder, walk5_fastest_tools, walk5_fastest_tools_selected);
-                builder.Append(",");
-            }
-            else if (walk5_fastest_other.IsChecked == true)
-            {
-                builder.Append(walk5_fastest_other_content.Text.ToString() + ",");
-            }
-            else
-            {
-                builder.Append("param4,");
-            }
-            builder.Append(walk5_fastest_duty.Text != "" ? walk5_fastest_duty.Text : "param5");
-            physicalPower.PP_Walk5MileFast = builder.ToString();
-            builder.Clear();
-            //9.10m步行
-            if (walk10_base.IsChecked == true)
-            {
-                builder.Append(walk10_base.Content + "(" + walk10_comboBox.SelectedItem.ToString() + "),");
-            }
-            else if (walk10_routine.IsChecked == true)
-            {
-                builder.Append(walk10_routine.Content + "(" + walk10_comboBox.SelectedItem.ToString() + "),");
-            }
-            else
-            {
-                builder.Append(walk10_comboBox.SelectedItem.ToString()+",");
-            }
-            builder.Append(walk10_first.Text != "" ? walk10_first.Text + "," : "param2,");
-            builder.Append(walk10_second.Text != "" ? walk10_second.Text + "," : "param3,");
-            if (walk10_walk.IsChecked == true)
-            {
-                builder.Append(walk10_walk.Content + ",");
-            }
-            else if (walk10_tools.IsChecked == true)
-            {
-                IsCheckedTools(ref builder, walk10_tools, walk10_tools_selected);
-                builder.Append(",");
-            }
-            else if (walk10_other.IsChecked == true)
-            {
-                builder.Append(walk10_other_content.Text.ToString() + ",");
-            }
-            else
-            {
-                builder.Append("param4,");
-            }
-            builder.Append(walk10_duty.Text != "" ? walk10_duty.Text : "param5");
-            physicalPower.PP_Walk10Mile = builder.ToString();
-            builder.Clear();
-            //10.6分钟步行
-            builder.Append("param1,");
-            builder.Append(walk6_first.Text != "" ? walk6_first.Text + "," : "param2,");
-            builder.Append(walk6_second.Text != "" ? walk6_second.Text + "," : "param3,");
-            if (walk6_walk.IsChecked == true)
-            {
-                builder.Append(walk6_walk.Content + ",");
-            }
-            else if (walk6_tools.IsChecked == true)
-            {
-                IsCheckedTools(ref builder, walk6_tools, walk6_tools_selected);
-                builder.Append(",");
-            }
-            else if (walk6_other.IsChecked == true)
-            {
-                builder.Append(walk6_other_content.Text.ToString() + ",");
-            }
-            else
-            {
-                builder.Append("param4,");
-            }
-            builder.Append(walk6_duty.Text != "" ? walk6_duty.Text : "param5");
-            physicalPower.PP_Walk6Minute = builder.ToString();
-            builder.Clear();
-            //11.2分钟踏步
-            builder.Append("param1,");
-            builder.Append(step2_first.Text != "" ? step2_first.Text + "," : "param2,");
-            builder.Append(step2_second.Text != "" ? step2_second.Text + "," : "param3,");
-            if (step2_walk.IsChecked == true)
-            {
-                builder.Append(step2_walk.Content + ",");
-            }
-            else if (step2_tools.IsChecked == true)
-            {
-                IsCheckedTools(ref builder, step2_tools, step2_tools_selected);
-                builder.Append(",");
-            }
-            else if (step2_other.IsChecked == true)
-            {
-                builder.Append(step2_other_content.Text.ToString() + ",");
-            }
-            else
-            {
-                builder.Append("param4,");
-            }
-            builder.Append(step2_duty.Text != "" ? step2_duty.Text : "param5");
-            physicalPower.PP_Step2Minute = builder.ToString();
-            builder.Clear();
-            //12.2分钟抬腿
-            builder.Append("param1,");
-            builder.Append(leg2_first.Text != "" ? leg2_first.Text + "," : "param2,");
-            builder.Append(leg2_second.Text != "" ? leg2_second.Text + "," : "param3,");
-            if (leg2_stand.IsChecked == true)
-            {
-                builder.Append(leg2_stand.Content + ",");
-            }
-            else if (leg2_sit.IsChecked == true)
-            {
-                builder.Append(leg2_sit.Content + ",");
-            }
-            else
-            {
-                builder.Append("param4,");
-            }
-            builder.Append(leg2_duty.Text != "" ? leg2_duty.Text : "param5");
-            physicalPower.PP_LegRaise2Minute = builder.ToString();
-            builder.Clear();
-            //13.使用者感想
-            TextRange text = new TextRange(user_feel.Document.ContentStart, user_feel.Document.ContentEnd);
-            physicalPower.PP_UserMemo = text.Text.ToString();
-            //13.使用者感想
-            TextRange text1 = new TextRange(worker_feel.Document.ContentStart, worker_feel.Document.ContentEnd);
-            physicalPower.PP_WorkerMemo = text1.Text.ToString();
+                builder.Append(leg2_first.Text != "" ? leg2_first.Text + "," : "param2,");
+                builder.Append(leg2_second.Text != "" ? leg2_second.Text + "," : "param3,");
+                if (leg2_stand.IsChecked == true)
+                {
+                    builder.Append(leg2_stand.Content + ",");
+                }
+                else if (leg2_sit.IsChecked == true)
+                {
+                    builder.Append(leg2_sit.Content + ",");
+                }
+                else
+                {
+                    builder.Append("param4,");
+                }
+                builder.Append(leg2_duty.Text != "" ? leg2_duty.Text : "param5");
+                physicalPower.PP_LegRaise2Minute = builder.ToString();
+                builder.Clear();
+                //13.使用者感想
+                TextRange text = new TextRange(user_feel.Document.ContentStart, user_feel.Document.ContentEnd);
+                physicalPower.PP_UserMemo = text.Text.ToString();
+                //13.使用者感想
+                TextRange text1 = new TextRange(worker_feel.Document.ContentStart, worker_feel.Document.ContentEnd);
+                physicalPower.PP_WorkerMemo = text1.Text.ToString();
 
-            Console.WriteLine(physicalPower.ToString());
+                Console.WriteLine(physicalPower.ToString());
 
-            if (new PhysicaleValuationService().AddPhysicalPower(physicalPower) == 1)
+                if (new PhysicaleValuationService().AddPhysicalPower(physicalPower) == 1)
+                {
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
-                this.Close();
-            } 
+                Console.WriteLine("保存体力评价异常");
+            }
+            
         }
         //取消操作，关闭窗口
         private void GoBack(object sender, RoutedEventArgs e)

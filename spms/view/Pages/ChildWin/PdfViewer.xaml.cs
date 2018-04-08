@@ -68,10 +68,16 @@ namespace spms.view.Pages.ChildWin
             //_isLoaded = true;
             //moonPdfPanel.ZoomIn();
             //二、将Excel转PDF
-            new Thread(new ThreadStart(ExcelToPdf)).Start();
-            Open_File();
-            a.Visibility = Visibility.Hidden;
+            try
+            {
+                new Thread(new ThreadStart(ExcelToPdf)).Start();
+                Open_File();
+                a.Visibility = Visibility.Hidden;
+            }
+            catch (Exception ex)
+            {
 
+            }
         }
 
         private void ExcelToPdf()
@@ -168,30 +174,37 @@ namespace spms.view.Pages.ChildWin
 
         private void Print_Click(object sender, RoutedEventArgs e)
         {
-            PdfDocument doc = new PdfDocument();
-            doc.LoadFromFile(CommUtil.GetDocPath("test.pdf"));
-            PrintDialog dialogPrint = new PrintDialog();
-            dialogPrint.AllowPrintToFile = true;
-            dialogPrint.AllowSomePages = true;
-            dialogPrint.PrinterSettings.MinimumPage = 1;
-            dialogPrint.PrinterSettings.MaximumPage = doc.Pages.Count;
-            dialogPrint.PrinterSettings.FromPage = 1;
-            dialogPrint.PrinterSettings.ToPage = doc.Pages.Count;
-
-            if (dialogPrint.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            try
             {
-                //设置打印的起始页码
-                doc.PrintFromPage = dialogPrint.PrinterSettings.FromPage;
+                PdfDocument doc = new PdfDocument();
+                doc.LoadFromFile(CommUtil.GetDocPath("test.pdf"));
+                PrintDialog dialogPrint = new PrintDialog();
+                dialogPrint.AllowPrintToFile = true;
+                dialogPrint.AllowSomePages = true;
+                dialogPrint.PrinterSettings.MinimumPage = 1;
+                dialogPrint.PrinterSettings.MaximumPage = doc.Pages.Count;
+                dialogPrint.PrinterSettings.FromPage = 1;
+                dialogPrint.PrinterSettings.ToPage = doc.Pages.Count;
 
-                //设置打印的终止页码
-                doc.PrintToPage = dialogPrint.PrinterSettings.ToPage;
+                if (dialogPrint.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    //设置打印的起始页码
+                    doc.PrintFromPage = dialogPrint.PrinterSettings.FromPage;
 
-                //选择打印机
-                doc.PrinterName = dialogPrint.PrinterSettings.PrinterName;
+                    //设置打印的终止页码
+                    doc.PrintToPage = dialogPrint.PrinterSettings.ToPage;
 
-                PrintDocument printDoc = doc.PrintDocument;
-                dialogPrint.Document = printDoc;
-                printDoc.Print();
+                    //选择打印机
+                    doc.PrinterName = dialogPrint.PrinterSettings.PrinterName;
+
+                    PrintDocument printDoc = doc.PrintDocument;
+                    dialogPrint.Document = printDoc;
+                    printDoc.Print();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("打印异常");
             }
         }
 
