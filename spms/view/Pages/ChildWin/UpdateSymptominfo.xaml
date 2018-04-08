@@ -54,10 +54,10 @@
             <StackPanel Height="25" Margin="10,15,-0.4,0" Orientation="Horizontal">
                 <Label Content="{DynamicResource VitalInfoView.Date}" Height="25" Margin="0,0,0,0" Background="Gray" Foreground="White" Width="80"/>
                 <Border BorderBrush="Gray" BorderThickness="1">
-                <StackPanel Orientation="Horizontal"  >
-                    <Label x:Name="date" Width="125" VerticalContentAlignment="Center" IsEnabled="False" Height="23" BorderBrush="Gray" BorderThickness="0"></Label>
-                    <Image Source="/view/Images/date.png" Margin="5,5,0,5"></Image>
-                </StackPanel>
+                    <StackPanel Orientation="Horizontal"  >
+                        <Label x:Name="date" Width="125" VerticalContentAlignment="Center" IsEnabled="False" Height="23" BorderBrush="Gray" BorderThickness="0"></Label>
+                        <Image Source="/view/Images/date.png" Margin="5,5,0,5"></Image>
+                    </StackPanel>
                 </Border>
                 <!--<my:DateTimePicker   Margin="3,0,0,-0.2" KeyboardNavigation.TabNavigation="None"  x:Name="date" VerticalAlignment="Top" Height="25" Width="159" />-->
                 <Label Content="{DynamicResource VitalInfoView.TrainInfo}" Height="25" Margin="97.5,0,0,0" Background="Gray" Foreground="White" Width="80"/>
@@ -84,7 +84,7 @@
                     <ColumnDefinition Width="80"/>
                     <ColumnDefinition Width="394"/>
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Row="0" Grid.Column="1" Background="Gray" Margin="3.2,0,-69.8,49.2" HorizontalAlignment="Left" Grid.RowSpan="2" Width="461">
+                <Grid Grid.Row="0" Grid.Column="1" Background="Gray" Margin="3.2,0,-68.8,49.2" HorizontalAlignment="Left" Grid.RowSpan="2" Width="460">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="119*"/>
                         <ColumnDefinition Width="93*"/>
@@ -92,10 +92,10 @@
                         <ColumnDefinition Width="24*"/>
                         <ColumnDefinition Width="117*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="{DynamicResource VitalInfoView.BP}" Grid.Column="0" Foreground="White"  HorizontalContentAlignment="Center"   VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="0,1,0,1"/>
-                    <Label Content="{DynamicResource VitalInfoView.HR}"  Foreground="White"  VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="119,1,1,1" Grid.ColumnSpan="2"/>
-                    <Label Content="{DynamicResource VitalInfoView.Pulse}" Grid.Column="2" HorizontalContentAlignment="Center"  Foreground="White"  VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="0,1,109.8,1" Grid.ColumnSpan="3"/>
-                    <Label Content="{DynamicResource VitalInfoView.Tmp}" Grid.Column="4"  Foreground="White" VerticalAlignment="Center"  HorizontalContentAlignment="Center" Height="24" Margin="7,1,9.8,1" />
+                    <Label Content="{DynamicResource VitalInfoView.BP}" Grid.Column="0" Foreground="White"  HorizontalContentAlignment="Center"   VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="0,1,91.5,1" Grid.ColumnSpan="2"/>
+                    <Label Content="{DynamicResource VitalInfoView.HR}"  Foreground="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="0.6,1,0.2,1" Grid.Column="1"/>
+                    <Label Content="{DynamicResource VitalInfoView.Pulse}" Grid.Column="2" HorizontalContentAlignment="Center"  Foreground="White"  VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,1,0" Height="24" Margin="0,1,108.65,1" Grid.ColumnSpan="3"/>
+                    <Label Content="{DynamicResource VitalInfoView.Tmp}" Grid.Column="4"  Foreground="White" VerticalAlignment="Center"  HorizontalContentAlignment="Center" Height="24" Margin="6.8,1,0,1" />
                 </Grid>
                 <Grid Grid.Row="1" Grid.Column="0" Background="Gray" >
                     <Grid.RowDefinitions>

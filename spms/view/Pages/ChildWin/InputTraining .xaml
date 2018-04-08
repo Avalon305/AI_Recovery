@@ -1229,7 +1229,7 @@ ResizeMode="CanMinimize"
             <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="742" Height="41" VerticalAlignment="Bottom" Margin="0,0,9.6,0" >
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
                     <!--<Button Width="140"  Height="25"  IsTabStop="False"  Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom">下一页</Button>-->
-                    <Button Width="140"  Height="25" IsTabStop="False"   Margin="2,0,0,0"  RenderTransformOrigin="0.5,0.508" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Click_1"  Content="模拟写卡"></Button>
+                    <!--<Button Width="140"  Height="25" IsTabStop="False"   Margin="2,0,0,0"  RenderTransformOrigin="0.5,0.508" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Click_1"  Content="模拟写卡"></Button>-->
 
                     <Button Width="140"  Height="25" IsTabStop="False"   Margin="2,0,0,0"  RenderTransformOrigin="0.5,0.508" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Save"  Content="{DynamicResource TrainingListView.Save}"></Button>
                     <Button Width="140" Height="25"  IsTabStop="False"   Margin="2,0,0,0"  Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="ButtonBase_OnClick" Name="Button_Write"  Content="{DynamicResource TrainingListView.WritetoCard}"></Button>
