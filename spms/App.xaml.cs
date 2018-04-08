@@ -42,7 +42,7 @@ namespace spms
             Current.DispatcherUnhandledException += App_OnDispatcherUnhandledException;
             //全局异常处理机制，线程异常
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-
+            MessageBox.Show(CommUtil.GetCurrentVersion());
             //加载语言
             LanguageUtils.SetLanguage();
 

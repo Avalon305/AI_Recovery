@@ -8,7 +8,7 @@
         Icon="/view/Images/icon2.png"
         Loaded="Window_Loaded"
          PreviewKeyDown="key_dowm"
-        Title="{DynamicResource Title.Title}" Height="145" Width="380"
+        Title="{DynamicResource Title.Title}" Height="210" Width="570"
         >
     <Window.Resources>
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
@@ -64,7 +64,8 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <StackPanel Orientation="Vertical">
+    <Viewbox>
+    <StackPanel Orientation="Vertical" Width="361">
         <Border Height="37" CornerRadius="5,5,0,0"  Margin="10,0,10,0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -90,11 +91,12 @@
         <!--输入框-->
         <TextBox Name="DiseaseName"  LostFocus="Text_LostFocus" Style="{DynamicResource TextBoxStyle1}" CaretBrush="Black" VerticalAlignment="Center" Margin="10,15,10,5" BorderBrush="Gray" VerticalContentAlignment="Center"></TextBox>
         <!--保存及取消按钮-->
-        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="116" Height="29" VerticalAlignment="Bottom"  BorderThickness="0" Margin="0,0,0,0">
+        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="116" Height="29" VerticalAlignment="Bottom"  BorderThickness="0" Margin="0,00,0,10">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
                 <Button Width="50"  Height="25"   Margin="2,0,0,0" Style="{StaticResource Btn}"  IsTabStop="False"  VerticalAlignment="Bottom" Click="Button_Click" Content="{DynamicResource AddDiseaseView.Save}"></Button>
                 <Button Width="50" Height="25"    Content="{DynamicResource AddDiseaseView.Cancel}"  Style="{StaticResource Btn}" IsTabStop="False"  Margin="2,0,0,0" VerticalAlignment="Bottom" Click="Cancel"/>
             </StackPanel>
         </Border>
     </StackPanel>
+    </Viewbox>
 </Window>

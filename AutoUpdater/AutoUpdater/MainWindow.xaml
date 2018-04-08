@@ -165,8 +165,8 @@
                     <TextBlock Margin="0,0,10,0" Text="{Binding Path=TotalSize, StringFormat={}/{0:N}MB}" />
                     <TextBlock Text="下载速度:" />
                     <TextBlock Margin="0,0,10,0" Text="{Binding Path=DownLoadSpeed}" />
-                    <TextBlock Text="剩余时间:" />
-                    <TextBlock Margin="0,0,10,0" Text="{Binding Path=RemainingTime, StringFormat={}{0:HH:mm:ss}}" />
+                    <!--<TextBlock Text="剩余时间:" />
+                    <TextBlock Margin="0,0,10,0" Text="{Binding Path=RemainingTime, StringFormat={}{0:HH:mm:ss}}" />-->
                 </StackPanel>
 
                 <StackPanel Grid.Row="2"

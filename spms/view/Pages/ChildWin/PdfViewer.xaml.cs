@@ -36,8 +36,8 @@ namespace spms.view.Pages.ChildWin
         //页面预加载
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
+           // viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            //viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
             //左上角图标去掉
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
@@ -50,8 +50,10 @@ namespace spms.view.Pages.ChildWin
         public PdfViewer()
         {
             InitializeComponent();
-            
-            
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+
             //pDFViewer = this;
         }
 
