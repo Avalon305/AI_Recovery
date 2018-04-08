@@ -855,25 +855,27 @@ namespace spms.view.Pages
                             authDao.UpdateByUserName(webResult.username, 1);
                             // 停止定时器
                             timerNotice.Stop();
-                            MessageBox.Show("用户被冻结，即将退出，请联系宝德龙管理员解冻！");
+                           
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("用户被冻结，即将退出，请联系宝德龙管理员解冻！", "The user is frozen, will exit, please contact the administrator thaw!"));
                             Environment.Exit(0);
                         }
                         else if (webResult.authStatus == 2)
                         {
                             //解冻，只需要更改数据库。界面无反馈，不处理
-                            authDao.UpdateByUserName(webResult.username, 2);
+                            //authDao.UpdateByUserName(webResult.username, 2);
                         }
                         else if (webResult.authStatus == 3)
                         {
                             //永久离线，只需要更改数据库。界面无反馈，不处理
-                            authDao.UpdateByUserName(webResult.username, 3);
+                            //authDao.UpdateByUserName(webResult.username, 3);
                         }
                         else if (webResult.authStatus == 4)
                         {
                             //已删除，按照冻结处理
-                            authDao.UpdateByUserName(webResult.username, 1);
+                            //authDao.UpdateByUserName(webResult.username, 1);
+                            
                             timerNotice.Stop();
-                            MessageBox.Show("用户被删除，即将退出，请联系宝德龙管理员恢复！");
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("用户被删除，即将退出，请联系宝德龙管理员恢复！", "The user is removed, will exit, please contact the administrator to restore!"));
                             Environment.Exit(0);
                         }
                     }));
