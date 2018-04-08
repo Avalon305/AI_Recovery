@@ -15,6 +15,7 @@ namespace spms.http
     //负责发送http请求的发送者对象
     public class HttpSender
     {
+ 
         public static readonly string URLBASE = "http://192.168.43.65:8080/cloud/";
         public static readonly string URL_UPDATE = "http://39.107.77.44:8080/bdl_update/AutoUpdate";
 
@@ -41,6 +42,7 @@ namespace spms.http
                 return false;
             }
         }
+ 
 
         //post方式，参数为json串
         public static string POSTByJsonStr(string url, string jsonStr)
@@ -81,11 +83,16 @@ namespace spms.http
                 Console.WriteLine("====================================response:" + content);
                 return content;
             }
-            catch (Exception e)
+            catch (WebException we)
             {
-                Console.WriteLine(e);
                 return "";
             }
+            catch (Exception e)
+            {
+                //Console.WriteLine(e);
+                return "";
+            }
+           
             
         }
 
