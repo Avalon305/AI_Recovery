@@ -136,7 +136,7 @@ namespace spms.view.Pages.ChildWin
             {
                 this.Non_Public_Information.Visibility = System.Windows.Visibility.Visible;
                 //调整该窗体宽度
-                this.Width = 710;
+                this.Width = 800;
             }
             else {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("密码不正确！", "Incorrect password!"));

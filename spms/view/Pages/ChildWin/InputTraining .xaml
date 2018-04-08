@@ -9,7 +9,7 @@
         Title="{DynamicResource Title.Title}"
 ResizeMode="NoResize"
          PreviewKeyDown="key_dowm"
-        Height="720.2" Width="1280"
+        Height="1050" Width="1867"
         Loaded="Window_Loaded">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
