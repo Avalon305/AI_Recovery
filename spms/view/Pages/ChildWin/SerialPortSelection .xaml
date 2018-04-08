@@ -4,10 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
-       Title="{DynamicResource Title.Title}" Height="230" Width="380"
+       Title="{DynamicResource Title.Title}" Height="330" Width="570"
         PreviewKeyDown="key_dowm"
         Loaded="Window_Loaded">
-    <StackPanel Orientation="Vertical">
+    <Viewbox>
+    <StackPanel Orientation="Vertical" Width="375">
         <Border Height="37" CornerRadius="5,5,0,0" Margin="5,0,5,0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -48,4 +49,5 @@
             </StackPanel>
         </Border>
     </StackPanel>
+    </Viewbox>
 </Window>
