@@ -36,14 +36,14 @@ namespace spms.http
                 return;
             }
 
-            Console.WriteLine("大数据线程实例化run方法-执行:");
+            //Console.WriteLine("大数据线程实例化run方法-执行:");
             var result = uploadManagementService.ListLimit30();
             if (result==null) {
-                Console.WriteLine("大数据线程RUN方法-result==null");
+                //Console.WriteLine("大数据线程RUN方法-result==null");
             }
             foreach (var uploadManagement in result)
             {
-                Console.WriteLine("大数据线程实例化Upload方法-table:" + uploadManagement.UM_DataTable);
+               // Console.WriteLine("大数据线程实例化Upload方法-table:" + uploadManagement.UM_DataTable);
                 //1.查询
                 ServiceResult serviceResult = uploadManagementService.GetServiceResult(uploadManagement);
                 if (serviceResult == null)
