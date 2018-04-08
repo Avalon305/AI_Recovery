@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:spms.view.Pages"
         xmlns:bubble="clr-namespace:spms.view.bubblemove"
         PreviewKeyDown="key_dowm"
-        ResizeMode="NoResize"
+       ResizeMode="CanMinimize"  
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}" Height="720" Width="1290"
         Loaded="Window_Loaded"

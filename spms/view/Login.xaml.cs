@@ -257,6 +257,10 @@ namespace spms.view
             {
                 Button_Click(this, null);
             }
+            //else if((e.Key == Key.LWin||e.Key == Key.RWin)&&e.Key == Key.D)
+            //{
+            //    this.WindowState = WindowState.Minimized;
+            //}
             
         }
         private void User_Password_LostFocus(object sender, RoutedEventArgs e)
