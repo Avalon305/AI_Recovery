@@ -53,18 +53,14 @@ namespace spms.view.Pages.ChildWin
         {
             this.Close();
         }
-        private void Text_LostFocus(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //获取文本框的值
             string Name = DiseaseName.Text;
             CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Disease, Name);
             if (CustomData != null)
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("疾病名称已存在", "The name of the disease has already existed"));
             }
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
             string value = this.DiseaseName.Text;
             customDataService.InsertCustomData(CustomDataEnum.Disease, value);
             this.Close();
