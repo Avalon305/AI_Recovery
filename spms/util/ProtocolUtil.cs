@@ -11,7 +11,7 @@ namespace spms.util
     /// <summary>
     /// 协议解析通用工具类
     /// </summary>
-    class ProtocolUtil
+   public class ProtocolUtil
     {
         private static Int16 serialNo = 0;
         public static Int16 GetSerialNo()

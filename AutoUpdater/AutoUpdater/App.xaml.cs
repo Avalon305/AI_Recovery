@@ -17,10 +17,7 @@ namespace AutoUpdater
         [STAThread]
         static void Main(string[] args)
         {
-           
-       
-            //args =new string[]{ "0.9.0.0", "1.0.0.0" , "https://github.com/WELL-E","http://localhost:8080/test/test.zip", a , "f3a92690c2834f4098f4e229d3338096" };
-
+         
             if (args.Length != 6) return; 
             if (SingleInstance<App>.InitializeAsFirstInstance(AppId))
             {

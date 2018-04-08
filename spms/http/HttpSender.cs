@@ -15,8 +15,9 @@ namespace spms.http
     //负责发送http请求的发送者对象
     public class HttpSender
     {
-        public static string URLBASE = "http://192.168.43.65:8080/cloud/";
-        
+        public static readonly string URLBASE = "http://192.168.43.65:8080/cloud/";
+        public static readonly string URL_UPDATE = "http://39.107.77.44:8080/bdl_update/AutoUpdate";
+
         //私有化空构造
         private HttpSender()
         {
