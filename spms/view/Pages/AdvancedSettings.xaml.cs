@@ -277,6 +277,7 @@ namespace spms.view.Pages
                 string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
                 string path = ConfigurationManager.AppSettings["PicPath"];
                 setter.Set_PhotoLocation = basePath + path;
+                setter.Set_Language = 1;
                 //设置版本号
                 setter.Set_Version = CommUtil.GetCurrentVersion();
                 if (!Directory.Exists(@setter.Set_PhotoLocation))

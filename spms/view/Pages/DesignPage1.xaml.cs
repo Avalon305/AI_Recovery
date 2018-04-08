@@ -79,7 +79,7 @@ namespace spms.view.Pages
             try { comboBox2.SelectedIndex = setterList[0].Set_Language; }
             catch (ArgumentOutOfRangeException ee)
             {
-                comboBox2.SelectedIndex = 0;
+                comboBox2.SelectedIndex = 1;
             }
             try
             {
@@ -87,7 +87,7 @@ namespace spms.view.Pages
             }
             catch (Exception ee)
             {
-                comboBox1.SelectedIndex = 0;
+                comboBox1.SelectedIndex = 1;
             }
             ObservableCollection<entity.Setter> DataCollection = new ObservableCollection<entity.Setter>(setterList);
             textBox1.DataContext = DataCollection;//设置机构团体名称
@@ -413,7 +413,7 @@ namespace spms.view.Pages
                 return;
             }
             string m_Dir = m_Dialog.SelectedPath.Trim();
-            this.textBox2.Text = m_Dir;
+            this.textBox2.Text = m_Dir+"\\";
         }
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
