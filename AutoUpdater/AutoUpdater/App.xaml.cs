@@ -13,12 +13,17 @@ namespace AutoUpdater
     {
 
         private const string AppId = "{7F280539-0814-4F9C-95BF-D2BB60023657}";
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            LanguageUtils.SetLanguage(LanguageUtils.language);
+        }
 
         [STAThread]
         static void Main(string[] args)
         {
          
-            if (args.Length != 6) return;
+            if (args.Length != 7) return;
+            LanguageUtils.language = Int16.Parse(args[6]);
             if (SingleInstance<App>.InitializeAsFirstInstance(AppId))
             {
                 var win = new MainWindow();
@@ -27,6 +32,7 @@ namespace AutoUpdater
 
                 var application = new App();
                 application.InitializeComponent();
+                
                 application.Run(win);
                 SingleInstance<App>.Cleanup();
             }

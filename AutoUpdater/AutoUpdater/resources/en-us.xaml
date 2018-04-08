@@ -5,8 +5,8 @@
 
     <!--更新界面-->
     <s:String x:Key="UpdateView.AutoUpdate">Auto Update</s:String>
-    <s:String x:Key="UpdateView.CurrentVersion">Current Version</s:String>
-    <s:String x:Key="UpdateView.LastVersion">New Version：</s:String>
+    <s:String x:Key="UpdateView.CurrentVersion">Current Version:</s:String>
+    <s:String x:Key="UpdateView.LastVersion">New Version:</s:String>
     <s:String x:Key="UpdateView.UpdateLog">Update Log</s:String>
     <s:String x:Key="UpdateView.Downloaded">Downloaded:</s:String>
     <s:String x:Key="UpdateView.Speed">Speed:</s:String>

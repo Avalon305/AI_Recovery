@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-namespace spms.util
+
+namespace AutoUpdater.Utils
 {
     class LanguageUtils
     {
+        public static int language;
         public static void SetLanguage(int f)
         {
             string language;
@@ -36,12 +35,10 @@ namespace spms.util
 
         public static bool IsChainese(int f)
         {
-                if (f == 0)
-                {
-                    return false;
-                }
-            
-
+            if (f == 0)
+            {
+                return false;
+            }
             return true;
         }
         /// <summary>

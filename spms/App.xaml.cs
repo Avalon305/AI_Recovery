@@ -85,6 +85,8 @@ namespace spms
                     {
                         return;
                     }
+
+                    info.language = LanguageUtils.IsChainese() ? 1 : 0;
                     App.Current.Dispatcher.Invoke(new Action(() =>
                     {
                         

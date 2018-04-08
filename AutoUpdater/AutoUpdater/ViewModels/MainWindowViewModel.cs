@@ -39,12 +39,13 @@ namespace AutoUpdater.ViewModels
         private DateTime _startTime;
         private Timer _speedTimer;
         private UpdateFileModel _updateMode;
+        private int language;
         #endregion
 
         #region Constructors
         public MainWindowViewModel(string[] args, Action closeInvoke)
         {
-            if (args.Length != 6) return;
+            if (args.Length != 7) return;
 
             CloseWindowCmd = new RelayCommand(closeInvoke);
             UpdateLogCmd = new RelayCommand(UpdateLogInvoke);
@@ -159,11 +160,13 @@ namespace AutoUpdater.ViewModels
             UpdateInfo.UpdateFileUrl = args[3];
             UpdateInfo.UnpackPath = args[4].Replace("|", " ");
             UpdateInfo.FileMd5 = args[5];
+            language = Int16.Parse(args[6]);
+            
 
             //开始下载
             UpdateInfo.TempPath = Utility.GetTempDirectory() + "\\";
             var filePath = UpdateInfo.TempPath + UpdateInfo.FileName;
-            StatusDescription = " 正在下载...";
+            StatusDescription = LanguageUtils.ConvertLanguage(LanguageUtils.language, " 正在下载...", " Downloading...");
             IsDownloading = true;
             _speedTimer = new Timer(SpeedTimerOnTick, null, 0, 1000);
             _startTime = DateTime.Now;
@@ -197,13 +200,13 @@ namespace AutoUpdater.ViewModels
         {
             if (e.Cancelled)
             {
-                StatusDescription = "更新被取消！";
+                StatusDescription = LanguageUtils.ConvertLanguage(language, "更新被取消！", "Update cancelled!");
                 return;
             }
 
             if (e.Error is WebException)
             {
-                StatusDescription = "请检测您的网络或防火墙设置！";
+                StatusDescription = LanguageUtils.ConvertLanguage(language, "请检测您的网络或防火墙设置！", "Please check your network or firewall settings!");
                 return;
             }
 
@@ -214,18 +217,18 @@ namespace AutoUpdater.ViewModels
 
             //验证文件
             var filePath = UpdateInfo.TempPath + UpdateInfo.FileName;
-            StatusDescription = "安全校验...";
+            StatusDescription = LanguageUtils.ConvertLanguage(language, "安全校验...", "Security check...");
             if (!VerifyFileMd5(filePath)) return;
 
             //解压
-            StatusDescription = " 正在解压...";
+            StatusDescription = LanguageUtils.ConvertLanguage(language, " 正在解压...", " Decompressing...");
             ZipFile.ExtractToDirectory(filePath, UpdateInfo.TempPath);
             File.Delete(filePath);
             Update32Or64Libs(UpdateInfo.TempPath);
             ProgressValue = +ProgressValue + 5;
 
             //更新
-            StatusDescription = " 正在更新...";
+            StatusDescription = LanguageUtils.ConvertLanguage(language, " 正在更新...", " Updating...");
             IsCopying = true;
             Utility.DirectoryCopy(UpdateInfo.TempPath, UpdateInfo.UnpackPath,
                 true, true, o => InstallFileName = o);
@@ -236,7 +239,7 @@ namespace AutoUpdater.ViewModels
             ProgressValue = +ProgressValue + 5;
  
             //启动平台
-            StatusDescription = " 启动平台...";
+            StatusDescription = LanguageUtils.ConvertLanguage(language, " 启动平台...", " Start the platform...");
             Directory.Delete(UpdateInfo.TempPath, true);
             Loger.Print(string.Format("update version {0} to {1} succeeded. ",
                 UpdateInfo.CurrentVersion, UpdateInfo.NewVersion));
@@ -259,7 +262,7 @@ namespace AutoUpdater.ViewModels
             bool lagel = String.Equals(UpdateInfo.FileMd5, md5, StringComparison.CurrentCultureIgnoreCase);
             if (!lagel)
             {
-                StatusDescription = "更新失败，更新文件MD5码不一致！";
+                StatusDescription = LanguageUtils.ConvertLanguage(language, "更新失败，更新文件MD5码不一致！", " Update failed, update file MD5 code is inconsistent!");
                 Loger.Print("Update file MD5 inconsistent. ");
                 Directory.Delete(UpdateInfo.TempPath, true); ;
                 return false;

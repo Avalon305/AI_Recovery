@@ -5,11 +5,11 @@
 
     <!--更新界面-->
     <s:String x:Key="UpdateView.AutoUpdate">自动更新</s:String>
-    <s:String x:Key="UpdateView.CurrentVersion">当前版本</s:String>
+    <s:String x:Key="UpdateView.CurrentVersion">当前版本：</s:String>
+    <s:String x:Key="UpdateView.LastVersion">最新版本：</s:String>
     <s:String x:Key="UpdateView.UpdateLog">更新日志</s:String>
     <s:String x:Key="UpdateView.Downloaded">已下载：</s:String>
     <s:String x:Key="UpdateView.Speed">下载速度：</s:String>
     <s:String x:Key="UpdateView.File">文件：</s:String>
-    <s:String x:Key="UpdateView.LastVersion">最新版本：</s:String>
-
+    
 </ResourceDictionary>
