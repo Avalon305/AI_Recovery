@@ -540,6 +540,11 @@ namespace spms.view.Pages
                         trainingReport.start_date.SelectedDate = list[0].Gmt_Create;//起始时间
                         trainingReport.end_date.SelectedDate = list[list.Count - 1].Gmt_Create;//终止时间
                     }
+                    else
+                    {
+                        trainingReport.start_date.SelectedDate = DateTime.Now;
+                        trainingReport.end_date.SelectedDate = DateTime.Now;
+                    }
                     trainingReport.ShowDialog();
                 }
             }
@@ -591,6 +596,11 @@ namespace spms.view.Pages
                     {
                         physicalAssessmentReport.start_date.SelectedDate = list[0].Gmt_Create;//起始时间
                         physicalAssessmentReport.end_date.SelectedDate = list[list.Count - 1].Gmt_Create;//终止时间
+                    }
+                    else
+                    {
+                        physicalAssessmentReport.start_date.SelectedDate = DateTime.Now;
+                        physicalAssessmentReport.end_date.SelectedDate = DateTime.Now;
                     }
                     physicalAssessmentReport.ShowDialog();
                 }
