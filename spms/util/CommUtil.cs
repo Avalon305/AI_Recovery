@@ -21,6 +21,15 @@ namespace spms.util
         private static SetterDAO setterDAO = new SetterDAO();
 
         /// <summary>
+        /// 获取当前版本号
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCurrentVersion()
+        {
+            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        }
+
+        /// <summary>
         /// 获取web平台路径
         /// </summary>
         /// <param name="picName"></param>

@@ -1,5 +1,5 @@
 ﻿
-using MySql.Data.MySqlClient;
+using  MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-namespace spms.util
+namespace AutoUpdater.Utils
 {
 
 
-   public class DbUtil
+     class DbUtil
     {
 
         private static string DbName;
