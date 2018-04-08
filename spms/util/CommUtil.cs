@@ -26,7 +26,7 @@ namespace spms.util
         /// <returns></returns>
         public static string GetCurrentVersion()
         {
-            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            return  FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetEntryAssembly().Location).ProductVersion;
         }
 
         /// <summary>
