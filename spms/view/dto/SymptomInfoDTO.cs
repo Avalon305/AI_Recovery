@@ -18,6 +18,8 @@ namespace spms.view.dto
         public int TI_ID { get; set; }
         //数据创建时间
         public DateTime Create { get; set; }
+        //
+        public string DateStr { get; set; }
         //血压（康复前）
         public string Pre_Pressure { get; set; }
         //脉搏（康复前）
@@ -42,6 +44,22 @@ namespace spms.view.dto
         public string Join { get; set; }
         //看护记录
         public string CareInfo { get; set; }
+
+        public List<SymptomInfoDTO> ConvertDtoList(List<SymptomInfo> symptomInfos)
+        {
+            List<SymptomInfoDTO> symptomInfoDtos = new List<SymptomInfoDTO>();
+            foreach (var symptomInfo in symptomInfos)
+            {
+                symptomInfoDtos.Add(new SymptomInfoDTO(symptomInfo));
+            }
+
+            return symptomInfoDtos;
+        }
+
+        public SymptomInfoDTO()
+        {
+
+        }
        
         public SymptomInfoDTO(SymptomInfo symptomInfo)
         {
@@ -63,6 +81,7 @@ namespace spms.view.dto
             this.Suf_Pulse = symptomInfo.SI_Suf_Pulse == 0 ? LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Regular") : LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Irregular");
             this.Suf_Pressure = symptomInfo.SI_Suf_HighPressure + " / " + symptomInfo.SI_Suf_LowPressure;
             List<string> inquiryList = new List<string>();
+            this.DateStr = symptomInfo.Gmt_Create.ToString();
             //翻译问卷票
             foreach (string inquiry in symptomInfo.SI_Inquiry.Split(new char[] { ',' }))
             {

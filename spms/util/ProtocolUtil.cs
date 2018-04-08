@@ -14,6 +14,25 @@ namespace spms.util
    public class ProtocolUtil
     {
         private static Int16 serialNo = 0;
+
+        /// <summary>
+        /// 获取\0终结符所在的下标
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="beginIndex"></param>
+        /// <returns></returns>
+        public static string GetEndUserIdString(byte[] source, int beginIndex)
+        {
+            for (int i = beginIndex; i < beginIndex+32; i++)
+            {
+                if (source[i] == 0x00)
+                {
+                    return Encoding.GetEncoding("GBK").GetString(source, beginIndex, i - beginIndex);
+                }
+            }
+            return "";
+        }
+
         public static Int16 GetSerialNo()
         {
             if (serialNo == Int16.MaxValue)

@@ -66,7 +66,7 @@ namespace spms.view.Pages
             else
             {
                 //TODO 英文图片
-                title_pic.Source = new BitmapImage(new Uri(@"\view\Images\img6.jpg", UriKind.Relative));
+                title_pic.Source = new BitmapImage(new Uri(@"\view\Images\design.png", UriKind.Relative));
             }
             try
             {

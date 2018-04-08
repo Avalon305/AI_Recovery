@@ -61,7 +61,7 @@
                 </Border>
                 <!--<my:DateTimePicker   Margin="3,0,0,-0.2" KeyboardNavigation.TabNavigation="None"  x:Name="date" VerticalAlignment="Top" Height="25" Width="159" />-->
                 <Label Content="{DynamicResource VitalInfoView.TrainInfo}" Height="25" Margin="97.5,0,0,0" Background="Gray" Foreground="White" Width="80"/>
-                <ComboBox ItemsSource="{Binding TrainInfo,Mode=OneWay}" DisplayMemberPath="Gmt_Create" SelectedValuePath="Pk_TI_Id" SelectedItem="{Binding TrainInfo}" Margin="3,0,0,0"  Name="train" Height="25" Width="131" />
+                <ComboBox ItemsSource="{Binding TrainDTO,Mode=OneWay}" DisplayMemberPath="DateStr" SelectedValuePath="ID" SelectedItem="{Binding TrainDTO}" Margin="3,0,0,0"  Name="train" Height="25" Width="131" />
                 <!--<DatePicker Name="date"  Height="23"  KeyboardNavigation.TabNavigation="None" Margin="3,0,0,0" VerticalAlignment="Bottom" Width="155" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
             </StackPanel>
             <!--<StackPanel Height="25" Margin="10,15,-0.4,0" Orientation="Horizontal">

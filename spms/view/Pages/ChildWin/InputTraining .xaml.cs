@@ -17,16 +17,43 @@ using System.Windows.Shapes;
 using spms.constant;
 using spms.dao;
 using spms.entity;
+using spms.http.dto;
 using spms.service;
 using spms.util;
+using SymptomInfoDTO = spms.view.dto.SymptomInfoDTO;
 
 namespace spms.view.Pages.ChildWin
 {
+    
+    public class NameCheck : ValidationRule
+    {
+        public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
+        {
+            var name = Convert.ToString(value);
+
+            //如果名字长度大于4则是非法
+            if (name.Length > 8)
+                
+                return new ValidationResult(false, "内容不能大于8个长度！");
+
+            return ValidationResult.ValidResult;
+        }
+    }
+    public class TextBoxText { 
+        public string Text1 { get; set; }
+        public string Text2 { get; set; }
+        public string Text3 { get; set; }
+        public string Text4 { get; set; }
+        public string Text5 { get; set; }
+        public string Text6 { get; set; }
+
+    }
     /// <summary>
     /// InputTraining.xaml 的交互逻辑
     /// </summary>
     public partial class InputTraining : Window
     {
+
         //去除窗体叉号
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
@@ -1034,7 +1061,7 @@ namespace spms.view.Pages.ChildWin
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
             var nullTiIdByUserId = new SymptomInfoDao().GetNullTiIdByUserId(user.Pk_User_Id);
-            symp.ItemsSource = nullTiIdByUserId;
+            symp.ItemsSource = new SymptomInfoDTO().ConvertDtoList(nullTiIdByUserId);
             com_01.ItemsSource = Add(0, 70, 2);
             //com_02.ItemsSource = Add(0, 30, 2);
             com_03.ItemsSource = Add(1, 5, 2);
@@ -2014,5 +2041,13 @@ namespace spms.view.Pages.ChildWin
         {
             SaveTrainInfo2DB(TrainInfoStatus.Normal);
         }
+
+        //private void text_length(object sender, KeyEventArgs e)
+        //{
+        //    if (((TextBox)sender).Text.Length > 8)
+        //    {
+
+        //    }
+        //}
     }
 }
