@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using spms.util;
+using NLog;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -37,6 +38,7 @@ namespace spms.view.Pages.ChildWin
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
 
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private new bool IsEnabled = true;
         private bool UnEnabled = false;
         public InputManualMvaluation()
@@ -451,7 +453,7 @@ namespace spms.view.Pages.ChildWin
                 TextRange text1 = new TextRange(worker_feel.Document.ContentStart, worker_feel.Document.ContentEnd);
                 physicalPower.PP_WorkerMemo = text1.Text.ToString();
 
-                Console.WriteLine(physicalPower.ToString());
+                logger.Debug("存储的体力评价信息："+ physicalPower.ToString());
 
                 if (new PhysicaleValuationService().AddPhysicalPower(physicalPower) == 1)
                 {
@@ -461,7 +463,7 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("保存体力评价异常");
+                logger.Error("保存体力评价异常");
             }
             
         }
