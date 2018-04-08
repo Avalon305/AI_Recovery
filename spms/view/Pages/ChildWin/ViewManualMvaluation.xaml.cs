@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NLog;
 using spms.dao;
 using spms.entity;
 using spms.util;
@@ -24,6 +25,8 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class ViewManualMvaluation : Window
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         private User user;
         private PhysicaleDTO physicaleDto;
         /*
@@ -83,6 +86,7 @@ namespace spms.view.Pages.ChildWin
             Dictionary<string, object> dic = (Dictionary<string, Object>)DataContext;
             user = (User)dic["user"];
             physicaleDto = (PhysicaleDTO)dic["physicaleDto"];
+            logger.Info("user:" + user + "physicaleDto:" + physicaleDto);
             Load_Data();
         }
 
