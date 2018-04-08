@@ -252,12 +252,16 @@ namespace spms.view.Pages
             {   //获取mac地址
                 StringBuilder stringBuilder = new StringBuilder();
                 //string strMac = CommUtil.GetMacAddress();
-                List<string> Macs = CommUtil.GetMacByWMI();
+                // List<string> Macs = CommUtil.GetMacByWMI();
+                List<string> Macs = CommUtil.GetMacByIPConfig();
                 foreach (string mac in Macs)
                 {
-                    stringBuilder.Append(mac);
+                    string prefix = "物理地址. . . . . . . . . . . . . : ";
+                    string Mac=mac.Substring(prefix.Length-1);
+                    stringBuilder.Append(Mac);
                 }
-                //Console.WriteLine(stringBuilder.ToString());
+                //Console.WriteLine("==================="+stringBuilder.ToString());
+                //MessageBox.Show("===================" + stringBuilder.ToString());
                 entity.Setter setter = new entity.Setter();
                 //mac地址先变为byte[]再aes加密
                 byte[] byteMac = Encoding.GetEncoding("GBK").GetBytes(stringBuilder.ToString());
