@@ -18,6 +18,7 @@ namespace spms.bean
 
         public string GetProcessString()
         {
+         
             return currentVersion + " " + lastVersion + " " + logUrl + " " + downloadUrl 
                 +" " + AppDomain.CurrentDomain.BaseDirectory + " "+ md5;
         }

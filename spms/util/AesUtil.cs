@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace spms.util
 {
 
-    class AesUtil
+   public class AesUtil
     {
         /// <summary> 
         /// AES加密 

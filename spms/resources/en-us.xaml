@@ -40,6 +40,7 @@
     <s:String x:Key="SettingsView.AdvancedSettings">Advanced Settings</s:String>
     <s:String x:Key="SettingsView.Alert" xml:space="preserve">(Once the path is set&#13;not to suggest changes)</s:String>
     <s:String x:Key="SettingsView.FacilityType">Facility Type</s:String>
+    <s:String x:Key="SettingsView.Phone">Mobile</s:String>
     <s:String x:Key="SettingsView.Other">Other</s:String>
     <s:String x:Key="SettingsView.Hospital">Hospital</s:String>
     <s:String x:Key="SettingsView.Clinic">Clinic</s:String>

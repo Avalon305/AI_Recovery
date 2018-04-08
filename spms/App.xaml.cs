@@ -42,7 +42,7 @@ namespace spms
             Current.DispatcherUnhandledException += App_OnDispatcherUnhandledException;
             //全局异常处理机制，线程异常
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-
+            MessageBox.Show(CommUtil.GetCurrentVersion());
             //加载语言
             LanguageUtils.SetLanguage();
 
@@ -71,18 +71,31 @@ namespace spms
             {
                 try
                 {
-                    Thread.Sleep(1000 * 3);
+                    
+                    Thread.Sleep(1000 * 8);
                     Dictionary<string, string> param = new Dictionary<string, string>();
                     var setter = new SetterService().GetSetterDAO().getSetter();
                     param.Add("version", setter.Set_Version);
-                    var result = HttpSender.GET("http://125.0.0.13:8080/pcms/th", param);
+                    var result = HttpSender.GET(HttpSender.URL_UPDATE, param);
                     if (string.IsNullOrEmpty(result))
                     {
                         return;
                     }
                     var info = JsonTools.DeserializeJsonToObject<VersionInfo>(result);
-
-                    Process.Start("AutoUpdater.exe", info.GetProcessString());
+                    if (info == null || info.update==false)
+                    {
+                        return;
+                    }
+                    App.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        MessageBoxResult dr = MessageBox.Show("发现新版本，是否更新？", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                        if (dr == MessageBoxResult.OK)
+                        {
+                            Process.Start("AutoUpdater.exe", info.GetProcessString());
+                            Environment.Exit(0);
+                        }
+                    }));
+                  
                 }
                 catch(Exception ex)
                 {

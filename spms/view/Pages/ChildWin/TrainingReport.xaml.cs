@@ -310,7 +310,7 @@ namespace spms.view.Pages.ChildWin
 
                     //备注
                     int remarkRow = 41;
-                    ExcelUtil.GenerateRemark(ref worksheet, remarkRow, ExcelUtil.GetObjContent(Current_User.User_PhysicalDisabilities));
+                    ExcelUtil.GenerateRemark(ref worksheet, remarkRow, ExcelUtil.GetObjContent(Current_User.User_Memo));
                 }
 
                 //保存
@@ -724,20 +724,33 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Button_Click_Print_View(object sender, RoutedEventArgs e)
         {
-            if (is_comprehensiv.IsChecked == true)//训练报告
+            try
             {
-                GenerateTrainReport();
+                if (is_comprehensiv.IsChecked == true)//训练报告
+                {
+                    GenerateTrainReport();
+                }
+                else if (is_detail.IsChecked == true)//详细报告
+                {
+                    GenerateDetailReport();
+                }
+                else if (is_nurse.IsChecked == true)//看护记录报告
+                {
+                    GenerateNurseReport();
+                }
+                else
+                {
+                    return;
+                }
             }
-            else if (is_detail.IsChecked == true)//详细报告
+            catch (IOException ex)
             {
-                GenerateDetailReport();
+                MessageBox.Show(LanguageUtils.ConvertLanguage("文件可能被占用，请关闭相关文件", "The file may be occupied. Please close the relevant file"));
+                return;
             }
-            else if (is_nurse.IsChecked == true)//看护记录报告
+            catch (Exception ex)
             {
-                GenerateNurseReport();
-            }
-            else
-            {
+                Console.WriteLine("生成Excel异常");
                 return;
             }
 
@@ -842,14 +855,14 @@ namespace spms.view.Pages.ChildWin
                         }
                         else if (startTime == null && endTime != null)
                         {
-                            if (DateTime.Compare((DateTime)endTime, gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
+                            if (DateTime.Compare(((DateTime)endTime).AddDays(1), gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
                             {
                                 newList.Add(trainingAndSymptomBeans[i]);
                             }
                         }
                         else if (startTime != null && endTime != null)
                         {
-                            if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, (DateTime)endTime) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
+                            if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, ((DateTime)endTime).AddDays(1)) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
                             {
                                  newList.Add(trainingAndSymptomBeans[i]);
                             }
@@ -879,14 +892,14 @@ namespace spms.view.Pages.ChildWin
                         }
                         else if (startTime == null && endTime != null)
                         {
-                            if (DateTime.Compare((DateTime)endTime, gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
+                            if (DateTime.Compare(((DateTime)endTime).AddDays(1), gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
                             {
                                 newList.Add(devicePrescriptionExcels[i]);
                             }
                         }
                         else if (startTime != null && endTime != null)
                         {
-                            if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, (DateTime)endTime) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
+                            if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, ((DateTime)endTime).AddDays(1)) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
                             {
                                 newList.Add(devicePrescriptionExcels[i]);
                             }
