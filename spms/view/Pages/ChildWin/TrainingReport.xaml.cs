@@ -724,20 +724,33 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Button_Click_Print_View(object sender, RoutedEventArgs e)
         {
-            if (is_comprehensiv.IsChecked == true)//训练报告
+            try
             {
-                GenerateTrainReport();
+                if (is_comprehensiv.IsChecked == true)//训练报告
+                {
+                    GenerateTrainReport();
+                }
+                else if (is_detail.IsChecked == true)//详细报告
+                {
+                    GenerateDetailReport();
+                }
+                else if (is_nurse.IsChecked == true)//看护记录报告
+                {
+                    GenerateNurseReport();
+                }
+                else
+                {
+                    return;
+                }
             }
-            else if (is_detail.IsChecked == true)//详细报告
+            catch (IOException ex)
             {
-                GenerateDetailReport();
+                MessageBox.Show(LanguageUtils.ConvertLanguage("文件可能被占用，请关闭相关文件", "The file may be occupied. Please close the relevant file"));
+                return;
             }
-            else if (is_nurse.IsChecked == true)//看护记录报告
+            catch (Exception ex)
             {
-                GenerateNurseReport();
-            }
-            else
-            {
+                Console.WriteLine("生成Excel异常");
                 return;
             }
 
