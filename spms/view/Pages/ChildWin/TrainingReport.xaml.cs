@@ -260,7 +260,8 @@ namespace spms.view.Pages.ChildWin
                         worksheet.Cells[row, 4].Value = list[k].SI_Suf_HighPressure + "/" + list[k].SI_Suf_LowPressure;
                         worksheet.Cells[row, 5].Value = list[k].SI_WaterInput;
                         worksheet.Cells[row, 6].Value = list[k].PR_Index;
-                        worksheet.Cells[row, 7].Value = list[k].PR_Time2 - list[i].PR_Time1;
+                        //worksheet.Cells[row, 7].Value = list[k].PR_Time2 - list[i].PR_Time1;
+                        worksheet.Cells[row, 7].Value = list[k].PR_Time1;
                         worksheet.Cells[row, 8].Value = list[k].PR_Cal;
                         worksheet.Cells[row, 9].Value = list[k].SI_CareInfo;
                     }
@@ -555,7 +556,8 @@ namespace spms.view.Pages.ChildWin
                         worksheet.Cells[row, 4].Value = list[k].SI_Suf_HighPressure + "/" + list[k].SI_Suf_LowPressure;
                         worksheet.Cells[row, 5].Value = list[k].SI_WaterInput;
                         worksheet.Cells[row, 7].Value = list[k].PR_Index;
-                        worksheet.Cells[row, 8].Value = list[k].PR_Time2 - list[i].PR_Time1;
+                        //worksheet.Cells[row, 8].Value = list[k].PR_Time2 - list[i].PR_Time1;
+                        worksheet.Cells[row, 8].Value = list[k].PR_Time1;
                         worksheet.Cells[row, 10].Value = list[k].PR_Cal;
                         worksheet.Cells[row + 1, 1].Value = list[k].SI_CareInfo;
                     }
