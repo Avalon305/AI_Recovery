@@ -18,7 +18,7 @@
         <StackPanel Orientation="Vertical">
             <!--图片-->
             <Border>
-                <Image Name="title_pic" Source="/view/Images/img6.jpg" Margin="10,0,10,0" Stretch="Fill"></Image>
+                <Image Name="title_pic" Source="/view/Images/bdl.PNG" Margin="10,0,10,0" Stretch="Fill"></Image>
             </Border>
             <!--结束：图片-->
             <!--标题栏-->
