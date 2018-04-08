@@ -17,8 +17,10 @@ using System.Windows.Shapes;
 using spms.constant;
 using spms.dao;
 using spms.entity;
+using spms.http.dto;
 using spms.service;
 using spms.util;
+using SymptomInfoDTO = spms.view.dto.SymptomInfoDTO;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -1034,7 +1036,7 @@ namespace spms.view.Pages.ChildWin
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
             var nullTiIdByUserId = new SymptomInfoDao().GetNullTiIdByUserId(user.Pk_User_Id);
-            symp.ItemsSource = nullTiIdByUserId;
+            symp.ItemsSource = new SymptomInfoDTO().ConvertDtoList(nullTiIdByUserId);
             com_01.ItemsSource = Add(0, 70, 2);
             //com_02.ItemsSource = Add(0, 30, 2);
             com_03.ItemsSource = Add(1, 5, 2);
