@@ -125,7 +125,7 @@ namespace spms
                     BigDataOfficer bigDataOfficer = new BigDataOfficer();
                     bigDataOfficer.Run();
                     int heartBeatRate = (int)CommUtil.GetBigDataRate();
-                    Thread.Sleep(1000 * 300);
+                    Thread.Sleep(1000 * 5);
 
                 }
             });
