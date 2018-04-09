@@ -147,7 +147,7 @@
                                         <Binding Path="Gmt_Create" StringFormat="{}{0:yyyy-MM-dd HH:mm}"/>
                                     </TextBox.Text>
                                 </TextBox>-->
-                                <CheckBox Content="{Binding Gmt_Create}" ContentStringFormat="{}{0:yyyy-MM-dd HH:mm}" Unchecked="List_CheckBox_UnChecked" Checked="List_CheckBox_Checked"></CheckBox>
+                                <CheckBox IsChecked="True" Content="{Binding Gmt_Create}" ContentStringFormat="{}{0:yyyy-MM-dd HH:mm}" Unchecked="List_CheckBox_UnChecked" Checked="List_CheckBox_Checked"></CheckBox>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
