@@ -67,11 +67,12 @@ namespace spms.service
             {
                 AuthDAO authDAO = new AuthDAO();
                 Auther auther = authDAO.Load(uploadManagement.UM_DataId);
-                AutherDTO autherDTO = new AutherDTO(setter, auther, mac);
-                if (autherDTO == null)
+                if (auther == null)
                 {
                     return null;
                 }
+                AutherDTO autherDTO = new AutherDTO(setter, auther, mac);
+                
 
                 serviceResult.URL = "clientController/addClient.action";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<AutherDTO>(autherDTO);
