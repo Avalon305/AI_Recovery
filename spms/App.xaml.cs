@@ -116,19 +116,29 @@ namespace spms
 
             Thread bdth = new Thread(() =>
             {
-                SetterDAO setterDao = new SetterDAO();
-                while (true)
+
+                try
                 {
-                    if (setterDao.ListAll().Count == 0)
+                    SetterDAO setterDao = new SetterDAO();
+                    while (true)
                     {
-                        continue;
+                        if (setterDao.ListAll().Count == 0)
+                        {
+                            continue;
+                        }
+                        BigDataOfficer bigDataOfficer = new BigDataOfficer();
+                        bigDataOfficer.Run();
+                        int heartBeatRate = (int)CommUtil.GetBigDataRate();
+                        Thread.Sleep(1000 * 300);
+
                     }
-                    BigDataOfficer bigDataOfficer = new BigDataOfficer();
-                    bigDataOfficer.Run();
-                    int heartBeatRate = (int)CommUtil.GetBigDataRate();
-                    Thread.Sleep(1000 * 300);
+                }
+                catch (Exception ex)
+                {
 
                 }
+
+               
             });
             bdth.Start();
 
