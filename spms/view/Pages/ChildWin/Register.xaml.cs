@@ -184,7 +184,7 @@ namespace spms.view.Pages.ChildWin
             //    Error_Info_Phone.Content = "该手机号已注册";
             //    bubble_phone.IsOpen = true;
             //}
-            if (!String.IsNullOrEmpty(IDCard)|| IDCard.Length>18)
+            if (!String.IsNullOrEmpty(IDCard)|| IDCard.Length>31)
             {
                 //if (IDCard.Length < 18)
                 //{

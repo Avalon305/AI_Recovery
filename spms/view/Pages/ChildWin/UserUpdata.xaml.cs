@@ -233,7 +233,7 @@ namespace spms.view.Pages.ChildWin
             //}
 
             //身份证验证
-            if (!String.IsNullOrEmpty(IDCard)||IDCard.Length>18)
+            if (!String.IsNullOrEmpty(IDCard)||IDCard.Length>31)
             {
                 //if (IDCard.Length < 18)
                 //{
