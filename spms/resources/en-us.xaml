@@ -6,6 +6,7 @@
     <s:String x:Key="App.UpdateInfo">Discover a new version，update it？</s:String>
     <s:String x:Key="App.PortOccupy">Port is occupied, try reboot your computer!</s:String>
     <s:String x:Key="App.Tips">Tips</s:String>
+    <s:String x:Key=" App.DbException">Database connect failed，the program will be exit</s:String>
     
     <!-- 开始界面 -->
     <s:String x:Key="FormView.Title">Body Strong Medical rehabilitation system</s:String>
