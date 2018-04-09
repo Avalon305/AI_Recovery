@@ -184,24 +184,25 @@ namespace spms.view.Pages.ChildWin
             //    Error_Info_Phone.Content = "该手机号已注册";
             //    bubble_phone.IsOpen = true;
             //}
-            if (!String.IsNullOrEmpty(IDCard))
+            if (!String.IsNullOrEmpty(IDCard)|| IDCard.Length>31)
             {
-                if (IDCard.Length < 18)
-                {
-                    for (int i = IDCard.Length; i < 18; i++)
-                    {
-                        IDCard = IDCard + '0';
-                    }
-                    if (userService.GetByIdCard(IDCard) != null)
-                    {
-                        //身份证重复气泡提示
-                        Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("该身份证已注册", "This ID is registered");
-                        bubble_IDCard.IsOpen = true;
-                        return;
+                //if (IDCard.Length < 18)
+                //{
+                //    //for (int i = IDCard.Length; i < 18; i++)
+                //    //{
+                //    //    IDCard = IDCard + '0';
+                //    //}
+                //    if (userService.GetByIdCard(IDCard) != null)
+                //    {
+                //        //身份证重复气泡提示
+                //        Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("该身份证已注册", "This ID is registered");
+                //        bubble_IDCard.IsOpen = true;
+                //        return;
 
-                    }
-                }
-                else if (!inputlimited.InputLimited.IsIDcard(IDCard))
+                //    }
+                //}
+                //else 
+                if (IDCard.Length==18&&!inputlimited.InputLimited.IsIDcard(IDCard))
                 {
                     Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入正确的身份证号码", "Please enter a valid ID number");
                     bubble_IDCard.IsOpen = true;
@@ -224,7 +225,7 @@ namespace spms.view.Pages.ChildWin
             }
             else
             {
-                Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入身份证号码", "Please enter the ID number");
+                Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入正确的身份证号码", "Please enter the ID number");
                 bubble_IDCard.IsOpen = true;
                 return;
             }
@@ -464,7 +465,7 @@ namespace spms.view.Pages.ChildWin
             {
                 Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入身份证号码", "Please enter the ID number");
                 bubble_IDCard.IsOpen = true;
-            }else if (IDCard.Text.Length>18||(IDCard.Text.Length == 18&&!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text)))
+            }else if (IDCard.Text.Length>31||(IDCard.Text.Length == 18&&!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text)))
             {
                 Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入正确的身份证号码", "Please enter a valid ID number");
                 bubble_IDCard.IsOpen = true;

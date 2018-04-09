@@ -10,7 +10,7 @@
         Icon="/view/Images/icon2.png"
         PreviewKeyDown="key_dowm"
         Title="{DynamicResource Title.Title}"
-         Height="1024"
+         Height="1008"
         Width="803.4"
         ResizeMode="CanMinimize"  
         Loaded="Window_Loaded">
