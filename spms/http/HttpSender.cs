@@ -16,7 +16,7 @@ namespace spms.http
     public class HttpSender
     {
  
-        public static readonly string URLBASE = "http://172.20.10.6:8080/cloud/";
+        public static readonly string URLBASE = "http://39.107.77.44:8080/cloud/";
         public static readonly string URL_UPDATE = "http://39.107.77.44:8080/bdl_update/AutoUpdate";
 
         //私有化空构造
