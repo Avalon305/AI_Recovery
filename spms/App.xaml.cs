@@ -120,10 +120,16 @@ namespace spms
                 try
                 {
                     SetterDAO setterDao = new SetterDAO();
+                    AuthDAO authDAO = new AuthDAO();
                     while (true)
                     {
                         if (setterDao.ListAll().Count == 0)
                         {
+                            //不激活不开启
+                            continue;
+                        }
+                        if (authDAO.ListAll().Count == 1) {
+                            //只有admin，不创建用户，不开启
                             continue;
                         }
                         BigDataOfficer bigDataOfficer = new BigDataOfficer();
