@@ -41,8 +41,11 @@ namespace spms.view.dto
         }
         public TrainDTO(TrainInfo trainInfo, DevicePrescription devicePrescription, PrescriptionResult prescriptionResult)
         {
-            this.ID = trainInfo.Pk_TI_Id;
-            this.DateStr = trainInfo.Gmt_Create.ToString();
+            if (trainInfo != null)
+            {
+                this.ID = trainInfo.Pk_TI_Id;
+                this.DateStr = trainInfo.Gmt_Create.ToString();
+            }
             this.trainInfo = trainInfo;
             this.devicePrescription = devicePrescription;
             this.prescriptionResult = prescriptionResult;

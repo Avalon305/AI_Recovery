@@ -62,11 +62,13 @@ namespace spms.view.Pages
             if (LanguageUtils.IsChainese())
             {
                 title_pic.Source = new BitmapImage(new Uri(@"\view\Images\bdl.PNG", UriKind.Relative));
+                title_pic.Height = 198.4;
             }
             else
             {
                 //TODO 英文图片
                 title_pic.Source = new BitmapImage(new Uri(@"\view\Images\design.png", UriKind.Relative));
+                title_pic.Height = 257;
             }
             try
             {

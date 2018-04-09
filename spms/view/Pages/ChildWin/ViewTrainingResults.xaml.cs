@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NLog;
 using spms.constant;
 using spms.dao;
 using spms.entity;
@@ -25,6 +26,7 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class ViewTrainingResults : Window
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         //去除窗体叉号
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
@@ -47,6 +49,7 @@ namespace spms.view.Pages.ChildWin
             Dictionary<string, object> dic = (Dictionary<string, Object>) DataContext;
             user = (User) dic["user"];
             trainDto = (TrainDTO) dic["trainDto"];
+            logger.Info("user:" + user + "trainDto:" + trainDto);
             //绑定数据
             Load_Data();
             certain_dev();

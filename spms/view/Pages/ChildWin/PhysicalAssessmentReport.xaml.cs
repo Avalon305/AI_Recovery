@@ -1,4 +1,5 @@
-﻿using OfficeOpenXml;
+﻿using NLog;
+using OfficeOpenXml;
 using OfficeOpenXml.Drawing.Chart;
 using OfficeOpenXml.Style;
 using Spire.Xls;
@@ -61,6 +62,7 @@ namespace spms.view.Pages.ChildWin
             this.Close();
         }
 
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         Thread initializationExcelToPdfThread;
         /// <summary>
         /// 作用：经过初步测试，第一次Excel转pdf相对较慢，所以在进入程序的时候，执行一次Excel转PDF
@@ -253,7 +255,8 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine("含有非法数据");
+                        //Console.WriteLine("含有非法数据");
+                        logger.Error("含有非法数据");
                     }
 
 
@@ -808,7 +811,8 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("生成Excel异常");
+                //Console.WriteLine("生成Excel异常");
+                logger.Error("生成Excel异常");
                 return;
             }
 
@@ -840,7 +844,8 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("体力评价报告打印异常");
+                //Console.WriteLine("体力评价报告打印异常");
+                logger.Error("体力评价报告打印异常");
             }
            
         }
@@ -914,7 +919,8 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("生成Excel异常");
+                logger.Error("生成Excel异常");
+                //Console.WriteLine("生成Excel异常");
                 return;
             }
 

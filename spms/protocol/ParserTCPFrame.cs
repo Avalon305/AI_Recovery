@@ -98,8 +98,7 @@ namespace spms.protocol
             string idcard =  ProtocolUtil.GetEndUserIdString(body,0);
 
             byte[] data = MakerTCPFrame.GetInstance().Make8007Frame(idcard);
-            logger.Error(ProtocolUtil.BytesToString(data));
-
+         
             response = MakerTCPFrame.GetInstance().PackData(MsgId.X8007, frameBean.TerminalId, data);
 
         }
@@ -117,7 +116,7 @@ namespace spms.protocol
             string idcard = ProtocolUtil.GetEndUserIdString(body, 0);
 
             byte[] data = MakerTCPFrame.GetInstance().Make800AFrame(idcard);
-            logger.Error(ProtocolUtil.BytesToString(data));
+        
             response = MakerTCPFrame.GetInstance().PackData(MsgId.X800A, frameBean.TerminalId, data);
         }
         /// <summary>
@@ -136,21 +135,7 @@ namespace spms.protocol
             //设备类型
             DeviceType deviceType = (DeviceType)d[0];
             logger.Info("收到训练结果上报，设备是：" + deviceType.ToString());
-            switch (deviceType)
-            {
-                case DeviceType.X01://胸部推举机
-                    break;
-                case DeviceType.X02:
-                    break;
-                case DeviceType.X03:
-                    break;
-                case DeviceType.X04:
-                    break;
-                case DeviceType.X05:
-                    break;
-                case DeviceType.X06:
-                    break;
-            }
+             
             paser.PaserXall(d, idCard, deviceType);
             //数据上报响应通用应答
             byte[] data = MakerTCPFrame.GetInstance().Make8001Frame(frameBean.SerialNo, frameBean.MsgId, CommResponse.Success);

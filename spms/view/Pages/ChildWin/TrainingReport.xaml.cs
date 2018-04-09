@@ -1,4 +1,5 @@
-﻿using OfficeOpenXml;
+﻿using NLog;
+using OfficeOpenXml;
 using OfficeOpenXml.Drawing.Chart;
 using OfficeOpenXml.Style;
 using Spire.Xls;
@@ -42,6 +43,7 @@ namespace spms.view.Pages.ChildWin
 
 
         Thread initializationExcelToPdfThread;
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         /// <summary>
         /// 作用：经过初步测试，第一次Excel转pdf相对较慢，所以在进入程序的时候，执行一次Excel转PDF
         /// </summary>
@@ -117,7 +119,8 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("生成Excel文件异常");
+                //Console.WriteLine("生成Excel文件异常");
+                logger.Error("生成Excel文件异常");
                 return;
             }
 
@@ -149,7 +152,8 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("训练报告打印异常");
+                //Console.WriteLine("训练报告打印异常");
+                logger.Error("训练报告打印异常");
             }
             
         }
@@ -266,7 +270,7 @@ namespace spms.view.Pages.ChildWin
 
                     for (int i = 0,k=j* count; k < (j + 1) * count && k < list.Count; i++,k++)
                     {
-                        Console.WriteLine(k);
+                        //Console.WriteLine(k);
                         //表头行+两个表头
                         int row = tableRow + 2 + i;
                         worksheet.Cells[row, 1, row, 2].Merge = true;
@@ -730,7 +734,8 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("文档切换异常");
+                //Console.WriteLine("文档切换异常");
+                logger.Error("文档切换异常");
             }
         }
 
@@ -769,7 +774,8 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("文档输出异常");
+                //Console.WriteLine("文档输出异常");
+                logger.Error("文档输出异常");
             }
         }
 
@@ -806,7 +812,8 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("生成Excel异常");
+                //Console.WriteLine("生成Excel异常");
+                logger.Error("生成Excel异常");
                 return;
             }
 
@@ -829,7 +836,8 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("打印界面展示异常");
+                //Console.WriteLine("打印界面展示异常");
+                logger.Error("打印界面展示异常");
             }
            
         }
@@ -981,7 +989,8 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("报表获取时间范围内的对象异常");
+                //Console.WriteLine("报表获取时间范围内的对象异常");
+                logger.Error("报表获取时间范围内的对象异常");
             }
             return newList;
         }

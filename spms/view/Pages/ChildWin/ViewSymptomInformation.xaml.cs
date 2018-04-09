@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NLog;
 using spms.entity;
 using spms.util;
 using spms.view.dto;
@@ -22,6 +23,7 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class ViewSymptomInformation : Window
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         //去除窗体叉号
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
@@ -45,7 +47,7 @@ namespace spms.view.Pages.ChildWin
             Dictionary<string, object> dic = (Dictionary<string, Object>) DataContext;
             user = (User) dic["user"];
             symptomInfoDTO = (SymptomInfoDTO) dic["symptomInfoDto"];
-
+            logger.Info("user:" + user + "symptomInfoDTO:" + symptomInfoDTO);
             Load_Data();
         }
 

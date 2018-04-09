@@ -1,4 +1,5 @@
-﻿using spms.constant;
+﻿using NLog;
+using spms.constant;
 using spms.protocol;
 using spms.util;
 using System;
@@ -50,6 +51,7 @@ namespace spms.view.Pages.ChildWin
         int times = 0;//发送次数
         static bool isReceive = false;//是否收到回执
         private SerialPort serialPort;
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         //确定按钮
         private void Determine(object sender, RoutedEventArgs e)
         {
@@ -67,7 +69,7 @@ namespace spms.view.Pages.ChildWin
                     //Console.WriteLine("加密后的报文" + ProtocolUtil.ByteToStringOk(send));
                     //byte[] test = null;
                     //new MakerUSBDogFrame().PackData(ref test, new byte[] { 0xF0 }, Encoding.UTF8.GetBytes("hello"));
-                    //Console.WriteLine("测试:"+CRC16Util.ByteToStringOk(test));
+                    logger.Debug("激活:"+ProtocolUtil.ByteToStringOk(send));
 
                     //2.判断当前是否已经连接过串口
                     SerialPortUtil.CheckPort();
@@ -108,7 +110,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("激活异常");
+                    logger.Error("激活异常");
+                    //Console.WriteLine("激活异常");
                 }
                 //else
                 //{
@@ -289,17 +292,20 @@ namespace spms.view.Pages.ChildWin
                             //todo 全局变量
                             ProtocolConstant.USB_SUCCESS = 1;
                             MessageBox.Show(LanguageUtils.ConvertLanguage("激活成功", "Activated successfully"));
-                            Console.WriteLine("激活成功");
+                            //Console.WriteLine("激活成功");
+                            logger.Debug("激活成功");
                         }
                         else
                         {
                             //MessageBox.Show("激活失败");
-                            Console.WriteLine("激活失败");
+                            //Console.WriteLine("激活失败");
+                            logger.Debug("激活失败");
                         }
                     }
                     else
                     {
-                        Console.WriteLine("校验失败");
+                        //Console.WriteLine("校验失败");
+                        logger.Debug("校验失败");
                     }
                 }
             }

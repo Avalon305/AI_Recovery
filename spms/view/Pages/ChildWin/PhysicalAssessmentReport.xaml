@@ -8,7 +8,7 @@
          PreviewKeyDown="key_dowm"
        ResizeMode="CanMinimize"  
         Icon="/view/Images/icon2.png"
-        Title="{DynamicResource Title.Title}" Height="1000" Width="667"
+        Title="{DynamicResource Title.Title}" Height="1000" Width="643"
         Loaded="Window_Loaded">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>

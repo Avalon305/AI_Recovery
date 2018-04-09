@@ -11,7 +11,7 @@
         Icon="/view/Images/icon2.png"
          PreviewKeyDown="key_dowm"
         Title="{DynamicResource Title.Title}"
-        ResizeMode="CanMinimize"   Height="1000" Width="1216"
+        ResizeMode="CanMinimize"   Height="972" Width="1216"
         Loaded="Window_Loaded">
     <Window.Resources>
         <Style TargetType="ToolTip">

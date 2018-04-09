@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NLog;
 using spms.constant;
 using spms.dao;
 using spms.entity;
@@ -53,7 +54,6 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class InputTraining : Window
     {
-
         //去除窗体叉号
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
@@ -61,7 +61,8 @@ namespace spms.view.Pages.ChildWin
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-        private User user; 
+        private User user;
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public InputTraining()
         {
             InitializeComponent();
@@ -353,6 +354,7 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception exception)
             {
+                logger.Warn(exception);
                 return;
             }
             MessageBox.Show(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
@@ -1400,7 +1402,6 @@ namespace spms.view.Pages.ChildWin
                     byte[] data = new byte[90];
                     //用户id
                     string str = new UserService().getUserByUserId(user.Pk_User_Id).User_IDCard + "";
-                    Console.WriteLine(str);
                     byte[] idBytes = Encoding.ASCII.GetBytes(str);
                     Array.Copy(idBytes, 0, data, 0, idBytes.Length);
 
@@ -1454,7 +1455,8 @@ namespace spms.view.Pages.ChildWin
                         data[position] = (byte)DeviceType.X02;
                     }
 
-                    Console.WriteLine("发卡的内容：" + ProtocolUtil.ByteToStringOk(data));
+                    //Console.WriteLine("发卡的内容：" + ProtocolUtil.ByteToStringOk(data));
+                    logger.Debug("发卡的内容：" + ProtocolUtil.ByteToStringOk(data));
 
                     byte[] send = ProtocolUtil.packHairpinData(0x01, data);
 
@@ -1533,7 +1535,8 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("写卡异常"); 
+                //Console.WriteLine("写卡异常");
+                logger.Error("写卡异常");
             }
            
 
@@ -1618,7 +1621,8 @@ namespace spms.view.Pages.ChildWin
                 byte[] receiveData = new byte[len];
                 serialPort.Read(receiveData, 0, len);
 
-                Console.WriteLine("收到数据："+ProtocolUtil.ByteToStringOk(receiveData));
+                //Console.WriteLine("收到数据："+ProtocolUtil.ByteToStringOk(receiveData));
+                logger.Debug("收到数据：" + ProtocolUtil.ByteToStringOk(receiveData));
 
                 int offset = 0;
 
@@ -1680,7 +1684,8 @@ namespace spms.view.Pages.ChildWin
                                 }
                                 catch (Exception exception)
                                 {
-                                    Console.WriteLine("捕获异常了");
+                                    //Console.WriteLine("捕获异常了");
+                                    logger.Error("保存数据异常");
                                     return;
                                 }
                             }));
