@@ -9,7 +9,7 @@
         Title="{DynamicResource Title.Title}"
 ResizeMode="CanMinimize"  
          PreviewKeyDown="key_dowm"
-        Height="1050" Width="1867"
+        Height="890" Width="1620"
         Loaded="Window_Loaded">
     <Window.Resources>
         <local:TextBoxText x:Key="text"/>

@@ -8,7 +8,7 @@
         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}"
-        ResizeMode="CanMinimize"   Height="1000" Width="1216"
+        ResizeMode="CanMinimize"   Height="954" Width="1202"
         Loaded="Window_Loaded">
     <Viewbox Name="viewbox" Stretch="Fill">
     <StackPanel>
