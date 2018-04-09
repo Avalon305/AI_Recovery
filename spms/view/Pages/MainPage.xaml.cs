@@ -813,9 +813,16 @@ namespace spms.view.Pages
 
         private void GoBack(object sender, RoutedEventArgs e)
         {
-           // Window window = (Window)this.Parent;
-            //window.Content = new Login();
-            System.Environment.Exit(0);
+
+            // Window window = (Window)this.Parent;
+            ////window.Content = new Login();
+            //// System.Environment.Exit(0);
+            //window.Content = 
+            //window.Show();
+            Login mwin = new Login();
+            Application.Current.MainWindow = mwin;
+            ((Window)this.Parent).Close();
+            mwin.Show();
             //Login login = new Login
             //{
             //    Owner = Window.GetWindow(this),
@@ -823,7 +830,7 @@ namespace spms.view.Pages
             //    ShowInTaskbar = false,
             //    WindowStartupLocation = WindowStartupLocation.CenterScreen
             //};
-            
+
             //login.ShowDialog();
             //window.Close();
 

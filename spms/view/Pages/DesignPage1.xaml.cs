@@ -68,6 +68,10 @@ namespace spms.view.Pages
             //setter.Pk_Set_Id = 5;
             //setterList.Add(setterDao.Load(setter.Pk_Set_Id));
             setterList = setterDao.ListAll();
+            //初始化版本号
+            if (setterList!=null&& setterList.Count==1) {
+                setterList[0].Set_Version = CommUtil.GetCurrentVersion();
+            }
             try
             {
                 Pk_Set_Id = setterList[0].Pk_Set_Id;
