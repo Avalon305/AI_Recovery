@@ -11,11 +11,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NLog;
 using spms.constant;
 using spms.dao;
 using spms.entity;
 using spms.service;
 using spms.util;
+using spms.view.dto;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -24,6 +26,7 @@ namespace spms.view.Pages.ChildWin
     /// </summary>
     public partial class InputTrainingResults : Window
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         //去除窗体叉号
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
@@ -63,7 +66,7 @@ namespace spms.view.Pages.ChildWin
             //com_52.ItemsSource = Add(0, 30, 1);
             CPAttr3.ItemsSource = Add(1, 8, 2);
             var nullTiIdByUserId = new SymptomInfoDao().GetNullTiIdByUserId(user.Pk_User_Id);
-            symp.ItemsSource = nullTiIdByUserId;
+            symp.ItemsSource = new SymptomInfoDTO().ConvertDtoList(nullTiIdByUserId);
         }
 
         private void Certain_Dev()
@@ -183,6 +186,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
 
                 try
@@ -191,6 +195,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
 
                 try
@@ -199,6 +204,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
 
                 try
@@ -207,6 +213,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
 
                 try
@@ -215,6 +222,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
 
                 try
@@ -223,6 +231,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
                 devicePrescription.Dp_status = 1;
                 try
@@ -231,6 +240,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
                 devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
                 if (LanguageUtils.EqualsResource(HLPTimer.Text, "TrainingListView.Valid"))
@@ -244,6 +254,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
+                        logger.Warn(ex);
                         MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
@@ -269,6 +280,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
 
                 try
@@ -277,6 +289,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
 
                 try
@@ -285,6 +298,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
 
                 try
@@ -293,6 +307,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
 
                 try
@@ -301,6 +316,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
 
                 try
@@ -333,6 +349,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
                 prescriptionResult.PR_AttentionPoint = HLPAttentionpoint.Text;
                 prescriptionResult.PR_UserThoughts = HLPUserthoughts.Text;
@@ -361,6 +378,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
                 try
                 {
@@ -368,8 +386,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -378,8 +396,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -388,8 +406,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+
+                    logger.Warn(exception);
                 }
 
                 try
@@ -398,8 +416,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
                 devicePrescription.Dp_status = 1;
                 try
@@ -408,8 +426,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X05;
                 if (LanguageUtils.EqualsResource(ROWTimer.Text, "TrainingListView.Valid"))
@@ -423,6 +441,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
+                        logger.Warn(ex);
                         MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
@@ -448,8 +467,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+
+                    logger.Warn(exception);
                 }
 
                 try
@@ -458,8 +477,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+
+                    logger.Warn(exception);
                 }
 
                 try
@@ -468,8 +487,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -478,8 +497,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+
+                    logger.Warn(exception);
                 }
 
                 try
@@ -488,8 +507,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -498,8 +517,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -508,8 +527,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 //try
@@ -528,8 +547,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
                 prescriptionResult.PR_AttentionPoint = ROWAttentionpoint.Text;
                 prescriptionResult.PR_UserThoughts = ROWUserthoughts.Text;
@@ -558,6 +577,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
                 try
                 {
@@ -565,8 +585,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -575,8 +595,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -585,8 +605,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -595,8 +615,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
                 devicePrescription.Dp_status = 1;
                 try
@@ -605,8 +625,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
                 if (LanguageUtils.EqualsResource(TFTimer.Text, "TrainingListView.Valid"))
@@ -620,6 +640,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
+                        logger.Warn(ex);
                         MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
@@ -645,8 +666,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -655,8 +676,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -675,8 +696,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -685,8 +706,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+
+                    logger.Warn(exception);
                 }
 
                 try
@@ -695,8 +716,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -705,8 +726,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+
+                    logger.Warn(exception);
                 }
 
                 //try
@@ -757,6 +778,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
                 try
                 {
@@ -764,8 +786,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -774,8 +796,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+
+                    logger.Warn(exception);
                 }
 
                 try
@@ -784,8 +806,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -794,8 +816,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+
+                    logger.Warn(exception);
                 }
                 devicePrescription.Dp_status = 1;
                 try
@@ -804,8 +826,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
                 if (LanguageUtils.EqualsResource(LETimer.Text, "TrainingListView.Valid"))
@@ -819,6 +841,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
+                        logger.Warn(ex);
                         MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
@@ -844,8 +867,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+
+                    logger.Warn(exception);
                 }
 
                 try
@@ -854,8 +877,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -864,8 +887,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -874,8 +897,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -884,8 +907,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -894,8 +917,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -904,8 +927,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+
+                    logger.Warn(exception);
                 }
 
                 //try
@@ -924,8 +947,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
                 prescriptionResult.PR_AttentionPoint = LEAttentionpoint.Text;
                 prescriptionResult.PR_UserThoughts = LEUserthoughts.Text;
@@ -952,6 +975,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
                 try
                 {
@@ -959,8 +983,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -969,8 +993,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -979,8 +1003,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -989,8 +1013,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
                 devicePrescription.Dp_status = 1;
                 try
@@ -999,8 +1023,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
                 if (LanguageUtils.EqualsResource(HATimer.Text, "TrainingListView.Valid"))
@@ -1014,6 +1038,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
+                        logger.Warn(ex);
                         MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
@@ -1040,8 +1065,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -1050,8 +1075,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -1060,8 +1085,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -1070,8 +1095,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -1080,8 +1105,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -1090,8 +1115,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -1100,8 +1125,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 //try
@@ -1120,8 +1145,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
                 prescriptionResult.PR_AttentionPoint = HAAttentionpoint.Text;
                 prescriptionResult.PR_UserThoughts = HAUserthoughts.Text;
@@ -1148,6 +1173,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
+                    logger.Warn(exception);
                 }
                 try
                 {
@@ -1155,8 +1181,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+
+                    logger.Warn(exception);
                 }
 
                 try
@@ -1165,8 +1191,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -1175,8 +1201,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -1185,8 +1211,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
                 devicePrescription.Dp_status = 1;
                 try
@@ -1195,8 +1221,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
                 if (LanguageUtils.EqualsResource(CPTimer.Text, "TrainingListView.Valid"))
@@ -1210,6 +1236,7 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
+                        logger.Warn(ex);
                         MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
@@ -1235,8 +1262,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+
+                    logger.Warn(exception);
                 }
 
                 try
@@ -1245,8 +1272,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -1255,8 +1282,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -1265,8 +1292,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -1275,8 +1302,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+
+                    logger.Warn(exception);
                 }
 
                 try
@@ -1285,8 +1312,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 try
@@ -1295,8 +1322,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
 
                 //try
@@ -1315,8 +1342,8 @@ namespace spms.view.Pages.ChildWin
                 }
                 catch (Exception exception)
                 {
-                    
-                    
+                    logger.Warn(exception);
+
                 }
                 prescriptionResult.PR_AttentionPoint = CPAttentionpoint.Text;
                 prescriptionResult.PR_UserThoughts = CPUserthoughts.Text;

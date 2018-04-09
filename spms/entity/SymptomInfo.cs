@@ -12,8 +12,8 @@ namespace spms.entity
     public class SymptomInfo
     {
         //参加常量，0代表不参加，1参加
-        public static byte? NO = 0;
-        public static byte? YES = 1;
+        public static byte? NO = 1;
+        public static byte? YES = 0;
 
         //主键 自增  SI为SymptomInfo缩写
         [Key]

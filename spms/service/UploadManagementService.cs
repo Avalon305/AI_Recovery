@@ -59,7 +59,7 @@ namespace spms.service
             //}
             byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
             byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
-            mac = Encoding.GetEncoding("GBK").GetString(b);
+            mac = Encoding.GetEncoding("GBK").GetString(b).Replace(":", "-");
 
             ///if识别出表,设置发送路径，select出实体，转化至DTO，json打成string,返回
             //识别是否是权限用户添加

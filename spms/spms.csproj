@@ -644,6 +644,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\design.png" />
     <Resource Include="view\Images\123.jpg" />
     <Resource Include="view\Images\6%281%29.png" />
     <Resource Include="view\Images\img6.jpg" />

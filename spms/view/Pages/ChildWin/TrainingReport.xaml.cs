@@ -1,4 +1,5 @@
-﻿using OfficeOpenXml;
+﻿using NLog;
+using OfficeOpenXml;
 using OfficeOpenXml.Drawing.Chart;
 using OfficeOpenXml.Style;
 using Spire.Xls;
@@ -42,6 +43,7 @@ namespace spms.view.Pages.ChildWin
 
 
         Thread initializationExcelToPdfThread;
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         /// <summary>
         /// 作用：经过初步测试，第一次Excel转pdf相对较慢，所以在进入程序的时候，执行一次Excel转PDF
         /// </summary>
@@ -96,46 +98,64 @@ namespace spms.view.Pages.ChildWin
 
         private void Button_Click_Print(object sender, RoutedEventArgs e)
         {
-            if (is_comprehensiv.IsChecked == true)//训练报告
+            try
             {
-                GenerateTrainReport();
+                if (is_comprehensiv.IsChecked == true)//训练报告
+                {
+                    GenerateTrainReport();
+                }
+                else if (is_detail.IsChecked == true)//详细报告
+                {
+                    GenerateDetailReport();
+                }
+                else if (is_nurse.IsChecked == true)//看护记录报告
+                {
+                    GenerateNurseReport();
+                }
+                else
+                {
+                    return;
+                }
             }
-            else if (is_detail.IsChecked == true)//详细报告
+            catch (Exception ex)
             {
-                GenerateDetailReport();
-            }
-            else if (is_nurse.IsChecked == true)//看护记录报告
-            {
-                GenerateNurseReport();
-            }
-            else
-            {
+                //Console.WriteLine("生成Excel文件异常");
+                logger.Error("生成Excel文件异常");
                 return;
             }
 
-            //直接打印Excel文件
-            Workbook workbook = new Workbook();
-            workbook.LoadFromFile(CommUtil.GetDocPath("test.xlsx"));
-            System.Windows.Forms.PrintDialog dialog = new System.Windows.Forms.PrintDialog();
-            dialog.AllowPrintToFile = true;
-            dialog.AllowCurrentPage = true;
-            dialog.AllowSomePages = true;
-            dialog.AllowSelection = true;
-            dialog.UseEXDialog = true;
-            dialog.PrinterSettings.Duplex = Duplex.Simplex;
-            dialog.PrinterSettings.FromPage = 0;
-            dialog.PrinterSettings.ToPage = 8;
-            dialog.PrinterSettings.PrintRange = PrintRange.SomePages;
-            workbook.PrintDialog = dialog;
-            PrintDocument pd = workbook.PrintDocument;
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            { pd.Print(); }
-
-            if (DocumentInput_Check.IsChecked == true)
+            try
             {
+                //直接打印Excel文件
+                Workbook workbook = new Workbook();
                 workbook.LoadFromFile(CommUtil.GetDocPath("test.xlsx"));
-                workbook.SaveToFile(@text_output_document.Text, FileFormat.PDF);
+                System.Windows.Forms.PrintDialog dialog = new System.Windows.Forms.PrintDialog();
+                dialog.AllowPrintToFile = true;
+                dialog.AllowCurrentPage = true;
+                dialog.AllowSomePages = true;
+                dialog.AllowSelection = true;
+                dialog.UseEXDialog = true;
+                dialog.PrinterSettings.Duplex = Duplex.Simplex;
+                dialog.PrinterSettings.FromPage = 0;
+                dialog.PrinterSettings.ToPage = 8;
+                dialog.PrinterSettings.PrintRange = PrintRange.SomePages;
+                workbook.PrintDialog = dialog;
+                PrintDocument pd = workbook.PrintDocument;
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                { pd.Print(); }
+
+                if (DocumentInput_Check.IsChecked == true)
+                {
+                    workbook.LoadFromFile(CommUtil.GetDocPath("test.xlsx"));
+                    workbook.SaveToFile(@text_output_document.Text, FileFormat.PDF);
+                }
             }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("训练报告打印异常");
+                logger.Error("训练报告打印异常");
+            }
+            
         }
 
 
@@ -250,7 +270,7 @@ namespace spms.view.Pages.ChildWin
 
                     for (int i = 0,k=j* count; k < (j + 1) * count && k < list.Count; i++,k++)
                     {
-                        Console.WriteLine(k);
+                        //Console.WriteLine(k);
                         //表头行+两个表头
                         int row = tableRow + 2 + i;
                         worksheet.Cells[row, 1, row, 2].Merge = true;
@@ -638,76 +658,84 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Document_Type_Checked (object sender, RoutedEventArgs e)
         {
-            //清空之前选中的时间
-            selectedDate.Clear();
-            if (is_comprehensiv.IsChecked == true || is_nurse.IsChecked == true)//训练报告或看护记录报告
+            try
             {
-                if (Current_User != null)
+                //清空之前选中的时间
+                selectedDate.Clear();
+                if (is_comprehensiv.IsChecked == true || is_nurse.IsChecked == true)//训练报告或看护记录报告
                 {
-                    List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(Current_User.Pk_User_Id);
-                    trainingAndSymptomBeans = list;//赋值全局
-                    //更新数据
-                    DateTime? startTime = getDateByStr(start_date.Text); 
-                    DateTime? endTime = getDateByStr(end_date.Text);
-                    datalist.DataContext = listBeansByStartToEndTime(startTime, endTime);
-                }
-
-                //修改输出文档的名称
-                if (DocumentInput_Check != null)
-                {
-                    if (DocumentInput_Check.IsChecked == true)
+                    if (Current_User != null)
                     {
-                        if (text_output_document.Text != "")
-                        {
-                            if (is_comprehensiv.IsChecked == true)
-                            {
-                                if (text_output_document.Text.IndexOf(LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report")) == -1)
-                                {
-                                    text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("详细报告", "Detailed report"), LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report"));
-                                    text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("看护记录报告", " Care record report"), LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report"));
-                                }
-                            }
-                            if (is_nurse.IsChecked == true)
-                            {
-                                if (text_output_document.Text.IndexOf(LanguageUtils.ConvertLanguage("看护记录报告", " Care record report")) == -1)
-                                {
-                                    text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("详细报告", "Detailed report"), LanguageUtils.ConvertLanguage("看护记录报告", " Care record report"));
-                                    text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report"), LanguageUtils.ConvertLanguage("看护记录报告", " Care record report"));
-                                }
-                            }
+                        List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(Current_User.Pk_User_Id);
+                        trainingAndSymptomBeans = list;//赋值全局
+                                                       //更新数据
+                        DateTime? startTime = getDateByStr(start_date.Text);
+                        DateTime? endTime = getDateByStr(end_date.Text);
+                        datalist.DataContext = listBeansByStartToEndTime(startTime, endTime);
+                    }
 
+                    //修改输出文档的名称
+                    if (DocumentInput_Check != null)
+                    {
+                        if (DocumentInput_Check.IsChecked == true)
+                        {
+                            if (text_output_document.Text != "")
+                            {
+                                if (is_comprehensiv.IsChecked == true)
+                                {
+                                    if (text_output_document.Text.IndexOf(LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report")) == -1)
+                                    {
+                                        text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("详细报告", "Detailed report"), LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report"));
+                                        text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("看护记录报告", " Care record report"), LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report"));
+                                    }
+                                }
+                                if (is_nurse.IsChecked == true)
+                                {
+                                    if (text_output_document.Text.IndexOf(LanguageUtils.ConvertLanguage("看护记录报告", " Care record report")) == -1)
+                                    {
+                                        text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("详细报告", "Detailed report"), LanguageUtils.ConvertLanguage("看护记录报告", " Care record report"));
+                                        text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report"), LanguageUtils.ConvertLanguage("看护记录报告", " Care record report"));
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+
+                }
+                else if (is_detail.IsChecked == true)//详细报告
+                {
+                    if (Current_User != null)
+                    {
+                        List<DevicePrescriptionExcel> list = excelService.ListTrainingDetailByUserId(Current_User.Pk_User_Id);
+                        devicePrescriptionExcels = list;//赋值全局
+                                                        //更新数据
+                        DateTime? startTime = getDateByStr(start_date.Text);
+                        DateTime? endTime = getDateByStr(end_date.Text);
+                        datalist.DataContext = listBeansByStartToEndTime(startTime, endTime);
+                    }
+
+                    //修改输出文档的名称
+                    if (DocumentInput_Check != null)
+                    {
+                        if (DocumentInput_Check.IsChecked == true)
+                        {
+                            if (text_output_document.Text != "")
+                            {
+                                if (text_output_document.Text.IndexOf(LanguageUtils.ConvertLanguage("详细报告", "Detailed report")) == -1)
+                                {
+                                    text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report"), LanguageUtils.ConvertLanguage("详细报告", "Detailed report"));
+                                    text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("看护记录报告", " Care record report"), LanguageUtils.ConvertLanguage("详细报告", "Detailed report"));
+                                }
+                            }
                         }
                     }
                 }
-                
             }
-            else if (is_detail.IsChecked == true)//详细报告
+            catch (Exception ex)
             {
-                if (Current_User != null)
-                {
-                    List<DevicePrescriptionExcel> list = excelService.ListTrainingDetailByUserId(Current_User.Pk_User_Id);
-                    devicePrescriptionExcels = list;//赋值全局
-                    //更新数据
-                    DateTime? startTime = getDateByStr(start_date.Text);
-                    DateTime? endTime = getDateByStr(end_date.Text);
-                    datalist.DataContext = listBeansByStartToEndTime(startTime, endTime);
-                }
-
-                //修改输出文档的名称
-                if (DocumentInput_Check != null)
-                {
-                    if (DocumentInput_Check.IsChecked == true)
-                    {
-                        if (text_output_document.Text != "")
-                        {
-                            if (text_output_document.Text.IndexOf(LanguageUtils.ConvertLanguage("详细报告", "Detailed report")) == -1)
-                            {
-                                text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report"), LanguageUtils.ConvertLanguage("详细报告", "Detailed report"));
-                                text_output_document.Text = text_output_document.Text.Replace(LanguageUtils.ConvertLanguage("看护记录报告", " Care record report"), LanguageUtils.ConvertLanguage("详细报告", "Detailed report"));
-                            }
-                        }
-                    }
-                }
+                //Console.WriteLine("文档切换异常");
+                logger.Error("文档切换异常");
             }
         }
 
@@ -718,28 +746,36 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Button_Click_OutputDocument(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog();
-            sfd.Filter = LanguageUtils.ConvertLanguage("PDF文档（*.pdf）|*.pdf", "PDF document (*.pdf)|*.pdf");
-            if (is_comprehensiv.IsChecked == true)
+            try
             {
-                sfd.FileName = Current_User.User_Name + "-"+ LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report") + "-"+DateTime.Now.ToString("yyyyMMddHHmm")+".pdf";
+                Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog();
+                sfd.Filter = LanguageUtils.ConvertLanguage("PDF文档（*.pdf）|*.pdf", "PDF document (*.pdf)|*.pdf");
+                if (is_comprehensiv.IsChecked == true)
+                {
+                    sfd.FileName = Current_User.User_Name + "-" + LanguageUtils.ConvertLanguage("综合报告", "Comprehensive report") + "-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
+                }
+                if (is_detail.IsChecked == true)
+                {
+                    sfd.FileName = Current_User.User_Name + "-" + LanguageUtils.ConvertLanguage("详细报告", "Detailed report") + "-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
+                }
+                if (is_nurse.IsChecked == true)
+                {
+                    sfd.FileName = Current_User.User_Name + "-" + LanguageUtils.ConvertLanguage("看护记录报告", " Care record report") + "-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
+                }
+
+                //设置默认文件类型显示顺序
+                sfd.FilterIndex = 1;
+                //保存对话框是否记忆上次打开的目录
+                sfd.RestoreDirectory = true;
+                if (sfd.ShowDialog() == true)
+                {
+                    text_output_document.Text = sfd.FileName;
+                }
             }
-             if (is_detail.IsChecked == true)
+            catch (Exception ex)
             {
-                sfd.FileName = Current_User.User_Name + "-"+ LanguageUtils.ConvertLanguage("详细报告", "Detailed report") + "-"+DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
-            }
-             if (is_nurse.IsChecked == true)
-            {
-                sfd.FileName = Current_User.User_Name + "-"+ LanguageUtils.ConvertLanguage("看护记录报告", " Care record report") + "-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
-            }
-            
-            //设置默认文件类型显示顺序
-            sfd.FilterIndex = 1;
-            //保存对话框是否记忆上次打开的目录
-            sfd.RestoreDirectory = true;
-            if (sfd.ShowDialog() == true)
-            {
-                text_output_document.Text = sfd.FileName;
+                //Console.WriteLine("文档输出异常");
+                logger.Error("文档输出异常");
             }
         }
 
@@ -776,24 +812,34 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("生成Excel异常");
+                //Console.WriteLine("生成Excel异常");
+                logger.Error("生成Excel异常");
                 return;
             }
 
-            //打印
-            PdfViewer pDF = new PdfViewer();
+            try
+            { 
+                //打印
+                PdfViewer pDF = new PdfViewer();
 
-            if (DocumentInput_Check.IsChecked == true)
-            {
-                if (text_output_document.Text != "")
+                if (DocumentInput_Check.IsChecked == true)
                 {
-                    pDF.SaveToPath = text_output_document.Text;
+                    if (text_output_document.Text != "")
+                    {
+                        pDF.SaveToPath = text_output_document.Text;
+                    }
                 }
-            }
 
-            pDF.Left = 200;
-            pDF.Top = 10;
-            pDF.Show();
+                pDF.Left = 200;
+                pDF.Top = 10;
+                pDF.Show();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("打印界面展示异常");
+                logger.Error("打印界面展示异常");
+            }
+           
         }
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
@@ -862,80 +908,89 @@ namespace spms.view.Pages.ChildWin
 
         private List<object> listBeansByStartToEndTime(DateTime? startTime, DateTime? endTime)
         {
-            List<object> newList = new List<object>();
-            if (is_comprehensiv.IsChecked == true || is_nurse.IsChecked == true)
+            List<object> newList = null;
+            try
             {
-                if (Current_User != null)
+                newList = new List<object>();
+                if (is_comprehensiv.IsChecked == true || is_nurse.IsChecked == true)
                 {
-                    for (int i = 0; i < trainingAndSymptomBeans.Count; i++)
+                    if (Current_User != null)
                     {
-                        //判断选中哪些时间
-                        //记录的时间
-                        DateTime gmt_Create = (DateTime)trainingAndSymptomBeans[i].Gmt_Create;
-                        if (startTime != null && endTime == null)
+                        for (int i = 0; i < trainingAndSymptomBeans.Count; i++)
                         {
-                            if (DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0)
+                            //判断选中哪些时间
+                            //记录的时间
+                            DateTime gmt_Create = (DateTime)trainingAndSymptomBeans[i].Gmt_Create;
+                            if (startTime != null && endTime == null)
+                            {
+                                if (DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0)
+                                {
+                                    newList.Add(trainingAndSymptomBeans[i]);
+                                }
+                            }
+                            else if (startTime == null && endTime != null)
+                            {
+                                if (DateTime.Compare(((DateTime)endTime).AddDays(1), gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
+                                {
+                                    newList.Add(trainingAndSymptomBeans[i]);
+                                }
+                            }
+                            else if (startTime != null && endTime != null)
+                            {
+                                if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, ((DateTime)endTime).AddDays(1)) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
+                                {
+                                    newList.Add(trainingAndSymptomBeans[i]);
+                                }
+                            }
+                            else
                             {
                                 newList.Add(trainingAndSymptomBeans[i]);
                             }
                         }
-                        else if (startTime == null && endTime != null)
+                    }
+                }
+                else if (is_detail.IsChecked == true)
+                {
+                    if (Current_User != null)
+                    {
+                        for (int i = 0; i < devicePrescriptionExcels.Count; i++)
                         {
-                            if (DateTime.Compare(((DateTime)endTime).AddDays(1), gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
+                            //判断选中哪些时间
+                            //记录的时间
+                            DateTime gmt_Create = (DateTime)devicePrescriptionExcels[i].Gmt_Create;
+                            if (startTime != null && endTime == null)
                             {
-                                newList.Add(trainingAndSymptomBeans[i]);
+                                if (DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0)
+                                {
+                                    newList.Add(devicePrescriptionExcels[i]);
+                                }
                             }
-                        }
-                        else if (startTime != null && endTime != null)
-                        {
-                            if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, ((DateTime)endTime).AddDays(1)) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
+                            else if (startTime == null && endTime != null)
                             {
-                                 newList.Add(trainingAndSymptomBeans[i]);
+                                if (DateTime.Compare(((DateTime)endTime).AddDays(1), gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
+                                {
+                                    newList.Add(devicePrescriptionExcels[i]);
+                                }
                             }
-                        }
-                        else
-                        {
-                            newList.Add(trainingAndSymptomBeans[i]);
+                            else if (startTime != null && endTime != null)
+                            {
+                                if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, ((DateTime)endTime).AddDays(1)) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
+                                {
+                                    newList.Add(devicePrescriptionExcels[i]);
+                                }
+                            }
+                            else
+                            {
+                                newList.Add(devicePrescriptionExcels[i]);
+                            }
                         }
                     }
                 }
             }
-            else if (is_detail.IsChecked == true)
+            catch (Exception ex)
             {
-                if (Current_User != null)
-                {
-                    for (int i = 0; i < devicePrescriptionExcels.Count; i++)
-                    {
-                        //判断选中哪些时间
-                        //记录的时间
-                        DateTime gmt_Create = (DateTime)devicePrescriptionExcels[i].Gmt_Create;
-                        if (startTime != null && endTime == null)
-                        {
-                            if (DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0)
-                            {
-                                newList.Add(devicePrescriptionExcels[i]);
-                            }
-                        }
-                        else if (startTime == null && endTime != null)
-                        {
-                            if (DateTime.Compare(((DateTime)endTime).AddDays(1), gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
-                            {
-                                newList.Add(devicePrescriptionExcels[i]);
-                            }
-                        }
-                        else if (startTime != null && endTime != null)
-                        {
-                            if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, ((DateTime)endTime).AddDays(1)) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
-                            {
-                                newList.Add(devicePrescriptionExcels[i]);
-                            }
-                        }
-                        else
-                        {
-                            newList.Add(devicePrescriptionExcels[i]);
-                        }
-                    }
-                }
+                //Console.WriteLine("报表获取时间范围内的对象异常");
+                logger.Error("报表获取时间范围内的对象异常");
             }
             return newList;
         }

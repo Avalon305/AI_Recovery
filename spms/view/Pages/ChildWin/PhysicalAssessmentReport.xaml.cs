@@ -1,4 +1,5 @@
-﻿using OfficeOpenXml;
+﻿using NLog;
+using OfficeOpenXml;
 using OfficeOpenXml.Drawing.Chart;
 using OfficeOpenXml.Style;
 using Spire.Xls;
@@ -61,6 +62,7 @@ namespace spms.view.Pages.ChildWin
             this.Close();
         }
 
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         Thread initializationExcelToPdfThread;
         /// <summary>
         /// 作用：经过初步测试，第一次Excel转pdf相对较慢，所以在进入程序的时候，执行一次Excel转PDF
@@ -253,7 +255,8 @@ namespace spms.view.Pages.ChildWin
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine("含有非法数据");
+                        //Console.WriteLine("含有非法数据");
+                        logger.Error("含有非法数据");
                     }
 
 
@@ -519,7 +522,7 @@ namespace spms.view.Pages.ChildWin
                         {
                             if (worksheet.Cells[tableRow + i, 8].Value != null)
                             {
-                                int value = (int)worksheet.Cells[tableRow + i, 4].Value - (int)worksheet.Cells[tableRow + i, 8].Value;
+                                int value = (int)worksheet.Cells[tableRow + i, 8].Value - (int)worksheet.Cells[tableRow + i, 4].Value;
                                 if (value < 0)
                                 {
                                     worksheet.Cells[tableRow + i, 10].Value = value + "（↓）";
@@ -531,7 +534,7 @@ namespace spms.view.Pages.ChildWin
                             }
                             else if(worksheet.Cells[tableRow + i, 6].Value != null)
                             {
-                                int value = (int)worksheet.Cells[tableRow + i, 4].Value - (int)worksheet.Cells[tableRow + i, 6].Value;
+                                int value = (int)worksheet.Cells[tableRow + i, 6].Value - (int)worksheet.Cells[tableRow + i, 4].Value;
                                 if (value < 0)
                                 {
                                     worksheet.Cells[tableRow + i, 10].Value = value + "（↓）";
@@ -808,33 +811,43 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("生成Excel异常");
+                //Console.WriteLine("生成Excel异常");
+                logger.Error("生成Excel异常");
                 return;
             }
 
-            //直接打印Excel文件
-            Workbook workbook = new Workbook();
-            workbook.LoadFromFile(CommUtil.GetDocPath("test.xlsx"));
-            System.Windows.Forms.PrintDialog dialog = new System.Windows.Forms.PrintDialog();
-            dialog.AllowPrintToFile = true;
-            dialog.AllowCurrentPage = true;
-            dialog.AllowSomePages = true;
-            dialog.AllowSelection = true;
-            dialog.UseEXDialog = true;
-            dialog.PrinterSettings.Duplex = Duplex.Simplex;
-            dialog.PrinterSettings.FromPage = 0;
-            dialog.PrinterSettings.ToPage = 8;
-            dialog.PrinterSettings.PrintRange = PrintRange.SomePages;
-            workbook.PrintDialog = dialog;
-            PrintDocument pd = workbook.PrintDocument;
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            { pd.Print(); }
-
-            if (DocumentInput_Check.IsChecked == true)
+            try
             {
+                //直接打印Excel文件
+                Workbook workbook = new Workbook();
                 workbook.LoadFromFile(CommUtil.GetDocPath("test.xlsx"));
-                workbook.SaveToFile(@text_output_document.Text, FileFormat.PDF);
+                System.Windows.Forms.PrintDialog dialog = new System.Windows.Forms.PrintDialog();
+                dialog.AllowPrintToFile = true;
+                dialog.AllowCurrentPage = true;
+                dialog.AllowSomePages = true;
+                dialog.AllowSelection = true;
+                dialog.UseEXDialog = true;
+                dialog.PrinterSettings.Duplex = Duplex.Simplex;
+                dialog.PrinterSettings.FromPage = 0;
+                dialog.PrinterSettings.ToPage = 8;
+                dialog.PrinterSettings.PrintRange = PrintRange.SomePages;
+                workbook.PrintDialog = dialog;
+                PrintDocument pd = workbook.PrintDocument;
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                { pd.Print(); }
+
+                if (DocumentInput_Check.IsChecked == true)
+                {
+                    workbook.LoadFromFile(CommUtil.GetDocPath("test.xlsx"));
+                    workbook.SaveToFile(@text_output_document.Text, FileFormat.PDF);
+                }
             }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("体力评价报告打印异常");
+                logger.Error("体力评价报告打印异常");
+            }
+           
         }
 
         /// <summary>
@@ -865,18 +878,26 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Button_Click_OutputDocument(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog();
-            sfd.Filter = LanguageUtils.ConvertLanguage("PDF文档（*.pdf）|*.pdf", "PDF document (*.pdf)|*.pdf");
-            sfd.FileName = Current_User.User_Name + "-"+ LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment Report") +"-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
-
-            //设置默认文件类型显示顺序
-            sfd.FilterIndex = 1;
-            //保存对话框是否记忆上次打开的目录
-            sfd.RestoreDirectory = true;
-            if (sfd.ShowDialog() == true)
+            try
             {
-                text_output_document.Text = sfd.FileName;
+                Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog();
+                sfd.Filter = LanguageUtils.ConvertLanguage("PDF文档（*.pdf）|*.pdf", "PDF document (*.pdf)|*.pdf");
+                sfd.FileName = Current_User.User_Name + "-" + LanguageUtils.ConvertLanguage("体力评价报告", "Physical Assessment Report") + "-" + DateTime.Now.ToString("yyyyMMddHHmm") + ".pdf";
+
+                //设置默认文件类型显示顺序
+                sfd.FilterIndex = 1;
+                //保存对话框是否记忆上次打开的目录
+                sfd.RestoreDirectory = true;
+                if (sfd.ShowDialog() == true)
+                {
+                    text_output_document.Text = sfd.FileName;
+                }
             }
+            catch (Exception ex)
+            {
+
+            }
+           
         }
 
         /// <summary>
@@ -898,17 +919,26 @@ namespace spms.view.Pages.ChildWin
             }
             catch (Exception ex)
             {
-                Console.WriteLine("生成Excel异常");
+                logger.Error("生成Excel异常");
+                //Console.WriteLine("生成Excel异常");
                 return;
             }
 
 
             //打印
-            PdfViewer pDF = new PdfViewer();
-            pDF.SaveToPath = text_output_document.Text;
-            pDF.Left = 200;
-            pDF.Top = 10;
-            pDF.Show();
+            try
+            {
+                PdfViewer pDF = new PdfViewer();
+                pDF.SaveToPath = text_output_document.Text;
+                pDF.Left = 200;
+                pDF.Top = 10;
+                pDF.Show();
+            }
+            catch (Exception ex)
+            {
+
+            }
+           
         }
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
@@ -967,40 +997,48 @@ namespace spms.view.Pages.ChildWin
 
         private List<object> listBeansByStartToEndTime(DateTime? startTime, DateTime? endTime)
         {
-            List<object> newList = new List<object>();
-            if (Current_User != null)
+            List<object> newList = null;
+            try
             {
-                for (int i = 0; i < physicalPowerExcekVOs.Count; i++)
+                newList = new List<object>();
+                if (Current_User != null)
                 {
-                    //判断选中哪些时间
-                    //记录的时间
-                    DateTime gmt_Create = (DateTime)physicalPowerExcekVOs[i].Gmt_Create;
-                    if (startTime != null && endTime == null)
+                    for (int i = 0; i < physicalPowerExcekVOs.Count; i++)
                     {
-                        if (DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0)
+                        //判断选中哪些时间
+                        //记录的时间
+                        DateTime gmt_Create = (DateTime)physicalPowerExcekVOs[i].Gmt_Create;
+                        if (startTime != null && endTime == null)
+                        {
+                            if (DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0)
+                            {
+                                newList.Add(physicalPowerExcekVOs[i]);
+                            }
+                        }
+                        else if (startTime == null && endTime != null)
+                        {
+                            if (DateTime.Compare(((DateTime)endTime).AddDays(1), gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
+                            {
+                                newList.Add(physicalPowerExcekVOs[i]);
+                            }
+                        }
+                        else if (startTime != null && endTime != null)
+                        {
+                            if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, ((DateTime)endTime).AddDays(1)) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
+                            {
+                                newList.Add(physicalPowerExcekVOs[i]);
+                            }
+                        }
+                        else
                         {
                             newList.Add(physicalPowerExcekVOs[i]);
                         }
-                    }
-                    else if (startTime == null && endTime != null)
-                    {
-                        if (DateTime.Compare(((DateTime)endTime).AddDays(1), gmt_Create) > 0 || DateTime.Compare((DateTime)endTime, gmt_Create) == 0)
-                        {
-                            newList.Add(physicalPowerExcekVOs[i]);
-                        }
-                    }
-                    else if (startTime != null && endTime != null)
-                    {
-                        if ((DateTime.Compare((DateTime)startTime, gmt_Create) < 0 || DateTime.Compare((DateTime)startTime, gmt_Create) == 0) && (DateTime.Compare(gmt_Create, ((DateTime)endTime).AddDays(1)) < 0 || DateTime.Compare(gmt_Create, (DateTime)endTime) == 0))
-                        {
-                            newList.Add(physicalPowerExcekVOs[i]);
-                        }
-                    }
-                    else
-                    {
-                        newList.Add(physicalPowerExcekVOs[i]);
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+
             }
             return newList;
         }
