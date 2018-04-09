@@ -88,7 +88,7 @@ namespace spms.view.Pages.ChildWin
         public User Current_User { set; get; }
         public List<PhysicalPowerExcekVO> physicalPowerExcekVOs { get; set; }
         //用户存放选中的时间
-        private List<DateTime?> selectedDate = new List<DateTime?>();
+        public List<DateTime?> selectedDate { set; get; }
         private ExcelService excelService = new ExcelService();
 
         /// <summary>

@@ -511,6 +511,13 @@ namespace spms.view.Pages
         //按钮：制作报告，报表
         private void MakeReport(object sender, RoutedEventArgs e)
         {
+            User user = (User)UsersInfo.SelectedItem;
+            if (user == null)
+            {
+                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                return;
+            }
+
             //打开训练报告
             if (is_signinformationrecord.IsChecked == true || is_trainingrecord.IsChecked == true)
             {
@@ -535,6 +542,13 @@ namespace spms.view.Pages
                     List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(selectUser.Pk_User_Id);
                     trainingReport.datalist.DataContext = list;
                     trainingReport.trainingAndSymptomBeans = list;//赋值全局变量
+                    List<DateTime?> dateTimes = new List<DateTime?>();
+                    foreach (TrainingAndSymptomBean tas in list)
+                    {
+                        dateTimes.Add(tas.Gmt_Create);
+                    }
+                    trainingReport.selectedDate = dateTimes;
+
                     if (list.Count != 0)
                     {
                         trainingReport.start_date.SelectedDate = list[0].Gmt_Create;//起始时间
@@ -592,6 +606,14 @@ namespace spms.view.Pages
                     List<PhysicalPowerExcekVO> list = excelService.ListPhysicalPowerExcekVOByUserId(selectUser.Pk_User_Id);
                     physicalAssessmentReport.datalist.DataContext = list;
                     physicalAssessmentReport.physicalPowerExcekVOs = list;
+
+                    List<DateTime?> dateTimes = new List<DateTime?>();
+                    foreach (PhysicalPowerExcekVO tas in list)
+                    {
+                        dateTimes.Add(tas.Gmt_Create);
+                    }
+                    physicalAssessmentReport.selectedDate = dateTimes;
+
                     if (list.Count != 0)
                     {
                         physicalAssessmentReport.start_date.SelectedDate = list[0].Gmt_Create;//起始时间

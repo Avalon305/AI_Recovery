@@ -93,7 +93,7 @@ namespace spms.view.Pages.ChildWin
         //当前需要打印的用户
         public User Current_User { set; get; }
         //用于存放选中的时间
-        private List<DateTime?> selectedDate = new List<DateTime?>();
+        public List<DateTime?> selectedDate { set; get; }
         private ExcelService excelService = new ExcelService();
 
         private void Button_Click_Print(object sender, RoutedEventArgs e)
@@ -529,7 +529,7 @@ namespace spms.view.Pages.ChildWin
                     int tableRow = 12;
                     int length = list.Count;
                     //设置所有的行高
-                    for (int i = 1; i <= tableRow + length * 2 + 2; i++)
+                    for (int i = 1; i <= tableRow + length * 2 + 4; i++)
                     {
                         worksheet.Row(i).Height = 20;
                     }
@@ -668,7 +668,15 @@ namespace spms.view.Pages.ChildWin
                     {
                         List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(Current_User.Pk_User_Id);
                         trainingAndSymptomBeans = list;//赋值全局
-                                                       //更新数据
+
+                        List<DateTime?> dateTimes = new List<DateTime?>();
+                        foreach (TrainingAndSymptomBean tas in list)
+                        {
+                            dateTimes.Add(tas.Gmt_Create);
+                        }
+                        selectedDate = dateTimes;
+
+                        //更新数据
                         DateTime? startTime = getDateByStr(start_date.Text);
                         DateTime? endTime = getDateByStr(end_date.Text);
                         datalist.DataContext = listBeansByStartToEndTime(startTime, endTime);
@@ -709,7 +717,15 @@ namespace spms.view.Pages.ChildWin
                     {
                         List<DevicePrescriptionExcel> list = excelService.ListTrainingDetailByUserId(Current_User.Pk_User_Id);
                         devicePrescriptionExcels = list;//赋值全局
-                                                        //更新数据
+
+                        List<DateTime?> dateTimes = new List<DateTime?>();
+                        foreach (DevicePrescriptionExcel dpe in list)
+                        {
+                            dateTimes.Add(dpe.Gmt_Create);
+                        }
+                        selectedDate = dateTimes;
+
+                        //更新数据
                         DateTime? startTime = getDateByStr(start_date.Text);
                         DateTime? endTime = getDateByStr(end_date.Text);
                         datalist.DataContext = listBeansByStartToEndTime(startTime, endTime);

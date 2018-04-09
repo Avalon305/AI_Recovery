@@ -120,7 +120,7 @@
                         <ListBox ItemsSource="{Binding}" KeyboardNavigation.TabNavigation="None" x:Name="datalist" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="0,0,0.2,0">
                         <ListBox.ItemTemplate>
                             <DataTemplate >
-                                <CheckBox Content="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" ContentStringFormat="{}{0:yyyy-MM-dd HH:mm}" Checked="List_CheckBox_Checked" Unchecked="List_CheckBox_UnChecked"></CheckBox>
+                                <CheckBox IsChecked="True" Content="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" ContentStringFormat="{}{0:yyyy-MM-dd HH:mm}" Checked="List_CheckBox_Checked" Unchecked="List_CheckBox_UnChecked"></CheckBox>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
