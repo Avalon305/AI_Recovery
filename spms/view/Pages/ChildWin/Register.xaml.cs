@@ -465,7 +465,7 @@ namespace spms.view.Pages.ChildWin
             {
                 Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入身份证号码", "Please enter the ID number");
                 bubble_IDCard.IsOpen = true;
-            }else if (IDCard.Text.Length>18||(IDCard.Text.Length == 18&&!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text)))
+            }else if (IDCard.Text.Length>31||(IDCard.Text.Length == 18&&!inputlimited.InputLimited.IsIDcard(IDCard.Text) && !String.IsNullOrEmpty(IDCard.Text)))
             {
                 Error_Info_IDCard.Content = LanguageUtils.ConvertLanguage("请输入正确的身份证号码", "Please enter a valid ID number");
                 bubble_IDCard.IsOpen = true;
