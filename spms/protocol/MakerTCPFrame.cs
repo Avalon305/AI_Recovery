@@ -86,10 +86,19 @@ namespace spms.protocol
         public byte[] Make8007Frame(string idcard)
         {
             UserPicService picService = new UserPicService();
-            byte[] picData = picService.GetPictureData(idcard);
-            byte[] arr = new byte[picData.Length];
-            Array.Copy(picData, 0, arr, 0, picData.Length);
-            return arr;
+            try
+            {
+                byte[] picData = picService.GetPictureData(idcard);
+                byte[] arr = new byte[picData.Length];
+                Array.Copy(picData, 0, arr, 0, picData.Length);
+                 return arr;
+            }
+            catch(Exception ex)
+            {
+                logger.Error("请求照片信息时发生异常：" + ex.ToString());
+                return new byte[1];
+            }
+      
         }
 
         /// <summary>
@@ -100,6 +109,13 @@ namespace spms.protocol
         {
             UserService userService = new UserService();
             User u = userService.GetByIdCard(idcard);
+
+            if (u == null)
+            {
+                logger.Warn("请求用户信息时，用户不存在，用户ID：" + idcard);
+                return new byte[1];
+            }
+
             byte[] group = Encoding.GetEncoding("GBK").GetBytes(u.User_GroupName);
             byte[] initCare = Encoding.GetEncoding("GBK").GetBytes(u.User_InitCare);
             byte[] nowCare = Encoding.GetEncoding("GBK").GetBytes(u.User_Nowcare);
@@ -162,7 +178,7 @@ namespace spms.protocol
             var prescription = new TrainService().GetDevicePrescriptionByIdCardDeviceType(idcard, deviceType);
             if (prescription != null)
             {
-               logger.Info("获取到处方信息：" + prescription.ToString());
+               logger.Info("用户ID为："+idcard+";deviceType为:"+deviceType.ToString()+"；的获取到处方信息：" + prescription.ToString());
             }
          
             

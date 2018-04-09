@@ -1,4 +1,5 @@
-﻿using NLog;
+﻿using MySql.Data.MySqlClient;
+using NLog;
 using spms.bean;
 using spms.dao;
 using spms.http;
@@ -153,6 +154,10 @@ namespace spms
             try
             {
                 logger.Error(  "UI线程全局异常"+e.Exception.ToString());
+                if(e.Exception is MySqlException)
+                {
+                    //MessageBox.Show(LanguageUtils.GetCurrentLanuageStrByKey("App.DbException"));
+                }
                 e.Handled = true;
             }
             catch (Exception ex)

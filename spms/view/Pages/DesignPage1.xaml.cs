@@ -267,7 +267,7 @@ namespace spms.view.Pages
 
         private void Group_Update(object sender, RoutedEventArgs e)
         {
-            if (Selected[0] == 1)
+            if (Selected[0] == 1&& group!=null)
             {
                 UpdateGroupName groupUpdata = new UpdateGroupName
                 {
@@ -295,7 +295,7 @@ namespace spms.view.Pages
         }
         private void Disease_Update(object sender, RoutedEventArgs e)
         {
-            if (Selected[1] == 1)
+            if (Selected[1] == 1&& disease!=null)
             {
                 UpdateDiseaseName diseaseUpdata = new UpdateDiseaseName
                 {
@@ -321,7 +321,7 @@ namespace spms.view.Pages
         }
         private void Diagnosis_Update(object sender, RoutedEventArgs e)
         {
-            if (Selected[2] == 1)
+            if (Selected[2] == 1&& disease!=null)
             {
                 UpdateDiagnosisName diagnosisUpdata = new UpdateDiagnosisName
                 {
