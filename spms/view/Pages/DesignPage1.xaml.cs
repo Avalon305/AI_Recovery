@@ -165,7 +165,7 @@ namespace spms.view.Pages
                 string textValue1 = textBox1.Text;//机构团体名称
                 string textValue2 = textBox2.Text;//照片保存文档
                 string textValue3 = textBox3.Text;//机构电话
-                string textValue4 = textBox3.Text;//机构电话
+                //string textValue4 = textBox4.Text;//版本
                 int comboBox1Selected = comboBox1.SelectedIndex;//机构区分被选择的index
                 int comboBox2Selected = comboBox2.SelectedIndex;//语言被选择的index
                 entity.Setter setter = new entity.Setter();
@@ -173,7 +173,8 @@ namespace spms.view.Pages
                 setter.Set_OrganizationName = textValue1;
                 setter.Set_PhotoLocation = textValue2;
                 setter.Set_OrganizationPhone = textValue3;
-                setter.Set_Version = textValue4;
+                //setter.Set_Version = textValue4;
+                setter.Set_Version = CommUtil.GetCurrentVersion();
                 setter.Set_Language = comboBox2Selected;
                 setter.Set_OrganizationSort = comboBox1Selected.ToString();
                 setterDao.UpdateSetter(setter);
