@@ -660,6 +660,11 @@ namespace spms.view.Pages
                 MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
+            if (string.IsNullOrEmpty(user.User_Phone) || string.IsNullOrEmpty(user.User_IDCard))
+            {
+                MessageBox.Show(LanguageUtils.ConvertLanguage("用户信息不完整！", "Subject information is incomplete!"));
+                return;
+            }
             inputTrainingResults.DataContext = user;
             inputTrainingResults.ShowDialog();
             Refresh_RecordFrame_Action();
@@ -991,6 +996,11 @@ namespace spms.view.Pages
             if (user == null)
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                return;
+            }
+            if (string.IsNullOrEmpty(user.User_Phone) || string.IsNullOrEmpty(user.User_IDCard))
+            {
+                MessageBox.Show(LanguageUtils.ConvertLanguage("用户信息不完整！", "Subject information is incomplete!"));
                 return;
             }
             inputTraining.DataContext = user;
