@@ -373,6 +373,8 @@
     <s:String x:Key="TrainingResultView.BorgScale">自觉运动强度</s:String>
     <s:String x:Key="TrainingResultView.TrainTime(min)">训练时间（分钟）</s:String>
     <s:String x:Key="TrainingResultView.Time(min)">处方完成时间（分钟）</s:String>
+    <s:String x:Key="TrainingResultView.TrainTime">训练时间</s:String>
+    <s:String x:Key="TrainingResultView.Time">处方完成时间</s:String>
     <s:String x:Key="TrainingResultView.Distance(m)">距离（mm）</s:String>
     <s:String x:Key="TrainingResultView.TotalWork(J)">总工作量（J）</s:String>
     <s:String x:Key="TrainingResultView.Calorie(cal)">热量（cal）</s:String>
