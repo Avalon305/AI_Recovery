@@ -64,21 +64,31 @@ namespace spms.view
             #region 通知公告 未激活不心跳
 
             SetterDAO setterDao = new SetterDAO();
-            if (timerNotice == null)
+
+            //未激活无心跳
+            if (setterDao.ListAll() != null && setterDao.ListAll().Count == 0)
             {
 
-                while (setterDao.ListAll() != null)
-                {
-                    break;
-                }
-                BindNotice();
-
-                timerNotice = new System.Timers.Timer();
-                timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) => { BindNotice(); });
-
-                timerNotice.Interval = CommUtil.GetHeartBeatRate();
-                timerNotice.Start();
             }
+            //没有一般用户无心跳
+            else if (authDao.ListAll() != null && authDao.ListAll().Count == 1)
+            {
+
+            }
+            else {
+                if (timerNotice == null)
+                {
+
+                    BindNotice();
+
+                    timerNotice = new System.Timers.Timer();
+                    timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) => { BindNotice(); });
+
+                    timerNotice.Interval = CommUtil.GetHeartBeatRate();
+                    timerNotice.Start();
+                }
+            }
+            
 
             #endregion
 

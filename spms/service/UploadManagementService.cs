@@ -20,7 +20,7 @@ namespace spms.service
         /// <returns></returns>
         public List<UploadManagement> ListLimit30()
         {
-            Console.WriteLine("ListLimit30()-执行");
+            //Console.WriteLine("ListLimit30()-执行");
             return new UploadManagementDAO().ListLimit30();
         }
 

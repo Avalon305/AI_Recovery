@@ -211,7 +211,7 @@ namespace spms.view.Pages
                 autherUpdate.UserName.Text = auther.Auth_UserName;
                 autherUpdate.Pass.Password = auther.Auth_UserPass;
                 autherUpdate.Confirm_Pass.Password = auther.Auth_UserPass;
-                if (auther.Auth_OfflineTime.ToString() == "9999-12-31 00:00:00")
+                if (authDAO.GetAuther(auth_level).User_Status==2)//auther.Auth_OfflineTime.ToString() == "9999-12-31 00:00:00"
                 {
                     autherUpdate.Yes.IsChecked = true;
                     autherUpdate.Confirm_Date.SelectedDate = auther.Auth_OfflineTime;
