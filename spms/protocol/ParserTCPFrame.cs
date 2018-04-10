@@ -210,7 +210,7 @@ namespace spms.protocol
                 //动作节奏 0没问题 1 有些许问题 2 有问题
                 byte rhythem = body[23];
                 //使用者感想
-                string think = Encoding.GetEncoding("GBK").GetString(body, 24, body.Length - 24);
+                string think = ProtocolUtil.GetEndString(body, 24);
 
                 PrescriptionResult result = new PrescriptionResult();
                 //自觉运动强度
