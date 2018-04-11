@@ -191,7 +191,7 @@ namespace spms.view.Pages.ChildWin
             symptomInfo.SI_Suf_HighPressure = sufHighPressure;
             symptomInfo.SI_Suf_LowPressure = sufLowPressure;
             symptomInfo.SI_Suf_Pulse = sufPulse;
-            logger.Info("save:", symptomInfo.ToString());
+            logger.Info("save:" + symptomInfo);
             //存储
             new SymptomService().AddSymptomnInfo(symptomInfo);
             MessageBox.Show(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));

@@ -49,7 +49,7 @@ namespace spms.view.Pages.ChildWin
             Dictionary<string, object> dic = (Dictionary<string, Object>) DataContext;
             user = (User) dic["user"];
             trainDto = (TrainDTO) dic["trainDto"];
-            logger.Info("user:" + user + "trainDto:" + trainDto);
+            logger.Info("user:" + user + "; trainDto:" + trainDto);
             //绑定数据
             Load_Data();
             certain_dev();

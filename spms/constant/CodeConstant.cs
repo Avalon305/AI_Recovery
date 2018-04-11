@@ -30,7 +30,11 @@ namespace spms.constant
         /// <summary>
         /// 语言
         /// </summary>
-        Language
+        Language,
+        /// <summary>
+        /// 要介护度
+        /// </summary>
+        CareLevel
 
 
     }

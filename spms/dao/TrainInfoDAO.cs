@@ -58,6 +58,20 @@ namespace spms.dao
                 return conn.Query<TrainInfo>(query, new { FK_User_Id = userId }).ToList();
             }
         }
+        /// <summary>
+        /// 查找已经完成或正常状态的处方
+        /// </summary>
+        /// <param name="userPkUserId"></param>
+        /// <returns></returns>
+        public List<TrainInfo> GetFinishOrNormalTrainInfoByUserId(int userPkUserId)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "SELECT * FROM bdl_traininfo WHERE fk_user_id = @FK_User_Id AND status in (0,2);";
+
+                return conn.Query<TrainInfo>(query, new { FK_User_Id = userPkUserId}).ToList();
+            }
+        }
     }
 
     public class DevicePrescriptionDAO : BaseDAO<DevicePrescription>

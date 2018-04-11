@@ -139,8 +139,8 @@
     <s:String x:Key="AddOrEditView.FirstName">用户姓名（拼音）</s:String>
     <s:String x:Key="AddOrEditView.Gender">性别</s:String>
     <s:String x:Key="AddOrEditView.Group">小组名称</s:String>
-    <s:String x:Key="AddOrEditView.InitialCareLevel">初期要介护度</s:String>
-    <s:String x:Key="AddOrEditView.CurrentCareLevel">现在要介护度</s:String>
+    <s:String x:Key="AddOrEditView.InitialCareLevel">初期护理程度</s:String>
+    <s:String x:Key="AddOrEditView.CurrentCareLevel">现在护理程度</s:String>
     <s:String x:Key="AddOrEditView.Disease">疾病名称</s:String>
     <s:String x:Key="AddOrEditView.Diagnosis">残障名称</s:String>
     <s:String x:Key="AddOrEditView.BirthDate">出生日期</s:String>
