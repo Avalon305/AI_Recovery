@@ -61,7 +61,6 @@ namespace spms.view.Pages
             }
             else
             {
-                //TODO 英文图片
                 title_pic.Source = new BitmapImage(new Uri(@"\view\Images\design.png", UriKind.Relative));
             }
             entity.Setter setter = new entity.Setter();

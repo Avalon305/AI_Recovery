@@ -34,10 +34,10 @@ namespace spms.protocol
                 byte[] source = new byte[buffer.ReadableBytes];
                 buffer.ReadBytes(source);
 
-                logger.Info("收到报文：{0}", ProtocolUtil.BytesToString(source));
+               // logger.Info("收到报文："+ ProtocolUtil.BytesToString(source));
 
                 byte[] response = parserTCPFrame.Parser(source);
-                logger.Info("响应报文：{0}", ProtocolUtil.BytesToString(response));
+                //logger.Info("响应报文："+ ProtocolUtil.BytesToString(response));
                 context.WriteAndFlushAsync(Unpooled.CopiedBuffer(response));
 
 

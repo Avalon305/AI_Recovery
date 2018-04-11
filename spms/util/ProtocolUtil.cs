@@ -16,7 +16,7 @@ namespace spms.util
         private static Int16 serialNo = 0;
 
         /// <summary>
-        /// 获取\0终结符所在的下标
+        /// 获取\0终结符所在的用户ID
         /// </summary>
         /// <param name="source"></param>
         /// <param name="beginIndex"></param>
@@ -24,6 +24,23 @@ namespace spms.util
         public static string GetEndUserIdString(byte[] source, int beginIndex)
         {
             for (int i = beginIndex; i < beginIndex+32; i++)
+            {
+                if (source[i] == 0x00)
+                {
+                    return Encoding.GetEncoding("GBK").GetString(source, beginIndex, i - beginIndex);
+                }
+            }
+            return "";
+        }
+        /// <summary>
+        /// 获取\0终结符的字符串
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="beginIndex"></param>
+        /// <returns></returns>
+        public static string GetEndString(byte[] source, int beginIndex)
+        {
+            for (int i = beginIndex; i < source.Length; i++)
             {
                 if (source[i] == 0x00)
                 {

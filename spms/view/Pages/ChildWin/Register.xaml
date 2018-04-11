@@ -220,14 +220,14 @@
                     <Border Grid.Row="7" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.InitialCareLevel}"   Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c3" Grid.Row="7" Grid.Column="1" Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>
+                        <ComboBox Name="c3" Grid.Row="7" Grid.Column="1" Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" ItemsSource="{Binding}" SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value"/>
 
                     <Label  Grid.Row="7" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
 
                     <Border Grid.Row="8" Grid.Column="0" Background="Gray"  Margin="0,0,4,2" >
                             <Label Content="{DynamicResource AddOrEditView.CurrentCareLevel}" Grid.Row="8" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c4" Grid.Row="8" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"/>
+                        <ComboBox Name="c4" Grid.Row="8" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" ItemsSource="{Binding}" SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value"/>
 
                     <Label  Grid.Row="8" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
 
