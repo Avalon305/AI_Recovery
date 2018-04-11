@@ -95,16 +95,25 @@ namespace spms.view
             //打开时，是否记住密码的勾选，如果是就勾选，并且填充登录名和密码 如果不是就没有操作
             //bool? checkRemind = isRemind.IsChecked;
             String ckeckStr = CommUtil.GetSettingString("isRemind");
+            String ckeckStrName = CommUtil.GetSettingString("isRemindName");
             bool? checkRemind = ckeckStr == "true" ? true : false;
-            if (checkRemind==true) {
-                //UI效果
+            bool? checkRemindName = ckeckStrName == "true" ? true : false;
+            if (checkRemind == true) {
+                //UI效果-记住密码，一定记住用户名
                 isRemind.IsChecked = true;
+                isRemindName.IsChecked = true;
                 //获取用户名
                 String name = ConfigUtil.GetEncrypt("userName", "");
                 this.User_Name.Text = name;
                 //获取密码
                 String password = ConfigUtil.GetEncrypt("password", ""); ;
                 this.User_Password.Password = password;
+            } else if (checkRemindName==true) {
+                //UI效果-只记住用户名就只显示用户名
+                isRemindName.IsChecked = true;
+                //界面注入
+                String name = ConfigUtil.GetEncrypt("userName", "");
+                this.User_Name.Text = name;
             }
             
         }
@@ -209,18 +218,26 @@ namespace spms.view
             {
                 //普通用户，点击记住密码，登陆成功后，登录用户与密码加入缓存
                 bool? checkRemind = isRemind.IsChecked;
+                bool? checkRemindName = isRemindName.IsChecked;
                 if (checkRemind == true)
                 {
                     //加密后存储在config中
                     name = ConfigUtil.Encrypt(name);
                     password = ConfigUtil.Encrypt(password);
                     CommUtil.UpdateSettingString("isRemind", "true");
+                    CommUtil.UpdateSettingString("isRemindName", "true");
                     CommUtil.UpdateSettingString("userName", name);
                     CommUtil.UpdateSettingString("password", password);
+                } else if (checkRemindName == true) {
+                    name = ConfigUtil.Encrypt(name);
+                    CommUtil.UpdateSettingString("isRemind", "false");
+                    CommUtil.UpdateSettingString("isRemindName", "true");
+                    CommUtil.UpdateSettingString("userName", name);
                 }
                 else {
-                    //不选中就不记住，清空缓存的密码
-                    CommUtil.UpdateSettingString("isRemind","false");
+                    //都不选中就不记住，清空缓存的密码
+                    CommUtil.UpdateSettingString("isRemind", "false");
+                    CommUtil.UpdateSettingString("isRemindName", "false");
                     CommUtil.UpdateSettingString("userName", "");
                     CommUtil.UpdateSettingString("password", "");
                 }
