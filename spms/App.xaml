@@ -29,7 +29,7 @@
             </FontFamily>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="resources\en-us.xaml"/>
-                <!--<ResourceDictionary Source="resources\zh-cn.xaml"/>-->
+                <ResourceDictionary Source="resources\zh-cn.xaml"/>
                 <ResourceDictionary Source="view/Dictionary/Button.xaml"/>
                 <ResourceDictionary Source="view/Dictionary/Btn.xaml"/>
             </ResourceDictionary.MergedDictionaries>

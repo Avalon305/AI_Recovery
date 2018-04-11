@@ -215,11 +215,16 @@ namespace spms.view.Pages.ChildWin
             this.Close();
         }
 
+        private void pdf_load(object sender, EventArgs e)
+        {
+            moonPdfPanel.Background = Brushes.Silver;
+        }
+
         //private void abc(object sender, RoutedEventArgs e)
         //{
         //    LoadCompleted
         //        a.Visibility = Visibility.Hidden;
-            
+
         //}
     }
 }

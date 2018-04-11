@@ -235,14 +235,10 @@
                 </Border>
 
             </Grid>
+            
         </Viewbox>
-        <Border Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden"  Margin="0,50,0,0.4">
-
-            <!--<Border Background="#d3d3d3" Grid.Row="1">-->
-            <mpp:MoonPdfPanel x:Name="moonPdfPanel" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" Background="Silver"  ViewType="SinglePage" PageRowDisplay="ContinuousPageRows" PageMargin="0,2,4,2" AllowDrop="True" Margin="0,0,0.2,0"/>
-        </Border>
         <!--加载动画-->
-        <Grid Margin="0,29,0.6,0" Height="941" ScrollViewer.VerticalScrollBarVisibility="Hidden" Background="White" VerticalAlignment="Top" Name="a" RenderTransformOrigin="0.509,0.481">
+        <Grid Margin="0,29,0.6,0" Height="941" ScrollViewer.VerticalScrollBarVisibility="Hidden"  Background="White" VerticalAlignment="Top" Name="a" RenderTransformOrigin="0.509,0.481">
 
             <Grid Height="83" Grid.Row="0" VerticalAlignment="Bottom" Margin="232,0,211,375">
                 <Grid.Resources>
@@ -342,6 +338,12 @@
             <Label Name="lbl1" Content="{DynamicResource PdfView.loading...}" FontSize="20" Background="Transparent" Foreground="Black" Height="35" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="254,581,233,0" Width="210"/>
         </Grid>
         <!--加载动画 结束-->
+        <Border Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden"  Margin="0,50,0,0.4">
+
+            <!--<Border Background="#d3d3d3" Grid.Row="1">-->
+            <mpp:MoonPdfPanel x:Name="moonPdfPanel" ScrollViewer.HorizontalScrollBarVisibility="Hidden"  PdfLoaded="pdf_load" ScrollViewer.VerticalScrollBarVisibility="Hidden" Background="Transparent"  ViewType="SinglePage" PageRowDisplay="ContinuousPageRows" PageMargin="0,2,4,2" AllowDrop="True" Margin="0,0,0.2,0"/>
+        </Border>
+       
     </Grid>
 
 </Window>
