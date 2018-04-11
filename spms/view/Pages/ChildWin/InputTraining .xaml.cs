@@ -1472,7 +1472,8 @@ namespace spms.view.Pages.ChildWin
 
                     if (SerialPortUtil.portName == "")
                     {
-                        MessageBox.Show(LanguageUtils.ConvertLanguage("请先连接串口", "Please Connect the serial port"));
+                        //MessageBox.Show(LanguageUtils.ConvertLanguage("请先连接串口", "Please Connect the serial port"));
+                        MessageBox.Show(LanguageUtils.ConvertLanguage("请先连接串口", "Please Connect the serial port"), "结果", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                         return;
                     }
 
@@ -1488,7 +1489,7 @@ namespace spms.view.Pages.ChildWin
                         }
                         catch (UnauthorizedAccessException ex)
                         {
-                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                             //清空缓存
                             SerialPortUtil.SerialPort = null;
                             serialPort = null;
@@ -1496,7 +1497,7 @@ namespace spms.view.Pages.ChildWin
                         }
                         catch (IOException ex)
                         {
-                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                             SerialPortUtil.SerialPort = null;
                             serialPort = null;
                             return;
@@ -1512,12 +1513,12 @@ namespace spms.view.Pages.ChildWin
                             }
                             catch (UnauthorizedAccessException ex)
                             {
-                                MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
+                                MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                                 return;
                             }
                             catch (IOException ex)
                             {
-                                MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
+                                MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                                 return;
                             }
                         }
@@ -1565,12 +1566,12 @@ namespace spms.view.Pages.ChildWin
                         }
                         catch (UnauthorizedAccessException ex)
                         {
-                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                             return;
                         }
                         catch (IOException ex)
                         {
-                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"), LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                             return;
                         }
                     }
@@ -1587,7 +1588,7 @@ namespace spms.view.Pages.ChildWin
                 SerialPortUtil.ClosePort(ref serialPort);
                 Dispatcher.Invoke(new Action(() =>
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("设备长时间未应答，请查看是否选对串口，或设备未启动", "The device has not answered for a long time. Check whether the serial port is selected or the device is not started."));
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("设备长时间未应答，请查看是否选对串口，或设备未启动", "The device has not answered for a long time. Check whether the serial port is selected or the device is not started."),LanguageUtils.ConvertLanguage("温馨提示", "Kindly Reminder "), MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                     Button_Write.IsEnabled = true;
                 }));
                
@@ -1689,15 +1690,14 @@ namespace spms.view.Pages.ChildWin
                                     return;
                                 }
                             }));
-                            
-                            MessageBox.Show(LanguageUtils.ConvertLanguage("写卡成功", "Write card success"));
-
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("写卡成功", "Write card success"), "结果", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                         }
                         else
                         {
                             //this.Close();
                             //Console.WriteLine("发卡失败");
-                            MessageBox.Show(LanguageUtils.ConvertLanguage("写卡失败", "Failed to write to card"));
+                            //MessageBox.Show(LanguageUtils.ConvertLanguage("写卡失败", "Failed to write to card"));
+                            MessageBox.Show(LanguageUtils.ConvertLanguage("写卡失败", "Failed to write to card"), "结果", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                         }
                     }
                 }

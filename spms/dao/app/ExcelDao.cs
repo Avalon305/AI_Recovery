@@ -24,7 +24,8 @@ namespace spms.dao
 
             using (var conn = DbUtil.getConn())
             {
-                const string query = "SELECT DISTINCT si.gmt_create,pr.pr_time1,pr.pr_time2,pr.pr_cal,pr.pr_index,si.si_pre_highpressure,si.si_pre_lowpressure,si.si_suf_highpressure,si.si_suf_lowpressure,si.si_waterinput,si.si_careinfo FROM bdl_symptominfo si,bdl_deviceprescription dp,bdl_prescriptionresult pr WHERE si.fk_ti_id = dp.fk_ti_id AND dp.pk_dp_id = pr.fk_dp_id AND si.fk_user_id=@User_Id ORDER BY si.gmt_create";
+                //const string query = "SELECT DISTINCT si.gmt_create,pr.pr_time1,pr.pr_time2,pr.pr_cal,pr.pr_index,si.si_pre_highpressure,si.si_pre_lowpressure,si.si_suf_highpressure,si.si_suf_lowpressure,si.si_waterinput,si.si_careinfo FROM bdl_symptominfo si,bdl_deviceprescription dp,bdl_prescriptionresult pr WHERE si.fk_ti_id = dp.fk_ti_id AND dp.pk_dp_id = pr.fk_dp_id AND si.fk_user_id=@User_Id ORDER BY si.gmt_create";
+                const string query = "SELECT ti.gmt_create,pr.pr_time1,pr.pr_time2,pr.pr_cal,pr.pr_index,si.si_pre_highpressure,si.si_pre_lowpressure,si.si_suf_highpressure,si.si_suf_lowpressure,si.si_waterinput,si.si_careinfo FROM bdl_traininfo ti JOIN bdl_deviceprescription dp ON ti.pk_ti_id = dp.fk_ti_id JOIN bdl_prescriptionresult pr ON dp.pk_dp_id = pr.fk_dp_id LEFT JOIN bdl_symptominfo si ON ti.pk_ti_id = si.fk_ti_id WHERE ti.fk_user_id=@User_Id ORDER BY ti.gmt_create";
 
                 return conn.Query<TrainingAndSymptomBean>(query, new { User_Id = userId }).ToList();
             }

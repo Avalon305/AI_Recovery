@@ -72,7 +72,7 @@ namespace spms.view.Pages.ChildWin
             {
                 new Thread(new ThreadStart(ExcelToPdf)).Start();
                 Open_File();
-                a.Visibility = Visibility.Hidden;
+                
             }
             catch (Exception ex)
             {
@@ -125,6 +125,7 @@ namespace spms.view.Pages.ChildWin
                 moonPdfPanel.OpenFile(CommUtil.GetDocPath("test.pdf"));
                 _isLoaded = true;
                 moonPdfPanel.ZoomIn();
+                a.Visibility = Visibility.Hidden;
             };
 
            

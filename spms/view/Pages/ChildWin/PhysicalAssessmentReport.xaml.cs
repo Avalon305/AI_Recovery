@@ -806,7 +806,7 @@ namespace spms.view.Pages.ChildWin
             }
             catch (IOException ex)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("文件可能被占用，请关闭相关文件", "The file may be occupied. Please close the relevant file"));
+                MessageBox.Show(LanguageUtils.ConvertLanguage("文件可能被占用，请关闭相关文件", "The file may be occupied. Please close the relevant file"), "结果", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                 return;
             }
             catch (Exception ex)
