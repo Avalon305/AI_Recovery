@@ -66,7 +66,7 @@
                                     <Path SnapsToDevicePixels="False" StrokeThickness="3" Data="M8,17 L20,4" Stroke="White"/>
                                 </Grid>
                             </Grid>
-                            <TextBlock Grid.Column="1"  Text="{TemplateBinding Content}" Padding="2" FontFamily="{StaticResource 微软雅黑}" FontSize="18" Foreground="Black" VerticalAlignment="Center" Margin="14.2,0,0.4,-0.2" Height="25"/>
+                            <TextBlock Grid.Column="1"  Text="{TemplateBinding Content}" Padding="2" FontFamily="{StaticResource 微软雅黑}" FontSize="15" Foreground="Black" VerticalAlignment="Center" Margin="5,0,0.2,-1" Height="25"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="True">
@@ -185,8 +185,8 @@
                 <Label  Content="{DynamicResource FormView.Password}" HorizontalContentAlignment="Right" HorizontalAlignment="Right" FontFamily="{StaticResource 微软雅黑}" FontWeight="ExtraBold" FontSize="30"   Foreground="DimGray" Margin="0,356,795,309" Width="176" />
                 <Label Name="textBlock"  Margin="500,360,381,320" VerticalAlignment="Center" FontSize="20" Content="{DynamicResource FormView.InputPasswd}"  Foreground="Gray" FontFamily="{StaticResource   LiSu}"  FontStyle="Italic"/>
                 <PasswordBox Name="User_Password"  CaretBrush="Black" Margin="500,360,380,320" Foreground="DimGray"  FontFamily="{StaticResource 微软雅黑}"  Loaded="User_Password_LostFocus"  FontWeight="ExtraBold" FontSize="25" LostFocus="User_Password_LostFocus"  />
-                <CheckBox Name="isRemindName" Content="{DynamicResource FormView.RememberName}" VerticalContentAlignment="Center" Margin="500,412,381,280" Style="{StaticResource CheckBoxStyle}" IsTabStop="False"  FontSize="20" ></CheckBox>
-                <CheckBox Name="isRemind" Content="{DynamicResource FormView.RememberPassword}" VerticalContentAlignment="Center" Margin="692,414,381,282" Style="{StaticResource CheckBoxStyle}" IsTabStop="False"  FontSize="20" Height="24" ></CheckBox>
+                <CheckBox Name="isRemindName" Content="{DynamicResource FormView.RememberName}" VerticalContentAlignment="Center" Margin="500,414,601,282" Style="{StaticResource CheckBoxStyle}" IsTabStop="False"  FontSize="20" Height="24" ></CheckBox>
+                <CheckBox Name="isRemind" Content="{DynamicResource FormView.RememberPassword}" VerticalContentAlignment="Center" Margin="694,414,367,282" Style="{StaticResource CheckBoxStyle}" IsTabStop="False"  FontSize="20" Height="24" ></CheckBox>
                 <Button Content="{DynamicResource FormView.LogIn}" TabIndex="0" Foreground="White" Width="150"  Height="30" Click="Button_Click" Style="{StaticResource Btn}" IsTabStop="False"   FontSize="15"   Margin="460,439,580,200" />
                 <Button Content="{DynamicResource FormView.Reset}" TabIndex="0" Foreground="White" Height="30" Width="150" Style="{StaticResource Btn}" Click="Resetting_Button" IsTabStop="False" FontSize="15"   Margin="717,439,350,200" RenderTransformOrigin="1.511,-2.152" />
             </Grid>
