@@ -515,9 +515,9 @@ namespace spms.view.Pages.ChildWin
         }
         private DateTime TimeConverter(double dateTime)
         {
-            int hours = (int)(dateTime / 60);
-            int minute = (int)(dateTime - hours * 60);
-            int second = (int)(dateTime % 1 * 60);
+            int hours = (int)(dateTime / 3600.0);
+            int minute = (int)(dateTime/60.0 - hours * 60.0);
+            int second = (int)(dateTime % 1);
             DateTime time = new DateTime(0001,1,1,hours,minute,second);
             //time.AddHours(hours);
             //time.AddMinutes(minute);
