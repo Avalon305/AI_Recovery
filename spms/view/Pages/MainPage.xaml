@@ -12,6 +12,7 @@
     <Page.Resources>
         <converter:SexConverter x:Key="sexconverter"/>
         <converter:AgeConverter x:Key="ageconverter"/>
+        <converter:CareLevelConvert x:Key="careLevelconverter" />
     </Page.Resources>
     <Viewbox Name="viewbox"  Stretch=" fill">
 
@@ -223,8 +224,8 @@
                             <DataGridTextColumn Binding="{Binding User_Sex, Converter={StaticResource sexconverter}}" Header="{DynamicResource SubjectListView.Gender}" Width="60"/>
                             <DataGridTextColumn Binding="{Binding User_Birth, Converter={StaticResource ageconverter}}" Header="{DynamicResource SubjectInfoView.Age}" Width="50"/>
                             <DataGridTextColumn Binding="{Binding User_GroupName}" Header="{DynamicResource SubjectInfoView.Group}" Width="140"/>
-                            <DataGridTextColumn Binding="{Binding User_InitCare}" Header="{DynamicResource SubjectListView.InitialCareLevel}" Width="120"/>
-                            <DataGridTextColumn Binding="{Binding User_Nowcare}" Header="{DynamicResource SubjectListView.CurrentCareLevel}" Width="120"/>
+                            <DataGridTextColumn Binding="{Binding User_InitCare,Converter={StaticResource careLevelconverter}}" Header="{DynamicResource SubjectListView.InitialCareLevel}" Width="120"/>
+                            <DataGridTextColumn Binding="{Binding User_Nowcare,Converter={StaticResource careLevelconverter}}" Header="{DynamicResource SubjectListView.CurrentCareLevel}" Width="120"/>
                             <!--<DataGridTextColumn Binding="{Binding User_IllnessName}" Header="{DynamicResource SubjectListView.Disease}" Width="179"/>-->
                             <DataGridTemplateColumn Header="{DynamicResource SubjectListView.Diagnosis}" Width="175">
                                 <DataGridTemplateColumn.CellTemplate>

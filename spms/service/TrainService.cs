@@ -214,6 +214,50 @@ namespace spms.service
             return new DevicePrescriptionDAO().GetByUserIdDeviceType(idcard, deviceType);
         }
 
+        public Dictionary<int, List<TrainDTO>> getTrainDTOByUserA(User user)
+        {
+            TrainInfoDAO trainInfoDao = new TrainInfoDAO();
+            DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
+            PrescriptionResultDAO prescriptionResultDao = new PrescriptionResultDAO();
+            DeviceSortDAO deviceSortDao = new DeviceSortDAO();
+
+            Dictionary<int, List<TrainDTO>> dic = new Dictionary<int, List<TrainDTO>>();
+
+            //找到该用户训练记录(训练记录状态为0或2)
+            List<TrainInfo> trainInfos = trainInfoDao.GetFinishOrNormalTrainInfoByUserId(user.Pk_User_Id);
+            foreach (TrainInfo trainInfo in trainInfos)
+            {
+                //根据训练信息id查找处方
+                List<DevicePrescription> devicePrescriptions = devicePrescriptionDao.GetByTIId(trainInfo.Pk_TI_Id);
+                foreach (DevicePrescription devicePrescription in devicePrescriptions)
+                {
+                    int devId = devicePrescription.Fk_DS_Id;
+
+                    //根据处方查找训练结果
+                    PrescriptionResult prescriptionResult =
+                        prescriptionResultDao.GetByDPId(devicePrescription.Pk_DP_Id);
+                    if (prescriptionResult == null)
+                    {
+                        //如果没有训练结果，
+                        continue;
+                    }
+
+                    //查找字典是否有以此设备名字命名的key,不存在则先创建
+                    if (!dic.ContainsKey(devId))
+                    {
+                        List<TrainDTO> trainDtos = new List<TrainDTO>();
+                        dic.Add(devId, trainDtos);
+                    }
+                    //                    Console.WriteLine(prescriptionResult.PR_Evaluate);
+                    //PR_Evaluate 总是1？？？？
+                    dic[devId].Add(new TrainDTO(trainInfo, devicePrescription, prescriptionResult));
+
+                }
+            }
+
+            return dic;
+            return null;
+        }
         /// <summary>
         /// 根据用户id获取扩展类
         /// </summary>
