@@ -301,7 +301,7 @@
                 <Label Grid.Row="1" Grid.Column="3" Content="—"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
 
-                <CheckBox Grid.Row="1" Grid.Column="4"  Name="height_condition" Margin="9.8,10.2,92.2,0.6" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Picture(front/lateral)}"></CheckBox>
+                <CheckBox Grid.Row="1" Grid.Column="4"  Name="height_condition" Margin="10,10.2,92.2,0.6" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Picture(front/lateral)}"></CheckBox>
                 <TextBox Grid.Row="1" Grid.Column="5" Name="height_duty" IsEnabled="False" />
                 <!--第二行-->
                 <Label Grid.Row="2" Grid.Column="1" Content="—"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -310,7 +310,7 @@
                     <Label Content="kg" VerticalAlignment="Center"/>
                 </StackPanel>
                 <Label Grid.Row="2" Grid.Column="3" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                <CheckBox  Name="weight_condition" Grid.Row="2" Grid.Column="4" Margin="9.8,9.4,241.2,4.4" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Cloth}"></CheckBox>
+                <CheckBox  Name="weight_condition" Grid.Row="2" Grid.Column="4" Margin="10,9.4,241.2,4.4" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Cloth}"></CheckBox>
                 <TextBox Grid.Row="2" Name="weight_condition_text" Grid.Column="4" Margin="77.8,9.4,58.2,5.4" IsEnabled="False" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=weight_condition}"/>
                 <TextBox Grid.Row="2" Grid.Column="5" Name="weight_duty" IsEnabled="False" />
 

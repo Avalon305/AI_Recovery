@@ -202,7 +202,7 @@
                     <Label Content="kg" VerticalAlignment="Center"/>
                 </StackPanel>
                 <Label Grid.Row="2" Grid.Column="3" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                <CheckBox  Name="weight_condition" Grid.Row="2" Grid.Column="4" IsTabStop="False" Margin="9.8,9.4,241.2,4.4"  Content="{DynamicResource PhysicalEvaluationFormView.Cloth}"></CheckBox>
+                <CheckBox  Name="weight_condition" Grid.Row="2" Grid.Column="4" IsTabStop="False" Margin="10,9.4,241.2,4.4"  Content="{DynamicResource PhysicalEvaluationFormView.Cloth}"></CheckBox>
                 <TextBox Grid.Row="2" Name="weight_condition_text" Grid.Column="4" Margin="77.8,9.4,58.2,5.4"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=weight_condition}"/>
                 <TextBox Grid.Row="2" CaretBrush="Black" Grid.Column="5" Name="weight_duty"  Margin="1,0.5,0.5,0.5"/>
 
@@ -420,8 +420,8 @@
                     <Label Content="{DynamicResource PhysicalEvaluationFormView.N}" VerticalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Orientation="Vertical"  Grid.Row="12" Grid.Column="4" Margin="0,44.8,1.2,45.2" Grid.RowSpan="3"   >
-                    <CheckBox  Name="leg2_stand" FontSize="10" Checked="c49_Checked"  Height="14" HorizontalAlignment="Left" Width="123" Margin="9,1.5,0,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Standing}"></CheckBox>
-                    <CheckBox Name="leg2_sit"  Checked="c50_Checked"  FontSize="10" Height="14" Margin="9,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Seated}"></CheckBox>
+                    <CheckBox  Name="leg2_stand" FontSize="10" Checked="c49_Checked"  Height="14" HorizontalAlignment="Left" Width="123" Margin="10,1.5,0,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Standing}"></CheckBox>
+                    <CheckBox Name="leg2_sit"  Checked="c50_Checked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Seated}"></CheckBox>
                 </StackPanel>
                 <TextBox Name="leg2_duty" CaretBrush="Black" Grid.Row="13" Grid.Column="5"  Margin="1,0,1,1" />
                 <Border Grid.Row="14" Grid.Column="0" Background="LightGray" >
