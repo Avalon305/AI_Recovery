@@ -113,7 +113,7 @@ namespace spms.service
                 if (p.Gmt_Modified != null && result.Gmt_Create !=null)
                 {
                    TimeSpan ts0 = (DateTime)result.Gmt_Create - (DateTime)p.Gmt_Modified;
-                    result.PR_Time2 = ts0.TotalMinutes;
+                    result.PR_Time2 = ts0.TotalSeconds;
                 }
 
                 prescriptionResultDAO.Insert(result);
