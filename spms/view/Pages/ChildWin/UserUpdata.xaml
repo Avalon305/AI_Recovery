@@ -40,6 +40,7 @@
         <converter:SexConverter x:Key="sexconverter"/>
         <converter:AgeConverter x:Key="ageconverter"/>
         <converter:IDCardConverter x:Key="idcardconverter" />
+        <converter:CareLevelConvert x:Key="careLevelconverter" />
     </Window.Resources>
     <Viewbox Name="viewbox" Stretch="Fill">
 
@@ -156,14 +157,14 @@
                     <Border Grid.Row="7" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
                             <Label Content="{DynamicResource AddOrEditView.InitialCareLevel}"   Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c3" Grid.Row="7" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_InitCare}" VerticalContentAlignment="Center"/>
+                        <ComboBox Name="c3" Grid.Row="7" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" ItemsSource="{Binding}" SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value" VerticalContentAlignment="Center" Text="{Binding User_InitCare,Converter={StaticResource careLevelconverter}}"/>
 
                     <Label  Grid.Row="7" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
 
                     <Border Grid.Row="8" Grid.Column="0" Background="Gray"  Margin="0,0,4,2" >
                             <Label Content="{DynamicResource AddOrEditView.CurrentCareLevel}" Grid.Row="8" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c4" Grid.Row="8" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Nowcare }"/>
+                        <ComboBox Name="c4" Grid.Row="8" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"  ItemsSource="{Binding}" SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value" Text="{Binding User_Nowcare,Converter={StaticResource careLevelconverter}}"/>
 
 
 

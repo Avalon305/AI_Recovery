@@ -47,7 +47,7 @@ namespace spms.view.Pages.ChildWin
             Dictionary<string, object> dic = (Dictionary<string, Object>) DataContext;
             user = (User) dic["user"];
             symptomInfoDTO = (SymptomInfoDTO) dic["symptomInfoDto"];
-            logger.Info("user:" + user + "symptomInfoDTO:" + symptomInfoDTO);
+            logger.Info("user:" + user + "; symptomInfoDTO:" + symptomInfoDTO);
             Load_Data();
         }
 

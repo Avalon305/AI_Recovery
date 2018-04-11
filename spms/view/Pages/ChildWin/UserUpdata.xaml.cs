@@ -20,6 +20,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using spms.constant;
 using static spms.entity.CustomData;
 
 namespace spms.view.Pages.ChildWin
@@ -44,7 +45,7 @@ namespace spms.view.Pages.ChildWin
         //残障名称列表
         List<string> diagnosisList;
         //护理度列表
-        List<string> careList = new List<string> { "没有申请", "自理", "要支援一", "要支援二", "要介护1", "要介护2", "要介护3", "要介护4", "要介护5" };
+        //List<string> careList = new List<string> { "没有申请", "自理", "要支援一", "要支援二", "要介护1", "要介护2", "要介护3", "要介护4", "要介护5" };
         //最初的姓名
         String origin_name;
         //最初的姓名(拼音)
@@ -120,8 +121,8 @@ namespace spms.view.Pages.ChildWin
             c5.ItemsSource = diseaseList;
             c6.ItemsSource = diagnosisList;
             //护理程度下拉框
-            c3.ItemsSource = careList;
-            c4.ItemsSource = careList;
+            c3.ItemsSource = DataCodeCache.GetInstance().GetDateCodeList(DataCodeTypeEnum.CareLevel);
+            c4.ItemsSource = DataCodeCache.GetInstance().GetDateCodeList(DataCodeTypeEnum.CareLevel);
         }
         //添加疾病名称
         private void DiseaseNameAddition(object sender, RoutedEventArgs e)
@@ -197,9 +198,9 @@ namespace spms.view.Pages.ChildWin
             //获取小组名称的内容
             string groupName = c2.Text;
             //获取初期要介护度的内容
-            string initial = c3.Text;
+            string initial = c3.SelectedIndex.ToString();
             //获取现在要介护度的内容
-            string now = c4.Text;
+            string now = c4.SelectedIndex.ToString();
             //获取疾病名称的内容
             string sicknessName = c5.Text;
             //获取残障名称的内容
@@ -485,8 +486,8 @@ namespace spms.view.Pages.ChildWin
             pic.Source = bitmap;
             using (System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog())
             {
-                ofd.Title = "请选择要插入的图片";
-                ofd.Filter = "JPG图片|*.jpg|BMP图片|*.bmp|Gif图片|*.gif";
+                ofd.Title = LanguageUtils.ConvertLanguage("请选择要插入的图片", "Please select the picture to insert");
+                ofd.Filter = "JPG|*.jpg|BMP|*.bmp|Gif|*.gif";
                 ofd.CheckFileExists = true;
                 ofd.CheckPathExists = true;
                 ofd.Multiselect = false;
