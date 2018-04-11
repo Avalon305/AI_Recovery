@@ -144,7 +144,7 @@ ResizeMode="CanMinimize"
                     <CheckBox Name="checkbox3"  Checked="Checkbox3_OnChecked"   IsTabStop="False" Unchecked="checkbox3_Unchecked" Foreground="White"  Margin="0,3,0,0"  Content="{DynamicResource Dev.TorsoFlexion}" ></CheckBox>
                 </Border>
                 <Border Grid.Row="0"  Grid.Column="3" Background="Gray" Margin="10,0,10,0">
-                    <CheckBox Name="checkbox4" IsChecked="True"  Checked="Checkbox4_OnChecked"  IsTabStop="False" Unchecked="checkbox4_Unchecked" Foreground="White"  Margin="0,3,0,0"   Content="{DynamicResource Dev.LegExtension}"></CheckBox>
+                    <CheckBox Name="checkbox4"  Checked="Checkbox4_OnChecked"  IsTabStop="False" Unchecked="checkbox4_Unchecked" Foreground="White"  Margin="0,3,0,0"   Content="{DynamicResource Dev.LegExtension}"></CheckBox>
                 </Border>
                 <Border Grid.Row="0"  Grid.Column="4" Background="Gray" Margin="10,0,10,0">
                     <CheckBox Name="checkbox5"  Checked="Checkbox5_OnChecked"  IsTabStop="False" Unchecked="checkbox5_Unchecked" Foreground="White"  Margin="0,3,0,0"  Content="{DynamicResource Dev.HorizontalLegPress}" ></CheckBox>
