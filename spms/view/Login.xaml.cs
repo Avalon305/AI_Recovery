@@ -61,7 +61,7 @@ namespace spms.view
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
 
-            #region 通知公告 未激活不心跳
+            #region 通知公告  
 
             SetterDAO setterDao = new SetterDAO();
 

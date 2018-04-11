@@ -15,8 +15,9 @@ namespace spms.http
     //负责发送http请求的发送者对象
     public class HttpSender
     {
- 
-        public static readonly string URLBASE = "http://39.107.77.44:8080/cloud/";
+
+        //public static readonly string URLBASE = "http://39.107.77.44:8080/cloud/";
+        public static readonly string URLBASE = "http://172.20.10.5:8080/cloud/";
         public static readonly string URL_UPDATE = "http://39.107.77.44:8080/bdl_update/AutoUpdate";
 
         //私有化空构造
@@ -49,7 +50,7 @@ namespace spms.http
         {
             try
             {
-                //Console.WriteLine("====================================发数据啦" + jsonStr);
+                Console.WriteLine("====================================发数据啦" + jsonStr);
                 HttpWebRequest request = WebRequest.Create(URLBASE + url) as HttpWebRequest; //创建请求
                 CookieContainer cookieContainer = new CookieContainer();
                 request.Timeout = 10 * 1000; //10s超时
