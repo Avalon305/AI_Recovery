@@ -517,7 +517,7 @@ namespace spms.view.Pages.ChildWin
         {
             int hours = (int)(dateTime / 3600.0);
             int minute = (int)(dateTime/60.0 - hours * 60.0);
-            int second = (int)(dateTime % 1);
+            int second = (int)(dateTime / 1 - minute*60 - hours*3600);
             DateTime time = new DateTime(0001,1,1,hours,minute,second);
             //time.AddHours(hours);
             //time.AddMinutes(minute);
