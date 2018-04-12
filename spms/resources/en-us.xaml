@@ -366,9 +366,9 @@
     <s:String x:Key="TrainingResultView.Weight">Weight</s:String>
     <s:String x:Key="TrainingResultView.Transfer">Transfer</s:String>
     <s:String x:Key="TrainingResultView.BorgScale">Borg Scale</s:String>
-    <s:String x:Key="TrainingResultView.TrainTime(min)">Training Time</s:String>
+    <s:String x:Key="TrainingResultView.TrainTime">Training Time</s:String>
     <s:String x:Key="TrainingResultView.Time(min)">Prescription Time</s:String>
-    <s:String x:Key="TrainingResultView.Time(sec)">Time(sec)</s:String>
+    <s:String x:Key="TrainingResultView.Time">Finish Time</s:String>
     <s:String x:Key="TrainingResultView.Distance(m)">Distance(m)</s:String>
     <s:String x:Key="TrainingResultView.TotalWork(J)">Total Work(J)</s:String>
     <s:String x:Key="TrainingResultView.Calorie(cal)">Calorie(cal)</s:String>
@@ -431,7 +431,7 @@
     <s:String x:Key="PhotoGraphView.VideoDev">Video Dev</s:String>
     <s:String x:Key="PhotoGraphView.Take">Take</s:String>
     <s:String x:Key="PhotoGraphView.Confirm">Confirm</s:String>
-    <s:String x:Key="PhotoGraphView.cancel">cancel</s:String>
+    <s:String x:Key="PhotoGraphView.Cancel">Cancel</s:String>
 
     <!-- 串口选择界面 -->
     <s:String x:Key="SerialPortView.CurrentSerialPort">Current SerialPort</s:String>
