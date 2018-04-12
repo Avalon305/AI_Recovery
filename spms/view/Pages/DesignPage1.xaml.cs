@@ -22,6 +22,7 @@ using static spms.entity.CustomData;
 using spms.dao.app;
 using spms.view.Pages.ChildWin;
 using spms.constant;
+using System.IO;
 
 namespace spms.view.Pages
 {
@@ -457,6 +458,52 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             onlineDeviceDetails.ShowDialog();
+        }
+
+        /// <summary>
+        /// 备份
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BackUp(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //指令
+                string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", "127.0.0.1", "root", "root");
+                //数据库名称
+                string strDB = "testbdl";
+                //mysql的路径
+                string mysqlPath = new SetterService().getPath() + @"\bin";
+                //备份的路径
+                if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + @"\BackUp"))//如果不存在就创建file文件夹　　             　　                
+                    Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"\BackUp");//创建该文件夹　　
+                string filePath = System.AppDomain.CurrentDomain.BaseDirectory+@"\BackUp\testbdl.sql";
+                //判断是否含空格
+                if (filePath.IndexOf(" ") != -1)
+                {
+                    Console.WriteLine("保存路径中含空格");
+                    return;
+                }
+                //执行的指令
+                string cmd = strAddress + strDB + " > " + filePath;
+                Console.WriteLine(cmd);
+                Console.WriteLine(mysqlPath);
+                Console.WriteLine(filePath);
+                string result = CommUtil.RunCmd(mysqlPath, cmd);
+                if (("Warning: Using a password on the command line interface can be insecure.".Trim()).Equals(result.Trim()))
+                {
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("数据备份成功", "Successful data backup"));
+                }
+                else
+                {
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("数据备份失败", " Data backup failed"));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("执行sql异常，备份异常"+ ex.ToString());
+            }
         }
 
         //private void upgrade(object sender, RoutedEventArgs e)

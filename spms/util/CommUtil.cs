@@ -252,5 +252,28 @@ namespace spms.util
             config.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
         }
+
+        /// <summary>
+        /// 执行cmd命令
+        /// </summary>
+        /// <param name="strPath">路径</param>
+        /// <param name="strcmd">命令</param>
+        /// <returns>返回执行结果</returns>
+        public static string RunCmd(string strPath, string strcmd)
+        {
+            Process p = new Process();
+            p.StartInfo.FileName = "cmd.exe";
+            p.StartInfo.WorkingDirectory = strPath;
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardInput = true;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.RedirectStandardError = true;
+            p.StartInfo.CreateNoWindow = true;
+
+            p.Start();
+            p.StandardInput.WriteLine(strcmd);
+            p.StandardInput.WriteLine("exit");
+            return p.StandardError.ReadToEnd();
+        }
     }
 }
