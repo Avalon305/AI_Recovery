@@ -182,6 +182,7 @@
     <Compile Include="constant\UserConstant.cs" />
     <Compile Include="dao\app\CustomDataDAO.cs" />
     <Compile Include="dao\app\ExcelDao.cs" />
+    <Compile Include="dao\app\OnlineDeviceDAO.cs" />
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="dao\app\SetterDAO.cs" />
     <Compile Include="dao\DataCodeDAO.cs" />
@@ -192,6 +193,7 @@
     <Compile Include="dao\TrainInfoDAO.cs" />
     <Compile Include="entity\CustomData.cs" />
     <Compile Include="entity\DataCode.cs" />
+    <Compile Include="entity\OnlineDevice.cs" />
     <Compile Include="entity\UploadManagement.cs" />
     <Compile Include="FmyTest.xaml.cs">
       <DependentUpon>FmyTest.xaml</DependentUpon>

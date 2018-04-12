@@ -442,15 +442,15 @@ namespace spms.view.Pages.ChildWin
                         worksheet.Cells[row, 7].Value = list[k].dp_groupcount;
                         worksheet.Cells[row, 8].Value = list[k].dp_groupnum;
                         worksheet.Cells[row, 9].Value = list[k].dp_relaxtime;
-                        if (list[k].PR_Evaluate == 0)
+                        if (list[k].PR_Evaluate == "0")
                         {
                             worksheet.Cells[row, 10].Value = LanguageUtils.ConvertLanguage("没问题", "No problem");
                         }
-                        else if (list[k].PR_Evaluate == 1)
+                        else if (list[k].PR_Evaluate == "1")
                         {
                             worksheet.Cells[row, 10].Value = LanguageUtils.ConvertLanguage("有些许问题", "Some problems");
                         }
-                        else if (list[k].PR_Evaluate == 2)
+                        else if (list[k].PR_Evaluate == "2")
                         {
                             worksheet.Cells[row, 10].Value = LanguageUtils.ConvertLanguage("有问题", "Has a problem");
                         }
