@@ -444,7 +444,7 @@ namespace spms.bean
             //砝码
             public double dp_weight { get; set; }
             //注意点，指示
-            public byte PR_Evaluate { get; set; }
+            public string PR_Evaluate { get; set; }
 
         }
 
