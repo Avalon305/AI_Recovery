@@ -16,6 +16,8 @@ namespace spms.protocol
     class ParserTCPFrame
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
+        private OnlineDeviceService onlineDeviceService = new OnlineDeviceService();
+
         public byte[] Parser(byte[] source)
         {
             byte[] response = new byte[0];
@@ -40,6 +42,7 @@ namespace spms.protocol
             frameBean.SerialNo = serialNo;
             frameBean.TerminalId = terminalId;
             frameBean.MsgId = msgId;
+            frameBean.DeviceType = (DeviceType)buffer[4];
             if (xor != calcXor)
             {
                 logger.Error("校验码不符合预期：" + ProtocolUtil.BytesToString(source));
@@ -171,6 +174,13 @@ namespace spms.protocol
         /// <param name="frameBean"></param>
         public void HandleHeartBeat(ref byte[] response, TcpFrameBean frameBean)
         {
+            try
+            {
+                onlineDeviceService.SavaOrUpdateOnlineInfo(frameBean);
+            }catch(Exception ex)
+            {
+                logger.Error("心跳更新或存储在线时间时发生异常：" + ex.ToString());
+            }
             byte[] data = MakerTCPFrame.GetInstance().Make8001Frame(frameBean.SerialNo, frameBean.MsgId, CommResponse.Success);
             response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, frameBean.TerminalId, data);
 

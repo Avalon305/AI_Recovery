@@ -15,6 +15,7 @@ namespace spms.bean
         public byte[] DataBody { get; set; }
         public Boolean Success { get; set; } = true;
         public string ErrorMsg { get; set; }
+        public DeviceType DeviceType { get; set; }
 
         public void AppendErrorMsg(string msg)
         {

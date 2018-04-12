@@ -203,6 +203,7 @@
       <DependentUpon>ImageDealerUnsafe.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageDealer\PicZipUtil.cs" />
+    <Compile Include="service\OnlineDeviceService.cs" />
     <Compile Include="util\ConfigUtil.cs" />
     <Compile Include="util\LanguageUtils.cs" />
     <Compile Include="view\converter\CareLevelConvert.cs" />
