@@ -12,6 +12,8 @@ namespace spms.util
 {
     class LanguageUtils
     {
+        public static int EN = 0;
+        public static int ZH = 1;
         public static void SetLanguage()
         {
             string language;
@@ -73,6 +75,34 @@ namespace spms.util
         {
             var resourceDictionaries = Application.Current.Resources.MergedDictionaries;
             return (string) resourceDictionaries[resourceDictionaries.Count - 1][key];
+        }
+
+        /// <summary>
+        /// 根据资源id返回当前语言的字符串
+        /// </summary>
+        /// <param name="key">字符key</param>
+        /// <returns></returns>
+        public static string GetLanuageStrByLanguageAndKey(int lan, string key)
+        {
+            string requestedCulture;
+            if (lan == EN)
+            {
+                requestedCulture = @"resources\en-us.xaml";
+            }
+            else
+            {
+                requestedCulture = @"resources\zh-cn.xaml";
+            }
+            List<ResourceDictionary> dictionaryList = new List<ResourceDictionary>();
+            foreach (ResourceDictionary dictionary in Application.Current.Resources.MergedDictionaries)
+            {
+                dictionaryList.Add(dictionary);
+            }
+            ResourceDictionary resourceDictionary =
+                dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals(requestedCulture));
+            
+            return (string)resourceDictionary[key];
+
         }
 
         /// <summary>
