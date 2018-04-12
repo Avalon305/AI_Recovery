@@ -476,9 +476,9 @@ namespace spms.view.Pages
                 //mysql的路径
                 string mysqlPath = new SetterService().getPath() + @"\bin";
                 //备份的路径
-                if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + @"\BackUp"))//如果不存在就创建file文件夹　　             　　                
-                    Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"\BackUp");//创建该文件夹　　
-                string filePath = System.AppDomain.CurrentDomain.BaseDirectory+@"\BackUp\testbdl.sql";
+                string filePath = System.AppDomain.CurrentDomain.BaseDirectory + @"\BackUp\";
+                if (!Directory.Exists(filePath))//如果不存在就创建file文件夹　　             　　                
+                    Directory.CreateDirectory(filePath);//创建该文件夹　　
                 //判断是否含空格
                 if (filePath.IndexOf(" ") != -1)
                 {
@@ -486,13 +486,14 @@ namespace spms.view.Pages
                     return;
                 }
                 //执行的指令
-                string cmd = strAddress + strDB + " > " + filePath;
-                Console.WriteLine(cmd);
-                Console.WriteLine(mysqlPath);
-                Console.WriteLine(filePath);
+                string cmd = strAddress + strDB + " > " + filePath+ "testbdl.sql";
                 string result = CommUtil.RunCmd(mysqlPath, cmd);
+
+                CommUtil.CopyDirectory(filePath);
+
                 if (("Warning: Using a password on the command line interface can be insecure.".Trim()).Equals(result.Trim()))
                 {
+
                     MessageBox.Show(LanguageUtils.ConvertLanguage("数据备份成功", "Successful data backup"));
                 }
                 else

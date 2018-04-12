@@ -275,5 +275,38 @@ namespace spms.util
             p.StandardInput.WriteLine("exit");
             return p.StandardError.ReadToEnd();
         }
+
+        /// <summary>
+        /// 备份图片
+        /// </summary>
+        /// <param name="saveDirPath"></param>
+        public static void CopyDirectory(string saveDirPath)
+        {
+            try
+            {
+                entity.Setter setter = new entity.Setter();
+                setter = new SetterDAO().getSetter();
+                Console.WriteLine("目标路径："+saveDirPath);
+                string sourceDirPath = setter.Set_PhotoLocation;
+                Console.WriteLine("原路径：" + sourceDirPath);
+                if (!Directory.Exists(saveDirPath))
+                {
+                    Directory.CreateDirectory(saveDirPath);
+                }
+                string[] files = Directory.GetFiles(sourceDirPath.Substring(0, sourceDirPath.Length - 1));
+                //MessageBox.Show(files.Length.ToString());
+                foreach (string file in files)
+                {
+                    string pFilePath = saveDirPath + Path.GetFileName(file);
+                    if (File.Exists(pFilePath))
+                        continue;
+                    File.Copy(file, pFilePath, true);
+                }
+            }
+            catch (Exception ee)
+            {
+
+            }
+        }
     }
 }
