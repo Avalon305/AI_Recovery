@@ -89,7 +89,7 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                                     </MultiBinding>
                                 </DataGridTextColumn.Binding>
                             </DataGridTextColumn>
-                            <DataGridTemplateColumn Header="状态" Width="75" Visibility="Hidden">
+                            <DataGridTemplateColumn Header="状态" Width="75" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Grid>
