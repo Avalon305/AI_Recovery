@@ -424,6 +424,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="view\converter\StatusConverter.cs">
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
     <Page Include="view\Pages\ChildWin\OnlineDeviceDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

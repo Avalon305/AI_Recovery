@@ -30,13 +30,6 @@ namespace spms.view.Pages.ChildWin
         public OnlineDeviceDetails()
         {
             InitializeComponent();
-            A test = new A();
-            test.Name = "123";
-            test.status = 1;
-            List<A> ass = new List<A>();
-            ass.Add(test);
-            terminalstatus.ItemsSource = ass;
-            //DataGrid2.DataContext = ass;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -65,15 +58,6 @@ namespace spms.view.Pages.ChildWin
         {
 
         }
-        class A
-        {
-            public String Name { get; set; }
-            public int status { get; set; }
-        }
-
-        private void abc(object sender, RoutedEventArgs e)
-        {
-            
-        }
+        
     }
 }

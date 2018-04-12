@@ -19,6 +19,7 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
         <converter:LanguageConverter x:Key="languageconverter"/>
+        <converter:StatusConverter x:Key="statusconverter"/>
     </Window.Resources>
     <!--<Window.Triggers>
         <EventTrigger RoutedEvent="DataGrid.Loaded">
@@ -41,7 +42,7 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                             <Label VerticalAlignment="Center" FontSize="22" Foreground="White" Content="{DynamicResource RegisterView.OnlineDeviceDetails}"/>
                         </Grid>
                     </Border>
-                    <DataGrid Height="234" Margin="10,0,10,0" Loaded="abc" BorderThickness="1"   Name="terminalstatus" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="true" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None"  VerticalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None" SelectionMode="Single" RowHeaderWidth="0">
+                    <DataGrid Height="234" Margin="10,0,10,0"  BorderThickness="1"   Name="terminalstatus" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="true" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None"  VerticalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None" SelectionMode="Single" RowHeaderWidth="0">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DodgerBlue"/>
@@ -57,7 +58,7 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                                 <Setter Property="Height" Value="18" />
                             </Style>
                         </DataGrid.RowStyle>
-                        
+
                         <!--去掉选中单元格的框线-->
                         <DataGrid.CellStyle>
                             <Style TargetType="DataGridCell" >
@@ -73,13 +74,6 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 
                         </DataGrid.CellStyle>
                         <DataGrid.Columns >
-                            <!--<DataGridTemplateColumn Header="设备编号" Width="140" Bi IsReadOnly="True">
-                                --><!--<DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DataGridRow}}, Path=Header}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>--><!--
-                            </DataGridTemplateColumn>-->
                             <DataGridTextColumn Binding="{Binding od_clientid}" Header="{DynamicResource RegisterView.TerminalID}" Width="120"/>
                             <DataGridTextColumn  Header="{DynamicResource RegisterView.TerminalType}" Width="200">
                                 <DataGridTextColumn.Binding>
@@ -92,103 +86,15 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                             <DataGridTemplateColumn Header="{DynamicResource RegisterView.OnlineStatus}" Width="105" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="20*"></ColumnDefinition>
-                                                <ColumnDefinition Width="100*"></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
-                                            <Ellipse x:Name="Ellipse" Grid.Column="0" Height="10" Width="10" Fill="GreenYellow" >
-                                                <Ellipse.Effect>
-                                                    <DropShadowEffect Opacity="1" ShadowDepth="0" Color="Black" BlurRadius="200" Direction="10"></DropShadowEffect>
-                                                </Ellipse.Effect>
-                                            </Ellipse>
-                                            <TextBlock Text="{Binding od_gmt_modified}" Foreground="GreenYellow" Grid.Column="1"></TextBlock>
-                                        </Grid>
+
+                                        <TextBlock Text="{Binding status}" Foreground="{Binding status,Converter={StaticResource statusconverter }}" Grid.Column="1"></TextBlock>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellStyle>
-                                    <Style TargetType="DataGridCell" >
-                                        <Style.Triggers>
-                                            <!--<Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                                <Setter Property="Foreground" Value="White"/>
-                                            </Trigger>-->
-                                            <!--<EventTrigger >
-                                                <BeginStoryboard  Storyboard="{StaticResource OnLoaded}"/>
-                                            </EventTrigger>-->
-                                        </Style.Triggers>
-                                        <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding User_IllnessName}"/>
-                                    </Style>
-                                    
-                                </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <!--<Grid Margin="10,5"  Height="334">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="28"/>
-                            <RowDefinition Height="4"/>
-                            <RowDefinition Height="28"/>
-                            <RowDefinition Height="4"/>
-                            <RowDefinition Height="28"/>
-                            <RowDefinition Height="4"/>
-                            <RowDefinition Height="28"/>
-                            <RowDefinition Height="4"/>
-                            <RowDefinition Height="28"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="280"/>
-                            <ColumnDefinition Width="100"/>
-                        </Grid.ColumnDefinitions>
-                        <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
-                            <Label Content="{DynamicResource RegisterView.TerminalID}"  VerticalAlignment="Center"  Foreground="White"/>
-                        </Border>
-                        <TextBox Grid.Row="0"  CaretBrush="Black" Name="TerminalID" Grid.Column="1"  Margin="0.2,0.2,0,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-                        <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
-                            <Label Content="{DynamicResource RegisterView.TerminalType}"  FontStyle="Normal"  Foreground="White"/>
-                        </Border>
-                        <PasswordBox  Grid.Row="2"  CaretBrush="Black" Name="TerminalType" Grid.Column="1" Margin="0.2,0.2,0,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-                        <Label Grid.Row="4" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,0,5,5"/>
-                        <Border Grid.Row="4" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
-                            <Label Content="{DynamicResource RegisterView.OnlineStatus}" Grid.Row="3" Grid.Column="0"  Foreground="White"/>
-                        </Border>
-                        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="7" Margin="0.2,4.6,-0.2,-152">
-                            <ListBox Name="terminalstatus" ItemsSource="{Binding}" KeyboardNavigation.TabNavigation="None" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
-                                <ListBox.ItemTemplate>
-                                    
-                                    <DataTemplate >
-                                        
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="20*"></ColumnDefinition>
-                                                <ColumnDefinition Width="100*"></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
-                                            <Ellipse x:Name="Ellipse" Height="10" Width="10" Grid.Column="0" Fill="GreenYellow" >
-                                                <Ellipse.Effect>
-                                                    <DropShadowEffect Opacity="1" ShadowDepth="0" Color="GreenYellow" BlurRadius="200" Direction="10"></DropShadowEffect>
-                                                </Ellipse.Effect>
-                                            </Ellipse>
-                                            <TextBlock Grid.Column="1" Text="{Binding Name}"></TextBlock>
-                                        </Grid>
-
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-
-                        </Grid>
-
-                    </Grid>-->
                     <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="303" Height="47" VerticalAlignment="Top" BorderBrush="White" Margin="0,0,9.6,0">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                            <Ellipse x:Name="Ellipse" Height="10" Width="10" Fill="GreenYellow" >
-                                <Ellipse.Effect>
-                                    <DropShadowEffect Opacity="1" ShadowDepth="0" Color="GreenYellow" BlurRadius="200" Direction="10"></DropShadowEffect>
-                                </Ellipse.Effect>
-                            </Ellipse>
-                            <!--<Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" IsTabStop="False"  Margin="0,0,2,0"  Foreground="Black" Content="{DynamicResource RegisterView.Confirm}" Style="{StaticResource Btn}" Click="Button_OK"/>-->
                             <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  IsTabStop="False"  Foreground="Black" Content="关闭" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
                         </StackPanel>
                     </Border>
@@ -198,31 +104,6 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             </Border>
 
         </Grid>
-        <!--<Grid>
-            <Border CornerRadius="2">
-                <StackPanel >
-                    <Border CornerRadius="5,5,0,0" Height="50" Margin="10,0,10,2" >
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="Silver" Offset="0.1"/>
-                                <GradientStop Color="Gray" Offset="0.9"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
-                        <Grid>
-                            <Label VerticalAlignment="Center" FontSize="22" Foreground="White" Content="{DynamicResource RegisterView.OnlineDeviceDetails}"/>
-                        </Grid>
-                    </Border>
-                </StackPanel>
-            </Border>
-        </Grid>-->
+
     </Viewbox>
-
-    <!--<Grid >
-        <Ellipse x:Name="Ellipse" Height="10" Width="10" Fill="GreenYellow" >
-            <Ellipse.Effect>
-                <DropShadowEffect Opacity="1" ShadowDepth="0" Color="GreenYellow" BlurRadius="200" Direction="10"></DropShadowEffect>
-            </Ellipse.Effect>
-        </Ellipse>
-    </Grid>-->
-
 </Window>
