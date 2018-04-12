@@ -69,23 +69,23 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
     </Window.Resources>
     <Viewbox Name="viewbox" Stretch="Fill">
-    <StackPanel>
-        <!--Border 使用者一览表以及按钮  开始-->
-        <Border Height="40" CornerRadius="5,5,0,0"  Margin="10,5,10,0">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="Silver" Offset="0.1"/>
-                    <GradientStop Color="Gray" Offset="0.9"/>
-                </LinearGradientBrush>
+        <StackPanel>
+            <!--Border 使用者一览表以及按钮  开始-->
+            <Border Height="40" CornerRadius="5,5,0,0"  Margin="10,5,10,0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Silver" Offset="0.1"/>
+                        <GradientStop Color="Gray" Offset="0.9"/>
+                    </LinearGradientBrush>
 
-            </Border.Background>
-            <Grid>
+                </Border.Background>
+                <Grid>
                     <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38" Content="{DynamicResource TrainingResultView.TrainingResult}"></Label>
-                <!-- 四个按钮排放位置-->
-                <!--
+                    <!-- 四个按钮排放位置-->
+                    <!--
                 <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="290" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
 
@@ -93,285 +93,289 @@
                         <Button Width="140"   Background="Gray"  Foreground="White"  Content="取消"  Style="{StaticResource Btn}" Margin="2,0,2,-0.2" Click="Cancel"/>
                     </StackPanel>
                 </Border>-->
-            </Grid>
-        </Border>
-        <!--Border 使用者一览表以及按钮  结束-->
+                </Grid>
+            </Border>
+            <!--Border 使用者一览表以及按钮  结束-->
 
-        <!--StackPanel 信息以及日期-->
-        <StackPanel  Orientation="Horizontal">
-            <!--Grid 使用者信息展示-->
-            <Grid Height="34" Margin="10,10,18.6,0" Width="609">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="15*"/>
-                    <ColumnDefinition Width="82*"/>
-                </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0"  Content="{DynamicResource TrainingResultView.SubjectID}" Margin="0,-6,34.4,15.6" Grid.RowSpan="2"/>
-                <Label Grid.Row="0"  Margin="65,-6,-0.2,15.6" Name="l2" Content="{Binding User_Name}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-                    <Label Grid.Column="0"  Content="{DynamicResource TrainingResultView.LastName}" Margin="0,11,34.4,-1.4" Grid.RowSpan="2"/>
-                <Label  Margin="65,11,-0.2,-1.4" Name="l1" Grid.ColumnSpan="2" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2" />
-            </Grid>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Border Margin="10,10,0,8" Background="LightGray" Height="25">
+            <!--StackPanel 信息以及日期-->
+            <StackPanel  Orientation="Horizontal">
+                <!--Grid 使用者信息展示-->
+                <Grid Height="34" Margin="10,0,18.6,0" Width="609">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="82*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0"  Content="{DynamicResource TrainingResultView.SubjectID}" Visibility="Hidden" Margin="0,-6,34.4,15.6" Grid.RowSpan="2"/>
+                    <Label Grid.Row="0"  Margin="65,-6,-0.2,15.6" Name="l2" Content="{Binding User_Name}" Grid.ColumnSpan="2" Visibility="Hidden" Grid.RowSpan="2"/>
+                    <Label Grid.Column="0"  Content="{DynamicResource TrainingResultView.LastName}" VerticalContentAlignment="Center" Margin="0,0,18.4,-0.4" Grid.RowSpan="2"/>
+                    <Label  Margin="76,0,-0.2,-0.4" Name="l1" VerticalContentAlignment="Center" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+                </Grid>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Margin="10,10,0,8" Background="LightGray" Height="25">
                     <Label  Content="{DynamicResource TrainingResultView.Date}" FontSize="12" Margin="0,0,0,0.2"/>
-            </Border>
-            <!--日历-->
-            <Border Margin="10" Width="219" Height="28">
-                <my:DateTimePicker  Margin="0,3,61.2,0"   x:Name="dp" VerticalAlignment="Top" Height="25" />
-                <!--<DatePicker Height="25" Margin="0,3,-0.6,0" KeyboardNavigation.TabNavigation="None" VerticalAlignment="Bottom" Width="125" Name="dp" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
-            </Border>
+                </Border>
+                <!--日历-->
+                <Border Margin="10" Width="219" Height="28">
+                    <my:DateTimePicker  Margin="0,3,61.2,0"   x:Name="dp" VerticalAlignment="Top" Height="25" />
+                    <!--<DatePicker Height="25" Margin="0,3,-0.6,0" KeyboardNavigation.TabNavigation="None" VerticalAlignment="Bottom" Width="125" Name="dp" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
+                </Border>
                 <Label Content="{DynamicResource TrainingListView.SympInfo}" Height="25"  Margin="405,0,0,0" Background="Gray" Foreground="White" Width="80"/>
                 <ComboBox ItemsSource="{Binding SymptomInfoDTO,Mode=OneWay}" DisplayMemberPath="DateStr" SelectedValuePath="ID" SelectedItem="{Binding SymptomInfoDTO}" Margin="3,0,0,0"  Name="symp" Height="25" Width="131" />
 
-<!--<Border Margin="0,10,0,8" Background="LightGray" Height="25">
+                <!--<Border Margin="0,10,0,8" Background="LightGray" Height="25">
                     <Label  Content="{DynamicResource TrainingResultView.Date}" FontSize="12" Margin="0,0,0,0.2"/>
                 </Border>
-                --><!--日历--><!--
+                -->
+                <!--日历-->
+                <!--
                 <Border Margin="10" Width="219" Height="28">
                     <my:DateTimePicker  Margin="0,3,61.2,0"   x:Name="ap" VerticalAlignment="Top" Height="25" />
-                    --><!--<DatePicker Height="25" Margin="0,3,-0.6,0" KeyboardNavigation.TabNavigation="None" VerticalAlignment="Bottom" Width="125" Name="dp" SelectedDate="{x:Static sys:DateTime.Now}"/>--><!--
+                    -->
+                <!--<DatePicker Height="25" Margin="0,3,-0.6,0" KeyboardNavigation.TabNavigation="None" VerticalAlignment="Bottom" Width="125" Name="dp" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
+                <!--
                 </Border>-->
             </StackPanel>
-        <Grid Height="532" Margin="0,0,-0.4,0"  Name="grid">
-            <Grid.Resources>
-                <Style TargetType="Label">
-                    <Setter Property="Foreground" Value="White"/>
-                </Style>
+            <Grid Height="532" Margin="0,0,-0.4,0"  Name="grid">
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="Foreground" Value="White"/>
+                    </Style>
 
-            </Grid.Resources>
-            <Grid Margin="0,0,0,10">
-                <TabControl Name="TabControl1"  Margin="9,0,10,0"  >
+                </Grid.Resources>
+                <Grid Margin="0,0,0,10">
+                    <TabControl Name="TabControl1"  Margin="9,0,10,0"  >
                         <TabItem Name="tab1" Header="{DynamicResource Dev.ChestPress}" Width="115" IsTabStop="False" FocusVisualStyle="{x:Null}">
-                        <StackPanel Name="sp1" Orientation="Horizontal">
-                            <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
-                                </Grid.Background>
-                                <ComboBox Name="HLPAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="46,154,200,141.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <!--<TextBox  Name="HLPAttr2" Height="20" ToolTip="砝码重量" Width="50" Margin="34,208,212,87.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                <ComboBox Name="HLPAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" Width="50" Margin="61,102,185,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <ComboBox Name="HLPAttr4" Height="20" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Width="50" Margin="154,228,92,67.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                            </Grid>
+                            <StackPanel Name="sp1" Orientation="Horizontal">
+                                <Grid Margin="30,50,0,128.4" Width="296">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
+                                    </Grid.Background>
+                                    <ComboBox Name="HLPAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="46,154,200,141.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <!--<TextBox  Name="HLPAttr2" Height="20" ToolTip="砝码重量" Width="50" Margin="34,208,212,87.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
+                                    <ComboBox Name="HLPAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" Width="50" Margin="61,102,185,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="HLPAttr4" Height="20" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Width="50" Margin="154,228,92,67.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                </Grid>
 
-                            <Grid Margin="30,50,0,0" Width="286" >
-                                <Grid.RowDefinitions>
+                                <Grid Margin="30,50,0,0" Width="286" >
+                                    <Grid.RowDefinitions>
                                         <RowDefinition/>
                                         <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
                                     <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                     <TextBox Grid.Row="0" Grid.Column="1" CaretBrush="Black" Margin="0,0,20,0" Name="HLPGroupcount" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Reps}"  Grid.Row="1" Grid.Column="0"/>
                                     <TextBox Grid.Row="1" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPGroupnum" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
+                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
                                     <TextBox Grid.Row="2" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPRelaxTime" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}"  />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}"  />
                                     <TextBox Grid.Row="3" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0"   Name="HLPWeight" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0"  Name="HLPMoveway" IsTabStop="False" />
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0"  Name="HLPMoveway" IsTabStop="False" />
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
                                     <TextBox Grid.Row="5" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPSportstrength" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPTime1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Distance(m)}"  />
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Distance(m)}"  />
                                     <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPDistance" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
                                     <TextBox Grid.Row="8" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPCountworkqu" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Calorie(cal)}"  />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Calorie(cal)}"  />
                                     <TextBox Grid.Row="9" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPCal" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Score}"  />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Score}"  />
                                     <TextBox Grid.Row="10" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPIndex" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Time(min)}"  />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Time(min)}"  />
                                     <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPTime2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TotalSetsdone}"  />
+                                    <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TotalSetsdone}"  />
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HLPFinishgroup" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>-->
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timing/form}"  />
-                                <ComboBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0"  Name="HLPEvaluate" IsTabStop="False"/>
+                                    <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timing/form}"  />
+                                    <ComboBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0"  Name="HLPEvaluate" IsTabStop="False"/>
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"   Name="HLPTimer" IsTabStop="False" DropDownClosed="HLPselect_change" >
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
+                                    <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"   Name="HLPTimer" IsTabStop="False" DropDownClosed="HLPselect_change" >
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
                                     </ComboBox>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="White" Name="HLPTime_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
-                                <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTime" IsTabStop="False"  Visibility="Hidden">
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                    <ComboBoxItem>7</ComboBoxItem>
-                                    <ComboBoxItem>8</ComboBoxItem>
-                                    <ComboBoxItem>9</ComboBoxItem>
-                                    <ComboBoxItem>10</ComboBoxItem>
-                                    <ComboBoxItem>11</ComboBoxItem>
-                                    <ComboBoxItem>12</ComboBoxItem>
-                                    <ComboBoxItem>13</ComboBoxItem>
-                                    <ComboBoxItem>14</ComboBoxItem>
-                                    <ComboBoxItem>15</ComboBoxItem>
-                                    <ComboBoxItem>16</ComboBoxItem>
-                                    <ComboBoxItem>17</ComboBoxItem>
-                                    <ComboBoxItem>18</ComboBoxItem>
-                                    <ComboBoxItem>19</ComboBoxItem>
-                                    <ComboBoxItem>20</ComboBoxItem>
-                                    <ComboBoxItem>21</ComboBoxItem>
-                                    <ComboBoxItem>22</ComboBoxItem>
-                                    <ComboBoxItem>23</ComboBoxItem>
-                                    <ComboBoxItem>24</ComboBoxItem>
-                                    <ComboBoxItem>25</ComboBoxItem>
-                                    <ComboBoxItem>26</ComboBoxItem>
-                                    <ComboBoxItem>27</ComboBoxItem>
-                                    <ComboBoxItem>28</ComboBoxItem>
-                                    <ComboBoxItem>29</ComboBoxItem>
-                                    <ComboBoxItem>30</ComboBoxItem>
-                                    <ComboBoxItem>31</ComboBoxItem>
-                                    <ComboBoxItem>32</ComboBoxItem>
-                                    <ComboBoxItem>33</ComboBoxItem>
-                                    <ComboBoxItem>34</ComboBoxItem>
-                                    <ComboBoxItem>35</ComboBoxItem>
-                                    <ComboBoxItem>36</ComboBoxItem>
-                                    <ComboBoxItem>37</ComboBoxItem>
-                                    <ComboBoxItem>38</ComboBoxItem>
-                                    <ComboBoxItem>39</ComboBoxItem>
-                                    <ComboBoxItem>40</ComboBoxItem>
-                                    <ComboBoxItem>41</ComboBoxItem>
-                                    <ComboBoxItem>42</ComboBoxItem>
-                                    <ComboBoxItem>43</ComboBoxItem>
-                                    <ComboBoxItem>44</ComboBoxItem>
-                                    <ComboBoxItem>45</ComboBoxItem>
-                                    <ComboBoxItem>46</ComboBoxItem>
-                                    <ComboBoxItem>47</ComboBoxItem>
-                                    <ComboBoxItem>48</ComboBoxItem>
-                                    <ComboBoxItem>49</ComboBoxItem>
-                                    <ComboBoxItem>50</ComboBoxItem>
-                                    <ComboBoxItem>51</ComboBoxItem>
-                                    <ComboBoxItem>52</ComboBoxItem>
-                                    <ComboBoxItem>53</ComboBoxItem>
-                                    <ComboBoxItem>54</ComboBoxItem>
-                                    <ComboBoxItem>55</ComboBoxItem>
-                                    <ComboBoxItem>56</ComboBoxItem>
-                                    <ComboBoxItem>57</ComboBoxItem>
-                                    <ComboBoxItem>58</ComboBoxItem>
-                                    <ComboBoxItem>59</ComboBoxItem>
-                                </ComboBox>
-
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="HLPTiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
-                                <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTiming" IsTabStop="False" Visibility="Hidden">
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    <Label Grid.Row="14" Grid.Column="0" Background="White" Name="HLPTime_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
+                                    <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTime" IsTabStop="False"  Visibility="Hidden">
+                                        <ComboBoxItem>1</ComboBoxItem>
+                                        <ComboBoxItem>2</ComboBoxItem>
+                                        <ComboBoxItem>3</ComboBoxItem>
+                                        <ComboBoxItem>4</ComboBoxItem>
+                                        <ComboBoxItem>5</ComboBoxItem>
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                        <ComboBoxItem>16</ComboBoxItem>
+                                        <ComboBoxItem>17</ComboBoxItem>
+                                        <ComboBoxItem>18</ComboBoxItem>
+                                        <ComboBoxItem>19</ComboBoxItem>
+                                        <ComboBoxItem>20</ComboBoxItem>
+                                        <ComboBoxItem>21</ComboBoxItem>
+                                        <ComboBoxItem>22</ComboBoxItem>
+                                        <ComboBoxItem>23</ComboBoxItem>
+                                        <ComboBoxItem>24</ComboBoxItem>
+                                        <ComboBoxItem>25</ComboBoxItem>
+                                        <ComboBoxItem>26</ComboBoxItem>
+                                        <ComboBoxItem>27</ComboBoxItem>
+                                        <ComboBoxItem>28</ComboBoxItem>
+                                        <ComboBoxItem>29</ComboBoxItem>
+                                        <ComboBoxItem>30</ComboBoxItem>
+                                        <ComboBoxItem>31</ComboBoxItem>
+                                        <ComboBoxItem>32</ComboBoxItem>
+                                        <ComboBoxItem>33</ComboBoxItem>
+                                        <ComboBoxItem>34</ComboBoxItem>
+                                        <ComboBoxItem>35</ComboBoxItem>
+                                        <ComboBoxItem>36</ComboBoxItem>
+                                        <ComboBoxItem>37</ComboBoxItem>
+                                        <ComboBoxItem>38</ComboBoxItem>
+                                        <ComboBoxItem>39</ComboBoxItem>
+                                        <ComboBoxItem>40</ComboBoxItem>
+                                        <ComboBoxItem>41</ComboBoxItem>
+                                        <ComboBoxItem>42</ComboBoxItem>
+                                        <ComboBoxItem>43</ComboBoxItem>
+                                        <ComboBoxItem>44</ComboBoxItem>
+                                        <ComboBoxItem>45</ComboBoxItem>
+                                        <ComboBoxItem>46</ComboBoxItem>
+                                        <ComboBoxItem>47</ComboBoxItem>
+                                        <ComboBoxItem>48</ComboBoxItem>
+                                        <ComboBoxItem>49</ComboBoxItem>
+                                        <ComboBoxItem>50</ComboBoxItem>
+                                        <ComboBoxItem>51</ComboBoxItem>
+                                        <ComboBoxItem>52</ComboBoxItem>
+                                        <ComboBoxItem>53</ComboBoxItem>
+                                        <ComboBoxItem>54</ComboBoxItem>
+                                        <ComboBoxItem>55</ComboBoxItem>
+                                        <ComboBoxItem>56</ComboBoxItem>
+                                        <ComboBoxItem>57</ComboBoxItem>
+                                        <ComboBoxItem>58</ComboBoxItem>
+                                        <ComboBoxItem>59</ComboBoxItem>
                                     </ComboBox>
-                            </Grid>
 
-                            <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="HLPTiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
+                                    <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTiming" IsTabStop="False" Visibility="Hidden">
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    </ComboBox>
+                                </Grid>
+
+                                <StackPanel Margin="0,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
                                     <TextBox Height="104" Margin="0,2,0,0" CaretBrush="Black" Name="HLPAttentionpoint" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label  Content="{DynamicResource TrainingResultView.Subjectcomment}"   Background="Gray"  Margin="0,2,-0.4,0" />
+                                    <Label  Content="{DynamicResource TrainingResultView.Subjectcomment}"   Background="Gray"  Margin="0,2,-0.4,0" />
                                     <TextBox Height="104"  Margin="0,2,0,0" CaretBrush="Black" Name="HLPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
                                     <TextBox Height="104" Margin="0,2,0,0" CaretBrush="Black" Name="HLPMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
+                                </StackPanel>
+
                             </StackPanel>
-
-                        </StackPanel>
-                    </TabItem>
+                        </TabItem>
                         <TabItem Name="tab2"  Header="{DynamicResource Dev.Rowing}" Width="115">
-                        <StackPanel Name="sp2"  Orientation="Horizontal">
-                            <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
-                                </Grid.Background>
-                                <ComboBox Name="RowAttr1" ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="66,115,180,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <!--<TextBox Name="RowAttr2" ToolTip="砝码重量" Height="20" Width="50" Margin="50,202,196,93.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                <ComboBox Name="RowAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.TrunkPad}" Width="50" Margin="174,182,72,113.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <ComboBox Name="RowAttr4" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Margin="147,238,99,57.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                            </Grid>
+                            <StackPanel Name="sp2"  Orientation="Horizontal">
+                                <Grid Margin="30,50,0,128.4" Width="296">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
+                                    </Grid.Background>
+                                    <ComboBox Name="RowAttr1" ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="66,115,180,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <!--<TextBox Name="RowAttr2" ToolTip="砝码重量" Height="20" Width="50" Margin="50,202,196,93.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
+                                    <ComboBox Name="RowAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.TrunkPad}" Width="50" Margin="174,182,72,113.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="RowAttr4" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Margin="147,238,99,57.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                </Grid>
 
 
-                            <Grid Margin="30,50,0,0" Width="286" >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                <Grid Margin="30,50,0,0" Width="286" >
+                                    <Grid.RowDefinitions>
                                         <RowDefinition/>
                                         <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
                                     <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                     <TextBox Grid.Row="0" CaretBrush="Black" Grid.Column="1" Margin="0,0,20,0"  Name="ROWGroupcount" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
@@ -381,190 +385,190 @@
                                     <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
                                     <TextBox Grid.Row="2" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="ROWRelaxTime" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}"  />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}"  />
                                     <TextBox Grid.Row="3" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0"   Name="ROWWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="ROWMoveway" IsTabStop="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="ROWMoveway" IsTabStop="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
                                     <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="ROWSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="ROWTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Distance(m)}"  />
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Distance(m)}"  />
                                     <TextBox Grid.Row="7" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="ROWDistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
                                     <TextBox Grid.Row="8" CaretBrush="Black" Grid.Column="1" Margin="0,1,20,0" Name="ROWCountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Calorie(cal)}"  />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Calorie(cal)}"  />
                                     <TextBox Grid.Row="9" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="ROWCal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Score}"  />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Score}"  />
                                     <TextBox Grid.Row="10" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="ROWIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Time(min)}"  />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Time(min)}"  />
                                     <TextBox Grid.Row="11" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="ROWTime2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TotalSetsdone}"  />
+                                    <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TotalSetsdone}"  />
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="ROWFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>-->
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timing/form}"  />
-                                <ComboBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="ROWEvaluate" IsTabStop="False"/>
+                                    <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timing/form}"  />
+                                    <ComboBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="ROWEvaluate" IsTabStop="False"/>
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="ROWTimer" IsTabStop="False" DropDownClosed="ROWselect_change" >
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
+                                    <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="ROWTimer" IsTabStop="False" DropDownClosed="ROWselect_change" >
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
                                     </ComboBox>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="White" Name="ROWTime_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
-                                <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="ROWTime" IsTabStop="False"  Visibility="Hidden">
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                    <ComboBoxItem>7</ComboBoxItem>
-                                    <ComboBoxItem>8</ComboBoxItem>
-                                    <ComboBoxItem>9</ComboBoxItem>
-                                    <ComboBoxItem>10</ComboBoxItem>
-                                    <ComboBoxItem>11</ComboBoxItem>
-                                    <ComboBoxItem>12</ComboBoxItem>
-                                    <ComboBoxItem>13</ComboBoxItem>
-                                    <ComboBoxItem>14</ComboBoxItem>
-                                    <ComboBoxItem>15</ComboBoxItem>
-                                    <ComboBoxItem>16</ComboBoxItem>
-                                    <ComboBoxItem>17</ComboBoxItem>
-                                    <ComboBoxItem>18</ComboBoxItem>
-                                    <ComboBoxItem>19</ComboBoxItem>
-                                    <ComboBoxItem>20</ComboBoxItem>
-                                    <ComboBoxItem>21</ComboBoxItem>
-                                    <ComboBoxItem>22</ComboBoxItem>
-                                    <ComboBoxItem>23</ComboBoxItem>
-                                    <ComboBoxItem>24</ComboBoxItem>
-                                    <ComboBoxItem>25</ComboBoxItem>
-                                    <ComboBoxItem>26</ComboBoxItem>
-                                    <ComboBoxItem>27</ComboBoxItem>
-                                    <ComboBoxItem>28</ComboBoxItem>
-                                    <ComboBoxItem>29</ComboBoxItem>
-                                    <ComboBoxItem>30</ComboBoxItem>
-                                    <ComboBoxItem>31</ComboBoxItem>
-                                    <ComboBoxItem>32</ComboBoxItem>
-                                    <ComboBoxItem>33</ComboBoxItem>
-                                    <ComboBoxItem>34</ComboBoxItem>
-                                    <ComboBoxItem>35</ComboBoxItem>
-                                    <ComboBoxItem>36</ComboBoxItem>
-                                    <ComboBoxItem>37</ComboBoxItem>
-                                    <ComboBoxItem>38</ComboBoxItem>
-                                    <ComboBoxItem>39</ComboBoxItem>
-                                    <ComboBoxItem>40</ComboBoxItem>
-                                    <ComboBoxItem>41</ComboBoxItem>
-                                    <ComboBoxItem>42</ComboBoxItem>
-                                    <ComboBoxItem>43</ComboBoxItem>
-                                    <ComboBoxItem>44</ComboBoxItem>
-                                    <ComboBoxItem>45</ComboBoxItem>
-                                    <ComboBoxItem>46</ComboBoxItem>
-                                    <ComboBoxItem>47</ComboBoxItem>
-                                    <ComboBoxItem>48</ComboBoxItem>
-                                    <ComboBoxItem>49</ComboBoxItem>
-                                    <ComboBoxItem>50</ComboBoxItem>
-                                    <ComboBoxItem>51</ComboBoxItem>
-                                    <ComboBoxItem>52</ComboBoxItem>
-                                    <ComboBoxItem>53</ComboBoxItem>
-                                    <ComboBoxItem>54</ComboBoxItem>
-                                    <ComboBoxItem>55</ComboBoxItem>
-                                    <ComboBoxItem>56</ComboBoxItem>
-                                    <ComboBoxItem>57</ComboBoxItem>
-                                    <ComboBoxItem>58</ComboBoxItem>
-                                    <ComboBoxItem>59</ComboBoxItem>
-                                </ComboBox>
-
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="ROWTiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
-                                <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="ROWTiming" IsTabStop="False" Visibility="Hidden">
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    <Label Grid.Row="14" Grid.Column="0" Background="White" Name="ROWTime_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
+                                    <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="ROWTime" IsTabStop="False"  Visibility="Hidden">
+                                        <ComboBoxItem>1</ComboBoxItem>
+                                        <ComboBoxItem>2</ComboBoxItem>
+                                        <ComboBoxItem>3</ComboBoxItem>
+                                        <ComboBoxItem>4</ComboBoxItem>
+                                        <ComboBoxItem>5</ComboBoxItem>
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                        <ComboBoxItem>16</ComboBoxItem>
+                                        <ComboBoxItem>17</ComboBoxItem>
+                                        <ComboBoxItem>18</ComboBoxItem>
+                                        <ComboBoxItem>19</ComboBoxItem>
+                                        <ComboBoxItem>20</ComboBoxItem>
+                                        <ComboBoxItem>21</ComboBoxItem>
+                                        <ComboBoxItem>22</ComboBoxItem>
+                                        <ComboBoxItem>23</ComboBoxItem>
+                                        <ComboBoxItem>24</ComboBoxItem>
+                                        <ComboBoxItem>25</ComboBoxItem>
+                                        <ComboBoxItem>26</ComboBoxItem>
+                                        <ComboBoxItem>27</ComboBoxItem>
+                                        <ComboBoxItem>28</ComboBoxItem>
+                                        <ComboBoxItem>29</ComboBoxItem>
+                                        <ComboBoxItem>30</ComboBoxItem>
+                                        <ComboBoxItem>31</ComboBoxItem>
+                                        <ComboBoxItem>32</ComboBoxItem>
+                                        <ComboBoxItem>33</ComboBoxItem>
+                                        <ComboBoxItem>34</ComboBoxItem>
+                                        <ComboBoxItem>35</ComboBoxItem>
+                                        <ComboBoxItem>36</ComboBoxItem>
+                                        <ComboBoxItem>37</ComboBoxItem>
+                                        <ComboBoxItem>38</ComboBoxItem>
+                                        <ComboBoxItem>39</ComboBoxItem>
+                                        <ComboBoxItem>40</ComboBoxItem>
+                                        <ComboBoxItem>41</ComboBoxItem>
+                                        <ComboBoxItem>42</ComboBoxItem>
+                                        <ComboBoxItem>43</ComboBoxItem>
+                                        <ComboBoxItem>44</ComboBoxItem>
+                                        <ComboBoxItem>45</ComboBoxItem>
+                                        <ComboBoxItem>46</ComboBoxItem>
+                                        <ComboBoxItem>47</ComboBoxItem>
+                                        <ComboBoxItem>48</ComboBoxItem>
+                                        <ComboBoxItem>49</ComboBoxItem>
+                                        <ComboBoxItem>50</ComboBoxItem>
+                                        <ComboBoxItem>51</ComboBoxItem>
+                                        <ComboBoxItem>52</ComboBoxItem>
+                                        <ComboBoxItem>53</ComboBoxItem>
+                                        <ComboBoxItem>54</ComboBoxItem>
+                                        <ComboBoxItem>55</ComboBoxItem>
+                                        <ComboBoxItem>56</ComboBoxItem>
+                                        <ComboBoxItem>57</ComboBoxItem>
+                                        <ComboBoxItem>58</ComboBoxItem>
+                                        <ComboBoxItem>59</ComboBoxItem>
                                     </ComboBox>
-                                
-                            </Grid>
 
-                            <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="ROWTiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
+                                    <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="ROWTiming" IsTabStop="False" Visibility="Hidden">
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    </ComboBox>
+
+                                </Grid>
+
+                                <StackPanel Margin="0,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="ROWAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <Label  Content="{DynamicResource TrainingResultView.Subjectcomment}"  Background="Gray"  Margin="0,2,-0.4,0" />
+                                    <Label  Content="{DynamicResource TrainingResultView.Subjectcomment}"  Background="Gray"  Margin="0,2,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="ROWUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="ROWMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                            </StackPanel>
+                                </StackPanel>
 
-                        </StackPanel>
-                    </TabItem>
+                            </StackPanel>
+                        </TabItem>
 
                         <TabItem Name="tab3"  Header="{DynamicResource Dev.TorsoFlexion}" Width="115">
-                        <StackPanel Name="sp3"  Orientation="Horizontal">
+                            <StackPanel Name="sp3"  Orientation="Horizontal">
 
-                            <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
-                                </Grid.Background>
-                                <ComboBox Name="TFAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <!--<TextBox Name="TFAttr2" Height="20" ToolTip="砝码重量" Width="50" Margin="55,191,191,104.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                <ComboBox Name="TFAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                <Grid Margin="30,50,0,128.4" Width="296">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
+                                    </Grid.Background>
+                                    <ComboBox Name="TFAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <!--<TextBox Name="TFAttr2" Height="20" ToolTip="砝码重量" Width="50" Margin="55,191,191,104.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
+                                    <ComboBox Name="TFAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                     <ComboBox Name="TFAttr4" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                            </Grid>
-                            <Grid Margin="30,50,0,0" Width="286" >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                </Grid>
+                                <Grid Margin="30,50,0,0" Width="286" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
                                     <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}"  Grid.Row="0" Grid.Column="0"/>
                                     <TextBox Grid.Row="0" CaretBrush="Black" Grid.Column="1" Margin="0,0,20,0" Name="TFGroupcount" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
@@ -574,189 +578,189 @@
                                     <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}" />
                                     <TextBox Grid.Row="2" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="TFRelaxTime" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}"  />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}"  />
                                     <TextBox Grid.Row="3" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0"  Name="TFWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="TFMoveway" IsTabStop="False" />
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="TFMoveway" IsTabStop="False" />
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
                                     <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="TFSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="TFTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Distance(m)}"  />
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Distance(m)}"  />
                                     <TextBox Grid.Row="7" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="TFDistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
                                     <TextBox Grid.Row="8" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="TFCountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Calorie(cal)}"  />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Calorie(cal)}"  />
                                     <TextBox Grid.Row="9" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="TFCal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Score}"  />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Score}"  />
                                     <TextBox Grid.Row="10" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="TFIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Time(min)}"  />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Time(min)}"  />
                                     <TextBox Grid.Row="11" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="TFTime2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TotalSetsdone}"  />
+                                    <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TotalSetsdone}"  />
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="TFFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>-->
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timing/form}"  />
-                                <ComboBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="TFEvaluate" IsTabStop="False"/>
+                                    <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timing/form}"  />
+                                    <ComboBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="TFEvaluate" IsTabStop="False"/>
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="TFTimer" IsTabStop="False" DropDownClosed="TFselect_change" >
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
+                                    <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="TFTimer" IsTabStop="False" DropDownClosed="TFselect_change" >
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
                                     </ComboBox>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="White" Name="TFTime_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
-                                <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="TFTime" IsTabStop="False"  Visibility="Hidden">
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                    <ComboBoxItem>7</ComboBoxItem>
-                                    <ComboBoxItem>8</ComboBoxItem>
-                                    <ComboBoxItem>9</ComboBoxItem>
-                                    <ComboBoxItem>10</ComboBoxItem>
-                                    <ComboBoxItem>11</ComboBoxItem>
-                                    <ComboBoxItem>12</ComboBoxItem>
-                                    <ComboBoxItem>13</ComboBoxItem>
-                                    <ComboBoxItem>14</ComboBoxItem>
-                                    <ComboBoxItem>15</ComboBoxItem>
-                                    <ComboBoxItem>16</ComboBoxItem>
-                                    <ComboBoxItem>17</ComboBoxItem>
-                                    <ComboBoxItem>18</ComboBoxItem>
-                                    <ComboBoxItem>19</ComboBoxItem>
-                                    <ComboBoxItem>20</ComboBoxItem>
-                                    <ComboBoxItem>21</ComboBoxItem>
-                                    <ComboBoxItem>22</ComboBoxItem>
-                                    <ComboBoxItem>23</ComboBoxItem>
-                                    <ComboBoxItem>24</ComboBoxItem>
-                                    <ComboBoxItem>25</ComboBoxItem>
-                                    <ComboBoxItem>26</ComboBoxItem>
-                                    <ComboBoxItem>27</ComboBoxItem>
-                                    <ComboBoxItem>28</ComboBoxItem>
-                                    <ComboBoxItem>29</ComboBoxItem>
-                                    <ComboBoxItem>30</ComboBoxItem>
-                                    <ComboBoxItem>31</ComboBoxItem>
-                                    <ComboBoxItem>32</ComboBoxItem>
-                                    <ComboBoxItem>33</ComboBoxItem>
-                                    <ComboBoxItem>34</ComboBoxItem>
-                                    <ComboBoxItem>35</ComboBoxItem>
-                                    <ComboBoxItem>36</ComboBoxItem>
-                                    <ComboBoxItem>37</ComboBoxItem>
-                                    <ComboBoxItem>38</ComboBoxItem>
-                                    <ComboBoxItem>39</ComboBoxItem>
-                                    <ComboBoxItem>40</ComboBoxItem>
-                                    <ComboBoxItem>41</ComboBoxItem>
-                                    <ComboBoxItem>42</ComboBoxItem>
-                                    <ComboBoxItem>43</ComboBoxItem>
-                                    <ComboBoxItem>44</ComboBoxItem>
-                                    <ComboBoxItem>45</ComboBoxItem>
-                                    <ComboBoxItem>46</ComboBoxItem>
-                                    <ComboBoxItem>47</ComboBoxItem>
-                                    <ComboBoxItem>48</ComboBoxItem>
-                                    <ComboBoxItem>49</ComboBoxItem>
-                                    <ComboBoxItem>50</ComboBoxItem>
-                                    <ComboBoxItem>51</ComboBoxItem>
-                                    <ComboBoxItem>52</ComboBoxItem>
-                                    <ComboBoxItem>53</ComboBoxItem>
-                                    <ComboBoxItem>54</ComboBoxItem>
-                                    <ComboBoxItem>55</ComboBoxItem>
-                                    <ComboBoxItem>56</ComboBoxItem>
-                                    <ComboBoxItem>57</ComboBoxItem>
-                                    <ComboBoxItem>58</ComboBoxItem>
-                                    <ComboBoxItem>59</ComboBoxItem>
-                                </ComboBox>
-
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="TFTiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
-                                <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="TFTiming" IsTabStop="False" Visibility="Hidden">
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    <Label Grid.Row="14" Grid.Column="0" Background="White" Name="TFTime_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
+                                    <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="TFTime" IsTabStop="False"  Visibility="Hidden">
+                                        <ComboBoxItem>1</ComboBoxItem>
+                                        <ComboBoxItem>2</ComboBoxItem>
+                                        <ComboBoxItem>3</ComboBoxItem>
+                                        <ComboBoxItem>4</ComboBoxItem>
+                                        <ComboBoxItem>5</ComboBoxItem>
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                        <ComboBoxItem>16</ComboBoxItem>
+                                        <ComboBoxItem>17</ComboBoxItem>
+                                        <ComboBoxItem>18</ComboBoxItem>
+                                        <ComboBoxItem>19</ComboBoxItem>
+                                        <ComboBoxItem>20</ComboBoxItem>
+                                        <ComboBoxItem>21</ComboBoxItem>
+                                        <ComboBoxItem>22</ComboBoxItem>
+                                        <ComboBoxItem>23</ComboBoxItem>
+                                        <ComboBoxItem>24</ComboBoxItem>
+                                        <ComboBoxItem>25</ComboBoxItem>
+                                        <ComboBoxItem>26</ComboBoxItem>
+                                        <ComboBoxItem>27</ComboBoxItem>
+                                        <ComboBoxItem>28</ComboBoxItem>
+                                        <ComboBoxItem>29</ComboBoxItem>
+                                        <ComboBoxItem>30</ComboBoxItem>
+                                        <ComboBoxItem>31</ComboBoxItem>
+                                        <ComboBoxItem>32</ComboBoxItem>
+                                        <ComboBoxItem>33</ComboBoxItem>
+                                        <ComboBoxItem>34</ComboBoxItem>
+                                        <ComboBoxItem>35</ComboBoxItem>
+                                        <ComboBoxItem>36</ComboBoxItem>
+                                        <ComboBoxItem>37</ComboBoxItem>
+                                        <ComboBoxItem>38</ComboBoxItem>
+                                        <ComboBoxItem>39</ComboBoxItem>
+                                        <ComboBoxItem>40</ComboBoxItem>
+                                        <ComboBoxItem>41</ComboBoxItem>
+                                        <ComboBoxItem>42</ComboBoxItem>
+                                        <ComboBoxItem>43</ComboBoxItem>
+                                        <ComboBoxItem>44</ComboBoxItem>
+                                        <ComboBoxItem>45</ComboBoxItem>
+                                        <ComboBoxItem>46</ComboBoxItem>
+                                        <ComboBoxItem>47</ComboBoxItem>
+                                        <ComboBoxItem>48</ComboBoxItem>
+                                        <ComboBoxItem>49</ComboBoxItem>
+                                        <ComboBoxItem>50</ComboBoxItem>
+                                        <ComboBoxItem>51</ComboBoxItem>
+                                        <ComboBoxItem>52</ComboBoxItem>
+                                        <ComboBoxItem>53</ComboBoxItem>
+                                        <ComboBoxItem>54</ComboBoxItem>
+                                        <ComboBoxItem>55</ComboBoxItem>
+                                        <ComboBoxItem>56</ComboBoxItem>
+                                        <ComboBoxItem>57</ComboBoxItem>
+                                        <ComboBoxItem>58</ComboBoxItem>
+                                        <ComboBoxItem>59</ComboBoxItem>
                                     </ComboBox>
-                            </Grid>
 
-                            <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="TFTiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
+                                    <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="TFTiming" IsTabStop="False" Visibility="Hidden">
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    </ComboBox>
+                                </Grid>
+
+                                <StackPanel Margin="0,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="TFAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label  Content="{DynamicResource TrainingResultView.Subjectcomment}"  Background="Gray"  Margin="0,2,-0.4,0" />
+                                    <Label  Content="{DynamicResource TrainingResultView.Subjectcomment}"  Background="Gray"  Margin="0,2,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="TFUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="TFMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                            </StackPanel>
+                                </StackPanel>
 
-                        </StackPanel>
-                    </TabItem>
+                            </StackPanel>
+                        </TabItem>
                         <TabItem Name="tab4"  Header="{DynamicResource Dev.LegExtension}" Width="115">
-                        <StackPanel Name="sp4"  Orientation="Horizontal">
-                            <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
-                                </Grid.Background>
-                                <ComboBox Name="LEAttr1" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.EndStopper}" Margin="107,58,139,237.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <!--<TextBox Name="LEAttr2" Height="20"  ToolTip="砝码重量"  Width="50" Margin="24,189,222,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
+                            <StackPanel Name="sp4"  Orientation="Horizontal">
+                                <Grid Margin="30,50,0,128.4" Width="296">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
+                                    </Grid.Background>
+                                    <ComboBox Name="LEAttr1" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.EndStopper}" Margin="107,58,139,237.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <!--<TextBox Name="LEAttr2" Height="20"  ToolTip="砝码重量"  Width="50" Margin="24,189,222,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
                                     <ComboBox Name="LEAttr3" Height="20"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Width="50" Margin="24,102,222,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                     <ComboBox Name="LEAttr4" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm2}"  Width="50" Margin="144,240,102,55.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <ComboBox Name="LEAttr5" Height="20"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Width="50" Margin="174,189,72,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                            </Grid>
+                                    <ComboBox Name="LEAttr5" Height="20"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Width="50" Margin="174,189,72,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                </Grid>
 
-                            <Grid Margin="30,50,0,0" Width="286" >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                <Grid Margin="30,50,0,0" Width="286" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
                                     <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
                                     <TextBox Grid.Row="0" CaretBrush="Black" Grid.Column="1" Margin="0,0,20,0" Name="LEGroupcount" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
@@ -766,187 +770,187 @@
                                     <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
                                     <TextBox Grid.Row="2" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="LERelaxTime" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}"  />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}"  />
                                     <TextBox Grid.Row="3" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0"  Name="LEWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="LEMoveway" IsTabStop="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="LEMoveway" IsTabStop="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="LESportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
+                                    <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="LESportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="LETime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Distance(m)}"  />
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Distance(m)}"  />
                                     <TextBox Grid.Row="7" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="LEDistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
                                     <TextBox Grid.Row="8" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="LECountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Calorie(cal)}"  />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Calorie(cal)}"  />
                                     <TextBox Grid.Row="9" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="LECal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Score}"  />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Score}"  />
                                     <TextBox Grid.Row="10" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="LEIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Time(min)}"  />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Time(min)}"  />
                                     <TextBox Grid.Row="11" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="LETime2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TotalSetsdone}"  />
+                                    <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TotalSetsdone}"  />
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="LEFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>-->
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timing/form}"  />
-                                <ComboBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="LEEvaluate" IsTabStop="False"/>
+                                    <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timing/form}"  />
+                                    <ComboBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="LEEvaluate" IsTabStop="False"/>
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="LETimer" IsTabStop="False" DropDownClosed="LEselect_change" >
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
+                                    <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="LETimer" IsTabStop="False" DropDownClosed="LEselect_change" >
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
                                     </ComboBox>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="White" Name="LETime_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
-                                <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="LETime" IsTabStop="False"  Visibility="Hidden">
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                    <ComboBoxItem>7</ComboBoxItem>
-                                    <ComboBoxItem>8</ComboBoxItem>
-                                    <ComboBoxItem>9</ComboBoxItem>
-                                    <ComboBoxItem>10</ComboBoxItem>
-                                    <ComboBoxItem>11</ComboBoxItem>
-                                    <ComboBoxItem>12</ComboBoxItem>
-                                    <ComboBoxItem>13</ComboBoxItem>
-                                    <ComboBoxItem>14</ComboBoxItem>
-                                    <ComboBoxItem>15</ComboBoxItem>
-                                    <ComboBoxItem>16</ComboBoxItem>
-                                    <ComboBoxItem>17</ComboBoxItem>
-                                    <ComboBoxItem>18</ComboBoxItem>
-                                    <ComboBoxItem>19</ComboBoxItem>
-                                    <ComboBoxItem>20</ComboBoxItem>
-                                    <ComboBoxItem>21</ComboBoxItem>
-                                    <ComboBoxItem>22</ComboBoxItem>
-                                    <ComboBoxItem>23</ComboBoxItem>
-                                    <ComboBoxItem>24</ComboBoxItem>
-                                    <ComboBoxItem>25</ComboBoxItem>
-                                    <ComboBoxItem>26</ComboBoxItem>
-                                    <ComboBoxItem>27</ComboBoxItem>
-                                    <ComboBoxItem>28</ComboBoxItem>
-                                    <ComboBoxItem>29</ComboBoxItem>
-                                    <ComboBoxItem>30</ComboBoxItem>
-                                    <ComboBoxItem>31</ComboBoxItem>
-                                    <ComboBoxItem>32</ComboBoxItem>
-                                    <ComboBoxItem>33</ComboBoxItem>
-                                    <ComboBoxItem>34</ComboBoxItem>
-                                    <ComboBoxItem>35</ComboBoxItem>
-                                    <ComboBoxItem>36</ComboBoxItem>
-                                    <ComboBoxItem>37</ComboBoxItem>
-                                    <ComboBoxItem>38</ComboBoxItem>
-                                    <ComboBoxItem>39</ComboBoxItem>
-                                    <ComboBoxItem>40</ComboBoxItem>
-                                    <ComboBoxItem>41</ComboBoxItem>
-                                    <ComboBoxItem>42</ComboBoxItem>
-                                    <ComboBoxItem>43</ComboBoxItem>
-                                    <ComboBoxItem>44</ComboBoxItem>
-                                    <ComboBoxItem>45</ComboBoxItem>
-                                    <ComboBoxItem>46</ComboBoxItem>
-                                    <ComboBoxItem>47</ComboBoxItem>
-                                    <ComboBoxItem>48</ComboBoxItem>
-                                    <ComboBoxItem>49</ComboBoxItem>
-                                    <ComboBoxItem>50</ComboBoxItem>
-                                    <ComboBoxItem>51</ComboBoxItem>
-                                    <ComboBoxItem>52</ComboBoxItem>
-                                    <ComboBoxItem>53</ComboBoxItem>
-                                    <ComboBoxItem>54</ComboBoxItem>
-                                    <ComboBoxItem>55</ComboBoxItem>
-                                    <ComboBoxItem>56</ComboBoxItem>
-                                    <ComboBoxItem>57</ComboBoxItem>
-                                    <ComboBoxItem>58</ComboBoxItem>
-                                    <ComboBoxItem>59</ComboBoxItem>
-                                </ComboBox>
-
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="LETiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
-                                <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="LETiming" IsTabStop="False" Visibility="Hidden">
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    <Label Grid.Row="14" Grid.Column="0" Background="White" Name="LETime_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
+                                    <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="LETime" IsTabStop="False"  Visibility="Hidden">
+                                        <ComboBoxItem>1</ComboBoxItem>
+                                        <ComboBoxItem>2</ComboBoxItem>
+                                        <ComboBoxItem>3</ComboBoxItem>
+                                        <ComboBoxItem>4</ComboBoxItem>
+                                        <ComboBoxItem>5</ComboBoxItem>
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                        <ComboBoxItem>16</ComboBoxItem>
+                                        <ComboBoxItem>17</ComboBoxItem>
+                                        <ComboBoxItem>18</ComboBoxItem>
+                                        <ComboBoxItem>19</ComboBoxItem>
+                                        <ComboBoxItem>20</ComboBoxItem>
+                                        <ComboBoxItem>21</ComboBoxItem>
+                                        <ComboBoxItem>22</ComboBoxItem>
+                                        <ComboBoxItem>23</ComboBoxItem>
+                                        <ComboBoxItem>24</ComboBoxItem>
+                                        <ComboBoxItem>25</ComboBoxItem>
+                                        <ComboBoxItem>26</ComboBoxItem>
+                                        <ComboBoxItem>27</ComboBoxItem>
+                                        <ComboBoxItem>28</ComboBoxItem>
+                                        <ComboBoxItem>29</ComboBoxItem>
+                                        <ComboBoxItem>30</ComboBoxItem>
+                                        <ComboBoxItem>31</ComboBoxItem>
+                                        <ComboBoxItem>32</ComboBoxItem>
+                                        <ComboBoxItem>33</ComboBoxItem>
+                                        <ComboBoxItem>34</ComboBoxItem>
+                                        <ComboBoxItem>35</ComboBoxItem>
+                                        <ComboBoxItem>36</ComboBoxItem>
+                                        <ComboBoxItem>37</ComboBoxItem>
+                                        <ComboBoxItem>38</ComboBoxItem>
+                                        <ComboBoxItem>39</ComboBoxItem>
+                                        <ComboBoxItem>40</ComboBoxItem>
+                                        <ComboBoxItem>41</ComboBoxItem>
+                                        <ComboBoxItem>42</ComboBoxItem>
+                                        <ComboBoxItem>43</ComboBoxItem>
+                                        <ComboBoxItem>44</ComboBoxItem>
+                                        <ComboBoxItem>45</ComboBoxItem>
+                                        <ComboBoxItem>46</ComboBoxItem>
+                                        <ComboBoxItem>47</ComboBoxItem>
+                                        <ComboBoxItem>48</ComboBoxItem>
+                                        <ComboBoxItem>49</ComboBoxItem>
+                                        <ComboBoxItem>50</ComboBoxItem>
+                                        <ComboBoxItem>51</ComboBoxItem>
+                                        <ComboBoxItem>52</ComboBoxItem>
+                                        <ComboBoxItem>53</ComboBoxItem>
+                                        <ComboBoxItem>54</ComboBoxItem>
+                                        <ComboBoxItem>55</ComboBoxItem>
+                                        <ComboBoxItem>56</ComboBoxItem>
+                                        <ComboBoxItem>57</ComboBoxItem>
+                                        <ComboBoxItem>58</ComboBoxItem>
+                                        <ComboBoxItem>59</ComboBoxItem>
                                     </ComboBox>
-                            </Grid>
 
-                            <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="LETiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
+                                    <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="LETiming" IsTabStop="False" Visibility="Hidden">
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    </ComboBox>
+                                </Grid>
+
+                                <StackPanel Margin="0,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="LEAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label  Content="{DynamicResource TrainingResultView.Subjectcomment}"  Background="Gray"  Margin="0,2,-0.4,0" />
+                                    <Label  Content="{DynamicResource TrainingResultView.Subjectcomment}"  Background="Gray"  Margin="0,2,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="LEUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="LEMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
+                                </StackPanel>
+
                             </StackPanel>
-
-                        </StackPanel>
-                    </TabItem>
+                        </TabItem>
                         <TabItem Name="tab5"  Header="{DynamicResource Dev.HorizontalLegPress}" Width="145" Height="21" Margin="0.2,0,0,0" VerticalAlignment="Top">
-                        <StackPanel Name="sp5"  Orientation="Horizontal">
-                            <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
-                                </Grid.Background>
-                                <ComboBox Name="HAAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="160,66,86,229.2" RenderTransformOrigin="-0.096,-0.43" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <!--<TextBox Name="HAAttr2" Height="20" Width="50" ToolTip="砝码重量"  Margin="78,169,168,126.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>-->
-                                <ComboBox Name="HAAttr3" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.SeatPosition}"  Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                            </Grid>
+                            <StackPanel Name="sp5"  Orientation="Horizontal">
+                                <Grid Margin="30,50,0,128.4" Width="296">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
+                                    </Grid.Background>
+                                    <ComboBox Name="HAAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="160,66,86,229.2" RenderTransformOrigin="-0.096,-0.43" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <!--<TextBox Name="HAAttr2" Height="20" Width="50" ToolTip="砝码重量"  Margin="78,169,168,126.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>-->
+                                    <ComboBox Name="HAAttr3" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.SeatPosition}"  Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                </Grid>
 
-                            <Grid Margin="30,50,0,0" Width="286" >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                <Grid Margin="30,50,0,0" Width="286" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
                                     <Label Background="Gray" Margin="0,0,10,0"  Content="{DynamicResource TrainingResultView.#ofSets}"  Grid.Row="0" Grid.Column="0"/>
                                     <TextBox Grid.Row="0" CaretBrush="Black" Grid.Column="1" Margin="0,0,20,0" Name="HAGroupcount" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
@@ -983,160 +987,160 @@
                                     <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Time(min)}"  />
                                     <TextBox Grid.Row="11" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="HATime2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TotalSetsdone}"  />
+                                    <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TotalSetsdone}"  />
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HAFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>-->
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timing/form}"  />
-                                <ComboBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="HAEvaluate" IsTabStop="False"/>
+                                    <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timing/form}"  />
+                                    <ComboBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="HAEvaluate" IsTabStop="False"/>
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="HATimer" IsTabStop="False" DropDownClosed="HAselect_change" >
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
+                                    <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="HATimer" IsTabStop="False" DropDownClosed="HAselect_change" >
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
                                     </ComboBox>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="White" Name="HATime_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
-                                <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="HATime" IsTabStop="False"  Visibility="Hidden">
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                    <ComboBoxItem>7</ComboBoxItem>
-                                    <ComboBoxItem>8</ComboBoxItem>
-                                    <ComboBoxItem>9</ComboBoxItem>
-                                    <ComboBoxItem>10</ComboBoxItem>
-                                    <ComboBoxItem>11</ComboBoxItem>
-                                    <ComboBoxItem>12</ComboBoxItem>
-                                    <ComboBoxItem>13</ComboBoxItem>
-                                    <ComboBoxItem>14</ComboBoxItem>
-                                    <ComboBoxItem>15</ComboBoxItem>
-                                    <ComboBoxItem>16</ComboBoxItem>
-                                    <ComboBoxItem>17</ComboBoxItem>
-                                    <ComboBoxItem>18</ComboBoxItem>
-                                    <ComboBoxItem>19</ComboBoxItem>
-                                    <ComboBoxItem>20</ComboBoxItem>
-                                    <ComboBoxItem>21</ComboBoxItem>
-                                    <ComboBoxItem>22</ComboBoxItem>
-                                    <ComboBoxItem>23</ComboBoxItem>
-                                    <ComboBoxItem>24</ComboBoxItem>
-                                    <ComboBoxItem>25</ComboBoxItem>
-                                    <ComboBoxItem>26</ComboBoxItem>
-                                    <ComboBoxItem>27</ComboBoxItem>
-                                    <ComboBoxItem>28</ComboBoxItem>
-                                    <ComboBoxItem>29</ComboBoxItem>
-                                    <ComboBoxItem>30</ComboBoxItem>
-                                    <ComboBoxItem>31</ComboBoxItem>
-                                    <ComboBoxItem>32</ComboBoxItem>
-                                    <ComboBoxItem>33</ComboBoxItem>
-                                    <ComboBoxItem>34</ComboBoxItem>
-                                    <ComboBoxItem>35</ComboBoxItem>
-                                    <ComboBoxItem>36</ComboBoxItem>
-                                    <ComboBoxItem>37</ComboBoxItem>
-                                    <ComboBoxItem>38</ComboBoxItem>
-                                    <ComboBoxItem>39</ComboBoxItem>
-                                    <ComboBoxItem>40</ComboBoxItem>
-                                    <ComboBoxItem>41</ComboBoxItem>
-                                    <ComboBoxItem>42</ComboBoxItem>
-                                    <ComboBoxItem>43</ComboBoxItem>
-                                    <ComboBoxItem>44</ComboBoxItem>
-                                    <ComboBoxItem>45</ComboBoxItem>
-                                    <ComboBoxItem>46</ComboBoxItem>
-                                    <ComboBoxItem>47</ComboBoxItem>
-                                    <ComboBoxItem>48</ComboBoxItem>
-                                    <ComboBoxItem>49</ComboBoxItem>
-                                    <ComboBoxItem>50</ComboBoxItem>
-                                    <ComboBoxItem>51</ComboBoxItem>
-                                    <ComboBoxItem>52</ComboBoxItem>
-                                    <ComboBoxItem>53</ComboBoxItem>
-                                    <ComboBoxItem>54</ComboBoxItem>
-                                    <ComboBoxItem>55</ComboBoxItem>
-                                    <ComboBoxItem>56</ComboBoxItem>
-                                    <ComboBoxItem>57</ComboBoxItem>
-                                    <ComboBoxItem>58</ComboBoxItem>
-                                    <ComboBoxItem>59</ComboBoxItem>
-                                </ComboBox>
-
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="HATiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
-                                <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="HATiming" IsTabStop="False" Visibility="Hidden">
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    <Label Grid.Row="14" Grid.Column="0" Background="White" Name="HATime_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
+                                    <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="HATime" IsTabStop="False"  Visibility="Hidden">
+                                        <ComboBoxItem>1</ComboBoxItem>
+                                        <ComboBoxItem>2</ComboBoxItem>
+                                        <ComboBoxItem>3</ComboBoxItem>
+                                        <ComboBoxItem>4</ComboBoxItem>
+                                        <ComboBoxItem>5</ComboBoxItem>
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                        <ComboBoxItem>16</ComboBoxItem>
+                                        <ComboBoxItem>17</ComboBoxItem>
+                                        <ComboBoxItem>18</ComboBoxItem>
+                                        <ComboBoxItem>19</ComboBoxItem>
+                                        <ComboBoxItem>20</ComboBoxItem>
+                                        <ComboBoxItem>21</ComboBoxItem>
+                                        <ComboBoxItem>22</ComboBoxItem>
+                                        <ComboBoxItem>23</ComboBoxItem>
+                                        <ComboBoxItem>24</ComboBoxItem>
+                                        <ComboBoxItem>25</ComboBoxItem>
+                                        <ComboBoxItem>26</ComboBoxItem>
+                                        <ComboBoxItem>27</ComboBoxItem>
+                                        <ComboBoxItem>28</ComboBoxItem>
+                                        <ComboBoxItem>29</ComboBoxItem>
+                                        <ComboBoxItem>30</ComboBoxItem>
+                                        <ComboBoxItem>31</ComboBoxItem>
+                                        <ComboBoxItem>32</ComboBoxItem>
+                                        <ComboBoxItem>33</ComboBoxItem>
+                                        <ComboBoxItem>34</ComboBoxItem>
+                                        <ComboBoxItem>35</ComboBoxItem>
+                                        <ComboBoxItem>36</ComboBoxItem>
+                                        <ComboBoxItem>37</ComboBoxItem>
+                                        <ComboBoxItem>38</ComboBoxItem>
+                                        <ComboBoxItem>39</ComboBoxItem>
+                                        <ComboBoxItem>40</ComboBoxItem>
+                                        <ComboBoxItem>41</ComboBoxItem>
+                                        <ComboBoxItem>42</ComboBoxItem>
+                                        <ComboBoxItem>43</ComboBoxItem>
+                                        <ComboBoxItem>44</ComboBoxItem>
+                                        <ComboBoxItem>45</ComboBoxItem>
+                                        <ComboBoxItem>46</ComboBoxItem>
+                                        <ComboBoxItem>47</ComboBoxItem>
+                                        <ComboBoxItem>48</ComboBoxItem>
+                                        <ComboBoxItem>49</ComboBoxItem>
+                                        <ComboBoxItem>50</ComboBoxItem>
+                                        <ComboBoxItem>51</ComboBoxItem>
+                                        <ComboBoxItem>52</ComboBoxItem>
+                                        <ComboBoxItem>53</ComboBoxItem>
+                                        <ComboBoxItem>54</ComboBoxItem>
+                                        <ComboBoxItem>55</ComboBoxItem>
+                                        <ComboBoxItem>56</ComboBoxItem>
+                                        <ComboBoxItem>57</ComboBoxItem>
+                                        <ComboBoxItem>58</ComboBoxItem>
+                                        <ComboBoxItem>59</ComboBoxItem>
                                     </ComboBox>
-                            </Grid>
 
-                            <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="HATiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
+                                    <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="HATiming" IsTabStop="False" Visibility="Hidden">
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    </ComboBox>
+                                </Grid>
+
+                                <StackPanel Margin="0,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="HAAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label  Content="{DynamicResource TrainingResultView.Subjectcomment}"  Background="Gray"  Margin="0,2,-0.4,0" />
+                                    <Label  Content="{DynamicResource TrainingResultView.Subjectcomment}"  Background="Gray"  Margin="0,2,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="HAUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="HAMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
+                                </StackPanel>
+
                             </StackPanel>
-
-                        </StackPanel>
-                    </TabItem>
+                        </TabItem>
                         <TabItem Name="tab6"  Header="{DynamicResource Dev.HipAbduction}" Width="115">
-                        <StackPanel Name="sp6"  Orientation="Horizontal">
-                            <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
-                                </Grid.Background>
-                                <ComboBox Name="CPAttr1" Height="20"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="130,66,116,229.2" RenderTransformOrigin="-0.188,-0.34" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                <!--<TextBox Name="CPAttr2" ToolTip="砝码重量"  Height="20" Width="50" Margin="47,171,199,124.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                <ComboBox Name="CPAttr3" ToolTip="{DynamicResource TrainingListView.AngleOfArm}"  Width="50" Height="20" Margin="150,204,96,94.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-                            </Grid>
+                            <StackPanel Name="sp6"  Orientation="Horizontal">
+                                <Grid Margin="30,50,0,128.4" Width="296">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
+                                    </Grid.Background>
+                                    <ComboBox Name="CPAttr1" Height="20"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="130,66,116,229.2" RenderTransformOrigin="-0.188,-0.34" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <!--<TextBox Name="CPAttr2" ToolTip="砝码重量"  Height="20" Width="50" Margin="47,171,199,124.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
+                                    <ComboBox Name="CPAttr3" ToolTip="{DynamicResource TrainingListView.AngleOfArm}"  Width="50" Height="20" Margin="150,204,96,94.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                </Grid>
 
-                            <Grid Margin="30,50,0,0" Width="286" >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                <Grid Margin="30,50,0,0" Width="286" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
                                     <Label Background="Gray" Margin="0,0,10,0"  Content="{DynamicResource TrainingResultView.#ofSets}"  Grid.Row="0" Grid.Column="0"/>
                                     <TextBox Grid.Row="0" CaretBrush="Black" Grid.Column="1" Margin="0,0,20,0" Name="CPGroupcount" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
@@ -1146,165 +1150,165 @@
                                     <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
                                     <TextBox Grid.Row="2" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="CPRelaxTime" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}"  />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}"  />
                                     <TextBox Grid.Row="3" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0"  Name="CPWeight" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
-                                <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="CPMoveway" IsTabStop="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="CPMoveway" IsTabStop="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
                                     <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="CPSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="CPTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Distance(m)}"  />
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Distance(m)}"  />
                                     <TextBox Grid.Row="7" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="CPDistance" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
                                     <TextBox Grid.Row="8" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="CPCountworkqu" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Calorie(cal)}"  />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Calorie(cal)}"  />
                                     <TextBox Grid.Row="9" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="CPCal" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Score}"  />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Score}"  />
                                     <TextBox Grid.Row="10" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="CPIndex" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Time(min)}"  />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Time(min)}"  />
                                     <TextBox Grid.Row="11" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="CPTime2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
-                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TotalSetsdone}"  />
+                                    <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TotalSetsdone}"  />
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="CPFinishgroup" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>-->
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timing/form}"  />
-                                <ComboBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="CPEvaluate" IsTabStop="False"/>
+                                    <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timing/form}"  />
+                                    <ComboBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="CPEvaluate" IsTabStop="False"/>
 
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
-                                <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="CPTimer" IsTabStop="False"  DropDownClosed="CPselect_change" >
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
+                                    <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="CPTimer" IsTabStop="False"  DropDownClosed="CPselect_change" >
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.Invalid}"></ComboBoxItem>
                                     </ComboBox>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="White" Name="CPTime_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
-                                <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="CPTime" IsTabStop="False"  Visibility="Hidden" >
-                                    <ComboBoxItem>1</ComboBoxItem>
-                                    <ComboBoxItem>2</ComboBoxItem>
-                                    <ComboBoxItem>3</ComboBoxItem>
-                                    <ComboBoxItem>4</ComboBoxItem>
-                                    <ComboBoxItem>5</ComboBoxItem>
-                                    <ComboBoxItem>6</ComboBoxItem>
-                                    <ComboBoxItem>7</ComboBoxItem>
-                                    <ComboBoxItem>8</ComboBoxItem>
-                                    <ComboBoxItem>9</ComboBoxItem>
-                                    <ComboBoxItem>10</ComboBoxItem>
-                                    <ComboBoxItem>11</ComboBoxItem>
-                                    <ComboBoxItem>12</ComboBoxItem>
-                                    <ComboBoxItem>13</ComboBoxItem>
-                                    <ComboBoxItem>14</ComboBoxItem>
-                                    <ComboBoxItem>15</ComboBoxItem>
-                                    <ComboBoxItem>16</ComboBoxItem>
-                                    <ComboBoxItem>17</ComboBoxItem>
-                                    <ComboBoxItem>18</ComboBoxItem>
-                                    <ComboBoxItem>19</ComboBoxItem>
-                                    <ComboBoxItem>20</ComboBoxItem>
-                                    <ComboBoxItem>21</ComboBoxItem>
-                                    <ComboBoxItem>22</ComboBoxItem>
-                                    <ComboBoxItem>23</ComboBoxItem>
-                                    <ComboBoxItem>24</ComboBoxItem>
-                                    <ComboBoxItem>25</ComboBoxItem>
-                                    <ComboBoxItem>26</ComboBoxItem>
-                                    <ComboBoxItem>27</ComboBoxItem>
-                                    <ComboBoxItem>28</ComboBoxItem>
-                                    <ComboBoxItem>29</ComboBoxItem>
-                                    <ComboBoxItem>30</ComboBoxItem>
-                                    <ComboBoxItem>31</ComboBoxItem>
-                                    <ComboBoxItem>32</ComboBoxItem>
-                                    <ComboBoxItem>33</ComboBoxItem>
-                                    <ComboBoxItem>34</ComboBoxItem>
-                                    <ComboBoxItem>35</ComboBoxItem>
-                                    <ComboBoxItem>36</ComboBoxItem>
-                                    <ComboBoxItem>37</ComboBoxItem>
-                                    <ComboBoxItem>38</ComboBoxItem>
-                                    <ComboBoxItem>39</ComboBoxItem>
-                                    <ComboBoxItem>40</ComboBoxItem>
-                                    <ComboBoxItem>41</ComboBoxItem>
-                                    <ComboBoxItem>42</ComboBoxItem>
-                                    <ComboBoxItem>43</ComboBoxItem>
-                                    <ComboBoxItem>44</ComboBoxItem>
-                                    <ComboBoxItem>45</ComboBoxItem>
-                                    <ComboBoxItem>46</ComboBoxItem>
-                                    <ComboBoxItem>47</ComboBoxItem>
-                                    <ComboBoxItem>48</ComboBoxItem>
-                                    <ComboBoxItem>49</ComboBoxItem>
-                                    <ComboBoxItem>50</ComboBoxItem>
-                                    <ComboBoxItem>51</ComboBoxItem>
-                                    <ComboBoxItem>52</ComboBoxItem>
-                                    <ComboBoxItem>53</ComboBoxItem>
-                                    <ComboBoxItem>54</ComboBoxItem>
-                                    <ComboBoxItem>55</ComboBoxItem>
-                                    <ComboBoxItem>56</ComboBoxItem>
-                                    <ComboBoxItem>57</ComboBoxItem>
-                                    <ComboBoxItem>58</ComboBoxItem>
-                                    <ComboBoxItem>59</ComboBoxItem>
-                                </ComboBox>
-
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="CPTiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
-                                <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="CPTiming" IsTabStop="False" Visibility="Hidden">
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
-                                    <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    <Label Grid.Row="14" Grid.Column="0" Background="White" Name="CPTime_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TimerCount}"   />
+                                    <ComboBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="CPTime" IsTabStop="False"  Visibility="Hidden" >
+                                        <ComboBoxItem>1</ComboBoxItem>
+                                        <ComboBoxItem>2</ComboBoxItem>
+                                        <ComboBoxItem>3</ComboBoxItem>
+                                        <ComboBoxItem>4</ComboBoxItem>
+                                        <ComboBoxItem>5</ComboBoxItem>
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                        <ComboBoxItem>16</ComboBoxItem>
+                                        <ComboBoxItem>17</ComboBoxItem>
+                                        <ComboBoxItem>18</ComboBoxItem>
+                                        <ComboBoxItem>19</ComboBoxItem>
+                                        <ComboBoxItem>20</ComboBoxItem>
+                                        <ComboBoxItem>21</ComboBoxItem>
+                                        <ComboBoxItem>22</ComboBoxItem>
+                                        <ComboBoxItem>23</ComboBoxItem>
+                                        <ComboBoxItem>24</ComboBoxItem>
+                                        <ComboBoxItem>25</ComboBoxItem>
+                                        <ComboBoxItem>26</ComboBoxItem>
+                                        <ComboBoxItem>27</ComboBoxItem>
+                                        <ComboBoxItem>28</ComboBoxItem>
+                                        <ComboBoxItem>29</ComboBoxItem>
+                                        <ComboBoxItem>30</ComboBoxItem>
+                                        <ComboBoxItem>31</ComboBoxItem>
+                                        <ComboBoxItem>32</ComboBoxItem>
+                                        <ComboBoxItem>33</ComboBoxItem>
+                                        <ComboBoxItem>34</ComboBoxItem>
+                                        <ComboBoxItem>35</ComboBoxItem>
+                                        <ComboBoxItem>36</ComboBoxItem>
+                                        <ComboBoxItem>37</ComboBoxItem>
+                                        <ComboBoxItem>38</ComboBoxItem>
+                                        <ComboBoxItem>39</ComboBoxItem>
+                                        <ComboBoxItem>40</ComboBoxItem>
+                                        <ComboBoxItem>41</ComboBoxItem>
+                                        <ComboBoxItem>42</ComboBoxItem>
+                                        <ComboBoxItem>43</ComboBoxItem>
+                                        <ComboBoxItem>44</ComboBoxItem>
+                                        <ComboBoxItem>45</ComboBoxItem>
+                                        <ComboBoxItem>46</ComboBoxItem>
+                                        <ComboBoxItem>47</ComboBoxItem>
+                                        <ComboBoxItem>48</ComboBoxItem>
+                                        <ComboBoxItem>49</ComboBoxItem>
+                                        <ComboBoxItem>50</ComboBoxItem>
+                                        <ComboBoxItem>51</ComboBoxItem>
+                                        <ComboBoxItem>52</ComboBoxItem>
+                                        <ComboBoxItem>53</ComboBoxItem>
+                                        <ComboBoxItem>54</ComboBoxItem>
+                                        <ComboBoxItem>55</ComboBoxItem>
+                                        <ComboBoxItem>56</ComboBoxItem>
+                                        <ComboBoxItem>57</ComboBoxItem>
+                                        <ComboBoxItem>58</ComboBoxItem>
+                                        <ComboBoxItem>59</ComboBoxItem>
                                     </ComboBox>
-                            </Grid>
 
-                            <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="CPTiming_Label"  Content="{DynamicResource TrainingResultView.TimeType}"  />
+                                    <ComboBox  Grid.Row="15" Grid.Column="1" Margin="0,3,20,0"  Name="CPTiming" IsTabStop="False" Visibility="Hidden">
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountForward}"></ComboBoxItem>
+                                        <ComboBoxItem Content="{DynamicResource TrainingListView.CountReverse}" ></ComboBoxItem>
+                                    </ComboBox>
+                                </Grid>
+
+                                <StackPanel Margin="0,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="CPAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label  Content="{DynamicResource TrainingResultView.Subjectcomment}"  Background="Gray"  Margin="0,2,-0.4,0" />
+                                    <Label  Content="{DynamicResource TrainingResultView.Subjectcomment}"  Background="Gray"  Margin="0,2,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="CPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                <Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
                                     <TextBox Height="104" CaretBrush="Black" Margin="0,2,0,0" Name="CPMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
+                                    <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
-                                <!--行间距-->
-                                <!--
+                                    <!--行间距-->
+                                    <!--
                                     <RichTextBox.Document>
                                         <FlowDocument Focusable="True" LineHeight="1" >
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                            </StackPanel>
+                                </StackPanel>
 
-                        </StackPanel>
-                    </TabItem>
-                </TabControl>
+                            </StackPanel>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
             </Grid>
-        </Grid>
-        <!-- 四个按钮排放位置-->
-        <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="335" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2" Margin="0,0,9.6,10">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+            <!-- 四个按钮排放位置-->
+            <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="335" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2" Margin="0,0,9.6,10">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
 
                     <Button Width="140"  Click="ButtonBase_OnClick"  Content="{DynamicResource TrainingResultView.Save}" Margin="2,0,0,-0.2" Style="{StaticResource Btn}" RenderTransformOrigin="0.5,0.504" />
                     <Button Width="140"     Content="{DynamicResource TrainingResultView.Back}"  Style="{StaticResource Btn}" Margin="2,0,2,-0.2" Click="Cancel"/>
-            </StackPanel>
-        </Border>
-    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
     </Viewbox>
 </Window>
