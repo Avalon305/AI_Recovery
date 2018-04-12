@@ -63,10 +63,9 @@ namespace spms.view.Pages.ChildWin
         public Register()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
-
+            //this.Hide();
+            Top = 1500;
+            
             groupList = customDataService.GetAllByType(CustomDataEnum.Group);
             diseaseList = customDataService.GetAllByType(CustomDataEnum.Disease);
             diagnosisList = customDataService.GetAllByType(CustomDataEnum.Diagiosis);
@@ -81,6 +80,15 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //this.Width = viewbox.ActualWidth;
+            //this.Height = viewbox.ActualHeight;
+            //this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            //this.Hide();
+            //WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.Height = SystemParameters.WorkArea.Size.Height;
+            //this.Width = viewbox.Width;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
@@ -512,7 +520,7 @@ namespace spms.view.Pages.ChildWin
         //解决气泡不随着窗体移动问题
         private void windowmove(object sender, EventArgs e)
         {
-            if(bubble_phone.IsOpen == true || bubble_IDCard.IsOpen == true || bubble_name.IsOpen == true || bubble_disease.IsOpen == true || bubble_Diagnosis.IsOpen == true) { 
+            if (bubble_phone.IsOpen == true || bubble_IDCard.IsOpen == true || bubble_name.IsOpen == true || bubble_disease.IsOpen == true || bubble_Diagnosis.IsOpen == true) { 
             var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             mi.Invoke(bubble_phone, null);
             mi.Invoke(bubble_IDCard, null);
@@ -693,6 +701,21 @@ namespace spms.view.Pages.ChildWin
                 return;
             }
            
+        }
+
+        private void viewbox_load(object sender, RoutedEventArgs e)
+        {
+            //this.Visibility = Visibility.Collapsed;
+            this.Width = viewbox.ActualWidth;
+            this.Height = viewbox.ActualHeight;
+            
+            Left = (SystemParameters.WorkArea.Size.Width - viewbox.ActualWidth) / 2;
+            Top = (SystemParameters.WorkArea.Size.Height - viewbox.ActualHeight) / 2;
+            //this.ShowDialog();
+           //this.
+           // this.Opacity = 1;
+          //  this.Visibility = Visibility.Visible;
+
         }
     }
 
