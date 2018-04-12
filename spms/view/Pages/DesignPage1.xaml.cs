@@ -456,6 +456,7 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
+            onlineDeviceDetails.ShowDialog();
         }
 
         //private void upgrade(object sender, RoutedEventArgs e)
