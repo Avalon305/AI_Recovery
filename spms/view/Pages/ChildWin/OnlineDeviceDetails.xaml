@@ -19,6 +19,7 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
         <converter:LanguageConverter x:Key="languageconverter"/>
+        <converter:StatusImageConverter x:Key="statusimageconverter"/>
         <converter:LanguageStatusConverter x:Key="languagestatusconverter"/>
         <converter:StatusConverter x:Key="statusconverter"/>
     </Window.Resources>
@@ -87,9 +88,13 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                             <DataGridTemplateColumn Header="{DynamicResource RegisterView.OnlineStatus}" Width="105" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-
-                                        <TextBlock Text="{Binding od_gmt_modified,Converter={StaticResource languagestatusconverter}}" Name="status" Foreground="{Binding ElementName=status, Path=Text,Converter={StaticResource statusconverter}}" Grid.Column="1"></TextBlock>
-                                    </DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Name="status" Text="{Binding od_gmt_modified,Converter={StaticResource languagestatusconverter}}" Visibility="Collapsed"></TextBlock>
+                                            <Image Source="{Binding ElementName=status, Path=Text,Converter={StaticResource statusimageconverter}}" Width="10" Height="10"></Image>
+                                            
+                                        <TextBlock  Text="{Binding od_gmt_modified,Converter={StaticResource languagestatusconverter}}"  Foreground="{Binding ElementName=status, Path=Text,Converter={StaticResource statusconverter}}" ></TextBlock>
+                                        </StackPanel>
+                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>

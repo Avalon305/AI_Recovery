@@ -29,9 +29,32 @@ namespace spms.view.converter
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            int revalue = (int)value;
+            
 
-            return DateTime.Now.Year - revalue;
+            return null;
+        }
+    }
+    class StatusImageConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value.ToString().Equals("在线") || value.ToString().Equals("Online"))
+            {
+                return @"/view/Images/dcu_online.png";
+            }
+            else
+            {
+                return @"/view/Images/dcu_offline.png";
+            }
+
+
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            
+
+            return null;
         }
     }
 }

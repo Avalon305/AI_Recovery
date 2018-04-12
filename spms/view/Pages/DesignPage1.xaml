@@ -170,8 +170,8 @@
                 <!--高级设置按钮-->
                 <Border Margin="30,0,0,0" Width="328">
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                        <Button Width="245"  Height="38" IsTabStop="False" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="68,0,15,10"  Foreground="Black" Content="{DynamicResource SettingsView.Confirm}" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
-                        <StackPanel Orientation="Horizontal" Margin="68,0,0,0">
+                        <Button Width="269"  Height="38" IsTabStop="False" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="44,0,15,10"  Foreground="Black" Content="{DynamicResource SettingsView.Confirm}" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
+                        <StackPanel Orientation="Horizontal" Margin="49,0,0,0">
                             <Button Content="{DynamicResource SettingsView.OnlineEquipmentSituation}"  IsTabStop="False" Height="33" Click="OnlineEquipmentSituation" Style="{StaticResource Btn}"  Width="122" />
                             <Button Content="{DynamicResource SettingsView.AdvancedSettings}"  IsTabStop="False" Height="33"  Click="AdvancedSettings" Style="{StaticResource Btn}" Margin="10,0,212,0" Width="115"/>
                         </StackPanel>
