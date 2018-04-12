@@ -34,7 +34,7 @@ namespace spms.view.converter
         bool language = LanguageUtils.IsChainese();
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (((TimeSpan)(DateTime.Now - System.Convert.ToDateTime(value))).TotalSeconds <= 30)
+            if (((DateTime.Now - System.Convert.ToDateTime(value))).TotalSeconds <= 30)
             {
                 return language ? "在线" : "Online";
             }

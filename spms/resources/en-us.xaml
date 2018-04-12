@@ -44,9 +44,9 @@
     <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">Facility Name</s:String>
     <s:String x:Key="SettingsView.Return">Return</s:String>
-    <s:String x:Key="SettingsView.PremarySettings">Premary Settings</s:String>
-    
+    <s:String x:Key="SettingsView.PremarySettings">Premary Settings</s:String> 
     <s:String x:Key="SettingsView.AdvancedSettings">Advanced Settings</s:String>
+    <s:String x:Key="SettingsView.OnlineEquipmentSituation">Online Equipment Situation</s:String>
     <s:String x:Key="SettingsView.Alert" xml:space="preserve">(Once the path is set&#13;not to suggest changes)</s:String>
     <s:String x:Key="SettingsView.FacilityType">Facility Type</s:String>
     <s:String x:Key="SettingsView.Phone">Mobile</s:String>
