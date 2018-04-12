@@ -104,6 +104,22 @@ namespace spms.dao
                 return conn.Query<DevicePrescription>(query, new { Fk_TI_Id = tiId }).ToList();
             }
         }
+
+        /// <summary>
+        /// 根据用户身份证号查询未完成的处方信息，Normal状态
+        /// </summary>
+        /// <param name="idcard"></param>
+        /// <returns></returns>
+        public List<DevicePrescription> ListUnDoByUserId(string idcard)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select d.* from bdl_user u join bdl_traininfo t on u.pk_user_id = t.fk_user_id join bdl_deviceprescription d on d.fk_ti_id = t.pk_ti_id where u.user_idcard = @Idcard and t.status = @TrainInfoStatus and d.dp_status = @Dp_Status order by t.gmt_create desc";
+
+                return (List<DevicePrescription>)conn.Query<DevicePrescription>(query, new { Idcard = idcard, Dp_Status = DevicePrescription.UNDO, TrainInfoStatus = (byte)TrainInfoStatus.Normal });
+            }
+        }
+
         /// <summary>
         /// 根据用户身份证号和设备类型查询处方信息，Normal状态
         /// </summary>

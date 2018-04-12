@@ -204,6 +204,15 @@ namespace spms.service
         }
 
         /// <summary>
+        /// 根据用户身份证号查询未完成处方
+        /// </summary>
+        /// <param name="idcard"></param>
+        /// <returns></returns>
+        public List<DevicePrescription> ListUndoDevicePrescriptionByUserId(string idcard)
+        {
+            return new DevicePrescriptionDAO().ListUnDoByUserId(idcard);
+        }
+        /// <summary>
         /// 根据用户身份证号和设备类型查询处方,Normol状态的
         /// </summary>
         /// <param name="idcard"></param>
