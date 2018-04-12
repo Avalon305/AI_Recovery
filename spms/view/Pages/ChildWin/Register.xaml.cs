@@ -351,7 +351,7 @@ namespace spms.view.Pages.ChildWin
             if (File.Exists(tempPic))
             {
                 string finalPic = CommUtil.GetUserPic(photoName);
-                //如果增加时，数据库存在这个图片，则删除
+                //如果增加时，对应位置存在这个图片，则删除
                 if (File.Exists(finalPic)) {
                     File.Delete(finalPic);
                 }
