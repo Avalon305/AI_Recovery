@@ -29,4 +29,24 @@ namespace spms.view.converter
             return null;
         }
     }
+    class LanguageStatusConverter : IValueConverter
+    {
+        bool language = LanguageUtils.IsChainese();
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (((TimeSpan)(DateTime.Now - System.Convert.ToDateTime(value))).TotalSeconds <= 30)
+            {
+                return language ? "在线" : "Online";
+            }
+            else
+            {
+                return language ? "不在线" : "Not Online";
+            }
+        }
+
+        public object ConvertBack(object value, Type targetTypes, object parameter, CultureInfo culture)
+        {
+            return null;
+        }
+    }
 }

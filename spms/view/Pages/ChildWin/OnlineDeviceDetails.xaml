@@ -19,6 +19,7 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
         <converter:LanguageConverter x:Key="languageconverter"/>
+        <converter:LanguageStatusConverter x:Key="languagestatusconverter"/>
         <converter:StatusConverter x:Key="statusconverter"/>
     </Window.Resources>
     <!--<Window.Triggers>
@@ -87,7 +88,7 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
 
-                                        <TextBlock Text="{Binding status}" Foreground="{Binding status,Converter={StaticResource statusconverter }}" Grid.Column="1"></TextBlock>
+                                        <TextBlock Text="{Binding od_gmt_modified,Converter={StaticResource languagestatusconverter}}" Name="status" Foreground="{Binding ElementName=status, Path=Text,Converter={StaticResource statusconverter}}" Grid.Column="1"></TextBlock>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>

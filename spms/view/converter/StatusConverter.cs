@@ -13,17 +13,17 @@ namespace spms.view.converter
 {
     class StatusConverter:IValueConverter
     {
+        bool language = LanguageUtils.IsChainese();
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value.ToString().Equals("正常"))
-            {
-               
+            if (value.ToString().Equals("在线") || value.ToString().Equals("Online")) { 
                 return new SolidColorBrush(Colors.GreenYellow);
             }
             else
             {
                 return new SolidColorBrush(Colors.Red); 
-            }
+             }
+          
 
         }
 
