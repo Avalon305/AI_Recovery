@@ -26,7 +26,7 @@ namespace spms.view.Pages.ChildWin
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-
+        
         public OnlineDeviceDetails()
         {
             InitializeComponent();
@@ -40,6 +40,7 @@ namespace spms.view.Pages.ChildWin
         //取消按钮，关闭此窗体
         private void Cancel(object sender, RoutedEventArgs e)
         {
+
             this.Close();
         }
         //回车按钮
