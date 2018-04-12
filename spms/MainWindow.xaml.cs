@@ -50,7 +50,8 @@ namespace spms
             }
             else
             {
-                System.Windows.MessageBox.Show("电脑没有安装任何可用摄像头");
+                MessageBox.Show(LanguageUtils.ConvertLanguage("电脑没有安装任何可用摄像头", "The computer doesn't install any available cameras"));
+                //System.Windows.MessageBox.Show("电脑没有安装任何可用摄像头");
             }
         }
 

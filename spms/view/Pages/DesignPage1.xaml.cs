@@ -447,6 +447,17 @@ namespace spms.view.Pages
             }
         }
 
+        private void OnlineEquipmentSituation(object sender, RoutedEventArgs e)
+        {
+            OnlineDeviceDetails onlineDeviceDetails = new OnlineDeviceDetails
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+        }
+
         //private void upgrade(object sender, RoutedEventArgs e)
         //{
 

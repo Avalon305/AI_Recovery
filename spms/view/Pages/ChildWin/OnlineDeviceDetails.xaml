@@ -80,8 +80,8 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>--><!--
                             </DataGridTemplateColumn>-->
-                            <DataGridTextColumn Binding="{Binding od_clientid}" Header="设备编号" Width="140"/>
-                            <DataGridTextColumn  Header="设备名称" Width="220">
+                            <DataGridTextColumn Binding="{Binding od_clientid}" Header="{DynamicResource RegisterView.TerminalID}" Width="120"/>
+                            <DataGridTextColumn  Header="{DynamicResource RegisterView.TerminalType}" Width="200">
                                 <DataGridTextColumn.Binding>
                                     <MultiBinding Converter="{StaticResource ResourceKey=languageconverter}">
                                         <Binding Path="od_clientname_en"></Binding>
@@ -89,7 +89,7 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                                     </MultiBinding>
                                 </DataGridTextColumn.Binding>
                             </DataGridTextColumn>
-                            <DataGridTemplateColumn Header="状态" Width="75" >
+                            <DataGridTemplateColumn Header="{DynamicResource RegisterView.OnlineStatus}" Width="105" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Grid>

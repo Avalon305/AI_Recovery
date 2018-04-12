@@ -36,7 +36,11 @@
     <s:String x:Key="Dev.LegExtension">Leg Extension</s:String>
     <s:String x:Key="Dev.HipAbduction">Hip Abduction</s:String>
     <s:String x:Key="Dev.ChestPress">Chest Press</s:String>
-
+    <!--在线设备情况-->
+    <s:String x:Key="RegisterView.OnlineDeviceDetails">Online Equipment Situation</s:String>
+    <s:String x:Key="RegisterView.TerminalID">TerminalID</s:String>
+    <s:String x:Key="RegisterView.TerminalType">TerminalType</s:String>
+    <s:String x:Key="RegisterView.OnlineStatus">OnlineStatus</s:String>
     <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">Facility Name</s:String>
     <s:String x:Key="SettingsView.Return">Return</s:String>

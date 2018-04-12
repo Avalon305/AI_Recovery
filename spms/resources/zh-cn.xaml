@@ -45,6 +45,7 @@
     <s:String x:Key="SettingsView.Return">返回</s:String>
     <s:String x:Key="SettingsView.PremarySettings">初级设置</s:String>
     <s:String x:Key="SettingsView.AdvancedSettings">高级设置</s:String>
+    <s:String x:Key="SettingsView.OnlineEquipmentSituation">在线设备情况</s:String>
     <s:String x:Key="SettingsView.Alert">（路径一旦设置不建议改变）</s:String>
     <s:String x:Key="SettingsView.Other">其他</s:String>
     <s:String x:Key="SettingsView.Hospital">医院</s:String>
@@ -391,7 +392,7 @@
     <s:String x:Key="TrainingResultView.Save">保存</s:String>
     <s:String x:Key="TrainingResultView.Back">返回</s:String>
     <!--在线设备明细-->
-    <s:String x:Key="RegisterView.OnlineDeviceDetails">在线设备列表</s:String>
+    <s:String x:Key="RegisterView.OnlineDeviceDetails">在线设备情况</s:String>
     <s:String x:Key="RegisterView.TerminalID">终端编号</s:String>
     <s:String x:Key="RegisterView.TerminalType">终端类型</s:String>
     <s:String x:Key="RegisterView.OnlineStatus">在线状态</s:String>

@@ -172,8 +172,8 @@
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                         <Button Width="245"  Height="38" IsTabStop="False" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="68,0,15,10"  Foreground="Black" Content="{DynamicResource SettingsView.Confirm}" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
                         <StackPanel Orientation="Horizontal" Margin="68,0,0,0">
-                            <Button Content="{DynamicResource SettingsView.AdvancedSettings}"  IsTabStop="False" Height="33" Click="AdvancedSettings" Style="{StaticResource Btn}"  Width="122" />
-                            <Button Content="在线设备列表"  IsTabStop="False" Height="33"  Click="AdvancedSettings" Style="{StaticResource Btn}" Margin="10,0,212,0" Width="115"/>
+                            <Button Content="{DynamicResource SettingsView.OnlineEquipmentSituation}"  IsTabStop="False" Height="33" Click="OnlineEquipmentSituation" Style="{StaticResource Btn}"  Width="122" />
+                            <Button Content="{DynamicResource SettingsView.AdvancedSettings}"  IsTabStop="False" Height="33"  Click="AdvancedSettings" Style="{StaticResource Btn}" Margin="10,0,212,0" Width="115"/>
                         </StackPanel>
                     </StackPanel>
 
