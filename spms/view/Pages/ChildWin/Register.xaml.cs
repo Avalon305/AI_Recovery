@@ -350,7 +350,12 @@ namespace spms.view.Pages.ChildWin
             // 如果是正常拍照得到的图片
             if (File.Exists(tempPic))
             {
-                string finalPic = CommUtil.GetUserPic(photoName);                
+                string finalPic = CommUtil.GetUserPic(photoName);
+                //如果增加时，对应位置存在这个图片，则删除
+                if (File.Exists(finalPic)) {
+                    File.Delete(finalPic);
+                }
+                //确定没有重名，在进行复制
                 File.Copy(tempPic, finalPic);
             }
 

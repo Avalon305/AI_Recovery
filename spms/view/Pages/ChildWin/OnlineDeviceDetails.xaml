@@ -1,0 +1,115 @@
+﻿<Window x:Class="spms.view.Pages.ChildWin.OnlineDeviceDetails"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"
+         PreviewKeyDown="key_dowm"
+        xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
+        xmlns:converter="clr-namespace:spms.view.converter"
+        mc:Ignorable="d"
+        Icon="/view/Images/icon2.png"
+        Title="{DynamicResource Title.Title}" Height="453" Width="624"
+        ResizeMode="CanMinimize"  
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <Storyboard x:Key="OnLoaded" RepeatBehavior="Forever" AutoReverse="True"  >
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="Ellipse">
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="Transparent"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <converter:LanguageConverter x:Key="languageconverter"/>
+        <converter:StatusImageConverter x:Key="statusimageconverter"/>
+        <converter:LanguageStatusConverter x:Key="languagestatusconverter"/>
+        <converter:StatusConverter x:Key="statusconverter"/>
+    </Window.Resources>
+    <!--<Window.Triggers>
+        <EventTrigger RoutedEvent="DataGrid.Loaded">
+            <BeginStoryboard  Storyboard="{StaticResource OnLoaded}"/>
+        </EventTrigger>
+    </Window.Triggers>-->
+
+    <Viewbox Stretch="Fill">
+        <Grid>
+            <Border CornerRadius="2">
+                <StackPanel >
+                    <Border CornerRadius="5,5,0,0" Height="50" Margin="10,0,10,2" >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="Silver" Offset="0.1"/>
+                                <GradientStop Color="Gray" Offset="0.9"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Grid>
+                            <Label VerticalAlignment="Center" FontSize="22" Foreground="White" Content="{DynamicResource RegisterView.OnlineDeviceDetails}"/>
+                        </Grid>
+                    </Border>
+                    <DataGrid Height="234" Margin="10,0,10,0"  BorderThickness="1"   Name="terminalstatus" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="true" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None"  VerticalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None" SelectionMode="Single" RowHeaderWidth="0">
+                        <!--选中行失去焦点时的颜色-->
+                        <DataGrid.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DodgerBlue"/>
+                            <Storyboard x:Key="OnLoaded" RepeatBehavior="Forever" AutoReverse="True"  >
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="Ellipse">
+                                    <EasingColorKeyFrame KeyTime="0:0:1" Value="Transparent"/>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </DataGrid.Resources>
+                        <!--固定行高，取消拉伸-->
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Height" Value="18" />
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                        <!--去掉选中单元格的框线-->
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell" >
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
+                                <!--单元格tooltip效果-->
+                                <Setter Property="ToolTipService.ToolTip"  Value="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content.Text}" />
+                            </Style>
+
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Binding="{Binding od_clientid}" Header="{DynamicResource RegisterView.TerminalID}" Width="120"/>
+                            <DataGridTextColumn  Header="{DynamicResource RegisterView.TerminalType}" Width="200">
+                                <DataGridTextColumn.Binding>
+                                    <MultiBinding Converter="{StaticResource ResourceKey=languageconverter}">
+                                        <Binding Path="od_clientname_en"></Binding>
+                                        <Binding Path="od_clientname_ch"></Binding>
+                                    </MultiBinding>
+                                </DataGridTextColumn.Binding>
+                            </DataGridTextColumn>
+                            <DataGridTemplateColumn Header="{DynamicResource RegisterView.OnlineStatus}" Width="105" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Name="status" Text="{Binding od_gmt_modified,Converter={StaticResource languagestatusconverter}}" Visibility="Collapsed"></TextBlock>
+                                            <Image Source="{Binding ElementName=status, Path=Text,Converter={StaticResource statusimageconverter}}" Width="10" Height="10"></Image>
+                                            
+                                        <TextBlock  Text="{Binding od_gmt_modified,Converter={StaticResource languagestatusconverter}}"  Foreground="{Binding ElementName=status, Path=Text,Converter={StaticResource statusconverter}}" ></TextBlock>
+                                        </StackPanel>
+                                     </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="303" Height="47" VerticalAlignment="Top" BorderBrush="White" Margin="0,0,9.6,0">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  IsTabStop="False"  Foreground="Black" Content="关闭" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+
+            </Border>
+
+        </Grid>
+
+    </Viewbox>
+</Window>

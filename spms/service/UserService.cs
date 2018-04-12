@@ -34,8 +34,11 @@ namespace spms.service
         /// </summary>
         /// <param name="user"></param>
         public void DeleteUser(User user) {
+            //数据库更新
             user.Is_Deleted = 1;
             userDAO.UpdateByPrimaryKey(user);
+            //关联图片删除
+
         }
         /// <summary>
         ///  插入一个新用户，业务层添加，同时增加上传表中数据

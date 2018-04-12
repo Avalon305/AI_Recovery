@@ -36,13 +36,17 @@
     <s:String x:Key="Dev.LegExtension">Leg Extension</s:String>
     <s:String x:Key="Dev.HipAbduction">Hip Abduction</s:String>
     <s:String x:Key="Dev.ChestPress">Chest Press</s:String>
-
+    <!--在线设备情况-->
+    <s:String x:Key="RegisterView.OnlineDeviceDetails">Online Equipment Situation</s:String>
+    <s:String x:Key="RegisterView.TerminalID">TerminalID</s:String>
+    <s:String x:Key="RegisterView.TerminalType">TerminalType</s:String>
+    <s:String x:Key="RegisterView.OnlineStatus">OnlineStatus</s:String>
     <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">Facility Name</s:String>
     <s:String x:Key="SettingsView.Return">Return</s:String>
-    <s:String x:Key="SettingsView.PremarySettings">Premary Settings</s:String>
-    
+    <s:String x:Key="SettingsView.PremarySettings">Premary Settings</s:String> 
     <s:String x:Key="SettingsView.AdvancedSettings">Advanced Settings</s:String>
+    <s:String x:Key="SettingsView.OnlineEquipmentSituation">Online Equipment Situation</s:String>
     <s:String x:Key="SettingsView.Alert" xml:space="preserve">(Once the path is set&#13;not to suggest changes)</s:String>
     <s:String x:Key="SettingsView.FacilityType">Facility Type</s:String>
     <s:String x:Key="SettingsView.Phone">Mobile</s:String>
@@ -366,9 +370,9 @@
     <s:String x:Key="TrainingResultView.Weight">Weight</s:String>
     <s:String x:Key="TrainingResultView.Transfer">Transfer</s:String>
     <s:String x:Key="TrainingResultView.BorgScale">Borg Scale</s:String>
-    <s:String x:Key="TrainingResultView.TrainTime(min)">Training Time</s:String>
+    <s:String x:Key="TrainingResultView.TrainTime">Training Time</s:String>
     <s:String x:Key="TrainingResultView.Time(min)">Prescription Time</s:String>
-    <s:String x:Key="TrainingResultView.Time(sec)">Time(sec)</s:String>
+    <s:String x:Key="TrainingResultView.Time">Finish Time</s:String>
     <s:String x:Key="TrainingResultView.Distance(m)">Distance(m)</s:String>
     <s:String x:Key="TrainingResultView.TotalWork(J)">Total Work(J)</s:String>
     <s:String x:Key="TrainingResultView.Calorie(cal)">Calorie(cal)</s:String>
@@ -431,7 +435,7 @@
     <s:String x:Key="PhotoGraphView.VideoDev">Video Dev</s:String>
     <s:String x:Key="PhotoGraphView.Take">Take</s:String>
     <s:String x:Key="PhotoGraphView.Confirm">Confirm</s:String>
-    <s:String x:Key="PhotoGraphView.cancel">cancel</s:String>
+    <s:String x:Key="PhotoGraphView.Cancel">Cancel</s:String>
 
     <!-- 串口选择界面 -->
     <s:String x:Key="SerialPortView.CurrentSerialPort">Current SerialPort</s:String>

@@ -210,7 +210,11 @@
     <Compile Include="util\LanguageUtils.cs" />
     <Compile Include="view\converter\CareLevelConvert.cs" />
     <Compile Include="view\converter\IDCardConverter.cs" />
+    <Compile Include="view\converter\LanguageConverter.cs" />
     <Compile Include="view\converter\TimeConverter.cs" />
+    <Compile Include="view\Pages\ChildWin\OnlineDeviceDetails.xaml.cs">
+      <DependentUpon>OnlineDeviceDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\ChildWin\PhotoCutWindow.xaml.cs">
       <DependentUpon>PhotoCutWindow.xaml</DependentUpon>
     </Compile>
@@ -419,6 +423,13 @@
     <Page Include="ImageDealer\ImageDealerUnsafe.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="view\converter\StatusConverter.cs">
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
+    <Page Include="view\Pages\ChildWin\OnlineDeviceDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\ChildWin\PhotoCutWindow.xaml">
       <SubType>Designer</SubType>
@@ -648,6 +659,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\dcu_offline.png" />
+    <Resource Include="view\Images\dcu_online.png" />
     <Resource Include="view\Images\design.png" />
     <Resource Include="view\Images\123.jpg" />
     <Resource Include="view\Images\6%281%29.png" />

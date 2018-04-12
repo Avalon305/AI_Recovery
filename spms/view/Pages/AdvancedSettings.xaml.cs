@@ -286,10 +286,10 @@ namespace spms.view.Pages
                 {
                     Directory.CreateDirectory(@setter.Set_PhotoLocation);//不存在就创建目录
                 }
-                if (Directory.Exists(@setter.Set_PhotoLocation)) {
+                /*if (Directory.Exists(@setter.Set_PhotoLocation)) {  //存在就删除
                     Directory.Delete(@setter.Set_PhotoLocation, true);
                     Directory.CreateDirectory(@setter.Set_PhotoLocation);
-                }
+                }*/
                 SetterDAO.InsertOneMacAdress(setter);
                 //注释的部分为添加多个mac地址
                 // List<entity.Setter> ListMac = CommUtil.GetMacByWMI();

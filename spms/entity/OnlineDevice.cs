@@ -16,6 +16,7 @@ namespace spms.entity
         /// <summary>
         /// 主键
         /// </summary>
+        [Key]
         public int pk_od_id { get; set; }
         /// <summary>
         /// 终端ID
