@@ -175,8 +175,29 @@ namespace spms.protocol
         {
             TrainService trainService =  new TrainService();
             byte[] arr;
+
+            //获取处方信息,已完成的，先判断这个
+            var down = trainService.GetDevicePrescriptionByIdCardDeviceType(idcard, deviceType, (byte)DevicePrescription.DOWN);
+
+            if (down != null)
+            {
+                var undoList = trainService.ListUndoDevicePrescriptionByUserId(idcard);
+                arr = new byte[2 + undoList.Count];
+
+                arr[0] = (byte)deviceType;
+                arr[1] = 0x02;//已完成该项训练计划
+                int pos = 2;
+                foreach (var a in undoList)//未完成的顺便返回
+                {
+                    arr[pos] = (byte)a.Fk_DS_Id;
+                    pos++;
+                }
+                return arr;
+            }
+
+
             //获取处方信息
-            var prescription = trainService.GetDevicePrescriptionByIdCardDeviceType(idcard, deviceType);
+            var prescription = trainService.GetDevicePrescriptionByIdCardDeviceType(idcard, deviceType,(byte)DevicePrescription.UNDO);
             if (prescription != null)
             {
                logger.Info("用户ID为："+idcard+";deviceType为:"+deviceType.ToString()+"；的获取到处方信息：" + prescription.ToString());
@@ -208,21 +229,7 @@ namespace spms.protocol
                 }
                 return arr;
             }
-            if (prescription.Dp_status == DevicePrescription.DOWN)
-            {
-                var undoList = trainService.ListUndoDevicePrescriptionByUserId(idcard);
-                arr = new byte[2 + undoList.Count];
-
-                arr[0] = (byte)deviceType;
-                arr[1] = 0x02;//已完成该项训练计划
-                int pos = 2;
-                foreach (var a in undoList)//未完成的顺便返回
-                {
-                    arr[pos] = (byte)a.Fk_DS_Id;
-                    pos++;
-                }
-                return arr;
-            }
+            
 
             arr = new byte[87];
             arr[0] = (byte)deviceType;

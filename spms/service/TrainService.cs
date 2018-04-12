@@ -103,7 +103,7 @@ namespace spms.service
         {
             using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
             {
-                DevicePrescription p = GetDevicePrescriptionByIdCardDeviceType(idCard, deviceType);
+                DevicePrescription p = GetDevicePrescriptionByIdCardDeviceType(idCard, deviceType,(byte)DevicePrescription.UNDO);
                 if (p == null)
                 {
                     return;
@@ -218,9 +218,9 @@ namespace spms.service
         /// <param name="idcard"></param>
         /// <param name="deviceType"></param>
         /// <returns></returns>
-        public DevicePrescription GetDevicePrescriptionByIdCardDeviceType(string idcard, DeviceType deviceType)
+        public DevicePrescription GetDevicePrescriptionByIdCardDeviceType(string idcard, DeviceType deviceType,byte dp_status)
         {
-            return new DevicePrescriptionDAO().GetByUserIdDeviceType(idcard, deviceType);
+            return new DevicePrescriptionDAO().GetByUserIdDeviceType(idcard, deviceType,dp_status);
         }
 
         public Dictionary<int, List<TrainDTO>> getTrainDTOByUserA(User user)
