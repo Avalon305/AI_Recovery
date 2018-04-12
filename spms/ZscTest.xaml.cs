@@ -27,7 +27,7 @@ namespace spms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            LanguageUtils.EqualsResource("倒计时", "TrainingListView.CountReverse");
+            //LanguageUtils.EqualsResource("倒计时", "TrainingListView.CountReverse");
         }
     }
 }
