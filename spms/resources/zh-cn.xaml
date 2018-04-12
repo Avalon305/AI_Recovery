@@ -45,6 +45,7 @@
     <s:String x:Key="SettingsView.Return">返回</s:String>
     <s:String x:Key="SettingsView.PremarySettings">初级设置</s:String>
     <s:String x:Key="SettingsView.AdvancedSettings">高级设置</s:String>
+    <s:String x:Key="SettingsView.BackUp">备份</s:String>
     <s:String x:Key="SettingsView.OnlineEquipmentSituation">在线设备情况</s:String>
     <s:String x:Key="SettingsView.Alert">（路径一旦设置不建议改变）</s:String>
     <s:String x:Key="SettingsView.Other">其他</s:String>

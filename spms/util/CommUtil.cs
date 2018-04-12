@@ -252,5 +252,61 @@ namespace spms.util
             config.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
         }
+
+        /// <summary>
+        /// 执行cmd命令
+        /// </summary>
+        /// <param name="strPath">路径</param>
+        /// <param name="strcmd">命令</param>
+        /// <returns>返回执行结果</returns>
+        public static string RunCmd(string strPath, string strcmd)
+        {
+            Process p = new Process();
+            p.StartInfo.FileName = "cmd.exe";
+            p.StartInfo.WorkingDirectory = strPath;
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardInput = true;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.RedirectStandardError = true;
+            p.StartInfo.CreateNoWindow = true;
+
+            p.Start();
+            p.StandardInput.WriteLine(strcmd);
+            p.StandardInput.WriteLine("exit");
+            return p.StandardError.ReadToEnd();
+        }
+
+        /// <summary>
+        /// 备份图片
+        /// </summary>
+        /// <param name="saveDirPath"></param>
+        public static void CopyDirectory(string saveDirPath)
+        {
+            try
+            {
+                entity.Setter setter = new entity.Setter();
+                setter = new SetterDAO().getSetter();
+                Console.WriteLine("目标路径："+saveDirPath);
+                string sourceDirPath = setter.Set_PhotoLocation;
+                Console.WriteLine("原路径：" + sourceDirPath);
+                if (!Directory.Exists(saveDirPath))
+                {
+                    Directory.CreateDirectory(saveDirPath);
+                }
+                string[] files = Directory.GetFiles(sourceDirPath.Substring(0, sourceDirPath.Length - 1));
+                //MessageBox.Show(files.Length.ToString());
+                foreach (string file in files)
+                {
+                    string pFilePath = saveDirPath + Path.GetFileName(file);
+                    if (File.Exists(pFilePath))
+                        continue;
+                    File.Copy(file, pFilePath, true);
+                }
+            }
+            catch (Exception ee)
+            {
+
+            }
+        }
     }
 }
