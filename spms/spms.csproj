@@ -182,7 +182,6 @@
     <Compile Include="constant\UserConstant.cs" />
     <Compile Include="dao\app\CustomDataDAO.cs" />
     <Compile Include="dao\app\ExcelDao.cs" />
-    <Compile Include="dao\app\OnlineDeviceDAO.cs" />
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="dao\app\SetterDAO.cs" />
     <Compile Include="dao\DataCodeDAO.cs" />
@@ -193,7 +192,6 @@
     <Compile Include="dao\TrainInfoDAO.cs" />
     <Compile Include="entity\CustomData.cs" />
     <Compile Include="entity\DataCode.cs" />
-    <Compile Include="entity\OnlineDevice.cs" />
     <Compile Include="entity\UploadManagement.cs" />
     <Compile Include="FmyTest.xaml.cs">
       <DependentUpon>FmyTest.xaml</DependentUpon>
@@ -209,7 +207,11 @@
     <Compile Include="util\LanguageUtils.cs" />
     <Compile Include="view\converter\CareLevelConvert.cs" />
     <Compile Include="view\converter\IDCardConverter.cs" />
+    <Compile Include="view\converter\LanguageConverter.cs" />
     <Compile Include="view\converter\TimeConverter.cs" />
+    <Compile Include="view\Pages\ChildWin\OnlineDeviceDetails.xaml.cs">
+      <DependentUpon>OnlineDeviceDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\ChildWin\PhotoCutWindow.xaml.cs">
       <DependentUpon>PhotoCutWindow.xaml</DependentUpon>
     </Compile>
@@ -418,6 +420,10 @@
     <Page Include="ImageDealer\ImageDealerUnsafe.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\OnlineDeviceDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\ChildWin\PhotoCutWindow.xaml">
       <SubType>Designer</SubType>
