@@ -14,6 +14,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using spms.view.dto;
 using NLog;
+using spms.constant;
 
 namespace spms.util
 {
@@ -93,8 +94,10 @@ namespace spms.util
                 worksheet.Cells[2, 4].Value = GetObjContent(user.User_Sex == 0 ? LanguageUtils.GetCurrentLanuageStrByKey("AddOrEditView.F") : LanguageUtils.GetCurrentLanuageStrByKey("AddOrEditView.M"));
                 worksheet.Cells[2, 5].Value = GetObjContent(ConvertAge(user.User_Birth));
                 worksheet.Cells[2, 6].Value = GetObjContent(user.User_GroupName);
-                worksheet.Cells[2, 7].Value = GetObjContent(user.User_InitCare);
-                worksheet.Cells[2, 8].Value = GetObjContent(user.User_Nowcare);
+                //worksheet.Cells[2, 7].Value = GetObjContent(user.User_InitCare);
+                worksheet.Cells[2, 7].Value = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.CareLevel, GetObjContent(user.User_InitCare));
+                //worksheet.Cells[2, 8].Value = GetObjContent(user.User_Nowcare);
+                worksheet.Cells[2, 8].Value = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.CareLevel, GetObjContent(user.User_Nowcare)); ;
                 worksheet.Cells[2, 9].Value = GetObjContent(user.User_IllnessName);
                 worksheet.Cells[2, 10].Value = GetObjContent(user.User_PhysicalDisabilities);
 
@@ -404,11 +407,11 @@ namespace spms.util
             worksheet.Cells[userRow + 2, 6].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.Group");
             worksheet.Cells[userRow + 2, 8].Value = GetObjContent(user.User_GroupName);
             worksheet.Cells[userRow + 4, 1].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.InitialCareLevel");
-            worksheet.Cells[userRow + 4, 4].Value = GetObjContent(user.User_InitCare);
+            worksheet.Cells[userRow + 4, 4].Value = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.CareLevel, GetObjContent(user.User_InitCare)); //GetObjContent(user.User_InitCare);
             worksheet.Cells[userRow + 4, 6].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.Disease");
             worksheet.Cells[userRow + 4, 8].Value = GetObjContent(user.User_IllnessName);
             worksheet.Cells[userRow + 5, 1].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.CurrentCareLevel");
-            worksheet.Cells[userRow + 5, 4].Value = GetObjContent(user.User_Nowcare);
+            worksheet.Cells[userRow + 5, 4].Value = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.CareLevel, GetObjContent(user.User_Nowcare)); //GetObjContent(user.User_Nowcare);
             worksheet.Cells[userRow + 5, 6].Value = LanguageUtils.GetCurrentLanuageStrByKey("SubjectInfoView.Diagnosis");
             worksheet.Cells[userRow + 5, 8].Value = GetObjContent(user.User_PhysicalDisabilities);
 

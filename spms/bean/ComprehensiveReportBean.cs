@@ -130,7 +130,7 @@ namespace spms.bean
         //移乘方式
         public int dp_moveway { get; set; }
         //自觉运动强度,1-10代表轻松->剧烈
-        public byte? PR_SportStrength { get; set; }
+        public string PR_SportStrength { get; set; }
         //第一个时间
         public double PR_Time1 { get; set; }
         //第二个时间 
@@ -146,7 +146,7 @@ namespace spms.bean
         //完成组数
         public int PR_FinishGroup { get; set; }
         //时机，姿势，评价 0没问题 1 有些许问题 2 有问题
-        public byte? PR_Evaluate { get; set; }
+        public string PR_Evaluate { get; set; }
         //备忘
         public string PR_Memo { get; set; }
         //注意点
@@ -231,25 +231,29 @@ namespace spms.bean
             this.dp_relaxtime = tc.dp_relaxtime;
             this.dp_weight = tc.dp_weight;
             this.dp_moveway = tc.dp_moveway;
-            if (tc.PR_SportStrength == 10 || tc.PR_SportStrength == 9)
+            if (tc.PR_SportStrength == "10" || tc.PR_SportStrength == "9")
             {
                 this.PR_SportStrength = LanguageUtils.ConvertLanguage("困难", "Difficult");
             }
-            else if (tc.PR_SportStrength == 8 || tc.PR_SportStrength == 7)
+            else if (tc.PR_SportStrength == "8" || tc.PR_SportStrength == "7")
             {
                 this.PR_SportStrength = LanguageUtils.ConvertLanguage("有点困难", "A little difficult");
             }
-            else if (tc.PR_SportStrength == 6 || tc.PR_SportStrength == 5)
+            else if (tc.PR_SportStrength == "6" || tc.PR_SportStrength == "5")
             {
-                this.PR_SportStrength = LanguageUtils.ConvertLanguage("轻松", "Relaxed"); 
+                this.PR_SportStrength = LanguageUtils.ConvertLanguage("轻松", "Relaxed");
             }
-            else if (tc.PR_SportStrength == 4 || tc.PR_SportStrength == 3)
+            else if (tc.PR_SportStrength == "4" || tc.PR_SportStrength == "3")
             {
                 this.PR_SportStrength = LanguageUtils.ConvertLanguage("很轻松", "Easy");
             }
-            else if (tc.PR_SportStrength == 2 || tc.PR_SportStrength == 1)
+            else if (tc.PR_SportStrength == "2" || tc.PR_SportStrength == "1")
             {
                 this.PR_SportStrength = LanguageUtils.ConvertLanguage("非常轻松", "Very easy");
+            }
+            else
+            {
+                this.PR_SportStrength = "";
             }
 
             this.PR_Time = tc.PR_Time2 - tc.PR_Time1;
@@ -259,19 +263,22 @@ namespace spms.bean
             this.PR_Index = tc.PR_Index;
             this.PR_FinishGroup = tc.PR_FinishGroup;
 
-            if (tc.PR_Evaluate == 0)
+            if (tc.PR_Evaluate == "0")
             {
                 this.PR_Evaluate = LanguageUtils.ConvertLanguage("没问题", "No problem");
             }
-            else if (tc.PR_Evaluate == 1)
+            else if (tc.PR_Evaluate == "1")
             {
                 this.PR_Evaluate = LanguageUtils.ConvertLanguage("有些许问题", "Some problems");
             }
-            else if (tc.PR_Evaluate == 2)
+            else if (tc.PR_Evaluate == "2")
             {
-                this.PR_Evaluate = LanguageUtils.ConvertLanguage("有问题", "Has a problem"); 
+                this.PR_Evaluate = LanguageUtils.ConvertLanguage("有问题", "Has a problem");
             }
-
+            else
+            {
+                this.PR_Evaluate = "";
+            }
 
             this.PR_Memo = tc.PR_Memo;
             this.PR_AttentionPoint = tc.PR_AttentionPoint;
