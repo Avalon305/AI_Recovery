@@ -17,7 +17,7 @@ namespace spms.http
     {
         private static string WEBSUCCESS = "success";
 
-        private static string WEBQUESTION = "question";
+        //private static string WEBQUESTION = "question";
 
         
         SetterDAO setterDao = new SetterDAO();

@@ -27,7 +27,9 @@ namespace spms
     public partial class App : Application
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-
+        System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();//实例化　
+        SetterDAO setterDao = new SetterDAO();
+        AuthDAO authDAO = new AuthDAO();
         protected override void OnLoadCompleted(NavigationEventArgs e)
         {
           
@@ -128,34 +130,38 @@ namespace spms
                             //不激活不开启
                             continue;
                         }
-                        if (authDAO.ListAll().Count == 1) {
-                            //只有admin，不创建用户，不开启
+                        if (authDAO.ListAll().Count == 1)
+                        {
+                            //Console.WriteLine("-----------------boom shakalaka--------------");
+                            //只有admin，不创建用户，不开启,睡个15s
+                            Thread.Sleep(1000 * 15);
                             continue;
                         }
                         BigDataOfficer bigDataOfficer = new BigDataOfficer();
                         bigDataOfficer.Run();
                         int heartBeatRate = (int)CommUtil.GetBigDataRate();
                         Thread.Sleep(1000 * 300);
-
+                        Console.WriteLine("-----------------boom");
                     }
                 }
                 catch (Exception ex)
                 {
-
                 }
-
-               
             });
             bdth.Start();
 
             base.OnStartup(e);
         }
+
+
+         
         /// <summary>
         /// 退出的时候清理各种资源，尤其是Netty端口占用
         /// </summary>
         /// <param name="e"></param>
         protected override void OnExit(ExitEventArgs e)
         {
+            myTimer.Stop();
             System.Environment.Exit(0);
             base.OnExit(e);
         }
