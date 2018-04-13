@@ -55,8 +55,8 @@
               Margin="0,258,0,40">
             <Popup x:Name="popChioce" 
                    PopupAnimation="Fade" 
-                   PlacementTarget="{Binding ElementName=girdChioce}" 
-                   Placement="Top"
+                   PlacementTarget="{Binding ElementName=textBlock1}" 
+                   Placement="Bottom"
                    AllowsTransparency="True" 
                    StaysOpen="False" 
                    IsOpen="False">
