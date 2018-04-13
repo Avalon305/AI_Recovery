@@ -8,6 +8,8 @@ using spms.service;
 using spms.util;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -168,17 +170,23 @@ namespace spms
         /// <param name="e"></param>
         private void Button_Click_16(object sender, RoutedEventArgs e)
         {
+            SetterDAO setterDAO = new SetterDAO();
+
+            //获取mac地址
             StringBuilder stringBuilder = new StringBuilder();
             //string strMac = CommUtil.GetMacAddress();
-            List<string> Macs = CommUtil.GetMacByWMI();
+            // List<string> Macs = CommUtil.GetMacByWMI();
+            List<string> Macs = CommUtil.GetMacByIPConfig();
             foreach (string mac in Macs)
             {
-                stringBuilder.Append(mac);
+                string prefix = "物理地址. . . . . . . . . . . . . : ";
+                string Mac = mac.Substring(prefix.Length - 1);
+                stringBuilder.Append(Mac);
             }
-            //Console.WriteLine(stringBuilder.ToString());
+            //Console.WriteLine("==================="+stringBuilder.ToString());
+            //MessageBox.Show("===================" + stringBuilder.ToString());
             entity.Setter setter = new entity.Setter();
             //mac地址先变为byte[]再aes加密
-            //远程服务器mac:"00:16:3E:0C:B2:B3"
             byte[] byteMac = Encoding.GetEncoding("GBK").GetBytes(stringBuilder.ToString());
             byte[] AesMac = AesUtil.Encrypt(byteMac, ProtocolConstant.USB_DOG_PASSWORD);
             //存入数据库
@@ -188,10 +196,22 @@ namespace spms
              * byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
             byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
             Console.WriteLine(Encoding.GetEncoding("GBK").GetString(b));*/
-           
-            new SetterDAO().InsertOneMacAdress(setter);
-
-
+            //默认照片路径，激活时获取(路径中不要有汉字)
+            string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
+            string path = ConfigurationManager.AppSettings["PicPath"];
+            setter.Set_PhotoLocation = basePath + path;
+            setter.Set_Language = 1;
+            //设置版本号
+            setter.Set_Version = CommUtil.GetCurrentVersion();
+            if (!Directory.Exists(@setter.Set_PhotoLocation))
+            {
+                Directory.CreateDirectory(@setter.Set_PhotoLocation);//不存在就创建目录
+            }
+            /*if (Directory.Exists(@setter.Set_PhotoLocation)) {  //存在就删除
+                Directory.Delete(@setter.Set_PhotoLocation, true);
+                Directory.CreateDirectory(@setter.Set_PhotoLocation);
+            }*/
+            setterDAO.InsertOneMacAdress(setter);
 
 
         }

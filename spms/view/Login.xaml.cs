@@ -211,8 +211,10 @@ namespace spms.view
                 //暂时不验证U盾
                 MainPage mainpage = new MainPage();
                 this.Content = mainpage;
+                if (timerNotice!=null) {
+                    timerNotice.Stop();
+                }
                 
-                timerNotice.Stop();
             }
             else if (loginResult.Equals("success"))
             {
@@ -245,8 +247,11 @@ namespace spms.view
                 //成功登陆，跳转
                 MainPage mainpage = new MainPage();
                 this.Content = mainpage;
-                
-                timerNotice.Stop();
+
+                if (timerNotice != null)
+                {
+                    timerNotice.Stop();
+                }
             }
             else {
                 //问题登录  在登录提示框内显示信息
