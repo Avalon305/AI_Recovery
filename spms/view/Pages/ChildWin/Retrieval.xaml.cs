@@ -37,7 +37,7 @@ namespace spms.view.Pages.ChildWin
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
            // WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.Height = SystemParameters.WorkArea.Size.Height;
+           // this.Height = SystemParameters.WorkArea.Size.Height;
            // this.MaxWidth = SystemParameters.WorkArea.Size.Width;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
@@ -63,6 +63,8 @@ namespace spms.view.Pages.ChildWin
         public Retrieval()
         {
             InitializeComponent();
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.3;
+            this.Height = this.Width / 1.3;
 
             groupList = customDataService.GetAllByType(CustomDataEnum.Group);
             diseaseList = customDataService.GetAllByType(CustomDataEnum.Disease);
@@ -303,13 +305,6 @@ namespace spms.view.Pages.ChildWin
 
         }
 
-        private void viewbox_load(object sender, RoutedEventArgs e)
-        {
-            this.Width = viewbox.ActualWidth;
-            this.Height = viewbox.ActualHeight;
-
-            Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
-            Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
-        }
+        
     }
 }

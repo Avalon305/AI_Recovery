@@ -1043,7 +1043,7 @@ namespace spms.view.Pages.ChildWin
         {
             //去除窗体叉号
             
-            //this.Width = SystemParameters.WorkArea.Size.Width;
+            this.Width = SystemParameters.WorkArea.Size.Width;
             this.Height = SystemParameters.WorkArea.Size.Height;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
