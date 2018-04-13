@@ -8,7 +8,7 @@
         ResizeMode="CanMinimize"  
         
         Icon="/view/Images/icon2.png"
-        Title="{DynamicResource Title.Title}" Height="250" Width="570"
+        Title="{DynamicResource Title.Title}" 
         Loaded="Window_Loaded"
      >
     <Window.Resources>
@@ -65,7 +65,7 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <Viewbox Stretch="Fill">
+    <Viewbox Stretch="Uniform">
     <StackPanel Orientation="Vertical" Width="317">
         <Border Height="37" CornerRadius="5,5,0,0"  Margin="5,0,5,0">
             <Border.Background>

@@ -11,7 +11,7 @@
          xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}"
-          Height="1010" Width="1200"
+        
         Loaded="Window_Loaded">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -26,7 +26,7 @@
             <Setter Property="Margin" Value="1"/>
         </Style>
     </Window.Resources>
-    <Viewbox Name="viewbox" Stretch="Fill">
+    <Viewbox Name="viewbox" Stretch="Uniform" Loaded="viewbox_load">
         <StackPanel Orientation="Vertical">
             <!--Border 使用者一览表以及按钮  开始-->
             <Border Height="40" CornerRadius="5,5,0,0" Margin="10,5,10,0" BorderThickness="0" BorderBrush="White">

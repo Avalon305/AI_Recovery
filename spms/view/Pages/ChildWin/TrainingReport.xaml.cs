@@ -67,9 +67,7 @@ namespace spms.view.Pages.ChildWin
         public TrainingReport()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+            this.Height = SystemParameters.WorkArea.Size.Height;
             //启动初始化Excel转PDF的线程
             initializationExcelToPdfThread = new Thread(new ThreadStart(InitializationExcelToPdf));
             initializationExcelToPdfThread.Start();
@@ -1012,6 +1010,14 @@ namespace spms.view.Pages.ChildWin
                 logger.Error("报表获取时间范围内的对象异常");
             }
             return newList;
+        }
+
+        private void viewbox_load(object sender, RoutedEventArgs e)
+        {
+            this.Width = viewbox.ActualWidth;
+            this.Height = viewbox.ActualHeight;
+            Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
+            Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
         }
     }
 }

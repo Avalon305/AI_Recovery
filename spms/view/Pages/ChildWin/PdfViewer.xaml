@@ -8,15 +8,16 @@
         
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="{DynamicResource Title.Title}" Height="1000" Width="1064" ContentRendered="WPFPdfViewerWindow_Activated" >
+        Title="{DynamicResource Title.Title}"  ContentRendered="WPFPdfViewerWindow_Activated" >
     <Grid>
-        <Viewbox Name="viewbox" Margin="0,0,0,0" VerticalAlignment="Top">
+        <Viewbox Name="viewbox" Loaded="viewbox_load" Margin="0,0,0,0" VerticalAlignment="Top">
+            <StackPanel>
             <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>-->
-            <Grid  ScrollViewer.VerticalScrollBarVisibility="Hidden" >
+            <Grid  ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="0,0,0.2,940.6" >
                 <Border Background="#f0f0f0"  >
 
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" >
@@ -236,9 +237,9 @@
 
             </Grid>
             
-        </Viewbox>
+        
         <!--加载动画-->
-        <Grid Margin="0,29,0.6,0" Height="941" ScrollViewer.VerticalScrollBarVisibility="Hidden"  Background="White" VerticalAlignment="Top" Name="a" RenderTransformOrigin="0.509,0.481">
+        <Grid Margin="0,29,0,0" Height="941" ScrollViewer.VerticalScrollBarVisibility="Hidden"  Background="White" VerticalAlignment="Top" Name="a" RenderTransformOrigin="0.509,0.481">
 
             <Grid Height="83" Grid.Row="0" VerticalAlignment="Bottom" Margin="232,0,211,375">
                 <Grid.Resources>
@@ -338,6 +339,8 @@
             <Label Name="lbl1" Content="{DynamicResource PdfView.loading...}" FontSize="20" Background="Transparent" Foreground="Black" Height="35" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="254,581,233,0" Width="210"/>
         </Grid>
         <!--加载动画 结束-->
+            </StackPanel>
+        </Viewbox>
         <Border Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden"  Margin="0,50,0,0.4">
 
             <!--<Border Background="#d3d3d3" Grid.Row="1">-->

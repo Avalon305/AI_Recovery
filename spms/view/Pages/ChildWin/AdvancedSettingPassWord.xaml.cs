@@ -37,6 +37,8 @@ namespace spms.view.Pages.ChildWin
         public AdvancedSettingPassWord()
         {
             InitializeComponent();
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.277;
+            this.Height = this.Width / 2.2;
         }
         private void Confirm(object sender, RoutedEventArgs e)
         {

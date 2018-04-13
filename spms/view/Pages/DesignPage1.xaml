@@ -274,7 +274,7 @@
                 </DataGrid>
                 <!--结束：疾病名称-->
                 <!--残障名称-->
-                <DataGrid x:Name="DataGrid4" DataGridRow.MouseUp="Grid_Diagnosis_Click" CanUserAddRows="False" CanUserDeleteRows="False" KeyboardNavigation.TabNavigation="None" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,0,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
+                <DataGrid x:Name="DataGrid4" DataGridRow.MouseUp="Grid_Diagnosis_Click" CanUserAddRows="False" CanUserDeleteRows="False" KeyboardNavigation.TabNavigation="None" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" SelectionMode="Single" IsReadOnly="true" Margin="12,5,10,0" VerticalAlignment="Top"  Height="250" Width="410" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="1" >
                     <!--选中行失去焦点-->
                     <DataGrid.Resources>
                         <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="white"/>
@@ -339,7 +339,7 @@
                 </Border>
                 <!--结束：疾病名称——添加、更新、删除按钮-->
                 <!--残障名称——添加、更新、删除按钮-->
-                <Border  BorderBrush= "Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="12,0,0,0" Width="410" HorizontalAlignment="Left">
+                <Border  BorderBrush= "Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40" Margin="12,0,10,0" Width="410" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal" >
                         <Border CornerRadius="5" Margin="40,0,50,0">
                             <Button Height="25" Width="50" Style="{StaticResource Btn}" IsTabStop="False" Click="Add_Diagnosis" Content="{DynamicResource SettingsView.Add}"></Button>

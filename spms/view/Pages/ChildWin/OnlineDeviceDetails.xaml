@@ -9,7 +9,7 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:converter="clr-namespace:spms.view.converter"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
-        Title="{DynamicResource Title.Title}" Height="453" Width="624"
+        Title="{DynamicResource Title.Title}" 
         ResizeMode="CanMinimize"  
         Loaded="Window_Loaded">
     <Window.Resources>
@@ -29,7 +29,7 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         </EventTrigger>
     </Window.Triggers>-->
 
-    <Viewbox Stretch="Fill">
+    <Viewbox Loaded="viewbox_load" Name="viewbox" Stretch="Uniform">
         <Grid>
             <Border CornerRadius="2">
                 <StackPanel >

@@ -28,9 +28,10 @@ namespace spms.view.Pages.ChildWin
         public AutherAdd()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.4;
+            this.Height = this.Width / 1.8;
+            //this.Height = SystemParameters.WorkArea.Size.Height;
+
         }
         private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
@@ -134,5 +135,7 @@ namespace spms.view.Pages.ChildWin
             }
 
         }
+
+       
     }
 }

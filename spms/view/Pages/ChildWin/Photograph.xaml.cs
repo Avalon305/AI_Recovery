@@ -66,10 +66,9 @@ namespace spms.view.Pages.ChildWin
         public Photograph()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
-
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.477;
+            this.Height = this.Width / 1.24;
+            //this.Height = SystemParameters.WorkArea.Size.Height;
             // combox 获得摄像头列表
             cb.ItemsSource = MultimediaUtil.VideoInputNames;
             if (MultimediaUtil.VideoInputNames.Length > 0)
@@ -207,6 +206,14 @@ namespace spms.view.Pages.ChildWin
             }
 
         }
+
+        //private void viewbox_load(object sender, RoutedEventArgs e)
+        //{
+        //    this.Width = viewbox.ActualWidth;
+        //    this.Height = viewbox.ActualHeight;
+        //    Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
+        //    Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
+        //}
     }
 }
 

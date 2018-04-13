@@ -47,6 +47,8 @@ namespace spms.view.Pages.ChildWin
         public NonPublicInfomationPass()
         {
             InitializeComponent();
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.277;
+            this.Height = this.Width / 2.2;
         }
         /// <summary>
         /// 输入密码点击确定

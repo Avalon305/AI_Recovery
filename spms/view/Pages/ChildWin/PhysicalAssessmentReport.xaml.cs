@@ -41,9 +41,9 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+            
+           
+           
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
@@ -51,6 +51,7 @@ namespace spms.view.Pages.ChildWin
         public PhysicalAssessmentReport()
         {
             InitializeComponent();
+            this.Height = SystemParameters.WorkArea.Size.Height;
             //启动初始化Excel转PDF的线程
             initializationExcelToPdfThread = new Thread(new ThreadStart(InitializationExcelToPdf));
             initializationExcelToPdfThread.Start();
@@ -1041,6 +1042,14 @@ namespace spms.view.Pages.ChildWin
 
             }
             return newList;
+        }
+
+        private void viewbox_load(object sender, RoutedEventArgs e)
+        {
+            this.Width = viewbox.ActualWidth;
+            this.Height = viewbox.ActualHeight;
+            Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
+            Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
         }
     }
 }

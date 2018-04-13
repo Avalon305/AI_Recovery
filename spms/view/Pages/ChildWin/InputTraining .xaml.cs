@@ -66,8 +66,7 @@ namespace spms.view.Pages.ChildWin
         public InputTraining()
         {
             InitializeComponent();
-            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+           
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
@@ -1042,12 +1041,17 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //确定哪些设备可用
-            Certain_Dev();
             //去除窗体叉号
-           
+            
+            //this.Width = SystemParameters.WorkArea.Size.Width;
+            this.Height = SystemParameters.WorkArea.Size.Height;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+            //确定哪些设备可用
+            Certain_Dev();
+           
+            
+            
             //
             user = (User) DataContext;
             List<DataCode> dataCodes = DataCodeCache.GetInstance().GetDateCodeList(DataCodeTypeEnum.MoveWay);
@@ -2045,6 +2049,15 @@ namespace spms.view.Pages.ChildWin
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             SaveTrainInfo2DB(TrainInfoStatus.Normal);
+        }
+
+        private void viewbox_load(object sender, RoutedEventArgs e)
+        {
+            this.Width = viewbox.ActualWidth;
+            this.Height = viewbox.ActualHeight;
+
+            Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
+            Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
         }
 
         //private void text_length(object sender, KeyEventArgs e)

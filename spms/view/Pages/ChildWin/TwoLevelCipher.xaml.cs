@@ -22,6 +22,8 @@ namespace spms.view.Pages.ChildWin
         public TwoLevelCipher()
         {
             InitializeComponent();
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.277;
+            this.Height = this.Width / 2.6;
         }
         //取消操作，关闭窗体
         private void Cancel(object sender, RoutedEventArgs e)

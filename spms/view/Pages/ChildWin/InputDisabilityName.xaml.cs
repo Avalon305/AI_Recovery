@@ -48,6 +48,10 @@ namespace spms.view.Pages.ChildWin
         public InputDisabilityName()
         {
             InitializeComponent();
+            this.Width = SystemParameters.WorkArea.Size.Width*0.277;
+            this.Height = this.Width /2.4;
+            //viewbox.Width = this.Width;
+            //viewbox.Height = this.Height;
         }
         //取消按钮，关闭此窗体
         private void Cancel(object sender, RoutedEventArgs e)
@@ -79,5 +83,9 @@ namespace spms.view.Pages.ChildWin
             }
 
         }
+
+       
+
+       
     }
 }

@@ -8,12 +8,12 @@
         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}"
-        ResizeMode="CanMinimize"   Height="954" Width="1202"
+        ResizeMode="CanMinimize"   
         Loaded="Window_Loaded">
     <Viewbox Name="viewbox" Loaded="viewbox_load" Stretch="Uniform">
     <StackPanel>
         <!--Border 使用者一览表以及按钮  开始-->
-        <Border Height="40" CornerRadius="5,5,0,0"  Margin="10,5,10,0">
+        <Border Height="40" CornerRadius="5,5,0,0"  Margin="0,0,0,0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Color="Silver" Offset="0.1"/>
@@ -39,7 +39,7 @@
         <!--StackPanel 信息以及日期-->
         <StackPanel  Orientation="Horizontal">
             <!--Grid 使用者信息展示-->
-            <Grid Height="30" Margin="10,0,18.6,0" Width="609">
+            <Grid Height="30" Margin="0,0,18.6,0" Width="609">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -55,7 +55,7 @@
             </Grid>
         </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-            <Border Margin="10,0,0,0" Background="LightGray" Height="25">
+            <Border Margin="0,0,0,0" Background="LightGray" Height="25">
                     <Label  Content="{DynamicResource TrainingResultView.Date}"  FontSize="12" Margin="0,0,0,0.2"/>
             </Border>
             <!--日历-->
@@ -77,7 +77,7 @@
 
             </Grid.Resources>
             <Grid Margin="0,0,0,10">
-                <TabControl Name="TabControl1"  Margin="9,0,10,0"  >
+                <TabControl Name="TabControl1"  Margin="0,0,0,0"  >
                         <TabItem Header="{DynamicResource Dev.ChestPress}" Width="115" FocusVisualStyle="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <Grid Margin="30,50,0,128.4" Width="296">
@@ -851,7 +851,7 @@
             </Grid>
         </Grid>
         <!-- 四个按钮排放位置-->
-        <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="335" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2" Margin="0,0,9.6,10">
+        <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="335" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2" Margin="0,0,0    ,10">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
 
                 <Button Width="140"  Content="关闭"  Style="{StaticResource Btn}" Margin="2,0,2,-0.2" Click="Cancel"/>

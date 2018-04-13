@@ -114,6 +114,15 @@ namespace spms.view.Pages.ChildWin
         {
 
         }
+
         
+
+        private void viewbox_load(object sender, RoutedEventArgs e)
+        {
+            this.Width = viewbox.ActualWidth;
+            this.Height = viewbox.ActualHeight;
+            Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
+            Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
+        }
     }
 }

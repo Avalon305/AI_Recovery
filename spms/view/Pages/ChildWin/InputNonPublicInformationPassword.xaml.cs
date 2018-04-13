@@ -44,6 +44,8 @@ namespace spms.view.Pages.ChildWin
         public InputNonPublicInformationPassword()
         {
             InitializeComponent();
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.277;
+            this.Height = this.Width / 2.2;
         }
 
         //定时任务

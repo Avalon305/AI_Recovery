@@ -142,9 +142,9 @@ namespace spms.view.Pages.ChildWin
         public InputTrainingResults()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+            //WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.Height = SystemParameters.WorkArea.Size.Height;
+            //this.MaxWidth = SystemParameters.WorkArea.Size.Width;
         }
         //取消操作，关闭窗体
         private void Cancel(object sender, RoutedEventArgs e)
@@ -1569,6 +1569,14 @@ namespace spms.view.Pages.ChildWin
 
                 CPTime.Visibility = Visibility.Visible;
             }
+        }
+        private void viewbox_load(object sender, RoutedEventArgs e)
+        {
+            this.Width = viewbox.ActualWidth;
+            this.Height = viewbox.ActualHeight;
+
+            Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
+            Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
         }
     }
 }

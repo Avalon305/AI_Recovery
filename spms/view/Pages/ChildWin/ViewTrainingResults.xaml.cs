@@ -42,8 +42,9 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
+            this.Height = SystemParameters.WorkArea.Size.Height;
+            //viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            //viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             Dictionary<string, object> dic = (Dictionary<string, Object>) DataContext;
@@ -527,11 +528,12 @@ namespace spms.view.Pages.ChildWin
         private void viewbox_load(object sender, RoutedEventArgs e)
         {
             //this.Visibility = Visibility.Collapsed;
+            
             this.Width = viewbox.ActualWidth;
             this.Height = viewbox.ActualHeight;
 
-            Left = (SystemParameters.WorkArea.Size.Width - viewbox.ActualWidth) / 2;
-            Top = (SystemParameters.WorkArea.Size.Height - viewbox.ActualHeight) / 2;
+            Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
+            Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
             //this.ShowDialog();
             //this.
             // this.Opacity = 1;

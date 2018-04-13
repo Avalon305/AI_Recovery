@@ -8,10 +8,10 @@
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
-        Title="{DynamicResource Title.Title}" Height="353" Width="624"
+        Title="{DynamicResource Title.Title}" 
         ResizeMode="CanMinimize"  
         Loaded="Window_Loaded">
-    <Viewbox Stretch="Fill">
+    <Viewbox Stretch="Uniform" Name="viewbox" >
     <Grid>
         <Border CornerRadius="2">
             <StackPanel >

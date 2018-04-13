@@ -10,15 +10,14 @@
         Icon="/view/Images/icon2.png"
          PreviewKeyDown="key_dowm"
         Title="{DynamicResource Title.Title}"
-        Height="1024"
-        Width="803.4"
+
         ResizeMode="CanMinimize"  
         Loaded="Window_Loaded"
         >
     <!--
     ResizeMode="NoResize"
     WindowStyle="None"-->
-    <Viewbox Name="viewbox" Stretch="Fill">
+    <Viewbox Name="viewbox" Loaded="viewbox_load" Stretch="Uniform">
         
         <StackPanel>
             <!--标题栏-->

@@ -346,7 +346,7 @@
     <s:String x:Key="PhysicalEvaluationFormView.N">次</s:String>
 
     <!-- 制作体力评价报告界面 -->
-    <s:String x:Key="CreateTrainingReportView.CreateTrainingReport">制作体力评价报告</s:String>
+    <s:String x:Key="CreateTrainingReportView.CreateTrainingReport">制作训练报告</s:String>
     <s:String x:Key="CreateTrainingReportView.SubjectID">用户编号</s:String>
     <s:String x:Key="CreateTrainingReportView.LastName">用户姓名</s:String>
     <s:String x:Key="CreateTrainingReportView.SelectDate">选择日期</s:String>

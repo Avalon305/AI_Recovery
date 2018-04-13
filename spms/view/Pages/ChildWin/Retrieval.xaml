@@ -10,7 +10,7 @@
         ResizeMode="CanMinimize"  
         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
-        Title="{DynamicResource Title.Title}" Height="600" Width="801"
+        Title="{DynamicResource Title.Title}" 
         
         Loaded="Window_Loaded"
          LocationChanged="windowmove">
@@ -42,7 +42,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Viewbox Name="viewbox" Stretch="Fill">
+    <Viewbox Name="viewbox" Loaded="viewbox_load" Stretch="Uniform">
     <StackPanel Margin="0,0,0,0.8">
         <Border CornerRadius="5,5,0,0" Height="38" Margin="10,0,10,0">
             <Border.Background>

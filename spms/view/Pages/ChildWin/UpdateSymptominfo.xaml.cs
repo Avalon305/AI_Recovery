@@ -38,14 +38,12 @@ namespace spms.view.Pages.ChildWin
         public UpdateSymptominfo()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+            
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
+            this.Height = SystemParameters.WorkArea.Size.Height;
+            
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             //绑定数据
@@ -337,6 +335,15 @@ namespace spms.view.Pages.ChildWin
         private void Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void viewbox_load(object sender, RoutedEventArgs e)
+        {
+            this.Width = viewbox.ActualWidth;
+            this.Height = viewbox.ActualHeight;
+
+            Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
+            Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
         }
     }
 }
