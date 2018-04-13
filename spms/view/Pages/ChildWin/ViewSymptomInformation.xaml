@@ -48,7 +48,7 @@
             </Border>
             <!--结束：标题栏-->
             <!--用户ID和姓名-->
-            <Grid Height="34" Margin="10,10,18.6,0">
+            <Grid Height="30" Margin="10,0,18.6,0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -57,14 +57,14 @@
                     <ColumnDefinition Width="69.6"/>
                     <ColumnDefinition Width="73.6"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0"  Content="{DynamicResource VitalInfoView.LastName}"  Margin="0,11,63.8,-1.4" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-                <Label Grid.Column="1"  Margin="1.6,11,-11.2,-1.4" Name="l1" Grid.RowSpan="2"/>
-                <Label Grid.Row="0" Grid.Column="0"  Content="{DynamicResource VitalInfoView.SubjectID}"  Margin="0,-6,63.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-                <Label Grid.Row="0" Grid.Column="1"  Margin="1.6,-6,-11.2,15.6" Name="l2" Grid.RowSpan="2"/>
+                <Label Grid.Column="0"  Content="{DynamicResource VitalInfoView.LastName}"  Margin="0,0,63.8,0" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                <Label Grid.Column="1"  Margin="1.6,0,-11.2,0" Name="l1" Grid.RowSpan="2" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                <Label Grid.Row="0" Grid.Column="0"  Content="{DynamicResource VitalInfoView.SubjectID}"  Margin="0,0,63.8,0" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Collapsed" VerticalAlignment="Center"/>
+                <Label Grid.Row="0" Grid.Column="1"  Margin="1.6,0,-11.2,0" Name="l2" Grid.RowSpan="2" VerticalAlignment="Center" Visibility="Collapsed"/>
             </Grid>
             <!--结束：用户ID和姓名-->
             <!--实施日期-->
-            <StackPanel Height="25" Margin="10,15,-0.4,0" Orientation="Horizontal">
+            <StackPanel Height="25" Margin="10,0,-0.4,0" Orientation="Horizontal">
                 <Label  Content="{DynamicResource VitalInfoView.Date}"  Height="25" Margin="0,0,0,0" Background="Gray" Foreground="White" Width="80"/>
                 <Border BorderBrush="Gray" BorderThickness="1" Margin="3,0,0,0">
                     <StackPanel Orientation="Horizontal"  >

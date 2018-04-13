@@ -73,11 +73,11 @@
                         <ColumnDefinition Width="164"/>
                     </Grid.ColumnDefinitions>
                     <!--用户姓名-->
-                    <Label Grid.Row="0" Grid.Column="0"  Content="{DynamicResource PhysicalEvaluationFormView.SubjectID}"   Margin="0,-6,328.6,15.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-                    <Label Grid.Row="0"  Margin="0.2,-6,-0.4,15.6" Name="Pk_User_Id" Content="{Binding Pk_User_Id}" Grid.RowSpan="2" Grid.Column="1"/>
+                    <Label Grid.Row="0" Grid.Column="0" Visibility="Hidden" Content="{DynamicResource PhysicalEvaluationFormView.SubjectID}"   Margin="0,-6,328.6,15.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    <Label Grid.Row="0"  Margin="0.2,-6,-0.4,15.6" Visibility="Hidden" Name="Pk_User_Id" Content="{Binding Pk_User_Id}" Grid.RowSpan="2" Grid.Column="1"/>
                     <!--用户ID-->
-                    <Label Grid.Column="0"  Content="{DynamicResource PhysicalEvaluationFormView.LastName}"  Margin="0,11,328.6,-1.4" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-                    <Label  Margin="0.2,11,-0.4,-1.4" Name="User_Name" Content="{Binding  User_Name}" Grid.RowSpan="2" Grid.Column="1"/>
+                    <Label Grid.Column="0" VerticalContentAlignment="Center"  Content="{DynamicResource PhysicalEvaluationFormView.LastName}"  Margin="0,0,328.6,0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    <Label  Margin="0.2,0,-0.4,0" Name="User_Name" VerticalContentAlignment="Center" Content="{Binding  User_Name}" Grid.RowSpan="2" Grid.Column="1"/>
                     <!--实施日期-->
                     <Border Margin="0,0,0,0" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" HorizontalAlignment="Right"   Height="23" BorderBrush="White" BorderThickness="0">
                         <Label Content="{DynamicResource PhysicalEvaluationFormView.Date}" Width="100" Background="LightGray" FontSize="12" Height="23" VerticalAlignment="Center"/>

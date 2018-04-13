@@ -48,6 +48,19 @@ namespace spms.dao
             }
         }
 
-
+        /// <summary>
+        /// 获取mysql的安装路径
+        /// </summary>
+        /// <returns></returns>
+        public string GetPath()
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select @@basedir as basePath from dual";
+                conn.Open();
+                var result = conn.QueryFirstOrDefault<string>(query);
+                return result.ToString();
+            }
+        }
     }
 }

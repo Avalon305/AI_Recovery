@@ -64,7 +64,7 @@
             </DockPanel>
         </Border>
         <!--结束：标题栏-->
-        <Grid Height="34" Margin="10,10,18.6,0">
+        <Grid Height="34" Margin="10,0,18.6,0">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -73,15 +73,15 @@
                 <ColumnDefinition Width="63.2"/>
                 <ColumnDefinition Width="72"/>
             </Grid.ColumnDefinitions>
-                <Label Grid.Column="0"  Content="{DynamicResource CreateTrainingReportView.LastName}"  Margin="-6,11,69.8,-1.4" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Label Grid.Column="1"  Margin="2,11,-9.2,-1.4" Name="User_Name" Content="{Binding User_Name}" Grid.RowSpan="2"/>
-                <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource CreateTrainingReportView.SubjectID}" Margin="-6,-6,69.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Label Grid.Row="0" Grid.Column="1"  Margin="2,-6,-9.2,15.6" Name="Pk_User_Id" Grid.RowSpan="2"/>
+                <Label Grid.Column="0"  Content="{DynamicResource CreateTrainingReportView.LastName}" VerticalContentAlignment="Center" Margin="-6,0,69.8,0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            <Label Grid.Column="1"  Margin="2,0,-9.2,0" Name="User_Name" Content="{Binding User_Name}" VerticalContentAlignment="Center" Grid.RowSpan="2"/>
+                <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource CreateTrainingReportView.SubjectID}" Visibility="Hidden" Margin="-6,-6,69.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Grid.Row="0" Grid.Column="1"  Margin="2,-6,-9.2,15.6" Name="Pk_User_Id" Grid.RowSpan="2"  Visibility="Hidden" />
         </Grid>
         <!--结束：用户ID和姓名-->
 
         <!--结束：输入报告-->
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                 <Border Background="Silver" Width="80" Height="25" VerticalAlignment="Center" Margin="8,0,4,0">
                     <Label Margin="0,-2,0,-4" VerticalContentAlignment="Center" Content="{DynamicResource CreateTrainingReportView.SelectDate}"></Label>
                 </Border>

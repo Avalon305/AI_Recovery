@@ -44,5 +44,10 @@ namespace spms.service
         public void InsertSetter(Setter setter) {
             setterDAO.Insert(setter);
         }
+
+        public string getPath()
+        {
+            return setterDAO.GetPath();
+        }
     }
 }
