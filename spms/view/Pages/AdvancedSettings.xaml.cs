@@ -280,6 +280,9 @@ namespace spms.view.Pages
                 string path = ConfigurationManager.AppSettings["PicPath"];
                 setter.Set_PhotoLocation = basePath + path;
                 setter.Set_Language = 1;
+                //默认备份路径，激活时获取
+                setter.Back_Up = basePath +@"\BackUp\";
+                setter.Set_Language = 1;
                 //设置版本号
                 setter.Set_Version = CommUtil.GetCurrentVersion();
                 if (!Directory.Exists(@setter.Set_PhotoLocation))

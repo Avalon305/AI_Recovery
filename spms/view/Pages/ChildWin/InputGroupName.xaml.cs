@@ -59,13 +59,18 @@ namespace spms.view.Pages.ChildWin
             //获取文本框的值
             string Name = GroupName.Text;
             CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Group, Name);
-            if (CustomData != null)
+            if (Name=="") {
+                MessageBox.Show(LanguageUtils.ConvertLanguage("小组名称不能为空", "The group name can not be null"));
+            }
+            else if (CustomData != null)
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("小组名称已存在", "The group has already existed"));
             }
+            else { 
             string value = this.GroupName.Text;
             customDataService.InsertCustomData(CustomDataEnum.Group, value);
             this.Close();
+            }
         }
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)

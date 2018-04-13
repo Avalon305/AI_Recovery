@@ -64,13 +64,20 @@ namespace spms.view.Pages.ChildWin
             //获取文本框的值
             string Name = Diagnosis.Text;
             CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Diagiosis, Name);
-            if (CustomData != null)
+            if (Name=="") {
+                MessageBox.Show(LanguageUtils.ConvertLanguage("残障名称不能为空", "The handicap name can not be null"));
+            }
+            else if (CustomData != null)
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("残障名称已存在", "The name of the handicap has already existed"));
             }
-            string value = this.Diagnosis.Text;
-            customDataService.InsertCustomData(CustomDataEnum.Diagiosis, value);
-            this.Close();
+            else
+            {
+                string value = this.Diagnosis.Text;
+                customDataService.InsertCustomData(CustomDataEnum.Diagiosis, value);
+                this.Close();
+            }
+           
         }
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
