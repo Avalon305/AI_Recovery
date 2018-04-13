@@ -57,13 +57,20 @@ namespace spms.view.Pages.ChildWin
         {
             string Name = DiseaseName.Text;
             CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Disease, Name);
-            if (CustomData != null)
+            if (Name=="") {
+                MessageBox.Show(LanguageUtils.ConvertLanguage("疾病名称不能为空", "The disease name can not be null"));
+            }
+            else if (CustomData != null)
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("疾病名称已存在", "The name of the disease has already existed"));
             }
-            string value = this.DiseaseName.Text;
-            customDataService.InsertCustomData(CustomDataEnum.Disease, value);
-            this.Close();
+            else
+            {
+                string value = this.DiseaseName.Text;
+                customDataService.InsertCustomData(CustomDataEnum.Disease, value);
+                this.Close();
+            }
+           
         }
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)

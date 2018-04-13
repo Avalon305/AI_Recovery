@@ -469,10 +469,15 @@ namespace spms.view.Pages
         {
             try
             {
+               
+                string DbUserName = ConfigUtil.GetEncrypt("DbUserName", "");
+                string DbPassword = ConfigUtil.GetEncrypt("DbPassword", "");
+                string DbUrl = ConfigUtil.GetEncrypt("DbUrl", "");
                 //指令
-                string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", "127.0.0.1", "root", "root");
+                string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", DbUrl, DbUserName, DbPassword);
                 //数据库名称
-                string strDB = "testbdl";
+                //string strDB = "testbdl";
+                string strDB = ConfigUtil.GetEncrypt("DbName", "");
                 //mysql的路径
                 string mysqlPath = new SetterService().getPath() + @"\bin";
                 //备份的路径
@@ -486,12 +491,13 @@ namespace spms.view.Pages
                     return;
                 }
                 //执行的指令
-                string cmd = strAddress + strDB + " > " + filePath+ "testbdl.sql";
+                string cmd = strAddress + strDB + " > " + filePath+ "bdl.sql";
                 string result = CommUtil.RunCmd(mysqlPath, cmd);
-
+                //MessageBox.Show(result);
+                //图片备份
                 CommUtil.CopyDirectory(filePath);
 
-                if (("Warning: Using a password on the command line interface can be insecure.".Trim()).Equals(result.Trim()))
+                if (("mysqldump: [Warning] Using a password on the command line interface can be insecure.".Trim()).Equals(result.Trim()))
                 {
 
                     MessageBox.Show(LanguageUtils.ConvertLanguage("数据备份成功", "Successful data backup"));
