@@ -10,7 +10,7 @@
         Title="{DynamicResource Title.Title}"
         ResizeMode="CanMinimize"   Height="954" Width="1202"
         Loaded="Window_Loaded">
-    <Viewbox Name="viewbox" Stretch="Fill">
+    <Viewbox Name="viewbox" Loaded="viewbox_load" Stretch="Uniform">
     <StackPanel>
         <!--Border 使用者一览表以及按钮  开始-->
         <Border Height="40" CornerRadius="5,5,0,0"  Margin="10,5,10,0">

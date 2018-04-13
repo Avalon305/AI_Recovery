@@ -524,5 +524,19 @@ namespace spms.view.Pages.ChildWin
            // time.AddSeconds(second);
             return time;
         }
+        private void viewbox_load(object sender, RoutedEventArgs e)
+        {
+            //this.Visibility = Visibility.Collapsed;
+            this.Width = viewbox.ActualWidth;
+            this.Height = viewbox.ActualHeight;
+
+            Left = (SystemParameters.WorkArea.Size.Width - viewbox.ActualWidth) / 2;
+            Top = (SystemParameters.WorkArea.Size.Height - viewbox.ActualHeight) / 2;
+            //this.ShowDialog();
+            //this.
+            // this.Opacity = 1;
+            //  this.Visibility = Visibility.Visible;
+
+        }
     }
 }

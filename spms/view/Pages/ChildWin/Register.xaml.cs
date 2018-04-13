@@ -708,9 +708,9 @@ namespace spms.view.Pages.ChildWin
             //this.Visibility = Visibility.Collapsed;
             this.Width = viewbox.ActualWidth;
             this.Height = viewbox.ActualHeight;
-            
-            Left = (SystemParameters.WorkArea.Size.Width - viewbox.ActualWidth) / 2;
-            Top = (SystemParameters.WorkArea.Size.Height - viewbox.ActualHeight) / 2;
+            Console.WriteLine(grid.Width + abc.Width);
+            Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
+            Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
             //this.ShowDialog();
            //this.
            // this.Opacity = 1;

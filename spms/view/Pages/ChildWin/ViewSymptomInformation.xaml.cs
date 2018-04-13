@@ -39,8 +39,9 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
+            //viewbox.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            //viewbox.MaxWidth = SystemParameters.WorkArea.Size.Width;
+            this.Height = SystemParameters.WorkArea.Size.Height;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             //绑定数据
@@ -186,6 +187,20 @@ namespace spms.view.Pages.ChildWin
                 //使键盘失去焦点，解决窗口反复出现
                 Keyboard.ClearFocus();
             }
+
+        }
+        private void viewbox_load(object sender, RoutedEventArgs e)
+        {
+            //this.Visibility = Visibility.Collapsed;
+            this.Width = viewbox.ActualWidth;
+            this.Height = viewbox.ActualHeight;
+
+            Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
+            Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
+            //this.ShowDialog();
+            //this.
+            // this.Opacity = 1;
+            //  this.Visibility = Visibility.Visible;
 
         }
     }

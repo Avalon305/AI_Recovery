@@ -51,7 +51,6 @@ namespace spms.view.controls
             {
                 popChioce.IsOpen = false;
             }
-
             TDateTimeView dtView = new TDateTimeView(textBlock1.Text);// TDateTimeView  构造函数传入日期时间
             dtView.DateTimeOK += (dateTimeStr) => //TDateTimeView 日期时间确定事件
             {

@@ -169,12 +169,16 @@
 
                 <!--高级设置按钮-->
                 <Border Margin="30,0,0,0" Width="328">
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,-75,0">
-                        <Button Width="269"  Height="38" IsTabStop="False" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="44,0,15,10"  Foreground="Black" Content="{DynamicResource SettingsView.Confirm}" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,0,0">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <Button  IsTabStop="False" VerticalAlignment="Center" Height="33" Width="122" HorizontalAlignment="Center" Margin="49,0,0,0"  Foreground="Black" Content="{DynamicResource SettingsView.Confirm}" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
+                            <Button Content="{DynamicResource SettingsView.BackUp}" Width="122" IsTabStop="False" Height="33"  Click="BackUp" Style="{StaticResource Btn}" Margin="10,0,0,0"  RenderTransformOrigin="0,0.662"/>
+                        </StackPanel>
+                       
                         <StackPanel Orientation="Horizontal" Margin="49,0,0,0">
                             <Button Content="{DynamicResource SettingsView.OnlineEquipmentSituation}"  IsTabStop="False" Height="33" Click="OnlineEquipmentSituation" Style="{StaticResource Btn}"  Width="122" />
-                            <Button Content="{DynamicResource SettingsView.AdvancedSettings}"  IsTabStop="False" Height="33"  Click="AdvancedSettings" Style="{StaticResource Btn}" Margin="10,0,0,0"  Width="115"/>
-                            <Button Content="{DynamicResource SettingsView.BackUp}"  IsTabStop="False" Height="33"  Click="BackUp" Style="{StaticResource Btn}" Margin="10,0,0,0" Width="94" RenderTransformOrigin="-1.788,0.662"/>
+                            <Button Content="{DynamicResource SettingsView.AdvancedSettings}"  IsTabStop="False" Height="33"  Click="AdvancedSettings" Style="{StaticResource Btn}" Margin="10,0,0,0"  Width="122"/>
+                           
                         </StackPanel>
                     </StackPanel>
 
