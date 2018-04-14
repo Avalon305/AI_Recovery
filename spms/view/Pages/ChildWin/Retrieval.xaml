@@ -142,7 +142,7 @@
                 </Label>
             </bubble:CCPopup>
             <Label Content="{DynamicResource SearchSubjectView.Diagnosis}" Grid.Row="14" Grid.Column="0" Background="Gray" Foreground="White"/>
-            <ComboBox Name="c3" Grid.Row="14" Grid.Column="2" Background="LightGray"  LostKeyboardFocus="IsDiagnosis" IsEditable="True" VerticalContentAlignment="Center" />
+            <ComboBox Name="c3" Grid.Row="14" Grid.Column="2"   LostKeyboardFocus="IsDiagnosis" IsEditable="True" VerticalContentAlignment="Center" />
             <!--气泡-->
             <bubble:CCPopup x:Name="bubble_Diagnosis" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=c3}" Placement="Right" >
                 <Label Style="{StaticResource tipLable}">
