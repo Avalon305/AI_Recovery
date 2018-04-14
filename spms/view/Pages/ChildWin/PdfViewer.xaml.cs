@@ -50,8 +50,9 @@ namespace spms.view.Pages.ChildWin
         public PdfViewer()
         {
             InitializeComponent();
-            
-            this.Height = SystemParameters.WorkArea.Size.Height;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
 
             //pDFViewer = this;
         }
@@ -219,22 +220,5 @@ namespace spms.view.Pages.ChildWin
         {
             moonPdfPanel.Background = Brushes.Silver;
         }
-
-        private void viewbox_load(object sender, RoutedEventArgs e)
-        {
-            this.Width = viewbox.ActualWidth;
-            this.Height = viewbox.ActualHeight;
-            Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
-            Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
-        }
-
-        
-
-        //private void abc(object sender, RoutedEventArgs e)
-        //{
-        //    LoadCompleted
-        //        a.Visibility = Visibility.Hidden;
-
-        //}
     }
 }

@@ -19,11 +19,21 @@ using WpfApp2;
 
 namespace spms
 {
+
     /// <summary>
     /// PhotoCutWindow.xaml 的交互逻辑
     /// </summary>
     public partial class PhotoCutWindow : Window
     {
+        private const int GWL_STYLE = -16;
+        private const int WS_SYSMENU = 0x80000;
+        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+       
+          
+       
         private BitmapImage image;
         private string fileName;
         //照片的名字
@@ -39,6 +49,8 @@ namespace spms
         public PhotoCutWindow()
         {
             InitializeComponent();
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.4;
+            this.Height = this.Width / 1.1;
         }
 
 
@@ -82,7 +94,10 @@ namespace spms
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-             
+            //去掉图标和最大化关闭按钮
+            var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+            SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+
             ImageDealer.BitSource = image;
         }
         /// <summary>
