@@ -26,7 +26,7 @@
     <s:String x:Key="MainView.Settings">设置</s:String>
     <s:String x:Key="MainView.Close">返回</s:String>
     <s:String x:Key="MainView.Title">传递健康理念，与您共同发展</s:String>
-
+    <s:String x:Key="MainView.BodyStrong">宝德龙</s:String>
     <!-- 标题 -->
     <s:String x:Key="Title.Title">宝德龙</s:String>
 
@@ -461,5 +461,9 @@
     <s:String x:Key="PdfViewer.Display">100% 显示</s:String>
     <s:String x:Key="PdfViewer.FitToHeight">适合高度</s:String>
     <s:String x:Key="PdfViewer.Close">关闭</s:String>
-
+    
+    <!--信息提示框-->
+    <s:String x:Key="MessageBoxX.Title">信息提示</s:String>
+    <s:String x:Key="MessageBoxX.Determine">确定</s:String>
+    <s:String x:Key="MessageBoxX.Cancel">取消</s:String>
 </ResourceDictionary>

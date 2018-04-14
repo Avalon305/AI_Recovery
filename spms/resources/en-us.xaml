@@ -25,7 +25,7 @@
     <s:String x:Key="MainView.Settings">Settings</s:String>
     <s:String x:Key="MainView.Close">Return</s:String>
     <s:String x:Key="MainView.Title">Pass On The Concept Of Health, Develop Together With You</s:String>
-
+    <s:String x:Key="MainView.BodyStrong">Body Strong</s:String>
     <!-- 标题 -->
     <s:String x:Key="Title.Title">Body Strong</s:String>
 
@@ -453,5 +453,10 @@
     <s:String x:Key="PdfViewer.Display">100% Display</s:String>
     <s:String x:Key="PdfViewer.FitToHeight">Fit To Height</s:String>
     <s:String x:Key="PdfViewer.Close">Close</s:String>
+
+    <!--信息提示框-->
+    <s:String x:Key="MessageBoxX.Title">Information Hints</s:String>
+    <s:String x:Key="MessageBoxX.Determine">Determine</s:String>
+    <s:String x:Key="MessageBoxX.Cancel">Cancel</s:String>
 
 </ResourceDictionary>

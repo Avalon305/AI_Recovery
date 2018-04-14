@@ -42,6 +42,7 @@
                             </StackPanel>
 
                         </Border>
+                        <Label Content="{DynamicResource MainView.BodyStrong}"  FontSize="22" HorizontalAlignment="Center" Name="body" VerticalAlignment="Top" Margin="15,5,0,0" Foreground="Red"></Label>
                         <Label Content="{DynamicResource MainView.Title}"  FontSize="18" HorizontalAlignment="Center" Name="subhead" VerticalAlignment="Bottom" Margin="15,0,0,0" Foreground="PowderBlue"></Label>
                     </Grid>
                     <!-- logo -->

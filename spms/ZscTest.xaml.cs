@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using spms.util;
+using spms.view.Pages;
 
 namespace spms
 {
@@ -28,6 +29,14 @@ namespace spms
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //LanguageUtils.EqualsResource("倒计时", "TrainingListView.CountReverse");
+        }
+
+        private void click1(object sender, RoutedEventArgs e)
+        {
+            MessageBoxX.Info("我里边的值随便写");
+            MessageBoxX.Error("我里边的值真随便写");
+            MessageBoxX.Warning("我里边的值真真随便写");
+            MessageBoxX.Question("我里边的值真真真随便写");
         }
     }
 }

@@ -40,7 +40,7 @@ namespace spms.view.Pages
             this.txtMessage.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
             //type
             btnCancel.Visibility = Visibility.Collapsed;
-            Console.WriteLine(type);
+            //Console.WriteLine(type);
             this.SetForeground(type);
             switch (type)
             {
@@ -146,7 +146,7 @@ namespace spms.view.Pages
                 //nb.Width = SystemParameters.WorkArea.Size.Width * 0.277;
                // nb.Height = nb.Width / 2.2;
                 nb.Owner = owner ?? Application.Current.MainWindow;
-                nb.AllowsTransparency = false;
+                //nb.AllowsTransparency = false;
                 nb.ShowDialog();
                 res = nb.Result;
             }));
@@ -196,6 +196,14 @@ namespace spms.view.Pages
         {
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+        }
+
+        private void UIElement_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
         }
     }
 }
