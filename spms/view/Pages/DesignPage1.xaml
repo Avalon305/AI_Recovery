@@ -233,7 +233,7 @@
                         <Label Foreground="White" Padding="4" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.BackupPath}"></Label>
                     </Border>
                     <Border Grid.Row="6" Grid.Column="1"  Margin="0.2,0,0,1.8">
-                        <TextBox Name="textBox5" VerticalContentAlignment="Center" Text="{Binding Set_Version}"  ></TextBox>
+                        <TextBox Name="textBox5" VerticalContentAlignment="Center" Text="{Binding Back_Up}"  ></TextBox>
 
                     </Border>
                     <!--<Border Grid.Row="4" Grid.Column="2"  Margin="2,0,0.4,1.8">
