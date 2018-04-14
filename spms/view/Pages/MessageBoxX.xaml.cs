@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace messagebox
+namespace spms.view.Pages
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
@@ -33,7 +33,9 @@ namespace messagebox
         public MessageBoxX(EnumNotifyType type, string mes)
         {
             InitializeComponent();
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+           // this.Width = SystemParameters.WorkArea.Size.Width * 0.277;
+           // this.Height = this.Width / 2.2;
+           // this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.txtMessage.Text = mes;
             this.txtMessage.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
             //type
@@ -139,8 +141,12 @@ namespace messagebox
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
                 MessageBoxX nb = new MessageBoxX(type, mes) { Title = MessageBoxX.GetDescription(type)
-                };
+                    
+            };
+                //nb.Width = SystemParameters.WorkArea.Size.Width * 0.277;
+               // nb.Height = nb.Width / 2.2;
                 nb.Owner = owner ?? Application.Current.MainWindow;
+                nb.AllowsTransparency = false;
                 nb.ShowDialog();
                 res = nb.Result;
             }));
@@ -175,6 +181,21 @@ namespace messagebox
                 }
             }
             return en.ToString();
+        }
+
+        private const int GWL_STYLE = -16;
+        private const int WS_SYSMENU = 0x80000;
+        public int IsTrue = 0;
+        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+
+        private void window_loaded(object sender, RoutedEventArgs e)
+        {
+            var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+            SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
     }
 }

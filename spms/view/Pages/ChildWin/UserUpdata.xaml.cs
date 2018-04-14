@@ -167,7 +167,7 @@ namespace spms.view.Pages.ChildWin
             {
                 this.Non_Public_Information.Visibility = System.Windows.Visibility.Visible;
                 //调整该窗体宽度
-                this.Width = 800;
+               // this.Width = 800;
             }
             else
             {

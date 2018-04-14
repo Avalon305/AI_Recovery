@@ -70,7 +70,7 @@
     <s:String x:Key="SettingsView.Current">当前密码</s:String>
     <s:String x:Key="SettingsView.New">新密码</s:String>
     <s:String x:Key="SettingsView.ConfirmPassword">确认密码</s:String>
-    <s:String x:Key="SettingsView.Refer">打开</s:String>
+    <s:String x:Key="SettingsView.Refer">浏览...</s:String>
     <s:String x:Key="SettingsView.Video">设定视频</s:String>
     <s:String x:Key="SettingsView.SeriesofMachines">选择器械系列</s:String>
     <s:String x:Key="SettingsView.PRexerSeries">当前系列设备</s:String>

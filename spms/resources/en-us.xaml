@@ -48,7 +48,7 @@
     <s:String x:Key="SettingsView.AdvancedSettings">Advanced Settings</s:String>
     <s:String x:Key="SettingsView.BackUp">Back Up</s:String>
     <s:String x:Key="SettingsView.OnlineEquipmentSituation">Online Equipment Situation</s:String>
-    <s:String x:Key="SettingsView.Alert" xml:space="preserve">(Once the path is set&#13;not to suggest changes)</s:String>
+    <s:String x:Key="SettingsView.Alert" xml:space="preserve">(Once the path is set not to suggest changes)</s:String>
     <s:String x:Key="SettingsView.FacilityType">Facility Type</s:String>
     <s:String x:Key="SettingsView.Phone">Mobile</s:String>
     <s:String x:Key="SettingsView.Other">Other</s:String>
@@ -73,7 +73,7 @@
     <s:String x:Key="SettingsView.Current">Current</s:String>
     <s:String x:Key="SettingsView.New">New</s:String>
     <s:String x:Key="SettingsView.ConfirmPassword">Confirm Password</s:String>
-    <s:String x:Key="SettingsView.Refer">Refer</s:String>
+    <s:String x:Key="SettingsView.Refer">Refer...</s:String>
     <s:String x:Key="SettingsView.Video">Video</s:String>
     <s:String x:Key="SettingsView.SeriesofMachines">Series of Machines</s:String>
     <s:String x:Key="SettingsView.PRexerSeries">PRexer Series</s:String>

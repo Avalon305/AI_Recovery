@@ -29,11 +29,11 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         </EventTrigger>
     </Window.Triggers>-->
 
-    <Viewbox Loaded="viewbox_load" Name="viewbox" Stretch="Uniform">
+    <Viewbox  Name="viewbox" Stretch="Uniform">
         <Grid>
             <Border CornerRadius="2">
                 <StackPanel >
-                    <Border CornerRadius="5,5,0,0" Height="50" Margin="10,0,10,2" >
+                    <Border CornerRadius="5,5,0,0" Height="50" Margin="0,0,0,2" >
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                 <GradientStop Color="Silver" Offset="0.1"/>
@@ -44,7 +44,7 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                             <Label VerticalAlignment="Center" FontSize="22" Foreground="White" Content="{DynamicResource RegisterView.OnlineDeviceDetails}"/>
                         </Grid>
                     </Border>
-                    <DataGrid Height="234" Margin="10,0,10,0"  BorderThickness="1"   Name="terminalstatus" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="true" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None"  VerticalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None" SelectionMode="Single" RowHeaderWidth="0">
+                    <DataGrid Height="234" Margin="0,0,0,0"  BorderThickness="1"   Name="terminalstatus" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="true" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None"  VerticalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None" SelectionMode="Single" RowHeaderWidth="0">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="DodgerBlue"/>
@@ -99,7 +99,7 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="303" Height="47" VerticalAlignment="Top" BorderBrush="White" Margin="0,0,9.6,0">
+                    <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="303" Height="47" VerticalAlignment="Top" BorderBrush="White" Margin="0,0,0,0">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                             <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  IsTabStop="False"  Foreground="Black" Content="关闭" Margin="0,0,0,0"  Style="{StaticResource Btn}" Click="Cancel"/>
                         </StackPanel>

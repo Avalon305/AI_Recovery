@@ -659,6 +659,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\open.png" />
     <Resource Include="view\Images\dcu_offline.png" />
     <Resource Include="view\Images\dcu_online.png" />
     <Resource Include="view\Images\design.png" />

@@ -29,7 +29,7 @@
     <Viewbox Name="viewbox" Stretch="Uniform" Loaded="viewbox_load">
         <StackPanel Orientation="Vertical">
             <!--Border 使用者一览表以及按钮  开始-->
-            <Border Height="40" CornerRadius="5,5,0,0" Margin="10,5,10,0" BorderThickness="0" BorderBrush="White">
+            <Border Height="40" CornerRadius="5,5,0,0" Margin="0,5,0,0" BorderThickness="0" BorderBrush="White">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                         <GradientStop Color="Silver" Offset="0.1"/>
@@ -61,7 +61,7 @@
             <StackPanel  Orientation="Horizontal" >
 
                 <!--Grid 使用者信息展示-->
-                <Grid Height="34" Margin="10,10,0,0" Width="939" >
+                <Grid Height="34" Margin="0,10,0,0" Width="949" >
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -69,38 +69,38 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="80"/>
                         <ColumnDefinition Width="528"/>
-                        <ColumnDefinition Width="164"/>
+                        <ColumnDefinition Width="173.6"/>
                         <ColumnDefinition Width="164"/>
                     </Grid.ColumnDefinitions>
                     <!--用户姓名-->
                     <Label Grid.Row="0" Grid.Column="0" Visibility="Hidden" Content="{DynamicResource PhysicalEvaluationFormView.SubjectID}"   Margin="0,-6,328.6,15.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-                    <Label Grid.Row="0"  Margin="0.2,-6,-0.4,15.6" Visibility="Hidden" Name="Pk_User_Id" Content="{Binding Pk_User_Id}" Grid.RowSpan="2" Grid.Column="1"/>
+                    <Label Grid.Row="0"  Margin="0.2,-6,168,15.6" Visibility="Hidden" Name="Pk_User_Id" Content="{Binding Pk_User_Id}" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
                     <!--用户ID-->
-                    <Label Grid.Column="0" VerticalContentAlignment="Center"  Content="{DynamicResource PhysicalEvaluationFormView.LastName}"  Margin="0,0,328.6,0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-                    <Label  Margin="0.2,0,-0.4,0" Name="User_Name" VerticalContentAlignment="Center" Content="{Binding  User_Name}" Grid.RowSpan="2" Grid.Column="1"/>
+                    <Label Grid.Column="0" VerticalContentAlignment="Center"  Content="{DynamicResource PhysicalEvaluationFormView.LastName}"  Margin="0,0,328.6,-0.4" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    <Label  Margin="0.2,0,168,-0.4" Name="User_Name" VerticalContentAlignment="Center" Content="{Binding  User_Name}" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
                     <!--实施日期-->
-                    <Border Margin="0,0,0,0" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" HorizontalAlignment="Right"   Height="23" BorderBrush="White" BorderThickness="0">
+                    <Border Margin="0,5,161.8,5.6" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" HorizontalAlignment="Right" BorderBrush="White" BorderThickness="0" Grid.ColumnSpan="2" Width="102">
                         <Label Content="{DynamicResource PhysicalEvaluationFormView.Date}" Width="100" Background="LightGray" FontSize="12" Height="23" VerticalAlignment="Center"/>
                     </Border>
 
                     <!--日历-->
-                    <Border Margin="0,0,0,0" Width="153" Grid.Row="0" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.RowSpan="2">
+                    <Border Margin="0,3,-2.2,3.6" Width="153" Grid.Row="0" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.RowSpan="2" Height="27">
                         <my:DateTimePicker HorizontalAlignment="Left"  x:Name="implementation_date" VerticalAlignment="Top" Height="25" Width="150" />
                         <!--<DatePicker Name="implementation_date" Height="23" Margin="0.2,0,-1,0" VerticalAlignment="Bottom" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
                     </Border>
                 </Grid>
-                
+
 
             </StackPanel>
             <!--大表格-->
-            <Grid Margin="10,10,10,0" Height="643" >
+            <Grid Margin="0,10,0,0" Height="643" >
                 <Grid.Resources>
                     <Style TargetType="TextBlock">
                         <Setter   Property="VerticalAlignment"  Value="Center"></Setter>
                     </Style>
                     <Style TargetType="Border">
                         <Setter  Property="BorderBrush" Value="Gray"></Setter>
-                        <Setter  Property="BorderThickness"  Value="1"></Setter>
+                        <Setter  Property="BorderThickness"  Value="0.5"></Setter>
                     </Style>
                     <Style TargetType="Label">
                         <Setter Property="Margin" Value="1"/>
@@ -132,7 +132,7 @@
                     <ColumnDefinition Width="130"/>
                     <ColumnDefinition Width="130"/>
                     <ColumnDefinition Width="310"/>
-                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition Width="120"/>
                 </Grid.ColumnDefinitions>
                 <!--Border 画表格线-->
                 <Border Grid.Row="0" Grid.ColumnSpan="6" Margin="0,-1.5,0,0" BorderThickness="2"/>
@@ -150,17 +150,17 @@
                 <Border Grid.Row="12" Grid.ColumnSpan="6"/>
                 <Border Grid.Row="13" Grid.ColumnSpan="6" Margin="0,0,0,1"/>
 
-                <Border Grid.Column="0" Grid.RowSpan="14"/>
-                <Border Grid.Column="1" Grid.RowSpan="14"/>
-                <Border Grid.Column="2" Grid.RowSpan="14"/>
-                <Border Grid.Column="3" Grid.RowSpan="14"/>
-                <Border Grid.Column="4" Grid.RowSpan="14"/>
-                <Border Grid.Column="5" Grid.RowSpan="14" />
+                <Border Grid.Column="0" Grid.RowSpan="14" BorderThickness="1,0,1,0" BorderBrush="Gray"/>
+                <Border Grid.Column="1" Grid.RowSpan="14" BorderThickness="1,0,1,0" BorderBrush="Gray"/>
+                <Border Grid.Column="2" Grid.RowSpan="14" BorderThickness="1,0,1,0" BorderBrush="Gray"/>
+                <Border Grid.Column="3" Grid.RowSpan="14" BorderThickness="1,0,1,0" BorderBrush="Gray"/>
+                <Border Grid.Column="4" Grid.RowSpan="14" BorderThickness="1,0,1,0" BorderBrush="Gray"/>
+                <Border Grid.Column="5" Grid.RowSpan="14" BorderThickness="1,0,1,0" BorderBrush="Gray"/>
                 <!--评价项目名-->
                 <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Evaluation}" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" Margin="1,0,1,0.8"/>
                 <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.EvaluationCondition}" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" Margin="1,0,0.8,0.8"/>
-                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.#1}" Grid.Row="0" Grid.Column="2" HorizontalContentAlignment="Center" Margin="1.4,0,0.4,0.4"/>
-                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.#2}" Grid.Row="0" Grid.Column="3" HorizontalContentAlignment="Center" Margin="1.0,0,1.2,0.8"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.#1}" Grid.Row="0" Grid.Column="2" HorizontalContentAlignment="Center" Margin="1,0,1,1"/>
+                <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.#2}" Grid.Row="0" Grid.Column="3" HorizontalContentAlignment="Center" Margin="1.0,0,1,0.8"/>
                 <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Condition}" Grid.Row="0" Grid.Column="4" HorizontalContentAlignment="Center" Margin="0.8,0,1.2,0.8"/>
                 <Label Background="LightGray" Content="{DynamicResource PhysicalEvaluationFormView.Administrat}" Grid.Row="0" Grid.Column="5" HorizontalContentAlignment="Center" Margin="0.8,0,1,0.8"/>
 
@@ -423,7 +423,7 @@
                     <CheckBox  Name="leg2_stand" FontSize="10" Checked="c49_Checked"  Height="14" HorizontalAlignment="Left" Width="123" Margin="10,1.5,0,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Standing}"></CheckBox>
                     <CheckBox Name="leg2_sit"  Checked="c50_Checked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Seated}"></CheckBox>
                 </StackPanel>
-                <TextBox Name="leg2_duty" CaretBrush="Black" Grid.Row="13" Grid.Column="5"  Margin="1,0,1,1" />
+                <TextBox Name="leg2_duty" CaretBrush="Black" Grid.Row="13" Grid.Column="5"  BorderThickness="1,1,2,1" />
                 <Border Grid.Row="14" Grid.Column="0" Background="LightGray" >
                     <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{DynamicResource PhysicalEvaluationFormView.Subjectcomment}" Grid.Row="0" Grid.Column="0" />
                 </Border>
@@ -432,7 +432,7 @@
                 </Border>
                 <!-- 使用者、工作人员感想的两个文本输入框-->
                 <!--<TextBox Grid.Row="0" Grid.Column="1"/>-->
-                <RichTextBox Name="user_feel" CaretBrush="Black" AcceptsReturn="True"   Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="5">
+                <RichTextBox Name="user_feel" CaretBrush="Black" AcceptsReturn="True"   Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="5" Margin="0,-0.5,0,0" BorderThickness="2,2,2,0">
                     <!--行间距-->
                     <RichTextBox.Document>
                         <FlowDocument Focusable="True"  LineHeight="1" >
@@ -440,7 +440,7 @@
                     </RichTextBox.Document>
                 </RichTextBox>
                 <!--<TextBox Grid.Row="1" Grid.Column="1"/>-->
-                <RichTextBox Name="worker_feel"  CaretBrush="Black" AcceptsReturn="True" Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="5">
+                <RichTextBox Name="worker_feel"  CaretBrush="Black" AcceptsReturn="True" Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="5" BorderThickness="2">
                     <!--行间距-->
                     <RichTextBox.Document>
                         <FlowDocument Focusable="True" LineHeight="1" >
@@ -448,16 +448,9 @@
                     </RichTextBox.Document>
                 </RichTextBox>
             </Grid>
-            <!--使用者/工作人员感想-->
-
-            <!--<Border Grid.Row="0" Grid.Column="0" Margin="0,0,0.4,0.2"></Border>
-                <Border Grid.Row="0" Grid.Column="1" Margin="2.6,0,0.4,0.2"/>
-                <Border Grid.Column="0" Margin="0,35,0.4,-0.4" Grid.RowSpan="2"/>
-                <Border Grid.Column="1" BorderThickness="2" Margin="2.6,35,0.4,-0.4" Grid.RowSpan="2"/>-->
-
 
             <!-- 保存及取消按钮-->
-            <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="286" Height="29" VerticalAlignment="Bottom" BorderThickness="0" BorderBrush="White" Margin="0,5,10,10">
+            <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="286" Height="29" VerticalAlignment="Bottom" BorderThickness="0" BorderBrush="White" Margin="0,5,0,10">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" >
                     <!--保存按钮-->
                     <Button Width="140"  Height="25"  Margin="3,0,0,0" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Save" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Save}"></Button>

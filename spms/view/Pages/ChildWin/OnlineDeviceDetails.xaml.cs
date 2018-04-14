@@ -35,6 +35,8 @@ namespace spms.view.Pages.ChildWin
         public OnlineDeviceDetails()
         {
             InitializeComponent();
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.277;
+            this.Height = this.Width / 1.28;
         }
         /// <summary>
         /// 页面载入时的事件
@@ -117,12 +119,12 @@ namespace spms.view.Pages.ChildWin
 
         
 
-        private void viewbox_load(object sender, RoutedEventArgs e)
-        {
-            this.Width = viewbox.ActualWidth;
-            this.Height = viewbox.ActualHeight;
-            Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
-            Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
-        }
+        //private void viewbox_load(object sender, RoutedEventArgs e)
+        //{
+        //    this.Width = viewbox.ActualWidth;
+        //    this.Height = viewbox.ActualHeight;
+        //    Left = (SystemParameters.WorkArea.Size.Width - this.ActualWidth) / 2;
+        //    Top = (SystemParameters.WorkArea.Size.Height - this.ActualHeight) / 2;
+        //}
     }
 }
