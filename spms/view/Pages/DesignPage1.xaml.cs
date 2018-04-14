@@ -69,7 +69,8 @@ namespace spms.view.Pages
             //setterList.Add(setterDao.Load(setter.Pk_Set_Id));
             setterList = setterDao.ListAll();
             //初始化版本号
-            if (setterList!=null&& setterList.Count==1) {
+            if (setterList != null && setterList.Count == 1)
+            {
                 setterList[0].Set_Version = CommUtil.GetCurrentVersion();
             }
             try
@@ -97,7 +98,8 @@ namespace spms.view.Pages
             textBox1.DataContext = DataCollection;//设置机构团体名称
             textBox2.DataContext = DataCollection;//设置照片保存文档
             textBox3.DataContext = DataCollection;//设置机构电话
-            textBox4.DataContext = DataCollection;//设置机构电话
+            textBox4.DataContext = DataCollection;//设置当前版本
+            textBox5.DataContext = DataCollection;//设置备份地址
             ListDataCode = DataCodeDAO.ListByTypeId("OrganizationSort");//绑定组织区分
             comboBox1.ItemsSource = ListDataCode;
             ListDataCode = DataCodeDAO.ListByTypeId("Language");//绑定语言
@@ -144,10 +146,11 @@ namespace spms.view.Pages
                     MessageBox.Show(LanguageUtils.ConvertLanguage("当前用户没有权限，请与管理员取得联系", "The current user does not have permission. Please contact the administrator"));
                 }
             }
-            catch (Exception ee){
+            catch (Exception ee)
+            {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("请先登陆", "Log in first, please"));
             }
-           
+
         }
         List<int> selectID = new List<int>();  //保存选中要删除行的FID值  
 
@@ -170,6 +173,7 @@ namespace spms.view.Pages
                 string textValue2 = textBox2.Text;//照片保存文档
                 string textValue3 = textBox3.Text;//机构电话
                 //string textValue4 = textBox4.Text;//版本
+                string textValue5 = textBox5.Text;//版本
                 int comboBox1Selected = comboBox1.SelectedIndex;//机构区分被选择的index
                 int comboBox2Selected = comboBox2.SelectedIndex;//语言被选择的index
                 entity.Setter setter = new entity.Setter();
@@ -189,7 +193,7 @@ namespace spms.view.Pages
             GoBack(null, null);
         }
 
-        
+
         private void Grid_Group_Click(object sender, MouseButtonEventArgs e)
         {
             Selected[0] = 1;
@@ -272,7 +276,7 @@ namespace spms.view.Pages
 
         private void Group_Update(object sender, RoutedEventArgs e)
         {
-            if (Selected[0] == 1&& group!=null)
+            if (Selected[0] == 1 && group != null)
             {
                 UpdateGroupName groupUpdata = new UpdateGroupName
                 {
@@ -300,7 +304,7 @@ namespace spms.view.Pages
         }
         private void Disease_Update(object sender, RoutedEventArgs e)
         {
-            if (Selected[1] == 1&& disease!=null)
+            if (Selected[1] == 1 && disease != null)
             {
                 UpdateDiseaseName diseaseUpdata = new UpdateDiseaseName
                 {
@@ -313,7 +317,7 @@ namespace spms.view.Pages
                 CustomData disease = (CustomData)DataGrid3.SelectedItem;
                 diseaseUpdata.selectedDisease = disease;
                 //UI中使用
-                diseaseUpdata.DiseaseName.Text = disease.CD_CustomName; 
+                diseaseUpdata.DiseaseName.Text = disease.CD_CustomName;
                 diseaseUpdata.OldDiseaseName = disease.CD_CustomName;
                 diseaseUpdata.ShowDialog();
                 FlushDisease();
@@ -326,7 +330,7 @@ namespace spms.view.Pages
         }
         private void Diagnosis_Update(object sender, RoutedEventArgs e)
         {
-            if (Selected[2] == 1&& disease!=null)
+            if (Selected[2] == 1 && disease != null)
             {
                 UpdateDiagnosisName diagnosisUpdata = new UpdateDiagnosisName
                 {
@@ -418,7 +422,7 @@ namespace spms.view.Pages
                 return;
             }
             string m_Dir = m_Dialog.SelectedPath.Trim();
-            this.textBox2.Text = m_Dir+"\\";
+            this.textBox2.Text = m_Dir + "\\";
         }
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
@@ -469,19 +473,21 @@ namespace spms.view.Pages
         {
             try
             {
-               
+
                 string DbUserName = ConfigUtil.GetEncrypt("DbUserName", "");
                 string DbPassword = ConfigUtil.GetEncrypt("DbPassword", "");
                 string DbUrl = ConfigUtil.GetEncrypt("DbUrl", "");
                 //指令
                 string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", DbUrl, DbUserName, DbPassword);
+                //string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", "127.0.0.1", "root", "53231323xjh");
                 //数据库名称
-                //string strDB = "testbdl";
+                //string strDB = "textbdl";
                 string strDB = ConfigUtil.GetEncrypt("DbName", "");
                 //mysql的路径
                 string mysqlPath = new SetterService().getPath() + @"\bin";
-                //备份的路径
-                string filePath = System.AppDomain.CurrentDomain.BaseDirectory + @"\BackUp\";
+                //备份的路径(获取前端页面)
+                //string filePath = System.AppDomain.CurrentDomain.BaseDirectory + @"\BackUp\";
+                string filePath = textBox5.Text;
                 if (!Directory.Exists(filePath))//如果不存在就创建file文件夹　　             　　                
                     Directory.CreateDirectory(filePath);//创建该文件夹　　
                 //判断是否含空格
@@ -491,12 +497,11 @@ namespace spms.view.Pages
                     return;
                 }
                 //执行的指令
-                string cmd = strAddress + strDB + " > " + filePath+ "bdl.sql";
+                string cmd = strAddress + strDB + " > " + filePath + "bdl.sql";
                 string result = CommUtil.RunCmd(mysqlPath, cmd);
                 //MessageBox.Show(result);
                 //图片备份
                 CommUtil.CopyDirectory(filePath);
-
                 if (("mysqldump: [Warning] Using a password on the command line interface can be insecure.".Trim()).Equals(result.Trim()))
                 {
 
@@ -509,7 +514,7 @@ namespace spms.view.Pages
             }
             catch (Exception ex)
             {
-                Console.WriteLine("执行sql异常，备份异常"+ ex.ToString());
+                Console.WriteLine("执行sql异常，备份异常" + ex.ToString());
             }
         }
 
