@@ -373,9 +373,10 @@
     <s:String x:Key="TrainingResultView.Transfer">Transfer</s:String>
     <s:String x:Key="TrainingResultView.BorgScale">Borg Scale</s:String>
     <s:String x:Key="TrainingResultView.TrainTime">Training Time</s:String>
+    <s:String x:Key="TrainingResultView.TrainTime(min)">Training Time</s:String>
     <s:String x:Key="TrainingResultView.Time(min)">Prescription Time</s:String>
     <s:String x:Key="TrainingResultView.Time">Finish Time</s:String>
-    <s:String x:Key="TrainingResultView.Distance(m)">Distance(m)</s:String>
+    <s:String x:Key="TrainingResultView.Distance(m)">Distance(mm)</s:String>
     <s:String x:Key="TrainingResultView.TotalWork(J)">Total Work(J)</s:String>
     <s:String x:Key="TrainingResultView.Calorie(cal)">Calorie(cal)</s:String>
     <s:String x:Key="TrainingResultView.Score">Score</s:String>

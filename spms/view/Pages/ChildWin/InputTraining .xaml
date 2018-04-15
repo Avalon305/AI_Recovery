@@ -125,12 +125,12 @@ ResizeMode="CanMinimize"
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="218"/>
-                    <ColumnDefinition Width="228"/>
-                    <ColumnDefinition Width="228"/>
-                    <ColumnDefinition Width="228"/>
-                    <ColumnDefinition Width="228"/>
-                    <ColumnDefinition Width="218"/>
+                    <ColumnDefinition Width="219"/>
+                    <ColumnDefinition Width="229"/>
+                    <ColumnDefinition Width="229"/>
+                    <ColumnDefinition Width="229"/>
+                    <ColumnDefinition Width="229"/>
+                    <ColumnDefinition Width="219"/>
                 </Grid.ColumnDefinitions>
                 <!--器材名称开始-->
                 <Border Grid.Row="0"  Grid.Column="0" Background="Gray" Margin="0,0,10,0">
@@ -149,7 +149,7 @@ ResizeMode="CanMinimize"
                     <CheckBox Name="checkbox5"  Checked="Checkbox5_OnChecked"  IsTabStop="False" Unchecked="checkbox5_Unchecked" Foreground="White"  Margin="0,3,0,0"  Content="{DynamicResource Dev.HorizontalLegPress}" ></CheckBox>
                 </Border>
                 <Border Grid.Row="0"  Grid.Column="5" Background="Gray" Margin="10.4,0,0.2,0.2">
-                    <CheckBox  Name="checkbox6" Checked="Checkbox6_OnChecked"  IsTabStop="False" Unchecked="checkbox6_Unchecked" Foreground="White"  Margin="0,3,1,0.2"   Content="{DynamicResource Dev.HipAbduction}"></CheckBox>
+                    <CheckBox  Name="checkbox6"  Checked="Checkbox6_OnChecked"  IsTabStop="False" Unchecked="checkbox6_Unchecked" Foreground="White"  Margin="0,3,1,0.2"   Content="{DynamicResource Dev.HipAbduction}"></CheckBox>
                 </Border>
                 <!--器材名称结束-->
 
@@ -245,8 +245,8 @@ ResizeMode="CanMinimize"
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="103"/>
-                        <ColumnDefinition Width="113"/>
+                        <ColumnDefinition Width="77"/>
+                        <ColumnDefinition Width="143"/>
                     </Grid.ColumnDefinitions>
 
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="0,3,0,0" >
@@ -383,8 +383,8 @@ ResizeMode="CanMinimize"
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="113"/>
-                        <ColumnDefinition Width="113"/>
+                        <ColumnDefinition Width="87"/>
+                        <ColumnDefinition Width="143"/>
                     </Grid.ColumnDefinitions>
 
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
@@ -521,8 +521,8 @@ ResizeMode="CanMinimize"
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="87"/>
+                        <ColumnDefinition Width="143"/>
                     </Grid.ColumnDefinitions>
 
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
@@ -659,8 +659,8 @@ ResizeMode="CanMinimize"
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="87"/>
+                        <ColumnDefinition Width="143"/>
                     </Grid.ColumnDefinitions>
 
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
@@ -797,8 +797,8 @@ ResizeMode="CanMinimize"
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="87"/>
+                        <ColumnDefinition Width="143"/>
                     </Grid.ColumnDefinitions>
 
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
@@ -935,8 +935,8 @@ ResizeMode="CanMinimize"
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="114"/>
-                        <ColumnDefinition Width="104"/>
+                        <ColumnDefinition Width="87"/>
+                        <ColumnDefinition Width="132"/>
                     </Grid.ColumnDefinitions>
 
                     <Border Grid.Row="0" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
