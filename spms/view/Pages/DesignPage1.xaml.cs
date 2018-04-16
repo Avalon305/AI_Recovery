@@ -173,7 +173,7 @@ namespace spms.view.Pages
                 string textValue2 = textBox2.Text;//照片保存文档
                 string textValue3 = textBox3.Text;//机构电话
                 //string textValue4 = textBox4.Text;//版本
-                string textValue5 = textBox5.Text;//版本
+                string textValue5 = textBox5.Text;//备份
                 int comboBox1Selected = comboBox1.SelectedIndex;//机构区分被选择的index
                 int comboBox2Selected = comboBox2.SelectedIndex;//语言被选择的index
                 entity.Setter setter = new entity.Setter();
@@ -182,15 +182,26 @@ namespace spms.view.Pages
                 setter.Set_PhotoLocation = textValue2;
                 setter.Set_OrganizationPhone = textValue3;
                 //setter.Set_Version = textValue4;
-                setter.Set_Version = CommUtil.GetCurrentVersion();
-                setter.Set_Language = comboBox2Selected;
-                setter.Set_OrganizationSort = comboBox1Selected.ToString();
-                setterDao.UpdateSetter(setter);
+                if(textValue5.Contains(" "))
+                {
+                    MessageBox.Show(LanguageUtils.ConvertLanguage("备份路径不能含有空格", "Backup path cannot contain spaces"));
+
+                }else{
+                    setter.Back_Up = textValue5;//备份路径
+                    setter.Set_Version = CommUtil.GetCurrentVersion();
+                    setter.Set_Language = comboBox2Selected;
+                    setter.Set_OrganizationSort = comboBox1Selected.ToString();
+                    setterDao.UpdateSetter(setter);
+                    //切换语言
+                    LanguageUtils.SetLanguage();
+                    GoBack(null, null);
+                }
+                
+                
 
             }
-            //切换语言
-            LanguageUtils.SetLanguage();
-            GoBack(null, null);
+  
+            
         }
 
 
@@ -479,9 +490,9 @@ namespace spms.view.Pages
                 string DbUrl = ConfigUtil.GetEncrypt("DbUrl", "");
                 //指令
                 string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", DbUrl, DbUserName, DbPassword);
-                //string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", "127.0.0.1", "root", "53231323xjh");
+               // string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", "127.0.0.1", "root", "53231323xjh");
                 //数据库名称
-                //string strDB = "textbdl";
+                //string strDB = "bdl1";
                 string strDB = ConfigUtil.GetEncrypt("DbName", "");
                 //mysql的路径
                 string mysqlPath = new SetterService().getPath() + @"\bin";
