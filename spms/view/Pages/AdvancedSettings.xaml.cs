@@ -166,12 +166,12 @@ namespace spms.view.Pages
                 }
                 else
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("最多只允许存在一个用户", "Only one user is allowed"));
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("最多只允许存在一个用户", "Only one user is allowed"));
                 }
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("您没有添加权限请先激活", "You did not add permission, please activate first"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("您没有添加权限请先激活", "You did not add permission, please activate first"));
             }
         }
         //删除按钮的事件
@@ -179,7 +179,7 @@ namespace spms.view.Pages
         {
             if (selected == 1)
             {
-                if (MessageBox.Show(LanguageUtils.ConvertLanguage("你确认要删除所选项吗", "Do you want to delete the selected item?"), LanguageUtils.ConvertLanguage("提示：", "Tips"), MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                if (MessageBoxX.Question(LanguageUtils.ConvertLanguage("你确认要删除所选项吗", "Do you want to delete the selected item?")))
                 {
                     authDAO.DeleteByPrimaryKey(auther);//在数据库中删除
                     FlushAuther();
@@ -188,7 +188,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
             }
 
         }
@@ -227,12 +227,12 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
             }
         }
         private void Btn_Confirm(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show(LanguageUtils.ConvertLanguage("你确认要保存更改吗", "Are you sure you want to save your changes?"), LanguageUtils.ConvertLanguage("提示：", "Tips"), MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            if (MessageBoxX.Question(LanguageUtils.ConvertLanguage("你确认要保存更改吗", "Are you sure you want to save your changes?")))
             {
                 deviceSortDAO.UpdateDeviceSorts(DeviceSortList);
             }

@@ -143,12 +143,12 @@ namespace spms.view.Pages
                 }
                 else
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("当前用户没有权限，请与管理员取得联系", "The current user does not have permission. Please contact the administrator"));
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("当前用户没有权限，请与管理员取得联系", "The current user does not have permission. Please contact the administrator"));
                 }
             }
             catch (Exception ee)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请先登陆", "Log in first, please"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请先登陆", "Log in first, please"));
             }
 
         }
@@ -166,8 +166,8 @@ namespace spms.view.Pages
         }
 
         private void Btn_Confirm(object sender, RoutedEventArgs e)
-        {
-            if (MessageBox.Show(LanguageUtils.ConvertLanguage("你确认要保存更改吗", "Are you sure you want to save your changes?"), LanguageUtils.ConvertLanguage("提示：", "Tips"), MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+        {//MessageBox.Show(LanguageUtils.ConvertLanguage("你确认要保存更改吗", "Are you sure you want to save your changes?"), LanguageUtils.ConvertLanguage("提示：", "Tips"), MessageBoxButton.OKCancel) == MessageBoxResult.OK
+            if (MessageBoxX.Question(LanguageUtils.ConvertLanguage("你确认要保存更改吗", "Are you sure you want to save your changes?")))
             {
                 string textValue1 = textBox1.Text;//机构团体名称
                 string textValue2 = textBox2.Text;//照片保存文档
@@ -184,7 +184,7 @@ namespace spms.view.Pages
                 //setter.Set_Version = textValue4;
                 if(textValue5.Contains(" "))
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("备份路径不能含有空格", "Backup path cannot contain spaces"));
+                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("备份路径不能含有空格", "Backup path cannot contain spaces"));
 
                 }else{
                     setter.Back_Up = textValue5;//备份路径
@@ -308,7 +308,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
             }
 
 
@@ -336,7 +336,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
             }
         }
         private void Diagnosis_Update(object sender, RoutedEventArgs e)
@@ -362,30 +362,29 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
             }
         }
         private void Group_Delete(object sender, RoutedEventArgs e)
         {
             if (Selected[0] == 1)
             {
-                if (MessageBox.Show(LanguageUtils.ConvertLanguage("确认要删除所选项吗", "Are you sure you want to delete the selected item?"), LanguageUtils.ConvertLanguage("提示：", "Tips"), MessageBoxButton.OKCancel) == MessageBoxResult.OK)
-                {
-                    customDataDAO.DeleteCustomDataByPrimaryKey(group.Pk_CD_Id);//在数据库中删除
+                if (MessageBoxX.Question(LanguageUtils.ConvertLanguage("确认要删除所选项吗", "Are you sure you want to delete the selected item?")))
+               {  customDataDAO.DeleteCustomDataByPrimaryKey(group.Pk_CD_Id);//在数据库中删除
                     FlushGroup();
                     Selected[0] = 0;
                 }
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
             }
         }
         private void Disease_Delete(object sender, RoutedEventArgs e)
         {
             if (Selected[1] == 1)
             {
-                if (MessageBox.Show(LanguageUtils.ConvertLanguage("你确认要删除所选项吗", "Do you want to delete the selected item?"), LanguageUtils.ConvertLanguage("提示：", "Tips"), MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                if (MessageBoxX.Question(LanguageUtils.ConvertLanguage("你确认要删除所选项吗", "Do you want to delete the selected item?")))
                 {
                     customDataDAO.DeleteCustomDataByPrimaryKey(disease.Pk_CD_Id);//在数据库中删除
                     FlushDisease();
@@ -394,14 +393,14 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
             }
         }
         private void Diagnosis_Delete(object sender, RoutedEventArgs e)
         {
             if (Selected[2] == 1)
             {
-                if (MessageBox.Show(LanguageUtils.ConvertLanguage("你确认要删除所选项吗", "Do you want to delete the selected item?"), LanguageUtils.ConvertLanguage("提示：", "Tips"), MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                if (MessageBoxX.Question(LanguageUtils.ConvertLanguage("你确认要删除所选项吗", "Do you want to delete the selected item?")))
                 {
                     customDataDAO.DeleteCustomDataByPrimaryKey(diagnosis.Pk_CD_Id);//在数据库中删除
                     FlushDiagnosis();
@@ -410,7 +409,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
             }
         }
         private void Output_Document(object sender, RoutedEventArgs e)
@@ -489,11 +488,11 @@ namespace spms.view.Pages
                 string DbPassword = ConfigUtil.GetEncrypt("DbPassword", "");
                 string DbUrl = ConfigUtil.GetEncrypt("DbUrl", "");
                 //指令
-                string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", DbUrl, DbUserName, DbPassword);
-               // string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", "127.0.0.1", "root", "53231323xjh");
+                //string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", DbUrl, DbUserName, DbPassword);
+               string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", "127.0.0.1", "root", "53231323xjh");
                 //数据库名称
-                //string strDB = "bdl1";
-                string strDB = ConfigUtil.GetEncrypt("DbName", "");
+                string strDB = "bdl1";
+               // string strDB = ConfigUtil.GetEncrypt("DbName", "");
                 //mysql的路径
                 string mysqlPath = new SetterService().getPath() + @"\bin";
                 //备份的路径(获取前端页面)
