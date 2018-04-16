@@ -807,7 +807,7 @@ namespace spms.view.Pages.ChildWin
             }
             catch (IOException ex)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("文件可能被占用，请关闭相关文件", "The file may be occupied. Please close the relevant file"), "结果", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("文件可能被占用，请关闭相关文件", "The file may be occupied. Please close the relevant file"));
                 return;
             }
             catch (Exception ex)
@@ -915,7 +915,7 @@ namespace spms.view.Pages.ChildWin
             }
             catch (IOException ex)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("文件可能被占用，请关闭相关文件", "The file may be occupied. Please close the relevant file"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("文件可能被占用，请关闭相关文件", "The file may be occupied. Please close the relevant file"));
                 return;
             }
             catch (Exception ex)
@@ -963,7 +963,7 @@ namespace spms.view.Pages.ChildWin
             {
                 if (DateTime.Compare(startTime, (DateTime)endTime) > 0)
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("起始时间不能大于终止时间", "Start time cannot be greater than termination time"));
+                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("起始时间不能大于终止时间", "Start time cannot be greater than termination time"));
                 }
             }
 
@@ -980,7 +980,7 @@ namespace spms.view.Pages.ChildWin
             {
                 if (DateTime.Compare(endTime, (DateTime)startTime) < 0)
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("终止时间不能小于起始时间", "The termination time cannot be less than the start time"));
+                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("终止时间不能小于起始时间", "The termination time cannot be less than the start time"));
                 }
             }
 
