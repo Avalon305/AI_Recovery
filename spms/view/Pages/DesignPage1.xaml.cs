@@ -504,6 +504,7 @@ namespace spms.view.Pages
                 if (filePath.IndexOf(" ") != -1)
                 {
                     Console.WriteLine("保存路径中含空格");
+                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("备份路径不能含有空格", "Backup path cannot contain spaces"));
                     return;
                 }
                 //执行的指令
