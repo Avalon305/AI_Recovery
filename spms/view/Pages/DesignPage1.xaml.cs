@@ -516,11 +516,11 @@ namespace spms.view.Pages
                 if (("mysqldump: [Warning] Using a password on the command line interface can be insecure.".Trim()).Equals(result.Trim()))
                 {
 
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("数据备份成功", "Successful data backup"));
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("数据备份成功", "Successful data backup"));
                 }
                 else
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("数据备份失败", " Data backup failed"));
+                    MessageBoxX.Error(LanguageUtils.ConvertLanguage("数据备份失败", " Data backup failed"));
                 }
             }
             catch (Exception ex)

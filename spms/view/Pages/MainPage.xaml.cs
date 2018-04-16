@@ -421,7 +421,7 @@ namespace spms.view.Pages
                             }
                             else
                             {
-                                MessageBox.Show(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
+                                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
                             }
                         }
                     }
@@ -453,7 +453,7 @@ namespace spms.view.Pages
                             }
                             else
                             {
-                                MessageBox.Show(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
+                                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
                             }
                         }
                     }
@@ -490,14 +490,14 @@ namespace spms.view.Pages
                             }
                             else
                             {
-                                MessageBox.Show(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
+                                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("抱歉，没有数据", "Sorry, No Data!"));
                             }
                         }
                     }
                 }
                 catch (IOException ex)
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("文件被占用，请先关闭文件", "The file is occupied. Please close the file first"));
+                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("文件被占用，请先关闭文件", "The file is occupied. Please close the file first"));
                     return;
                 }
                 catch (Exception ex)
@@ -514,7 +514,7 @@ namespace spms.view.Pages
             User user = (User)UsersInfo.SelectedItem;
             if (user == null)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
 
@@ -1027,7 +1027,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
             }
 
         }

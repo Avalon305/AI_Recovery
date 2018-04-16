@@ -308,7 +308,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("激活失败", "Activation fails"));
+                MessageBoxX.Error(LanguageUtils.ConvertLanguage("激活失败", "Activation fails"));
             }
 
 
