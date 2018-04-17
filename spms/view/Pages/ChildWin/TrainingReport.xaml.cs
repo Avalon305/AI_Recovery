@@ -36,7 +36,7 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            this.Height = SystemParameters.WorkArea.Size.Height;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
@@ -67,7 +67,9 @@ namespace spms.view.Pages.ChildWin
         public TrainingReport()
         {
             InitializeComponent();
-            this.Height = SystemParameters.WorkArea.Size.Height;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
             //启动初始化Excel转PDF的线程
             initializationExcelToPdfThread = new Thread(new ThreadStart(InitializationExcelToPdf));
             initializationExcelToPdfThread.Start();

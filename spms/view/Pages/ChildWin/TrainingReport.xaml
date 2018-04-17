@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         ResizeMode="CanMinimize"  
         PreviewKeyDown="key_dowm"
+        SizeToContent="WidthAndHeight"
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}" 
         Loaded="Window_Loaded">
@@ -44,7 +45,7 @@
     <Viewbox Name="viewbox" Loaded="viewbox_load" Stretch="Uniform">
     <StackPanel Orientation="Vertical">
         <!--标题栏-->
-        <Border CornerRadius="5,5,0,0" Height="38" Margin="0,0,0,0" DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0">
+        <Border CornerRadius="5,5,0,0" Height="38" Margin="5,0,5,0" DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Color="Silver" Offset="0.1"/>
@@ -65,7 +66,7 @@
             </DockPanel>
         </Border>
         <!--结束：标题栏-->
-        <Grid Height="34" Margin="0,0,0,0">
+        <Grid Height="34" Margin="5,0,5,0">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -81,7 +82,7 @@
         </Grid>
         <!--结束：用户ID和姓名-->
         <!--输入报告-->
-        <StackPanel Orientation="Horizontal" Height="67" Margin="0,5,0,0">
+        <StackPanel Orientation="Horizontal" Height="67" Margin="5,5,5,0">
             <Border Background="Silver" Width="95" Height="25" VerticalAlignment="Top" Margin="0,0,4,0">
                     <Label Margin="0,-2,0,-4" VerticalContentAlignment="Center" Content="{DynamicResource CreateTrainingReportView.OutputReport}"></Label>
             </Border>
@@ -100,7 +101,7 @@
 
         </StackPanel>
         <!--结束：输入报告-->
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+            <StackPanel Orientation="Horizontal" Margin="5,10,5,0">
                 <Border Background="Silver" Width="95" Height="25" VerticalAlignment="Center" Margin="0,0,4,0">
                     <Label Margin="0,-2,0,-4" VerticalContentAlignment="Center" Content="{DynamicResource CreateTrainingReportView.SelectDate}"></Label>
                 </Border>
@@ -130,7 +131,7 @@
                 </Border>
             </StackPanel>
         <!--实施日期-->
-        <StackPanel Orientation="Horizontal" Height="300" Margin="0,10,0,0" Width="485">
+        <StackPanel Orientation="Horizontal" Height="300" Margin="5,10,5,0" Width="485">
             <Border Background="Silver" Width="95" Height="25" VerticalAlignment="Top" Margin="0,0,4,0">
                     <Label Margin="0,-2,0,-4" VerticalContentAlignment="Center" Content="{DynamicResource CreateTrainingReportView.Date}"></Label>
             </Border>
@@ -157,7 +158,7 @@
         </StackPanel>
         <!--结束：实施日期-->
         <!--评论-->
-        <StackPanel Orientation="Horizontal" Height="100" Margin="0,10,0,0">
+        <StackPanel Orientation="Horizontal" Height="100" Margin="5,10,5,0">
             <Border Background="Silver" Width="95" Height="20" VerticalAlignment="Top" Margin="0,0,4,0">
                     <Label Margin="0,-2,0,-4" Content="{DynamicResource CreateTrainingReportView.Comment}"></Label>
             </Border>
@@ -177,7 +178,7 @@
         </StackPanel>
         <!--结束：评论-->
         <!--文档输出-->
-        <StackPanel Orientation="Vertical" Height="51" Margin="10,10,10,0">
+        <StackPanel Orientation="Vertical" Height="51" Margin="5,10,5,0">
                 <CheckBox Content="{DynamicResource CreateTrainingReportView.Export}" Name="DocumentInput_Check" IsTabStop="False"/>
             <StackPanel Orientation="Horizontal">
                     <Button Click="Button_Click_OutputDocument" Content="{DynamicResource CreateTrainingReportView.Output}" Width="80" Height="25" IsTabStop="False"  HorizontalAlignment="Left" Margin="0,6,8,-3" Style="{StaticResource Btn}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"/>
@@ -187,10 +188,10 @@
         <!--结束：文档输出-->
         <!--按钮部分-->
         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="220" Height="34" VerticalAlignment="Bottom"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0" >
-            <StackPanel Orientation="Horizontal" Margin="28,0,0,6.6"  >
+            <StackPanel Orientation="Horizontal" Margin="22,0,5,6.6"  >
                     <Button Width="59" Height="25" VerticalAlignment="Bottom" IsTabStop="False"   Foreground="Black" Content="{DynamicResource CreateTrainingReportView.Go}" Margin="4,0,0,-0.2" Style="{StaticResource Btn}" Click="Button_Click_Print"/>
                     <Button Width="59" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"  Foreground="Black" Content="{DynamicResource CreateTrainingReportView.Preview}" Margin="4,0,0,-0.2" Style="{StaticResource Btn}" Click="Button_Click_Print_View"/>
-                    <Button Width="62" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"  Content="{DynamicResource CreateTrainingReportView.Cancel}"  Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>
+                    <Button Width="62" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"  Content="{DynamicResource CreateTrainingReportView.Cancel}"  Margin="4,0,5,0" Style="{StaticResource Btn}" Click="Cancel"/>
             </StackPanel>
         </Border>
     </StackPanel>

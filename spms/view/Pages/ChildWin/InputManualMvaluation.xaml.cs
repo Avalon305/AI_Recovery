@@ -46,7 +46,11 @@ namespace spms.view.Pages.ChildWin
         public InputManualMvaluation()
         {
             InitializeComponent();
-            
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+
+
             List<String> list = new List<string>
             {
                 LanguageUtils.GetCurrentLanuageStrByKey("PhysicalEvaluationFormView.T-Kane"),

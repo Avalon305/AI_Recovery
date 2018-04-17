@@ -7,8 +7,10 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:my="clr-namespace:spms.view.controls"
         mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
         Icon="/view/Images/icon2.png"
         PreviewKeyDown="key_dowm"
+
         Title="{DynamicResource Title.Title}"
 
         ResizeMode="CanMinimize"  
@@ -20,7 +22,7 @@
 
         <StackPanel>
             <!--标题栏-->
-            <Border CornerRadius="5,5,0,0" Height="38" Margin="0,0,0,0" BorderBrush="Silver" BorderThickness="1" >
+            <Border CornerRadius="5,5,0,0" Height="38" Margin="5,0,5,0" BorderBrush="Silver" BorderThickness="1" >
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                         <GradientStop Color="Silver" Offset="0.1"/>
@@ -34,7 +36,7 @@
             </Border>
             <!--结束：标题栏-->
             <!--用户ID和姓名-->
-            <Grid Height="34" Margin="0,0,0,0">
+            <Grid Height="34" Margin="5,0,5,0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -50,7 +52,7 @@
             </Grid>
             <!--结束：用户ID和姓名-->
             <!--实施日期-->
-            <StackPanel Height="25" Margin="0,0,-0.4,0" Orientation="Horizontal" Width="563">
+            <StackPanel Height="25" Margin="5,0,5,0" Orientation="Horizontal" Width="563">
                 <Label Content="{DynamicResource VitalInfoView.Date}" Height="25" Margin="0,0,0,0" Background="Gray" Foreground="White" Width="80"/>
                 <Border BorderBrush="Gray" BorderThickness="1">
                     <StackPanel Orientation="Horizontal"  >
@@ -74,7 +76,7 @@
             </StackPanel>-->
             <!--结束：实施日期-->
             <!--康复前后信息对比-->
-            <Grid Height="75" Margin="0,10,0,0" Width="565">
+            <Grid Height="75" Margin="5,10,5,0" Width="565">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25"/>
                     <RowDefinition Height="50"/>
@@ -155,7 +157,7 @@
             </Grid>
             <!--结束：康复前后信息对比-->
             <!--问诊票-->
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,3">
+            <StackPanel Orientation="Horizontal" Margin="5,10,5,3">
                 <Border Width="80">
                     <Label Foreground="White"   Content="{DynamicResource VitalInfoView.MedicalInq}"  Height="25" Background="Gray" Margin="0,-165,0,0"  Width="80"/>
 
@@ -186,7 +188,7 @@
             </StackPanel>
             <!--结束：问诊票-->
             <!--是否参加-->
-            <StackPanel Height="25" Margin="0,0,-0.4,0" Orientation="Horizontal">
+            <StackPanel Height="25" Margin="5,0,5,0" Orientation="Horizontal">
                 <StackPanel Height="25" Margin="0,0,5,0">
                     <Label Height="25"  Background="Gray" Foreground="White" Width="80"  Content="{DynamicResource VitalInfoView.Participation}" ></Label>
                 </StackPanel>
@@ -201,14 +203,14 @@
             </StackPanel>
             <!--结束：是否参加-->
             <!--水分摄取-->
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+            <StackPanel Orientation="Horizontal" Margin="5,10,5,10">
                 <Label  Content="{DynamicResource VitalInfoView.Water}" Background="Gray" Foreground="White"  Width="80"/>
                 <TextBox Margin="20,0" Width="41" CaretBrush="Black" x:Name="amunt" VerticalContentAlignment="Center" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                 <Label Content="(cc)"/>
             </StackPanel>
             <!--结束：水分摄取-->
             <!--看护记录-->
-            <StackPanel Orientation="Horizontal" Height="158" Margin="0,0,0,0">
+            <StackPanel Orientation="Horizontal" Height="158" Margin="5,0,5,0">
                 <Grid Margin="0,0,0,0.4" >
                     <Label  Content="{DynamicResource VitalInfoView.CareInfo}" Background="Gray" Foreground="White" Width="80" Margin="0,0,0,136" Height="30"/>
                 </Grid>
@@ -225,7 +227,7 @@
                 <TextBox Margin="3,0,0,0.4" CaretBrush="Black" Width="481.5" Name="Record" AcceptsReturn="True" TextWrapping="Wrap"/>
             </StackPanel>
             <!--结束：看护记录-->
-            <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="128" Height="27" VerticalAlignment="Bottom"  Margin="0,15,0,10">
+            <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="128" Height="27" VerticalAlignment="Bottom"  Margin="0,15,5,10">
                 <StackPanel Orientation="Horizontal"  >
                     <Button Width="62" Height="25" VerticalAlignment="Bottom"   IsTabStop="False"   Foreground="Black"  Content="{DynamicResource VitalInfoView.Confirm}" Margin="2,0,0,0" Style="{StaticResource Btn}" Click="Button_Save"/>
                     <Button Width="62" Height="25" VerticalAlignment="Bottom"   IsTabStop="False"   Content="{DynamicResource VitalInfoView.Cancel}"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>

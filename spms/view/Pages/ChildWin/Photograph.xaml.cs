@@ -57,6 +57,8 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.477;
+            this.Height = this.Width / 1.24;
             //获得窗口句柄
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
@@ -68,6 +70,9 @@ namespace spms.view.Pages.ChildWin
             InitializeComponent();
             this.Width = SystemParameters.WorkArea.Size.Width * 0.477;
             this.Height = this.Width / 1.24;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
             //this.Height = SystemParameters.WorkArea.Size.Height;
             // combox 获得摄像头列表
             cb.ItemsSource = MultimediaUtil.VideoInputNames;

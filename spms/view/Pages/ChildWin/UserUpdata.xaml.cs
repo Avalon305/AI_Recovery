@@ -68,6 +68,8 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this.Height = SystemParameters.WorkArea.Size.Height;
+
             //获取最初姓名
             origin_name = t2.Text;
             //获取最初姓名
@@ -105,9 +107,9 @@ namespace spms.view.Pages.ChildWin
         public UserUpdata()
         {
             InitializeComponent();
-            //WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.Height = SystemParameters.WorkArea.Size.Height;
-            //this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
 
 
             groupList = customDataService.GetAllByType(CustomDataEnum.Group);

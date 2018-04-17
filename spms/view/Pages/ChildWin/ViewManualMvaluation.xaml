@@ -59,7 +59,7 @@
             <StackPanel  Orientation="Horizontal">
 
                 <!--Grid 使用者信息展示-->
-                <Grid Height="34" Margin="10,0,0,0" Width="939" >
+                <Grid Height="34" Margin="5,0,5,0" Width="939" >
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -112,7 +112,7 @@
 
             </StackPanel>
             <!--大表格-->
-            <Grid Margin="5.5,0,5,0" Height="643" >
+            <Grid Margin="5,0,5,0" Height="643" >
                 <Grid.Resources>
                     <Style TargetType="TextBlock">
                         <Setter   Property="VerticalAlignment"  Value="Center"></Setter>
@@ -477,7 +477,7 @@
 
 
             <!-- 保存及取消按钮-->
-            <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="286" Height="29" VerticalAlignment="Bottom" BorderThickness="0" BorderBrush="White" Margin="0,13,10,0">
+            <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="286" Height="29" VerticalAlignment="Bottom" BorderThickness="0" BorderBrush="White" Margin="0,13,5,0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
 
                     <!--取消按钮-->

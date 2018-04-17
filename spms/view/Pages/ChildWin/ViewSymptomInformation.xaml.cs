@@ -168,9 +168,9 @@ namespace spms.view.Pages.ChildWin
         public ViewSymptomInformation()
         {
             InitializeComponent();
-            //WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            //this.MaxHeight = SystemParameters.WorkArea.Size.Height;
-            //this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
         }
 
         //取消操作，关闭窗体

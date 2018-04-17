@@ -63,6 +63,10 @@ namespace spms.view.Pages.ChildWin
         public Register()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+
             //this.Hide();
             Top = 1500;
             
@@ -80,15 +84,9 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //this.Width = viewbox.ActualWidth;
-            //this.Height = viewbox.ActualHeight;
-            //this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            //this.Hide();
-            //WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+
             this.Height = SystemParameters.WorkArea.Size.Height;
-            //this.Width = viewbox.Width;
-            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }

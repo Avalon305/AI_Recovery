@@ -8,7 +8,7 @@
         xmlns:converter="clr-namespace:spms.view.converter"
         xmlns:bubble="clr-namespace:spms.view.bubblemove"
          xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        
+        SizeToContent="WidthAndHeight"
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}" 
@@ -47,7 +47,7 @@
     <Grid>
         <Border CornerRadius="2">
             <StackPanel >
-                <Border CornerRadius="5,5,0,0" Height="50" Margin="0,0,0,2" >
+                <Border CornerRadius="5,5,0,0" Height="50" Margin="5,0,5,2" >
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                             <GradientStop Color="Silver" Offset="0.1"/>
@@ -59,7 +59,7 @@
                     </Grid>
                 </Border>
                 <!-- 传递过来的user -->
-                <Grid Margin="0,15,0,15"  Height="374" Name="selectUser">
+                <Grid Margin="5,15,5,15"  Height="374" Name="selectUser">
                     <Grid.RowDefinitions>
 
                         <RowDefinition Height="28"/>
@@ -214,7 +214,7 @@
                         <Button Content="{DynamicResource AddOrEditView.Non-DisclosureInformation}"  Grid.Row="11" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" IsTabStop="False"  Style="{StaticResource Btn}" Width="95" Click="InputNonPublicInformationPassword"/>
                 </Grid>
 
-                <StackPanel Height="211" Orientation="Horizontal" Margin="0,0,0,0">
+                <StackPanel Height="211" Orientation="Horizontal" Margin="5,0,5,0">
                     <Border BorderThickness="2" BorderBrush="Silver">
                         <Image Name="pic" Opacity="5" Margin="0,0,0,0" Width="301" Source="/view/Images/NoPhoto.png" />
                     </Border>
@@ -230,7 +230,7 @@
                             <TextBox Name="noPublicInfoText"  ></TextBox>
                     </DockPanel>
                 </StackPanel>
-                <Border CornerRadius="5,0,0,0" Background="White"  HorizontalAlignment="Right" Width="434" Height="47" VerticalAlignment="Center" BorderBrush="White" Margin="0,0,0,0">
+                <Border CornerRadius="5,0,0,0" Background="White"  HorizontalAlignment="Right" Width="434" Height="47" VerticalAlignment="Center" BorderBrush="White" Margin="0,0,5,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                             <Button Width="140" HorizontalAlignment="Right" Height="25" Margin="0,0,3,0" Foreground="Black" Content="{DynamicResource AddOrEditView.Confirm}" IsTabStop="False" Style="{StaticResource Btn}" Click="Button_OK"/>
                             <Button Width="140" Height="25" HorizontalAlignment="Right"  Foreground="Black" Content="{DynamicResource AddOrEditView.Cancel}"  IsTabStop="False" Style="{StaticResource Btn}" Click="Cancel"/>

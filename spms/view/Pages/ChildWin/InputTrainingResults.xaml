@@ -10,6 +10,7 @@
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
          PreviewKeyDown="key_dowm"
+        SizeToContent="WidthAndHeight"
         Title="{DynamicResource Title.Title}"
         ResizeMode="CanMinimize"  
         Loaded="Window_Loaded">
@@ -74,7 +75,7 @@
     <Viewbox Name="viewbox" Loaded="viewbox_load" Stretch="Uniform">
         <StackPanel>
             <!--Border 使用者一览表以及按钮  开始-->
-            <Border Height="40" CornerRadius="5,5,0,0"  Margin="0,5,0,0">
+            <Border Height="40" CornerRadius="5,5,0,0"  Margin="5,5,5,0">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                         <GradientStop Color="Silver" Offset="0.1"/>
@@ -100,7 +101,7 @@
             <!--StackPanel 信息以及日期-->
             <StackPanel  Orientation="Horizontal">
                 <!--Grid 使用者信息展示-->
-                <Grid Height="34" Margin="0,0,0,0" Width="609">
+                <Grid Height="34" Margin="5,0,5,0" Width="609">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -115,7 +116,7 @@
                     <Label  Margin="76,0,-0.2,-0.4" Name="l1" VerticalContentAlignment="Center" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2" Grid.ColumnSpan="2" />
                 </Grid>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
                 <Border Margin="0,0,0,0" VerticalAlignment="Center" Background="LightGray" Height="25">
                     <Label  Content="{DynamicResource TrainingResultView.Date}" FontSize="12" Margin="0,0,0,0.2"/>
                 </Border>
@@ -148,7 +149,7 @@
 
                 </Grid.Resources>
                 <Grid Margin="0,0,0,10">
-                    <TabControl Name="TabControl1"  Margin="0,0,0,0"  >
+                    <TabControl Name="TabControl1"  Margin="5,0,5,0"  >
                         <TabItem Name="tab1" Header="{DynamicResource Dev.ChestPress}" Width="115" IsTabStop="False" FocusVisualStyle="{x:Null}">
                             <StackPanel Name="sp1" Orientation="Horizontal">
                                 <Grid Margin="30,50,0,128.4" Width="296">
@@ -1302,7 +1303,7 @@
                 </Grid>
             </Grid>
             <!-- 四个按钮排放位置-->
-            <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="335" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2" Margin="0,0,0,10">
+            <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="335" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2" Margin="5,0,5,10">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
 
                     <Button Width="140"  Click="ButtonBase_OnClick"  Content="{DynamicResource TrainingResultView.Save}" Margin="2,0,0,-0.2" Style="{StaticResource Btn}" RenderTransformOrigin="0.5,0.504" />

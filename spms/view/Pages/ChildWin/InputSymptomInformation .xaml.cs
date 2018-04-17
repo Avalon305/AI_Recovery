@@ -42,7 +42,10 @@ namespace spms.view.Pages.ChildWin
         public InputSymptomInformation()
         {
             InitializeComponent();
-            
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+
         }
 
         private void Cancel(object sender, RoutedEventArgs e)

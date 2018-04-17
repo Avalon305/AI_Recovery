@@ -38,7 +38,10 @@ namespace spms.view.Pages.ChildWin
         public UpdateSymptominfo()
         {
             InitializeComponent();
-            
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

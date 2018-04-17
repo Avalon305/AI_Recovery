@@ -11,7 +11,7 @@
          xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}"
-        
+        SizeToContent="WidthAndHeight"
         Loaded="Window_Loaded">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -29,7 +29,7 @@
     <Viewbox Name="viewbox" Stretch="Uniform" Loaded="viewbox_load">
         <StackPanel Orientation="Vertical">
             <!--Border 使用者一览表以及按钮  开始-->
-            <Border Height="40" CornerRadius="5,5,0,0" Margin="0,5,0,0" BorderThickness="0" BorderBrush="White">
+            <Border Height="40" CornerRadius="5,5,0,0" Margin="5,5,5,0" BorderThickness="0" BorderBrush="White">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                         <GradientStop Color="Silver" Offset="0.1"/>
@@ -61,7 +61,7 @@
             <StackPanel  Orientation="Horizontal" >
 
                 <!--Grid 使用者信息展示-->
-                <Grid Height="34" Margin="0,10,0,0" Width="949" >
+                <Grid Height="34" Margin="5,10,5,0" Width="949" >
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -93,7 +93,7 @@
 
             </StackPanel>
             <!--大表格-->
-            <Grid Margin="0,10,0,0" Height="643" >
+            <Grid Margin="5,10,5,0" Height="643" >
                 <Grid.Resources>
                     <Style TargetType="TextBlock">
                         <Setter   Property="VerticalAlignment"  Value="Center"></Setter>
@@ -450,7 +450,7 @@
             </Grid>
 
             <!-- 保存及取消按钮-->
-            <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="286" Height="29" VerticalAlignment="Bottom" BorderThickness="0" BorderBrush="White" Margin="0,5,0,10">
+            <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="286" Height="29" VerticalAlignment="Bottom" BorderThickness="0" BorderBrush="White" Margin="0,5,5,10">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" >
                     <!--保存按钮-->
                     <Button Width="140"  Height="25"  Margin="3,0,0,0" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Button_Save" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Save}"></Button>

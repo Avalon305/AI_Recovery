@@ -7,6 +7,7 @@
         xmlns:wpfmedia="clr-namespace:WPFMediaKit.DirectShow.Controls;assembly=WPFMediaKit"
         xmlns:imageDealer="clr-namespace:TestImageDealer.ImageDealer"
         mc:Ignorable="d"
+       
          PreviewKeyDown="key_dowm"
         ResizeMode="CanMinimize"  
 Icon="/view/Images/icon2.png"

@@ -66,7 +66,10 @@ namespace spms.view.Pages.ChildWin
         public InputTraining()
         {
             InitializeComponent();
-           
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
