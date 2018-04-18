@@ -398,6 +398,7 @@
     <s:String x:Key="RegisterView.TerminalID">终端编号</s:String>
     <s:String x:Key="RegisterView.TerminalType">终端类型</s:String>
     <s:String x:Key="RegisterView.OnlineStatus">在线状态</s:String>
+    <s:String x:Key="RegisterView.Close">关闭</s:String>
     <!-- 用户注册界面 -->
     <s:String x:Key="RegisterView.Register">用户注册</s:String>
     <s:String x:Key="RegisterView.Update">用户修改</s:String>
