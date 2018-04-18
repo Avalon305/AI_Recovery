@@ -156,10 +156,10 @@
                     <Border Grid.Row="3" Grid.Column="1" Margin="0,0,0,2"   BorderThickness="0" BorderBrush="White">
                         <StackPanel Orientation="Horizontal">
                             <TextBox Margin="0" VerticalContentAlignment="Center" TextWrapping="WrapWithOverflow" Name="textBox2"  Width="342" BorderThickness="1" HorizontalAlignment="Left"  Text="{Binding Set_PhotoLocation}" ></TextBox>
-                            <bubble:CCPopup x:Name="bubble" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade"  PlacementTarget="{Binding ElementName=textBox2}" IsOpen="{Binding IsMouseOver, ElementName=textBox2,Mode=OneWay}" Placement="Right" >
+                            <bubble:CCPopup x:Name="bubble" AllowsTransparency="True"  StaysOpen="True" PopupAnimation="Fade"  PlacementTarget="{Binding ElementName=textBox2}" IsOpen="{Binding IsMouseOver, ElementName=textBox2,Mode=OneWay}" Placement="Right" >
                                 <Label Style="{StaticResource tipLable}">
                                     <StackPanel Orientation="Horizontal">
-                                        <Label Foreground="Red" Name="Error_Info" Content="{DynamicResource SettingsView.Alert}"/>
+                                        <Label Foreground="GreenYellow" Name="Error_Info" Content="{DynamicResource SettingsView.Alert}"/>
                                     </StackPanel>
                                 </Label>
                             </bubble:CCPopup>
@@ -252,15 +252,15 @@
                 <!--高级设置按钮-->
                 <Border Margin="30,0,0,0" Width="406">
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,0,0">
-                        <Button Content="{DynamicResource SettingsView.OnlineEquipmentSituation}"  IsTabStop="False" Height="33" Click="OnlineEquipmentSituation" Style="{StaticResource Btn}"  Width="162" />
+                       
                         <!--<StackPanel Orientation="Horizontal" Margin="0,0,0,10">-->
-                            <Button  IsTabStop="False" VerticalAlignment="Center" Height="33" Width="162" Margin="0,10,0,0" HorizontalAlignment="Center"   Foreground="Black" Content="{DynamicResource SettingsView.Confirm}" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
+                            <Button  IsTabStop="False" VerticalAlignment="Center" Height="33" Width="162" Margin="0,0,0,0" HorizontalAlignment="Center"   Foreground="Black" Content="{DynamicResource SettingsView.Confirm}" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
                             <!--<Button Content="{DynamicResource SettingsView.BackUp}" Width="162" IsTabStop="False" Height="33"  Click="BackUp" Style="{StaticResource Btn}" Margin="10,0,0,0"  RenderTransformOrigin="0,0.662"/>-->
                         <!--</StackPanel>-->
 
                         <!--<StackPanel Orientation="Horizontal" Margin="49,0,0,0">-->
-                           
-                            <Button Content="{DynamicResource SettingsView.AdvancedSettings}"  IsTabStop="False" Margin="0,10,0,0" Height="33"  Click="AdvancedSettings" Style="{StaticResource Btn}"   Width="162"/>
+                        <Button Content="{DynamicResource SettingsView.OnlineEquipmentSituation}" Margin="0,10,0,0"  IsTabStop="False" Height="33" Click="OnlineEquipmentSituation" Style="{StaticResource Btn}"  Width="162" />
+                        <Button Content="{DynamicResource SettingsView.AdvancedSettings}"  IsTabStop="False" Margin="0,10,0,0" Height="33"  Click="AdvancedSettings" Style="{StaticResource Btn}"   Width="162"/>
 
                         <!--</StackPanel>-->
                     </StackPanel>
