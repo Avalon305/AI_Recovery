@@ -235,7 +235,7 @@
                         <TextBox Name="textBox5" VerticalContentAlignment="Center" Text="{Binding Back_Up}"  ></TextBox>
 
                     </Border>
-                    <Button  IsTabStop="False" VerticalAlignment="Center" Width="162" Height="33" Grid.Row="5" Grid.Column="2" Grid.RowSpan="2" Margin="5,0,0,0" HorizontalAlignment="Left"   Foreground="Black" Content="{DynamicResource SettingsView.Confirm}" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
+                    <Button  IsTabStop="False" VerticalAlignment="Bottom" Width="102" Height="33" Grid.Row="5" Grid.Column="2" Grid.RowSpan="2" Margin="5,0,0,0" HorizontalAlignment="Left"   Foreground="Black" Content="{DynamicResource SettingsView.Confirm}" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
                     <!--<Button Content="{DynamicResource SettingsView.BackUp}" Width="102" Grid.Row="6" Grid.Column="2" IsTabStop="False" Height="25"  Click="BackUp" Style="{StaticResource Btn}" Margin="0,0,0,0"  RenderTransformOrigin="0,0.662"/>-->
                     <!--<Border Grid.Row="4" Grid.Column="2"  Margin="2,0,0.4,1.8">
                         <Button Click="upgrade" IsTabStop="False" Style="{StaticResource Btn}" Content="{DynamicResource SettingsView.OnlineUpgrade}"></Button>
