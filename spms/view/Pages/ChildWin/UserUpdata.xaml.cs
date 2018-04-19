@@ -69,17 +69,17 @@ namespace spms.view.Pages.ChildWin
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.Height = SystemParameters.WorkArea.Size.Height;
-
+            var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+            SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             //获取最初姓名
             origin_name = t2.Text;
             //获取最初姓名
-            origin_name_pinyin = t3.Text;
+            origin_name_pinyin = SelectUser.User_Namepinyin;
             //获得最初的手机号
-            origin_phone = phoneNum.Text;
+            origin_phone = SelectUser.User_Phone;
             //获得最初的身份证号
-            origin_IDCard = IDCard.Text;
-            var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
-            SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+            origin_IDCard = SelectUser.User_IDCard;
+           
 
             // 加zai用戶的照片
             //更新完用戶后刷新一下展示的tu片
