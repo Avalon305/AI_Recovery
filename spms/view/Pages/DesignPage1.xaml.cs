@@ -488,11 +488,11 @@ namespace spms.view.Pages
                 string DbPassword = ConfigUtil.GetEncrypt("DbPassword", "");
                 string DbUrl = ConfigUtil.GetEncrypt("DbUrl", "");
                 //指令
-                //string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", DbUrl, DbUserName, DbPassword);
-               string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", "127.0.0.1", "root", "53231323xjh");
+                string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", DbUrl, DbUserName, DbPassword);
+               //string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", "127.0.0.1", "root", "53231323xjh");
                 //数据库名称
-                string strDB = "bdl1";
-               // string strDB = ConfigUtil.GetEncrypt("DbName", "");
+                //string strDB = "bdl1";
+                string strDB = ConfigUtil.GetEncrypt("DbName", "");
                 //mysql的路径
                 string mysqlPath = new SetterService().getPath() + @"\bin";
                 //备份的路径(获取前端页面)
