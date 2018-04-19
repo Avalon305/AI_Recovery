@@ -211,6 +211,7 @@
     <Compile Include="view\converter\CareLevelConvert.cs" />
     <Compile Include="view\converter\IDCardConverter.cs" />
     <Compile Include="view\converter\LanguageConverter.cs" />
+    <Compile Include="view\converter\StrengthConverter.cs" />
     <Compile Include="view\converter\TimeConverter.cs" />
     <Compile Include="view\Pages\ChildWin\OnlineDeviceDetails.xaml.cs">
       <DependentUpon>OnlineDeviceDetails.xaml</DependentUpon>

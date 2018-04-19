@@ -276,7 +276,16 @@ namespace spms.view.Pages.ChildWin
                 prescriptionResult.Gmt_Modified = DateTime.Now;
                 try
                 {
+                    if (Convert.ToInt32(HLPSportstrength.Text) < 6)
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse("6");
+                    }else if(Convert.ToInt32(HLPSportstrength.Text) > 15)
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse("15");
+                    }
+                    else { 
                     prescriptionResult.PR_SportStrength = byte.Parse(HLPSportstrength.Text);
+                    }
                 }
                 catch (Exception exception)
                 {
@@ -463,7 +472,19 @@ namespace spms.view.Pages.ChildWin
                 prescriptionResult.Gmt_Modified = DateTime.Now;
                 try
                 {
-                    prescriptionResult.PR_SportStrength = byte.Parse(ROWSportstrength.Text);
+                    if (Convert.ToInt32(HLPSportstrength.Text) < 6)
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse("6");
+                    }
+                    else if (Convert.ToInt32(HLPSportstrength.Text) > 15)
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse("15");
+                    }
+                    else
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse(ROWSportstrength.Text);
+                    }
+                    
                 }
                 catch (Exception exception)
                 {
@@ -662,7 +683,19 @@ namespace spms.view.Pages.ChildWin
                 prescriptionResult.Gmt_Modified = DateTime.Now;
                 try
                 {
-                    prescriptionResult.PR_SportStrength = byte.Parse(TFSportstrength.Text);
+                    if (Convert.ToInt32(HLPSportstrength.Text) < 6)
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse("6");
+                    }
+                    else if (Convert.ToInt32(HLPSportstrength.Text) > 15)
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse("15");
+                    }
+                    else
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse(TFSportstrength.Text);
+                    }
+                   
                 }
                 catch (Exception exception)
                 {
@@ -863,7 +896,19 @@ namespace spms.view.Pages.ChildWin
                 prescriptionResult.Gmt_Modified = DateTime.Now;
                 try
                 {
-                    prescriptionResult.PR_SportStrength = byte.Parse(LESportstrength.Text);
+                    if (Convert.ToInt32(HLPSportstrength.Text) < 6)
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse("6");
+                    }
+                    else if (Convert.ToInt32(HLPSportstrength.Text) > 15)
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse("15");
+                    }
+                    else
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse(LESportstrength.Text);
+                    }
+                    
                 }
                 catch (Exception exception)
                 {
@@ -1061,7 +1106,19 @@ namespace spms.view.Pages.ChildWin
                 prescriptionResult.Gmt_Modified = DateTime.Now;
                 try
                 {
-                    prescriptionResult.PR_SportStrength = byte.Parse(HASportstrength.Text);
+                    if (Convert.ToInt32(HLPSportstrength.Text) < 6)
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse("6");
+                    }
+                    else if (Convert.ToInt32(HLPSportstrength.Text) > 15)
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse("15");
+                    }
+                    else
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse(HASportstrength.Text);
+                    }
+                    
                 }
                 catch (Exception exception)
                 {
@@ -1258,7 +1315,19 @@ namespace spms.view.Pages.ChildWin
                 prescriptionResult.Gmt_Modified = DateTime.Now;
                 try
                 {
-                    prescriptionResult.PR_SportStrength = byte.Parse(CPSportstrength.Text);
+                    if (Convert.ToInt32(HLPSportstrength.Text) < 6)
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse("6");
+                    }
+                    else if (Convert.ToInt32(HLPSportstrength.Text) > 15)
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse("15");
+                    }
+                    else
+                    {
+                        prescriptionResult.PR_SportStrength = byte.Parse(CPSportstrength.Text);
+                    }
+                    
                 }
                 catch (Exception exception)
                 {

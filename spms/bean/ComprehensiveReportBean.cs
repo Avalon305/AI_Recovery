@@ -1,4 +1,5 @@
-﻿using spms.entity;
+﻿using spms.constant;
+using spms.entity;
 using spms.util;
 using System;
 using System.Collections.Generic;
@@ -146,7 +147,7 @@ namespace spms.bean
         //完成组数
         public int PR_FinishGroup { get; set; }
         //时机，姿势，评价 0没问题 1 有些许问题 2 有问题
-        public string PR_Evaluate { get; set; }
+        public int PR_Evaluate { get; set; }
         //备忘
         public string PR_Memo { get; set; }
         //注意点
@@ -169,7 +170,7 @@ namespace spms.bean
         //砝码
         public double dp_weight { get; set; }
         //移乘方式
-        public int dp_moveway { get; set; }
+        public string dp_moveway { get; set; }
         //自觉运动强度,1-10代表轻松->剧烈
         public string PR_SportStrength { get; set; }
         //第一个时间
@@ -230,7 +231,8 @@ namespace spms.bean
             this.dp_groupnum = tc.dp_groupnum;
             this.dp_relaxtime = tc.dp_relaxtime;
             this.dp_weight = tc.dp_weight;
-            this.dp_moveway = tc.dp_moveway;
+            this.dp_moveway = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, tc.dp_moveway+"");
+
             if (tc.PR_SportStrength == "10" || tc.PR_SportStrength == "9")
             {
                 this.PR_SportStrength = LanguageUtils.ConvertLanguage("困难", "Difficult");
@@ -262,24 +264,7 @@ namespace spms.bean
             this.PR_Cal = tc.PR_Cal;
             this.PR_Index = tc.PR_Index;
             this.PR_FinishGroup = tc.PR_FinishGroup;
-
-            if (tc.PR_Evaluate == "0")
-            {
-                this.PR_Evaluate = LanguageUtils.ConvertLanguage("没问题", "No problem");
-            }
-            else if (tc.PR_Evaluate == "1")
-            {
-                this.PR_Evaluate = LanguageUtils.ConvertLanguage("有些许问题", "Some problems");
-            }
-            else if (tc.PR_Evaluate == "2")
-            {
-                this.PR_Evaluate = LanguageUtils.ConvertLanguage("有问题", "Has a problem");
-            }
-            else
-            {
-                this.PR_Evaluate = "";
-            }
-
+            this.PR_Evaluate = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.Evaluate, tc.PR_Evaluate+"");
             this.PR_Memo = tc.PR_Memo;
             this.PR_AttentionPoint = tc.PR_AttentionPoint;
             this.PR_UserThoughts = tc.PR_UserThoughts;
