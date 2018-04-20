@@ -9,6 +9,7 @@
              d:DesignHeight="321.666" d:DesignWidth="955">
     <Page.Resources>
         <converter:TextConverter x:Key="textconverter"/>
+        <converter:StrengthConverter x:Key="strengconverter"/>
     </Page.Resources>
     <Grid>
         <TabControl Name="TabControl1" HorizontalAlignment="Left" Height="337" Margin="2.3,8,0,0" VerticalAlignment="Top" Width="948">
@@ -54,7 +55,7 @@
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
 
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="{DynamicResource TrainingHistoryView.BorgScale}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.BorgScale}" Width="90"/>
                             <DataGridTextColumn Binding="{Binding evaluate}" Header="{DynamicResource TrainingHistoryView.Timing/form}" Width="110"/>
                             <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>-->
                             <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Memo}" Width="185" >

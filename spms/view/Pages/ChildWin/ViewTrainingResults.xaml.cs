@@ -118,7 +118,7 @@ namespace spms.view.Pages.ChildWin
                         {
                             break;
                         }
-                        HLPSportstrength.Text = trainDto.prescriptionResult.PR_SportStrength.ToString();
+                        HLPSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.PR_SportStrength.ToString());
                         HLPTime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
                         HLPDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
                         HLPCountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
@@ -163,7 +163,7 @@ namespace spms.view.Pages.ChildWin
                         {
                             break;
                         }
-                        ROWSportstrength.Text = trainDto.prescriptionResult.PR_SportStrength.ToString();
+                        ROWSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.PR_SportStrength.ToString());
                         ROWTime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
                         ROWDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
                         ROWCountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
@@ -209,7 +209,7 @@ namespace spms.view.Pages.ChildWin
                         {
                             break;
                         }
-                        TFSportstrength.Text = trainDto.prescriptionResult.PR_SportStrength.ToString();
+                        TFSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.PR_SportStrength.ToString());
                         TFTime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
                         TFDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
                         TFCountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
@@ -256,7 +256,7 @@ namespace spms.view.Pages.ChildWin
                         {
                             break;
                         }
-                        LESportstrength.Text = trainDto.prescriptionResult.PR_SportStrength.ToString();
+                        LESportstrength.Text = StrengthConverter(trainDto.prescriptionResult.PR_SportStrength.ToString());
                         LETime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
                         LEDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
                         LECountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
@@ -301,7 +301,7 @@ namespace spms.view.Pages.ChildWin
                         {
                             break;
                         }
-                        HASportstrength.Text = trainDto.prescriptionResult.PR_SportStrength.ToString();
+                        HASportstrength.Text = StrengthConverter(trainDto.prescriptionResult.PR_SportStrength.ToString());
                         HATime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
                         HADistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
                         HACountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
@@ -346,7 +346,7 @@ namespace spms.view.Pages.ChildWin
                         {
                             break;
                         }
-                        CPSportstrength.Text = trainDto.prescriptionResult.PR_SportStrength.ToString();
+                        CPSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.PR_SportStrength.ToString());
                         CPTime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
                         CPDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
                         CPCountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
@@ -539,6 +539,31 @@ namespace spms.view.Pages.ChildWin
             // this.Opacity = 1;
             //  this.Visibility = Visibility.Visible;
 
+        }
+        private String StrengthConverter(String value)
+        {
+            int reValue = System.Convert.ToInt32(value);
+            if (reValue == 1 || reValue == 2)
+            {
+                return "非常轻松";
+            }
+            else if (reValue == 3 || reValue == 4)
+            {
+                return "很轻松";
+            }
+            else if (reValue == 5 || reValue == 6)
+            {
+                return "轻松";
+            }
+            else if (reValue == 7 || reValue == 8)
+            {
+                return "有点儿困难";
+
+            }
+            else
+            {
+                return "困难";
+            }
         }
     }
 }

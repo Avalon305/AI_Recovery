@@ -200,7 +200,7 @@
                                     <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0"  Name="HLPMoveway" IsTabStop="False" />
 
-                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale(6-15)}"  />
                                     <TextBox Grid.Row="5" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPSportstrength" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
@@ -392,7 +392,7 @@
                                     <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="ROWMoveway" IsTabStop="False"/>
 
-                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale(6-15)}"  />
                                     <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="ROWSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
@@ -585,7 +585,7 @@
                                     <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="TFMoveway" IsTabStop="False" />
 
-                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale(6-15)}"  />
                                     <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="TFSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
@@ -777,7 +777,7 @@
                                     <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="LEMoveway" IsTabStop="False"/>
 
-                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale(6-15)}"  />
                                     <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="LESportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
@@ -967,7 +967,7 @@
                                     <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="HAMoveway" IsTabStop="False"/>
 
-                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale(6-15)}"  />
                                     <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="HASportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
@@ -1157,7 +1157,7 @@
                                     <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="CPMoveway" IsTabStop="False"/>
 
-                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale}"  />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.BorgScale(6-15)}"  />
                                     <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="CPSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
