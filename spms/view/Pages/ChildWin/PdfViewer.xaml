@@ -314,7 +314,7 @@
                     </EventTrigger>
                 </Grid.Triggers>
             </Grid>
-            <Label Name="lbl1" Content="{DynamicResource PdfView.loading...}" FontSize="20" Background="Transparent" Foreground="Black" Height="35" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="254,581,233,0" Width="210"/>
+            <Label Name="lbl1" Content="{DynamicResource PdfView.loading...}" FontSize="20" Background="Transparent" HorizontalContentAlignment="Center" Foreground="Black" Height="35" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="254,581,233,0" Width="210"/>
         </Grid>
             <!--加载动画 结束-->
         </Viewbox>
