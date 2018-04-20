@@ -7,11 +7,12 @@
         xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
         xmlns:bubble="clr-namespace:spms.view.bubblemove"
         mc:Ignorable="d"
+        SizeToContent="Width"
         ResizeMode="CanMinimize"  
         PreviewKeyDown="key_dowm"
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}" 
-        
+       Name="win"
         Loaded="Window_Loaded"
          LocationChanged="windowmove">
     <Window.Resources>
@@ -42,9 +43,9 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Viewbox Name="viewbox"  Stretch="Uniform">
-    <StackPanel Margin="0,0,0,0.8">
-        <Border CornerRadius="5,5,0,0" Height="38" Margin="10,0,10,0">
+    <Viewbox Name="viewbox"  Stretch="Uniform" >
+    <StackPanel Margin="0,0,0,0.8" >
+        <Border CornerRadius="5,5,0,0" Height="38" Margin="5,0,5,0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Color="Silver" Offset="0.1"/>
@@ -73,7 +74,7 @@
             </DockPanel>
         </Border>
 
-        <Grid Margin="10,10,10,5" Name="Retrieval_Conditon">
+        <Grid Margin="5,10,5,5" Name="Retrieval_Conditon">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"></RowDefinition>
                 <RowDefinition Height="4"></RowDefinition>
@@ -153,7 +154,7 @@
                 </Label>
             </bubble:CCPopup>
         </Grid>
-        <Border CornerRadius="5,0,0,0" DockPanel.Dock="Right" Background="White" Height="34" VerticalAlignment="Center" HorizontalAlignment="Right" Width="208" Margin="0,0,10,10" BorderBrush="White" BorderThickness="0">
+        <Border CornerRadius="5,0,0,0" DockPanel.Dock="Right" Background="White" Height="34" VerticalAlignment="Center" HorizontalAlignment="Right" Width="208" Margin="0,0,5,0" BorderBrush="White" BorderThickness="0">
             <DockPanel  VerticalAlignment="Center">
                     <Button Content="{DynamicResource SearchSubjectView.Close}" Name="b3"  Height="25" DockPanel.Dock="Right" Margin="0,0,0,0" Width="60" IsTabStop="False"   Style="{StaticResource Btn}" Click="GoBack"/>
                     <Button Content="{DynamicResource SearchSubjectView.Clear}" Name="b2" Click="Emptying_Condition" Height="25" DockPanel.Dock="Right" IsTabStop="False"  Width="60" Margin="0,0,10,0" Style="{StaticResource Btn}"/>

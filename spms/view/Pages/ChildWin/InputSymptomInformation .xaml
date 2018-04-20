@@ -108,19 +108,21 @@ SizeToContent="WidthAndHeight"
                     <Label Content="/" Grid.Row="0" Grid.Column="0" Margin="50,0,49.6,24.6"  HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
                     <TextBox Grid.Row="0" CaretBrush="Black" Grid.Column="0" Margin="72,2,16.6,1.8"  Name="bloodhight_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                     <TextBox Grid.Row="0"  CaretBrush="Black" Margin="0.4,0,141.2,24.6" Grid.RowSpan="2" Name="heartRate_1" VerticalContentAlignment="Center" BorderThickness="0,1,1,1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <Border Grid.Row="0" Grid.Column="2" BorderBrush="Silver" BorderThickness="1,1,1,1" Margin="0.2,0,124.8,24.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
                     <GroupBox Grid.Row="0" Grid.Column="2"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Margin="1.2,2,1.2,0.8" Width="140" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="140" Margin="-6,0,-6.8,-6" >
                             <RadioButton VerticalAlignment="Center" Width="64" VerticalContentAlignment="Center" Margin="0,0,0,0.4" Name="rule_1"  IsTabStop="False" Content="{DynamicResource VitalInfoView.Regular}" Height="22" ></RadioButton>
                             <RadioButton VerticalAlignment="Center" VerticalContentAlignment="Center" Width="70" Name="irregular_1" IsTabStop="False" Content="{DynamicResource VitalInfoView.Irregular}" Height="22" Margin="0,0,0,0.4"  ></RadioButton>
                         </StackPanel>
                     </GroupBox>
-                    <TextBox Grid.Row="0" CaretBrush="Black" Grid.Column="3" Grid.RowSpan="2"  BorderThickness="0,0,1,1" Name="heat_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Margin="0.8,0,-0.2,24.6"/>
+                    <TextBox Grid.Row="0" CaretBrush="Black" Grid.Column="3" Grid.RowSpan="2"  BorderThickness="1,1,1,1" Name="heat_1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Margin="0,0,-0.2,24.6"/>
 
 
                     <TextBox Grid.Row="1" CaretBrush="Black" Grid.Column="0" Margin="17,2.2,71.6,1.6"  Name="bloodlow_2" VerticalContentAlignment="Center"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                     <Label Content="/" Grid.Row="1" Grid.Column="0" Margin="50,0.2,49.6,0.6"  HorizontalContentAlignment="Center" />
                     <TextBox Grid.Row="1" CaretBrush="Black" Grid.Column="0" Margin="72,2.2,16.6,1.6" Name="bloodhight_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                     <TextBox Grid.Row="1" CaretBrush="Black" Grid.Column="1" Margin="0.4,0.2,141.2,-0.4" Name="heartRate_2" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" BorderThickness="0,0,1,1" PreviewTextInput="OnlyInputNumbers" Grid.ColumnSpan="2"/>
+                    <Border Grid.Row="1" Grid.Column="2" BorderBrush="Silver" BorderThickness="1,0,1,1" Margin="0,0.2,124.8,-0.4" Grid.ColumnSpan="2" />
                     <GroupBox Grid.Row="1" Grid.Column="2"  BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Margin="1.2,0.2,1.2,0.6" Width="140" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="139" Margin="-6,0,-5.8,-6.4" >
                             <RadioButton VerticalAlignment="Center" Width="65" Margin="0,0,0,-0.2" VerticalContentAlignment="Center" Name="rule_2"  IsTabStop="False" Content="{DynamicResource VitalInfoView.Regular}" Height="25"></RadioButton>
@@ -130,13 +132,13 @@ SizeToContent="WidthAndHeight"
                     <TextBox Grid.Row="1" CaretBrush="Black" Grid.Column="2" Margin="142.2,0.2,-0.2,-0.4" Name="heat_2" BorderThickness="0" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Grid.ColumnSpan="2"/>
                     <Border Grid.Row="0" Grid.Column="0" BorderBrush="Silver" BorderThickness="1,1,1,1"  Margin="0,0,90.8,24.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
                     <!--<Border Grid.Row="0" BorderBrush="Silver" BorderThickness="1,1,1,1" Margin="15.4,0,141.2,24.6" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" />-->
-                    <Border Grid.Row="0" Grid.Column="2" BorderBrush="Silver" BorderThickness="0,0,1,1" Margin="0.2,0,124.8,24.6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                    
                     <!--<Border Grid.Row="0" Grid.Column="3" BorderBrush="Silver"  BorderThickness="1" Margin="0.8,0,99.8,24.6" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" />-->
 
                     <Border Grid.Row="1" Grid.Column="0" BorderBrush="Silver" BorderThickness="1,0,1,1" Margin="0,0.2,90.8,-0.4" Grid.ColumnSpan="2"/>
                     <!--<Border Grid.Row="1" BorderBrush="Silver" BorderThickness="1" Margin="0.4,0.2,1.8,-0.4" Grid.Column="1"/>-->
-                    <Border Grid.Column="2" BorderBrush="Silver" BorderThickness="0,0,1,1" Margin="142.2,0.2,0,-0.4" Grid.Row="1" Grid.ColumnSpan="2"/>
-                    <Border Grid.Row="1" Grid.Column="2" BorderBrush="Silver" BorderThickness="0,0,1,1" Margin="0.2,0.2,124.8,-0.4" Grid.ColumnSpan="2" />
+                    <Border Grid.Column="2" BorderBrush="Silver" BorderThickness="1,0,1,1" Margin="142.2,0.2,0,-0.4" Grid.Row="1" Grid.ColumnSpan="2"/>
+                   
                 </Grid>
             </Grid>
             <!--结束：康复前后信息对比-->
@@ -157,22 +159,22 @@ SizeToContent="WidthAndHeight"
                             </TransformGroup>
                         </StackPanel.RenderTransform>
                         <StackPanel Margin="0,8,0,0.8" Width="236" Orientation="Vertical" Name="stackPanel_1">
-                            <CheckBox Margin="20,1,20,15" IsTabStop="False"  Content="{DynamicResource VitalInfoView.Janguidness}"  ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsTabStop="False"  Content="{DynamicResource VitalInfoView.Diarrhea}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsTabStop="False" Content="{DynamicResource VitalInfoView.Wamble}"  ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsTabStop="False"  Content="{DynamicResource VitalInfoView.BeingBreathless}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsTabStop="False"  Content="{DynamicResource VitalInfoView.CoughAndPhlegm}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsTabStop="False"  Content="{DynamicResource VitalInfoView.Fever}"></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsTabStop="False" Content="{DynamicResource VitalInfoView.Stomachache}"  ></CheckBox>
+                            <CheckBox Margin="20,1,20,15" IsChecked="False" IsTabStop="False"  Content="{DynamicResource VitalInfoView.Janguidness}"  ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsChecked="False" IsTabStop="False"  Content="{DynamicResource VitalInfoView.Diarrhea}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsChecked="False" IsTabStop="False" Content="{DynamicResource VitalInfoView.Wamble}"  ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsChecked="False" IsTabStop="False"  Content="{DynamicResource VitalInfoView.BeingBreathless}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsChecked="False" IsTabStop="False"  Content="{DynamicResource VitalInfoView.CoughAndPhlegm}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsChecked="False" IsTabStop="False"  Content="{DynamicResource VitalInfoView.Fever}"></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsChecked="False" IsTabStop="False" Content="{DynamicResource VitalInfoView.Stomachache}"  ></CheckBox>
 
                         </StackPanel>
                         <StackPanel Margin="0,8,3,0.8" Width="227" Orientation="Vertical" Name="stackPanel_2">
-                            <CheckBox Margin="20,1,20,15"  IsTabStop="False"  Content="{DynamicResource VitalInfoView.APoorAppetite}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsTabStop="False"  Content="{DynamicResource VitalInfoView.Constipation}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsTabStop="False"  Content="{DynamicResource VitalInfoView.Dizziness}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsTabStop="False"  Content="{DynamicResource VitalInfoView.Headache}" ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsTabStop="False" Content="{DynamicResource VitalInfoView.Other}"  ></CheckBox>
-                            <CheckBox Margin="20,-5,20,15" IsTabStop="False" Content="{DynamicResource VitalInfoView.NotApplicable}"  ></CheckBox>
+                            <CheckBox Margin="20,1,20,15"  IsTabStop="False" IsChecked="False"  Content="{DynamicResource VitalInfoView.APoorAppetite}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsTabStop="False" IsChecked="False" Content="{DynamicResource VitalInfoView.Constipation}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsTabStop="False" IsChecked="False" Content="{DynamicResource VitalInfoView.Dizziness}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsTabStop="False" IsChecked="False" Content="{DynamicResource VitalInfoView.Headache}" ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsTabStop="False" IsChecked="False" Content="{DynamicResource VitalInfoView.Other}"  ></CheckBox>
+                            <CheckBox Margin="20,-5,20,15" IsTabStop="False" IsChecked="False" Content="{DynamicResource VitalInfoView.NotApplicable}"  ></CheckBox>
                         </StackPanel>
                     </StackPanel>
 

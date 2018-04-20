@@ -1518,7 +1518,9 @@ namespace spms.view.Pages.ChildWin
 
             if (LanguageUtils.EqualsResource(HLPTimer.Text, "TrainingListView.Invalid"))
             {
+                HLPTime_Label.Visibility = Visibility.Hidden;
                 HLPTime_Label.Background = Brushes.White;
+                HLPTiming_Label.Visibility = Visibility.Hidden;
                 HLPTiming_Label.Background = Brushes.White;
                 HLPTiming.Visibility = Visibility.Hidden;
                 
@@ -1527,7 +1529,9 @@ namespace spms.view.Pages.ChildWin
             }
             else if (LanguageUtils.EqualsResource(HLPTimer.Text, "TrainingListView.Valid"))
             {
+                HLPTime_Label.Visibility = Visibility.Visible;
                 HLPTime_Label.Background = Brushes.Gray;
+                HLPTiming_Label.Visibility = Visibility.Visible;
                 HLPTiming_Label.Background = Brushes.Gray;
                 HLPTiming.Visibility = Visibility.Visible;
 
@@ -1539,7 +1543,9 @@ namespace spms.view.Pages.ChildWin
 
             if (LanguageUtils.EqualsResource(ROWTimer.Text, "TrainingListView.Invalid"))
             {
+                ROWTime_Label.Visibility = Visibility.Hidden;
                 ROWTime_Label.Background = Brushes.White;
+                ROWTiming_Label.Visibility = Visibility.Hidden;
                 ROWTiming_Label.Background = Brushes.White;
                 ROWTiming.Visibility = Visibility.Hidden;
 
@@ -1548,7 +1554,9 @@ namespace spms.view.Pages.ChildWin
             }
             else if (LanguageUtils.EqualsResource(ROWTimer.Text, "TrainingListView.Valid"))
             {
+                ROWTime_Label.Visibility = Visibility.Visible;
                 ROWTime_Label.Background = Brushes.Gray;
+                ROWTiming_Label.Visibility = Visibility.Visible;
                 ROWTiming_Label.Background = Brushes.Gray;
                 ROWTiming.Visibility = Visibility.Visible;
 
@@ -1560,7 +1568,9 @@ namespace spms.view.Pages.ChildWin
 
             if (LanguageUtils.EqualsResource(TFTimer.Text, "TrainingListView.Invalid"))
             {
+                TFTime_Label.Visibility = Visibility.Hidden;
                 TFTime_Label.Background = Brushes.White;
+                TFTime_Label.Visibility = Visibility.Hidden;
                 TFTiming_Label.Background = Brushes.White;
                 TFTiming.Visibility = Visibility.Hidden;
 
@@ -1569,7 +1579,10 @@ namespace spms.view.Pages.ChildWin
             }
             else if (LanguageUtils.EqualsResource(TFTimer.Text, "TrainingListView.Valid"))
             {
+                TFTime_Label.Visibility = Visibility.Visible;
+                
                 TFTime_Label.Background = Brushes.Gray;
+                TFTiming_Label.Visibility = Visibility.Visible;
                 TFTiming_Label.Background = Brushes.Gray;
                 TFTiming.Visibility = Visibility.Visible;
 
@@ -1581,7 +1594,9 @@ namespace spms.view.Pages.ChildWin
 
             if (LanguageUtils.EqualsResource(LETimer.Text, "TrainingListView.Invalid"))
             {
+                LETime_Label.Visibility = Visibility.Hidden;
                 LETime_Label.Background = Brushes.White;
+                LETiming_Label.Visibility = Visibility.Hidden;
                 LETiming_Label.Background = Brushes.White;
                 LETiming.Visibility = Visibility.Hidden;
 
@@ -1590,7 +1605,9 @@ namespace spms.view.Pages.ChildWin
             }
             else if (LanguageUtils.EqualsResource(LETimer.Text, "TrainingListView.Valid"))
             {
+                LETime_Label.Visibility = Visibility.Visible;
                 LETime_Label.Background = Brushes.Gray;
+                LETiming_Label.Visibility = Visibility.Visible;
                 LETiming_Label.Background = Brushes.Gray;
                 LETiming.Visibility = Visibility.Visible;
 
@@ -1602,7 +1619,9 @@ namespace spms.view.Pages.ChildWin
 
             if (LanguageUtils.EqualsResource(HATimer.Text, "TrainingListView.Invalid"))
             {
+                HATime_Label.Visibility = Visibility.Hidden;
                 HATime_Label.Background = Brushes.White;
+                HATiming_Label.Visibility = Visibility.Hidden;
                 HATiming_Label.Background = Brushes.White;
                 HATiming.Visibility = Visibility.Hidden;
 
@@ -1611,7 +1630,9 @@ namespace spms.view.Pages.ChildWin
             }
             else if (LanguageUtils.EqualsResource(HATimer.Text, "TrainingListView.Valid"))
             {
+                HATime_Label.Visibility = Visibility.Visible;
                 HATime_Label.Background = Brushes.Gray;
+                HATiming_Label.Visibility = Visibility.Visible;
                 HATiming_Label.Background = Brushes.Gray;
                 HATiming.Visibility = Visibility.Visible;
 
@@ -1623,7 +1644,9 @@ namespace spms.view.Pages.ChildWin
 
             if (LanguageUtils.EqualsResource(CPTimer.Text, "TrainingListView.Invalid"))
             {
+                CPTime_Label.Visibility = Visibility.Hidden;
                 CPTime_Label.Background = Brushes.White;
+                CPTiming_Label.Visibility = Visibility.Hidden;
                 CPTiming_Label.Background = Brushes.White;
                 CPTiming.Visibility = Visibility.Hidden;
 
@@ -1632,7 +1655,9 @@ namespace spms.view.Pages.ChildWin
             }
             else if (LanguageUtils.EqualsResource(CPTimer.Text, "TrainingListView.Valid"))
             {
+                CPTime_Label.Visibility = Visibility.Visible;
                 CPTime_Label.Background = Brushes.Gray;
+                CPTiming_Label.Visibility = Visibility.Visible;
                 CPTiming_Label.Background = Brushes.Gray;
                 CPTiming.Visibility = Visibility.Visible;
 

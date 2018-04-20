@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:imageDealer="clr-namespace:TestImageDealer.ImageDealer"
         xmlns:local="clr-namespace:spms"
-       
+       SizeToContent="Width"
         Title="{DynamicResource Title.Title}"  Loaded="Window_Loaded">
     <Viewbox Stretch="Uniform" >
     <Grid>

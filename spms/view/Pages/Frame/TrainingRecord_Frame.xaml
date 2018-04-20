@@ -48,7 +48,7 @@
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
 
                             <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
@@ -132,7 +132,7 @@
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
 
                             <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
@@ -217,7 +217,7 @@
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
 
                             <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
@@ -305,7 +305,7 @@
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
 
                             <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
@@ -389,7 +389,7 @@
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
 
                             <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
@@ -478,7 +478,7 @@
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
 
                             <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
