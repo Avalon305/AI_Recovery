@@ -488,7 +488,7 @@ namespace spms.view.Pages
                 string DbPassword = ConfigUtil.GetEncrypt("DbPassword", "");
                 string DbUrl = ConfigUtil.GetEncrypt("DbUrl", "");
                 //指令
-                string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", DbUrl, DbUserName, DbPassword);
+               string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", DbUrl, DbUserName, DbPassword);
                //string strAddress = string.Format("mysqldump -h{0} -u{1} -p{2} --default-character-set=utf8 --lock-tables --routines --force --quick ", "127.0.0.1", "root", "53231323xjh");
                 //数据库名称
                 //string strDB = "bdl1";
@@ -513,7 +513,8 @@ namespace spms.view.Pages
                 //MessageBox.Show(result);
                 //图片备份
                 CommUtil.CopyDirectory(filePath);
-                if (("mysqldump: [Warning] Using a password on the command line interface can be insecure.".Trim()).Equals(result.Trim()))
+                if (("mysqldump: [Warning] Using a password on the command line interface can be insecure.".Trim()).Contains(result.Trim())||
+                    ("Warning: Using a password on the command line interface can be insecure.".Trim()).Contains(result.Trim()))
                 {
 
                     MessageBoxX.Info(LanguageUtils.ConvertLanguage("数据备份成功", "Successful data backup"));
