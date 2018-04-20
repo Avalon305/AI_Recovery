@@ -46,8 +46,8 @@ namespace spms.view.Pages.ChildWin
         public InputGroupName()
         {
             InitializeComponent();
-            this.Width = SystemParameters.WorkArea.Size.Width * 0.277;
-            this.Height = this.Width / 2.4;
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.33;
+            this.Height = this.Width /2.57;
         }
         //取消按钮，关闭此窗体
         private void Cancel(object sender, RoutedEventArgs e)

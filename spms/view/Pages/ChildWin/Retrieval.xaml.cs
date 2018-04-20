@@ -63,8 +63,8 @@ namespace spms.view.Pages.ChildWin
         public Retrieval()
         {
             InitializeComponent();
-            this.Width = SystemParameters.WorkArea.Size.Width * 0.3;
-            this.Height = this.Width / 1.3;
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.4;
+            this.Height = this.Width / 1.33;
 
             groupList = customDataService.GetAllByType(CustomDataEnum.Group);
             diseaseList = customDataService.GetAllByType(CustomDataEnum.Disease);

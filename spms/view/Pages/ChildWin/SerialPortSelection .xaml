@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:spms.view.Pages.ChildWin"
        Title="{DynamicResource Title.Title}" Height="330" Width="570"
         PreviewKeyDown="key_dowm"
-        ResizeMode="CanMinimize"  
+        ResizeMode="CanMinimize" 
+        SizeToContent="Width"
         Loaded="Window_Loaded">
     <Viewbox Stretch="Fill">
     <StackPanel Orientation="Vertical" Width="375">

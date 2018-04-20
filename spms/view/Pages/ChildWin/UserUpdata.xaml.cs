@@ -171,10 +171,11 @@ namespace spms.view.Pages.ChildWin
                 //调整该窗体宽度
                // this.Width = 800;
             }
-            else
+            else if (nonPublicInfomationPass.result == "failed")
             {
                 MessageBox.Show(LanguageUtils.ConvertLanguage("密码不正确！", "Incorrect password!"));
             }
+           
         }
 
         //取消操作，关闭窗体

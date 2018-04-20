@@ -35,7 +35,7 @@ namespace spms.view.Pages.ChildWin
         public OnlineDeviceDetails()
         {
             InitializeComponent();
-            this.Width = SystemParameters.WorkArea.Size.Width * 0.277;
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.4;
             this.Height = this.Width / 1.28;
         }
         /// <summary>

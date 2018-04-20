@@ -48,8 +48,8 @@ namespace spms.view.Pages.ChildWin
         public InputDisabilityName()
         {
             InitializeComponent();
-            this.Width = SystemParameters.WorkArea.Size.Width*0.277;
-            this.Height = this.Width /2.4;
+            this.Width = SystemParameters.WorkArea.Size.Width*0.33;
+            this.Height = this.Width /2.57;
             //viewbox.Width = this.Width;
             //viewbox.Height = this.Height;
         }
