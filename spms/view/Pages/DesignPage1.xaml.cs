@@ -341,7 +341,7 @@ namespace spms.view.Pages
         }
         private void Diagnosis_Update(object sender, RoutedEventArgs e)
         {
-            if (Selected[2] == 1 && disease != null)
+            if (Selected[2] == 1 && diagnosis != null)
             {
                 UpdateDiagnosisName diagnosisUpdata = new UpdateDiagnosisName
                 {
