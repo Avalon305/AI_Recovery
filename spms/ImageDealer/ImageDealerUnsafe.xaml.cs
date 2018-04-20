@@ -371,6 +371,12 @@ namespace TestImageDealer.ImageDealer
                         this.Action = MouseActionEx.None;
                         return;
                     }
+                    if(Model.Width < 0 || Model.Height < 0)
+                    {
+                        this.Cursor = Cursors.Arrow;
+                        this.Action = MouseActionEx.None;
+                        return;
+                    }
                     this.ImageArea.Width = Model.Width;
                     this.ImageArea.Height = Model.Height;
 
