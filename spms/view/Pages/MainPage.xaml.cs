@@ -98,8 +98,13 @@ namespace spms.view.Pages
         private void Grid_Click(object sender, MouseButtonEventArgs e)
         {
             ifSelecUser = true;
-            
+            if(UsersInfo.SelectedIndex == -1)
+            {
+                id.Content = null;
+            }
+            else {
             id.Content = UsersInfo.SelectedIndex + 1;//使用者详细信息展示框id设置
+            }
             selectUser = (User)UsersInfo.SelectedItem;
             
             //UserInfo
