@@ -10,7 +10,7 @@
                   
                  >
     <Grid Name="MainGrid"  >
-        <Image x:Name="SoureceImage" Stretch="UniformToFill "></Image>
+        <Image x:Name="SoureceImage" Stretch="Uniform"></Image>
         <Border Width="183" Height="256" Name="ImageArea"  BorderBrush="Red" BorderThickness="1,1,1,1" Panel.ZIndex="5"  SizeChanged="ImageArea_SizeChanged">
             <Grid  >
                 <Rectangle Name="R_LeftUp"    Width="5" Height="5" Margin="-3" VerticalAlignment="Top"    HorizontalAlignment="Left"   Fill="White" Panel.ZIndex="0" Cursor="SizeNWSE"/>
