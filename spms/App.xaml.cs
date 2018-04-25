@@ -125,9 +125,10 @@ namespace spms
                     AuthDAO authDAO = new AuthDAO();
                     while (true)
                     {
-                        if (setterDao.ListAll().Count == 0)
+                        if (setterDao.ListAll().Count != 1)
                         {
                             //不激活不开启
+                            Thread.Sleep(1000 * 15);
                             continue;
                         }
                         if (authDAO.ListAll().Count == 1)
