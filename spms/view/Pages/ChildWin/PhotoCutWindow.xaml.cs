@@ -68,15 +68,30 @@ namespace spms
             var bmcpy = new Bitmap(183, 256);
             Graphics gh = Graphics.FromImage(bmcpy);
             gh.DrawImage(bit, new System.Drawing.Rectangle(0, 0, 183, 256));
-            photoName = getName + id;
-            if (oldPhotoName == getName + id + ".jpg" || oldPhotoName == getName + id + ".gif")
+            
+            bmcpy.Save(CommUtil.GetUserPic() + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+        }
+        public string getPhotoName()
+        {
+            if (string.IsNullOrEmpty(oldPhotoName))
             {
-                photoName += "_1";
+                photoName = getName + id;
+            }
+            else
+            {
+                photoName = oldPhotoName.Substring(0, oldPhotoName.LastIndexOf(".")) + "z";
+                // 如果该文件已存在，继续在尾部追加“z”，知道文件不存在，就确定这个名字为文件名
+                while (File.Exists(CommUtil.GetUserPic() + photoName + ".jpg") || File.Exists(CommUtil.GetUserPic() + photoName + ".gif"))
+                {
+                    oldPhotoName = photoName + ".jpg";
+                    photoName = oldPhotoName.Substring(0, oldPhotoName.LastIndexOf(".")) + "z";
+                }
+                
             }
 
             photoName += ".jpg";
-            bmcpy.Save(CommUtil.GetUserPic() + photoName, System.Drawing.Imaging.ImageFormat.Jpeg);
-
+            return photoName;
         }
         public static Bitmap BitmapFromSource(BitmapSource source)
         {
@@ -97,7 +112,7 @@ namespace spms
             //去掉图标和最大化关闭按钮
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
-
+            photoName = getPhotoName();
             ImageDealer.BitSource = image;
         }
         /// <summary>
@@ -110,14 +125,14 @@ namespace spms
             //创建文件夹
             CreateDir(CommUtil.GetUserPic());
             ImageDealer.CutImage();
-
+            /*
             string newFileName = photoName.Replace(".jpg", ".gif");
 
             if (PicZipUtil.GetPicThumbnail(CommUtil.GetUserPic() + photoName, CommUtil.GetUserPic() + newFileName, 50))
             {
-                File.Delete(CommUtil.GetUserPic() + photoName);
+                
                 photoName = newFileName;
-            }
+            }*/
             this.Close();
         }
         //根据文件夹全路径创建文件夹

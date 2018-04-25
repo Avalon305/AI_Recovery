@@ -79,7 +79,7 @@ namespace spms.view.Pages.ChildWin
             origin_phone = SelectUser.User_Phone;
             //获得最初的身份证号
             origin_IDCard = SelectUser.User_IDCard;
-           
+            photoName = SelectUser.User_PhotoLocation;
 
             // 加zai用戶的照片
             //更新完用戶后刷新一下展示的tu片
@@ -504,7 +504,7 @@ namespace spms.view.Pages.ChildWin
                     };
                     win2.getName = t3.Text;
                     win2.id = IDCard.Text;
-                    win2.oldPhotoName = SelectUser.User_PhotoLocation;
+                    win2.oldPhotoName = photoName;
                     win2.SetImage(image);
                     
                     win2.ShowDialog();
@@ -525,7 +525,7 @@ namespace spms.view.Pages.ChildWin
                     userIfSelectPic = false;
                     try
                     {
-                        BitmapImage i = new BitmapImage(new Uri(CommUtil.GetUserPic() + SelectUser.User_PhotoLocation,
+                        BitmapImage i = new BitmapImage(new Uri(CommUtil.GetUserPic() + photoName,
                             UriKind.Absolute)); //打开图片
                         pic.Source = i.Clone(); //将控件和图片绑定
                     }
