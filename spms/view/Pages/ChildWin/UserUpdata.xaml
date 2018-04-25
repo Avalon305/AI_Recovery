@@ -82,10 +82,10 @@
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
+                    <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,1,4,2">
                             <Label Content="{DynamicResource AddOrEditView.LastName}"  VerticalAlignment="Center"  Foreground="White"/>
                     </Border>
-                        <TextBox Grid.Row="0"  CaretBrush="Black" Name="t2" LostFocus="IsName" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Name}" VerticalContentAlignment="Center"/>
+                        <TextBox Grid.Row="0"  CaretBrush="Black" Name="t2" LostFocus="IsName" Grid.Column="1" Margin="1,1,100.4,2" Grid.ColumnSpan="2" Text="{Binding User_Name}" VerticalContentAlignment="Center"/>
                     <!--气泡-->
                     <bubble:CCPopup x:Name="bubble_Name" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=t2}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
@@ -96,25 +96,25 @@
                     </bubble:CCPopup>
 
 
-                    <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
+                    <Border Grid.Row="1" Grid.Column="0" Background="Gray" Margin="0,1,4,2">
                             <Label Content="{DynamicResource AddOrEditView.FirstName}"  FontStyle="Normal"  Foreground="White"/>
                     </Border>
-                        <TextBox Grid.Row="1"  CaretBrush="Black" Name="t3" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" PreviewTextInput="limit_input" Grid.ColumnSpan="2" Text="{Binding User_Namepinyin}" VerticalContentAlignment="Center"/>
+                        <TextBox Grid.Row="1"  CaretBrush="Black" Name="t3" Grid.Column="1"  Margin="1,1,100.4,2" PreviewTextInput="limit_input" Grid.ColumnSpan="2" Text="{Binding User_Namepinyin}" VerticalContentAlignment="Center"/>
 
 
-                    <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
+                    <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,1,4,2">
                             <Label Content="{DynamicResource AddOrEditView.Gender}" Grid.Row="2" Grid.Column="0" Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c1" Grid.Row="2" Grid.Column="1"   IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Sex, Converter={StaticResource sexconverter}}" VerticalContentAlignment="Center">
+                    <ComboBox Name="c1" Grid.Row="2" Grid.Column="1"   IsTabStop="False" Margin="1,1,100.4,2" Grid.ColumnSpan="2" Text="{Binding User_Sex, Converter={StaticResource sexconverter}}" VerticalContentAlignment="Center">
                             <ComboBoxItem Content="{DynamicResource AddOrEditView.M}" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                             <ComboBoxItem Content="{DynamicResource AddOrEditView.F}" Style="{StaticResource {x:Type ComboBoxItem}}"></ComboBoxItem>
                     </ComboBox>
 
 
-                    <Border Grid.Row="3" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
+                    <Border Grid.Row="3" Grid.Column="0" Background="Gray"  Margin="0,1,4,2">
                             <Label Content="{DynamicResource AddOrEditView.BirthDate}" Grid.Row="3" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <DatePicker Grid.Row="3" Name="t4" Grid.Column="1"  KeyboardNavigation.TabNavigation="None"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Text="{Binding  User_Birth}" SelectedDate="{x:Static sys:DateTime.Now}">
+                    <DatePicker Grid.Row="3" Name="t4" Grid.Column="1"  KeyboardNavigation.TabNavigation="None"  Margin="1,1,100.4,2" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Text="{Binding  User_Birth}" SelectedDate="{x:Static sys:DateTime.Now}">
                         <DatePicker.Resources>
                             <Style TargetType="DatePickerTextBox">
                                 <Setter Property="IsReadOnly" Value="True"/>
@@ -123,10 +123,10 @@
                     </DatePicker>
                     <!--<TextBox Grid.Row="3" Name="t4" Grid.Column="1"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_Birth,StringFormat='{}{0:yyyy/MM/dd}'}"  VerticalContentAlignment="Center"/>-->
                     <!--<Label Content="（yyyy/mm/dd）" Grid.Row="3" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="0.4,0.6,-71.6,1.2"/>-->
-                    <Border Grid.Row="4" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
+                    <Border Grid.Row="4" Grid.Column="0" Background="Gray"  Margin="0,1,4,2">
                             <Label Content="{DynamicResource AddOrEditView.Phone}" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                        <TextBox Grid.Row="4"  CaretBrush="Black"  Name ="phoneNum" Grid.Column="1" LostFocus="IsPhone"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding  User_Phone}" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                        <TextBox Grid.Row="4"  CaretBrush="Black"  Name ="phoneNum" Grid.Column="1" LostFocus="IsPhone"  Margin="1,1,100.4,2" Grid.ColumnSpan="2" Text="{Binding  User_Phone}" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                     <bubble:CCPopup x:Name="bubble_phone" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=phoneNum}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
                             <StackPanel Orientation="Horizontal">
@@ -134,10 +134,10 @@
                             </StackPanel>
                         </Label>
                     </bubble:CCPopup>
-                    <Border Grid.Row="5" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
+                    <Border Grid.Row="5" Grid.Column="0" Background="Gray"  Margin="0,1,4,2">
                             <Label Content="{DynamicResource AddOrEditView.IdCard}" Grid.Row="5" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                        <TextBox Grid.Row="5"  CaretBrush="Black" Name="idcard" Grid.Column="1"  LostFocus="IsIDCard" PreviewKeyDown="idcard_encrypt"  Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IDCard,Converter={StaticResource idcardconverter}}" VerticalContentAlignment="Center"/>
+                        <TextBox Grid.Row="5"  CaretBrush="Black" Name="idcard" Grid.Column="1"  LostFocus="IsIDCard" PreviewKeyDown="idcard_encrypt"  Margin="1,1,100.4,2" Grid.ColumnSpan="2" Text="{Binding User_IDCard,Converter={StaticResource idcardconverter}}" VerticalContentAlignment="Center"/>
                         <TextBox Grid.Column="3"  CaretBrush="Black" Name="IDCard"  Text="{Binding User_IDCard,Mode=OneTime}" VerticalContentAlignment="Center"  Visibility="Hidden"/>
                         <!--气泡-->
                     <bubble:CCPopup x:Name="bubble_IDCard" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=idcard}" Placement="Right" >
@@ -147,31 +147,31 @@
                             </StackPanel>
                         </Label>
                     </bubble:CCPopup>
-                    <Border Grid.Row="6" Grid.Column="0" Background="Gray"  Margin="0,0,4,2" >
+                    <Border Grid.Row="6" Grid.Column="0" Background="Gray"  Margin="0,1,4,2" >
                             <Label Content="{DynamicResource AddOrEditView.Group}"   Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c2" Grid.Row="6" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_GroupName}" VerticalContentAlignment="Center"/>
+                    <ComboBox Name="c2" Grid.Row="6" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="1,1,100.4,2" Grid.ColumnSpan="2" Text="{Binding User_GroupName}" VerticalContentAlignment="Center"/>
 
                     <Label Grid.Row="6" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="0.2,0.2,100.4,1.6"/>
 
-                    <Border Grid.Row="7" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
+                    <Border Grid.Row="7" Grid.Column="0" Background="Gray"  Margin="0,1,4,2">
                             <Label Content="{DynamicResource AddOrEditView.InitialCareLevel}"   Foreground="White"/>
                     </Border>
-                        <ComboBox Name="c3" Grid.Row="7" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" ItemsSource="{Binding}" SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value" VerticalContentAlignment="Center" Text="{Binding User_InitCare,Converter={StaticResource careLevelconverter}}"/>
+                        <ComboBox Name="c3" Grid.Row="7" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="1,1,100.4,2" Grid.ColumnSpan="2" ItemsSource="{Binding}" SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value" VerticalContentAlignment="Center" Text="{Binding User_InitCare,Converter={StaticResource careLevelconverter}}"/>
 
                     <Label  Grid.Row="7" Grid.Column="2" FontSize="10" FontStyle="Normal" FontWeight="DemiBold" Margin="30,9,5,5"/>
 
-                    <Border Grid.Row="8" Grid.Column="0" Background="Gray"  Margin="0,0,4,2" >
+                    <Border Grid.Row="8" Grid.Column="0" Background="Gray"  Margin="0,1,4,2" >
                             <Label Content="{DynamicResource AddOrEditView.CurrentCareLevel}" Grid.Row="8" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                        <ComboBox Name="c4" Grid.Row="8" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2"  ItemsSource="{Binding}" SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value" Text="{Binding User_Nowcare,Converter={StaticResource careLevelconverter}}"/>
+                        <ComboBox Name="c4" Grid.Row="8" Grid.Column="1"  Background="LightGray" IsTabStop="False" Margin="1,1,100.4,2" Grid.ColumnSpan="2"  ItemsSource="{Binding}" SelectedValuePath="Code_S_Value"  DisplayMemberPath="Code_D_Value" Text="{Binding User_Nowcare,Converter={StaticResource careLevelconverter}}"/>
 
 
 
-                    <Border Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
+                    <Border Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,1,4,2">
                             <Label Content="{DynamicResource AddOrEditView.Disease}" Grid.Row="9" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c5" Grid.Row="9" Grid.Column="1" LostKeyboardFocus="IsDisease"  Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_IllnessName}" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False"/>
+                    <ComboBox Name="c5" Grid.Row="9" Grid.Column="1" LostKeyboardFocus="IsDisease"  Background="LightGray" Margin="1,1,100.4,2" Grid.ColumnSpan="2" Text="{Binding User_IllnessName}" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False"/>
                     <!--气泡-->
                     <bubble:CCPopup x:Name="bubble_disease" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=c5}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
@@ -182,10 +182,10 @@
                     </bubble:CCPopup>
                         <Button Content="{DynamicResource AddOrEditView.AddDisease}"  Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" IsTabStop="False" Height="25" Style="{StaticResource Btn}"  Width="95" Click="DiseaseNameAddition"/>
 
-                    <Border Grid.Row="10" Grid.Column="0" Background="Gray"  Margin="0,0,4,2">
+                    <Border Grid.Row="10" Grid.Column="0" Background="Gray"  Margin="0,1,4,2">
                             <Label Content="{DynamicResource AddOrEditView.Diagnosis}" Grid.Row="10" Grid.Column="0"  Foreground="White"/>
                     </Border>
-                    <ComboBox Name="c6" Grid.Row="10" Grid.Column="1" LostKeyboardFocus="IsDiagnosis" Background="LightGray" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" Text="{Binding User_PhysicalDisabilities}" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False"/>
+                    <ComboBox Name="c6" Grid.Row="10" Grid.Column="1" LostKeyboardFocus="IsDiagnosis" Background="LightGray" Margin="1,1,100.4,2" Grid.ColumnSpan="2" Text="{Binding User_PhysicalDisabilities}" IsEditable="True" VerticalContentAlignment="Center" IsTextSearchEnabled="False"/>
                     <!--气泡-->
                     <bubble:CCPopup x:Name="bubble_Diagnosis" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False"  PlacementTarget="{Binding ElementName=c6}" Placement="Right" >
                         <Label Style="{StaticResource tipLable}">
@@ -196,11 +196,11 @@
                     </bubble:CCPopup>
                         <Button Content="{DynamicResource AddOrEditView.AddDiagnosis}"  Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" IsTabStop="False" Height="25" Style="{StaticResource Btn}" Width="95" Click="DisabilityNameAddition"/>
 
-                    <Border Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
+                    <Border Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,1,4,2">
                             <Label Content="{DynamicResource AddOrEditView.Memo}" Grid.Row="11" Grid.Column="0"  Foreground="White"/>
                     </Border>
                     <!--<TextBox   Grid.Row="11" Name="t6"  Grid.Column="1"   FontSize="15" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding User_Memo}"></TextBox>-->
-                        <RichTextBox  CaretBrush="Black" AcceptsReturn="True"  Grid.Row="11" Name="t6" Grid.Column="1" Margin="0.2,0.2,100.4,1.6" Grid.ColumnSpan="2" >
+                        <RichTextBox  CaretBrush="Black" AcceptsReturn="True"  Grid.Row="11" Name="t6" Grid.Column="1" Margin="1,1,100.4,2" Grid.ColumnSpan="2" >
                         <!--行间距-->
                         <RichTextBox.Document>
                             <FlowDocument Focusable="True" LineHeight="1" >
