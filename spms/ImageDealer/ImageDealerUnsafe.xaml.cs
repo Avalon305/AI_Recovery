@@ -219,11 +219,11 @@ namespace TestImageDealer.ImageDealer
                 {
                     double ImageAreaWidth = this.ImageArea.ActualWidth;
                     double ImageAreaHeight = this.ImageArea.ActualHeight;
-                    //double GridWidth = this.MainGrid.ActualWidth;
-                    // double GridHeight = this.MainGrid.ActualHeight;
+                    double GridWidth = this.MainGrid.ActualWidth;
+                    double GridHeight = this.MainGrid.ActualHeight;
                     
-                     double GridWidth = SoureceImage.ActualWidth;
-                      double GridHeight = SoureceImage.ActualHeight;
+                    //double GridWidth = SoureceImage.ActualWidth;
+                    //double GridHeight = SoureceImage.ActualHeight;
                     BitmapSource source = (BitmapSource)this.BitSource;
                     //计算比例
                     Point Locate = this.ImageArea.TransformToAncestor((UIElement)this.MainGrid).Transform(new Point(0, 0));
@@ -245,9 +245,9 @@ namespace TestImageDealer.ImageDealer
                         OnCutImage(bit);
                     }
                 }
-                catch
+                catch(Exception ex)
                 {
-
+                    Console.WriteLine(ex);
                 }
             }
         }

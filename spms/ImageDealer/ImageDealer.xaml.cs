@@ -95,7 +95,8 @@ namespace TestImageDealer.ImageDealer
                 this._ImageDealerControl.Width = this._BitSource.PixelWidth * 1.0 / percent;
                 this._ImageDealerControl.Height = this._BitSource.PixelHeight * 1.0 / percent;
                 //初始化截图方块
-                this._ImageDealerControl.ImageArea.Width = this._ImageDealerControl.ImageArea.Height = 100 + _ChangeMargin;
+                this._ImageDealerControl.ImageArea.Width = 100 + _ChangeMargin;
+                this._ImageDealerControl.ImageArea.Height = this._ImageDealerControl.ImageArea.Width * 256 / 183;
                 _ChangeMargin = -_ChangeMargin;
                 this._ImageDealerControl.ImageArea.SetValue(VerticalAlignmentProperty, VerticalAlignment.Center);
                 this._ImageDealerControl.ImageArea.SetValue(HorizontalAlignmentProperty, HorizontalAlignment.Center);
