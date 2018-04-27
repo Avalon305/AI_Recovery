@@ -84,19 +84,13 @@ namespace spms.view.Pages.ChildWin
             // 加zai用戶的照片
             //更新完用戶后刷新一下展示的tu片
             //selectUser = (User)UsersInfo.SelectedItem;
-            string path = null; // huo的用戶的tu片url
-            if (origin_name != null && origin_name != "")
-            {
-                path = CommUtil.GetUserPic(SelectUser.User_PhotoLocation);
-                //path = CommUtil.GetUserPic(origin_name_pinyin);
-                //path += ".gif";
-            }
-
-
+            string path = CommUtil.GetUserPic() + photoName; // huo的用戶的tu片url
+           
             if (File.Exists(path))
             {
-                BitmapImage bitmap = new BitmapImage(new Uri(path));
-                pic.Source = bitmap.Clone();
+                BitmapImage i = new BitmapImage(new Uri(path,
+                            UriKind.Absolute)); //打开图片
+                pic.Source = i.Clone(); //将控件和图片绑定
             } else
             {
                 BitmapImage bitmap = new BitmapImage(new Uri(@"\view\images\NoPhoto.png", UriKind.Relative));
