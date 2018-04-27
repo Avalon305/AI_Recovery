@@ -10,18 +10,15 @@
         Title="{DynamicResource Title.Title}"  Loaded="Window_Loaded">
     <Viewbox Stretch="Uniform">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="600"></ColumnDefinition>
-                <ColumnDefinition Width="200"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+            
 
-            <imageDealer:ImageDealer Panel.ZIndex="0" x:Name="ImageDealer" Margin="10,10,10,59"  OnCutImaging="ImageDealer_OnOnCutImaging" Grid.ColumnSpan="2">
+            <imageDealer:ImageDealer Panel.ZIndex="0" x:Name="ImageDealer" Margin="10,10,10,59" OnCutImaging="ImageDealer_OnOnCutImaging">
 
             </imageDealer:ImageDealer>
 
-            <Image Name="CutImage" Grid.Column="1" Margin="5" VerticalAlignment="Top"></Image>
-            <Button Content="{DynamicResource PhotoCutView.Confirm}" HorizontalAlignment="Right" Margin="0,485,100,10" VerticalAlignment="Top" Style="{StaticResource Btn}" Height="25" Width="75"  Click="Button_Click" Grid.ColumnSpan="2"/>
-            <Button Content="{DynamicResource PhotoCutView.Cancel}" HorizontalAlignment="Right" Margin="0,485,10,10" VerticalAlignment="Top" Style="{StaticResource Btn}" Height="25" Width="75" Click="Cancel_Click" Grid.Column="1"/>
+
+            <Button Content="{DynamicResource PhotoCutView.Confirm}" HorizontalAlignment="Right" Margin="0,0,91,10" VerticalAlignment="Bottom" Style="{StaticResource Btn}" Height="25" Width="75"  Click="Button_Click"/>
+            <Button Content="{DynamicResource PhotoCutView.Cancel}" HorizontalAlignment="Right" Margin="0,0,7,10" VerticalAlignment="Bottom" Style="{StaticResource Btn}" Height="25" Width="75" Click="Cancel_Click"/>
         </Grid>
 
     </Viewbox>

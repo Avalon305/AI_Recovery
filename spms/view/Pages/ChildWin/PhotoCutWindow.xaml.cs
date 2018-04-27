@@ -42,15 +42,16 @@ namespace spms
         public string getName { get; set; }
         public string id { get; set; }
         public string oldPhotoName { get; set; }
-        public void SetImage(BitmapImage image)
-        {
-            this.image = image;
-        }
-        public PhotoCutWindow()
+
+        public PhotoCutWindow(BitmapImage image)
         {
             InitializeComponent();
+            
             this.Width = SystemParameters.WorkArea.Size.Width * 0.4;
             this.Height = this.Width / 1.1;
+            this.image = image;
+            ImageDealer.Width = image.Width;
+            ImageDealer.Height = image.Height;
         }
 
 
@@ -112,6 +113,8 @@ namespace spms
             //去掉图标和最大化关闭按钮
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+            //ImageDealer.Width = image.Width;
+            //ImageDealer.Height = image.Height;
             photoName = getPhotoName();
             ImageDealer.BitSource = image;
         }

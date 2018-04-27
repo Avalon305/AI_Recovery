@@ -430,7 +430,7 @@ namespace spms.view.Pages.ChildWin
                 if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     BitmapImage image = new BitmapImage(new Uri(ofd.FileName, UriKind.Absolute));//打开图片
-                    var win2 = new PhotoCutWindow
+                    var win2 = new PhotoCutWindow(image)
                     {
                         Owner = Window.GetWindow(this),
                         ShowActivated = true,
@@ -439,8 +439,7 @@ namespace spms.view.Pages.ChildWin
                     };
                     win2.getName = t3.Text;
                     win2.id = IDCard.Text;
-                    win2.oldPhotoName = oldPhotoName; ;
-                    win2.SetImage(image);
+                    win2.oldPhotoName = oldPhotoName;
 
                     win2.ShowDialog();
                     photoName = win2.photoName;

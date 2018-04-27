@@ -200,10 +200,10 @@ namespace spms
             VCE.Pause();
 
 
-            var win2 = new PhotoCutWindow();
+            //var win2 = new PhotoCutWindow();
         
-            win2.SetImage(bitmapImage);
-            win2.Show();
+            //win2.SetImage(bitmapImage);
+            //win2.Show();
         }
         // ImageSource --> Bitmap
         public static System.Drawing.Bitmap ImageSourceToBitmap(ImageSource imageSource)
@@ -259,7 +259,7 @@ namespace spms
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            new PhotoCutWindow().ShowDialog();
+            //new PhotoCutWindow().ShowDialog();
         }
 
         private void Button_Click_15(object sender, RoutedEventArgs e)
