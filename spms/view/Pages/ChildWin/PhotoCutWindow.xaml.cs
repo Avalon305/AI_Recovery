@@ -52,6 +52,12 @@ namespace spms
             this.image = image;
             ImageDealer.Width = image.Width;
             ImageDealer.Height = image.Height;
+            confirm.Width = image.Width / 6;
+            confirm.Height = image.Height / 19;
+            confirm.FontSize = confirm.Height / 2;
+           cancel.Width = image.Width / 6;
+            cancel.Height = image.Height / 19;
+            cancel.FontSize = cancel.Height / 2;
         }
 
 
