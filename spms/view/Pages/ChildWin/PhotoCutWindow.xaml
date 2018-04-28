@@ -11,14 +11,14 @@
     <Viewbox Stretch="Uniform">
         <StackPanel Orientation="Vertical">
 
-
+            <StackPanel>
             <imageDealer:ImageDealer Panel.ZIndex="0" x:Name="ImageDealer" Margin="10,10,10,10" OnCutImaging="ImageDealer_OnOnCutImaging">
 
             </imageDealer:ImageDealer>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Name="confirm" Content="{DynamicResource PhotoCutView.Confirm}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Style="{StaticResource Btn}"  FontSize="18"  MinHeight="35" MinWidth="150" Click="Button_Click"/>
-                <Button Name="cancel" Content="{DynamicResource PhotoCutView.Cancel}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Style="{StaticResource Btn}" FontSize="18" MinHeight="35" MinWidth="150" Click="Cancel_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <Button Name="confirm" Content="{DynamicResource PhotoCutView.Confirm}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Style="{StaticResource Btn}" MinWidth="20" MinHeight="10"  Click="Button_Click"/>
+                <Button Name="cancel" Content="{DynamicResource PhotoCutView.Cancel}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Style="{StaticResource Btn}" MinWidth="20" MinHeight="10" Click="Cancel_Click"/>
             </StackPanel>
         </StackPanel>
 

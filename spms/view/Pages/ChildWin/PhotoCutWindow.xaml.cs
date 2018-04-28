@@ -55,7 +55,7 @@ namespace spms
             confirm.Width = image.Width / 6;
             confirm.Height = image.Height / 19;
             confirm.FontSize = confirm.Height / 2;
-           cancel.Width = image.Width / 6;
+            cancel.Width = image.Width / 6;
             cancel.Height = image.Height / 19;
             cancel.FontSize = cancel.Height / 2;
         }
