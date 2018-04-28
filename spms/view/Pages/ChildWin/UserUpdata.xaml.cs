@@ -22,6 +22,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using spms.constant;
 using static spms.entity.CustomData;
+using WpfApp2;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -499,8 +500,18 @@ namespace spms.view.Pages.ChildWin
                     win2.getName = t3.Text;
                     win2.id = IDCard.Text;
                     win2.oldPhotoName = photoName;
+
+                    //如果是免冠照片
+                    double p = image.Width / image.Height;//照片比例
+                    if (p > 0.6 && p < 0.8)
+                    {
+                        PicZipUtil.GetPicThumbnail(ofd.FileName, CommUtil.GetUserPic() + win2.getPhotoName());
+                    }
+                    else
+                    {
+                        win2.ShowDialog();
+                    }
                     
-                    win2.ShowDialog();
                     photoName = win2.photoName;
                     //photograph.Close();
                     Console.WriteLine(photoName);

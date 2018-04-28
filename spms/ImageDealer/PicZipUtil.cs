@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 
@@ -204,6 +205,23 @@ namespace WpfApp2
                 iSource.Dispose();
             }
         }
+        /// <summary>
+        /// 压缩图片长宽
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="v"></param>
+        internal static void GetPicThumbnail(string sFile, string v)
+        {
+            FileInfo firstFileInfo = new FileInfo(sFile);
+            
+            System.Drawing.Image iSource = System.Drawing.Image.FromFile(sFile);
 
+            //指定照片尺寸这么大
+            var bmcpy = new Bitmap(183, 256);
+            Graphics gh = Graphics.FromImage(bmcpy);
+            gh.DrawImage(iSource, new System.Drawing.Rectangle(0, 0, 183, 256));
+
+            bmcpy.Save(v, System.Drawing.Imaging.ImageFormat.Jpeg);
+        }
     }
 }
