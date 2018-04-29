@@ -49,7 +49,7 @@ namespace spms.view.Pages.ChildWin
                 this.Close();
             }
             else {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("密码错误，请重新输入", "Password error, please retype"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("密码错误，请重新输入", "Password error, please retype"));
             }
             
 

@@ -148,7 +148,7 @@ namespace spms.view.Pages.ChildWin
             }
             else if (nonPublicInfomationPass.result == "failed")
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("密码不正确！", "Incorrect password!"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("密码不正确！", "Incorrect password!"));
             }
             
         }
@@ -286,7 +286,7 @@ namespace spms.view.Pages.ChildWin
             //user.User_Privateinfo = secretMessage==null?"":secretMessage;
             if (IdCard == null || name == null || IDCard == "" || name == "")
             {
-                System.Windows.MessageBox.Show(LanguageUtils.ConvertLanguage("没有填写身份证或者名字（拼音）", "No identity card or First Name"), LanguageUtils.ConvertLanguage("信息提示", "Tips"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("没有填写身份证或者名字（拼音）", "No identity card or First Name"));
                 return;
             }
 
@@ -338,7 +338,7 @@ namespace spms.view.Pages.ChildWin
                 // 如果图片太大就重新选择
                 if (picLen > 40)
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("图片过大，请重新选择，不能超过40KB", "The picture is too large. Please select it again. Cannot exceed 40KB"));
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("图片过大，请重新选择，不能超过40KB", "The picture is too large. Please select it again. Cannot exceed 40KB"));
                     File.Delete(targetPic);
                     return;
                 }
@@ -349,7 +349,7 @@ namespace spms.view.Pages.ChildWin
             }
             else if(userIfSelectPic != false)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("没有填写身份证或者名字（拼音）", "No identity card or First Name"), LanguageUtils.ConvertLanguage("信息提示", "Tips"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("没有填写身份证或者名字（拼音）", "No identity card or First Name"));
                 return;
             }
 
@@ -379,7 +379,7 @@ namespace spms.view.Pages.ChildWin
         {
             if (t3.Text == "" || IDCard.Text == "")
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请填写完整信息", "Please fill in the complete information"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请填写完整信息", "Please fill in the complete information"));
                 return;
             }
            
@@ -416,7 +416,7 @@ namespace spms.view.Pages.ChildWin
 
             if (t3.Text == "" || IDCard.Text == "")
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请填写完整信息", "Please fill in the complete information"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请填写完整信息", "Please fill in the complete information"));
                 return;
             }
             

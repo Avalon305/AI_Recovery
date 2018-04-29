@@ -251,7 +251,8 @@ namespace spms.view.Pages
             if((User)UsersInfo.SelectedItem == null)
             //if (selectUser == null)//4.7 lzh
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+               // MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
 
@@ -305,13 +306,12 @@ namespace spms.view.Pages
             //检查是否选中
             if (selectUser == null)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
 
-            MessageBoxResult dr = MessageBox.Show(LanguageUtils.ConvertLanguage("您确定删除该使用者信息？\n 使用者：", "Do You Want Delete The Subject?\n Subject:") + ((User)UsersInfo.SelectedItem).User_Name,
-                LanguageUtils.ConvertLanguage("提示", "Option"), MessageBoxButton.OKCancel, MessageBoxImage.Question);
-            if (dr == MessageBoxResult.OK)
+            Boolean dr = MessageBoxX.Question(LanguageUtils.ConvertLanguage("您确定删除该使用者信息？\n 使用者：", "Do You Want Delete The Subject?\n Subject:") + ((User)UsersInfo.SelectedItem).User_Name);
+            if (dr == true)
             {
                 //删除
                 userService.DeleteUser(selectUser);
@@ -662,12 +662,12 @@ namespace spms.view.Pages
             User user = (User)UsersInfo.SelectedItem;
             if (user == null)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
             if (string.IsNullOrEmpty(user.User_Phone) || string.IsNullOrEmpty(user.User_IDCard))
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("用户信息不完整！", "Subject information is incomplete!"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("用户信息不完整！", "Subject information is incomplete!"));
                 return;
             }
             inputTrainingResults.DataContext = user;
@@ -699,7 +699,7 @@ namespace spms.view.Pages
 
                 if (record.Content == null)
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择症状信息再进行操作！", "Please Select A Symptom Info!"));
+                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择症状信息再进行操作！", "Please Select A Symptom Info!"));
                     return;
                 }
 
@@ -709,13 +709,13 @@ namespace spms.view.Pages
                 User user = (User)UsersInfo.SelectedItem;
                 if (user == null)
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                     return;
                 }
 
                 if (symptomInfoDto == null)
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择症状信息再进行操作！", "Please Select A Symptom Info!"));
+                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择症状信息再进行操作！", "Please Select A Symptom Info!"));
                     return;
                 }
 
@@ -769,12 +769,12 @@ namespace spms.view.Pages
 
                 if (user == null)
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                     return;
                 }
                 if (trainDto == null)
                 {//判断是否选择了训练信息
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择训练信息再进行操作！", "Please Select A Train Info!"));
+                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择训练信息再进行操作！", "Please Select A Train Info!"));
                     return;
                 }
                 Dictionary<string, Object> dic = new Dictionary<string, object>();
@@ -805,12 +805,12 @@ namespace spms.view.Pages
 
                 if (user == null)
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                     return;
                 }
                 if (physicaleDto == null)
                 {//判断是否选择了训练信息
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("请选择体力评价再进行操作！", "Please Select A Physical Evalution!"));
+                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择体力评价再进行操作！", "Please Select A Physical Evalution!"));
                     return;
                 }
                 Dictionary<string, Object> dic = new Dictionary<string, object>();
@@ -894,8 +894,8 @@ namespace spms.view.Pages
                             authDao.UpdateByUserName(webResult.username, 1);
                             // 停止定时器
                             timerNotice.Stop();
-                           
-                            MessageBox.Show(LanguageUtils.ConvertLanguage("用户被冻结，即将退出，请联系宝德龙管理员解冻！", "The user is frozen, will exit, please contact the administrator thaw!"));
+
+                            MessageBoxX.Warning(LanguageUtils.ConvertLanguage("用户被冻结，即将退出，请联系宝德龙管理员解冻！", "The user is frozen, will exit, please contact the administrator thaw!"));
                             Environment.Exit(0);
                         }
                         else if (webResult.authStatus == 2)
@@ -914,7 +914,7 @@ namespace spms.view.Pages
                             //authDao.UpdateByUserName(webResult.username, 1);
                             
                             timerNotice.Stop();
-                            MessageBox.Show(LanguageUtils.ConvertLanguage("用户被删除，即将退出，请联系宝德龙管理员恢复！", "The user is removed, will exit, please contact the administrator to restore!"));
+                            MessageBoxX.Warning(LanguageUtils.ConvertLanguage("用户被删除，即将退出，请联系宝德龙管理员恢复！", "The user is removed, will exit, please contact the administrator to restore!"));
                             Environment.Exit(0);
                         }
                     }));
@@ -962,7 +962,7 @@ namespace spms.view.Pages
 
             if (user == null)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
             //if (trainDto == null)
@@ -1000,12 +1000,12 @@ namespace spms.view.Pages
             User user = (User)UsersInfo.SelectedItem;
             if (user == null)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
             if (string.IsNullOrEmpty(user.User_Phone) || string.IsNullOrEmpty(user.User_IDCard))
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("用户信息不完整！", "Subject information is incomplete!"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("用户信息不完整！", "Subject information is incomplete!"));
                 return;
             }
             inputTraining.DataContext = user;
@@ -1160,13 +1160,13 @@ namespace spms.view.Pages
 
             if (user == null)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
 
             if (is_signinformationrecord.IsChecked ==false || record.Content == null)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择症状信息再进行操作！", "Please Select A Symptom Info!"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择症状信息再进行操作！", "Please Select A Symptom Info!"));
                 return;
             }
 
@@ -1175,7 +1175,7 @@ namespace spms.view.Pages
             SymptomInfoDTO symptomInfoDto = (SymptomInfoDTO)dataGrid.SelectedItem;
             if (symptomInfoDto == null)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择症状信息再进行操作！", "Please Select A Symptom Info!"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择症状信息再进行操作！", "Please Select A Symptom Info!"));
                 return;
             }
 

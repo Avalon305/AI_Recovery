@@ -6,6 +6,7 @@ using spms.http;
 using spms.server;
 using spms.service;
 using spms.util;
+using spms.view.Pages;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -61,7 +62,7 @@ namespace spms
                 {
                     App.Current.Dispatcher.Invoke(new Action(() =>
                     {
-                        MessageBox.Show(LanguageUtils.GetCurrentLanuageStrByKey("App.PortOccupy"));
+                        MessageBoxX.Info(LanguageUtils.GetCurrentLanuageStrByKey("App.PortOccupy"));
                         System.Environment.Exit(0);
                     }));
                 }
@@ -94,8 +95,8 @@ namespace spms
                     App.Current.Dispatcher.Invoke(new Action(() =>
                     {
                         
-                        MessageBoxResult dr = MessageBox.Show(LanguageUtils.GetCurrentLanuageStrByKey("App.UpdateInfo"), LanguageUtils.GetCurrentLanuageStrByKey("App.Tips"), MessageBoxButton.OKCancel, MessageBoxImage.Question);
-                        if (dr == MessageBoxResult.OK)
+                        Boolean dr = MessageBoxX.Question(LanguageUtils.GetCurrentLanuageStrByKey("App.UpdateInfo"));
+                        if (dr == true)
                         {
                             Process.Start("AutoUpdater.exe", info.GetProcessString());
                             Environment.Exit(0);

@@ -60,11 +60,11 @@ namespace spms.view.Pages.ChildWin
             string Name = GroupName.Text;
             CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Group, Name);
             if (Name=="") {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("小组名称不能为空", "The group name can not be null"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("小组名称不能为空", "The group name can not be null"));
             }
             else if (CustomData != null)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("小组名称已存在", "The group has already existed"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("小组名称已存在", "The group has already existed"));
             }
             else { 
             string value = this.GroupName.Text;

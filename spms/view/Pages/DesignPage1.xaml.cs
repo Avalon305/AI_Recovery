@@ -308,7 +308,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
             }
 
 
@@ -336,7 +336,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
             }
         }
         private void Diagnosis_Update(object sender, RoutedEventArgs e)
@@ -362,7 +362,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择更新的一行", "Please select an updated row"));
             }
         }
         private void Group_Delete(object sender, RoutedEventArgs e)
@@ -377,7 +377,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
             }
         }
         private void Disease_Delete(object sender, RoutedEventArgs e)
@@ -393,7 +393,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
             }
         }
         private void Diagnosis_Delete(object sender, RoutedEventArgs e)
@@ -409,7 +409,7 @@ namespace spms.view.Pages
             }
             else
             {
-                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择删除的一行", "Please select an delete row"));
             }
         }
         private void Output_Document(object sender, RoutedEventArgs e)

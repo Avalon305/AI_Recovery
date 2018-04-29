@@ -255,7 +255,7 @@ namespace spms.view.Pages.ChildWin
                     catch (Exception ex)
                     {
                         logger.Warn(ex);
-                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
                 }
@@ -451,7 +451,7 @@ namespace spms.view.Pages.ChildWin
                     catch (Exception ex)
                     {
                         logger.Warn(ex);
-                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
                 }
@@ -662,7 +662,7 @@ namespace spms.view.Pages.ChildWin
                     catch (Exception ex)
                     {
                         logger.Warn(ex);
-                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
                 }
@@ -875,7 +875,7 @@ namespace spms.view.Pages.ChildWin
                     catch (Exception ex)
                     {
                         logger.Warn(ex);
-                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
                 }
@@ -1084,7 +1084,7 @@ namespace spms.view.Pages.ChildWin
                     catch (Exception ex)
                     {
                         logger.Warn(ex);
-                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
                 }
@@ -1294,7 +1294,7 @@ namespace spms.view.Pages.ChildWin
                     catch (Exception ex)
                     {
                         logger.Warn(ex);
-                        MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
                         return;
                     }
                 }
@@ -1423,7 +1423,7 @@ namespace spms.view.Pages.ChildWin
 
             if (prescription.Count == 0)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("没有输入训练结果", "No input of training results"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("没有输入训练结果", "No input of training results"));
                 return;
             }
             if (!string.IsNullOrEmpty(symp.Text))
@@ -1436,9 +1436,9 @@ namespace spms.view.Pages.ChildWin
                 //插入训练结果
                 new TrainService().AddPrescriptionResult(null, trainInfo, prescription);
             }
-            
+
             //打印
-            MessageBox.Show(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
+            MessageBoxX.Info(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
             this.Close();
         }
 

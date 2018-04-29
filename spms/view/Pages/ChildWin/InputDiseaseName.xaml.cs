@@ -60,11 +60,11 @@ namespace spms.view.Pages.ChildWin
             string Name = DiseaseName.Text;
             CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Disease, Name);
             if (Name=="") {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("疾病名称不能为空", "The disease name can not be null"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("疾病名称不能为空", "The disease name can not be null"));
             }
             else if (CustomData != null)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("疾病名称已存在", "The name of the disease has already existed"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("疾病名称已存在", "The name of the disease has already existed"));
             }
             else
             {

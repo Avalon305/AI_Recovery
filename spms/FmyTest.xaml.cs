@@ -4,6 +4,7 @@ using spms.entity;
 using spms.protocol;
 using spms.util;
 using spms.view;
+using spms.view.Pages;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -77,7 +78,7 @@ namespace spms
             var jiemihou = AesUtil.Decrypt(jiamihou, ProtocolConstant.USB_DOG_PASSWORD);
 
             var str = Encoding.ASCII.GetString(jiemihou);
-            MessageBox.Show(str);
+            MessageBoxX.Info(str);
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
@@ -106,13 +107,13 @@ namespace spms
         //选中时直接获取编码值
         private void TestCombox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show(TestCombox.SelectedValue.ToString());
+            view.Pages.MessageBoxX.Info(TestCombox.SelectedValue.ToString());
         }
 
         private void Button_Click_7(object sender, RoutedEventArgs e)
         {
             var a = new AuthDAO().GetByAuthLevel(2);
-            MessageBox.Show(a.User_Status.ToString());
+            view.Pages.MessageBoxX.Info(a.User_Status.ToString());
         }
 
         private void Button_Click_8(object sender, RoutedEventArgs e)

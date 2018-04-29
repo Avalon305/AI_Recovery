@@ -65,11 +65,11 @@ namespace spms.view.Pages.ChildWin
             string Name = Diagnosis.Text;
             CustomData CustomData = CustomDataDAO.GetListByTypeIDAndName(CustomDataEnum.Diagiosis, Name);
             if (Name=="") {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("残障名称不能为空", "The handicap name can not be null"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("残障名称不能为空", "The handicap name can not be null"));
             }
             else if (CustomData != null)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("残障名称已存在", "The name of the handicap has already existed"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("残障名称已存在", "The name of the handicap has already existed"));
             }
             else
             {

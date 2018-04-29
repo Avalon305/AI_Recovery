@@ -168,7 +168,7 @@ namespace spms.view.Pages.ChildWin
             }
             else if (nonPublicInfomationPass.result == "failed")
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("密码不正确！", "Incorrect password!"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("密码不正确！", "Incorrect password!"));
             }
            
         }
@@ -435,7 +435,7 @@ namespace spms.view.Pages.ChildWin
         {
             if (t3.Text == "" || IDCard.Text == "")
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请填写完整信息", "Please fill in the complete information"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请填写完整信息", "Please fill in the complete information"));
                 return;
             }
             // 切换用户图片的显示，解决线程占用问题
@@ -473,7 +473,7 @@ namespace spms.view.Pages.ChildWin
         {
             if (t3.Text == "" || IDCard.Text == "")
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请填写完整信息", "Please fill in the complete information"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请填写完整信息", "Please fill in the complete information"));
                 return;
             }
             // 切换用户图片的显示，解决线程占用问题

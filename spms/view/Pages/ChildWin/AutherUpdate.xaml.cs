@@ -52,7 +52,7 @@ namespace spms.view.Pages.ChildWin
             Auther AutherTemp = authDAO.GetByName(Name);
             if (AutherTemp != null)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("用户名已存在", "The username has already existed"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("用户名已存在", "The username has already existed"));
             }
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -69,7 +69,7 @@ namespace spms.view.Pages.ChildWin
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("用户名不能为空", "The username can not be empty"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("用户名不能为空", "The username can not be empty"));
             }
             selectedAuther.Gmt_Modified = DateTime.Now;
             if ((bool)Yes.IsChecked)
@@ -86,7 +86,7 @@ namespace spms.view.Pages.ChildWin
             {
                 if (Confirm_Date.SelectedDate == null)
                 {
-                    MessageBox.Show(LanguageUtils.ConvertLanguage("离线时间不能为空", "The offlinetime can not be empty"));
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("离线时间不能为空", "The offlinetime can not be empty"));
                 }
                 else
                 {
@@ -107,11 +107,11 @@ namespace spms.view.Pages.ChildWin
             }
             else if (UserName.Text != "" && PassWord == "")
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("密码不能为空", "The password can not be empty"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("密码不能为空", "The password can not be empty"));
             }
             else if (!PassWord.Equals(REPassword))
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("密码的两次输入不一致", "Two inconsistencies in the password are inconsistencies"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("密码的两次输入不一致", "Two inconsistencies in the password are inconsistencies"));
             }
 
         }

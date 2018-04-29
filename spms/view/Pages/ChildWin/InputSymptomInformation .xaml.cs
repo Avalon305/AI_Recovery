@@ -88,14 +88,14 @@ namespace spms.view.Pages.ChildWin
             string sufHighPressure = bloodhight_2.Text;
             if (preLowPressure.Trim() == "" || preHighPressure.Trim() == "" || !(Double.Parse(preHighPressure) > 0 && Double.Parse(preHighPressure) < 300) || !(Double.Parse(preLowPressure) > 0 && Double.Parse(preLowPressure) < 300))
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的血压", "Please enter the right blood pressure"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的血压", "Please enter the right blood pressure"));
                 return;
             }
             //康复后心率
             string sufHeartRate = heartRate_2.Text;
             if (preHeartRate.Trim() == "" || !(Int32.Parse(preHeartRate) > 0 && Int32.Parse(preHeartRate) < 200))
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的心率", "Please enter the right heartrate"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的心率", "Please enter the right heartrate"));
                 return;
             }
             int sufPulse = 0;
@@ -111,7 +111,7 @@ namespace spms.view.Pages.ChildWin
             string sufAnimalheat = heat_2.Text;
             if ( preAnimalheat.Trim() == "" || !(Double.Parse(preAnimalheat) < 50 && Double.Parse(preAnimalheat) > 30))
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的体温", "Please enter the right temperature"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的体温", "Please enter the right temperature"));
                 return;
             }
 
@@ -145,7 +145,7 @@ namespace spms.view.Pages.ChildWin
             }
             else
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请选择是否参加", "Please choose whether or not to participate"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择是否参加", "Please choose whether or not to participate"));
                 return;
             }
 
@@ -154,7 +154,7 @@ namespace spms.view.Pages.ChildWin
             string waterInput = amunt.Text;
             if (waterInput.Trim() == "" || Double.Parse(waterInput) < 0)
             {
-                MessageBox.Show(LanguageUtils.ConvertLanguage("请输入正确的摄水量", "Please enter the correct water intake"));
+                MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的摄水量", "Please enter the correct water intake"));
                 return;
             }
 
@@ -195,7 +195,7 @@ namespace spms.view.Pages.ChildWin
             logger.Info("save:" + symptomInfo);
             //存储
             new SymptomService().AddSymptomnInfo(symptomInfo);
-            MessageBox.Show(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
+            MessageBoxX.Info(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
             this.Close();
         }
 
