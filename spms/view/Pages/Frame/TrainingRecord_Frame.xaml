@@ -12,15 +12,12 @@
         <converter:StrengthConverter x:Key="strengconverter"/>
     </Page.Resources>
     <Grid>
-        <TabControl Name="TabControl1" HorizontalAlignment="Left" Height="337" Margin="2.3,8,0,0" VerticalAlignment="Top" Width="948">
+        <TabControl Name="TabControl1" HorizontalAlignment="Left" Height="305" Margin="2.3,8,0,0" VerticalAlignment="Top" Width="948">
             <TabItem Header="{DynamicResource Dev.ChestPress}" Width="115" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="64*"/>
-                        <ColumnDefinition Width="407*"/>
-                    </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="TrainingRecord1" HorizontalAlignment="Left" CanUserAddRows="False" CanUserDeleteRows="False" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" FocusVisualStyle="{x:Null}" IsTabStop="False" KeyboardNavigation.TabNavigation="None" RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="2" Margin="0,0,-12.6,0">
-                        
+
+                    <DataGrid x:Name="TrainingRecord1" HorizontalAlignment="Left" CanUserAddRows="False" CanUserDeleteRows="False" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" FocusVisualStyle="{x:Null}" IsTabStop="False" KeyboardNavigation.TabNavigation="None" RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top" Height="280" Width="943" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" GridLinesVisibility="None" BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="2" Margin="0,0,-12.6,0">
+
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -105,7 +102,7 @@
             </TabItem>
             <TabItem Header="{DynamicResource Dev.Rowing}" Width="115" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="TrainingRecord2" CanUserAddRows="False" CanUserDeleteRows="False" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
+                    <DataGrid x:Name="TrainingRecord2" CanUserAddRows="False" CanUserDeleteRows="False" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="943" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -191,7 +188,11 @@
             </TabItem>
             <TabItem Header="{DynamicResource Dev.TorsoFlexion}" Width="115" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="TrainingRecord3" CanUserAddRows="False" CanUserDeleteRows="False" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" KeyboardNavigation.TabNavigation="None"  SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False"  BorderThickness="0" IsReadOnly="true">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="215*"/>
+                        <ColumnDefinition Width="256*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="TrainingRecord3" CanUserAddRows="False" CanUserDeleteRows="False" HorizontalAlignment="Left" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" KeyboardNavigation.TabNavigation="None"  SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="943" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False"  BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="2" Margin="0,0,-1,-2.24">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -275,11 +276,11 @@
             <TabItem Header="{DynamicResource Dev.LegExtension}" Width="115" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="220*"/>
-                        <ColumnDefinition Width="12*"/>
-                        <ColumnDefinition Width="239*"/>
+                        <ColumnDefinition Width="505*"/>
+                        <ColumnDefinition Width="437*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="TrainingRecord4" HorizontalAlignment="Left" CanUserAddRows="False" CanUserDeleteRows="False" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="3" Margin="0,0,-12.6,0">
+
+                    <DataGrid x:Name="TrainingRecord4" HorizontalAlignment="Left" CanUserAddRows="False" CanUserDeleteRows="False" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="943" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="2" Margin="0,0,-13,-2.24">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -363,7 +364,11 @@
             </TabItem>
             <TabItem Header="{DynamicResource Dev.HorizontalLegPress}" Width="145" IsTabStop="False" FocusVisualStyle="{x:Null}" KeyboardNavigation.TabNavigation="None">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="TrainingRecord5" HorizontalAlignment="Left"  CanUserAddRows="False" CanUserDeleteRows="False" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="65*"/>
+                        <ColumnDefinition Width="877*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="TrainingRecord5" HorizontalAlignment="Left"  CanUserAddRows="False" CanUserDeleteRows="False" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" KeyboardNavigation.TabNavigation="None"  RowHeaderWidth="0" SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="943" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="2" Margin="0,0,-13,-2.24">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -452,7 +457,7 @@
                         <ColumnDefinition Width="20*"/>
                         <ColumnDefinition Width="451*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="TrainingRecord6" HorizontalAlignment="Left" CanUserAddRows="False" CanUserDeleteRows="False" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" KeyboardNavigation.TabNavigation="None"  SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="955" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False"  BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="2" Margin="0,0,-13,0">
+                    <DataGrid x:Name="TrainingRecord6" HorizontalAlignment="Left" CanUserAddRows="False" CanUserDeleteRows="False" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" KeyboardNavigation.TabNavigation="None"  SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="943" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False"  BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="2" Margin="0,0,-13,0">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>

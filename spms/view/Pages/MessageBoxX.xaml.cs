@@ -33,9 +33,9 @@ namespace spms.view.Pages
         public MessageBoxX(EnumNotifyType type, string mes)
         {
             InitializeComponent();
-           // this.Width = SystemParameters.WorkArea.Size.Width * 0.277;
-           // this.Height = this.Width / 2.2;
-           // this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.277;
+            this.Height = this.Width / 2.2;
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.txtMessage.Text = mes;
             this.txtMessage.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
             //type

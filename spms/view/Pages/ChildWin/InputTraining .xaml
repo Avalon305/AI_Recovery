@@ -19,9 +19,9 @@ ResizeMode="CanMinimize"
         </Style>
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="Gray"/>
-            <Setter Property="Padding" Value="6"/>
+            
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Height" Value="40"/>
+            <Setter Property="Height" Value="30"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontFamily" Value="ArialMT"/>
             <Setter Property="HorizontalOffset" Value="0"/>
@@ -224,9 +224,10 @@ ResizeMode="CanMinimize"
                         <Grid.Background>
                             <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
                         </Grid.Background>
-                        <ComboBox Name="com_51" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="80,19,65.4,131" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>
+                        <ComboBox Name="com_51" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="25,30,134,133.4" IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
+                        </ComboBox>
                         <!--<ComboBox Name="com_52" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="10,104,133.8,86" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>-->
-                        <ComboBox Name="com_53" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" IsTabStop="False"  Height="20" Width="50" Margin="113,114,32.4,46" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05"></ComboBox>
+                        <ComboBox Name="com_53" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" IsTabStop="False"  Height="20" Width="50" Margin="50,115,109,48.4" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05"></ComboBox>
 
                     </Grid>
                 </Border>

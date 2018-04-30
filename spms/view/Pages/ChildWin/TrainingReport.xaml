@@ -182,7 +182,7 @@
                 <CheckBox Content="{DynamicResource CreateTrainingReportView.Export}" Name="DocumentInput_Check" IsTabStop="False"/>
             <StackPanel Orientation="Horizontal">
                     <Button Click="Button_Click_OutputDocument" Content="{DynamicResource CreateTrainingReportView.Output}" Width="80" Height="25" IsTabStop="False"  HorizontalAlignment="Left" Margin="0,6,8,-3" Style="{StaticResource Btn}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"/>
-                    <TextBox Name="text_output_document" Width="374" VerticalAlignment="Center"  Height="25"  Margin="0,8,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"></TextBox>
+                    <TextBox Name="text_output_document" Width="396" VerticalAlignment="Center"  Height="25"  Margin="0,8,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"></TextBox>
             </StackPanel>
         </StackPanel>
         <!--结束：文档输出-->

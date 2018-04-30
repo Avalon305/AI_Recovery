@@ -53,16 +53,16 @@
             <!--结束：用户ID和姓名-->
             <!--实施日期-->
             <StackPanel Height="25" Margin="5,0,5,0" Orientation="Horizontal" Width="563">
-                <Label Content="{DynamicResource VitalInfoView.Date}" Height="25" Margin="0,0,0,0" Background="Gray" Foreground="White" Width="80"/>
+                <Label Content="{DynamicResource VitalInfoView.Date}" Height="25" Margin="0,0,3,0" Background="Gray" Foreground="White" Width="80"/>
                 <Border BorderBrush="Gray" BorderThickness="1">
                     <StackPanel Orientation="Horizontal"  >
-                        <Label x:Name="date" Width="125" VerticalContentAlignment="Center" IsEnabled="False" Height="23" BorderBrush="Gray" BorderThickness="0"></Label>
+                        <Label x:Name="date" Width="125" VerticalContentAlignment="Center" IsEnabled="False" Margin="3,0,0,0" Height="23" BorderBrush="Gray" BorderThickness="0"></Label>
                         <Image Source="/view/Images/date.png" Margin="5,5,0,5"></Image>
                     </StackPanel>
                 </Border>
                 <!--<my:DateTimePicker   Margin="3,0,0,-0.2" KeyboardNavigation.TabNavigation="None"  x:Name="date" VerticalAlignment="Top" Height="25" Width="159" />-->
-                <Label Content="{DynamicResource VitalInfoView.TrainInfo}" Height="25" Margin="122,0,0,0" Background="Gray" Foreground="White" Width="80"/>
-                <ComboBox ItemsSource="{Binding TrainDTO,Mode=OneWay}" DisplayMemberPath="DateStr" SelectedValuePath="ID" SelectedItem="{Binding TrainDTO}" Margin="3,0,0,0"  Name="train" Height="25" Width="131" />
+                <Label Content="{DynamicResource VitalInfoView.TrainInfo}" Height="25" Margin="118,0,0,0" Background="Gray" Foreground="White" Width="80"/>
+                <ComboBox Margin="3,0,0,0" ItemsSource="{Binding TrainDTO,Mode=OneWay}" DisplayMemberPath="DateStr" SelectedValuePath="ID" SelectedItem="{Binding TrainDTO}"   Name="train" Height="25" Width="127" />
                 <!--<DatePicker Name="date"  Height="23"  KeyboardNavigation.TabNavigation="None" Margin="3,0,0,0" VerticalAlignment="Bottom" Width="155" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
             </StackPanel>
             <!--<StackPanel Height="25" Margin="10,15,-0.4,0" Orientation="Horizontal">
