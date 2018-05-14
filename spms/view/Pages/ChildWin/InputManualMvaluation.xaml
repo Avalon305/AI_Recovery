@@ -306,7 +306,7 @@
                     <CheckBox Name="time_up_other"  Checked="c25_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
                 </StackPanel>
                 <ComboBox Grid.Row="7" Grid.Column="4" Name="time_up_other_selected" IsEnabled="False" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Padding="0" FontSize="12" Margin="124.8,11,115.2,15" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=time_up_tools}"/>
-                <TextBox Grid.Row="7" Grid.Column="4" Margin="124.8,26,81.2,2" Name="time_up_other_content" FontSize="12" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=time_up_other}"/>
+                <TextBox Grid.Row="7" Grid.Column="4" Margin="124.8,24,81.2,2" Name="time_up_other_content" FontSize="12" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=time_up_other}"/>
                 <TextBox Name="time_up_duty" CaretBrush="Black" Grid.Row="7" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
                 <!--第八行-->
                 <StackPanel Margin="5,5,0,1" Grid.Row="8" Grid.Column="1">
@@ -328,7 +328,7 @@
                     <CheckBox Name="walk5_other"  Checked="c30_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
                 </StackPanel>
                 <ComboBox Grid.Row="8" Grid.Column="4" Name="walk5_tools_selected" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_tools}"/>
-                <TextBox Grid.Row="8" Grid.Column="4" Margin="124.8,26,81.2,2" Name="walk5_other_content" FontSize="12" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_other}"/>
+                <TextBox Grid.Row="8" Grid.Column="4" Margin="124.8,24,81.2,2" Name="walk5_other_content" FontSize="12" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_other}"/>
                 <TextBox Name="walk5_duty" CaretBrush="Black" Grid.Row="8" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
                 <!--第九行-->
                 <StackPanel Margin="5,5,0,1" Grid.Row="9" Grid.Column="1">
@@ -349,7 +349,7 @@
                     <CheckBox Name="walk5_fastest_other"  Checked="c35_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
                 </StackPanel>
                 <ComboBox Grid.Row="9" Grid.Column="4" Name="walk5_fastest_tools_selected"  FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"   Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_fastest_tools}"/>
-                <TextBox Grid.Row="9" Grid.Column="4" Margin="124.8,26,81.2,2" Name="walk5_fastest_other_content"  FontSize="12" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_fastest_other}"/>
+                <TextBox Grid.Row="9" Grid.Column="4" Margin="124.8,24,81.2,2" Name="walk5_fastest_other_content"  FontSize="12" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_fastest_other}"/>
                 <TextBox Name="walk5_fastest_duty" CaretBrush="Black" Grid.Row="9" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
                 <!--第十行-->
                 <StackPanel Margin="5,5,0,1" Grid.Row="10" Grid.Column="1">
@@ -370,7 +370,7 @@
                     <CheckBox Name="walk10_other"  Checked="c40_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
                 </StackPanel>
                 <ComboBox Grid.Row="10" Grid.Column="4" Name="walk10_tools_selected" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"   Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk10_tools}"/>
-                <TextBox Grid.Row="10" Grid.Column="4" Margin="124.8,26,81.2,2" Name="walk10_other_content"  FontSize="12" Padding="0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk10_other}"/>
+                <TextBox Grid.Row="10" Grid.Column="4" Margin="124.8,24,81.2,2" Name="walk10_other_content"  FontSize="12" Padding="0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk10_other}"/>
                 <TextBox Name="walk10_duty" CaretBrush="Black" Grid.Row="10" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
                 <!--第十一行-->
                 <Label  Grid.Row="11" Grid.Column="1" Content="—"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -388,7 +388,7 @@
                     <CheckBox Name="walk6_other"  Checked="c45_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
                 </StackPanel>
                 <ComboBox Grid.Row="11" Grid.Column="4" Name="walk6_tools_selected"  FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"   Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk6_tools}"/>
-                <TextBox Grid.Row="11" Grid.Column="4" Margin="124.8,26,81.2,2" Name="walk6_other_content" Padding="0" FontSize="12" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk6_other}"/>
+                <TextBox Grid.Row="11" Grid.Column="4" Margin="124.8,24,81.2,2" Name="walk6_other_content" Padding="0" FontSize="12" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk6_other}"/>
                 <TextBox Name="walk6_duty" CaretBrush="Black" Grid.Row="11" Grid.Column="5" Margin="0.6,0.5,01,0.5"/>
                 <!--第十二行-->
                 <Label  Grid.Row="12" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -406,7 +406,7 @@
                     <CheckBox Name="step2_other"  Checked="c48_Checked"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
                 </StackPanel>
                 <ComboBox Grid.Row="12" Grid.Column="4" Name="step2_tools_selected"  FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"   Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=step2_tools}"/>
-                <TextBox Grid.Row="12" Grid.Column="4" Margin="124.8,26,81.2,2" Name="step2_other_content" Padding="0"  FontSize="12"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=step2_other}"/>
+                <TextBox Grid.Row="12" Grid.Column="4" Margin="124.8,24,81.2,2" Name="step2_other_content" Padding="0"  FontSize="12"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=step2_other}"/>
                 <TextBox Name="step2_duty" CaretBrush="Black" Grid.Row="12" Grid.Column="5" Margin="0.6,0.4,01,0.5"/>
                 <!--第十三行-->
                 <Label  Grid.Row="13" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>

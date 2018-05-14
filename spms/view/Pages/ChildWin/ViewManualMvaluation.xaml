@@ -323,7 +323,7 @@
                     <CheckBox Name="c25"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
                 </StackPanel>
                 <TextBox Grid.Row="7" Grid.Column="4" Name="comBox3" IsEnabled="False" FontSize="12"  Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c24}"/>
-                <TextBox Grid.Row="7" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text1" IsEnabled="False" Padding="0" FontSize="12"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c25}"/>
+                <TextBox Grid.Row="7" Grid.Column="4" Margin="124.8,24,81.2,2" Name="text1" IsEnabled="False" Padding="0" FontSize="12"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c25}"/>
                 <TextBox Name="time_duty" Grid.Row="7" Grid.Column="5" IsEnabled="False"/>
                 <!--第八行-->
                 <StackPanel Margin="5,5,0,1" Grid.Row="8" Grid.Column="1">
@@ -345,7 +345,7 @@
                     <CheckBox Name="c30"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
                 </StackPanel>
                 <TextBox IsEnabled="False" Grid.Row="8" Grid.Column="4" Name="comBox4" FontSize="12" Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c29}"/>
-                <TextBox Grid.Row="8" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text2" IsEnabled="False" FontSize="12" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c30}"/>
+                <TextBox Grid.Row="8" Grid.Column="4" Margin="124.8,24,81.2,2" Name="text2" IsEnabled="False" FontSize="12" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c30}"/>
                 <TextBox Name="five1_duty" Grid.Row="8" Grid.Column="5" IsEnabled="False"/>
                 <!--第九行-->
                 <StackPanel Margin="5,5,0,1" Grid.Row="9" Grid.Column="1">
@@ -366,7 +366,7 @@
                     <CheckBox Name="c35" FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
                 </StackPanel>
                 <TextBox IsEnabled="False" Grid.Row="9" Grid.Column="4" Name="comBox5"  FontSize="12" Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c34}"/>
-                <TextBox Grid.Row="9" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text3" IsEnabled="False" FontSize="12"  Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c35}"/>
+                <TextBox Grid.Row="9" Grid.Column="4" Margin="124.8,24,81.2,2" Name="text3" IsEnabled="False" FontSize="12"  Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c35}"/>
                 <TextBox Name="five2_duty" Grid.Row="9" Grid.Column="5" IsEnabled="False"/>
                 <!--第十行-->
                 <StackPanel Margin="5,5,0,1" Grid.Row="10" Grid.Column="1">
@@ -387,7 +387,7 @@
                     <CheckBox Name="c40"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
                 </StackPanel>
                 <TextBox IsEnabled="False" Grid.Row="10" Grid.Column="4" Name="comBox6" FontSize="12" Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c39}"/>
-                <TextBox Grid.Row="10" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text4" Padding="0" IsEnabled="False" FontSize="12"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c40}"/>
+                <TextBox Grid.Row="10" Grid.Column="4" Margin="124.8,24,81.2,2" Name="text4" Padding="0" IsEnabled="False" FontSize="12"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c40}"/>
                 <TextBox Name="ten_duty" Grid.Row="10" Grid.Column="5" IsEnabled="False"/>
                 <!--第十一行-->
                 <Label  Grid.Row="11" Grid.Column="1" Content="—"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -405,7 +405,7 @@
                     <CheckBox Name="c45"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
                 </StackPanel>
                 <TextBox IsEnabled="False" Grid.Row="11" Grid.Column="4" Name="comBox7"  FontSize="12" Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c44}"/>
-                <TextBox Grid.Row="11" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text5"  FontSize="12" Padding="0" IsEnabled="False" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c45}"/>
+                <TextBox Grid.Row="11" Grid.Column="4" Margin="124.8,24,81.2,2" Name="text5"  FontSize="12" Padding="0" IsEnabled="False" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c45}"/>
                 <TextBox Name="six_duty" Grid.Row="11" Grid.Column="5" IsEnabled="False"/>
                 <!--第十二行-->
                 <Label  Grid.Row="12" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -423,7 +423,7 @@
                     <CheckBox Name="c48"  FontSize="10" Margin="10,0,185.8,10" Height="14" IsEnabled="False" Content="{DynamicResource PhysicalEvaluationFormView.Other}"></CheckBox>
                 </StackPanel>
                 <TextBox IsEnabled="False" Grid.Row="12" Grid.Column="4" Name="comBox8"  FontSize="12" Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c47}"/>
-                <TextBox Grid.Row="12" Grid.Column="4" Margin="124.8,26,81.2,2" Name="text6"  FontSize="12" Padding="0" IsEnabled="False" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c48}"/>
+                <TextBox Grid.Row="12" Grid.Column="4" Margin="124.8,24,81.2,2" Name="text6"  FontSize="12" Padding="0" IsEnabled="False" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=c48}"/>
                 <TextBox Name="two_duty" Grid.Row="12" Grid.Column="5" IsEnabled="False"/>
                 <!--第十三行-->
                 <Label  Grid.Row="13" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
