@@ -10,7 +10,7 @@
     <s:String x:Key=" App.DbException">数据库连接失败，程序即将退出</s:String>
     
     <!-- 开始界面 -->
-    <s:String x:Key="FormView.Title">宝德龙康复医疗系统</s:String>
+    <s:String x:Key="FormView.Title">宝德龙医疗康复系统</s:String>
     <s:String x:Key="FormView.UserName">用户名:</s:String>
     <s:String x:Key="FormView.Password" xml:space="preserve">密&#160;&#160;&#160;&#160;码:</s:String>
     <s:String x:Key="FormView.LogIn">登录</s:String>
