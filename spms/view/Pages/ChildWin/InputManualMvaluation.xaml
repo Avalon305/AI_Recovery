@@ -194,7 +194,7 @@
 
 
                 <CheckBox Grid.Row="1" Grid.Column="4" IsTabStop="False" Name="height_condition" Margin="9.8,10.2,92.2,0.6" Content="{DynamicResource PhysicalEvaluationFormView.Picture(front/lateral)}"></CheckBox>
-                <TextBox Grid.Row="1" CaretBrush="Black" Grid.Column="5" Name="height_duty" Margin="1,0.5,0.5,0.5"/>
+                <TextBox Grid.Row="1" CaretBrush="Black" TextWrapping="Wrap" Grid.Column="5" Name="height_duty" Margin="1,0.5,0.5,0.5"/>
                 <!--第二行-->
                 <Label Grid.Row="2" Grid.Column="1" Content="—"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
@@ -204,7 +204,7 @@
                 <Label Grid.Row="2" Grid.Column="3" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <CheckBox  Name="weight_condition" Grid.Row="2" Grid.Column="4" IsTabStop="False" Margin="10,9.4,241.2,4.4"  Content="{DynamicResource PhysicalEvaluationFormView.Cloth}"></CheckBox>
                 <TextBox Grid.Row="2" Name="weight_condition_text" Grid.Column="4" Margin="77.8,5.4,58.2,5.4" Padding="0" FontSize="12"  VerticalContentAlignment="Center" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=weight_condition}"/>
-                <TextBox Grid.Row="2" CaretBrush="Black" Grid.Column="5" Name="weight_duty"  Margin="1,0.5,0.5,0.5"/>
+                <TextBox Grid.Row="2" CaretBrush="Black"  TextWrapping="Wrap"  Grid.Column="5" Name="weight_duty"  Margin="1,0.5,0.5,0.5"/>
 
                 <!--第三行-->
                 <Label Grid.Row="3" Grid.Column="1"/>
@@ -225,7 +225,7 @@
                     <CheckBox Name="grid_sit"  Checked="Grid_sit_Checked"  FontSize="10" Height="14" IsTabStop="False" Margin="10,0,185.8,0" Content="{DynamicResource PhysicalEvaluationFormView.Seated}"></CheckBox>
 
                 </StackPanel>
-                <TextBox Grid.Row="3" CaretBrush="Black" Grid.Column="5" Name="grip_duty" Margin="1,0.5,0.5,0.5"/>
+                <TextBox Grid.Row="3" CaretBrush="Black" TextWrapping="Wrap"  Grid.Column="5" Name="grip_duty" Margin="1,0.5,0.5,0.5"/>
                 <!--第四行-->
                 <Label Grid.Row="4" Grid.Column="1"  Content="{DynamicResource PhysicalEvaluationFormView.SupportingLeg}"/>
                 <StackPanel Margin="50,5,120,1" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
@@ -247,7 +247,7 @@
                 </StackPanel>
                 <ComboBox Grid.Row="4" Grid.Column="4" Name="stand_tools_selected" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=stand_toolsupport}" FontSize="12" Margin="124.6,11,115.2,15"/>
                 <ComboBox Grid.Row="4" Grid.Column="4" Name="stand_tools_selected2" Padding="0"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=stand_toolsupport}" FontSize="12" Margin="205.6,11,15.2,15"/>
-                <TextBox Grid.Row="4" CaretBrush="Black" Grid.Column="5" Name="stand_duty" Margin="1,0.5,0.5,0.5"/>
+                <TextBox Grid.Row="4" CaretBrush="Black" TextWrapping="Wrap"  Grid.Column="5" Name="stand_duty" Margin="1,0.5,0.5,0.5"/>
                 <!--第五行-->
                 <CheckBox Grid.Row="5" Name="protrack_twohands" Margin="4,2,1.2,32.6" Checked="Protrack_twohands_Checked" Grid.RowSpan="2" Grid.Column="1" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Bothhands}"></CheckBox>
                 <StackPanel Margin="50,0,116.6,0.8" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" >
@@ -267,7 +267,7 @@
                     <CheckBox Name="protrack_sit"  Checked="Protrack_sit_Checked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.SeatedPosition}"></CheckBox>
 
                 </StackPanel>
-                <TextBox Name="protrack_duty" CaretBrush="Black" Grid.Row="5" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
+                <TextBox Name="protrack_duty" CaretBrush="Black" TextWrapping="Wrap"  Grid.Row="5" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
                 <!--第六行-->
                 <Label Grid.Row="6" Grid.Column="1"  Content="{DynamicResource PhysicalEvaluationFormView.Testing}"/>
                 <StackPanel Margin="50,0,0,0" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" >
@@ -286,7 +286,7 @@
                     <CheckBox  Name="knee_flexure_is" FontSize="10" Checked="c19_Checked"  Height="14" HorizontalAlignment="Left" Width="113" Margin="10,1.5,0,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.KneeFlexion}"></CheckBox>
                     <CheckBox Name="knee_flexure_not"  Checked="c20_Checked"   FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.NoKneeFlexion}"></CheckBox>
                 </StackPanel>
-                <TextBox Name="sitand_reach_duty" CaretBrush="Black" Grid.Row="6" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
+                <TextBox Name="sitand_reach_duty" CaretBrush="Black" TextWrapping="Wrap"  Grid.Row="6" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
                 <!--第七行-->
                 <StackPanel Margin="5,5,0,1" Grid.Row="7" Grid.Column="1" >
                     <CheckBox Name="time_up_base" Margin="0,0,0,0" Checked="c21_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Basic}"></CheckBox>
@@ -307,7 +307,7 @@
                 </StackPanel>
                 <ComboBox Grid.Row="7" Grid.Column="4" Name="time_up_other_selected" IsEnabled="False" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Padding="0" FontSize="12" Margin="124.8,11,115.2,15" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=time_up_tools}"/>
                 <TextBox Grid.Row="7" Grid.Column="4"  Margin="124.8,20,81.2,2" VerticalContentAlignment="Center" Name="time_up_other_content" FontSize="12" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=time_up_other}"/>
-                <TextBox Name="time_up_duty" CaretBrush="Black" Grid.Row="7" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
+                <TextBox Name="time_up_duty" CaretBrush="Black" Grid.Row="7" TextWrapping="Wrap"  Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
                 <!--第八行-->
                 <StackPanel Margin="5,5,0,1" Grid.Row="8" Grid.Column="1">
                     <CheckBox Name="walk5_base" Margin="0,0,0,0" Checked="c26_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Basic}"></CheckBox>
@@ -329,7 +329,7 @@
                 </StackPanel>
                 <ComboBox Grid.Row="8" Grid.Column="4" Name="walk5_tools_selected" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_tools}"/>
                 <TextBox Grid.Row="8" Grid.Column="4"  Margin="124.8,20,81.2,2" VerticalContentAlignment="Center" Name="walk5_other_content" FontSize="12" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_other}"/>
-                <TextBox Name="walk5_duty" CaretBrush="Black" Grid.Row="8" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
+                <TextBox Name="walk5_duty" CaretBrush="Black" Grid.Row="8" TextWrapping="Wrap"  Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
                 <!--第九行-->
                 <StackPanel Margin="5,5,0,1" Grid.Row="9" Grid.Column="1">
                     <CheckBox Name="walk5_fastest_base" Margin="0,0,0,0" Checked="c31_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Basic}"></CheckBox>
@@ -350,7 +350,7 @@
                 </StackPanel>
                 <ComboBox Grid.Row="9" Grid.Column="4" Name="walk5_fastest_tools_selected"  FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"   Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_fastest_tools}"/>
                 <TextBox Grid.Row="9" Grid.Column="4"  Margin="124.8,20,81.2,2" VerticalContentAlignment="Center" Name="walk5_fastest_other_content"  FontSize="12" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk5_fastest_other}"/>
-                <TextBox Name="walk5_fastest_duty" CaretBrush="Black" Grid.Row="9" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
+                <TextBox Name="walk5_fastest_duty" CaretBrush="Black" TextWrapping="Wrap"  Grid.Row="9" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
                 <!--第十行-->
                 <StackPanel Margin="5,5,0,1" Grid.Row="10" Grid.Column="1">
                     <CheckBox Name="walk10_base" Margin="0,0,0,0" Checked="c36_Checked" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Basic}"></CheckBox>
@@ -371,7 +371,7 @@
                 </StackPanel>
                 <ComboBox Grid.Row="10" Grid.Column="4" Name="walk10_tools_selected" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"   Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk10_tools}"/>
                 <TextBox Grid.Row="10" Grid.Column="4"  Margin="124.8,20,81.2,2" VerticalContentAlignment="Center" Name="walk10_other_content"  FontSize="12" Padding="0"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk10_other}"/>
-                <TextBox Name="walk10_duty" CaretBrush="Black" Grid.Row="10" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
+                <TextBox Name="walk10_duty" CaretBrush="Black" TextWrapping="Wrap"  Grid.Row="10" Grid.Column="5" Margin="1,0.5,0.5,0.5"/>
                 <!--第十一行-->
                 <Label  Grid.Row="11" Grid.Column="1" Content="—"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <StackPanel Grid.Row="11" Grid.Column="2" Orientation="Horizontal">
@@ -389,7 +389,7 @@
                 </StackPanel>
                 <ComboBox Grid.Row="11" Grid.Column="4" Name="walk6_tools_selected"  FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"   Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk6_tools}"/>
                 <TextBox Grid.Row="11" Grid.Column="4"  Margin="124.8,20,81.2,2" VerticalContentAlignment="Center" Name="walk6_other_content" Padding="0" FontSize="12" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=walk6_other}"/>
-                <TextBox Name="walk6_duty" CaretBrush="Black" Grid.Row="11" Grid.Column="5" Margin="0.6,0.5,01,0.5"/>
+                <TextBox Name="walk6_duty" CaretBrush="Black" TextWrapping="Wrap"  Grid.Row="11" Grid.Column="5" Margin="0.6,0.5,01,0.5"/>
                 <!--第十二行-->
                 <Label  Grid.Row="12" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <StackPanel Grid.Row="12" Grid.Column="2" Orientation="Horizontal">
@@ -407,7 +407,7 @@
                 </StackPanel>
                 <ComboBox Grid.Row="12" Grid.Column="4" Name="step2_tools_selected"  FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"   Margin="124.8,11,115.2,15" Padding="0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=step2_tools}"/>
                 <TextBox Grid.Row="12" Grid.Column="4"  Margin="124.8,20,81.2,2" VerticalContentAlignment="Center" Name="step2_other_content" Padding="0"  FontSize="12"  Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=step2_other}"/>
-                <TextBox Name="step2_duty" CaretBrush="Black" Grid.Row="12" Grid.Column="5" Margin="0.6,0.4,01,0.5"/>
+                <TextBox Name="step2_duty" CaretBrush="Black" TextWrapping="Wrap"  Grid.Row="12" Grid.Column="5" Margin="0.6,0.4,01,0.5"/>
                 <!--第十三行-->
                 <Label  Grid.Row="13" Grid.Column="1" Content="—" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
@@ -423,7 +423,7 @@
                     <CheckBox  Name="leg2_stand" FontSize="10" Checked="c49_Checked"  Height="14" HorizontalAlignment="Left" Width="123" Margin="10,1.5,0,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Standing}"></CheckBox>
                     <CheckBox Name="leg2_sit"  Checked="c50_Checked"  FontSize="10" Height="14" Margin="10,0,185.8,0" IsTabStop="False" Content="{DynamicResource PhysicalEvaluationFormView.Seated}"></CheckBox>
                 </StackPanel>
-                <TextBox Name="leg2_duty" CaretBrush="Black" Grid.Row="13" Grid.Column="5"  BorderThickness="1,1,2,1" />
+                <TextBox Name="leg2_duty" CaretBrush="Black" TextWrapping="Wrap"  Grid.Row="13" Grid.Column="5"  BorderThickness="1,1,2,1" />
                 <Border Grid.Row="14" Grid.Column="0" Background="LightGray" >
                     <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{DynamicResource PhysicalEvaluationFormView.Subjectcomment}" Grid.Row="0" Grid.Column="0" />
                 </Border>
