@@ -41,6 +41,8 @@ namespace spms.view.Pages.ChildWin
         public SerialPortSelection()
         {
             InitializeComponent();
+            this.Width = SystemParameters.WorkArea.Size.Width * 0.4;
+            this.Height = this.Width / 2.1;
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
