@@ -442,15 +442,16 @@ namespace spms.view.Pages.ChildWin
                         worksheet.Cells[row, 7].Value = list[k].dp_groupcount;
                         worksheet.Cells[row, 8].Value = list[k].dp_groupnum;
                         worksheet.Cells[row, 9].Value = list[k].dp_relaxtime;
-                        if (list[k].PR_Evaluate == "0")
+                        Console.WriteLine(list[k].PR_Evaluate);
+                        if (list[k].PR_Evaluate == 0)
                         {
                             worksheet.Cells[row, 10].Value = LanguageUtils.ConvertLanguage("没问题", "No problem");
                         }
-                        else if (list[k].PR_Evaluate == "1")
+                        else if (list[k].PR_Evaluate == 1)
                         {
                             worksheet.Cells[row, 10].Value = LanguageUtils.ConvertLanguage("有些许问题", "Some problems");
                         }
-                        else if (list[k].PR_Evaluate == "2")
+                        else if (list[k].PR_Evaluate == 2)
                         {
                             worksheet.Cells[row, 10].Value = LanguageUtils.ConvertLanguage("有问题", "Has a problem");
                         }
@@ -716,6 +717,7 @@ namespace spms.view.Pages.ChildWin
                     if (Current_User != null)
                     {
                         List<DevicePrescriptionExcel> list = excelService.ListTrainingDetailByUserId(Current_User.Pk_User_Id);
+                        Console.WriteLine(list.ToString());
                         devicePrescriptionExcels = list;//赋值全局
 
                         List<DateTime?> dateTimes = new List<DateTime?>();

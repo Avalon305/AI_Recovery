@@ -429,7 +429,7 @@ namespace spms.bean
             //砝码
             public double dp_weight { get; set; }
             //注意点，指示
-            public string PR_Evaluate { get; set; }
+            public int PR_Evaluate { get; set; }
 
         }
 
