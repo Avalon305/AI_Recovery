@@ -232,7 +232,7 @@
                         <Label Foreground="White" Padding="4" VerticalContentAlignment="Center" Background="Black" Content="{DynamicResource SettingsView.BackupPath}"></Label>
                     </Border>
                     <Border Grid.Row="6" Grid.Column="1"  Margin="0.2,0,0,1.8">
-                        <TextBox Name="textBox5" VerticalContentAlignment="Center" Text="{Binding Back_Up}"  ></TextBox>
+                        <TextBox Name="textBox5"  VerticalContentAlignment="Center" Text="{Binding Back_Up}"  ></TextBox>
 
                     </Border>
                     <Button  IsTabStop="False" VerticalAlignment="Bottom" Width="102" Height="33" Grid.Row="5" Grid.Column="2" Grid.RowSpan="2" Margin="5,0,0,0" HorizontalAlignment="Left"   Foreground="Black" Content="{DynamicResource SettingsView.Confirm}" Click="Btn_Confirm" Style="{StaticResource Btn}"/>
