@@ -1082,8 +1082,8 @@ namespace spms.view.Pages.ChildWin
 
             com_11.ItemsSource = Add(1, 70, 2);
             //com_12.ItemsSource = Add(0, 30, 1);
-            com_13.ItemsSource = Add(1, 4, 2);
-            com_14.ItemsSource = Add(1, 4, 2);
+            com_13.ItemsSource = Add(1, 6, 2);
+            com_14.ItemsSource = Add(1, 9, 2);
             combobox_11.ItemsSource = Add(1, 3, 2);
             combobox_12.ItemsSource = Add(1, 20, 2);
             combobox_13.ItemsSource = Add(1, 60, 2);
@@ -1976,7 +1976,7 @@ namespace spms.view.Pages.ChildWin
             //com_01.IsEnabled = false;
             com_21.SelectedIndex = 0;
             //com_04.IsEnabled = false;
-            //com_24.SelectedIndex = 0;
+            com_24.SelectedIndex = 0;
             //com_02.IsEnabled = false;
             //com_03.IsEnabled = false;
             com_23.SelectedIndex = 0;
