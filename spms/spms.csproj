@@ -407,7 +407,7 @@
     <Compile Include="view\Pages\Frame\TrainingRecord_Frame.xaml.cs">
       <DependentUpon>TrainingRecord_Frame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\Pages\MainPage.xaml.cs">
+    <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ZscTest.xaml.cs">
@@ -637,7 +637,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="view\Pages\MainPage.xaml">
+    <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
