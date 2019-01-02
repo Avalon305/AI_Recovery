@@ -473,7 +473,7 @@ namespace spms.view.Pages
                                 List<object> excelLists = new List<object>();
                                 foreach (PhysicalPower physicalPower in lists)
                                 {
-                                    excelLists.Add(new PhysicaleExcelVO(physicalPower));
+                                    excelLists.Add(new spms.bean.TrainExcelVO.PhysicaleExcelVO(physicalPower));
                                 }
 
                                 //存放信息导出的列名

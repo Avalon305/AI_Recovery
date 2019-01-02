@@ -19,7 +19,7 @@ ResizeMode="CanMinimize"
         </Style>
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="Gray"/>
-            
+
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Height" Value="30"/>
             <Setter Property="Foreground" Value="White"/>
@@ -156,7 +156,7 @@ ResizeMode="CanMinimize"
 
                 <!--器材图片开始-->
                 <Border Grid.Row="1" Grid.Column="0" Margin="0,3,10,3">
-                    <Grid Margin="0,0,-0.2,10.8">
+                    <Grid Margin="0,0,-0.4,10.6">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="115*"/>
                             <ColumnDefinition Width="78*"/>
@@ -164,10 +164,10 @@ ResizeMode="CanMinimize"
                         <Grid.Background>
                             <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
                         </Grid.Background>
-                        <ComboBox Name="com_01" ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" IsTabStop="False" Margin="10,94,54.7,66" RenderTransformOrigin="0.502,0.5"   IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
+                        <ComboBox Name="com_01" ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" IsTabStop="False" Margin="29,68,45.8,95" RenderTransformOrigin="0.502,0.5"   IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
                         <!--<ComboBox Name="com_02" ToolTip="砝码重量" Height="20" Width="50" IsTabStop="False"  Margin="0,141,66,49"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>-->
-                        <ComboBox Name="com_03" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" Height="20" Width="50" IsTabStop="False"  Margin="66,49,0,111"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}"></ComboBox>
-                        <ComboBox Name="com_04" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" IsTabStop="False"  Margin="0,143,29.2,17"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}" Grid.Column="1"/>
+                        <ComboBox Name="com_03" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" Height="20" Width="50" IsTabStop="False"  Margin="75,37,84.6,126"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}" Grid.ColumnSpan="2"></ComboBox>
+                        <ComboBox Name="com_04" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" IsTabStop="False"  Margin="114,128,45.6,35"  IsEnabled="{Binding IsChecked, ElementName=checkbox1}" Grid.ColumnSpan="2"/>
                     </Grid>
                 </Border>
 
@@ -176,11 +176,11 @@ ResizeMode="CanMinimize"
                         <Grid.Background>
                             <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
                         </Grid.Background>
-                        <ComboBox Name="com_11" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="11,54,133.6,106" IsEnabled="{Binding IsChecked, ElementName=checkbox2}" ></ComboBox>
+                        <ComboBox Name="com_11" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="44,55,115,107.8" IsEnabled="{Binding IsChecked, ElementName=checkbox2}" ></ComboBox>
 
                         <!--<ComboBox Name="com_12" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="0,126,144.6,64" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>-->
-                        <ComboBox Name="com_13" ToolTip="{DynamicResource TrainingListView.TrunkPad}" IsTabStop="False"  Height="20" Width="50" Margin="125,82,20.6,68" RenderTransformOrigin="1.002,-0.44" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
-                        <ComboBox Name="com_14" ToolTip="{DynamicResource TrainingListView.SeatPosition}" IsTabStop="False"  Height="20" Width="50" Margin="95,137,49.6,13" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+                        <ComboBox Name="com_13" ToolTip="{DynamicResource TrainingListView.TrunkPad}" IsTabStop="False"  Height="20" Width="50" Margin="116,28,43,134.8" RenderTransformOrigin="1.002,-0.44" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+                        <ComboBox Name="com_14" ToolTip="{DynamicResource TrainingListView.SeatPosition}" IsTabStop="False"  Height="20" Width="50" Margin="101,117,58,45.8" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
                     </Grid>
 
                 </Border>
@@ -189,10 +189,10 @@ ResizeMode="CanMinimize"
                         <Grid.Background>
                             <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
                         </Grid.Background>
-                        <ComboBox Name="com_21" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}"  Height="20" Width="50" Margin="10,19,135.4,131" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
+                        <ComboBox Name="com_21" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}"  Height="20" Width="50" Margin="49,46,110,116.8" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
                         <!--<ComboBox Name="com_22" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="0,108,145.4,82" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>-->
-                        <ComboBox Name="com_23" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Height="20" Width="50" Margin="122,69,23.4,91" IsEnabled="{Binding IsChecked, ElementName=checkbox3}" RenderTransformOrigin="0.34,1.49"></ComboBox>
-                        <ComboBox Name="com_24" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Height="20" Width="50" Margin="137,22,22,140.8" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
+                        <ComboBox Name="com_23" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Height="20" Width="50" Margin="113,66,46,96.8" IsEnabled="{Binding IsChecked, ElementName=checkbox3}" RenderTransformOrigin="0.34,1.49"></ComboBox>
+                        <ComboBox Name="com_24" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Height="20" Width="50" Margin="29,80,130,82.8" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
 
                     </Grid>
                 </Border>
@@ -201,11 +201,11 @@ ResizeMode="CanMinimize"
                         <Grid.Background>
                             <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
                         </Grid.Background>
-                        <ComboBox Name="com_31" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="10,23,135.4,137" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                        <ComboBox Name="com_31" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="33,45,126,117.8" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
                         <!--<ComboBox Name="com_32" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="0,106,145.4,84" RenderTransformOrigin="-0.672,0.78" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>-->
-                        <ComboBox Name="com_33" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Height="20" Width="50" Margin="70,64,75.4,96" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
-                        <ComboBox Name="com_34" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Height="20" Width="50" Margin="39,133,106.4,27" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
-                        <ComboBox Name="com_35" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="145,96,0.4,60" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                        <ComboBox Name="com_33" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Height="20" Width="50" Margin="73,88,86,74.8" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                        <ComboBox Name="com_34" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Height="20" Width="50" Margin="26,120,133,42.8" IsEnabled="{Binding IsChecked, ElementName=checkbox4}" RenderTransformOrigin="0.321,-0.3"></ComboBox>
+                        <ComboBox Name="com_35" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="149,101,10,61.8" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
                     </Grid>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="4" Margin="10,3,10,3">
@@ -213,9 +213,9 @@ ResizeMode="CanMinimize"
                         <Grid.Background>
                             <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
                         </Grid.Background>
-                        <ComboBox Name="com_41" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="111,20,33.6,140"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
+                        <ComboBox Name="com_41" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="91,55,68,107.8"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
                         <!--<ComboBox Name="com_42" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="41,101,103.6,89" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>-->
-                        <ComboBox Name="com_43" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="135,108,9.6,52" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
+                        <ComboBox Name="com_43" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="109,128,50,34.8" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
 
                     </Grid>
                 </Border>
@@ -224,10 +224,10 @@ ResizeMode="CanMinimize"
                         <Grid.Background>
                             <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
                         </Grid.Background>
-                        <ComboBox Name="com_51" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="25,30,134,133.4" IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
+                        <ComboBox Name="com_51" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="32,44,127.6,119" IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
                         </ComboBox>
                         <!--<ComboBox Name="com_52" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="10,104,133.8,86" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>-->
-                        <ComboBox Name="com_53" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" IsTabStop="False"  Height="20" Width="50" Margin="60,130,99,33.4" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05"></ComboBox>
+                        <ComboBox Name="com_53" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" IsTabStop="False"  Height="20" Width="50" Margin="69,108,90.6,55" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05"></ComboBox>
 
                     </Grid>
                 </Border>
@@ -1072,7 +1072,7 @@ ResizeMode="CanMinimize"
                     <TextBox Name="t1" Height="170" DataContext="{StaticResource ResourceKey=text}" Margin="0,0,10,3"  TextWrapping="Wrap" CaretBrush="Black" IsEnabled="{Binding IsChecked, ElementName=checkbox1}">
                         <TextBox.Text>
                             <Binding Path="Text1"  UpdateSourceTrigger="PropertyChanged">
-                                 <!--自定义的验证规格，当然可以是多个Check--> 
+                                <!--自定义的验证规格，当然可以是多个Check-->
                                 <Binding.ValidationRules>
                                     <local:NameCheck />
                                 </Binding.ValidationRules>
