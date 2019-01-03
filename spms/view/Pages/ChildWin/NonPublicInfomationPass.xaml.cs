@@ -60,11 +60,9 @@ namespace spms.view.Pages.ChildWin
             result = "failed";
             var queryResult =  authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
             string inputPass = password.Password;
-            if (!string.IsNullOrEmpty(inputPass)) {
+            if (!string.IsNullOrEmpty(inputPass)&& !string.IsNullOrEmpty(queryResult.Auth_UserPass)) {
                 if (inputPass == queryResult.Auth_UserPass) {
-                    result = "success";
-                    
-                     
+                    result = "success";                                     
                 }
             }
            
