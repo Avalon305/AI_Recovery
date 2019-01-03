@@ -68,6 +68,7 @@ namespace spms.view.Pages.ChildWin
             }
             else { 
             string value = this.GroupName.Text;
+            Console.WriteLine(value);
             customDataService.InsertCustomData(CustomDataEnum.Group, value);
             this.Close();
             }
