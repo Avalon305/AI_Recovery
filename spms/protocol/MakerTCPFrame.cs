@@ -302,29 +302,32 @@ namespace spms.protocol
                     arr[86] = 0x00;
                     break;
                 case DeviceType.X02:
-                    arr[84] = byte.Parse(attrs[0]);//动臂位置 1-8
-                    arr[85] = 0x00;
+                    arr[84] = byte.Parse(attrs[0]);//手把位置
+                    arr[85] = byte.Parse(attrs[1]);//背椅夹角
                     arr[86] = 0x00;
                     break;
                 case DeviceType.X03:
-                    arr[84] = byte.Parse(attrs[0]);//动臂位置1 1-5
-                    arr[85] = byte.Parse(attrs[1]);//动臂位置2 1-5
-                    arr[86] = byte.Parse(attrs[2]);//座椅位置 1-9
+                    string armPos =  attrs[0] + attrs[1];//动臂位置
+                    arr[84] = byte.Parse(armPos);//动臂位置1和2
+                    arr[85] = byte.Parse(attrs[2]);//靠背位置
+                    arr[86] = byte.Parse(attrs[3]);//把手
                     break;
                 case DeviceType.X04:
-                    arr[84] = byte.Parse(attrs[0]);//动臂位置1 1-4
-                    arr[85] = byte.Parse(attrs[1]);//动臂位置2 1-4
-                    arr[86] = 0x00;
+                    string armPos1 = attrs[0] + attrs[1];//动臂位置
+                    arr[84] = byte.Parse(armPos1);//动臂位置1和2
+                    arr[85] = byte.Parse(attrs[2]);//靠背位置
+                    arr[86] = byte.Parse(attrs[3]);//座椅位置
                     break;
                 case DeviceType.X05:
-                    arr[84] = byte.Parse(attrs[0]);//胸垫位置 1-6
-                    arr[85] = byte.Parse(attrs[1]);//座椅位置 1-9
+                    arr[84] = byte.Parse(attrs[0]);//胸垫位置
+                    arr[85] = byte.Parse(attrs[1]);//动臂位置 
                     arr[86] = 0x00;
                     break;
                 case DeviceType.X06:
-                    arr[84] = byte.Parse(attrs[0]);//胸垫位置 1-6
-                    arr[85] = 0x00;//座椅位置 1-9
-                    arr[86] = 0x00;
+                    arr[84] = byte.Parse(attrs[0]);//座椅位置
+                    arr[85] = byte.Parse(attrs[1]);//动臂位置
+                    string hand = attrs[2] + attrs[3];//手把/脚踏
+                    arr[86] = byte.Parse(hand);
                     break;
             }
         }
