@@ -144,6 +144,8 @@ namespace spms.view.Pages.ChildWin
             combobox_25.IsEnabled = true;
             com_21.IsEnabled = true;
             com_24.IsEnabled = true;
+            com_24_Copy.IsEnabled = true;
+            com_24_Copy1.IsEnabled = true;
             //com_22.IsEnabled = true;
             com_23.IsEnabled = true;
 
@@ -161,6 +163,7 @@ namespace spms.view.Pages.ChildWin
             //com_32.IsEnabled = true;
             com_33.IsEnabled = true;
             com_35.IsEnabled = true;
+            com_35_copy.IsEnabled = true;
         }
 
         private void checkbox5_Checked(object sender, RoutedEventArgs e)
@@ -173,8 +176,9 @@ namespace spms.view.Pages.ChildWin
             com_41.IsEnabled = true;
             //com_42.IsEnabled = true;
             com_43.IsEnabled = true;
-
-
+            com_43_Copy.IsEnabled = true;
+            com_43_Copy1.IsEnabled = true;
+            com_43_Copy2.IsEnabled = true;
         }
 
         private void checkbox6_Checked(object sender, RoutedEventArgs e)
@@ -187,6 +191,7 @@ namespace spms.view.Pages.ChildWin
             com_51.IsEnabled = true;
             //com_52.IsEnabled = true;
             com_53.IsEnabled = true;
+            com_53_Copy.IsEnabled = true;
         }
 
         private void checkbox1_Unchecked(object sender, RoutedEventArgs e)
@@ -261,8 +266,10 @@ namespace spms.view.Pages.ChildWin
             com_21.Text = null;
            // com_24.IsEnabled = false;
             com_24.Text = null;
+            com_24_Copy.Text = null;
+            com_24_Copy1.Text = null;
             //com_22.IsEnabled = false;
-           // com_23.IsEnabled = false;
+            // com_23.IsEnabled = false;
             com_23.Text = null;
             t3.Text = null;
 
@@ -295,6 +302,7 @@ namespace spms.view.Pages.ChildWin
             com_34.Text = null;
             com_33.Text = null;
             com_35.Text = null;
+            com_35_copy.Text = null;
             t4.Text = null;
         }
 
@@ -320,6 +328,9 @@ namespace spms.view.Pages.ChildWin
             combobox_48.Text = null;
             com_41.Text = null;
             com_43.Text = null;
+            com_43_Copy2.Text = null;
+            com_43_Copy1.Text = null;
+            com_43_Copy.Text = null;
             t5.Text = null;
         }
 
@@ -344,6 +355,7 @@ namespace spms.view.Pages.ChildWin
             combobox_58.Text = null;
             com_51.Text = null;
             com_53.Text = null;
+            com_53_Copy.Text = null;
             t6.Text = null;
         }
 
@@ -601,12 +613,16 @@ namespace spms.view.Pages.ChildWin
                 //attr2 = com_22.Text; //2
                 attr3 = com_23.Text; //3
                 attr4 = com_24.Text; //4
+                attr1 = com_24_Copy.Text;
+                attr2 = com_24_Copy1.Text;
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
                 devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
-                                              attr4;
+                                              attr4 + "*" +
+                                              attr1 + "*" +
+                                              attr2;
                 devicePrescription.DP_Memo = t3.Text; //注意点
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
                 devicePrescription.Gmt_Create = DateTime.Now;
@@ -711,6 +727,7 @@ namespace spms.view.Pages.ChildWin
                 attr3 = com_33.Text; //3
                 attr4 = com_34.Text; //4
                 attr5 = com_35.Text; //5
+                attr1 = com_35_copy.Text;
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
@@ -718,7 +735,8 @@ namespace spms.view.Pages.ChildWin
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4 + "*" +
-                                              attr5;
+                                              attr5 + "*" +
+                                              attr1;
                 devicePrescription.DP_Memo = t4.Text; //注意点
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
                 devicePrescription.Gmt_Create = DateTime.Now;
@@ -820,12 +838,18 @@ namespace spms.view.Pages.ChildWin
                 //attr1 = com_41.Text; //属性1
                 //attr2 = com_42.Text; //2
                 attr3 = com_43.Text; //3
+                attr1 = com_43_Copy.Text; //3
+                attr2 = com_43_Copy1.Text; //3
+                attr4 = com_43_Copy2.Text; //3
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
                 devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
-                                              attr3;
+                                              attr3 + "*" +
+                                              attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr4;
                 devicePrescription.DP_Memo = t5.Text; //注意点
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
                 devicePrescription.Gmt_Create = DateTime.Now;
@@ -925,12 +949,14 @@ namespace spms.view.Pages.ChildWin
                 //attr1 = com_51.Text; //属性1
                 //attr2 = com_52.Text; //2
                 attr3 = com_53.Text; //3
+                attr4 = com_53_Copy.Text; //3
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
                 devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
-                                              attr3;
+                                              attr3 + "*" +
+                                              attr4;
                 devicePrescription.DP_Memo = t6.Text; //注意点
                 devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
                 devicePrescription.Gmt_Create = DateTime.Now;
@@ -1082,8 +1108,8 @@ namespace spms.view.Pages.ChildWin
 
             com_11.ItemsSource = Add(1, 43, 2);
             //com_12.ItemsSource = Add(0, 30, 1);
-            com_13.ItemsSource = Add(1, 4, 2);
-            com_14.ItemsSource = Add(1, 8, 2);
+            com_13.ItemsSource = Add(1, 8, 2);
+            com_14.ItemsSource = Add(1, 4, 2);
             combobox_11.ItemsSource = Add(1, 3, 2);
             combobox_12.ItemsSource = Add(1, 20, 2);
             combobox_13.ItemsSource = Add(1, 60, 2);
@@ -1094,6 +1120,8 @@ namespace spms.view.Pages.ChildWin
             //com_22.ItemsSource = Add(0, 30, 1);
             com_23.ItemsSource = Add(1, 6, 2);
             com_24.ItemsSource = Add(1, 5, 2);
+            com_24_Copy.ItemsSource = Add(1, 4, 2);
+            com_24_Copy1.ItemsSource = Add(46, 60, 2);
             combobox_21.ItemsSource = Add(1, 3, 2);
             combobox_22.ItemsSource = Add(1, 20, 2);
             combobox_23.ItemsSource = Add(1, 60, 2);
@@ -1105,6 +1133,7 @@ namespace spms.view.Pages.ChildWin
             com_33.ItemsSource = Add(1, 5, 2);
             com_34.ItemsSource = Add(1, 6, 2);
             com_35.ItemsSource = Add(1, 5, 2);
+            com_35_copy.ItemsSource = Add(1, 2, 2);
             combobox_31.ItemsSource = Add(1, 3, 2);
             combobox_32.ItemsSource = Add(1, 20, 2);
             combobox_33.ItemsSource = Add(1, 60, 2);
@@ -1114,6 +1143,9 @@ namespace spms.view.Pages.ChildWin
             com_41.ItemsSource = Add(1, 50, 2);
             //com_42.ItemsSource = Add(0, 30, 1);
             com_43.ItemsSource = Add(1, 6, 2);
+            com_43_Copy.ItemsSource = Add(1, 5, 2);
+            com_43_Copy1.ItemsSource = Add(1, 2, 2);
+            com_43_Copy2.ItemsSource = Add(1, 3, 2);
             combobox_41.ItemsSource = Add(1, 3, 2);
             combobox_42.ItemsSource = Add(1, 20, 2);
             combobox_43.ItemsSource = Add(1, 60, 2);
@@ -1123,6 +1155,7 @@ namespace spms.view.Pages.ChildWin
             com_51.ItemsSource = Add(1, 20, 2);
             //com_52.ItemsSource = Add(0, 30, 1);
             com_53.ItemsSource = Add(1, 4, 2);
+            com_53_Copy.ItemsSource = Add(0, 30, 2);
             combobox_51.ItemsSource = Add(1, 3, 2);
             combobox_52.ItemsSource = Add(1, 20, 2);
             combobox_53.ItemsSource = Add(1, 60, 2);
@@ -1215,6 +1248,8 @@ namespace spms.view.Pages.ChildWin
                         //com_22.Text = attrs[1];
                         com_23.Text = attrs[0];
                         com_24.Text = attrs[1];
+                        com_24_Copy.Text = attrs[2];
+                        com_24_Copy1.Text = attrs[3];
                         combobox_21.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_22.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_23.Text = devicePrescription.dp_relaxtime.ToString();
@@ -1247,6 +1282,7 @@ namespace spms.view.Pages.ChildWin
                         com_33.Text = attrs[0];
                         com_34.Text = attrs[1];
                         com_35.Text = attrs[2];
+                        com_35_copy.Text = attrs[3];
                         combobox_31.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_32.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_33.Text = devicePrescription.dp_relaxtime.ToString();
@@ -1277,6 +1313,9 @@ namespace spms.view.Pages.ChildWin
                         com_41.Text = devicePrescription.dp_movedistance.ToString();
                         //com_42.Text = attrs[1];
                         com_43.Text = attrs[0];
+                        com_43_Copy.Text = attrs[1];
+                        com_43_Copy1.Text = attrs[2];
+                        com_43_Copy2.Text = attrs[3];
                         combobox_41.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_42.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_43.Text = devicePrescription.dp_relaxtime.ToString();
@@ -1307,6 +1346,7 @@ namespace spms.view.Pages.ChildWin
                         com_51.Text = devicePrescription.dp_movedistance.ToString();
                         //com_52.Text = attrs[1];
                         com_53.Text = attrs[0];
+                        com_53_Copy.Text = attrs[1];
                         combobox_51.Text = devicePrescription.dp_groupcount.ToString();
                         combobox_52.Text = devicePrescription.dp_groupnum.ToString();
                         combobox_53.Text = devicePrescription.dp_relaxtime.ToString();
@@ -1977,6 +2017,8 @@ namespace spms.view.Pages.ChildWin
             com_21.SelectedIndex = 0;
             //com_04.IsEnabled = false;
             com_24.SelectedIndex = 0;
+            com_24_Copy.SelectedIndex = 0;
+            com_24_Copy1.SelectedIndex = 0;
             //com_02.IsEnabled = false;
             //com_03.IsEnabled = false;
             com_23.SelectedIndex = 0;
@@ -2003,6 +2045,7 @@ namespace spms.view.Pages.ChildWin
             com_34.SelectedIndex = 0;
             //com_02.IsEnabled = false;
             com_35.SelectedIndex = 0;
+            com_35_copy.SelectedIndex = 0;
             com_33.SelectedIndex = 0;
             t4.Text = "";
         }
@@ -2028,6 +2071,9 @@ namespace spms.view.Pages.ChildWin
             //com_02.IsEnabled = false;
             //com_03.IsEnabled = false;
             com_43.SelectedIndex = 0;
+            com_43_Copy2.SelectedIndex = 0;
+            com_43_Copy1.SelectedIndex = 0;
+            com_43_Copy.SelectedIndex = 0;
             t5.Text = "";
         }
         private void Checkbox6_OnChecked(object sender, RoutedEventArgs e)
@@ -2051,6 +2097,7 @@ namespace spms.view.Pages.ChildWin
             //com_04.IsEnabled = false;
             //com_02.IsEnabled = false;
             com_53.SelectedIndex = 0;
+            com_53_Copy.SelectedIndex = 0;
             t5.Text = "";
         }
 

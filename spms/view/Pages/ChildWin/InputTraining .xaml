@@ -179,8 +179,8 @@ ResizeMode="CanMinimize"
                         <ComboBox Name="com_11" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="44,55,115,107.8" IsEnabled="{Binding IsChecked, ElementName=checkbox2}" ></ComboBox>
 
                         <!--<ComboBox Name="com_12" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="0,126,144.6,64" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>-->
-                        <ComboBox Name="com_13" ToolTip="{DynamicResource TrainingListView.TrunkPad}" IsTabStop="False"  Height="20" Width="50" Margin="116,28,43,134.8" RenderTransformOrigin="1.002,-0.44" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
-                        <ComboBox Name="com_14" ToolTip="{DynamicResource TrainingListView.SeatPosition}" IsTabStop="False"  Height="20" Width="50" Margin="101,117,58,45.8" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+                        <ComboBox Name="com_13" ToolTip="{DynamicResource TrainingListView.TrunkPad}" IsTabStop="False"  Height="20" Width="50" Margin="62,118,97.2,45.2" RenderTransformOrigin="1.002,-0.44" IsEnabled="{Binding IsChecked, ElementName=checkbox2}"></ComboBox>
+                        <ComboBox Name="com_14" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" IsTabStop="False"  Height="20" Width="50" Margin="125,23,34.2,140.2" IsEnabled="{Binding IsChecked, ElementName=checkbox2}" RenderTransformOrigin="1.1,-4.275"></ComboBox>
                     </Grid>
 
                 </Border>
@@ -193,6 +193,8 @@ ResizeMode="CanMinimize"
                         <!--<ComboBox Name="com_22" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="0,108,145.4,82" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>-->
                         <ComboBox Name="com_23" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Height="20" Width="50" Margin="113,66,46,96.8" IsEnabled="{Binding IsChecked, ElementName=checkbox3}" RenderTransformOrigin="0.34,1.49"></ComboBox>
                         <ComboBox Name="com_24" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Height="20" Width="50" Margin="29,80,130,82.8" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"></ComboBox>
+                        <ComboBox x:Name="com_24_Copy" IsTabStop="False"  ToolTip="{DynamicResource New.BackOfPosition}" Height="20" Width="50" Margin="10,105,149.2,58.2" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
+                        <ComboBox x:Name="com_24_Copy1" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="113,135,46.2,28.2" IsEnabled="{Binding IsChecked, ElementName=checkbox3}"/>
 
                     </Grid>
                 </Border>
@@ -205,7 +207,8 @@ ResizeMode="CanMinimize"
                         <!--<ComboBox Name="com_32" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="0,106,145.4,84" RenderTransformOrigin="-0.672,0.78" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>-->
                         <ComboBox Name="com_33" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Height="20" Width="50" Margin="73,88,86,74.8" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
                         <ComboBox Name="com_34" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Height="20" Width="50" Margin="26,120,133,42.8" IsEnabled="{Binding IsChecked, ElementName=checkbox4}" RenderTransformOrigin="0.321,-0.3"></ComboBox>
-                        <ComboBox Name="com_35" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="149,101,10,61.8" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                        <ComboBox Name="com_35" IsTabStop="False"  ToolTip="{DynamicResource New.BackOfPosition}" Height="20" Width="50" Margin="149,67,10.2,96.2" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
+                        <ComboBox Name="com_35_copy" IsTabStop="False"  ToolTip="{DynamicResource New.Hand}" Height="20" Width="50" Margin="149,133,10.2,30.2" IsEnabled="{Binding IsChecked, ElementName=checkbox4}"></ComboBox>
                     </Grid>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="4" Margin="10,3,10,3">
@@ -215,7 +218,10 @@ ResizeMode="CanMinimize"
                         </Grid.Background>
                         <ComboBox Name="com_41" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="91,55,68,107.8"  IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
                         <!--<ComboBox Name="com_42" IsTabStop="False"  ToolTip="砝码重量" Height="20" Width="50" Margin="41,101,103.6,89" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>-->
-                        <ComboBox Name="com_43" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="109,128,50,34.8" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
+                        <ComboBox Name="com_43" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Height="20" Width="50" Margin="43,140,116.2,23.2" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"></ComboBox>
+                        <ComboBox x:Name="com_43_Copy" IsTabStop="False"  ToolTip="{DynamicResource TrainingListView.AngleOfArm}" Height="20" Width="50" Margin="122,140,37.2,23.2" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
+                        <ComboBox x:Name="com_43_Copy1" IsTabStop="False"  ToolTip="{DynamicResource New.Hand}" Height="20" Width="50" Margin="122,98,37.2,65.2" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
+                        <ComboBox x:Name="com_43_Copy2" IsTabStop="False"  ToolTip="{DynamicResource New.Foot}" Height="20" Width="50" Margin="10,76,149.2,87.2" IsEnabled="{Binding IsChecked, ElementName=checkbox5}"/>
 
                     </Grid>
                 </Border>
@@ -227,7 +233,8 @@ ResizeMode="CanMinimize"
                         <ComboBox Name="com_51" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="32,44,127.6,119" IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
                         </ComboBox>
                         <!--<ComboBox Name="com_52" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="10,104,133.8,86" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>-->
-                        <ComboBox Name="com_53" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" IsTabStop="False"  Height="20" Width="50" Margin="69,108,90.6,55" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05"></ComboBox>
+                        <ComboBox Name="com_53" ToolTip="{DynamicResource New.Hand}" IsTabStop="False"  Height="20" Width="50" Margin="69,108,90.6,55" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05"></ComboBox>
+                        <ComboBox x:Name="com_53_Copy" ToolTip="{DynamicResource New.AngleOfChair}" IsTabStop="False"  Height="20" Width="50" Margin="135,69,24,94.4" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05"/>
 
                     </Grid>
                 </Border>
