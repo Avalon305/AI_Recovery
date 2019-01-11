@@ -2098,7 +2098,7 @@ namespace spms.view.Pages.ChildWin
             //com_02.IsEnabled = false;
             com_53.SelectedIndex = 0;
             com_53_Copy.SelectedIndex = 0;
-            t5.Text = "";
+            t6.Text = "";
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
