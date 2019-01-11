@@ -1321,6 +1321,7 @@ namespace spms.view.Pages.ChildWin
                         combobox_43.Text = devicePrescription.dp_relaxtime.ToString();
                         combobox_44.Text = devicePrescription.dp_weight.ToString();
                         combobox_45.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
+                        //t5.Text = "";好了！！
                         t5.Text = devicePrescription.DP_Memo;
                         if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
                         {
@@ -2074,7 +2075,7 @@ namespace spms.view.Pages.ChildWin
             com_43_Copy2.SelectedIndex = 0;
             com_43_Copy1.SelectedIndex = 0;
             com_43_Copy.SelectedIndex = 0;
-            t5.Text = "";
+           // t5.Text = "";
         }
         private void Checkbox6_OnChecked(object sender, RoutedEventArgs e)
         {
@@ -2098,7 +2099,7 @@ namespace spms.view.Pages.ChildWin
             //com_02.IsEnabled = false;
             com_53.SelectedIndex = 0;
             com_53_Copy.SelectedIndex = 0;
-            t5.Text = "";
+            //t5.Text = "";
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
