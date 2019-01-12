@@ -42,10 +42,10 @@ namespace spms.view.Pages.ChildWin
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             Load_Data();//载入数据
             Certain_Dev();//确定购买了哪些设备
-            HLPAttr1.ItemsSource = Add(0, 43, 2);
+            HLPAttr1.ItemsSource = Add(0, 46, 2);
             //com_02.ItemsSource = Add(0, 30, 2);
             HLPAttr3.ItemsSource = Add(1, 4, 2);
-            HLPAttr4.ItemsSource = Add(1, 8, 2);
+            HLPAttr4.ItemsSource = Add(1, 6, 2);
             RowAttr1.ItemsSource = Add(0, 43, 2);
             //com_12.ItemsSource = Add(0, 30, 1);
             RowAttr3.ItemsSource = Add(1, 4, 2);

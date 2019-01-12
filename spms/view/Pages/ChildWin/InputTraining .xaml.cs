@@ -1096,10 +1096,10 @@ namespace spms.view.Pages.ChildWin
             l2.Content = user.Pk_User_Id;
             var nullTiIdByUserId = new SymptomInfoDao().GetNullTiIdByUserId(user.Pk_User_Id);
             symp.ItemsSource = new SymptomInfoDTO().ConvertDtoList(nullTiIdByUserId);
-            com_01.ItemsSource = Add(1, 43, 2);
+            com_01.ItemsSource = Add(1, 46, 2);
             //com_02.ItemsSource = Add(0, 30, 2);
             com_03.ItemsSource = Add(1, 4, 2);
-            com_04.ItemsSource = Add(1, 8, 2);
+            com_04.ItemsSource = Add(1, 6, 2);
             combobox_01.ItemsSource = Add(1, 3, 2);
             combobox_02.ItemsSource = Add(1, 20, 2);
             combobox_03.ItemsSource = Add(1, 60, 2);
