@@ -1149,7 +1149,7 @@ namespace spms.view.Pages.ChildWin
             combobox_41.ItemsSource = Add(1, 3, 2);
             combobox_42.ItemsSource = Add(1, 20, 2);
             combobox_43.ItemsSource = Add(1, 60, 2);
-            combobox_44.ItemsSource = Add(0.5, 32.0, 1);
+            combobox_44.ItemsSource = Add(0.5, 75.0, 1);
             combobox_45.ItemsSource = dataItems;
 
             com_51.ItemsSource = Add(1, 20, 2);
