@@ -41,7 +41,7 @@
     <s:String x:Key="Dev.Rowing">坐姿划船机</s:String>
     <s:String x:Key="Dev.TorsoFlexion">身体伸展弯曲机</s:String>
     <s:String x:Key="Dev.LegExtension">腿部伸展弯曲机</s:String>
-    <s:String x:Key="Dev.HipAbduction">腿部内外弯机</s:String>
+    <s:String x:Key="Dev.HipAbduction">腿部外弯机</s:String>
     <s:String x:Key="Dev.ChestPress">胸部推举机</s:String>
 
     <!-- 设定界面 -->

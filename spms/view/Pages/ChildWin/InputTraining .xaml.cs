@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -1069,8 +1070,9 @@ namespace spms.view.Pages.ChildWin
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            SetAlignment();
             //去除窗体叉号
-            
+
             this.Width = SystemParameters.WorkArea.Size.Width;
             this.Height = SystemParameters.WorkArea.Size.Height;
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
@@ -1119,7 +1121,7 @@ namespace spms.view.Pages.ChildWin
             com_21.ItemsSource = Add(1, 47, 2);
             //com_22.ItemsSource = Add(0, 30, 1);
             com_23.ItemsSource = Add(1, 6, 2);
-            com_24.ItemsSource = Add(1, 5, 2);
+            com_24.ItemsSource = Add(1, 3, 2);
             com_24_Copy.ItemsSource = Add(1, 4, 2);
             com_24_Copy1.ItemsSource = Add(46, 60, 2);
             combobox_21.ItemsSource = Add(1, 3, 2);
@@ -2123,5 +2125,20 @@ namespace spms.view.Pages.ChildWin
 
         //    }
         //}
+        public static void SetAlignment()
+        {
+            //获取系统是以Left-handed（true）还是Right-handed（false）
+            var ifLeft = SystemParameters.MenuDropAlignment;
+
+            if (ifLeft)
+            {
+                // change to false
+                var t = typeof(SystemParameters);
+                var field = t.GetField("_menuDropAlignment", BindingFlags.NonPublic | BindingFlags.Static);
+                field.SetValue(null, false);
+
+                ifLeft = SystemParameters.MenuDropAlignment;
+            }
+        }
     }
 }
