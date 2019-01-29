@@ -73,6 +73,67 @@ ResizeMode="CanMinimize"
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="tooltipStyle" TargetType="ToolTip">
+            <Setter Property="Background" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="ArialMT"/>
+            <Setter Property="HorizontalOffset" Value="0"/>
+            <Setter Property="Placement" Value="Left"/>
+            <!--<Setter Property="IsOpen" Value="True"/>-->
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToolTip">
+                        <Grid Width="{TemplateBinding Width}" Margin="15,0,0,0" Height="{TemplateBinding Height}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="5*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Viewbox Grid.Row="0" Grid.Column="1" Stretch="Uniform"  HorizontalAlignment="left" Margin="-10,10,0,-35">
+                                <Path Data="M 0,0 0.5,1 0.5,30 Z" Fill="{TemplateBinding Background}" HorizontalAlignment="Left" Height="8.25"  Stretch="Fill" Stroke="{TemplateBinding Background}" VerticalAlignment="Top" Width="15" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="-1"/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Viewbox>
+                            <Border Grid.Row="1" x:Name="Root"  CornerRadius="6" Margin="20,-2,-30,0"  
+                                    Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                                <Border.Resources>
+                                    <Storyboard x:Key="Visible State"/>
+                                    <Storyboard x:Key="Normal State"/>
+                                </Border.Resources>
+                                <ContentPresenter TextBlock.Foreground="White" TextBlock.FontFamily="ArialMT"  
+                              Content="{TemplateBinding Content}"  
+                              ContentTemplate="{TemplateBinding ContentTemplate}"  
+                              Cursor="{TemplateBinding Cursor}"  
+                              Margin="{TemplateBinding Padding}"/>
+                            </Border>
+                        </Grid>
+                        <!--<Border x:Name="Root" CornerRadius="2" BorderThickness="{TemplateBinding BorderThickness}" Background="#FFFFFFFF" BorderBrush="{TemplateBinding BorderBrush}">  
+                            <Border BorderBrush="#FFFFFFFF" BorderThickness="1" CornerRadius="1" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">  
+                                <Border.Resources>  
+                                    <Storyboard x:Key="Visible State"/>  
+                                    <Storyboard x:Key="Normal State"/>  
+                                </Border.Resources>  
+                                <ContentPresenter  
+                              Content="{TemplateBinding Content}"  
+                              ContentTemplate="{TemplateBinding ContentTemplate}"  
+                              Cursor="{TemplateBinding Cursor}"  
+                              Margin="{TemplateBinding Padding}"/>  
+                            </Border>  
+                        </Border>-->
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style TargetType="Border">
             <Setter  Property="BorderBrush" Value="Gray"></Setter>
         </Style>
@@ -233,8 +294,18 @@ ResizeMode="CanMinimize"
                         <ComboBox Name="com_51" ToolTip="{DynamicResource TrainingListView.EndStopper}" IsTabStop="False"  Height="20" Width="50" Margin="32,44,127.6,119" IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
                         </ComboBox>
                         <!--<ComboBox Name="com_52" ToolTip="砝码重量" IsTabStop="False"  Height="20" Width="50" Margin="10,104,133.8,86" IsEnabled="{Binding IsChecked, ElementName=checkbox6}"></ComboBox>-->
-                        <ComboBox Name="com_53" ToolTip="{DynamicResource New.Hand}" IsTabStop="False"  Height="20" Width="50" Margin="65,123,94.6,40" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05"></ComboBox>
-                        <ComboBox x:Name="com_53_Copy" ToolTip="{DynamicResource New.AngleOfChair}" IsTabStop="False"  Height="20" Width="50" Margin="110,87,49.6,76" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05"/>
+                        <ComboBox Name="com_53"  IsTabStop="False"  Height="20" Width="50" Margin="53,100,106.6,63" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05">
+                            <ComboBox.ToolTip>
+                                <ToolTip Style="{StaticResource tooltipStyle}" Content="{DynamicResource New.Hand}"></ToolTip>
+
+                            </ComboBox.ToolTip>
+                        </ComboBox>
+                        <ComboBox x:Name="com_53_Copy"  IsTabStop="False"  Height="20" Width="50" Margin="120,84,39.6,79" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" RenderTransformOrigin="1.04,0.05">
+                            <ComboBox.ToolTip>
+                                <ToolTip Style="{StaticResource tooltipStyle}" Content="{DynamicResource New.AngleOfChair}"></ToolTip>
+                                    
+                            </ComboBox.ToolTip>
+                        </ComboBox>
 
                     </Grid>
                 </Border>
