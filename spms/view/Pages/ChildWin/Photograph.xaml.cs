@@ -105,6 +105,10 @@ namespace spms.view.Pages.ChildWin
         private void btn_photo(object sender, RoutedEventArgs e)
         {
             save.IsEnabled = true;
+            //判断是否参数是0
+            if ((int)vce.ActualWidth==0 || (int)vce.ActualHeight==0) {
+                return;
+            }
             //vce是前台wpfmedia控件的name
             //为避免抓不全的情况，需要在Render之前调用Measure、Arrange
             RenderTargetBitmap bmp = new RenderTargetBitmap((int)vce.ActualWidth,
@@ -149,7 +153,9 @@ namespace spms.view.Pages.ChildWin
         private void SavePic(object sender, RoutedEventArgs e)
         {
             vce.Stop();
-
+            if ((BitmapSource)picResult.Source == null) {
+                return;
+            }
             Bitmap bit = BitmapFromSource((BitmapSource)picResult.Source);
 
             //指定照片尺寸这么大
