@@ -1473,7 +1473,15 @@ namespace spms.view.Pages.ChildWin
                     //检查当前是否有多个串口
                     if (SerialPortUtil.SerialPort == null)
                     {
-                        SerialPortUtil.CheckPort();
+                        string oldPort = CommUtil.GetSettingString("port");
+                        if (CommUtil.GetSettingString("port") == null || CommUtil.GetSettingString("port") == "")
+                        {
+                            SerialPortUtil.CheckPort();
+                        }
+                        else
+                        {
+                            SerialPortUtil.portName = oldPort;
+                        }
                     }
                     else
                     {
@@ -1510,6 +1518,9 @@ namespace spms.view.Pages.ChildWin
                             MessageBoxX.Warning(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"));
                             SerialPortUtil.SerialPort = null;
                             serialPort = null;
+                            // 串口不存在后，重新选择
+                            SerialPortUtil.CheckPort();
+
                             return;
                         }
                     }
@@ -1529,6 +1540,10 @@ namespace spms.view.Pages.ChildWin
                             catch (IOException ex)
                             {
                                 MessageBoxX.Warning(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"));
+
+                                // 串口不存在后，重新选择
+                                SerialPortUtil.CheckPort();
+
                                 return;
                             }
                         }
