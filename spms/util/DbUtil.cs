@@ -35,7 +35,7 @@ namespace spms.util
             DbPassword = ConfigUtil.GetEncrypt("DbPassword","");
             DbUrl = ConfigUtil.GetEncrypt("DbUrl","");
 
-            connstr = string.Format("server={0};user id={1}; password={2}; database={3}; pooling=true", DbUrl, DbUserName, DbPassword, DbName);
+            connstr = string.Format("server={0};user id={1}; password={2}; database={3}; pooling=true;Charset=utf8", DbUrl, DbUserName, DbPassword, DbName);
         }
  
         public static MySqlConnection getConn()

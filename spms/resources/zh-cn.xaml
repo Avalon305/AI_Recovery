@@ -8,6 +8,12 @@
     <s:String x:Key="App.PortOccupy">通信端口被占用，建议重启计算机后再重试！</s:String>
     <s:String x:Key="App.Tips">提示</s:String>
     <s:String x:Key=" App.DbException">数据库连接失败，程序即将退出</s:String>
+
+    <!--2019/1/10新加-->
+    <s:String x:Key="New.Hand">手把位置</s:String>
+    <s:String x:Key="New.AngleOfChair">背椅夹角</s:String>
+    <s:String x:Key="New.BackOfPosition">靠背位置</s:String>
+    <s:String x:Key="New.Foot">脚踏位置</s:String>
     
     <!-- 开始界面 -->
     <s:String x:Key="FormView.Title">宝德龙医疗康复系统</s:String>
@@ -35,7 +41,7 @@
     <s:String x:Key="Dev.Rowing">坐姿划船机</s:String>
     <s:String x:Key="Dev.TorsoFlexion">身体伸展弯曲机</s:String>
     <s:String x:Key="Dev.LegExtension">腿部伸展弯曲机</s:String>
-    <s:String x:Key="Dev.HipAbduction">腿部内外弯机</s:String>
+    <s:String x:Key="Dev.HipAbduction">腿部外弯机</s:String>
     <s:String x:Key="Dev.ChestPress">胸部推举机</s:String>
 
     <!-- 设定界面 -->

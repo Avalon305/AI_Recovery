@@ -80,7 +80,7 @@ namespace spms
                     Dictionary<string, string> param = new Dictionary<string, string>();
                      
                     param.Add("version", CommUtil.GetCurrentVersion());
-                    var result = HttpSender.GET(HttpSender.URL_UPDATE, param);
+                     var result = HttpSender.GET(HttpSender.URL_UPDATE, param);
                     if (string.IsNullOrEmpty(result))
                     {
                         return;
@@ -106,6 +106,7 @@ namespace spms
                 }
                 catch(Exception ex)
                 {
+                    Console.WriteLine(ex.ToString());
                     return;
                 }
 
@@ -148,6 +149,7 @@ namespace spms
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.ToString());
                 }
             });
             bdth.Start();

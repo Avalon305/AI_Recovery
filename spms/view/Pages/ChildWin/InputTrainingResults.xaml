@@ -156,10 +156,10 @@
                                     <Grid.Background>
                                         <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
                                     </Grid.Background>
-                                    <ComboBox Name="HLPAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="46,154,200,141.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="HLPAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="57,119,189,176.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" RenderTransformOrigin="0.728,-0.74"></ComboBox>
                                     <!--<TextBox  Name="HLPAttr2" Height="20" ToolTip="砝码重量" Width="50" Margin="34,208,212,87.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                    <ComboBox Name="HLPAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" Width="50" Margin="61,102,185,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                    <ComboBox Name="HLPAttr4" Height="20" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Width="50" Margin="154,228,92,67.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="HLPAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" Width="50" Margin="115,68,131,227.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="HLPAttr4" Height="20" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Width="50" Margin="163,224,83,71.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                 </Grid>
 
                                 <Grid Margin="30,50,0,0" Width="286" >
@@ -347,10 +347,10 @@
                                     <Grid.Background>
                                         <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
                                     </Grid.Background>
-                                    <ComboBox Name="RowAttr1" ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="66,115,180,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="RowAttr1" ToolTip="{DynamicResource TrainingListView.EndStopper}" Height="20" Width="50" Margin="79,115,167,180.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                     <!--<TextBox Name="RowAttr2" ToolTip="砝码重量" Height="20" Width="50" Margin="50,202,196,93.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                    <ComboBox Name="RowAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.TrunkPad}" Width="50" Margin="174,182,72,113.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                    <ComboBox Name="RowAttr4" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Margin="147,238,99,57.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="RowAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm}" Width="50" Margin="177,54,69,241.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="RowAttr4" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.TrunkPad}" Margin="141,207,105,88.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                 </Grid>
 
 
@@ -542,10 +542,12 @@
                                     <Grid.Background>
                                         <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
                                     </Grid.Background>
-                                    <ComboBox Name="TFAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="TFAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="91,92,155,203.2" RenderTransformOrigin="-1.18,0.73" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                     <!--<TextBox Name="TFAttr2" Height="20" ToolTip="砝码重量" Width="50" Margin="55,191,191,104.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                    <ComboBox Name="TFAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                    <ComboBox Name="TFAttr4" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="TFAttr3" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Width="50" Margin="161,128,85,167.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="TFAttr4" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.AngleOfArm2}" Margin="135,167,111,128.2" RenderTransformOrigin="0.564,0.01" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox x:Name="TFAttr5" Height="20" Width="50" ToolTip="{DynamicResource New.BackOfPosition}" Margin="23,150,223,144.6" RenderTransformOrigin="0.564,0.01" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <ComboBox x:Name="TFAttr6" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.SeatPosition}" Margin="91,226,155,68.6" RenderTransformOrigin="0.564,0.01" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                                 </Grid>
                                 <Grid Margin="30,50,0,0" Width="286" >
                                     <Grid.RowDefinitions>
@@ -732,11 +734,12 @@
                                     <Grid.Background>
                                         <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
                                     </Grid.Background>
-                                    <ComboBox Name="LEAttr1" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.EndStopper}" Margin="107,58,139,237.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="LEAttr1" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.EndStopper}" Margin="74,87,172,208.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                     <!--<TextBox Name="LEAttr2" Height="20"  ToolTip="砝码重量"  Width="50" Margin="24,189,222,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                    <ComboBox Name="LEAttr3" Height="20"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Width="50" Margin="24,102,222,193.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                    <ComboBox Name="LEAttr4" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm2}"  Width="50" Margin="144,240,102,55.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
-                                    <ComboBox Name="LEAttr5" Height="20"  ToolTip="{DynamicResource TrainingListView.SeatPosition}" Width="50" Margin="174,189,72,106.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="LEAttr3" Height="20"  ToolTip="{DynamicResource TrainingListView.AngleOfArm1}" Width="50" Margin="109,162,137,133.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="LEAttr4" Height="20" ToolTip="{DynamicResource TrainingListView.AngleOfArm2}"  Width="50" Margin="50,242,196,53.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="LEAttr5" Height="20"  ToolTip="{DynamicResource New.BackOfPosition}" Width="50" Margin="226,134,20,160.6" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" RenderTransformOrigin="1.128,0.53"></ComboBox>
+                                    <ComboBox x:Name="LEAttr6" Height="20"  ToolTip="{DynamicResource New.Hand}" Width="50" Margin="226,242,20,52.6" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" RenderTransformOrigin="1.128,0.53"/>
                                 </Grid>
 
                                 <Grid Margin="30,50,0,0" Width="286" >
@@ -924,9 +927,12 @@
                                     <Grid.Background>
                                         <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
                                     </Grid.Background>
-                                    <ComboBox Name="HAAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="160,66,86,229.2" RenderTransformOrigin="-0.096,-0.43" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="HAAttr1" Height="20" ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="132,97,114,198.2" RenderTransformOrigin="-0.096,-0.43" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                     <!--<TextBox Name="HAAttr2" Height="20" Width="50" ToolTip="砝码重量"  Margin="78,169,168,126.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>-->
-                                    <ComboBox Name="HAAttr3" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.SeatPosition}"  Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="HAAttr3" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.SeatPosition}"  Margin="82,247,164,47.6" RenderTransformOrigin="0.328,0.47" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox x:Name="HAAttr4" Height="20" Width="50" ToolTip="{DynamicResource TrainingListView.AngleOfArm}"  Margin="173,247,73,47.6" RenderTransformOrigin="0.328,0.47" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <ComboBox x:Name="HAAttr5" Height="20" Width="50" ToolTip="{DynamicResource New.Hand}"  Margin="173,193,73,101.6" RenderTransformOrigin="0.328,0.47" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <ComboBox x:Name="HAAttr6" Height="20" Width="50" ToolTip="{DynamicResource New.Foot}"  Margin="10,159,236,135.6" RenderTransformOrigin="0.328,0.47" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
                                 </Grid>
 
                                 <Grid Margin="30,50,0,0" Width="286" >
@@ -1114,9 +1120,10 @@
                                     <Grid.Background>
                                         <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
                                     </Grid.Background>
-                                    <ComboBox Name="CPAttr1" Height="20"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="130,66,116,229.2" RenderTransformOrigin="-0.188,-0.34" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
+                                    <ComboBox Name="CPAttr1" Height="20"  ToolTip="{DynamicResource TrainingListView.EndStopper}" Width="50" Margin="138,95,108,200.2" RenderTransformOrigin="-0.188,-0.34" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></ComboBox>
                                     <!--<TextBox Name="CPAttr2" ToolTip="砝码重量"  Height="20" Width="50" Margin="47,171,199,124.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"></TextBox>-->
-                                    <ComboBox Name="CPAttr3" ToolTip="{DynamicResource TrainingListView.AngleOfArm}"  Width="50" Height="20" Margin="150,204,96,94.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <ComboBox Name="CPAttr3" ToolTip="{DynamicResource New.Hand}"  Width="50" Height="20" Margin="123,198,123,97.2" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" RenderTransformOrigin="0.152,0.49"/>
+                                    <ComboBox x:Name="CPAttr4" ToolTip="{DynamicResource New.AngleOfChair}"  Width="50" Height="20" Margin="221,138,25,156.6" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" RenderTransformOrigin="0.152,0.49"/>
                                 </Grid>
 
                                 <Grid Margin="30,50,0,0" Width="286" >

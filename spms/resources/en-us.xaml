@@ -7,7 +7,13 @@
     <s:String x:Key="App.PortOccupy">Port is occupied, try reboot your computer!</s:String>
     <s:String x:Key="App.Tips">Tips</s:String>
     <s:String x:Key=" App.DbException">Database connect failed，the program will be exit</s:String>
-    
+
+    <!--2019/1/10新加-->
+    <s:String x:Key="New.Hand">Hand Location</s:String>
+    <s:String x:Key="New.AngleOfChair">Angle Of Chair</s:String>
+    <s:String x:Key="New.BackOfPosition">Back Of Position</s:String>
+    <s:String x:Key="New.Foot">Pedal position</s:String>
+
     <!-- 开始界面 -->
     <s:String x:Key="FormView.Title">Body Strong Medical rehabilitation system</s:String>
     <s:String x:Key="FormView.UserName">UserName</s:String>

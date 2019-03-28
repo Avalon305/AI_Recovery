@@ -59,6 +59,9 @@
     <Reference Include="Dapper.Contrib, Version=1.50.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.Contrib.1.50.0\lib\net45\Dapper.Contrib.dll</HintPath>
     </Reference>
+    <Reference Include="DirectShowLib, Version=2.1.0.1599, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DirectShowLib.1.0.0\lib\DirectShowLib.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetty.Buffers, Version=0.4.7.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetty.Buffers.0.4.7\lib\net45\DotNetty.Buffers.dll</HintPath>
     </Reference>
@@ -407,7 +410,7 @@
     <Compile Include="view\Pages\Frame\TrainingRecord_Frame.xaml.cs">
       <DependentUpon>TrainingRecord_Frame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\Pages\MainPage.xaml.cs">
+    <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ZscTest.xaml.cs">
@@ -637,7 +640,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="view\Pages\MainPage.xaml">
+    <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -660,6 +663,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\KFA-01.png" />
+    <Resource Include="view\Images\KFA-04.png" />
+    <Resource Include="view\Images\KFA-10.png" />
+    <Resource Include="view\Images\KFA-14.png" />
+    <Resource Include="view\Images\KFA-15.png" />
+    <Resource Include="view\Images\KFA-1819.png" />
     <Resource Include="view\Images\open.png" />
     <Resource Include="view\Images\dcu_offline.png" />
     <Resource Include="view\Images\dcu_online.png" />

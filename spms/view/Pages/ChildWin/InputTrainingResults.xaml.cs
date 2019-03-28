@@ -42,29 +42,36 @@ namespace spms.view.Pages.ChildWin
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             Load_Data();//载入数据
             Certain_Dev();//确定购买了哪些设备
-            HLPAttr1.ItemsSource = Add(0, 70, 2);
+            HLPAttr1.ItemsSource = Add(0, 46, 2);
             //com_02.ItemsSource = Add(0, 30, 2);
-            HLPAttr3.ItemsSource = Add(1, 5, 2);
-            HLPAttr4.ItemsSource = Add(1, 9, 2);
-            RowAttr1.ItemsSource = Add(0, 70, 2);
+            HLPAttr3.ItemsSource = Add(1, 4, 2);
+            HLPAttr4.ItemsSource = Add(1, 6, 2);
+            RowAttr1.ItemsSource = Add(0, 43, 2);
             //com_12.ItemsSource = Add(0, 30, 1);
             RowAttr3.ItemsSource = Add(1, 4, 2);
-            RowAttr4.ItemsSource = Add(1, 4, 2);
-            TFAttr1.ItemsSource = Add(0, 40, 2);
+            RowAttr4.ItemsSource = Add(1, 8, 2);
+            TFAttr1.ItemsSource = Add(0, 47, 2);
             //com_22.ItemsSource = Add(0, 30, 1);
             TFAttr3.ItemsSource = Add(1, 6, 2);
-            TFAttr4.ItemsSource = Add(1, 9, 2);
-            LEAttr1.ItemsSource = Add(0, 26, 1);
+            TFAttr4.ItemsSource = Add(1, 5, 2);
+            TFAttr5.ItemsSource = Add(1, 4, 2);
+            TFAttr6.ItemsSource = Add(46, 60, 2);
+            LEAttr1.ItemsSource = Add(0, 47, 2);
             //com_32.ItemsSource = Add(0, 30, 1);
             LEAttr3.ItemsSource = Add(1, 5, 2);
-            LEAttr4.ItemsSource = Add(1, 5, 2);
-            LEAttr5.ItemsSource = Add(1, 9, 2);
+            LEAttr4.ItemsSource = Add(1, 6, 2);
+            LEAttr5.ItemsSource = Add(1, 5, 2);
+            LEAttr6.ItemsSource = Add(1, 2, 2);
             HAAttr1.ItemsSource = Add(0, 50, 2);
             //com_42.ItemsSource = Add(0, 30, 1);
-            HAAttr3.ItemsSource = Add(1, 9, 2);
-            CPAttr1.ItemsSource = Add(0, 18, 2);
+            HAAttr3.ItemsSource = Add(1, 6, 2);
+            HAAttr4.ItemsSource = Add(1, 5, 2);
+            HAAttr5.ItemsSource = Add(1, 2, 2);
+            HAAttr6.ItemsSource = Add(1, 3, 2);
+            CPAttr1.ItemsSource = Add(0, 20, 2);
             //com_52.ItemsSource = Add(0, 30, 1);
-            CPAttr3.ItemsSource = Add(1, 8, 2);
+            CPAttr3.ItemsSource = Add(1, 4, 2);
+            CPAttr4.ItemsSource = Add(0, 30, 2);
             var nullTiIdByUserId = new SymptomInfoDao().GetNullTiIdByUserId(user.Pk_User_Id);
             symp.ItemsSource = new SymptomInfoDTO().ConvertDtoList(nullTiIdByUserId);
         }
@@ -373,8 +380,8 @@ namespace spms.view.Pages.ChildWin
                 DevicePrescription devicePrescription = new DevicePrescription();
                 //string attr1 = RowAttr1.Text;
                 //string attr2 = RowAttr1.Text;
-                string attr3 = RowAttr1.Text;
-                string attr4 = RowAttr1.Text;
+                string attr3 = RowAttr4.Text;
+                string attr4 = RowAttr3.Text;
                 devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
@@ -586,10 +593,14 @@ namespace spms.view.Pages.ChildWin
                 //string attr2 = TFAttr2.Text;
                 string attr3 = TFAttr3.Text;
                 string attr4 = TFAttr4.Text;
+                string attr1 = TFAttr5.Text;
+                string attr2 = TFAttr6.Text;
                 devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
-                                              attr4;
+                                              attr4 + "*" +
+                                              attr1 + "*" +
+                                              attr2;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -798,11 +809,13 @@ namespace spms.view.Pages.ChildWin
                 string attr3 = LEAttr3.Text;
                 string attr4 = LEAttr4.Text;
                 string attr5 = LEAttr5.Text;
+                string attr1 = LEAttr6.Text;
                 devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4 + "*" +
-                                              attr5;
+                                              attr5 + "*" +
+                                              attr1;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -1008,10 +1021,16 @@ namespace spms.view.Pages.ChildWin
                 DevicePrescription devicePrescription = new DevicePrescription();
                 //string attr1 = HAAttr1.Text;
                 //string attr2 = HAAttr2.Text;
-                string attr3 = HAAttr3.Text;
+                string attr1 = HAAttr3.Text;
+                string attr2 = HAAttr4.Text;
+                string attr3 = HAAttr5.Text;
+                string attr4 = HAAttr6.Text;
                 devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
-                                              attr3;
+                                              attr1 + "*" +
+                                              attr2 + "*" +
+                                              attr3 + "*" +
+                                              attr4;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -1219,9 +1238,11 @@ namespace spms.view.Pages.ChildWin
                 //string attr1 = CPAttr1.Text;
                 //string attr2 = CPAttr2.Text;
                 string attr3 = CPAttr3.Text;
+                string attr4 = CPAttr4.Text;
                 devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
-                                              attr3;
+                                              attr3 + "*" +
+                                              attr4;
                 devicePrescription.Gmt_Create = da;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try

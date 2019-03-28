@@ -16,9 +16,9 @@ namespace spms.http
     public class HttpSender
     {
 
-        public static readonly string URLBASE = "http://39.107.77.44:8080/cloud/";
+        public static readonly string URLBASE = "http://49.4.67.157:8080/cloud/";
         //public static readonly string URLBASE = "http://172.20.10.5:8080/cloud/";
-        public static readonly string URL_UPDATE = "http://39.107.77.44:8080/bdl_update/AutoUpdate";
+        public static readonly string URL_UPDATE = "http://49.4.67.157:8080/bdl_update/AutoUpdate";
 
         //私有化空构造
         private HttpSender()
@@ -123,6 +123,7 @@ namespace spms.http
             catch (WebException ex)
             {
                 res = (HttpWebResponse) ex.Response;
+                Console.WriteLine(ex.ToString());
             }
             if(res ==null)
             {
