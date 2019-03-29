@@ -1554,6 +1554,7 @@ namespace spms.view.Pages.ChildWin
                             //清空缓存
                             SerialPortUtil.SerialPort = null;
                             serialPort = null;
+                            CommUtil.UpdateSettingString("port", "");
                             return;
                         }
                         catch (IOException ex)
@@ -1578,6 +1579,7 @@ namespace spms.view.Pages.ChildWin
                             catch (UnauthorizedAccessException ex)
                             {
                                 MessageBoxX.Warning(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"));
+                                CommUtil.UpdateSettingString("port", "");
                                 return;
                             }
                             catch (IOException ex)
@@ -1636,6 +1638,8 @@ namespace spms.view.Pages.ChildWin
                         catch (UnauthorizedAccessException ex)
                         {
                             MessageBoxX.Warning(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"));
+                            // 如果串口被占用，初始化app.config
+                            CommUtil.UpdateSettingString("port", "");
                             return;
                         }
                         catch (IOException ex)
@@ -1659,6 +1663,8 @@ namespace spms.view.Pages.ChildWin
                 {
                     MessageBoxX.Warning(LanguageUtils.ConvertLanguage("设备长时间未应答，请查看是否选对串口，或设备未启动", "The device has not answered for a long time. Check whether the serial port is selected or the device is not started."));
                     Button_Write.IsEnabled = true;
+                    // 如果串口没有给出响应，初始化app.config
+                    CommUtil.UpdateSettingString("port","");
                 }));
                
             }
