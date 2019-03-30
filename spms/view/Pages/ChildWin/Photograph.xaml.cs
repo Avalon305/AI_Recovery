@@ -31,6 +31,7 @@ namespace spms.view.Pages.ChildWin
 
     public partial class Photograph : Window
     {
+        public Boolean existCameras { get; set; }
         //照片的名字
         public string photoName { get; set; }
         //得到用户的名字
@@ -62,6 +63,8 @@ namespace spms.view.Pages.ChildWin
             //获得窗口句柄
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+            //默认有摄像头
+            this.existCameras = true;
         }
 
         // 获取摄像头
@@ -83,6 +86,9 @@ namespace spms.view.Pages.ChildWin
             else
             {
                 MessageBoxX.Info(LanguageUtils.ConvertLanguage("电脑没有安装任何可用摄像头", "Computer does not have any available camera"));
+                //没检测到摄像头。
+                existCameras = false;
+                return;
             }
 
         }
