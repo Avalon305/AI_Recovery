@@ -73,12 +73,25 @@ namespace spms.view.dto
 
             this.Pre_Pressure = symptomInfo.SI_Pre_HighPressure + " / " + symptomInfo.SI_Pre_LowPressure;
             this.Pre_AnimalHeat = symptomInfo.SI_Pre_AnimalHeat;
-            this.Pre_Pulse = symptomInfo.SI_Pre_Pulse == 0 ? LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Regular") : LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Irregular");
+            if (symptomInfo.SI_Pre_Pulse != -1)
+            {
+                this.Pre_Pulse = symptomInfo.SI_Pre_Pulse == 0 ? LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Regular") : LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Irregular");
+            }
+            else
+            {
+                this.Pre_Pulse = "";
+            }
             this.Pre_HeartRate = symptomInfo.SI_Pre_HeartRate;
 
             this.Suf_AnimalHeat = symptomInfo.SI_Suf_AnimalHeat;
             this.Suf_HeartRate = symptomInfo.SI_Suf_HeartRate;
-            this.Suf_Pulse = symptomInfo.SI_Suf_Pulse == 0 ? LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Regular") : LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Irregular");
+            if(symptomInfo.SI_Suf_Pulse != -1) { 
+                this.Suf_Pulse = symptomInfo.SI_Suf_Pulse == 0 ? LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Regular") : LanguageUtils.GetCurrentLanuageStrByKey("VitalInfoView.Irregular");
+            }
+            else
+            {
+                this.Suf_Pulse = "";
+            }
             this.Suf_Pressure = symptomInfo.SI_Suf_HighPressure + " / " + symptomInfo.SI_Suf_LowPressure;
             List<string> inquiryList = new List<string>();
             this.DateStr = symptomInfo.Gmt_Create.ToString();
