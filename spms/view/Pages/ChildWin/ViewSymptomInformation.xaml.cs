@@ -70,10 +70,10 @@ namespace spms.view.Pages.ChildWin
                 rule_1.IsChecked = true;
                 irregular_1.IsChecked = false;
             }
-            else
+            else if(LanguageUtils.EqualsResource(symptomInfoDTO.Pre_Pulse, "VitalInfoView.Irregular"))
             {
-                rule_1.IsChecked = true;
-                irregular_1.IsChecked = false;
+                rule_1.IsChecked = false;
+                irregular_1.IsChecked = true;
             }
 
             heat_1.Text = symptomInfoDTO.Pre_AnimalHeat;
@@ -86,7 +86,7 @@ namespace spms.view.Pages.ChildWin
                 rule_2.IsChecked = true;
                 irregular_2.IsChecked = false;
             }
-            else
+            else if (LanguageUtils.EqualsResource(symptomInfoDTO.Pre_Pulse, "VitalInfoView.Irregular"))
             {
                 rule_2.IsChecked = false;
                 irregular_2.IsChecked = true;

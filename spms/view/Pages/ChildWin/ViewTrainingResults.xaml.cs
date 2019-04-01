@@ -542,6 +542,10 @@ namespace spms.view.Pages.ChildWin
         }
         private String StrengthConverter(String value)
         {
+            if(value == "")
+            {
+                return "";
+            }
             int reValue = System.Convert.ToInt32(value);
             if (reValue == 1 || reValue == 2)
             {
