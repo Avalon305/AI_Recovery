@@ -6,6 +6,7 @@ using spms.service;
 using spms.util;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -59,35 +60,42 @@ namespace spms.protocol
                     break;
                 case MsgId.X0002://心跳OK
                     logger.Info("收到心跳：" + ProtocolUtil.BytesToString(source));
+                    WriteLogFile("收到心跳：" + ProtocolUtil.BytesToString(source));
                     HandleHeartBeat(ref response, frameBean);
                     break;
                 case MsgId.X0008://开始训练
                     logger.Info("收到开始训练请求：" + ProtocolUtil.BytesToString(source));
+                    WriteLogFile("收到开始训练请求：" + ProtocolUtil.BytesToString(source));
                     HandleStartPrictice(ref response, frameBean);
                     break;
                 case MsgId.X0009://训练结果上报
                     logger.Info("收到训练结果上报：" + ProtocolUtil.BytesToString(source));
+                    WriteLogFile("收到训练结果上报：" + ProtocolUtil.BytesToString(source));
                     byte[] dd = MakerTCPFrame.GetInstance().Make8001Frame(serialNo, MsgId.X0001, CommResponse.Success);
                     response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, frameBean.TerminalId, dd);
                     HandlePricticeResult(ref response, frameBean);
                     break;
                 case MsgId.X000A://请求使用者信息
                     logger.Info("收到请求使用者信息：" + ProtocolUtil.BytesToString(source));
+                    WriteLogFile("收到请求使用者信息：" + ProtocolUtil.BytesToString(source));
 
                     HandleRequestUserInfo(ref response, frameBean);
                     break;
                 case MsgId.X0007://请求照片数据OK
                     logger.Info("收到请求照片数据OK：" + ProtocolUtil.BytesToString(source));
+                    WriteLogFile("收到请求照片数据OK：" + ProtocolUtil.BytesToString(source));
                     HandleRequestImageData(ref response, frameBean);
                     break;
                 default:
                     logger.Error("收到未知消息：" + ProtocolUtil.BytesToString(source));
+                    WriteLogFile("收到未知消息：" + ProtocolUtil.BytesToString(source));
                     frameBean.AppendErrorMsg("未知的消息ID");
                     byte[] d = MakerTCPFrame.GetInstance().Make8001Frame(serialNo, MsgId.X0001, CommResponse.UnSupport);
                     response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, frameBean.TerminalId, d);
                     break;
             }
             logger.Info("响应的报文：" + ProtocolUtil.BytesToString(response));
+            WriteLogFile("响应的报文：" + ProtocolUtil.BytesToString(response));
             return response;
         }
         /// <summary>
@@ -185,6 +193,30 @@ namespace spms.protocol
             response = MakerTCPFrame.GetInstance().PackData(MsgId.X8001, frameBean.TerminalId, data);
 
         }
+        //直接写入文件而不是走日志，测试时候使用，会降低性能，发布时去掉
+        private void WriteLogFile(string content) {
+            //string path = Directory.GetCurrentDirectory() + "\\logDebug\\netty.txt";
+            string path = @"D:\nettyLog.log";
+            if (!File.Exists(path)) {
+                //System.IO.File.WriteAllText(path, "临时日志文件，可以删除！", Encoding.UTF8);
+                File.Create(path);
+            }
+            try {
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
+                {
+                   
+                    //file.Write(line);//直接追加文件末尾，不换行
+                    file.WriteLine(DateTime.Now.ToString() +"--->" +content);// 直接追加文件末尾，换行 
+                }
+            } catch (System.IO.IOException e) {
+                if (!File.Exists(path))
+                {
+                    //System.IO.File.WriteAllText(path, "临时日志文件，可以删除！", Encoding.UTF8);
+                    File.Create(@"D:\nettyLog.log");
+                }
+            }
+          
+            }
 
         /// <summary>
         /// 内部类，辅助解析各种设备上报

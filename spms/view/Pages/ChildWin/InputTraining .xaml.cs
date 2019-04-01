@@ -1428,6 +1428,7 @@ namespace spms.view.Pages.ChildWin
         int times = 0;//发送次数
         private static bool isReceive = false;//是否收到回执
         private SerialPort serialPort;
+        //写卡的正式方法
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             try
@@ -1611,6 +1612,112 @@ namespace spms.view.Pages.ChildWin
                 logger.Error("写卡异常");
             }
            
+
+            //保存到数据库,在接收数据方法中
+            //SaveTrainInfo2DB(TrainInfoStatus.Normal);
+            //MessageBox.Show("已写卡");
+            //this.Close();
+        }
+        // 本机写卡使用方法
+        private void ButtonBase_OnClick1(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //写卡
+                TrainInfo trainInfo = new TrainService().GetTrainInfoByUserIdAndStatus(user.Pk_User_Id, (int)TrainInfoStatus.Normal);
+                if (trainInfo != null)
+                {
+                    //MessageBox.Show(LanguageUtils.ConvertLanguage("是否覆盖", "Whether or not to cover"));
+
+                    //MessageBoxResult dr = MessageBox.Show(LanguageUtils.ConvertLanguage("是否覆盖", "Whether or not to cover?"), LanguageUtils.ConvertLanguage("提示", "Point"), MessageBoxButton.OKCancel,
+                    //    MessageBoxImage.Question);
+                    //if (dr == MessageBoxResult.Cancel)
+                    //{
+                    //    return;
+                    //}
+                    if (!MessageBoxX.Question(LanguageUtils.ConvertLanguage("是否覆盖", "Whether or not to cover?")))
+                    {
+                        return;
+                    }
+                }
+
+                if (user != null)
+                {
+                    byte[] data = new byte[90];
+                    //用户id
+                    string str = new UserService().getUserByUserId(user.Pk_User_Id).User_IDCard + "";
+                    byte[] idBytes = Encoding.ASCII.GetBytes(str);
+                    Array.Copy(idBytes, 0, data, 0, idBytes.Length);
+
+                    //用户名
+                    byte[] nameBytes = Encoding.GetEncoding("GBK").GetBytes(user.User_Name);
+                    Array.Copy(nameBytes, 0, data, 32, nameBytes.Length);
+                    //拼音
+                    byte[] pingYinBytes = Encoding.ASCII.GetBytes(user.User_Namepinyin);
+                    Array.Copy(pingYinBytes, 0, data, 52, pingYinBytes.Length);
+
+                    int position = 84;
+                    //设备
+                    if (checkbox1.IsChecked == true)
+                    {
+                        //胸部推举机0x01
+                        data[position] = (byte)DeviceType.X01;
+                        position += 1;
+                    }
+
+                    if (checkbox2.IsChecked == true)
+                    {
+                        //坐姿划船机 0x05
+                        data[position] = (byte)DeviceType.X05;
+                        position += 1;
+                    }
+
+                    if (checkbox3.IsChecked == true)
+                    {
+                        //身体伸展弯曲机 0x04
+                        data[position] = (byte)DeviceType.X04;
+                        position += 1;
+                    }
+
+                    if (checkbox4.IsChecked == true)
+                    {
+                        //腿部伸展弯曲机 0x03
+                        data[position] = (byte)DeviceType.X03;
+                        position += 1;
+                    }
+
+                    if (checkbox5.IsChecked == true)
+                    {
+                        //胸部推举机 0x06
+                        data[position] = (byte)DeviceType.X06;
+                        position += 1;
+                    }
+
+                    if (checkbox6.IsChecked == true)
+                    {
+                        //腿部内外弯机 0x02
+                        data[position] = (byte)DeviceType.X02;
+                    }
+
+                    //Console.WriteLine("发卡的内容：" + ProtocolUtil.ByteToStringOk(data));
+                    logger.Debug("发卡的内容：" + ProtocolUtil.ByteToStringOk(data));
+
+                   
+
+                    //发送的定时器
+                    Button_Write.IsEnabled = false;
+                    times = 0;//发送之前次数至空
+
+                    SaveTrainInfo2DB(TrainInfoStatus.Normal);
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("写卡成功", "Write card success"));
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("写卡异常");
+                logger.Error("写卡异常");
+            }
+
 
             //保存到数据库,在接收数据方法中
             //SaveTrainInfo2DB(TrainInfoStatus.Normal);

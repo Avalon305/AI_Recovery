@@ -176,9 +176,9 @@ namespace spms.protocol
             TrainService trainService =  new TrainService();
             byte[] arr;
 
-            //获取处方信息,已完成的，先判断这个
+            //获取处方信息，先判断这个用户的这台设备在本次处方中是不是做完了  设备状态完成  计划单状态在进行（如果完成了，没有新训练计划会咋样），用户id，设备类型
             var down = trainService.GetDevicePrescriptionByIdCardDeviceType(idcard, deviceType, (byte)DevicePrescription.DOWN);
-
+            //如果做完了，给用户反馈做完了，还有哪些没做
             if (down != null)
             {
                 var undoList = trainService.ListUndoDevicePrescriptionByUserId(idcard);
@@ -194,10 +194,11 @@ namespace spms.protocol
                 }
                 return arr;
             }
-
+            //如果等于null  则继续下方的逻辑，说明这个单子中该设备还没做，返回该设备对应的信息
 
             //获取处方信息
             var prescription = trainService.GetDevicePrescriptionByIdCardDeviceType(idcard, deviceType,(byte)DevicePrescription.UNDO);
+
             if (prescription != null)
             {
                logger.Info("用户ID为："+idcard+";deviceType为:"+deviceType.ToString()+"；的获取到处方信息：" + prescription.ToString());
@@ -216,6 +217,7 @@ namespace spms.protocol
             }
             if (prescription == null)
             {
+                //如果没有设备的未做的训练计划，返回其他应该做的设备的训练计划
                 var undoList = trainService.ListUndoDevicePrescriptionByUserId(idcard);
                 arr = new byte[2 + undoList.Count];
 
@@ -230,7 +232,7 @@ namespace spms.protocol
                 return arr;
             }
             
-
+            //有这个设备的训练计划，查询返回
             arr = new byte[87];
             arr[0] = (byte)deviceType;
             arr[1] = 0x00;//有训练内容
