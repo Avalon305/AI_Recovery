@@ -11,6 +11,12 @@ namespace spms.entity
     [Table("bdl_traininfo")]
     public class TrainInfo
     {
+        //状态常量   0没做  1 保存   2做完了   3废弃了
+        public static byte? UNDO = 0;
+        public static byte? SAVED = 1;
+        public static byte? DOWN = 2;
+        public static byte? DISCARD = 3;
+
         //主键 自增
         [Key]
         public int Pk_TI_Id { get; set; }
@@ -32,9 +38,11 @@ namespace spms.entity
     [Table("bdl_deviceprescription")]
     public class DevicePrescription
     {
-        //状态常量 1做了  0没做
-        public static byte? UNDO = 0;
-        public static byte? DOWN = 1;
+        ////状态常量   0没做  1 保存   2做完了   3废弃了
+        //public static byte? UNDO = 0;
+        //public static byte? SAVED = 1;
+        //public static byte? DOWN = 2;
+        //public static byte? DISCARD = 3;
         //主键 自增
         [Key]
         public int Pk_DP_Id { get; set; }

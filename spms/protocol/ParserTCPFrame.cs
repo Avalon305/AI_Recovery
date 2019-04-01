@@ -191,6 +191,7 @@ namespace spms.protocol
         /// </summary>
         class ParserPricticeResult
         {
+            private Logger logger = LogManager.GetCurrentClassLogger();
             /// <summary>
             /// 胸部推举机上报解析
             /// </summary>
