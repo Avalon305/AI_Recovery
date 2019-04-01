@@ -65,7 +65,7 @@ namespace spms.view.Pages.ChildWin
             //康复前心率
             string preHeartRate = heartRate_1.Text;
             //康复前脉
-            int prePulse = 0;
+            int prePulse = -1;
             if (rule_1.IsChecked == true)
             {//规律脉
                 prePulse = 0;
@@ -98,7 +98,7 @@ namespace spms.view.Pages.ChildWin
                 MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的心率", "Please enter the right heartrate"));
                 return;
             }
-            int sufPulse = 0;
+            int sufPulse = -1;
             if (rule_2.IsChecked == true)
             {//规律脉
                 sufPulse = 0;

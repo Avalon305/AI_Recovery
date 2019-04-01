@@ -58,38 +58,53 @@ namespace spms.view.Pages.ChildWin
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
             //date.DateTime = symptomInfoDTO.Create;
-;           
+            ;
             //实施日期
             date.Content = symptomInfoDTO.Create.ToString();
-            
-            bloodlow_1.Text = symptomInfoDTO.Pre_Pressure.Split(new char[] {'/'})[1].Trim();
-            bloodhight_1.Text = symptomInfoDTO.Pre_Pressure.Split(new char[] {'/'})[0].Trim();
+
+            bloodlow_1.Text = symptomInfoDTO.Pre_Pressure.Split(new char[] { '/' })[1].Trim();
+            bloodhight_1.Text = symptomInfoDTO.Pre_Pressure.Split(new char[] { '/' })[0].Trim();
             heartRate_1.Text = symptomInfoDTO.Pre_HeartRate;
-            if (LanguageUtils.EqualsResource(symptomInfoDTO.Pre_Pulse, "VitalInfoView.Regular"))
+            
+            if (!symptomInfoDTO.Pre_Pulse.Equals(""))
             {
-                rule_1.IsChecked = true;
-                irregular_1.IsChecked = false;
-            }
-            else if(LanguageUtils.EqualsResource(symptomInfoDTO.Pre_Pulse, "VitalInfoView.Irregular"))
+                if (LanguageUtils.EqualsResource(symptomInfoDTO.Pre_Pulse, "VitalInfoView.Regular"))
+                {
+                    rule_1.IsChecked = true;
+                    irregular_1.IsChecked = false;
+                }
+                else if (LanguageUtils.EqualsResource(symptomInfoDTO.Pre_Pulse, "VitalInfoView.Irregular"))
+                {
+                    rule_1.IsChecked = false;
+                    irregular_1.IsChecked = true;
+                }
+            } else
             {
                 rule_1.IsChecked = false;
-                irregular_1.IsChecked = true;
+                irregular_1.IsChecked = false;
             }
 
             heat_1.Text = symptomInfoDTO.Pre_AnimalHeat;
 
-            bloodlow_2.Text = symptomInfoDTO.Suf_Pressure.Split(new char[] {'/'})[1].Trim();
-            bloodhight_2.Text = symptomInfoDTO.Suf_Pressure.Split(new char[] {'/'})[0].Trim();
+            bloodlow_2.Text = symptomInfoDTO.Suf_Pressure.Split(new char[] { '/' })[1].Trim();
+            bloodhight_2.Text = symptomInfoDTO.Suf_Pressure.Split(new char[] { '/' })[0].Trim();
             heartRate_2.Text = symptomInfoDTO.Suf_HeartRate;
-            if (LanguageUtils.EqualsResource(symptomInfoDTO.Suf_Pulse, "VitalInfoView.Regular"))
-            {
-                rule_2.IsChecked = true;
-                irregular_2.IsChecked = false;
-            }
-            else if (LanguageUtils.EqualsResource(symptomInfoDTO.Pre_Pulse, "VitalInfoView.Irregular"))
+            if (!symptomInfoDTO.Suf_Pulse.Equals("")) {
+
+                if (LanguageUtils.EqualsResource(symptomInfoDTO.Suf_Pulse, "VitalInfoView.Regular"))
+                {
+                    rule_2.IsChecked = true;
+                    irregular_2.IsChecked = false;
+                } else if(LanguageUtils.EqualsResource(symptomInfoDTO.Suf_Pulse, "VitalInfoView.Irregular"))
+                {
+                    rule_2.IsChecked = false;
+                    irregular_2.IsChecked = true;
+                }
+            }else
             {
                 rule_2.IsChecked = false;
-                irregular_2.IsChecked = true;
+                irregular_2.IsChecked = false;
+
             }
 
             heat_2.Text = symptomInfoDTO.Suf_AnimalHeat;
