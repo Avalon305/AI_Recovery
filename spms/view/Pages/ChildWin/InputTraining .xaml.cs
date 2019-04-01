@@ -1516,7 +1516,15 @@ namespace spms.view.Pages.ChildWin
                     //检查当前是否有多个串口
                     if (SerialPortUtil.SerialPort == null)
                     {
-                        SerialPortUtil.CheckPort();
+                        string oldPort = CommUtil.GetSettingString("port");
+                        if (CommUtil.GetSettingString("port") == null || CommUtil.GetSettingString("port") == "")
+                        {
+                            SerialPortUtil.CheckPort();
+                        }
+                        else
+                        {
+                            SerialPortUtil.portName = oldPort;
+                        }
                     }
                     else
                     {
@@ -1546,6 +1554,7 @@ namespace spms.view.Pages.ChildWin
                             //清空缓存
                             SerialPortUtil.SerialPort = null;
                             serialPort = null;
+                            CommUtil.UpdateSettingString("port", "");
                             return;
                         }
                         catch (IOException ex)
@@ -1553,6 +1562,9 @@ namespace spms.view.Pages.ChildWin
                             MessageBoxX.Warning(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"));
                             SerialPortUtil.SerialPort = null;
                             serialPort = null;
+                            // 串口不存在后，重新选择
+                            SerialPortUtil.CheckPort();
+
                             return;
                         }
                     }
@@ -1567,11 +1579,16 @@ namespace spms.view.Pages.ChildWin
                             catch (UnauthorizedAccessException ex)
                             {
                                 MessageBoxX.Warning(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"));
+                                CommUtil.UpdateSettingString("port", "");
                                 return;
                             }
                             catch (IOException ex)
                             {
                                 MessageBoxX.Warning(LanguageUtils.ConvertLanguage("串口不存在", "Serial port does not exist"));
+
+                                // 串口不存在后，重新选择
+                                SerialPortUtil.CheckPort();
+
                                 return;
                             }
                         }
@@ -1584,7 +1601,8 @@ namespace spms.view.Pages.ChildWin
                     Button_Write.IsEnabled = false;
                     times = 0;//发送之前次数至空
                     threadTimer = new Timer(new System.Threading.TimerCallback(ReissueThreeTimes), send, 500, 500);
-
+                    //SaveTrainInfo2DB(TrainInfoStatus.Normal);
+                    //MessageBoxX.Info(LanguageUtils.ConvertLanguage("写卡成功", "Write card success"));
                 }
             }
             catch (Exception ex)
@@ -1620,6 +1638,8 @@ namespace spms.view.Pages.ChildWin
                         catch (UnauthorizedAccessException ex)
                         {
                             MessageBoxX.Warning(LanguageUtils.ConvertLanguage("串口被占用", "Serial port is occupied"));
+                            // 如果串口被占用，初始化app.config
+                            CommUtil.UpdateSettingString("port", "");
                             return;
                         }
                         catch (IOException ex)
@@ -1643,6 +1663,8 @@ namespace spms.view.Pages.ChildWin
                 {
                     MessageBoxX.Warning(LanguageUtils.ConvertLanguage("设备长时间未应答，请查看是否选对串口，或设备未启动", "The device has not answered for a long time. Check whether the serial port is selected or the device is not started."));
                     Button_Write.IsEnabled = true;
+                    // 如果串口没有给出响应，初始化app.config
+                    CommUtil.UpdateSettingString("port","");
                 }));
                
             }
@@ -1770,23 +1792,23 @@ namespace spms.view.Pages.ChildWin
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
 
-            //保存到数据库,在接收数据方法中
-            try
-            {
-                SaveTrainInfo2DB(TrainInfoStatus.Normal);
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine("捕获异常了");
-                return;
-            }
+        //    //保存到数据库,在接收数据方法中
+        //    try
+        //    {
+        //        SaveTrainInfo2DB(TrainInfoStatus.Normal);
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        Console.WriteLine("捕获异常了");
+        //        return;
+        //    }
 
-            MessageBoxX.Info(LanguageUtils.ConvertLanguage("写卡成功", "Write card success"));
-            this.Close();
-        }
+        //    MessageBoxX.Info(LanguageUtils.ConvertLanguage("写卡成功", "Write card success"));
+        //    this.Close();
+        //}
         //回车按钮
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
         {

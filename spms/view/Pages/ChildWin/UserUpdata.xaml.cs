@@ -450,6 +450,11 @@ namespace spms.view.Pages.ChildWin
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
+            //如果不存在摄像头，不必打开界面
+            if (!photograph.existCameras)
+            {
+                return;
+            }
 
             photograph.getName = t3.Text;
             photograph.id = IDCard.Text;

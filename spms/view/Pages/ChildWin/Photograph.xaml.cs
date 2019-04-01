@@ -31,6 +31,7 @@ namespace spms.view.Pages.ChildWin
 
     public partial class Photograph : Window
     {
+        public Boolean existCameras { get; set; }
         //照片的名字
         public string photoName { get; set; }
         //得到用户的名字
@@ -62,6 +63,8 @@ namespace spms.view.Pages.ChildWin
             //获得窗口句柄
             var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+            //默认有摄像头
+            this.existCameras = true;
         }
 
         // 获取摄像头
@@ -83,6 +86,9 @@ namespace spms.view.Pages.ChildWin
             else
             {
                 MessageBoxX.Info(LanguageUtils.ConvertLanguage("电脑没有安装任何可用摄像头", "Computer does not have any available camera"));
+                //没检测到摄像头。
+                existCameras = false;
+                return;
             }
 
         }
@@ -105,6 +111,10 @@ namespace spms.view.Pages.ChildWin
         private void btn_photo(object sender, RoutedEventArgs e)
         {
             save.IsEnabled = true;
+            //判断是否参数是0
+            if ((int)vce.ActualWidth==0 || (int)vce.ActualHeight==0) {
+                return;
+            }
             //vce是前台wpfmedia控件的name
             //为避免抓不全的情况，需要在Render之前调用Measure、Arrange
             RenderTargetBitmap bmp = new RenderTargetBitmap((int)vce.ActualWidth,
@@ -149,7 +159,9 @@ namespace spms.view.Pages.ChildWin
         private void SavePic(object sender, RoutedEventArgs e)
         {
             vce.Stop();
-
+            if ((BitmapSource)picResult.Source == null) {
+                return;
+            }
             Bitmap bit = BitmapFromSource((BitmapSource)picResult.Source);
 
             //指定照片尺寸这么大
