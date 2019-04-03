@@ -196,7 +196,7 @@ namespace spms.protocol
         //直接写入文件而不是走日志，测试时候使用，会降低性能，发布时去掉
         private void WriteLogFile(string content) {
             //string path = Directory.GetCurrentDirectory() + "\\logDebug\\netty.txt";
-            string path = @"D:\nettyLog.log";
+            string path = @"E:\nettyLog.log";
             if (!File.Exists(path)) {
                 //System.IO.File.WriteAllText(path, "临时日志文件，可以删除！", Encoding.UTF8);
                 File.Create(path);

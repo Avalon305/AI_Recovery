@@ -119,7 +119,7 @@ namespace spms.view.Pages.ChildWin
             com_04.IsEnabled = true;
             //com_02.IsEnabled = true;
             com_03.IsEnabled = true;
-            
+
         }
 
         private void checkbox2_Checked(object sender, RoutedEventArgs e)
@@ -200,7 +200,7 @@ namespace spms.view.Pages.ChildWin
             //combobox_01.IsEnabled = false;
             combobox_01.Text = null;
             //combobox_02.IsEnabled = false;
-            combobox_02.Text = null; 
+            combobox_02.Text = null;
             //combobox_03.IsEnabled = false;
             combobox_03.Text = null;
             //combobox_04.IsEnabled = false;
@@ -225,7 +225,7 @@ namespace spms.view.Pages.ChildWin
         {
             //combobox_11.IsEnabled = false;
             combobox_11.Text = null;
-           // combobox_12.IsEnabled = false;
+            // combobox_12.IsEnabled = false;
             combobox_12.Text = null;
             //combobox_13.IsEnabled = false;
             combobox_13.Text = null;
@@ -265,7 +265,7 @@ namespace spms.view.Pages.ChildWin
             combobox_28.Text = null;
             //com_21.IsEnabled = false;
             com_21.Text = null;
-           // com_24.IsEnabled = false;
+            // com_24.IsEnabled = false;
             com_24.Text = null;
             com_24_Copy.Text = null;
             com_24_Copy1.Text = null;
@@ -279,7 +279,7 @@ namespace spms.view.Pages.ChildWin
         private void checkbox4_Unchecked(object sender, RoutedEventArgs e)
         {
             //combobox_31.IsEnabled = false;
-            
+
             //combobox_32.IsEnabled = false;
             //combobox_33.IsEnabled = false;
             //combobox_34.IsEnabled = false;
@@ -362,6 +362,8 @@ namespace spms.view.Pages.ChildWin
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
+            //缓存当前页面的数据
+            CacheDevicePrescriptions();
             try
             {
                 SaveTrainInfo2DB(TrainInfoStatus.Save);
@@ -374,18 +376,24 @@ namespace spms.view.Pages.ChildWin
             MessageBoxX.Info(LanguageUtils.ConvertLanguage("已存储", "Finished storage"));
             this.Close();
         }
+        private List<DevicePrescription> devicePrescriptionList;
 
-        private void SaveTrainInfo2DB(TrainInfoStatus status)
+        //得到当前的训练计划，用于save时候的调用，强制进行数据一致性的设置。
+        private List<DevicePrescription> GetDevicePrescriptions()
         {
-            List<DevicePrescription> devicePrescriptions = new List<DevicePrescription>();
-            
-            string devName; //设备名字
-            string attr1; //属性1
-            string attr2; //2
-            string attr3; //3
-            string attr4; //4
-            string attr5; //5
-            DeviceSortDAO deviceSortDao = new DeviceSortDAO();
+            return this.devicePrescriptionList;
+        }
+        //缓存当前的训练计划，在保存与写卡的时候调用
+         private void  CacheDevicePrescriptions(){
+                List<DevicePrescription> devicePrescriptions = new List<DevicePrescription>();
+
+                string devName; //设备名字
+                string attr1; //属性1
+                string attr2; //2
+                string attr3; //3
+                string attr4; //4
+                string attr5; //5
+        DeviceSortDAO deviceSortDao = new DeviceSortDAO();
             if (checkbox1.IsChecked == true)
             {
                 //胸部推举机
@@ -396,13 +404,13 @@ namespace spms.view.Pages.ChildWin
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = //attr1 + "*" +
+        devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4;
                 devicePrescription.DP_Memo = t1.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X01;
-                devicePrescription.Gmt_Create = DateTime.Now;
+                devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
+        devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
                 {
@@ -507,13 +515,13 @@ namespace spms.view.Pages.ChildWin
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = //attr1 + "*" +
+devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4;
                 devicePrescription.DP_Memo = t2.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X05;
-                devicePrescription.Gmt_Create = DateTime.Now;
+                devicePrescription.Fk_DS_Id = (int) DeviceType.X05;
+devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
                 {
@@ -618,15 +626,15 @@ namespace spms.view.Pages.ChildWin
                 attr2 = com_24_Copy1.Text;
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = //attr1 + "*" +
+devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4 + "*" +
                                               attr1 + "*" +
                                               attr2;
                 devicePrescription.DP_Memo = t3.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
-                devicePrescription.Gmt_Create = DateTime.Now;
+                devicePrescription.Fk_DS_Id = (int) DeviceType.X04;
+devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
                 {
@@ -732,15 +740,15 @@ namespace spms.view.Pages.ChildWin
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = //attr1 + "*" +
+devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4 + "*" +
                                               attr5 + "*" +
                                               attr1;
                 devicePrescription.DP_Memo = t4.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
-                devicePrescription.Gmt_Create = DateTime.Now;
+                devicePrescription.Fk_DS_Id = (int) DeviceType.X03;
+devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
                 {
@@ -845,15 +853,15 @@ namespace spms.view.Pages.ChildWin
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = //attr1 + "*" +
+devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr1 + "*" +
                                               attr2 + "*" +
                                               attr4;
                 devicePrescription.DP_Memo = t5.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
-                devicePrescription.Gmt_Create = DateTime.Now;
+                devicePrescription.Fk_DS_Id = (int) DeviceType.X06;
+devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
                 {
@@ -954,13 +962,13 @@ namespace spms.view.Pages.ChildWin
 
                 //构建对象
                 DevicePrescription devicePrescription = new DevicePrescription();
-                devicePrescription.DP_Attrs = //attr1 + "*" +
+devicePrescription.DP_Attrs = //attr1 + "*" +
                                               //attr2 + "*" +
                                               attr3 + "*" +
                                               attr4;
                 devicePrescription.DP_Memo = t6.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
-                devicePrescription.Gmt_Create = DateTime.Now;
+                devicePrescription.Fk_DS_Id = (int) DeviceType.X02;
+devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
                 {
@@ -1050,7 +1058,694 @@ namespace spms.view.Pages.ChildWin
                 devicePrescription.Dp_status = 0;
                 devicePrescriptions.Add(devicePrescription);
             }
+            if (this.devicePrescriptionList == null) {
+                this.devicePrescriptionList = new List<DevicePrescription>();
+            }
+            //移除所有元素
+            this.devicePrescriptionList.Clear();
+            //复制当前元素，而不是简单的内存指向
+            devicePrescriptions.ForEach(i => this.devicePrescriptionList.Add(i));
+              
+             
+        }
 
+        private void SaveTrainInfo2DB(TrainInfoStatus status)
+        {
+            //List<DevicePrescription> devicePrescriptions = new List<DevicePrescription>();
+
+            //string devName; //设备名字
+            //string attr1; //属性1
+            //string attr2; //2
+            //string attr3; //3
+            //string attr4; //4
+            //string attr5; //5
+            //DeviceSortDAO deviceSortDao = new DeviceSortDAO();
+            //if (checkbox1.IsChecked == true)
+            //{
+            //    //胸部推举机
+            //    //attr1 = com_01.Text; //属性1
+            //    //attr2 = com_02.Text; //2
+            //    attr3 = com_03.Text; //3
+            //    attr4 = com_04.Text; //4
+
+            //    //构建对象
+            //    DevicePrescription devicePrescription = new DevicePrescription();
+            //    devicePrescription.DP_Attrs = //attr1 + "*" +
+            //                                  //attr2 + "*" +
+            //                                  attr3 + "*" +
+            //                                  attr4;
+            //    devicePrescription.DP_Memo = t1.Text; //注意点
+            //    devicePrescription.Fk_DS_Id = (int)DeviceType.X01;
+            //    devicePrescription.Gmt_Create = DateTime.Now;
+            //    devicePrescription.Gmt_Modified = DateTime.Now;
+            //    try
+            //    {
+            //        devicePrescription.dp_movedistance = Convert.ToDouble(com_01.Text);
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_groupcount = Convert.ToInt32(combobox_01.Text); //组数;
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_groupnum = Convert.ToInt32(combobox_02.Text); //个数;
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_05.Text)); //移乘方式
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_03.Text); //间隔时间;
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_weight = Convert.ToDouble(combobox_04.Text); //砝码;
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
+            //        throw e;
+            //    }
+
+            //    if (LanguageUtils.EqualsResource(combobox_06.Text, "TrainingListView.Valid"))
+            //    {
+            //        devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+            //        try
+            //        {
+            //            devicePrescription.dp_timecount = Byte.Parse(combobox_07.Text);
+
+            //        }
+            //        catch(Exception e)
+            //        {
+            //            MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+            //            throw e;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+            //    }
+            //    if (LanguageUtils.EqualsResource(combobox_08.Text, "TrainingListView.CountReverse"))
+            //    {
+            //        devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+            //    }
+            //    else
+            //    {
+            //        devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+            //    }
+
+            //    devicePrescription.Dp_status = 0;
+            //    devicePrescriptions.Add(devicePrescription);
+            //}
+
+            //if (checkbox2.IsChecked == true)
+            //{
+            //    //坐姿划船机
+            //    devName = "坐姿划船机";
+            //    //attr1 = com_11.Text; //属性1
+            //    //attr2 = com_12.Text; //2
+            //    attr3 = com_13.Text; //3
+            //    attr4 = com_14.Text; //4
+
+            //    //构建对象
+            //    DevicePrescription devicePrescription = new DevicePrescription();
+            //    devicePrescription.DP_Attrs = //attr1 + "*" +
+            //                                  //attr2 + "*" +
+            //                                  attr3 + "*" +
+            //                                  attr4;
+            //    devicePrescription.DP_Memo = t2.Text; //注意点
+            //    devicePrescription.Fk_DS_Id = (int)DeviceType.X05;
+            //    devicePrescription.Gmt_Create = DateTime.Now;
+            //    devicePrescription.Gmt_Modified = DateTime.Now;
+            //    try
+            //    {
+            //        devicePrescription.dp_movedistance = Convert.ToDouble(com_11.Text);
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
+            //        throw e;
+            //    }
+            //    try
+            //    {
+            //        devicePrescription.dp_groupcount = Convert.ToInt32(combobox_11.Text); //组数
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_groupnum = Convert.ToInt32(combobox_12.Text); //个数
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_15.Text)); //移乘方式
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_13.Text); //间隔时间
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_weight = Convert.ToDouble(combobox_14.Text); //砝码
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
+            //        throw e;
+            //    }
+            //    if (LanguageUtils.EqualsResource(combobox_16.Text, "TrainingListView.Valid"))
+            //    {
+            //        devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+            //        try
+            //        {
+            //            devicePrescription.dp_timecount = Byte.Parse(combobox_17.Text);
+
+            //        }
+            //        catch (Exception e)
+            //        {
+            //            MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+            //            throw e;
+            //        }
+
+
+            //    }
+            //    else
+            //    {
+            //        devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+            //    }
+            //    if (LanguageUtils.EqualsResource(combobox_18.Text, "TrainingListView.CountReverse"))
+            //    {
+            //        devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+            //    }
+            //    else
+            //    {
+            //        devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+            //    }
+            //    devicePrescription.Dp_status = 0;
+            //    devicePrescriptions.Add(devicePrescription);
+            //}
+
+            //if (checkbox3.IsChecked == true)
+            //{
+            //    //身体伸展弯曲机
+            //    devName = "身体伸展弯曲机";
+            //    //attr1 = com_21.Text; //属性1
+            //    //attr2 = com_22.Text; //2
+            //    attr3 = com_23.Text; //3
+            //    attr4 = com_24.Text; //4
+            //    attr1 = com_24_Copy.Text;
+            //    attr2 = com_24_Copy1.Text;
+            //    //构建对象
+            //    DevicePrescription devicePrescription = new DevicePrescription();
+            //    devicePrescription.DP_Attrs = //attr1 + "*" +
+            //                                  //attr2 + "*" +
+            //                                  attr3 + "*" +
+            //                                  attr4 + "*" +
+            //                                  attr1 + "*" +
+            //                                  attr2;
+            //    devicePrescription.DP_Memo = t3.Text; //注意点
+            //    devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
+            //    devicePrescription.Gmt_Create = DateTime.Now;
+            //    devicePrescription.Gmt_Modified = DateTime.Now;
+            //    try
+            //    {
+            //        devicePrescription.dp_movedistance = Convert.ToDouble(com_21.Text);
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
+            //        throw e;
+            //    }
+            //    try
+            //    {
+            //        devicePrescription.dp_groupcount = Convert.ToInt32(combobox_21.Text); //组数
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_groupnum = Convert.ToInt32(combobox_22.Text); //个数
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_25.Text)); //移乘方式
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_23.Text); //间隔时间
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_weight = Convert.ToDouble(combobox_24.Text); //砝码
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
+            //        throw e;
+            //    }
+            //    if (LanguageUtils.EqualsResource(combobox_26.Text, "TrainingListView.Valid"))
+            //    {
+            //        devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+            //        try
+            //        {
+            //            devicePrescription.dp_timecount = Byte.Parse(combobox_27.Text);
+
+            //        }
+            //        catch (Exception e)
+            //        {
+            //            MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+            //            throw e;
+            //        }
+
+
+            //    }
+            //    else
+            //    {
+            //        devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+            //    }
+            //    if (LanguageUtils.EqualsResource(combobox_28.Text, "TrainingListView.CountReverse"))
+            //    {
+            //        devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+            //    }
+            //    else
+            //    {
+            //        devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+            //    }
+            //    devicePrescription.Dp_status = 0;
+            //    devicePrescriptions.Add(devicePrescription);
+            //}
+
+            //if (checkbox4.IsChecked == true)
+            //{
+            //    //腿部伸展弯曲机
+            //    devName = "腿部伸展弯曲机";
+            //    //attr1 = com_31.Text; //属性1
+            //    //attr2 = com_32.Text; //2
+            //    attr3 = com_33.Text; //3
+            //    attr4 = com_34.Text; //4
+            //    attr5 = com_35.Text; //5
+            //    attr1 = com_35_copy.Text;
+
+            //    //构建对象
+            //    DevicePrescription devicePrescription = new DevicePrescription();
+            //    devicePrescription.DP_Attrs = //attr1 + "*" +
+            //                                  //attr2 + "*" +
+            //                                  attr3 + "*" +
+            //                                  attr4 + "*" +
+            //                                  attr5 + "*" +
+            //                                  attr1;
+            //    devicePrescription.DP_Memo = t4.Text; //注意点
+            //    devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
+            //    devicePrescription.Gmt_Create = DateTime.Now;
+            //    devicePrescription.Gmt_Modified = DateTime.Now;
+            //    try
+            //    {
+            //        devicePrescription.dp_movedistance = Convert.ToDouble(com_31.Text);
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
+            //        throw e;
+            //    }
+            //    try
+            //    {
+            //        devicePrescription.dp_groupcount = Convert.ToInt32(combobox_31.Text); //组数
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_groupnum = Convert.ToInt32(combobox_32.Text); //个数
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_35.Text)); //移乘方式
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_33.Text); //间隔时间
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_weight = Convert.ToDouble(combobox_34.Text); //砝码
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
+            //        throw e;
+            //    }
+            //    if (LanguageUtils.EqualsResource(combobox_36.Text, "TrainingListView.Valid"))
+            //    {
+            //        devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+            //        try
+            //        {
+            //            devicePrescription.dp_timecount = Byte.Parse(combobox_37.Text);
+
+            //        }
+            //        catch (Exception e)
+            //        {
+            //            MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+            //            throw e;
+            //        }
+
+
+            //    }
+            //    else
+            //    {
+            //        devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+            //    }
+            //    if (LanguageUtils.EqualsResource(combobox_38.Text, "TrainingListView.CountReverse"))
+            //    {
+            //        devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+            //    }
+            //    else
+            //    {
+            //        devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+            //    }
+            //    devicePrescription.Dp_status = 0;
+            //    devicePrescriptions.Add(devicePrescription);
+            //}
+
+            //if (checkbox5.IsChecked == true)
+            //{
+            //    //腿部腿蹬机
+            //    //attr1 = com_41.Text; //属性1
+            //    //attr2 = com_42.Text; //2
+            //    attr3 = com_43.Text; //3
+            //    attr1 = com_43_Copy.Text; //3
+            //    attr2 = com_43_Copy1.Text; //3
+            //    attr4 = com_43_Copy2.Text; //3
+
+            //    //构建对象
+            //    DevicePrescription devicePrescription = new DevicePrescription();
+            //    devicePrescription.DP_Attrs = //attr1 + "*" +
+            //                                  //attr2 + "*" +
+            //                                  attr3 + "*" +
+            //                                  attr1 + "*" +
+            //                                  attr2 + "*" +
+            //                                  attr4;
+            //    devicePrescription.DP_Memo = t5.Text; //注意点
+            //    devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
+            //    devicePrescription.Gmt_Create = DateTime.Now;
+            //    devicePrescription.Gmt_Modified = DateTime.Now;
+            //    try
+            //    {
+            //        devicePrescription.dp_movedistance = Convert.ToDouble(com_41.Text);
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
+            //        throw e;
+            //    }
+            //    try
+            //    {
+            //        devicePrescription.dp_groupcount = Convert.ToInt32(combobox_41.Text); //组数
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_groupnum = Convert.ToInt32(combobox_42.Text); //个数
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_45.Text)); //移乘方式
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_43.Text); //间隔时间
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_weight = Convert.ToDouble(combobox_44.Text); //砝码
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
+            //        throw e;
+            //    }
+            //    if (LanguageUtils.EqualsResource(combobox_46.Text, "TrainingListView.Valid"))
+            //    {
+            //        devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+            //        try
+            //        {
+            //            devicePrescription.dp_timecount =Byte.Parse(combobox_47.Text);
+
+            //        }
+            //        catch (Exception e)
+            //        {
+            //            MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+            //            throw e;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+            //    }
+            //    if (LanguageUtils.EqualsResource(combobox_48.Text, "TrainingListView.CountReverse"))
+            //    {
+            //        devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+            //    }
+            //    else
+            //    {
+            //        devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+            //    }
+            //    devicePrescription.Dp_status = 0;
+            //    devicePrescriptions.Add(devicePrescription);
+            //}
+
+            //if (checkbox6.IsChecked == true)
+            //{
+            //    //腿部内外弯机
+            //    //attr1 = com_51.Text; //属性1
+            //    //attr2 = com_52.Text; //2
+            //    attr3 = com_53.Text; //3
+            //    attr4 = com_53_Copy.Text; //3
+
+            //    //构建对象
+            //    DevicePrescription devicePrescription = new DevicePrescription();
+            //    devicePrescription.DP_Attrs = //attr1 + "*" +
+            //                                  //attr2 + "*" +
+            //                                  attr3 + "*" +
+            //                                  attr4;
+            //    devicePrescription.DP_Memo = t6.Text; //注意点
+            //    devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
+            //    devicePrescription.Gmt_Create = DateTime.Now;
+            //    devicePrescription.Gmt_Modified = DateTime.Now;
+            //    try
+            //    {
+            //        devicePrescription.dp_movedistance = Convert.ToDouble(com_51.Text);
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
+            //        throw e;
+            //    }
+            //    try
+            //    {
+            //        devicePrescription.dp_groupcount = Convert.ToInt32(combobox_51.Text); //组数
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_groupnum = Convert.ToInt32(combobox_52.Text); //个数
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_55.Text)); //移乘方式
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_53.Text); //间隔时间
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+            //        throw e;
+            //    }
+
+            //    try
+            //    {
+            //        devicePrescription.dp_weight = Convert.ToDouble(combobox_54.Text); //砝码
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
+            //        throw e;
+            //    }
+            //    if (LanguageUtils.EqualsResource(combobox_56.Text, "TrainingListView.Valid"))
+            //    {
+            //        devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+            //        try
+            //        {
+            //            devicePrescription.dp_timecount = Byte.Parse(combobox_57.Text);
+
+            //        }
+            //        catch (Exception e)
+            //        {
+            //            MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+            //            throw e;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+            //    }
+            //    if (LanguageUtils.EqualsResource(combobox_58.Text, "TrainingListView.CountReverse"))
+            //    {
+            //        devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+            //    }
+            //    else
+            //    {
+            //        devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+            //    }
+            //    devicePrescription.Dp_status = 0;
+            //    devicePrescriptions.Add(devicePrescription);
+            //}
+            //将点击保存与写卡时候的一瞬间的截面数据获取
+            List<DevicePrescription> devicePrescriptions = GetDevicePrescriptions();
             TrainInfo trainInfo = new TrainInfo();
             trainInfo.Gmt_Create = DateTime.Now;
             trainInfo.Gmt_Modified = DateTime.Now;
@@ -1431,6 +2126,9 @@ namespace spms.view.Pages.ChildWin
         //写卡的正式方法
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
+            //触发写卡之前，缓存界面的方法
+            CacheDevicePrescriptions();
+
             try
             {
                 //写卡
@@ -1621,6 +2319,8 @@ namespace spms.view.Pages.ChildWin
         // 本机写卡使用方法
         private void ButtonBase_OnClick1(object sender, RoutedEventArgs e)
         {
+            //触发写卡之前，缓存界面的方法
+            CacheDevicePrescriptions();
             try
             {
                 //写卡
@@ -1710,6 +2410,7 @@ namespace spms.view.Pages.ChildWin
 
                     SaveTrainInfo2DB(TrainInfoStatus.Normal);
                     MessageBoxX.Info(LanguageUtils.ConvertLanguage("写卡成功", "Write card success"));
+                    Button_Write.IsEnabled = true;
                 }
             }
             catch (Exception ex)
