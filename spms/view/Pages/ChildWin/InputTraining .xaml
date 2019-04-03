@@ -171,7 +171,7 @@ ResizeMode="CanMinimize"
                 <Label Grid.Row="0"  Margin="79,-6,210.2,15.6" Name="l2" Visibility="Hidden" Content="{Binding User_Name}" Grid.RowSpan="2"/>
                 <Label Grid.Column="0"  Content="{DynamicResource TrainingListView.LastName}" Margin="0,0,120.4,0" VerticalAlignment="Center" Grid.RowSpan="2"/>
                 <Label Grid.Row="0" Grid.RowSpan="2"  Content="{DynamicResource TrainingListView.SympInfo}" Height="25" Margin="1114,0,130.8,0" VerticalAlignment="Center" Background="Gray" Foreground="White"/>
-                <ComboBox  Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" ItemsSource="{Binding SymptomInfoDTO,Mode=OneWay}" DisplayMemberPath="DateStr" SelectedValuePath="ID" SelectedItem="{Binding SymptomInfoDTO}" Margin="1220,0,0,0"  Name="symp" Height="25" Width="131" />
+                <ComboBox  Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" ItemsSource="{Binding SymptomInfoDTO,Mode=OneWay}" DisplayMemberPath="DateStr" SelectedValuePath="ID"  Margin="1220,0,0,0"  Name="symp" Height="25" Width="131" />
 
                 <Label  Margin="79,0,205.2,0" VerticalAlignment="Center" Name="l1" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2"/>
             </Grid>
