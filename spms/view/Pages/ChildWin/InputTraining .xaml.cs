@@ -2124,7 +2124,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
         private static bool isReceive = false;//是否收到回执
         private SerialPort serialPort;
         //写卡的正式方法
-        private void ButtonBase_OnClick1(object sender, RoutedEventArgs e)
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             //触发写卡之前，缓存界面的方法
             CacheDevicePrescriptions();
@@ -2317,7 +2317,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
             //this.Close();
         }
         // 本机写卡使用方法
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonBase_OnClick1(object sender, RoutedEventArgs e)
         {
             //触发写卡之前，缓存界面的方法
             CacheDevicePrescriptions();
