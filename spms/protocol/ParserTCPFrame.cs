@@ -195,28 +195,49 @@ namespace spms.protocol
         }
         //直接写入文件而不是走日志，测试时候使用，会降低性能，发布时去掉
         private void WriteLogFile(string content) {
-            //string path = Directory.GetCurrentDirectory() + "\\logDebug\\netty.txt";
-            string path = @"E:\nettyLog.log";
-            if (!File.Exists(path)) {
-                //System.IO.File.WriteAllText(path, "临时日志文件，可以删除！", Encoding.UTF8);
-                File.Create(path);
-            }
-            try {
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
+            ////string path = Directory.GetCurrentDirectory() + "\\logDebug\\netty.txt";
+            //string path3 = System.IO.Directory.GetCurrentDirectory();
+            //string path = @"E:\nettyLog.log";
+            //if (!File.Exists(path)) {
+            //    //System.IO.File.WriteAllText(path, "临时日志文件，可以删除！", Encoding.UTF8);
+            //    File.Create(path);
+            //}
+            //try {
+            //    using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
+            //    {
+
+            //        //file.Write(line);//直接追加文件末尾，不换行
+            //        file.WriteLine(DateTime.Now.ToString() +"--->" +content);// 直接追加文件末尾，换行 
+            //    }
+            //} catch (System.IO.IOException e) {
+            //    if (!File.Exists(path))
+            //    {
+            //        //System.IO.File.WriteAllText(path, "临时日志文件，可以删除！", Encoding.UTF8);
+            //        File.Create(@"D:\nettyLog.log");
+            //    }
+            //}
+            
+
+                string path = AppDomain.CurrentDomain.BaseDirectory;
+                path = System.IO.Path.Combine(path
+                , "ZLogs\\");
+
+                if (!System.IO.Directory.Exists(path))
                 {
-                   
-                    //file.Write(line);//直接追加文件末尾，不换行
-                    file.WriteLine(DateTime.Now.ToString() +"--->" +content);// 直接追加文件末尾，换行 
+                    System.IO.Directory.CreateDirectory(path);
                 }
-            } catch (System.IO.IOException e) {
-                if (!File.Exists(path))
+                string fileFullName = System.IO.Path.Combine(path
+                , string.Format("{0}.txt", DateTime.Now.ToString("yyyyMMdd-HHmm")));
+
+
+                using (StreamWriter output = System.IO.File.AppendText(fileFullName))
                 {
-                    //System.IO.File.WriteAllText(path, "临时日志文件，可以删除！", Encoding.UTF8);
-                    File.Create(@"D:\nettyLog.log");
+                    output.WriteLine(content);
+
+                    output.Close();
                 }
-            }
-          
-            }
+            
+        }
 
         /// <summary>
         /// 内部类，辅助解析各种设备上报
