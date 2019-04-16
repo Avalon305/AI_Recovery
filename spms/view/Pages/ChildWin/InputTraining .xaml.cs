@@ -2564,6 +2564,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
                             {
                                 try
                                 {
+                                    CommUtil.UpdateSettingString("port", SerialPortUtil.portName);
                                     SaveTrainInfo2DB(TrainInfoStatus.Normal);
                                 }
                                 catch (Exception exception)

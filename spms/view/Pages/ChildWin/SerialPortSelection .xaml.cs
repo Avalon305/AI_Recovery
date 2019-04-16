@@ -58,7 +58,6 @@ namespace spms.view.Pages.ChildWin
             if (portName != "")
             {
                 SerialPortUtil.portName = portName;
-                CommUtil.UpdateSettingString("port", portName);
                 this.Close();
             }
             else
