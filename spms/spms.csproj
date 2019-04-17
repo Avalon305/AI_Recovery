@@ -213,6 +213,7 @@
     <Compile Include="heartbeat\BodyStrong.cs" />
     <Compile Include="heartbeat\HeartbeatClient.cs" />
     <Compile Include="heartbeat\HeartbeatHandler.cs" />
+    <Compile Include="heartbeat\TcpHeartBeatUtils.cs" />
     <Compile Include="ImageDealer\ImageDealer.xaml.cs">
       <DependentUpon>ImageDealer.xaml</DependentUpon>
     </Compile>

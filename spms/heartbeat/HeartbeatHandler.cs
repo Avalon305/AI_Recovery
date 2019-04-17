@@ -13,6 +13,7 @@ namespace spms.heartbeat
         public override void ChannelActive(IChannelHandlerContext context)
         {
             logger.Info("连接建立成功与宝德龙云平台");
+          
         }
 
 
@@ -29,7 +30,7 @@ namespace spms.heartbeat
             switch (buffer.HeartbeatResponse.ResponseType) {
                 //延长使用时间，注意区分9999和一般时间
                 case HeartbeatResponse.Types.ResponseType.Addusetime:
-
+                    TcpHeartBeatUtils.AddUseTime(buffer.HeartbeatResponse);
                     break;
                 //正常心跳不做处理
                 case HeartbeatResponse.Types.ResponseType.Nomal:
@@ -37,11 +38,11 @@ namespace spms.heartbeat
                     break;
                 //上锁
                 case HeartbeatResponse.Types.ResponseType.Lock:
-
+                    TcpHeartBeatUtils.LockUse(buffer.HeartbeatResponse);
                     break;
                 //解锁
                 case HeartbeatResponse.Types.ResponseType.Unlock:
-
+                    TcpHeartBeatUtils.UnLockUse(buffer.HeartbeatResponse);
                     break;
             }
 
