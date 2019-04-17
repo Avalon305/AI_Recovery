@@ -2263,7 +2263,6 @@ devicePrescription.Gmt_Create = DateTime.Now;
                             serialPort = null;
                             // 串口不存在后，重新选择
                             SerialPortUtil.CheckPort();
-
                             return;
                         }
                     }
@@ -2308,6 +2307,10 @@ devicePrescription.Gmt_Create = DateTime.Now;
             {
                 //Console.WriteLine("写卡异常");
                 logger.Error("写卡异常");
+                SerialPortUtil.SerialPort = null;
+                SerialPortUtil.portName = "";
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("写卡异常，请重新选择串口", "The card is abnormal, please re-select the serial port."));
+                return;
             }
            
 
