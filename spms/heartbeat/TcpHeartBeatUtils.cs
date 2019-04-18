@@ -80,7 +80,7 @@ using System.Linq;using System.Text;using System.Threading.Tasks;namespace s
             }
         }
         //解锁
-        //根据用户名改变状态设为正常状态，时间设为9999/12/31。
+        //根据用户名改变状态设为正常状态
         public static void UnLockUse(HeartbeatResponse heartbeatResponse)
         {
             //将接受到的字符串(yyyy-mm-dd)转换成Datetime格式

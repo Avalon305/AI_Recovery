@@ -43,7 +43,7 @@ namespace spms.heartbeat
                     .Group(workerGroup)
                     .Channel<TcpSocketChannel>()
                     .Option(ChannelOption.TcpNodelay, true)
-                    .Option(ChannelOption.ConnectTimeout, new TimeSpan(3000))
+                    .Option(ChannelOption.ConnectTimeout, new TimeSpan(1000))
                     .Handler(new ActionChannelInitializer<ISocketChannel>(channel =>
                     {
                         IChannelPipeline pipeline = channel.Pipeline;
@@ -54,7 +54,7 @@ namespace spms.heartbeat
                         pipeline.AddLast("tcpHandler", new HeartbeatHandler());
 
                     }));
-                await bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.1.109"), 60000));
+                
             }
             catch (Exception)
             {
@@ -94,31 +94,58 @@ namespace spms.heartbeat
         //    }
         //    //return this.clientChannel;
         //}
-        public async void sendMsgAsync(BodyStrongMessage msg) 
+        public async Task sendMsgAsync(BodyStrongMessage msg) 
         {
             try
             {
                 if (msg != null)
                 {
-
-                    //getChannelFutureAsync();
-                    //if (this.clientChannel != null)
-                    //{
-                    //   clientChannel.WriteAndFlushAsync(msg);
-                    //}
                     if (this.clientChannel == null || !this.clientChannel.Active)
                     {
-                        //this.clientChannel = await bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.1.109"), 60000));
-                        await bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.1.109"), 60000));
-                        //Task<IChannel> task = bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.1.109"), 60000));
-
+                        this.clientChannel = await bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.1.109"), 60000));
+                       
                     }
                     await this.clientChannel.WriteAndFlushAsync(msg);
+                    await this.clientChannel.CloseAsync();
                 }
             }
             catch (Exception exception)
             {
                 TcpHeartBeatUtils.WriteLogFile("连接宝德龙云平台发送方法失败--》" + exception.StackTrace);
+            }
+        }
+
+        public static async Task RunClientAsync(BodyStrongMessage msg)
+        {        
+            var group = new MultithreadEventLoopGroup();
+            try
+            {
+                var bootstrap = new Bootstrap();
+                bootstrap
+                    .Group(group)
+                    .Channel<TcpSocketChannel>()
+                    .Option(ChannelOption.TcpNodelay, true)
+                    .Handler(new ActionChannelInitializer<ISocketChannel>(channel =>
+                    { 
+                        IChannelPipeline pipeline = channel.Pipeline;
+                        pipeline.AddLast("frameDecoder", new ProtobufVarint32FrameDecoder());
+                        pipeline.AddLast("decoder", new ProtobufDecoder(BodyStrongMessage.Parser));
+                        pipeline.AddLast("frameEncoder", new ProtobufVarint32LengthFieldPrepender());
+                        pipeline.AddLast("encoder", new ProtobufEncoder());
+                        pipeline.AddLast("tcpHandler", new HeartbeatHandler());
+
+                    }));
+
+                IChannel bootstrapChannel = await bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.1.109"), 60000));
+
+                await bootstrapChannel.WriteAndFlushAsync(msg);
+                //Console.ReadLine();
+
+                await bootstrapChannel.CloseAsync();
+            }
+            finally
+            {
+                group.ShutdownGracefullyAsync().Wait(1000);
             }
         }
     }
