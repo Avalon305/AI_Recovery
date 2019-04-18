@@ -63,31 +63,31 @@ namespace spms.view
 
             #region 通知公告  
 
-            SetterDAO setterDao = new SetterDAO();
+            //SetterDAO setterDao = new SetterDAO();
 
-            //未激活无心跳
-            if (setterDao.ListAll() != null && setterDao.ListAll().Count == 0)
-            {
+            ////未激活无心跳
+            //if (setterDao.ListAll() != null && setterDao.ListAll().Count == 0)
+            //{
 
-            }
-            //没有一般用户无心跳
-            else if (authDao.ListAll() != null && authDao.ListAll().Count == 1)
-            {
+            //}
+            ////没有一般用户无心跳
+            //else if (authDao.ListAll() != null && authDao.ListAll().Count == 1)
+            //{
 
-            }
-            else {
-                if (timerNotice == null)
-                {
+            //}
+            //else {
+            //    if (timerNotice == null)
+            //    {
 
-                    BindNotice();
+            //        BindNotice();
 
-                    timerNotice = new System.Timers.Timer();
-                    timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) => { BindNotice(); });
+            //        timerNotice = new System.Timers.Timer();
+            //        timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) => { BindNotice(); });
 
-                    timerNotice.Interval = CommUtil.GetHeartBeatRate();
-                    timerNotice.Start();
-                }
-            }
+            //        timerNotice.Interval = CommUtil.GetHeartBeatRate();
+            //        timerNotice.Start();
+            //    }
+            //}
             
 
             #endregion
@@ -118,43 +118,43 @@ namespace spms.view
             
         }
         #region 绑定通知公告
-        private void BindNotice()
-        {
-            System.Threading.Tasks.Task.Factory.StartNew(() =>
-            {
-                try
-                {
+        //private void BindNotice()
+        //{
+        //    System.Threading.Tasks.Task.Factory.StartNew(() =>
+        //    {
+        //        try
+        //        {
 
-                    //如果用户没有被上传则return，不允许发心跳，否则就按照不合法冻结了
-                    if (new UploadManagementDAO().CheckExistAuth() != null)
-                    {
-                        return;
-                    }
+        //            //如果用户没有被上传则return，不允许发心跳，否则就按照不合法冻结了
+        //            if (new UploadManagementDAO().CheckExistAuth() != null)
+        //            {
+        //                return;
+        //            }
 
-                    HeartBeatOffice heartBeatOffice = new HeartBeatOffice();
-                    HttpHeartBeat result = heartBeatOffice.GetHeartBeatByCurrent();
-                    //心跳直接上传   !HttpSender.Ping() ||
-                    if (result == null)
-                    {
-                        //如果没有取到值
-                        return;
-                    }
-                    string jsonStr = HttpSender.POSTByJsonStr("communicationController/analysisJson",
-                        JsonTools.Obj2JSONStrNew<HttpHeartBeat>(result));
-                    HttpHeartBeat webResult = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(jsonStr);
-                    //本地数据更改
-                    if (webResult == null)
-                    {
-                        return;
-                    }
-                    heartBeatOffice.SolveHeartbeat(webResult);
+        //            HeartBeatOffice heartBeatOffice = new HeartBeatOffice();
+        //            HttpHeartBeat result = heartBeatOffice.GetHeartBeatByCurrent();
+        //            //心跳直接上传   !HttpSender.Ping() ||
+        //            if (result == null)
+        //            {
+        //                //如果没有取到值
+        //                return;
+        //            }
+        //            string jsonStr = HttpSender.POSTByJsonStr("communicationController/analysisJson",
+        //                JsonTools.Obj2JSONStrNew<HttpHeartBeat>(result));
+        //            HttpHeartBeat webResult = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(jsonStr);
+        //            //本地数据更改
+        //            if (webResult == null)
+        //            {
+        //                return;
+        //            }
+        //            heartBeatOffice.SolveHeartbeat(webResult);
                      
-                }
-                catch
-                {
-                }
-            });
-        }
+        //        }
+        //        catch
+        //        {
+        //        }
+        //    });
+        //}
 
         #endregion
         public Login()

@@ -1,4 +1,5 @@
-﻿using Com.Bdl.Proto;using spms.dao;using spms.entity;using spms.http.entity;using spms.util;using System;using System.Collections.Generic;using System.IO;
+﻿using Com.Bdl.Proto;using Dapper;
+using spms.dao;using spms.entity;using spms.http.entity;using spms.util;using System;using System.Collections.Generic;using System.IO;
 using System.Linq;using System.Text;using System.Threading.Tasks;namespace spms.heartbeat{    public class TcpHeartBeatUtils    {
         public static void WriteLogFile(string content)
         {
@@ -51,19 +52,49 @@ using System.Linq;using System.Text;using System.Threading.Tasks;namespace s
                 sendHeartBeat.Status = 0.ToString();            }
             return sendHeartBeat;        }
 
+        //增加使用时间
+        //根据用户名增加使用时间
         public static void AddUseTime(HeartbeatResponse heartbeatResponse)
         {
+            //将接受到的字符串(yyyy-mm-dd)转换成Datetime格式
+            DateTime Offlinetime = Convert.ToDateTime(heartbeatResponse.Attachment);
 
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "UPDATE bdl_auth SET auth_offlinetime = @Auth_Offlinetime WHERE auth_level = 1";
+                conn.Execute(query, new { User_Offlinetime = Offlinetime });
+            }
         }
-        //
+        //上锁
+        //根据用户名改变状态设为冻结状态，时间未改动。
         public static void LockUse(HeartbeatResponse heartbeatResponse)
         {
-
+            //将接受到的字符串(yyyy-mm-dd)转换成Datetime格式
+            //DateTime Offlinetime = Convert.ToDateTime(heartbeatResponse.Attachment);
+            //状态 正常0和锁定1
+            //int status = 1;
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "UPDATE bdl_auth SET user_status = @User_Status WHERE auth_level = 1";
+                conn.Execute(query, new {  User_Status = Auther.USER_STATUS_FREEZE });
+            }
         }
+        //解锁
+        //根据用户名改变状态设为正常状态，时间设为9999/12/31。
         public static void UnLockUse(HeartbeatResponse heartbeatResponse)
         {
+            //将接受到的字符串(yyyy-mm-dd)转换成Datetime格式
+            //DateTime Offlinetime = Convert.ToDateTime(heartbeatResponse.Attachment);
+            //状态 正常0和锁定1
+            //int status = 0;
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "UPDATE bdl_auth SET user_status = @User_Status WHERE auth_level = 1";
 
+                conn.Execute(query, new {User_Status = Auther.USER_STATUS_GENERAL });
+            }
         }
+
 
 
     }}

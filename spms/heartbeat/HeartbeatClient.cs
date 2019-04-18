@@ -15,20 +15,25 @@ namespace spms.heartbeat
 {
     public class HeartbeatClient
     {
-        private volatile static HeartbeatClient instance = new HeartbeatClient();
+        //private volatile static HeartbeatClient instance = new HeartbeatClient();
 
-        public static HeartbeatClient getInstance()
-        {
-            return instance;
-        }
-        private HeartbeatClient()
-        {
+        //public static HeartbeatClient getInstance()
+        //{
+        //    return instance;
+        //}
+        //private HeartbeatClient()
+        //{
             
-        }
+        //}
 
         private  IChannel clientChannel;
         private  Bootstrap bootstrap;
-        public void initlooper()
+
+        public HeartbeatClient()
+        {
+            InitlooperAsync();
+        }
+        public async void InitlooperAsync()
         {
             var workerGroup = new MultithreadEventLoopGroup();
             try
@@ -49,65 +54,71 @@ namespace spms.heartbeat
                         pipeline.AddLast("tcpHandler", new HeartbeatHandler());
 
                     }));
+                await bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.1.109"), 60000));
             }
-
             catch (Exception)
             {
-                TcpHeartBeatUtils.WriteLogFile("连接宝德龙云平台失败，外部失败...");
-
+                TcpHeartBeatUtils.WriteLogFile("初始化bootstrap出现问题！");
             }
         }
 
-        private async void connectAsync()
-        {
-            try
-            {
-                this.clientChannel = await bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.1.109"), 60000));
+        //private async void connectAsync()
+        //{
+        //    try
+        //    {
+        //        this.clientChannel = await bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.1.109"), 60000));
 
-            }
-            catch (ConnectTimeoutException) {
-                //throw;
-                TcpHeartBeatUtils.WriteLogFile("连接宝德龙云平台超时");
-            }
-            catch (Exception xx)
-            {
-                //throw xx;
-                TcpHeartBeatUtils.WriteLogFile("连接宝德龙云平台超时");
-            }
+        //    }
+        //    catch (ConnectTimeoutException) {
+        //        //throw;
+        //        TcpHeartBeatUtils.WriteLogFile("连接宝德龙云平台超时");
+        //    }
+        //    catch (Exception xx)
+        //    {
+        //        //throw xx;
+        //        TcpHeartBeatUtils.WriteLogFile("连接宝德龙云平台超时");
+        //    }
 
-        }
+        //}
 
-        private void getChannelFutureAsync()
-        {
-            // 如果管道没有被开启或者被关闭了，那么重连
-            if (this.clientChannel == null)
-            {
-                connectAsync();
-            }
-            if (!this.clientChannel.Active)
-            {
-                connectAsync();
-            }
-            //return this.clientChannel;
-        }
-        public void sendMsgAsync(BodyStrongMessage msg)
+        //private void getChannelFutureAsync()
+        //{
+        //    // 如果管道没有被开启或者被关闭了，那么重连
+        //    if (this.clientChannel == null)
+        //    {
+        //        connectAsync();
+        //    }
+        //    if (!this.clientChannel.Active)
+        //    {
+        //        connectAsync();
+        //    }
+        //    //return this.clientChannel;
+        //}
+        public async void sendMsgAsync(BodyStrongMessage msg) 
         {
             try
             {
                 if (msg != null)
                 {
 
-                    getChannelFutureAsync();
-                    if (this.clientChannel != null)
+                    //getChannelFutureAsync();
+                    //if (this.clientChannel != null)
+                    //{
+                    //   clientChannel.WriteAndFlushAsync(msg);
+                    //}
+                    if (this.clientChannel == null || !this.clientChannel.Active)
                     {
-                       clientChannel.WriteAndFlushAsync(msg);
+                        //this.clientChannel = await bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.1.109"), 60000));
+                        await bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.1.109"), 60000));
+                        //Task<IChannel> task = bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.1.109"), 60000));
+
                     }
-                   
+                    await this.clientChannel.WriteAndFlushAsync(msg);
                 }
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                TcpHeartBeatUtils.WriteLogFile("连接宝德龙云平台超时");
+                TcpHeartBeatUtils.WriteLogFile("连接宝德龙云平台发送方法失败--》" + exception.StackTrace);
             }
         }
     }

@@ -157,11 +157,9 @@ namespace spms
             bdth.Start();
 
             //心跳线程
-            Thread hbth = new Thread(() =>
-            {
-                try
-                {
-                    HeartbeatClient.getInstance().initlooper();
+            Thread hbth = new Thread( () =>
+            {     
+                    HeartbeatClient heartbeatClient = new HeartbeatClient();
                     while (true)
                     {
                         try
@@ -172,22 +170,18 @@ namespace spms
                                 //可能为null
                                 HeartbeatRequest = TcpHeartBeatUtils.GetHeartBeatByCurrent()
                             };
-                            HeartbeatClient.getInstance().sendMsgAsync(bodyStrongMessage);
+                            heartbeatClient.sendMsgAsync(bodyStrongMessage);                          
                         }
                         catch (Exception exception)
                         {
                             //exception.Message();
-                            TcpHeartBeatUtils.WriteLogFile("连接宝德龙云平台失败，心跳模块..."+ exception.StackTrace);
+                            TcpHeartBeatUtils.WriteLogFile("连接宝德龙云平台线程发送失败"+ exception.StackTrace);
                         }
                         finally {
                             Thread.Sleep(5000);
                         }
                     }
-                }
-                catch (Exception)
-                {
-                    TcpHeartBeatUtils.WriteLogFile("app catch exception");
-                }
+ 
             });
             hbth.Start();
 
