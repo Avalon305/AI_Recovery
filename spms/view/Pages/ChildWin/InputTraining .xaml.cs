@@ -64,6 +64,11 @@ namespace spms.view.Pages.ChildWin
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
         private User user;
         private static Logger logger = LogManager.GetCurrentClassLogger();
+
+        // 训练信息的缓存
+        List<DevicePrescription> devicePrescriptionsTmp = null;
+        TrainInfo trainInfoTmp = null;
+
         public InputTraining()
         {
             InitializeComponent();
@@ -1727,7 +1732,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
             //        {
             //            MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
             //            throw e;
-            //        }
+            //        }faka
             //    }
             //    else
             //    {
@@ -1745,22 +1750,23 @@ devicePrescription.Gmt_Create = DateTime.Now;
             //    devicePrescriptions.Add(devicePrescription);
             //}
             //将点击保存与写卡时候的一瞬间的截面数据获取
-            List<DevicePrescription> devicePrescriptions = GetDevicePrescriptions();
-            TrainInfo trainInfo = new TrainInfo();
-            trainInfo.Gmt_Create = DateTime.Now;
-            trainInfo.Gmt_Modified = DateTime.Now;
-            trainInfo.FK_User_Id = user.Pk_User_Id;
-            trainInfo.Status = (int) status;
-            if (!string.IsNullOrEmpty(symp.Text))
-            {
-                //如果选择了症状记录
-                new TrainService().SaveTraininfo(symp.SelectedValue, trainInfo, devicePrescriptions);
-            }
-            else
-            {
-                //存储到数据库
-                new TrainService().SaveTraininfo(null, trainInfo, devicePrescriptions);
-            }
+            //List<DevicePrescription> devicePrescriptions = GetDevicePrescriptions();
+            devicePrescriptionsTmp = GetDevicePrescriptions();
+            trainInfoTmp = new TrainInfo();
+            trainInfoTmp.Gmt_Create = DateTime.Now;
+            trainInfoTmp.Gmt_Modified = DateTime.Now;
+            trainInfoTmp.FK_User_Id = user.Pk_User_Id;
+            trainInfoTmp.Status = (int) status;
+            //if (!string.IsNullOrEmpty(symp.Text))
+            //{
+            //    //如果选择了症状记录
+            //    new TrainService().SaveTraininfo(symp.SelectedValue, trainInfo, devicePrescriptions);
+            //}
+            //else
+            //{
+            //    //存储到数据库
+            //    new TrainService().SaveTraininfo(null, trainInfo, devicePrescriptions);
+            //}
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -2128,6 +2134,8 @@ devicePrescription.Gmt_Create = DateTime.Now;
         {
             //触发写卡之前，缓存界面的方法
             CacheDevicePrescriptions();
+            // 将训练信息存入到全局对象中 安仲辉 2019/4/19
+            SaveTrainInfo2DB(TrainInfoStatus.Normal);
 
             try
             {
@@ -2568,7 +2576,18 @@ devicePrescription.Gmt_Create = DateTime.Now;
                                 try
                                 {
                                     CommUtil.UpdateSettingString("port", SerialPortUtil.portName);
-                                    SaveTrainInfo2DB(TrainInfoStatus.Normal);
+                                    //SaveTrainInfo2DB(TrainInfoStatus.Normal);
+                                    // 发卡成功后，将全局对象存储 - 安仲辉 2019/4/19
+                                    if (!string.IsNullOrEmpty(symp.Text))
+                                    {
+                                        //如果选择了症状记录
+                                        new TrainService().SaveTraininfo(symp.SelectedValue, trainInfoTmp, devicePrescriptionsTmp);
+                                    }
+                                    else
+                                    {
+                                        //存储到数据库
+                                        new TrainService().SaveTraininfo(null, trainInfoTmp, devicePrescriptionsTmp);
+                                    }
                                 }
                                 catch (Exception exception)
                                 {
