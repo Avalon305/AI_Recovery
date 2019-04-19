@@ -1,7 +1,9 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Com.Bdl.Proto;
+using MySql.Data.MySqlClient;
 using NLog;
 using spms.bean;
 using spms.dao;
+using spms.heartbeat;
 using spms.http;
 using spms.server;
 using spms.service;
@@ -39,8 +41,8 @@ namespace spms
         /// <summary>
         /// 应用启动的时候生命周期
         /// </summary>
-        /// <param name="e"></param>
-        protected override void OnStartup(StartupEventArgs e)
+        /// <param name="ex"></param>
+        protected override void OnStartup(StartupEventArgs ex)
         {
 
             //全局异常处理机制，UI异常
@@ -104,9 +106,9 @@ namespace spms
                     }));
                   
                 }
-                catch(Exception ex)
+                catch(Exception exc)
                 {
-                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine(exc.ToString());
                     return;
                 }
 
@@ -147,18 +149,54 @@ namespace spms
                         Console.WriteLine("-----------------boom");
                     }
                 }
-                catch (Exception ex)
+                catch (Exception exct)
                 {
-                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine(exct.ToString());
                 }
             });
             bdth.Start();
 
-            base.OnStartup(e);
+            //心跳线程
+            Thread hbth = new Thread(() =>
+            {     
+                    HeartbeatClient heartbeatClient = new HeartbeatClient();
+                    while (true)
+                    {
+                        try
+                        {
+                            BodyStrongMessage bodyStrongMessage = new BodyStrongMessage
+                            {
+                                MessageType = BodyStrongMessage.Types.MessageType.Heaerbeatreq,
+                                //可能为null
+                                HeartbeatRequest = TcpHeartBeatUtils.GetHeartBeatByCurrent()
+                            };
+
+                        //new Thread( () =>
+                        //{
+                            //heartbeatClient.sendMsgAsync(bodyStrongMessage).Wait();
+                        HeartbeatClient.RunClientAsync(bodyStrongMessage).Wait();
+                        //}).Start();
+                        
+
+                    }
+                     catch (Exception exception)
+                        {
+                            //exception.Message();
+                            TcpHeartBeatUtils.WriteLogFile("连接宝德龙云平台线程发送失败"+ exception.StackTrace);
+                        }
+                        finally {
+                            Thread.Sleep(5000);
+                        }
+                    }
+ 
+            });
+            hbth.Start();
+
+            base.OnStartup(ex);
         }
 
 
-         
+
         /// <summary>
         /// 退出的时候清理各种资源，尤其是Netty端口占用
         /// </summary>

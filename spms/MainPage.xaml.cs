@@ -177,22 +177,22 @@ namespace spms.view.Pages
             ///心跳部分
 
             #region 通知公告   未激活不心跳
-            SetterDAO setterDao = new SetterDAO();
-            if (timerNotice == null)
-            {
+            //SetterDAO setterDao = new SetterDAO();
+            //if (timerNotice == null)
+            //{
 
-                while (setterDao.ListAll() != null)
-                {
-                    break;
-                }
-                BindNotice();
+            //    while (setterDao.ListAll() != null)
+            //    {
+            //        break;
+            //    }
+            //    BindNotice();
 
-                timerNotice = new System.Timers.Timer();
-                timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) => { BindNotice(); });
+            //    timerNotice = new System.Timers.Timer();
+            //    timerNotice.Elapsed += new System.Timers.ElapsedEventHandler((o, eea) => { BindNotice(); });
 
-                timerNotice.Interval = CommUtil.GetHeartBeatRate();
-                timerNotice.Start();
-            }
+            //    timerNotice.Interval = CommUtil.GetHeartBeatRate();
+            //    timerNotice.Start();
+            //}
 
             #endregion
         }
@@ -851,79 +851,79 @@ namespace spms.view.Pages
         /// </summary>
 
         #region 绑定通知公告
-        private void BindNotice()
-        {
-            System.Threading.Tasks.Task.Factory.StartNew(() =>
-            {
-                try
-                {
+        //private void BindNotice()
+        //{
+        //    System.Threading.Tasks.Task.Factory.StartNew(() =>
+        //    {
+        //        try
+        //        {
 
-                    //如果用户没有被上传则return，不允许发心跳，否则就按照不合法冻结了
-                    if (new UploadManagementDAO().CheckExistAuth() != null)
-                    {
-                        return;
-                    }
+        //            //如果用户没有被上传则return，不允许发心跳，否则就按照不合法冻结了
+        //            if (new UploadManagementDAO().CheckExistAuth() != null)
+        //            {
+        //                return;
+        //            }
 
-                    HeartBeatOffice heartBeatOffice = new HeartBeatOffice();
-                    HttpHeartBeat result = heartBeatOffice.GetHeartBeatByCurrent();
-                    //心跳直接上传   !HttpSender.Ping() ||
-                    if (result == null)
-                    {
-                        //如果没有取到值
-                        return;
-                    }
-                    string jsonStr = HttpSender.POSTByJsonStr("communicationController/analysisJson",
-                        JsonTools.Obj2JSONStrNew<HttpHeartBeat>(result));
-                    HttpHeartBeat webResult = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(jsonStr);
-                    //本地数据更改
-                    if (webResult == null)
-                    {
-                        return;
-                    }
-                    heartBeatOffice.SolveHeartbeat(webResult);
-                    Dispatcher.Invoke(new Action(() =>
-                    {
-                        if (webResult.authStatus == 0)
-                        {
-                            //正常心跳不处理
-                        }
-                        else if (webResult.authStatus == 1)
-                        {
-                            //冻结，弹窗，然后关闭窗口
-                            // 程序强制退出
-                            authDao.UpdateByUserName(webResult.username, 1);
-                            // 停止定时器
-                            timerNotice.Stop();
+        //            HeartBeatOffice heartBeatOffice = new HeartBeatOffice();
+        //            HttpHeartBeat result = heartBeatOffice.GetHeartBeatByCurrent();
+        //            //心跳直接上传   !HttpSender.Ping() ||
+        //            if (result == null)
+        //            {
+        //                //如果没有取到值
+        //                return;
+        //            }
+        //            string jsonStr = HttpSender.POSTByJsonStr("communicationController/analysisJson",
+        //                JsonTools.Obj2JSONStrNew<HttpHeartBeat>(result));
+        //            HttpHeartBeat webResult = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(jsonStr);
+        //            //本地数据更改
+        //            if (webResult == null)
+        //            {
+        //                return;
+        //            }
+        //            heartBeatOffice.SolveHeartbeat(webResult);
+        //            Dispatcher.Invoke(new Action(() =>
+        //            {
+        //                if (webResult.authStatus == 0)
+        //                {
+        //                    //正常心跳不处理
+        //                }
+        //                else if (webResult.authStatus == 1)
+        //                {
+        //                    //冻结，弹窗，然后关闭窗口
+        //                    // 程序强制退出
+        //                    authDao.UpdateByUserName(webResult.username, 1);
+        //                    // 停止定时器
+        //                    timerNotice.Stop();
 
-                            MessageBoxX.Warning(LanguageUtils.ConvertLanguage("用户被冻结，即将退出，请联系宝德龙管理员解冻！", "The user is frozen, will exit, please contact the administrator thaw!"));
-                            Environment.Exit(0);
-                        }
-                        else if (webResult.authStatus == 2)
-                        {
-                            //解冻，只需要更改数据库。界面无反馈，不处理
-                            //authDao.UpdateByUserName(webResult.username, 2);
-                        }
-                        else if (webResult.authStatus == 3)
-                        {
-                            //永久离线，只需要更改数据库。界面无反馈，不处理
-                            //authDao.UpdateByUserName(webResult.username, 3);
-                        }
-                        else if (webResult.authStatus == 4)
-                        {
-                            //已删除，按照冻结处理
-                            //authDao.UpdateByUserName(webResult.username, 1);
+        //                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("用户被冻结，即将退出，请联系宝德龙管理员解冻！", "The user is frozen, will exit, please contact the administrator thaw!"));
+        //                    Environment.Exit(0);
+        //                }
+        //                else if (webResult.authStatus == 2)
+        //                {
+        //                    //解冻，只需要更改数据库。界面无反馈，不处理
+        //                    //authDao.UpdateByUserName(webResult.username, 2);
+        //                }
+        //                else if (webResult.authStatus == 3)
+        //                {
+        //                    //永久离线，只需要更改数据库。界面无反馈，不处理
+        //                    //authDao.UpdateByUserName(webResult.username, 3);
+        //                }
+        //                else if (webResult.authStatus == 4)
+        //                {
+        //                    //已删除，按照冻结处理
+        //                    //authDao.UpdateByUserName(webResult.username, 1);
                             
-                            timerNotice.Stop();
-                            MessageBoxX.Warning(LanguageUtils.ConvertLanguage("用户被删除，即将退出，请联系宝德龙管理员恢复！", "The user is removed, will exit, please contact the administrator to restore!"));
-                            Environment.Exit(0);
-                        }
-                    }));
-                }
-                catch
-                {
-                }
-            });
-        }
+        //                    timerNotice.Stop();
+        //                    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("用户被删除，即将退出，请联系宝德龙管理员恢复！", "The user is removed, will exit, please contact the administrator to restore!"));
+        //                    Environment.Exit(0);
+        //                }
+        //            }));
+        //        }
+        //        catch
+        //        {
+        //        }
+        //    });
+        //}
 
         #endregion
 

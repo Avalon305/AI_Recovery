@@ -101,8 +101,8 @@
     <Reference Include="EPPlus, Version=4.1.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.1.1\lib\net40\EPPlus.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Protobuf, Version=3.2.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.2.0\lib\net45\Google.Protobuf.dll</HintPath>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="Google.ProtocolBuffers, Version=2.4.1.555, Culture=neutral, PublicKeyToken=55f7125234beb589, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.ProtocolBuffers.2.4.1.555\lib\net40\Google.ProtocolBuffers.dll</HintPath>
@@ -210,6 +210,10 @@
     <Compile Include="FmyTest.xaml.cs">
       <DependentUpon>FmyTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="heartbeat\BodyStrong.cs" />
+    <Compile Include="heartbeat\HeartbeatClient.cs" />
+    <Compile Include="heartbeat\HeartbeatHandler.cs" />
+    <Compile Include="heartbeat\TcpHeartBeatUtils.cs" />
     <Compile Include="ImageDealer\ImageDealer.xaml.cs">
       <DependentUpon>ImageDealer.xaml</DependentUpon>
     </Compile>
