@@ -1388,7 +1388,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ButtonBase_OnClick1(object sender, RoutedEventArgs e)
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             
 
@@ -1581,7 +1581,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
         }
         // 本机写卡使用方法
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonBase_OnClick1(object sender, RoutedEventArgs e)
         {
              
             try
