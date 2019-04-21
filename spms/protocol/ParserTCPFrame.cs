@@ -216,8 +216,8 @@ namespace spms.protocol
             //        File.Create(@"D:\nettyLog.log");
             //    }
             //}
-            
-
+            try
+            {
                 string path = AppDomain.CurrentDomain.BaseDirectory;
                 path = System.IO.Path.Combine(path
                 , "ZLogs\\");
@@ -236,7 +236,13 @@ namespace spms.protocol
 
                     output.Close();
                 }
-            
+            }
+            catch (Exception)
+            {
+
+                 
+            }
+         
         }
 
         /// <summary>

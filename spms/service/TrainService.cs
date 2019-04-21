@@ -31,6 +31,7 @@ namespace spms.service
         {
             using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
             {
+
                 TrainInfo trainInfoFromDB = GetTrainInfoByUserIdAndStatus(trainInfo.FK_User_Id, trainInfo.Status);
                 if (trainInfoFromDB != null)
                 {
@@ -46,12 +47,19 @@ namespace spms.service
                             trainInfoDao.UpdateStatusByUserId(trainInfo.FK_User_Id);
                             
                             break;
+                        case (int)TrainInfoStatus.Temp:
+                            //如果是暂存状态的数据，废弃之前的该用户的暂存训练信息。在此处并不废弃已经有的nomal状态的信息，写卡成功了，才会废弃。
+                            trainInfoDao.AbandonAllTempTrainInfo(trainInfo.FK_User_Id);
+
+                            break;
                     }
                 }
 
-                //插入症状信息、插入上传表
+                //插入训练信息表
                 int tiId = (int)trainInfoDao.Insert(trainInfo);
+                //插入上传表
                 uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo"));
+                //插入症状信息，如果有症状信息的话
                 if (trainInfo.Status == (int)TrainInfoStatus.Normal && siId != null)
                 {
                     //如果是写卡，并且选了症状记录，改变症状表外键关联
@@ -340,6 +348,18 @@ namespace spms.service
             }
 
             return trainDtos;
+         }
+        /// <summary>
+        /// 将某用户的暂存状态的信息设置为nomal状态，要处理好不是一条数据的情况
+        /// </summary>
+        /// <param name="pk_User_Id"></param>
+        public void SetTmpToNomal(int pk_User_Id)
+        {
+            //此时，设置为nomal状态之前，先把某用户的之前的nomal状态的数据废弃，因为界面上已经同意了覆盖。写卡失败不会触发该操作。      
+            trainInfoDao.UpdateStatusByUserId(pk_User_Id);
+            //将该用户的暂存状态的信息设置为nomal状态
+            trainInfoDao.SetTmpToNomal(pk_User_Id);
         }
+        
     }
 }

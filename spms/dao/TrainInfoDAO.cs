@@ -72,6 +72,34 @@ namespace spms.dao
                 return conn.Query<TrainInfo>(query, new { FK_User_Id = userPkUserId}).ToList();
             }
         }
+        /// <summary>
+        ///  废弃某用户所有的暂存状态的信息
+        /// </summary>
+        /// <param name="userID"></param>
+        public void AbandonAllTempTrainInfo(int userID)
+        {
+            //throw new NotImplementedException();
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "update bdl_traininfo set status = 3 where fk_user_id = @FK_User_Id and status = 4";
+
+                conn.Execute(query, new { FK_User_Id = userID });
+            }
+        }
+        /// <summary>
+        ///  设置某用户所有的暂存状态的信息为nomal状态
+        /// </summary>
+        /// <param name="userID"></param>
+        public void SetTmpToNomal(int userID)
+        {
+            //throw new NotImplementedException();
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "update bdl_traininfo set status = 0 where fk_user_id = @FK_User_Id and status = 4";
+
+                conn.Execute(query, new { FK_User_Id = userID });
+            }
+        }
     }
 
     public class DevicePrescriptionDAO : BaseDAO<DevicePrescription>
