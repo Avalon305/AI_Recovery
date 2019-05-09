@@ -107,6 +107,9 @@ namespace spms.http
             }
 
             authDAO.UpdateByPrimaryKey(auther);
+            //插入至上传表
+            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+            uploadManagementDao.Insert(new UploadManagement(auther.Pk_Auth_Id, "bdl_auth", 1));
         }
     }
 }

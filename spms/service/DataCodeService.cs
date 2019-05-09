@@ -30,11 +30,17 @@ namespace spms.service
             dataCode.Code_D_Value = dValue;
             dataCode.Code_S_Value = sValue;
             dataCodeDAO.Insert(dataCode);
+            //插入至上传表
+            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+            uploadManagementDao.Insert(new UploadManagement(dataCode.Pk_Code_Id, "bdl_datacode", 0));
         }
 
         public void UpdateDataCode(DataCode dataCode)
         {
             dataCodeDAO.UpdateByPrimaryKey(dataCode);
+            //插入至上传表
+            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+            uploadManagementDao.Insert(new UploadManagement(dataCode.Pk_Code_Id, "bdl_datacode", 1));
         }
 
         public void DeleteByPrimaryKey(int primaryKey)

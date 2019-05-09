@@ -1,4 +1,5 @@
-﻿using spms.dao.app;
+﻿using spms.dao;
+using spms.dao.app;
 using spms.entity;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,9 @@ namespace spms.service
             customData.CD_Type = (byte)customDataEnum;
             customData.CD_CustomName = value;
             customDataDAO.Insert(customData);
+            //插入至上传表
+            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+            uploadManagementDao.Insert(new UploadManagement(customData.Pk_CD_Id, "bdl_customdata", 0));
         }
         /// <summary>
         /// 根据type获得对应的某种自定义的全部List<string>

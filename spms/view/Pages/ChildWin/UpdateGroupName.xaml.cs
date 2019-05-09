@@ -1,5 +1,6 @@
 ﻿
 using Dapper;
+using spms.dao;
 using spms.dao.app;
 using spms.entity;
 using spms.service;
@@ -77,8 +78,17 @@ namespace spms.view.Pages.ChildWin
             using (var conn = DbUtil.getConn())
             {
                 conn.Execute("update bdl_customdata set CD_CustomName=@CD_CustomName where Pk_CD_Id=@Pk_CD_Id", selectedGroup);
+                //插入至上传表
+                UploadManagementDAO uploadManagementDao1 = new UploadManagementDAO();
+                uploadManagementDao1.Insert(new UploadManagement(selectedGroup.Pk_CD_Id, "bdl_customdata", 1));
                 string query = "update bdl_user SET user_groupname = @user_groupname where user_groupname=@old";
+                
                 conn.Execute(query, Parameters);
+                //插入至上传表
+                UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+                uploadManagementDao1.Insert(new UploadManagement(Parameters.Get<int>("old"), "bdl_user", 1));
+
+
             }
             this.Close();
         }

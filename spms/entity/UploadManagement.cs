@@ -18,18 +18,22 @@ namespace spms.entity
         public int UM_DataId { get; set; }
         //持有数据所在的表名
         public string UM_DataTable { get; set; }
+        //操作的类型 add是0 update是1
+        public int UM_Exec { get; set; }
         //ID构造器
-        public UploadManagement(int keyID) {
+        public UploadManagement(int keyID)
+        {
             this.Pk_UM_Id = keyID;
         }
         public UploadManagement()
         {
         }
 
-        public UploadManagement(int umDataId, string umDataTable)
+        public UploadManagement(int umDataId, string umDataTable, int umexec)
         {
             UM_DataId = umDataId;
             UM_DataTable = umDataTable;
+            UM_Exec = umexec;
         }
     }
 }

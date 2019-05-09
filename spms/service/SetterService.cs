@@ -43,6 +43,9 @@ namespace spms.service
         /// </summary>
         public void InsertSetter(Setter setter) {
             setterDAO.Insert(setter);
+            //插入至上传表
+            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+            uploadManagementDao.Insert(new UploadManagement(setter.Pk_Set_Id, "bdl_set", 0));
         }
 
         public string getPath()

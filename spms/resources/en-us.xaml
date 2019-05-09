@@ -6,8 +6,8 @@
     <s:String x:Key="App.UpdateInfo">Discover a new version，update it？</s:String>
     <s:String x:Key="App.PortOccupy">Port is occupied, try reboot your computer!</s:String>
     <s:String x:Key="App.Tips">Tips</s:String>
-    <s:String x:Key=" App.DbException">Database connect failed，the program will be exit</s:String>
-
+    <s:String x:Key="App.DbException">Database connect failed，the program will be exit</s:String>
+    <s:String x:Key="App.Locked">The device is locked.Please contact the administrator!</s:String>
     <!--2019/1/10新加-->
     <s:String x:Key="New.Hand">Hand Location</s:String>
     <s:String x:Key="New.AngleOfChair">Angle Of Chair</s:String>

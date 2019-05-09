@@ -7,8 +7,8 @@
     <s:String x:Key="App.UpdateInfo">发现新版本，是否更新？</s:String>
     <s:String x:Key="App.PortOccupy">通信端口被占用，建议重启计算机后再重试！</s:String>
     <s:String x:Key="App.Tips">提示</s:String>
-    <s:String x:Key=" App.DbException">数据库连接失败，程序即将退出</s:String>
-
+    <s:String x:Key="App.DbException">数据库连接失败，程序即将退出</s:String>
+    <s:String x:Key="App.Locked">设备已锁定，请联系宝德龙管理人员！</s:String>
     <!--2019/1/10新加-->
     <s:String x:Key="New.Hand">手把位置</s:String>
     <s:String x:Key="New.AngleOfChair">背椅夹角</s:String>

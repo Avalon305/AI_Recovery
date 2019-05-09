@@ -2,6 +2,8 @@
 using DotNetty.Transport.Channels;
 using Microsoft.Extensions.Logging;
 using NLog;
+using spms.util;
+using spms.view.Pages;
 using System;
 
 namespace spms.heartbeat
@@ -34,11 +36,16 @@ namespace spms.heartbeat
                     break;
                 //正常心跳不做处理
                 case HeartbeatResponse.Types.ResponseType.Nomal:
-
                     break;
                 //上锁
                 case HeartbeatResponse.Types.ResponseType.Lock:
+
                     TcpHeartBeatUtils.LockUse(buffer.HeartbeatResponse);
+                    App.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        MessageBoxX.Info(LanguageUtils.GetCurrentLanuageStrByKey("App.Locked"));
+                        System.Environment.Exit(0);
+                    }));
                     break;
                 //解锁
                 case HeartbeatResponse.Types.ResponseType.Unlock:

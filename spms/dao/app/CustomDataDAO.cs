@@ -41,7 +41,9 @@ namespace spms.dao.app
         }
         public void DeleteCustomDataByPrimaryKey(int ID)
         {
-
+            //插入至上传表
+            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+            uploadManagementDao.Insert(new UploadManagement(ID, "bdl_customdata", 1));
             using (var conn = DbUtil.getConn())
             {
 

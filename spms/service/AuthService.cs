@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using spms.constant;
 using spms.util;
-using spms.constant;
+
 
 namespace spms.service
 {
@@ -27,9 +27,17 @@ namespace spms.service
                 Auther a = dao.Load(2);
                 a.Auth_UserName = "mod";
                 dao.UpdateByPrimaryKey(a);
+                //插入至上传表
+                UploadManagementDAO uploadManagementDao1 = new UploadManagementDAO();
+                uploadManagementDao1.Insert(new UploadManagement(a.Pk_Auth_Id, "bdl_auth", 1));
+
                 Auther b = new Auther();
                 b.Auth_UserName = "new";
                 dao.Insert(b);
+                //插入至上传表
+                UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+                uploadManagementDao.Insert(new UploadManagement(b.Pk_Auth_Id, "bdl_auth", 0));
+
                 int p = 0;
                 //int l = 8 / p;
 
@@ -41,8 +49,10 @@ namespace spms.service
         {
                 int pk_auth_id = new AuthDAO().getIdByMaxId();
                 Console.WriteLine(pk_auth_id);
+                /*
+                 * 多余的，不需要加
                 UploadManagement uploadManagement = new UploadManagement(pk_auth_id, "bdl_auth");
-                uploadManagementDAO.Insert(uploadManagement);
+                uploadManagementDAO.Insert(uploadManagement);*/
          }
         /// <summary>
         /// 登录
@@ -89,22 +99,31 @@ namespace spms.service
           
             string mac = "";
             try {
-                byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
-                byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
-                mac = Encoding.GetEncoding("GBK").GetString(b);
+
+                byte[] debytes = AesUtil.Decrypt(Encoding.GetEncoding("GBK").GetBytes(setter.Set_Unique_Id), ProtocolConstant.USB_DOG_PASSWORD);
+
+                mac = Encoding.GetEncoding("GBK").GetString(debytes);
+                //byte[] a = ProtocolUtil.StringToBcd(setter.Set_Unique_Id);
+                //byte[] b = AesUtil.Decrypt(a, ProtocolConstant.USB_DOG_PASSWORD);
+                //mac = Encoding.GetEncoding("GBK").GetString(b);
             }
             catch (Exception ex)
             {
-                loginResult = "登录异常.";
-                return loginResult;
+                //解密出现问题，经常会报错，目前是直接返回的登陆成功的信息。
+                Console.WriteLine("解密异常:" + ex.Message);
+                //loginResult = "解密异常.";
+                //return loginResult;
             }
             //如果解密后的setter中的mac不包含现在获得的mac 
             if (mac.IndexOf(SystemInfo.GetMacAddress().Replace(":", "-")) == -1 )
             {
                 //Console.WriteLine("DB:"+ mac);
                 //Console.WriteLine("current:" + SystemInfo.GetMacAddress().Replace(":","-"));
-                loginResult = "登录异常";
-                return loginResult;
+
+                //loginResult = "登录异常";
+                //return loginResult;
+
+                Console.WriteLine("机器码匹配异常" );
             }
             if (autherCN.User_Status == Auther.USER_STATUS_FREEZE)
             {

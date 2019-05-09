@@ -29,6 +29,9 @@ namespace spms.dao
 
         public void UpdateStatusByUserId(int userId)
         {
+            //插入至上传表
+            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+            uploadManagementDao.Insert(new UploadManagement(userId, "bdl_traininfo", 1));
             using (var conn = DbUtil.getConn())
             {
                 const string query = "update bdl_traininfo set status = 3 where fk_user_id = @FK_User_Id and status = 0";
@@ -78,6 +81,9 @@ namespace spms.dao
         /// <param name="userID"></param>
         public void AbandonAllTempTrainInfo(int userID)
         {
+            //插入至上传表
+            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+            uploadManagementDao.Insert(new UploadManagement(userID, "bdl_traininfo", 1));
             //throw new NotImplementedException();
             using (var conn = DbUtil.getConn())
             {
@@ -92,6 +98,9 @@ namespace spms.dao
         /// <param name="userID"></param>
         public void SetTmpToNomal(int userID)
         {
+            //插入至上传表
+            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+            uploadManagementDao.Insert(new UploadManagement(userID, "bdl_traininfo", 1));
             //throw new NotImplementedException();
             using (var conn = DbUtil.getConn())
             {

@@ -1,5 +1,6 @@
 ﻿using spms.bean;
 using spms.constant;
+using spms.dao;
 using spms.dao.app;
 using spms.entity;
 using spms.util;
@@ -65,11 +66,17 @@ namespace spms.service
                 onlineDevice.od_clientname_ch = name_zh;
                 //插入记录
                 onlineDeviceDAO.Insert(onlineDevice);
+                //插入至上传表
+                UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+                uploadManagementDao.Insert(new UploadManagement(onlineDevice.pk_od_id, "bdl_onlinedevice", 0));
             }
             else//更新
             {
                 //更新心跳时间
                 onlineDeviceDAO.UpdateOnlineTime(onlineDevice.pk_od_id,DateTime.Now);
+                //插入至上传表
+                UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+                uploadManagementDao.Insert(new UploadManagement(onlineDevice.pk_od_id, "bdl_onlinedevice", 1));
             }
         }
     }

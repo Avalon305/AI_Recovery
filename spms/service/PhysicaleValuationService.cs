@@ -27,13 +27,16 @@ namespace spms.service
         /// <param name="physicalPower"></param>
         public int AddPhysicalPower(PhysicalPower physicalPower)
         {
+           
+
             int row = new PhysicalPowerDAO().AddPhysicalPower(physicalPower);
+            //插入至上传表
+            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+            uploadManagementDao.Insert(new UploadManagement(new PhysicalPowerDAO().getIdByGmtCreate(physicalPower.Gmt_Create), "bdl_physicalpower", 0));
             if (row == 1)
             {
                 int pk_pp_id = new PhysicalPowerDAO().getIdByGmtCreate(physicalPower.Gmt_Create);
                 Console.WriteLine(pk_pp_id);
-                UploadManagement uploadManagement = new UploadManagement(pk_pp_id, "bdl_physicalpower");
-                uploadManagementDAO.Insert(uploadManagement);
             }
             
             return row;

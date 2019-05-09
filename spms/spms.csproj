@@ -213,7 +213,16 @@
     <Compile Include="heartbeat\BodyStrong.cs" />
     <Compile Include="heartbeat\HeartbeatClient.cs" />
     <Compile Include="heartbeat\HeartbeatHandler.cs" />
+    <Compile Include="heartbeat\ProtoBufSocket.cs" />
     <Compile Include="heartbeat\TcpHeartBeatUtils.cs" />
+    <Compile Include="http\dto\CustomDataDTO.cs" />
+    <Compile Include="http\dto\DataCodeDTO.cs" />
+    <Compile Include="http\dto\DeviceSetDTO.cs" />
+    <Compile Include="http\dto\DeviceSortDTO.cs" />
+    <Compile Include="http\dto\OnlineDeviceDTO.cs" />
+    <Compile Include="http\dto\SendMsgDTO.cs" />
+    <Compile Include="http\dto\SetterDTO.cs" />
+    <Compile Include="http\entity\WebResult.cs" />
     <Compile Include="ImageDealer\ImageDealer.xaml.cs">
       <DependentUpon>ImageDealer.xaml</DependentUpon>
     </Compile>

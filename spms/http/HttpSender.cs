@@ -16,7 +16,7 @@ namespace spms.http
     public class HttpSender
     {
 
-        public static readonly string URLBASE = "http://49.4.67.157:8080/cloud/";
+        public static readonly string URLBASE = "http://192.168.43.95:8080/bigDataRecivedHandler/";
         //public static readonly string URLBASE = "http://172.20.10.5:8080/cloud/";
         public static readonly string URL_UPDATE = "http://49.4.67.157:8080/bdl_update/AutoUpdate";
 
@@ -43,7 +43,7 @@ namespace spms.http
                 return false;
             }
         }
- 
+
 
         //post方式，参数为json串
         public static string POSTByJsonStr(string url, string jsonStr)
@@ -93,8 +93,8 @@ namespace spms.http
                 //Console.WriteLine(e);
                 return "";
             }
-           
-            
+
+
         }
 
 
@@ -118,14 +118,14 @@ namespace spms.http
             HttpWebResponse res; //定义返回的response
             try
             {
-                res = (HttpWebResponse) request.GetResponse(); //此处发送了请求并获得响应
+                res = (HttpWebResponse)request.GetResponse(); //此处发送了请求并获得响应
             }
             catch (WebException ex)
             {
-                res = (HttpWebResponse) ex.Response;
+                res = (HttpWebResponse)ex.Response;
                 Console.WriteLine(ex.ToString());
             }
-            if(res ==null)
+            if (res == null)
             {
                 return "";
             }
@@ -168,11 +168,11 @@ namespace spms.http
             HttpWebResponse res;
             try
             {
-                res = (HttpWebResponse) request.GetResponse();
+                res = (HttpWebResponse)request.GetResponse();
             }
             catch (WebException ex)
             {
-                res = (HttpWebResponse) ex.Response;
+                res = (HttpWebResponse)ex.Response;
             }
             if (res == null)
             {

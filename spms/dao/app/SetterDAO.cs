@@ -26,6 +26,9 @@ namespace spms.dao
         }
         public void InsertOneMacAdress(entity.Setter setter)
         {
+            //插入至上传表
+            UploadManagementDAO uploadManagementDao1 = new UploadManagementDAO();
+            uploadManagementDao1.Insert(new UploadManagement(setter.Pk_Set_Id, "bdl_set", 0));
             using (var conn = DbUtil.getConn())
             {
                 const string sql = "insert into bdl_set(set_unique_id, set_language,set_photolocation, set_version,back_up) values(@Set_Unique_Id,@Set_Language, @Set_PhotoLocation, @Set_Version,@Back_Up)";
@@ -42,6 +45,9 @@ namespace spms.dao
         }
         public void UpdateSetter(entity.Setter setter)
         {
+            //插入至上传表
+            UploadManagementDAO uploadManagementDao1 = new UploadManagementDAO();
+            uploadManagementDao1.Insert(new UploadManagement(setter.Pk_Set_Id, "bdl_set", 1));
             using (var conn = DbUtil.getConn())//更新Setter
             {
                 conn.Execute("update bdl_set set Set_Language=@Set_Language,Set_OrganizationSort=@Set_OrganizationSort,Set_OrganizationName=@Set_OrganizationName,Set_PhotoLocation=@Set_PhotoLocation,Set_OrganizationPhone=@Set_OrganizationPhone,Back_Up=@Back_Up where Pk_Set_Id=@Pk_Set_Id", setter);

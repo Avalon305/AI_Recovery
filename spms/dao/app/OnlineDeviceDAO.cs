@@ -32,6 +32,7 @@ namespace spms.dao.app
         /// <param name="dateTime"></param>
         public void UpdateOnlineTime(object pk,DateTime dateTime)
         {
+            //这里不用加上传表，使用该函数处时加了
             using (var conn = DbUtil.getConn())
             {
                 const string query = "update bdl_onlinedevice set od_gmt_modified =  @OnlineTime where pk_od_id = @Id";

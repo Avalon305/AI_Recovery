@@ -20,10 +20,10 @@ namespace spms.service
             {
                 //插入症状信息返回主键
                 int id = (int)new SymptomInfoDao().Insert(symptomInfo);
-                
+
                 //插入至上传表
                 UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
-                uploadManagementDao.Insert(new UploadManagement(id, "bdl_symptominfo"));
+                uploadManagementDao.Insert(new UploadManagement(id, "bdl_symptominfo", 0));
 
                 ts.Complete();
             }
@@ -37,10 +37,10 @@ namespace spms.service
             {
                 //插入症状信息返回主键
                 new SymptomInfoDao().UpdateByPrimaryKey(symptomInfo);
-                
+
                 //插入至上传表
                 UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
-                uploadManagementDao.Insert(new UploadManagement(symptomInfo.Pk_SI_Id, "bdl_symptominfo"));
+                uploadManagementDao.Insert(new UploadManagement(symptomInfo.Pk_SI_Id, "bdl_symptominfo", 1));
 
                 ts.Complete();
             }

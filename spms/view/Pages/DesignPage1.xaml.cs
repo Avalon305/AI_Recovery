@@ -299,6 +299,7 @@ namespace spms.view.Pages
                 //类中使用
                 CustomData group = (CustomData)DataGrid2.SelectedItem;
                 groupUpdata.selectedGroup = group;
+                
                 //UI中使用
                 groupUpdata.GroupName.Text = group.CD_CustomName;
                 groupUpdata.OldGroupName = group.CD_CustomName;

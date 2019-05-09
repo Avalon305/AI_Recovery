@@ -46,6 +46,7 @@ namespace spms.service
                             //如果是写卡后的插入，废弃原来的记录
                             trainInfoDao.UpdateStatusByUserId(trainInfo.FK_User_Id);
                             
+
                             break;
                         case (int)TrainInfoStatus.Temp:
                             //如果是暂存状态的数据，废弃之前的该用户的暂存训练信息。在此处并不废弃已经有的nomal状态的信息，写卡成功了，才会废弃。
@@ -58,7 +59,7 @@ namespace spms.service
                 //插入训练信息表
                 int tiId = (int)trainInfoDao.Insert(trainInfo);
                 //插入上传表
-                uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo"));
+                uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo", 0));
                 //插入症状信息，如果有症状信息的话
                 if (trainInfo.Status == (int)TrainInfoStatus.Normal && siId != null)
                 {
@@ -66,6 +67,9 @@ namespace spms.service
                     var symptomInfo = symptomInfoDao.Load((int)siId);
                     symptomInfo.Fk_TI_Id = tiId;
                     symptomInfoDao.UpdateByPrimaryKey(symptomInfo);
+                    //插入至上传表
+                    uploadManagementDao.Insert(new UploadManagement(symptomInfo.Pk_SI_Id, "bdl_symptominfo", 1));
+
                 }
 
                 int dpId;
@@ -77,7 +81,7 @@ namespace spms.service
                         devicePrescription.Fk_TI_Id = tiId;
                         dpId = (int)devicePrescriptionDao.Insert(devicePrescription);
                         //插入至上传表
-                        uploadManagementDao.Insert(new UploadManagement(dpId, "bdl_deviceprescription"));
+                        uploadManagementDao.Insert(new UploadManagement(dpId, "bdl_deviceprescription", 0));
                     }
                 }
 
@@ -125,7 +129,9 @@ namespace spms.service
                 }
 
                 prescriptionResultDAO.Insert(result);
-
+                //插入至上传表
+                UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+                uploadManagementDao.Insert(new UploadManagement(result.Fk_DP_Id, "bdl_prescriptionresult", 0));
                 //查询是否还有没完成的训练处方，如果都完成了就更新TrinInfo
                 var unDoItemList = devicePrescriptionDAO.ListUnDoByTIId(p.Fk_TI_Id);
                 if (unDoItemList.Count == 1)
@@ -136,12 +142,18 @@ namespace spms.service
                         t.Pk_TI_Id = p.Fk_TI_Id;
                         t.Status = (byte)TrainInfoStatus.Finish;
                         trainInfoDao.UpdateByPrimaryKey(t);
+                        //插入至上传表
+                        UploadManagementDAO uploadManagementDao1 = new UploadManagementDAO();
+                        uploadManagementDao.Insert(new UploadManagement(t.FK_User_Id, "bdl_traininfo", 1));
                     }
                 }
 
                 //更新该设备处方已完成状态
                 p.Dp_status = DevicePrescription.DOWN;
                 devicePrescriptionDAO.UpdateByPrimaryKey(p);
+                //插入至上传表
+                UploadManagementDAO uploadManagementDao2 = new UploadManagementDAO();
+                uploadManagementDao.Insert(new UploadManagement(p.Pk_DP_Id, "bdl_deviceprescription", 1));
 
                 ts.Complete();
             }
@@ -161,13 +173,15 @@ namespace spms.service
             {
                 //插入训练信息和上传表
                 int tiId = (int) new TrainInfoDAO().Insert(trainInfo);
-                uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo"));
+                uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo", 0));
                 if (siId != null)
                 {
                     //改变症状表外键关联
                     var symptomInfo = symptomInfoDao.Load((int)siId);
                     symptomInfo.Fk_TI_Id = tiId;
                     symptomInfoDao.UpdateByPrimaryKey(symptomInfo);
+                    //将更新信息插入至上传表
+                    uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo", 1));
                 }
                 if (prescriptionDic != null)
                 {
@@ -180,12 +194,12 @@ namespace spms.service
                         //插入设备处方、上传表
                         devicePrescription.Fk_TI_Id = tiId;
                         dpId = (int) devicePrescriptionDao.Insert(devicePrescription);
-                        uploadManagementDao.Insert(new UploadManagement(dpId, "bdl_deviceprescription"));
+                        uploadManagementDao.Insert(new UploadManagement(dpId, "bdl_deviceprescription", 0));
 
                         //插入设备处方结果、上传表
                         prescriptionResult.Fk_DP_Id = dpId;
                         prId = (int) prescriptionResultDao.Insert(prescriptionResult);
-                        uploadManagementDao.Insert(new UploadManagement(prId, "bdl_prescriptionresult"));
+                        uploadManagementDao.Insert(new UploadManagement(prId, "bdl_prescriptionresult", 0));
                     }
                 }
 

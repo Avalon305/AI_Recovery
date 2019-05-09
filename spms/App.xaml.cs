@@ -142,11 +142,19 @@ namespace spms
                             Thread.Sleep(1000 * 15);
                             continue;
                         }
-                        BigDataOfficer bigDataOfficer = new BigDataOfficer();
-                        bigDataOfficer.Run();
-                        int heartBeatRate = (int)CommUtil.GetBigDataRate();
-                        Thread.Sleep(1000 * 300);
-                        Console.WriteLine("-----------------boom");
+                        try
+                        {
+                            BigDataOfficer bigDataOfficer = new BigDataOfficer();
+                            bigDataOfficer.Run();
+                            int heartBeatRate = (int)CommUtil.GetBigDataRate();
+                            Thread.Sleep(1000 * 500);
+                            //Console.WriteLine("-----------------boom");
+                        }
+                        catch(Exception e)
+                        {
+                            Console.WriteLine("失败:"+e.Message);
+                           
+                        }
                     }
                 }
                 catch (Exception exct)
@@ -158,37 +166,45 @@ namespace spms
 
             //心跳线程
             Thread hbth = new Thread(() =>
-            {     
-                    HeartbeatClient heartbeatClient = new HeartbeatClient();
-                    while (true)
+            {
+
+                ProtoBufSocket socket = null;
+                try
+                {
+                    socket = new ProtoBufSocket();
+                    socket.Connect();
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine("连接失败:" + exception.StackTrace);
+                    TcpHeartBeatUtils.WriteLogFile("连接失败:" + exception.StackTrace);
+                }
+
+                while (true)
+                {
+                    try
                     {
-                        try
+                        BodyStrongMessage bodyStrongMessage = new BodyStrongMessage
                         {
-                            BodyStrongMessage bodyStrongMessage = new BodyStrongMessage
-                            {
-                                MessageType = BodyStrongMessage.Types.MessageType.Heaerbeatreq,
-                                //可能为null
-                                HeartbeatRequest = TcpHeartBeatUtils.GetHeartBeatByCurrent()
-                            };
-
-                        //new Thread( () =>
-                        //{
-                            //heartbeatClient.sendMsgAsync(bodyStrongMessage).Wait();
-                        HeartbeatClient.RunClientAsync(bodyStrongMessage).Wait();
-                        //}).Start();
-                        
-
+                            MessageType = BodyStrongMessage.Types.MessageType.Heaerbeatreq,
+                            //可能为null
+                            HeartbeatRequest = TcpHeartBeatUtils.GetHeartBeatByCurrent()
+                        };
+                        socket.SendMessage(bodyStrongMessage);
+                        Console.WriteLine("发送msg!!");
+                        //Thread.Sleep(5000);
                     }
-                     catch (Exception exception)
-                        {
-                            //exception.Message();
-                            TcpHeartBeatUtils.WriteLogFile("连接宝德龙云平台线程发送失败"+ exception.StackTrace);
-                        }
-                        finally {
-                            Thread.Sleep(5000);
-                        }
+                    catch (Exception eee)
+                    {
+                        Console.WriteLine("发送msg失败" + eee.StackTrace);
+                        TcpHeartBeatUtils.WriteLogFile("发送msg失败" + eee.StackTrace);
                     }
- 
+                    finally
+                    {
+                        Thread.Sleep(5000);
+                    }
+                }
+
             });
             hbth.Start();
 

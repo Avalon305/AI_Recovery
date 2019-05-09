@@ -9,6 +9,7 @@ using spms.http.entity;
 using spms.http.dto;
 using spms.util;
 using spms.constant;
+using spms.dao.app;
 
 namespace spms.service
 {
@@ -72,10 +73,92 @@ namespace spms.service
                     return null;
                 }
                 AutherDTO autherDTO = new AutherDTO(setter, auther, mac);
-                
 
-                serviceResult.URL = "clientController/addClient.action";
+
+                //serviceResult.URL = "clientController/addClient.action";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<AutherDTO>(autherDTO);
+            }
+            //bdl_customdata表
+            else if (uploadManagement.UM_DataTable == "bdl_customdata")
+            {
+                CustomDataDAO customDataDAO = new CustomDataDAO();
+                CustomData customData = customDataDAO.Load(uploadManagement.UM_DataId);
+                if (customData == null)
+                {
+                    return null;
+                }
+                CustomDataDTO customDataDTO = new CustomDataDTO(customData, mac);
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<CustomDataDTO>(customDataDTO);
+
+            }
+            //bdl_datacode表
+            else if (uploadManagement.UM_DataTable == "bdl_datacode")
+            {
+                DataCodeDAO dataCodedao = new DataCodeDAO();
+                DataCode dataCode = dataCodedao.Load(uploadManagement.UM_DataId);
+
+                if (dataCode == null)
+                {
+                    return null;
+                }
+                DataCodeDTO dataCodeDTO = new DataCodeDTO(dataCode, mac);
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<DataCodeDTO>(dataCodeDTO);
+            }
+            //bdl_deviceset表
+            else if (uploadManagement.UM_DataTable == "bdl_deviceset")
+            {
+                DeviceSetDAO deviceSetDAO = new DeviceSetDAO();
+                DeviceSet deviceSet = deviceSetDAO.Load(uploadManagement.UM_DataId);
+                if (deviceSet == null)
+                {
+                    return null;
+                }
+                DeviceSetDTO deviceSetDTO = new DeviceSetDTO(deviceSet, mac);
+
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<DeviceSetDTO>(deviceSetDTO);
+            }
+            //bdl_devicesort表
+            else if (uploadManagement.UM_DataTable == "bdl_devicesort")
+            {
+                DeviceSortDAO deviceSortDAO = new DeviceSortDAO();
+                DeviceSort deviceSort = deviceSortDAO.Load(uploadManagement.UM_DataId);
+                if (deviceSort == null)
+                {
+                    return null;
+                }
+                DeviceSortDTO deviceSortDTO = new DeviceSortDTO(deviceSort, mac);
+
+
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<DeviceSortDTO>(deviceSortDTO);
+            }
+            //bdl_onlinedevice表
+            else if (uploadManagement.UM_DataTable == "bdl_onlinedevice")
+            {
+                OnlineDeviceDAO onlineDeviceDAO = new OnlineDeviceDAO();
+                OnlineDevice onlineDevice = onlineDeviceDAO.Load(uploadManagement.UM_DataId);
+
+                if (onlineDevice == null)
+                {
+                    return null;
+                }
+                OnlineDeviceDTO onlineDeviceDTO = new OnlineDeviceDTO(onlineDevice, mac);
+
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<OnlineDeviceDTO>(onlineDeviceDTO);
+            }
+            //bdl_set表
+            else if (uploadManagement.UM_DataTable == "bdl_set")
+            {
+                SetterDAO setterDAO1 = new SetterDAO();
+                Setter setter1 = setterDAO1.Load(uploadManagement.UM_DataId);
+
+                if (setter1 == null)
+                {
+                    return null;
+                }
+
+                SetterDTO setterDTO = new SetterDTO(setter1, mac);
+
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<SetterDTO>(setterDTO);
             }
             //病人表
             else if (uploadManagement.UM_DataTable == "bdl_user")
@@ -87,9 +170,9 @@ namespace spms.service
                     return null;
                 }
 
-                
+
                 UserDTO userDTO = new UserDTO(user, mac);
-                serviceResult.URL = "bigData/bodyStrongUser";
+                //serviceResult.URL = "bigData/bodyStrongUser";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<UserDTO>(userDTO);
             }
 
@@ -103,9 +186,9 @@ namespace spms.service
                     return null;
                 }
 
-                 
+
                 SymptomInfoDTO symptomInfoDTO = new SymptomInfoDTO(result, mac);
-                serviceResult.URL = "bigData/symptomInfo";
+                //serviceResult.URL = "bigData/symptomInfo";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<SymptomInfoDTO>(symptomInfoDTO);
             }
 
@@ -119,9 +202,9 @@ namespace spms.service
                     return null;
                 }
 
-                
+
                 TrainInfoDTO trainInfoDTO = new TrainInfoDTO(result, mac);
-                serviceResult.URL = "bigData/trainInfo";
+                //serviceResult.URL = "bigData/trainInfo";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<TrainInfoDTO>(trainInfoDTO);
             }
 
@@ -135,9 +218,9 @@ namespace spms.service
                     return null;
                 }
 
-                 
+
                 DevicePrescriptionDTO devicePrescriptionDTO = new DevicePrescriptionDTO(result, mac);
-                serviceResult.URL = "bigData/devicePrescription";
+                //serviceResult.URL = "bigData/devicePrescription";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<DevicePrescriptionDTO>(devicePrescriptionDTO);
             }
             //具体处方的具体反馈
@@ -150,9 +233,9 @@ namespace spms.service
                     return null;
                 }
 
-                
+
                 PrescriptionResultDTO prescriptionResultDTO = new PrescriptionResultDTO(result, mac);
-                serviceResult.URL = "bigData/prescriptionResult";
+                //serviceResult.URL = "bigData/prescriptionResult";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<PrescriptionResultDTO>(prescriptionResultDTO);
             }
             else if (uploadManagement.UM_DataTable == "bdl_physicalpower")
@@ -165,7 +248,7 @@ namespace spms.service
                 }
 
                 PhysicalPowerDTO physicalPowerDTO = new PhysicalPowerDTO(result, mac);
-                serviceResult.URL = "bigData/physicalPower";
+                //serviceResult.URL = "bigData/physicalPower";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<PhysicalPowerDTO>(physicalPowerDTO);
             }
 
