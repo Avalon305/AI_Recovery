@@ -205,6 +205,10 @@
     <Compile Include="dao\TrainInfoDAO.cs" />
     <Compile Include="entity\CustomData.cs" />
     <Compile Include="entity\DataCode.cs" />
+    <Compile Include="entity\newEntity\DevicePrescription.cs" />
+    <Compile Include="entity\newEntity\PrescriptionResult.cs" />
+    <Compile Include="entity\newEntity\SkeletonLength.cs" />
+    <Compile Include="entity\newEntity\UserRelation.cs" />
     <Compile Include="entity\OnlineDevice.cs" />
     <Compile Include="entity\UploadManagement.cs" />
     <Compile Include="FmyTest.xaml.cs">
