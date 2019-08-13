@@ -16,17 +16,17 @@ namespace spms.entity.newEntity
     {
         // 主键 自增
         [Key]
-        public int Pk_pr_id { get; set; }
+        public long Pk_pr_id { get; set; }
         // 设备处方ID
-        public int Fk_dp_id { get; set; }
+        public long Fk_dp_id { get; set; }
         // 关联的单一设备类型ID
-        public int Fk_ds_id { get; set; }
+        public long Fk_ds_id { get; set; }
         // 用户绑定手环id
         public string Bind_id { get; set; }
         // 用户运动模式 0：计数模式，1：计时模式
-        public int Sport_mode { get; set; }
+        public int? Sport_mode { get; set; }
         // 设备训练模式 0康复模式，1主被动模式,2被动模式
-        public int Device_mode { get; set; }
+        public int? Device_mode { get; set; }
         // 顺向力
         public double? Consequent_force { get; set; }
         // 反向力
@@ -40,9 +40,11 @@ namespace spms.entity.newEntity
         // 完成运动时间
         public int? Finish_time { get; set; }
         // 跑步机单车距离
-        public int? Distance { get; set; }
+        public double? Distance { get; set; }
         // 训练总耗能
-        public int? Energy { get; set; }
+        public double? Energy { get; set; }
+        //心率集合：运动过程实时心率集合，数据之间*分割
+        public string Heart_rate_list { get; set; }
         // 创建时间
         public DateTime? Gmt_create { get; set; }
         // 修改时间
