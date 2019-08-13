@@ -210,6 +210,7 @@
     <Compile Include="entity\CustomData.cs" />
     <Compile Include="entity\DataCode.cs" />
     <Compile Include="entity\newEntity\DevicePrescription.cs" />
+    <Compile Include="entity\newEntity\PersonalSettingEntity.cs" />
     <Compile Include="entity\newEntity\PrescriptionResult.cs" />
     <Compile Include="entity\newEntity\SkeletonLength.cs" />
     <Compile Include="entity\newEntity\UserRelation.cs" />
@@ -238,6 +239,8 @@
       <DependentUpon>ImageDealerUnsafe.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageDealer\PicZipUtil.cs" />
+    <Compile Include="protocol\BdlProto.cs" />
+    <Compile Include="service\DeviceCommService.cs" />
     <Compile Include="service\OnlineDeviceService.cs" />
     <Compile Include="util\ConfigUtil.cs" />
     <Compile Include="util\LanguageUtils.cs" />
