@@ -12,7 +12,7 @@ namespace spms.entity.newEntity
     /// </summary>
     [Serializable]
     [Table("bdl_skeleton_length")]
-    class SkeletonLength
+    class SkeletonLengthEntity
     {
         //主键自增id
         [ExplicitKey]

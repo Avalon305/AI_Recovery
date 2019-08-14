@@ -111,6 +111,8 @@
     <s:String x:Key="SubjectListView.AddSubject">Add Subject</s:String>
     <s:String x:Key="SubjectListView.EditSubject">Edit Subject</s:String>
     <s:String x:Key="SubjectListView.DeleteSubject">Delete Subject</s:String>
+    <s:String x:Key="SubjectListView.AddBraceletMyodynamia">Add Bracelet Myodynamia</s:String>
+    <s:String x:Key="SubjectListView.AddSkeleton">Add Skeleton</s:String>
     <s:String x:Key="SubjectListView.SubjectID">Subject ID</s:String>
     <s:String x:Key="SubjectListView.LastName">Last Name</s:String>
     <s:String x:Key="SubjectListView.FirstName">First Name</s:String>
