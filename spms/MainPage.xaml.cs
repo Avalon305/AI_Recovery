@@ -1193,5 +1193,17 @@ namespace spms.view.Pages
             w2.ShowDialog();
             Refresh_RecordFrame_Action();
         }
+
+        private void Add_Skeleton(object sender, RoutedEventArgs e)
+        {
+            NuitrackScan nuitrackScan = new NuitrackScan
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            nuitrackScan.ShowDialog();
+        }
     }
     }

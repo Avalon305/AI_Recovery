@@ -112,6 +112,8 @@
     <s:String x:Key="SubjectListView.AddSubject">添加</s:String>
     <s:String x:Key="SubjectListView.EditSubject">更新</s:String>
     <s:String x:Key="SubjectListView.DeleteSubject">删除</s:String>
+    <s:String x:Key="SubjectListView.AddBraceletMyodynamia">手环肌力测试</s:String>
+    <s:String x:Key="SubjectListView.AddSkeleton">体征信息录入</s:String>
     <s:String x:Key="SubjectListView.SubjectID">使用者编号</s:String>
     <s:String x:Key="SubjectListView.LastName">使用者姓名</s:String>
     <s:String x:Key="SubjectListView.FirstName">使用者姓名（拼音）</s:String>
