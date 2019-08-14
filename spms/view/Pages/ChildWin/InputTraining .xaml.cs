@@ -336,7 +336,7 @@ namespace spms.view.Pages.ChildWin
                                               attr3 + "*" +
                                               attr4;
                 devicePrescription.DP_Memo = t1.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
+              //  devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
         devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -447,7 +447,7 @@ devicePrescription.DP_Attrs = //attr1 + "*" +
                                               attr3 + "*" +
                                               attr4;
                 devicePrescription.DP_Memo = t2.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int) DeviceType.X05;
+               // devicePrescription.Fk_DS_Id = (int) DeviceType.X05;
 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -560,7 +560,7 @@ devicePrescription.DP_Attrs = //attr1 + "*" +
                                               attr1 + "*" +
                                               attr2;
                 devicePrescription.DP_Memo = t3.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int) DeviceType.X04;
+              //  devicePrescription.Fk_DS_Id = (int) DeviceType.X04;
 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -674,7 +674,7 @@ devicePrescription.DP_Attrs = //attr1 + "*" +
                                               attr5 + "*" +
                                               attr1;
                 devicePrescription.DP_Memo = t4.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int) DeviceType.X03;
+              //  devicePrescription.Fk_DS_Id = (int) DeviceType.X03;
 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -787,7 +787,7 @@ devicePrescription.DP_Attrs = //attr1 + "*" +
                                               attr2 + "*" +
                                               attr4;
                 devicePrescription.DP_Memo = t5.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int) DeviceType.X06;
+              //  devicePrescription.Fk_DS_Id = (int) DeviceType.X06;
 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -894,7 +894,7 @@ devicePrescription.DP_Attrs = //attr1 + "*" +
                                               attr3 + "*" +
                                               attr4;
                 devicePrescription.DP_Memo = t6.Text; //注意点
-                devicePrescription.Fk_DS_Id = (int) DeviceType.X02;
+               // devicePrescription.Fk_DS_Id = (int) DeviceType.X02;
 devicePrescription.Gmt_Create = DateTime.Now;
                 devicePrescription.Gmt_Modified = DateTime.Now;
                 try
@@ -1133,7 +1133,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
                 int devName = devicePrescription.Fk_DS_Id;
                 switch (devName)
                 {
-                    case (int)DeviceType.X01:
+                    case (int)DeviceType.P00:
                         checkbox1.IsChecked = true;
                         //设置属性
                         com_01.Text = devicePrescription.dp_movedistance.ToString();
@@ -1166,7 +1166,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
                             combobox_06.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Invalid");
                         }
                         break;
-                    case (int)DeviceType.X05:
+                    case (int)DeviceType.P03:
                         checkbox2.IsChecked = true;
                         com_11.Text = devicePrescription.dp_movedistance.ToString();
                         //com_12.Text = attrs[1];
@@ -1197,7 +1197,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
                             combobox_16.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Invalid");
                         }
                         break;
-                    case (int)DeviceType.X04:
+                    case (int)DeviceType.P04:
                         checkbox3.IsChecked = true;
                         com_21.Text = devicePrescription.dp_movedistance.ToString();
                         //com_22.Text = attrs[1];
@@ -1230,7 +1230,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
                             combobox_26.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Invalid");
                         }
                         break;
-                    case (int)DeviceType.X03:
+                    case (int)DeviceType.P05:
                         checkbox4.IsChecked = true;
                         com_31.Text = devicePrescription.dp_movedistance.ToString();
                         //com_32.Text = attrs[1];
@@ -1263,7 +1263,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
                             combobox_36.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Invalid");
                         }
                         break;
-                    case (int)DeviceType.X06:
+                    case (int)DeviceType.P06:
                         checkbox5.IsChecked = true;
                         com_41.Text = devicePrescription.dp_movedistance.ToString();
                         //com_42.Text = attrs[1];
@@ -1297,7 +1297,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
                             combobox_46.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Invalid");
                         }
                         break;
-                    case (int)DeviceType.X02:
+                    case (int)DeviceType.P07:
                         checkbox6.IsChecked = true;
                         com_51.Text = devicePrescription.dp_movedistance.ToString();
                         //com_52.Text = attrs[1];
@@ -1434,42 +1434,42 @@ devicePrescription.Gmt_Create = DateTime.Now;
                     if (checkbox1.IsChecked == true)
                     {
                         //胸部推举机0x01
-                        data[position] = (byte)DeviceType.X01;
+                        data[position] = (byte)DeviceType.P00;
                         position += 1;
                     }
 
                     if (checkbox2.IsChecked == true)
                     {
                         //坐姿划船机 0x05
-                        data[position] = (byte)DeviceType.X05;
+                        data[position] = (byte)DeviceType.P01;
                         position += 1;
                     }
 
                     if (checkbox3.IsChecked == true)
                     {
                         //身体伸展弯曲机 0x04
-                        data[position] = (byte)DeviceType.X04;
+                        //data[position] = (byte)DeviceType.X04;
                         position += 1;
                     }
 
                     if (checkbox4.IsChecked == true)
                     {
                         //腿部伸展弯曲机 0x03
-                        data[position] = (byte)DeviceType.X03;
+                       // data[position] = (byte)DeviceType.X03;
                         position += 1;
                     }
 
                     if (checkbox5.IsChecked == true)
                     {
                         //胸部推举机 0x06
-                        data[position] = (byte)DeviceType.X06;
+                        //data[position] = (byte)DeviceType.X06;
                         position += 1;
                     }
 
                     if (checkbox6.IsChecked == true)
                     {
                         //腿部内外弯机 0x02
-                        data[position] = (byte)DeviceType.X02;
+                       // data[position] = (byte)DeviceType.X02;
                     }
 
                     //Console.WriteLine("发卡的内容：" + ProtocolUtil.ByteToStringOk(data));
@@ -1629,42 +1629,42 @@ devicePrescription.Gmt_Create = DateTime.Now;
                     if (checkbox1.IsChecked == true)
                     {
                         //胸部推举机0x01
-                        data[position] = (byte)DeviceType.X01;
+                        data[position] = (byte)DeviceType.P01;
                         position += 1;
                     }
 
                     if (checkbox2.IsChecked == true)
                     {
                         //坐姿划船机 0x05
-                        data[position] = (byte)DeviceType.X05;
+                        data[position] = (byte)DeviceType.P02;
                         position += 1;
                     }
 
                     if (checkbox3.IsChecked == true)
                     {
                         //身体伸展弯曲机 0x04
-                        data[position] = (byte)DeviceType.X04;
+                        data[position] = (byte)DeviceType.P03;
                         position += 1;
                     }
 
                     if (checkbox4.IsChecked == true)
                     {
                         //腿部伸展弯曲机 0x03
-                        data[position] = (byte)DeviceType.X03;
+                        data[position] = (byte)DeviceType.P04;
                         position += 1;
                     }
 
                     if (checkbox5.IsChecked == true)
                     {
                         //胸部推举机 0x06
-                        data[position] = (byte)DeviceType.X06;
+                        data[position] = (byte)DeviceType.P05;
                         position += 1;
                     }
 
                     if (checkbox6.IsChecked == true)
                     {
                         //腿部内外弯机 0x02
-                        data[position] = (byte)DeviceType.X02;
+                        data[position] = (byte)DeviceType.P06;
                     }
 
                     //Console.WriteLine("发卡的内容：" + ProtocolUtil.ByteToStringOk(data));

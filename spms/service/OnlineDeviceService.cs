@@ -32,27 +32,27 @@ namespace spms.service
                 //设置设备中英文设备名称
                 switch (frameBean.DeviceType)
                 {
-                    case DeviceType.X01:
+                    case DeviceType.P00:
                         name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.ChestPress");
                         name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.ChestPress");
                         break;
-                    case DeviceType.X02:
+                    case DeviceType.P01:
                         name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.HipAbduction");
                         name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.HipAbduction");
                         break;
-                    case DeviceType.X03:
+                    case DeviceType.P02:
                         name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.LegExtension");
                         name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.LegExtension");
                         break;
-                    case DeviceType.X04:
+                    case DeviceType.P03:
                         name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.TorsoFlexion");
                         name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.TorsoFlexion");
                         break;
-                    case DeviceType.X05:
+                    case DeviceType.P04:
                         name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.Rowing");
                         name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.Rowing");
                         break;
-                    case DeviceType.X06:
+                    case DeviceType.P05:
                         name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.HorizontalLegPress");
                         name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.HorizontalLegPress");
                         break;

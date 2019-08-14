@@ -1087,17 +1087,17 @@ namespace spms.view.Pages
                     Dictionary<int, List<TrainDTO>> dic = new TrainService().getTrainDTOByUserA(user);
                     TrainingRecord_Frame trainingRecordFrame = new TrainingRecord_Frame();
                     List<TrainDTO> trainDtos = new List<TrainDTO>();
-                    dic.TryGetValue((int)DeviceType.X01, out trainDtos);
+                    dic.TryGetValue((int)DeviceType.P00, out trainDtos);
                     trainingRecordFrame.TrainingRecord1.ItemsSource = trainDtos;
-                    dic.TryGetValue((int)DeviceType.X05, out trainDtos);
+                    dic.TryGetValue((int)DeviceType.P01, out trainDtos);
                     trainingRecordFrame.TrainingRecord2.ItemsSource = trainDtos;
-                    dic.TryGetValue((int)DeviceType.X04, out trainDtos);
+                    dic.TryGetValue((int)DeviceType.P02, out trainDtos);
                     trainingRecordFrame.TrainingRecord3.ItemsSource = trainDtos;
-                    dic.TryGetValue((int)DeviceType.X03, out trainDtos);
+                    dic.TryGetValue((int)DeviceType.P03, out trainDtos);
                     trainingRecordFrame.TrainingRecord4.ItemsSource = trainDtos;
-                    dic.TryGetValue((int)DeviceType.X06, out trainDtos);
+                    dic.TryGetValue((int)DeviceType.P04, out trainDtos);
                     trainingRecordFrame.TrainingRecord5.ItemsSource = trainDtos;
-                    dic.TryGetValue((int)DeviceType.X02, out trainDtos);
+                    dic.TryGetValue((int)DeviceType.P05, out trainDtos);
                     trainingRecordFrame.TrainingRecord6.ItemsSource = trainDtos;
 
                     record.Content = trainingRecordFrame;
