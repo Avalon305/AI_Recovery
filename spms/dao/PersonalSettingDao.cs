@@ -1,0 +1,49 @@
+﻿/// ***********************************************************************
+/// 创 建 者    ：张方琛
+/// 创建日期    ：2019/8/14 15:56:24
+/// 功能描述    ：个人设置dao
+/// ***********************************************************************
+
+using Dapper;
+using NLog;
+using spms.entity.newEntity;
+using spms.util;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace spms.dao
+{
+	class PersonalSettingDao
+	{
+		private static Logger logger = LogManager.GetCurrentClassLogger();
+
+		/// <summary>
+		/// 更新个人设置
+		/// </summary>
+		/// <param name="entity"></param>
+		public void UpdateSetting(PersonalSettingEntity entity)
+		{
+			string sql = @"update bdl_personal_setting set Seat_height=@Seat_height,Backrest_distance=@Backrest_distance
+               ,Footboard_distance=@Footboard_distance,Lever_angle=@Lever_angle,Front_limit=@Front_limit,Back_limit=@Back_limit,Training_mode=@Training_mode
+               ,Consequent_force=@Consequent_force,Reverse_force=@Reverse_force
+                where member_id = @Member_id and Device_code=@Device_code 
+            ";
+			using (var conn = DbUtil.getConn())
+			{
+				try
+				{
+					conn.Execute(sql, entity);
+				}
+				catch (Exception ex)
+				{
+					logger.Error("数据库UpdateSetting操作异常" + ex.ToString());
+				}
+
+			}
+
+		}
+	}
+}

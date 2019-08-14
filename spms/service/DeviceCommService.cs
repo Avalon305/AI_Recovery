@@ -1,6 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/// ***********************************************************************
+/// 创 建 者    ：张方琛
+/// 创建日期    ：2019/8/13 15:56:24
+/// 功能描述    ：与设备通信的service
+/// ***********************************************************************
 
+using NLog;
+using spms.dao;
+using spms.entity.newEntity;
+using System;
+using System.Collections.Generic;
+using System.Transactions;
 
 namespace spms.service
 {
@@ -9,7 +18,10 @@ namespace spms.service
 	/// </summary>
 	class DeviceCommService
 	{
-		//private PersonalSettingDAO personalSettingDAO = new PersonalSettingDAO();
+		private static Logger logger = LogManager.GetCurrentClassLogger();
+		#region
+		private PersonalSettingDao personalSettingDAO = new PersonalSettingDao();
+		private UserRelationDao userRelationDao = new UserRelationDao();
 		//private MemberDAO memberDAO = new MemberDAO();
 		//private MemberService memberService = new MemberService();
 		//private TrainingActivityRecordDAO trainingActivityRecordDAO = new TrainingActivityRecordDAO();
@@ -259,44 +271,100 @@ namespace spms.service
 		//	return response;
 		//}
 
-		///// <summary>
-		///// 处理更新个人设置请求
-		///// </summary>
-		///// <param name="request"></param>
-		///// <returns></returns>
-		//public PersonalSetResponse PersonalSetRequest(PersonalSetRequest request)
-		//{
-		//	PersonalSetResponse response = new PersonalSetResponse
-		//	{
-		//		Uid = request.Uid,
-		//		DeviceType = request.DeviceType,
-		//		ActivityType = request.ActivityType,
-		//		Success = false,
-		//		DataId = request.DataId
-		//	};
-		//	var setEntity = new PersonalSettingEntity
-		//	{
-		//		Member_id = request.Uid,
-		//		Device_code = ((int)request.DeviceType).ToString(),
-		//		Activity_type = ((int)request.ActivityType).ToString(),
-		//		Seat_height = request.SeatHeight,
-		//		Backrest_distance = request.BackDistance,
-		//		Lever_length = request.LeverLength,
-		//		Lever_angle = request.LeverAngle,
-		//		Front_limit = request.ForwardLimit,
-		//		Back_limit = request.BackLimit,
-		//		Training_mode = ((int)request.TrainMode).ToString(),
-		//		Footboard_distance = request.PedalDistance
-		//	};
-		//	using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
-		//	{
-		//		//更新个人设置，更新是否减脂模式
-		//		memberDAO.UpdateDeFatState(request.Uid, request.DefatModeEnable);
-		//		personalSettingDAO.UpdateSetting(setEntity);
-		//		response.Success = true;
-		//		ts.Complete();
-		//	}
-		//	return response;
-		//}
+		/// <summary>
+		/// 处理更新个人设置请求
+		/// </summary>
+		/// <param name="request"></param>
+		/// <returns></returns>
+		public PersonalSetResponse HandlePersonalSetRequest(PersonalSetRequest request)
+		{
+			PersonalSetResponse response = new PersonalSetResponse
+			{
+				Uid = request.Uid,
+				DeviceType = request.DeviceType,
+				TrainMode = request.TrainMode,
+				Success = false,
+
+			};
+			var setEntity = new PersonalSettingEntity
+			{
+
+				Member_id = request.Uid,
+				Device_code = ((int)request.DeviceType).ToString(),
+				Seat_height = request.SeatHeight,
+				Backrest_distance = request.BackDistance,
+				Footboard_distance = request.FootboardDistance,
+				Lever_angle = request.LeverAngle,
+				Front_limit = request.ForwardLimit,
+				Back_limit = request.BackLimit,
+				Training_mode = ((int)request.TrainMode).ToString(),
+				Consequent_force = request.ConsequentForce,
+				Reverse_force = request.ReverseForce,
+				Power = request.Power,
+			};
+			using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
+			{
+				//更新个人设置
+				personalSettingDAO.UpdateSetting(setEntity);
+				response.Success = true;
+				ts.Complete();
+			}
+			return response;
+		}
+		#endregion
+
+		/// <summary>
+		/// 处理肌力测试上传请求
+		/// </summary>
+		/// <param name="request"></param>
+		/// <returns></returns>
+		public MuscleStrengthResponse HandleMuscleStrengthRequest(MuscleStrengthRequest request)
+		{
+			MuscleStrengthResponse response = new MuscleStrengthResponse
+			{
+				Uid = request.Uid,
+				Success = false,
+			};
+
+			string muscleCreatTime = request.MuscleCreatTime;
+			DateTime dt = DateTime.ParseExact(muscleCreatTime, "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture);
+			var userRelationEntity = new UserRelation
+			{
+				Fk_user_id = int.Parse(request.Uid),
+				Muscle_test_val = request.MuscleTestValue,
+				Mtv_create_time = dt
+			};
+
+			userRelationDao.updateMuscle(userRelationEntity);
+			response.Success = true;
+			return response;
+		}
+
+		/// <summary>
+		/// 处理错上传请求
+		/// </summary>
+		/// <param name="request"></param>
+		/// <returns></returns>
+		public ErrorInfoResponse HandleErrorInfoRequest(ErrorInfoRequest request)
+		{
+			ErrorInfoResponse response = new ErrorInfoResponse
+			{
+				Uid = request.Uid,
+				DeviceType = request.DeviceType,
+				TrainMode = request.TrainMode,
+				SportMode = request.SportMode,
+				Success = false
+			};
+
+			logger.Error("当前出现错误时间" + request.ErrorStartTime
+						 + "用户id" + request.Uid
+						 + "设备类型" + request.Uid
+						 + "训练模式" + request.TrainMode
+						 + "运动模式" + request.SportMode
+						 + "错误信息" + request.Error
+				);
+			response.Success = true;
+			return response;
+		}
 	}
 }
