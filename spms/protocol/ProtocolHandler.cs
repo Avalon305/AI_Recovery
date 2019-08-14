@@ -41,9 +41,9 @@ namespace spms.protocol
 				case HeadType.LoginRequest:
 					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.LoginRequest));
 					//var loginResp = service.LoginRequest(buffer.LoginRequest);
-					Console.WriteLine("LoginRequestResp-------->" + JsonConvert.SerializeObject(loginResp));
-					response.Type = HeadType.LoginResponse;
-					response.LoginResponse = loginResp;
+					//Console.WriteLine("LoginRequestResp-------->" + JsonConvert.SerializeObject(loginResp));
+					//response.Type = HeadType.LoginResponse;
+					//response.LoginResponse = loginResp;
 					break;
 				case HeadType.KeepaliveRequest:
 					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.KeepaliveRequest));
@@ -51,16 +51,16 @@ namespace spms.protocol
 				case HeadType.PersonalSetRequest:
 					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.PersonalSetRequest));
 					//var setResp = service.PersonalSetRequest(buffer.PersonalSetRequest);
-					Console.WriteLine("PersonalSetRequest-------->" + JsonConvert.SerializeObject(buffer.PersonalSetRequest));
-					response.Type = HeadType.PersonalSetResponse;
-					response.PersonalSetResponse = setResp;
+					//Console.WriteLine("PersonalSetRequest-------->" + JsonConvert.SerializeObject(buffer.PersonalSetRequest));
+					//response.Type = HeadType.PersonalSetResponse;
+					//response.PersonalSetResponse = setResp;
 					break;
 				case HeadType.UploadRequest:
 					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.UploadRequest));
 					//var upResp = service.UploadRequest(buffer.UploadRequest);
-					Console.WriteLine("UploadRequestResp-------->" + JsonConvert.SerializeObject(buffer.UploadRequest));
-					response.Type = HeadType.UploadResponse;
-					response.UploadResponse = upResp;
+					//Console.WriteLine("UploadRequestResp-------->" + JsonConvert.SerializeObject(buffer.UploadRequest));
+					//response.Type = HeadType.UploadResponse;
+					//response.UploadResponse = upResp;
 					break;
 				case HeadType.MuscleStrengthRequest:
 					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.MuscleStrengthRequest));
