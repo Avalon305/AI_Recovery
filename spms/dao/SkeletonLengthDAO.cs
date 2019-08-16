@@ -41,5 +41,16 @@ namespace spms.dao
 
             }
         }
+        public int getUserIdBuUserName(string userName)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select * from bdl_user where user_namepinyin=@userName";
+
+                return conn.QueryFirstOrDefault<int>(query, userName);
+
+            }
+        }
     }
+
 }

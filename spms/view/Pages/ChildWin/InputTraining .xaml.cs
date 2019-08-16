@@ -256,14 +256,74 @@ namespace spms.view.Pages.ChildWin
 
         private void checkbox6_Unchecked(object sender, RoutedEventArgs e)
         {
-            //combobox_51.IsEnabled = false;
-            //combobox_52.IsEnabled = false;
-            //combobox_53.IsEnabled = false;
-            //combobox_54.IsEnabled = false;
-            //combobox_55.IsEnabled = false;
-            //com_51.IsEnabled = false;
-            ////com_52.IsEnabled = false;
-            //com_53.IsEnabled = false;
+            combobox_51.Text = null;
+            combobox_52.Text = null;
+            combobox_53.Text = null;
+            combobox_54.Text = null;
+            combobox_55.Text = null;
+            combobox_56.Text = null;
+            select_change6(sender, e);
+            combobox_57.Text = null;
+            combobox_58.Text = null;
+            com_51.Text = null;
+            com_53.Text = null;
+            com_53_Copy.Text = null;
+            t6.Text = null;
+        }
+
+        private void checkbox7_Unchecked(object sender, RoutedEventArgs e)
+        {
+            combobox_59.Text = null;
+            combobox_60.Text = null;
+            combobox_61.Text = null;
+            combobox_62.Text = null;
+            combobox_63.Text = null;
+            combobox_64.Text = null;
+            select_change6(sender, e);
+            combobox_65.Text = null;
+            combobox_66.Text = null;
+            com_61.Text = null;
+            com_63.Text = null;
+            com_64.Text = null;
+            t6.Text = null;
+        }
+
+        private void checkbox8_Unchecked(object sender, RoutedEventArgs e)
+        {
+            combobox_51.Text = null;
+            combobox_52.Text = null;
+            combobox_53.Text = null;
+            combobox_54.Text = null;
+            combobox_55.Text = null;
+            combobox_56.Text = null;
+            select_change6(sender, e);
+            combobox_57.Text = null;
+            combobox_58.Text = null;
+            com_51.Text = null;
+            com_53.Text = null;
+            com_53_Copy.Text = null;
+            t6.Text = null;
+        }
+
+        private void checkbox9_Unchecked(object sender, RoutedEventArgs e)
+        {
+            combobox_51.Text = null;
+            combobox_52.Text = null;
+            combobox_53.Text = null;
+            combobox_54.Text = null;
+            combobox_55.Text = null;
+            combobox_56.Text = null;
+            select_change6(sender, e);
+            combobox_57.Text = null;
+            combobox_58.Text = null;
+            com_51.Text = null;
+            com_53.Text = null;
+            com_53_Copy.Text = null;
+            t6.Text = null;
+        }
+
+        private void checkbox10_Unchecked(object sender, RoutedEventArgs e)
+        {
             combobox_51.Text = null;
             combobox_52.Text = null;
             combobox_53.Text = null;

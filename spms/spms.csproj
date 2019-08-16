@@ -215,7 +215,6 @@
     <Compile Include="entity\CustomData.cs" />
     <Compile Include="entity\DataCode.cs" />
     <Compile Include="entity\newEntity\DevicePrescription.cs" />
-    <Compile Include="entity\newEntity\PersonalSettingEntity.cs" />
     <Compile Include="entity\newEntity\PrescriptionResult.cs" />
     <Compile Include="entity\newEntity\SkeletonLengthEntity.cs" />
     <Compile Include="entity\newEntity\UserRelation.cs" />
@@ -254,8 +253,17 @@
     <Compile Include="view\converter\LanguageConverter.cs" />
     <Compile Include="view\converter\StrengthConverter.cs" />
     <Compile Include="view\converter\TimeConverter.cs" />
+    <Compile Include="view\Pages\ChildWin\Analyze.xaml.cs">
+      <DependentUpon>Analyze.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\BraceletMyodynamia.xaml.cs">
+      <DependentUpon>BraceletMyodynamia.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\ChildWin\NuitrackScan.xaml.cs">
       <DependentUpon>NuitrackScan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\OnlineChart.xaml.cs">
+      <DependentUpon>OnlineChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\OnlineDeviceDetails.xaml.cs">
       <DependentUpon>OnlineDeviceDetails.xaml</DependentUpon>
@@ -472,7 +480,19 @@
     <Compile Include="view\converter\StatusConverter.cs">
       <Generator>MSBuild:Compile</Generator>
     </Compile>
+    <Page Include="view\Pages\ChildWin\Analyze.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Pages\ChildWin\BraceletMyodynamia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\Pages\ChildWin\NuitrackScan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Pages\ChildWin\OnlineChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

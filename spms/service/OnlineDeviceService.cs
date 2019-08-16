@@ -32,29 +32,45 @@ namespace spms.service
                 //设置设备中英文设备名称
                 switch (frameBean.DeviceType)
                 {
-                    case DeviceType.X01:
-                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.ChestPress");
-                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.ChestPress");
+                    case DeviceType.P00:
+                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.Rowing");
+                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.Rowing");
                         break;
-                    case DeviceType.X02:
-                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.HipAbduction");
-                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.HipAbduction");
+                    case DeviceType.P01:
+                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.ChestPress");
+                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.ChestPress");
                         break;
-                    case DeviceType.X03:
-                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.LegExtension");
-                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.LegExtension");
+                    case DeviceType.P02:
+                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.HorizontalLegPress");
+                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.HorizontalLegPress");
                         break;
-                    case DeviceType.X04:
-                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.TorsoFlexion");
-                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.TorsoFlexion");
+                    case DeviceType.P03:
+                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.AbdominalMuscleTraining");
+                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.AbdominalMuscleTraining");
                         break;
-                    case DeviceType.X05:
-                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.Rowing");
-                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.Rowing");
+                    case DeviceType.P04:
+                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.TricepsTraining");
+                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.TricepsTraining");
                         break;
-                    case DeviceType.X06:
-                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.HorizontalLegPress");
-                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.HorizontalLegPress");
+                    case DeviceType.P05:
+                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.LegAbduction");
+                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.LegAbduction");
+                        break;
+                    case DeviceType.P06:
+                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.LegInturn");
+                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.LegInturn");
+                        break;
+                    case DeviceType.P07:
+                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.ButterflyMachine");
+                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.ButterflyMachine");
+                        break;
+                    case DeviceType.P08:
+                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.ReverseButterflyMachine");
+                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.ReverseButterflyMachine");
+                        break;
+                    case DeviceType.P09:
+                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.SittingBackExtender");
+                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.SittingBackExtender");
                         break;
                     default:
                         break;

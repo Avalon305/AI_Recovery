@@ -37,12 +37,12 @@
     <s:String x:Key="Title.Title">宝德龙</s:String>
 
     <!-- 设备 -->
-    <s:String x:Key="Dev.HorizontalLegPress">腿部推蹬机</s:String>
+    <s:String x:Key="Dev.ChestPress">胸部推举机</s:String>
     <s:String x:Key="Dev.Rowing">坐姿划船机</s:String>
     <s:String x:Key="Dev.TorsoFlexion">身体伸展弯曲机</s:String>
     <s:String x:Key="Dev.LegExtension">腿部伸展弯曲机</s:String>
+    <s:String x:Key="Dev.HorizontalLegPress">腿部推蹬机</s:String>
     <s:String x:Key="Dev.HipAbduction">腿部外弯机</s:String>
-    <s:String x:Key="Dev.ChestPress">胸部推举机</s:String>
 
     <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">机构、团体名称</s:String>
@@ -185,6 +185,7 @@
     <s:String x:Key="SubjectInfoView.SetTraining">输入训练</s:String>
     <s:String x:Key="SubjectInfoView.PhysicalEvaluation">输入体力评价</s:String>
     <s:String x:Key="SubjectInfoView.Report">制作报告</s:String>
+    <s:String x:Key="SubjectInfoView.OnlineChart">在线报表</s:String>
     <s:String x:Key="SubjectInfoView.VitalHistory">症状信息记录</s:String>
     <s:String x:Key="SubjectInfoView.TrainingHistory">训练记录</s:String>
     <s:String x:Key="SubjectInfoView.PhysicalEvaluationHistory">体力评价记录</s:String>
@@ -476,4 +477,34 @@
     <s:String x:Key="MessageBoxX.Title">信息提示</s:String>
     <s:String x:Key="MessageBoxX.Determine">确定</s:String>
     <s:String x:Key="MessageBoxX.Cancel">取消</s:String>
+
+    <!--3D扫描-->
+    <s:String x:Key="Skeleton.UserName">用户名</s:String>
+    <s:String x:Key="Skeleton.Stature">身高(cm)</s:String>
+    <s:String x:Key="Skeleton.ShoulderBreadth">肩宽(cm)</s:String>
+    <s:String x:Key="Skeleton.ArmLengthUp">臂长(上)(cm)</s:String>
+    <s:String x:Key="Skeleton.ArmLengthDown">臂长(下)(cm)</s:String>
+    <s:String x:Key="Skeleton.LegLengthUp">腿长(上)(cm)</s:String>
+    <s:String x:Key="Skeleton.LegLengthDown">腿长(下)(cm)</s:String>
+    <s:String x:Key="Skeleton.BodyLength">躯干长(cm)</s:String>
+    <s:String x:Key="Skeleton.Start">开始</s:String>
+    <s:String x:Key="Skeleton.Save">保存</s:String>
+    <s:String x:Key="Skeleton.Reset">重置</s:String>
+
+    <!--手环和肌力测试-->
+    <s:String x:Key="BraceletMyodynamia.BraceletMyodynamia">手环和肌力测试</s:String>
+    <s:String x:Key="BraceletMyodynamia.Bracelet">手环信息</s:String>
+    <s:String x:Key="BraceletMyodynamia.Myodynamia">肌力测试信息</s:String>
+
+    <!-- 新设备 -->
+    <s:String x:Key="NewDev.Rowing">坐式划船机</s:String>
+    <s:String x:Key="NewDev.ChestPress">坐式推胸机</s:String>
+    <s:String x:Key="NewDev.HorizontalLegPress">腿部推蹬机</s:String>
+    <s:String x:Key="NewDev.AbdominalMuscleTraining">腹肌训练机</s:String>
+    <s:String x:Key="NewDev.TricepsTraining">三头肌训练机</s:String>
+    <s:String x:Key="NewDev.LegAbduction">腿部外弯机</s:String>
+    <s:String x:Key="NewDev.LegInturn">腿部内弯机</s:String>
+    <s:String x:Key="NewDev.ButterflyMachine">蝴蝶机</s:String>
+    <s:String x:Key="NewDev.ReverseButterflyMachine">反向蝴蝶机</s:String>
+    <s:String x:Key="NewDev.SittingBackExtender">坐式背部伸展机</s:String>
 </ResourceDictionary>

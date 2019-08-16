@@ -599,7 +599,9 @@ namespace spms.view.Pages.ChildWin
 
             //string fk_member_id = (memberPK != null && memberPK != "") ? memberPK : coachId;
             // 未改
-            int fk_member_id = 0;
+            string userName = System.Convert.ToString(User_Name.Text);
+            int fk_member_id = skeletonLengthDAO.getUserIdBuUserName(userName);
+
             SkeletonLengthEntity skeletonLengthEntity = new SkeletonLengthEntity();
             skeletonLengthEntity.Shoulder_width = System.Convert.ToDouble(Shoulder_width.Text);
             skeletonLengthEntity.Arm_length_up = System.Convert.ToDouble(Arm_length_up.Text);

@@ -184,6 +184,7 @@
     <s:String x:Key="SubjectInfoView.SetTraining">Set Training</s:String>
     <s:String x:Key="SubjectInfoView.PhysicalEvaluation">Physical Evaluation</s:String>
     <s:String x:Key="SubjectInfoView.Report">Report</s:String>
+    <s:String x:Key="SubjectInfoView.OnlineChart">Online Chart</s:String>
     <s:String x:Key="SubjectInfoView.VitalHistory">Vital History</s:String>
     <s:String x:Key="SubjectInfoView.TrainingHistory">Training History</s:String>
     <s:String x:Key="SubjectInfoView.PhysicalEvaluationHistory">Physical Evaluation History</s:String>
@@ -469,4 +470,33 @@
     <s:String x:Key="MessageBoxX.Determine">Determine</s:String>
     <s:String x:Key="MessageBoxX.Cancel">Cancel</s:String>
 
+    <!--3D扫描-->
+    <s:String x:Key="Skeleton.UserName">User Name</s:String>
+    <s:String x:Key="Skeleton.Stature">Stature(cm)</s:String>
+    <s:String x:Key="Skeleton.ShoulderBreadth">Shoulder Breadth(cm)</s:String>
+    <s:String x:Key="Skeleton.ArmLengthUp">Arm Length(Up)(cm)</s:String>
+    <s:String x:Key="Skeleton.ArmLengthDown">Arm Length(Down)(cm)</s:String>
+    <s:String x:Key="Skeleton.LegLengthUp">Leg Length(Up)(cm)</s:String>
+    <s:String x:Key="Skeleton.LegLengthDown">Leg Length(Down)(cm)</s:String>
+    <s:String x:Key="Skeleton.BodyLength">Body Length(cm)</s:String>
+    <s:String x:Key="Skeleton.Start">Start</s:String>
+    <s:String x:Key="Skeleton.Save">Save</s:String>
+    <s:String x:Key="Skeleton.Reset">Reset</s:String>
+
+    <!--手环和肌力测试-->
+    <s:String x:Key="BraceletMyodynamia.BraceletMyodynamia">Bracelet Myodynamia</s:String>
+    <s:String x:Key="BraceletMyodynamia.Bracelet">Bracelet</s:String>
+    <s:String x:Key="BraceletMyodynamia.Myodynamia">Myodynamia</s:String>
+
+    <!-- 新设备 -->
+    <s:String x:Key="NewDev.Rowing">Rowing</s:String>
+    <s:String x:Key="NewDev.ChestPress">Chest Press</s:String>
+    <s:String x:Key="NewDev.HorizontalLegPress">Horizontal Leg Press</s:String>
+    <s:String x:Key="NewDev.AbdominalMuscleTraining">Abdominal Muscle Training</s:String>
+    <s:String x:Key="NewDev.TricepsTraining">Triceps Training</s:String>
+    <s:String x:Key="NewDev.LegAbduction">Leg Abduction</s:String>
+    <s:String x:Key="NewDev.LegInturn">Leg Inturn</s:String>
+    <s:String x:Key="NewDev.ButterflyMachine">Butterfly Machine</s:String>
+    <s:String x:Key="NewDev.ReverseButterflyMachine">Reverse Butterfly Machine</s:String>
+    <s:String x:Key="NewDev.SittingBackExtender">Sitting Back Extender</s:String>
 </ResourceDictionary>

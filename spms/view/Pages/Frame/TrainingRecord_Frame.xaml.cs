@@ -24,5 +24,10 @@ namespace spms.view.Pages.Frame
         {
             InitializeComponent();
         }
+
+        private void TrainingRecord10_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

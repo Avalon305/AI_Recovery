@@ -1087,18 +1087,47 @@ namespace spms.view.Pages
                     Dictionary<int, List<TrainDTO>> dic = new TrainService().getTrainDTOByUserA(user);
                     TrainingRecord_Frame trainingRecordFrame = new TrainingRecord_Frame();
                     List<TrainDTO> trainDtos = new List<TrainDTO>();
-                    dic.TryGetValue((int)DeviceType.X01, out trainDtos);
+                    //dic.TryGetValue((int)DeviceType.X01, out trainDtos);
+                    //trainingRecordFrame.TrainingRecord1.ItemsSource = trainDtos;
+                    //dic.TryGetValue((int)DeviceType.X05, out trainDtos);
+                    //trainingRecordFrame.TrainingRecord2.ItemsSource = trainDtos;
+                    //dic.TryGetValue((int)DeviceType.X04, out trainDtos);
+                    //trainingRecordFrame.TrainingRecord3.ItemsSource = trainDtos;
+                    //dic.TryGetValue((int)DeviceType.X03, out trainDtos);
+                    //trainingRecordFrame.TrainingRecord4.ItemsSource = trainDtos;
+                    //dic.TryGetValue((int)DeviceType.X06, out trainDtos);
+                    //trainingRecordFrame.TrainingRecord5.ItemsSource = trainDtos;
+                    //dic.TryGetValue((int)DeviceType.X02, out trainDtos);
+                    //trainingRecordFrame.TrainingRecord6.ItemsSource = trainDtos;
+                    dic.TryGetValue((int)DeviceType.P01, out trainDtos);
                     trainingRecordFrame.TrainingRecord1.ItemsSource = trainDtos;
-                    dic.TryGetValue((int)DeviceType.X05, out trainDtos);
+
+                    dic.TryGetValue((int)DeviceType.P00, out trainDtos);
                     trainingRecordFrame.TrainingRecord2.ItemsSource = trainDtos;
-                    dic.TryGetValue((int)DeviceType.X04, out trainDtos);
+
+                    dic.TryGetValue((int)DeviceType.P09, out trainDtos);
                     trainingRecordFrame.TrainingRecord3.ItemsSource = trainDtos;
-                    dic.TryGetValue((int)DeviceType.X03, out trainDtos);
+
+                    dic.TryGetValue((int)DeviceType.P06, out trainDtos);
                     trainingRecordFrame.TrainingRecord4.ItemsSource = trainDtos;
-                    dic.TryGetValue((int)DeviceType.X06, out trainDtos);
+
+                    dic.TryGetValue((int)DeviceType.P02, out trainDtos);
                     trainingRecordFrame.TrainingRecord5.ItemsSource = trainDtos;
-                    dic.TryGetValue((int)DeviceType.X02, out trainDtos);
+
+                    dic.TryGetValue((int)DeviceType.P05, out trainDtos);
                     trainingRecordFrame.TrainingRecord6.ItemsSource = trainDtos;
+
+                    dic.TryGetValue((int)DeviceType.P03, out trainDtos);
+                    trainingRecordFrame.TrainingRecord7.ItemsSource = trainDtos;
+
+                    dic.TryGetValue((int)DeviceType.P04, out trainDtos);
+                    trainingRecordFrame.TrainingRecord8.ItemsSource = trainDtos;
+
+                    dic.TryGetValue((int)DeviceType.P07, out trainDtos);
+                    trainingRecordFrame.TrainingRecord9.ItemsSource = trainDtos;
+
+                    dic.TryGetValue((int)DeviceType.P08, out trainDtos);
+                    trainingRecordFrame.TrainingRecord10.ItemsSource = trainDtos;
 
                     record.Content = trainingRecordFrame;
                 }
@@ -1204,6 +1233,23 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             nuitrackScan.ShowDialog();
+        }
+
+        private void ViewChart(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddBraceletMyodynamia(object sender, RoutedEventArgs e)
+        {
+            BraceletMyodynamia braceletMyodynamia = new BraceletMyodynamia
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            braceletMyodynamia.ShowDialog();
         }
     }
     }
