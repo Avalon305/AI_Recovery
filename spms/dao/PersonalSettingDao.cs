@@ -29,7 +29,7 @@ namespace spms.dao
 			string sql = @"update bdl_personal_setting set Seat_height=@Seat_height,Backrest_distance=@Backrest_distance
                ,Footboard_distance=@Footboard_distance,Lever_angle=@Lever_angle,Front_limit=@Front_limit,Back_limit=@Back_limit,Training_mode=@Training_mode
                ,Consequent_force=@Consequent_force,Reverse_force=@Reverse_force
-                where member_id = @Member_id and Device_code=@Device_code 
+                where fk_member_id = @Fk_member_id and Device_code=@Device_code 
             ";
 			using (var conn = DbUtil.getConn())
 			{

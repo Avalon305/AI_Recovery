@@ -39,12 +39,27 @@ namespace spms.dao
                 conn.Execute(query, new { FK_User_Id = userId});
             }
         }
-        /// <summary>
-        /// 根据用户id获取
-        /// </summary>
-        /// <param name="userPkUserId"></param>
-        /// <returns></returns>
-        public List<TrainInfo> GetFinishTrainInfoByUserId(int userId)
+
+		/// <summary>
+		/// 根据用户id，更新总处方表
+		/// </summary>
+		/// <param name="userId"></param>
+		public void UpdateTraninfoStatusByUserId(int userId)
+		{
+		
+			using (var conn = DbUtil.getConn())
+			{
+				const string query = "update bdl_traininfo set status = 3 where fk_user_id = @FK_User_Id and status = 0";
+
+				conn.Execute(query, new { FK_User_Id = userId });
+			}
+		}
+		/// <summary>
+		/// 根据用户id获取
+		/// </summary>
+		/// <param name="userPkUserId"></param>
+		/// <returns></returns>
+		public List<TrainInfo> GetFinishTrainInfoByUserId(int userId)
         {
             return GetTrainInfoByUserIdAndStatus(userId, (int) TrainInfoStatus.Finish);
         }
@@ -127,12 +142,39 @@ namespace spms.dao
                 return conn.Query<DevicePrescription>(query, new { Fk_TI_Id = tiId }).ToList();
             }
         }
-        /// <summary>
-        /// 根据训练信息id查询处方
-        /// </summary>
-        /// <param name="tiId"></param>
-        /// <returns></returns>
-        public List<DevicePrescription> ListUnDoByTIId(int tiId)
+		/// <summary>
+		/// 修改处方信息为完成
+		/// </summary>
+		/// <param name="dpid"></param>
+		public void updateDpStatus(int dpid)
+		{
+			string sql = @"update bdl_deviceprescription set dp_status=1 
+                            where pk_dp_id = @Pk_dp_id
+            ";
+			using (var conn = DbUtil.getConn())
+			{
+					conn.Execute(sql, new { Pk_dp_id = dpid });
+			}
+		}
+		/// <summary>
+		/// 根据处方id获得处方
+		/// </summary>
+		/// <returns></returns>
+		public List<DevicePrescription> getByPk(int dpid)
+		{
+			using (var conn = DbUtil.getConn())
+			{
+				const string query = "select * from bdl_deviceprescription where pk_dp_id = @Pk_dp_id";
+
+				return conn.Query<DevicePrescription>(query, new { Pk_dp_id = dpid }).ToList();
+			}
+		}
+		/// <summary>
+		/// 根据训练信息id查询处方
+		/// </summary>
+		/// <param name="tiId"></param>
+		/// <returns></returns>
+		public List<DevicePrescription> ListUnDoByTIId(int tiId)
         {
             using (var conn = DbUtil.getConn())
             {
@@ -142,12 +184,27 @@ namespace spms.dao
             }
         }
 
-        /// <summary>
-        /// 根据用户身份证号查询未完成的处方信息，Normal状态
-        /// </summary>
-        /// <param name="idcard"></param>
-        /// <returns></returns>
-        public List<DevicePrescription> ListUnDoByUserId(string idcard)
+		/// <summary>
+		/// 根据处方id获取还没有完成的处方
+		/// </summary>
+		/// <param name="dpId"></param>
+		/// <returns></returns>
+		public List<DevicePrescription> ListUnDoByDpId(int dpId)
+		{
+			using (var conn = DbUtil.getConn())
+			{
+				const string query = "select * from bdl_deviceprescription where pk_dp_id = @Pk_dp_id and dp_status = 0";
+
+				return conn.Query<DevicePrescription>(query, new { Pk_dp_id = dpId }).ToList();
+			}
+		}
+
+		/// <summary>
+		/// 根据用户身份证号查询未完成的处方信息，Normal状态
+		/// </summary>
+		/// <param name="idcard"></param>
+		/// <returns></returns>
+		public List<DevicePrescription> ListUnDoByUserId(string idcard)
         {
             using (var conn = DbUtil.getConn())
             {

@@ -54,6 +54,10 @@ namespace spms.protocol
 					break;
 				case HeadType.KeepaliveRequest:
 					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.KeepaliveRequest));
+
+					var kpResp = service.HandleKeepaliveResponse(buffer.KeepaliveRequest);
+					response.Type = HeadType.KeepaliveResponse;
+					response.KeepaliveResponse = kpResp;
 					break;
 				case HeadType.PersonalSetRequest:
 					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.PersonalSetRequest));
@@ -64,10 +68,10 @@ namespace spms.protocol
 					break;
 				case HeadType.UploadRequest:
 					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.UploadRequest));
-					//var upResp = service.UploadRequest(buffer.UploadRequest);
-					//Console.WriteLine("UploadRequestResp-------->" + JsonConvert.SerializeObject(buffer.UploadRequest));
-					//response.Type = HeadType.UploadResponse;
-					//response.UploadResponse = upResp;
+
+					var upResp = service.HandleUploadRequest(buffer.UploadRequest);
+					response.Type = HeadType.UploadResponse;
+					response.UploadResponse = upResp;
 					break;
 				case HeadType.MuscleStrengthRequest:
 					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.MuscleStrengthRequest));

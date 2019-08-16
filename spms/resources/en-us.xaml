@@ -36,13 +36,20 @@
     <s:String x:Key="Title.Title">Body Strong</s:String>
 
     <!-- 设备 -->
-    <s:String x:Key="Dev.HorizontalLegPress">Horizontal Leg Press</s:String>
-    <s:String x:Key="Dev.Rowing">Rowing</s:String>
-    <s:String x:Key="Dev.TorsoFlexion">Torso Flexion</s:String>
-    <s:String x:Key="Dev.LegExtension">Leg Extension</s:String>
-    <s:String x:Key="Dev.HipAbduction">Hip Abduction</s:String>
-    <s:String x:Key="Dev.ChestPress">Chest Press</s:String>
-    <!--在线设备情况-->
+	<s:String x:Key="Dev.Rowing">Rowing</s:String>
+	<s:String x:Key="Dev.SittingBreastPusher">Sitting Breast Pusher</s:String>
+	<s:String x:Key="Dev.HorizontalLegPress">HorizontalLeg Press</s:String>
+	<s:String x:Key="Dev.AbdominalMuscleTraining">Abdominal Muscle Training</s:String>
+	<s:String x:Key="Dev.TricepsTraining">Triceps Training</s:String>
+	<s:String x:Key="Dev.HipAbduction">HipAbduction</s:String>
+	<s:String x:Key="Dev.LegBender">Leg Bender</s:String>
+	<s:String x:Key="Dev.Butterfly">Butterfly</s:String>
+	<s:String x:Key="Dev.ReverseButterfly">Reverse Butterfly</s:String>
+	<s:String x:Key="Dev.SittingBack">Sitting Back</s:String>
+	<s:String x:Key="Dev.TorsoFlexion">Torso Flexion</s:String>
+	<s:String x:Key="Dev.LegExtension">LegExtension</s:String>
+	<s:String x:Key="Dev.ChestPress">Chest Press</s:String>
+	<!--在线设备情况-->
     <s:String x:Key="RegisterView.OnlineDeviceDetails">Online Equipment Situation</s:String>
     <s:String x:Key="RegisterView.TerminalID">TerminalID</s:String>
     <s:String x:Key="RegisterView.TerminalType">TerminalType</s:String>
