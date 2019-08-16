@@ -249,7 +249,7 @@ namespace spms.view.Pages.ChildWin
                 {
                     logger.Warn(exception);
                 }
-                devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
+                //devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
                 if (LanguageUtils.EqualsResource(HLPTimer.Text, "TrainingListView.Valid"))
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
@@ -445,7 +445,7 @@ namespace spms.view.Pages.ChildWin
                     logger.Warn(exception);
 
                 }
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X05;
+                //devicePrescription.Fk_DS_Id = (int)DeviceType.X05;
                 if (LanguageUtils.EqualsResource(ROWTimer.Text, "TrainingListView.Valid"))
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
@@ -660,7 +660,7 @@ namespace spms.view.Pages.ChildWin
                     logger.Warn(exception);
 
                 }
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
+              //  devicePrescription.Fk_DS_Id = (int)DeviceType.X04;
                 if (LanguageUtils.EqualsResource(TFTimer.Text, "TrainingListView.Valid"))
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
@@ -875,7 +875,7 @@ namespace spms.view.Pages.ChildWin
                     logger.Warn(exception);
 
                 }
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
+               // devicePrescription.Fk_DS_Id = (int)DeviceType.X03;
                 if (LanguageUtils.EqualsResource(LETimer.Text, "TrainingListView.Valid"))
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
@@ -1090,7 +1090,7 @@ namespace spms.view.Pages.ChildWin
                     logger.Warn(exception);
 
                 }
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
+           //     devicePrescription.Fk_DS_Id = (int)DeviceType.X06;
                 if (LanguageUtils.EqualsResource(HATimer.Text, "TrainingListView.Valid"))
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;
@@ -1302,7 +1302,7 @@ namespace spms.view.Pages.ChildWin
                     logger.Warn(exception);
 
                 }
-                devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
+          //      devicePrescription.Fk_DS_Id = (int)DeviceType.X02;
                 if (LanguageUtils.EqualsResource(CPTimer.Text, "TrainingListView.Valid"))
                 {
                     devicePrescription.dp_timer = DevConstants.TIMER_VALID;

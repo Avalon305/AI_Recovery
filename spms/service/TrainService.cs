@@ -22,6 +22,7 @@ namespace spms.service
         static SymptomInfoDao symptomInfoDao = new SymptomInfoDao();
         static DevicePrescriptionDAO devicePrescriptionDAO = new DevicePrescriptionDAO();
         static PrescriptionResultDAO prescriptionResultDAO = new PrescriptionResultDAO();
+		static PrescriptionResultTwoDao prescriptionResultTwoDao = new PrescriptionResultTwoDao();
         /// <summary>
         /// 保存训练信息
         /// </summary>
@@ -159,10 +160,37 @@ namespace spms.service
             }
         }
 
-        /// <summary>
-        /// 添加训练结果，返回主键
-        /// </summary>
-        public void AddPrescriptionResult(object siId, TrainInfo trainInfo,
+		/// <summary>
+		/// 添加训练结果，设备上报上来的结果，zfc
+		/// </summary>
+		/// <param name="request"></param>
+		/// <param name="entity"></param>
+		public void InsertPrescriptionResult(UploadRequest request, entity.newEntity.PrescriptionResultTwo entity )
+		{
+			using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
+			{
+				//插入处方结果信息
+				prescriptionResultTwoDao.Insert(entity);
+
+				//查询是否还有没完成的训练处方，如果都完成了就更新TrinInfo
+				var unDoItemList = devicePrescriptionDAO.ListUnDoByDpId(request.DpId);
+				if (unDoItemList.Count == 1)
+				{
+					if (unDoItemList[0].Pk_DP_Id == request.DpId) {
+						//未完成的项目恰好是一个且为上报上来的这个项目就说明该大处方已经完成了，更新状态
+						trainInfoDao.UpdateTraninfoStatusByUserId(int.Parse(request.Uid));
+					}
+				}
+				//更新处方表中的status
+				devicePrescriptionDAO.updateDpStatus(request.DpId);
+				
+				ts.Complete();
+			}
+		}
+		/// <summary>
+		/// 添加训练结果，返回主键
+		/// </summary>
+		public void AddPrescriptionResult(object siId, TrainInfo trainInfo,
             Dictionary<DevicePrescription, PrescriptionResult> prescriptionDic)
         {
             UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
