@@ -262,6 +262,8 @@ namespace spms.service
         {
             return new DevicePrescriptionDAO().ListUnDoByUserId(idcard);
         }
+
+		
         /// <summary>
         /// 根据用户身份证号和设备类型查询处方,Normol状态的
         /// </summary>
@@ -273,7 +275,36 @@ namespace spms.service
             return new DevicePrescriptionDAO().GetByUserIdDeviceType(idcard, deviceType,dp_status);
         }
 
-        public Dictionary<int, List<TrainDTO>> getTrainDTOByUserA(User user)
+		/// <summary>
+		/// 返回以完成的设备号
+		/// </summary>
+		/// <param name="tiid"></param>
+		/// <returns></returns>
+		public List<long> dscodelist(int tiid)
+		{
+
+			List<entity.newEntity.DevicePrescription> devicePrescriptions = new NewDevicePrescriptionDAO().findAllDevicePrescriptionByTiId(tiid);
+
+			List<long> listdscoed = new List<long>();
+			for (int i = 0; i < devicePrescriptions.Count; i++)
+			{
+				listdscoed.Add(devicePrescriptions[i].Fk_ds_id);
+			}
+			return listdscoed;
+		}
+
+		/// <summary>
+		/// 根据大处方id和设备id获得处方
+		/// </summary>
+		/// <param name="tiid"></param>
+		/// <param name="dsid"></param>
+		/// <returns></returns>
+		public entity.newEntity.DevicePrescription GetDevicePrescriptionByTiIdAndDsId(int tiid,int dsid)
+		{
+			return new NewDevicePrescriptionDAO().GetByTIIdAndDsID(tiid, dsid);
+		}
+
+		public Dictionary<int, List<TrainDTO>> getTrainDTOByUserA(User user)
         {
             TrainInfoDAO trainInfoDao = new TrainInfoDAO();
             DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();

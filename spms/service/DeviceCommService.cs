@@ -6,6 +6,7 @@
 
 using NLog;
 using spms.dao;
+using spms.entity;
 using spms.entity.newEntity;
 using System;
 using System.Collections.Generic;
@@ -24,156 +25,137 @@ namespace spms.service
 		private UserRelationDao userRelationDao = new UserRelationDao();
 		private static TrainService trainService = new TrainService();
 		private static OnlineDeviceService onlineDeviceService = new OnlineDeviceService();
+		private static UserDAO userDAO = new UserDAO();
+		private static SetterService setterService = new SetterService();
 
-		//private MemberDAO memberDAO = new MemberDAO();
-		//private MemberService memberService = new MemberService();
-		//private TrainingActivityRecordDAO trainingActivityRecordDAO = new TrainingActivityRecordDAO();
-		//private ActivityDAO activityDAO = new ActivityDAO();
-		//private TrainingDeviceRecordDAO trainingDeviceRecordDAO = new TrainingDeviceRecordDAO();
-		//private TrainingCourseDAO trainingCourseDAO = new TrainingCourseDAO();
-		//private SystemSettingDAO SystemSettingDAO = new SystemSettingDAO();
 		///// <summary>
 		/// 处理登录请求
 		/// </summary>
 		/// <param name="request"></param>
-		//public LoginResponse LoginRequest(LoginRequest request)
-		//{
-		//	LoginResponse response = new LoginResponse();
-		//	response.Uid = request.Uid;
-		//	response.ActivityType = request.ActivityType;
+		public LoginResponse HandleLoginRequest(LoginRequest request)
+		{
+			LoginResponse response = new LoginResponse();
 
-		//	//查询用户是否存在，若不存在 则自动创建用户和一系列训练课程、活动 byCQZ 2019.3.28
-		//	MemberEntity memberEntity = memberDAO.GetMember(request.Uid);
-		//	if (memberEntity == null)
-		//	{
-		//		//自动创建用户及计划 保证正常锻炼 接收数据
-		//		memberService.AutoInsertUser(request.Uid);
-		//		Console.WriteLine("收到的UID:{0}在数据库中不存在，自动创建用户及计划", request.Uid);
-		//	}
-		//	else
-		//	{
-		//		Console.WriteLine("用户存在");
-		//	}
+			//根据bind_id查询到Uerid
+			UserRelation userRelation = userRelationDao.FindUserRelationByBind_id(request.BindId);
+			string uid = (userRelation.Fk_user_id).ToString();
+			response.Uid = uid;
+			response.ExisitSetting = false;
 
-		//	var pSetting = personalSettingDAO.GetSettingByMemberId(request.Uid, request.DeviceType, request.ActivityType);
-		//	if (pSetting != null)
-		//	{//存在个人设置
-		//		response.ExisitSetting = true;
-		//	}
-		//	else
-		//	{
-		//		return response;
-		//	}
+			//查询用户是否存在，若不存在 。。。打印日志
+			User user = userDAO.GetByPK(uid); 
+			if (user != null)
+			{
+				//Console.WriteLine("收到的UID:{0}在数据库中不存在，自动创建用户及计划", request.Uid);
+				logger.Info("用户存在", uid);
+			}
+			else
+			{
+				//Console.WriteLine("用户存在");
+				logger.Info("用户不存在");
+				return response;
+			}
 
-		//	response.TrainMode = (TrainMode)Enum.Parse(typeof(TrainMode), pSetting.Training_mode);
-		//	MemberEntity member = memberDAO.Load(pSetting.Fk_member_id);
-		//	response.DefatModeEnable = member.Is_open_fat_reduction;
-		//	response.SeatHeight = pSetting.Seat_height == null ? 0 : (int)pSetting.Seat_height;
-		//	response.BackDistance = pSetting.Backrest_distance == null ? 0 : (int)pSetting.Backrest_distance;
-		//	// 可动杠杆长度cm
-		//	response.LeverLength = pSetting.Lever_length == null ? 0 : (int)pSetting.Lever_length;
-		//	response.ForwardLimit = pSetting.Front_limit == null ? 0 : (int)pSetting.Front_limit;
-		//	response.BackLimit = pSetting.Back_limit == null ? 0 : (int)pSetting.Back_limit;
-		//	//杠杆角度
-		//	response.LeverAngle = pSetting.Lever_angle == null ? 0 : (double)pSetting.Lever_angle;
-		//	response.ForwardForce = pSetting.Consequent_force == null ? 0 : (double)pSetting.Consequent_force;
-		//	response.ReverseForce = pSetting.Reverse_force == null ? 0 : (double)pSetting.Reverse_force;
-		//	response.Power = pSetting.Power == null ? 0 : (double)pSetting.Power;
-		//	//课程ID、训练活动ID、训练活动记录ID
+		    //查询用户是否存在个人设置
+			var pSetting = personalSettingDAO.GetSettingByMemberId(uid, ((int)request.DeviceType).ToString());
+			if (pSetting != null)
+			{//存在个人设置
+				response.ExisitSetting = true;
+				response.TrainMode = (TrainMode)Enum.Parse(typeof(TrainMode), pSetting.Training_mode);
+				response.SeatHeight = pSetting.Seat_height == null ? 0 : (int)pSetting.Seat_height;
+				response.BackDistance = pSetting.Backrest_distance == null ? 0 : (int)pSetting.Backrest_distance;
+				response.FootboardDistance=pSetting.Footboard_distance==null ? 0: (int)pSetting.Backrest_distance;
+				response.LeverAngle = pSetting.Lever_angle == null ? 0 : (double)pSetting.Lever_angle;
+				response.ForwardLimit = pSetting.Front_limit == null ? 0 : (int)pSetting.Front_limit;
+				response.BackLimit = pSetting.Back_limit == null ? 0 : (int)pSetting.Back_limit;
+				response.ConsequentForce = pSetting.Consequent_force == null ? 0 : (double)pSetting.Consequent_force;
+				response.ReverseForce = pSetting.Reverse_force == null ? 0 : (double)pSetting.Reverse_force;
+				response.Power=pSetting.Power == null ? 0 : (double)pSetting.Power;
+			}
+			else
+			{
+				logger.Info("用户不存在个人设置");
+				return response;
+			}
 
-		//	var setDto = personalSettingDAO.GetSettingCourseInfoByMemberId(request.Uid, request.ActivityType);
 
-		//	response.CourseId = setDto.Course_id;
-		//	response.ActivityId = setDto.Activity_id;
+			//查询此用户是否有未做大处方
+			TrainInfo trainInfo =  trainService.GetTrainInfoByUserIdAndStatus(int.Parse(uid), 0);
+			if (trainInfo != null) {
 
-		//	var recordEntity = trainingActivityRecordDAO.GetByActivityPrimaryKey(setDto.Activity_id, setDto.Current_course_count);
-		//	if ((recordEntity == null) || (recordEntity != null && recordEntity.Is_complete == true))
-		//	{//没有训练课程记录就插入一条新的
-		//		recordEntity = new TrainingActivityRecordEntity
-		//		{
-		//			Id = KeyGenerator.GetNextKeyValueLong("bdl_training_activity_record"),
-		//			Gmt_create = DateTime.Now,
-		//			Fk_activity_id = pSetting.Fk_training_activity_id,
-		//			Activity_type = ((int)request.ActivityType).ToString(),
-		//			Is_complete = false,
-		//			Fk_training_course_id = setDto.Course_id,
-		//			Course_count = setDto.Current_course_count
-		//		};
-		//		trainingActivityRecordDAO.Insert(recordEntity);
-		//		//插入至上传表
-		//		UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
-		//		uploadManagementDao.Insert(new UploadManagement(recordEntity.Id, "bdl_training_activity_record", 0));
-		//	}
-		//	response.ActivityRecordId = recordEntity.Id;
-		//	//踏板距离
-		//	response.PedalDistance = pSetting.Footboard_distance == null ? 0 : (int)pSetting.Footboard_distance;
-		//	//最大心率计算值
-		//	response.HeartRateMax = member.Max_heart_rate == null ? 0 : (int)member.Max_heart_rate;
-		//	//角色ID
-		//	response.RoleId = member.Role_id == null ? 0 : (int)member.Role_id;
-		//	response.Weight = member.Weight == null ? 0.0 : (double)member.Weight;
-		//	response.Age = member.Age == null ? 0 : (int)member.Age;
-		//	//当前系统版本
-		//	List<SystemSettingEntity> list = SystemSettingDAO.ListAll();
-		//	if (list != null && list.Count > 0)
-		//	{
-		//		int ver = list[0].System_version == null ? 0 : (int)list[0].System_version;
-		//		response.SysVersion = ver;
-		//	}
-		//	else
-		//	{
-		//		response.SysVersion = 0;
-		//	}
+				var trainInfo_id = trainInfo.Pk_TI_Id;
+				var ds_id = (int)(request.DeviceType);
 
-		//	// 待训练列表 修改传入的fk_activity_id和course_count参数为活动记录表主键activityRecordId  --ByCQZ 4.7
-		//	List<DeviceType> todoDevices = GenToDoDevices(request.Uid, request.ActivityType, setDto.Is_open_fat_reduction, recordEntity.Id);
-		//	response.DeviceTypeArr.AddRange(todoDevices);
-		//	return response;
-		//}
+				//根据traininfo_id和设备id获取处方信息
+				entity.newEntity.DevicePrescription newDevicePrescription = trainService.GetDevicePrescriptionByTiIdAndDsId(trainInfo_id, ds_id);
+				if (newDevicePrescription != null)
+				{
+					response.DpStatus = newDevicePrescription.Dp_status == entity.newEntity.DevicePrescription.UNDO ? 0 : 1;
+					response.DpMoveway = (int)newDevicePrescription.Dp_moveway;
+					response.DpMemo = newDevicePrescription.Dp_memo;
+					response.DpGroupcount = (int)newDevicePrescription.Dp_groupcount;
+					response.DpGroupnum = (int)newDevicePrescription.Dp_groupnum;
+					response.DpRelaxtime = (int)newDevicePrescription.Dp_relaxtime;
+					response.SpeedRank = (int)newDevicePrescription.Speed_rank;
+					response.DpId = (int)newDevicePrescription.Pk_dp_id;
+				}
+				else
+				{
+					logger.Info("用户不存未完成的处方或没有处方");
+					return response;
+				}
+				
+			}
+			else {
+				logger.Info("用户不存未完成的trainInfo或没有trainInfo");
+				return response;
+			}
+
+			//当前系统版本
+			Setter setter = setterService.getSetter();
+			if (setter != null)
+			{
+				var ver = setter.Set_Version;
+				response.SysVersion = ver;
+			}
+			else
+			{
+				logger.Info("无系统版本");
+				response.SysVersion = "null";
+				return response;
+			}
+
+			// 待训练列表 修改传入的fk_activity_id和course_count参数为活动记录表主键activityRecordId  --ByCQZ 4.7
+			List<DeviceType> todoDevices = GenToDoDevices(trainInfo.Pk_TI_Id);
+			response.DeviceTypeArr.AddRange(todoDevices);
+			return response;
+		}
 
 		/// <summary>
-		/// 获取待训练设备列表 修改传入的fk_activity_id和course_count参数为活动记录表主键activityRecordId  --ByCQZ 4.7
+		/// 获取待训练设备列表 
 		/// </summary>
 		/// <param name="request"></param>
 		/// <param name="setDto"></param>
 		/// <returns></returns>
-		//private List<DeviceType> GenToDoDevices(string uid, ActivityType activityType, bool Is_open_fat_reduction, long activityRecordId)
-		//{
-		//	List<DeviceDoneDTO> doneList = personalSettingDAO.ListDeviceDone(uid, activityType, activityRecordId);
-		//	var todoDevices = new List<DeviceType>();
-
-		//	if (activityType == ActivityType.PowerCycle)//力量循环 不包括P09，原来写错了 改到耐力循环中ByCQZ 4.8
-		//	{
-		//		todoDevices.AddRange(new DeviceType[]{
-		//			DeviceType.P00, DeviceType.P01, DeviceType.P02,DeviceType.P03,DeviceType.P04,DeviceType.P05,DeviceType.P06,
-		//			DeviceType.P07,DeviceType.P08
-		//		});
-		//	}
-		//	else if (activityType == ActivityType.EnduranceCycle)//力量耐力循环需要考虑减脂模式 增加P09 ByCQZ 4.8
-		//	{
-		//		if (Is_open_fat_reduction)
-		//		{//减脂模式
-		//			todoDevices.Add(DeviceType.E16);//动感单车
-		//			todoDevices.Add(DeviceType.E12);//椭圆跑步机
-		//		}
-		//		todoDevices.AddRange(new DeviceType[]{
-		//			DeviceType.E09,DeviceType.E10,DeviceType.E11,DeviceType.E12,DeviceType.E13,DeviceType.E14,DeviceType.E15,DeviceType.E16
-		//		});
-		//		if (Is_open_fat_reduction)
-		//		{//减脂模式
-		//			todoDevices.Add(DeviceType.E16);//动感单车
-		//			todoDevices.Add(DeviceType.E12);//椭圆跑步机
-		//		}
-		//	}
-		//	foreach (var d in doneList)//移除掉已经完成的设备
-		//	{
-		//		int ecode = int.Parse(d.Device_code);
-		//		todoDevices.Remove((DeviceType)ecode);
-		//	}
-
-		//	return todoDevices;
-		//}
+		private List<DeviceType> GenToDoDevices(int tiid)
+		{
+			List<long> doneList = trainService.dscodelist(tiid);
+			var todoDevices = new List<DeviceType>();
+			todoDevices.AddRange(new DeviceType[]{
+					DeviceType.P00, DeviceType.P01, DeviceType.P02,DeviceType.P03,DeviceType.P04,DeviceType.P05,DeviceType.P06,
+					DeviceType.P07,DeviceType.P08,DeviceType.P09
+				});			
+		
 	
+			for (int i = 0; i < doneList.Count; i++)
+			{
+				int ecode = (int)doneList[i];
+				todoDevices.Remove((DeviceType)ecode);
+			}
+
+			return todoDevices;
+		}
+
 		/// <summary>
 		/// 处理心跳上传请求
 		/// </summary>
@@ -207,7 +189,6 @@ namespace spms.service
 			{
 				Uid = request.Uid,
 				DeviceType = request.DeviceType,
-				SportMode = request.SportMode,
 				DataId = request.DataId
 			};
 
@@ -219,17 +200,17 @@ namespace spms.service
 				Fk_dp_id = request.DpId,
 				Fk_ds_id = (long)(request.DeviceType),
 				Bind_id = request.BindId,
-				Sport_mode = (int)(request.SportMode),
 				Device_mode=(int)(request.TrainMode),
 				Consequent_force=request.ConsequentForce,
 				Reverse_force=request.ReverseForce,
 				Power=request.Power,
 				Speed_rank=request.SpeedRank,
 				Finish_num=request.FinishNum,
-				Finish_time=request.FinishTime,
 				Distance=request.Distance,
 				Energy=request.Energy,
-				Heart_rate_list=request.HeartRateList
+				Heart_rate_list=request.HeartRateList,
+				pr_userthoughts =request.PrUserthoughts
+				
 			};
 			try
 			{
@@ -314,24 +295,7 @@ namespace spms.service
 			}
 
 		}
-		/// <summary>
-		/// 将接受来的SportModeType转化为int 用户运动模式 0：计数模式，1：计时模式
-		/// </summary>
-		/// <param name="sportMode"></param>
-		/// <returns></returns>
-		public int SportModeTypeConcertToINT(SportMode sportMode)
-		{
-			switch (sportMode)
-			{
-				case SportMode.CountingMode:
-					return 0;
-				case SportMode.TimerMode:
-					return 1;
-				default:
-					return -1;
-			}
-
-		}
+	
 
 		/// <summary>
 		/// 将接受来的TrainModeType转化为int 设备训练模式 0康复模式，1主被动模式,2被动模式
@@ -436,7 +400,6 @@ namespace spms.service
 				Uid = request.Uid,
 				DeviceType = request.DeviceType,
 				TrainMode = request.TrainMode,
-				SportMode = request.SportMode,
 				Success = false
 			};
 
@@ -444,7 +407,6 @@ namespace spms.service
 						 + "用户id" + request.Uid
 						 + "设备类型" + request.Uid
 						 + "训练模式" + request.TrainMode
-						 + "运动模式" + request.SportMode
 						 + "错误信息" + request.Error
 				);
 			response.Success = true;

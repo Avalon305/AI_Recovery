@@ -30,7 +30,7 @@ namespace spms.entity.newEntity
         // 设备训练模式 0康复模式，1主被动模式,2被动模式
         public int? Device_mode { get; set; }
         // 完成状态 1完成,0未完成
-        public byte? Dp_status { get; set; }
+        public int? Dp_status { get; set; }
         // 医生指示建议
         public string Dp_memo { get; set; }
         // 移乘方式 0自已，1照看，2完全失能

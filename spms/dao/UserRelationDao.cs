@@ -38,5 +38,16 @@ namespace spms.dao
 
 			}
 		}
+
+		public UserRelation FindUserRelationByBind_id(string bind_id)
+		{
+			using (var conn = DbUtil.getConn())
+			{
+				const string query = "select * from bdl_user_relation where bind_id = @Bind_id ";
+
+				return conn.QueryFirstOrDefault<UserRelation>(query, new { Bind_id = bind_id });
+
+			}
+		}
 	}
 }

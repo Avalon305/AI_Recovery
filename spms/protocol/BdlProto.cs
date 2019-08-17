@@ -10,246 +10,234 @@ using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
 /// <summary>Holder for reflection information generated from src/BdlProto.proto</summary>
-public static partial class BdlProtoReflection {
+public static partial class BdlProtoReflection
+{
 
-  #region Descriptor
-  /// <summary>File descriptor for src/BdlProto.proto</summary>
-  public static pbr::FileDescriptor Descriptor {
-    get { return descriptor; }
-  }
-  private static pbr::FileDescriptor descriptor;
+	#region Descriptor
+	/// <summary>File descriptor for src/BdlProto.proto</summary>
+	public static pbr::FileDescriptor Descriptor
+	{
+		get { return descriptor; }
+	}
+	private static pbr::FileDescriptor descriptor;
 
-  static BdlProtoReflection() {
-    byte[] descriptorData = global::System.Convert.FromBase64String(
-        string.Concat(
-          "ChJzcmMvQmRsUHJvdG8ucHJvdG8iWQoQS2VlcGFsaXZlUmVxdWVzdBIQCghk",
-          "ZXZpY2VJZBgBIAEoCRIfCgpkZXZpY2VUeXBlGAIgASgOMgsuRGV2aWNlVHlw",
-          "ZRISCgpjbGllbnRUaW1lGAMgASgJIm4KEUtlZXBhbGl2ZVJlc3BvbnNlEhAK",
-          "CGRldmljZUlkGAEgASgJEh8KCmRldmljZVR5cGUYAiABKA4yCy5EZXZpY2VU",
-          "eXBlEhIKCmNsaWVudFRpbWUYAyABKAkSEgoKc2VydmVyVGltZRgEIAEoCSJN",
-          "CgxMb2dpblJlcXVlc3QSCwoDdWlkGAEgASgJEg8KB2JpbmRfaWQYAiABKAkS",
-          "HwoKZGV2aWNlVHlwZRgDIAEoDjILLkRldmljZVR5cGUi6gMKDUxvZ2luUmVz",
-          "cG9uc2USCwoDdWlkGAEgASgJEiIKDWRldmljZVR5cGVBcnIYAiADKA4yCy5E",
-          "ZXZpY2VUeXBlEh0KCXNwb3J0TW9kZRgDIAEoDjIKLlNwb3J0TW9kZRIVCg1l",
-          "eGlzaXRTZXR0aW5nGAQgASgIEh0KCXRyYWluTW9kZRgFIAEoDjIKLlRyYWlu",
-          "TW9kZRISCgpzZWF0SGVpZ2h0GAcgASgFEhQKDGJhY2tEaXN0YW5jZRgIIAEo",
-          "BRIZChFmb290Ym9hcmREaXN0YW5jZRgJIAEoBRISCgpsZXZlckFuZ2xlGAog",
-          "ASgBEhQKDGZvcndhcmRMaW1pdBgLIAEoBRIRCgliYWNrTGltaXQYDCABKAUS",
-          "FwoPY29uc2VxdWVudEZvcmNlGA0gASgBEhQKDHJldmVyc2VGb3JjZRgOIAEo",
-          "ARINCgVwb3dlchgPIAEoARIQCghkcFN0YXR1cxgQIAEoBRIRCglkcE1vdmV3",
-          "YXkYESABKAUSDgoGZHBNZW1vGBIgASgJEhMKC2RwVGltZWNvdW50GBMgASgF",
-          "EhMKC2RwVGFyZ2V0TnVtGBQgASgFEhIKCnNwZWVkX3JhbmsYFSABKAUSEgoK",
-          "c3lzVmVyc2lvbhgWIAEoCRIMCgRkcElkGBcgASgFItwCCg1VcGxvYWRSZXF1",
-          "ZXN0EgsKA3VpZBgBIAEoCRIfCgpkZXZpY2VUeXBlGAIgASgOMgsuRGV2aWNl",
-          "VHlwZRIdCglzcG9ydE1vZGUYAyABKA4yCi5TcG9ydE1vZGUSHQoJdHJhaW5N",
-          "b2RlGAQgASgOMgouVHJhaW5Nb2RlEhcKD2NvbnNlcXVlbnRGb3JjZRgFIAEo",
-          "ARIUCgxyZXZlcnNlRm9yY2UYBiABKAESDQoFcG93ZXIYByABKAESEQoJc3Bl",
-          "ZWRSYW5rGAggASgFEhEKCWZpbmlzaE51bRgJIAEoBRISCgpmaW5pc2hUaW1l",
-          "GAogASgFEhAKCGRpc3RhbmNlGAsgASgBEg4KBmVuZXJneRgMIAEoARIXCg9o",
-          "ZWFydF9yYXRlX2xpc3QYDSABKAkSDgoGZGF0YUlkGA4gASgJEg4KBmJpbmRJ",
-          "ZBgPIAEoCRIMCgRkcElkGBAgASgFIpABCg5VcGxvYWRSZXNwb25zZRILCgN1",
-          "aWQYASABKAkSHwoKZGV2aWNlVHlwZRgCIAEoDjILLkRldmljZVR5cGUSHQoJ",
-          "c3BvcnRNb2RlGAMgASgOMgouU3BvcnRNb2RlEhAKCGZpbmlzaGVkGAQgASgI",
-          "Eg8KB3N1Y2Nlc3MYBSABKAgSDgoGZGF0YUlkGAYgASgJIsICChJQZXJzb25h",
-          "bFNldFJlcXVlc3QSCwoDdWlkGAEgASgJEg8KB2JpbmRfaWQYAiABKAkSHwoK",
-          "ZGV2aWNlVHlwZRgDIAEoDjILLkRldmljZVR5cGUSHQoJdHJhaW5Nb2RlGAQg",
-          "ASgOMgouVHJhaW5Nb2RlEhIKCnNlYXRIZWlnaHQYByABKAUSFAoMYmFja0Rp",
-          "c3RhbmNlGAggASgFEhkKEWZvb3Rib2FyZERpc3RhbmNlGAkgASgFEhIKCmxl",
-          "dmVyQW5nbGUYCiABKAESFAoMZm9yd2FyZExpbWl0GAsgASgFEhEKCWJhY2tM",
-          "aW1pdBgMIAEoBRIXCg9jb25zZXF1ZW50Rm9yY2UYDSABKAESFAoMcmV2ZXJz",
-          "ZUZvcmNlGA4gASgBEg0KBXBvd2VyGA8gASgBEg4KBmRhdGFJZBgQIAEoCSKD",
-          "AQoTUGVyc29uYWxTZXRSZXNwb25zZRIfCgpkZXZpY2VUeXBlGAEgASgOMgsu",
-          "RGV2aWNlVHlwZRIdCgl0cmFpbk1vZGUYAiABKA4yCi5UcmFpbk1vZGUSCwoD",
-          "dWlkGAMgASgJEg8KB3N1Y2Nlc3MYBCABKAgSDgoGZGF0YUlkGAUgASgJIlYK",
-          "FU11c2NsZVN0cmVuZ3RoUmVxdWVzdBILCgN1aWQYASABKAkSFwoPbXVzY2xl",
-          "VGVzdFZhbHVlGAIgASgJEhcKD211c2NsZUNyZWF0VGltZRgDIAEoCSI2ChZN",
-          "dXNjbGVTdHJlbmd0aFJlc3BvbnNlEgsKA3VpZBgBIAEoCRIPCgdzdWNjZXNz",
-          "GAIgASgIIqUBChBFcnJvckluZm9SZXF1ZXN0EgsKA3VpZBgBIAEoCRIfCgpk",
-          "ZXZpY2VUeXBlGAIgASgOMgsuRGV2aWNlVHlwZRIdCgl0cmFpbk1vZGUYAyAB",
-          "KA4yCi5UcmFpbk1vZGUSHQoJc3BvcnRNb2RlGAQgASgOMgouU3BvcnRNb2Rl",
-          "Eg0KBWVycm9yGAUgASgJEhYKDmVycm9yU3RhcnRUaW1lGAYgASgJIpABChFF",
-          "cnJvckluZm9SZXNwb25zZRILCgN1aWQYASABKAkSHwoKZGV2aWNlVHlwZRgC",
-          "IAEoDjILLkRldmljZVR5cGUSHQoJdHJhaW5Nb2RlGAMgASgOMgouVHJhaW5N",
-          "b2RlEh0KCXNwb3J0TW9kZRgEIAEoDjIKLlNwb3J0TW9kZRIPCgdzdWNjZXNz",
-          "GAUgASgIItwECgdNZXNzYWdlEhcKBHR5cGUYASABKA4yCS5IZWFkVHlwZRIQ",
-          "CghzZXF1ZW5jZRgCIAEoBRIrChBrZWVwYWxpdmVSZXF1ZXN0GAMgASgLMhEu",
-          "S2VlcGFsaXZlUmVxdWVzdBItChFrZWVwYWxpdmVSZXNwb25zZRgEIAEoCzIS",
-          "LktlZXBhbGl2ZVJlc3BvbnNlEiMKDGxvZ2luUmVxdWVzdBgFIAEoCzINLkxv",
-          "Z2luUmVxdWVzdBIlCg1sb2dpblJlc3BvbnNlGAYgASgLMg4uTG9naW5SZXNw",
-          "b25zZRIlCg11cGxvYWRSZXF1ZXN0GAcgASgLMg4uVXBsb2FkUmVxdWVzdBIn",
-          "Cg51cGxvYWRSZXNwb25zZRgIIAEoCzIPLlVwbG9hZFJlc3BvbnNlEi8KEnBl",
-          "cnNvbmFsU2V0UmVxdWVzdBgJIAEoCzITLlBlcnNvbmFsU2V0UmVxdWVzdBIx",
-          "ChNwZXJzb25hbFNldFJlc3BvbnNlGAogASgLMhQuUGVyc29uYWxTZXRSZXNw",
-          "b25zZRI1ChVtdXNjbGVTdHJlbmd0aFJlcXVlc3QYCyABKAsyFi5NdXNjbGVT",
-          "dHJlbmd0aFJlcXVlc3QSNwoWbXVzY2xlU3RyZW5ndGhSZXNwb25zZRgMIAEo",
-          "CzIXLk11c2NsZVN0cmVuZ3RoUmVzcG9uc2USKwoQZXJyb3JJbmZvUmVxdWVz",
-          "dBgNIAEoCzIRLkVycm9ySW5mb1JlcXVlc3QSLQoRZXJyb3JJbmZvUmVzcG9u",
-          "c2UYDiABKAsyEi5FcnJvckluZm9SZXNwb25zZSqkAgoISGVhZFR5cGUSFQoR",
-          "S2VlcGFsaXZlX1JlcXVlc3QQABIWChJLZWVwYWxpdmVfUmVzcG9uc2UQARIR",
-          "Cg1Mb2dpbl9SZXF1ZXN0EAISEgoOTG9naW5fUmVzcG9uc2UQAxISCg5VcGxv",
-          "YWRfUmVxdWVzdBAEEhMKD1VwbG9hZF9SZXNwb25zZRAFEhcKE1BlcnNvbmFs",
-          "U2V0X1JlcXVlc3QQBhIYChRQZXJzb25hbFNldF9SZXNwb25zZRAHEhoKFk11",
-          "c2NsZVN0cmVuZ3RoX1JlcXVlc3QQCBIbChdNdXNjbGVTdHJlbmd0aF9SZXNw",
-          "b25zZRAJEhUKEUVycm9ySW5mb19SZXF1ZXN0EAoSFgoSRXJyb3JJbmZvX1Jl",
-          "c3BvbnNlEAsqRwoJVHJhaW5Nb2RlEhcKE1JlaGFiaWxpdGF0aW9uTW9kZWwQ",
-          "ABIPCgtBY3RpdmVNb2RlbBABEhAKDFBhc3NpdmVNb2RlbBACKmYKCkRldmlj",
-          "ZVR5cGUSBwoDUDAwEAASBwoDUDAxEAESBwoDUDAyEAISBwoDUDAzEAMSBwoD",
-          "UDA0EAQSBwoDUDA1EAUSBwoDUDA2EAYSBwoDUDA3EAcSBwoDUDA4EAgSBwoD",
-          "UDA5EAkqLAoJU3BvcnRNb2RlEhAKDENvdW50aW5nTW9kZRAAEg0KCVRpbWVy",
-          "TW9kZRABQiYKGGNvbS5iZGwuYWlyZWNvdmVyeS5wcm90b0IIQmRsUHJvdG9I",
-          "AWIGcHJvdG8z"));
-    descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-        new pbr::FileDescriptor[] { },
-        new pbr::GeneratedClrTypeInfo(new[] {typeof(global::HeadType), typeof(global::TrainMode), typeof(global::DeviceType), typeof(global::SportMode), }, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::KeepaliveRequest), global::KeepaliveRequest.Parser, new[]{ "DeviceId", "DeviceType", "ClientTime" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::KeepaliveResponse), global::KeepaliveResponse.Parser, new[]{ "DeviceId", "DeviceType", "ClientTime", "ServerTime" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::LoginRequest), global::LoginRequest.Parser, new[]{ "Uid", "BindId", "DeviceType" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::LoginResponse), global::LoginResponse.Parser, new[]{ "Uid", "DeviceTypeArr", "SportMode", "ExisitSetting", "TrainMode", "SeatHeight", "BackDistance", "FootboardDistance", "LeverAngle", "ForwardLimit", "BackLimit", "ConsequentForce", "ReverseForce", "Power", "DpStatus", "DpMoveway", "DpMemo", "DpTimecount", "DpTargetNum", "SpeedRank", "SysVersion", "DpId" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::UploadRequest), global::UploadRequest.Parser, new[]{ "Uid", "DeviceType", "SportMode", "TrainMode", "ConsequentForce", "ReverseForce", "Power", "SpeedRank", "FinishNum", "FinishTime", "Distance", "Energy", "HeartRateList", "DataId", "BindId", "DpId" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::UploadResponse), global::UploadResponse.Parser, new[]{ "Uid", "DeviceType", "SportMode", "Finished", "Success", "DataId" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::PersonalSetRequest), global::PersonalSetRequest.Parser, new[]{ "Uid", "BindId", "DeviceType", "TrainMode", "SeatHeight", "BackDistance", "FootboardDistance", "LeverAngle", "ForwardLimit", "BackLimit", "ConsequentForce", "ReverseForce", "Power", "DataId" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::PersonalSetResponse), global::PersonalSetResponse.Parser, new[]{ "DeviceType", "TrainMode", "Uid", "Success", "DataId" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::MuscleStrengthRequest), global::MuscleStrengthRequest.Parser, new[]{ "Uid", "MuscleTestValue", "MuscleCreatTime" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::MuscleStrengthResponse), global::MuscleStrengthResponse.Parser, new[]{ "Uid", "Success" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::ErrorInfoRequest), global::ErrorInfoRequest.Parser, new[]{ "Uid", "DeviceType", "TrainMode", "SportMode", "Error", "ErrorStartTime" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::ErrorInfoResponse), global::ErrorInfoResponse.Parser, new[]{ "Uid", "DeviceType", "TrainMode", "SportMode", "Success" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::Message), global::Message.Parser, new[]{ "Type", "Sequence", "KeepaliveRequest", "KeepaliveResponse", "LoginRequest", "LoginResponse", "UploadRequest", "UploadResponse", "PersonalSetRequest", "PersonalSetResponse", "MuscleStrengthRequest", "MuscleStrengthResponse", "ErrorInfoRequest", "ErrorInfoResponse" }, null, null, null)
-        }));
-  }
-  #endregion
+	static BdlProtoReflection()
+	{
+		byte[] descriptorData = global::System.Convert.FromBase64String(
+			string.Concat(
+			  "ChJzcmMvQmRsUHJvdG8ucHJvdG8iWQoQS2VlcGFsaXZlUmVxdWVzdBIQCghk",
+			  "ZXZpY2VJZBgBIAEoCRIfCgpkZXZpY2VUeXBlGAIgASgOMgsuRGV2aWNlVHlw",
+			  "ZRISCgpjbGllbnRUaW1lGAMgASgJIm4KEUtlZXBhbGl2ZVJlc3BvbnNlEhAK",
+			  "CGRldmljZUlkGAEgASgJEh8KCmRldmljZVR5cGUYAiABKA4yCy5EZXZpY2VU",
+			  "eXBlEhIKCmNsaWVudFRpbWUYAyABKAkSEgoKc2VydmVyVGltZRgEIAEoCSJN",
+			  "CgxMb2dpblJlcXVlc3QSCwoDdWlkGAEgASgJEg8KB2JpbmRfaWQYAiABKAkS",
+			  "HwoKZGV2aWNlVHlwZRgDIAEoDjILLkRldmljZVR5cGUi4wMKDUxvZ2luUmVz",
+			  "cG9uc2USCwoDdWlkGAEgASgJEiIKDWRldmljZVR5cGVBcnIYAiADKA4yCy5E",
+			  "ZXZpY2VUeXBlEhUKDWV4aXNpdFNldHRpbmcYBCABKAgSHQoJdHJhaW5Nb2Rl",
+			  "GAUgASgOMgouVHJhaW5Nb2RlEhIKCnNlYXRIZWlnaHQYByABKAUSFAoMYmFj",
+			  "a0Rpc3RhbmNlGAggASgFEhkKEWZvb3Rib2FyZERpc3RhbmNlGAkgASgFEhIK",
+			  "CmxldmVyQW5nbGUYCiABKAESFAoMZm9yd2FyZExpbWl0GAsgASgFEhEKCWJh",
+			  "Y2tMaW1pdBgMIAEoBRIXCg9jb25zZXF1ZW50Rm9yY2UYDSABKAESFAoMcmV2",
+			  "ZXJzZUZvcmNlGA4gASgBEg0KBXBvd2VyGA8gASgBEhAKCGRwU3RhdHVzGBAg",
+			  "ASgFEhEKCWRwTW92ZXdheRgRIAEoBRIOCgZkcE1lbW8YEiABKAkSFQoNZHBf",
+			  "Z3JvdXBjb3VudBgTIAEoBRITCgtkcF9ncm91cG51bRgUIAEoBRIUCgxkcF9y",
+			  "ZWxheHRpbWUYAyABKAUSEgoKc3BlZWRfcmFuaxgVIAEoBRISCgpzeXNWZXJz",
+			  "aW9uGBYgASgJEgwKBGRwSWQYFyABKAUiwgIKDVVwbG9hZFJlcXVlc3QSCwoD",
+			  "dWlkGAEgASgJEh8KCmRldmljZVR5cGUYAiABKA4yCy5EZXZpY2VUeXBlEh0K",
+			  "CXRyYWluTW9kZRgEIAEoDjIKLlRyYWluTW9kZRIXCg9jb25zZXF1ZW50Rm9y",
+			  "Y2UYBSABKAESFAoMcmV2ZXJzZUZvcmNlGAYgASgBEg0KBXBvd2VyGAcgASgB",
+			  "EhEKCXNwZWVkUmFuaxgIIAEoBRIRCglmaW5pc2hOdW0YCSABKAUSEAoIZGlz",
+			  "dGFuY2UYCyABKAESDgoGZW5lcmd5GAwgASgBEhcKD2hlYXJ0X3JhdGVfbGlz",
+			  "dBgNIAEoCRIXCg9wcl91c2VydGhvdWdodHMYAyABKAkSDgoGZGF0YUlkGA4g",
+			  "ASgJEg4KBmJpbmRJZBgPIAEoCRIMCgRkcElkGBAgASgFInEKDlVwbG9hZFJl",
+			  "c3BvbnNlEgsKA3VpZBgBIAEoCRIfCgpkZXZpY2VUeXBlGAIgASgOMgsuRGV2",
+			  "aWNlVHlwZRIQCghmaW5pc2hlZBgEIAEoCBIPCgdzdWNjZXNzGAUgASgIEg4K",
+			  "BmRhdGFJZBgGIAEoCSLCAgoSUGVyc29uYWxTZXRSZXF1ZXN0EgsKA3VpZBgB",
+			  "IAEoCRIPCgdiaW5kX2lkGAIgASgJEh8KCmRldmljZVR5cGUYAyABKA4yCy5E",
+			  "ZXZpY2VUeXBlEh0KCXRyYWluTW9kZRgEIAEoDjIKLlRyYWluTW9kZRISCgpz",
+			  "ZWF0SGVpZ2h0GAcgASgFEhQKDGJhY2tEaXN0YW5jZRgIIAEoBRIZChFmb290",
+			  "Ym9hcmREaXN0YW5jZRgJIAEoBRISCgpsZXZlckFuZ2xlGAogASgBEhQKDGZv",
+			  "cndhcmRMaW1pdBgLIAEoBRIRCgliYWNrTGltaXQYDCABKAUSFwoPY29uc2Vx",
+			  "dWVudEZvcmNlGA0gASgBEhQKDHJldmVyc2VGb3JjZRgOIAEoARINCgVwb3dl",
+			  "chgPIAEoARIOCgZkYXRhSWQYECABKAkigwEKE1BlcnNvbmFsU2V0UmVzcG9u",
+			  "c2USHwoKZGV2aWNlVHlwZRgBIAEoDjILLkRldmljZVR5cGUSHQoJdHJhaW5N",
+			  "b2RlGAIgASgOMgouVHJhaW5Nb2RlEgsKA3VpZBgDIAEoCRIPCgdzdWNjZXNz",
+			  "GAQgASgIEg4KBmRhdGFJZBgFIAEoCSJWChVNdXNjbGVTdHJlbmd0aFJlcXVl",
+			  "c3QSCwoDdWlkGAEgASgJEhcKD211c2NsZVRlc3RWYWx1ZRgCIAEoCRIXCg9t",
+			  "dXNjbGVDcmVhdFRpbWUYAyABKAkiNgoWTXVzY2xlU3RyZW5ndGhSZXNwb25z",
+			  "ZRILCgN1aWQYASABKAkSDwoHc3VjY2VzcxgCIAEoCCKGAQoQRXJyb3JJbmZv",
+			  "UmVxdWVzdBILCgN1aWQYASABKAkSHwoKZGV2aWNlVHlwZRgCIAEoDjILLkRl",
+			  "dmljZVR5cGUSHQoJdHJhaW5Nb2RlGAMgASgOMgouVHJhaW5Nb2RlEg0KBWVy",
+			  "cm9yGAUgASgJEhYKDmVycm9yU3RhcnRUaW1lGAYgASgJInEKEUVycm9ySW5m",
+			  "b1Jlc3BvbnNlEgsKA3VpZBgBIAEoCRIfCgpkZXZpY2VUeXBlGAIgASgOMgsu",
+			  "RGV2aWNlVHlwZRIdCgl0cmFpbk1vZGUYAyABKA4yCi5UcmFpbk1vZGUSDwoH",
+			  "c3VjY2VzcxgFIAEoCCLcBAoHTWVzc2FnZRIXCgR0eXBlGAEgASgOMgkuSGVh",
+			  "ZFR5cGUSEAoIc2VxdWVuY2UYAiABKAUSKwoQa2VlcGFsaXZlUmVxdWVzdBgD",
+			  "IAEoCzIRLktlZXBhbGl2ZVJlcXVlc3QSLQoRa2VlcGFsaXZlUmVzcG9uc2UY",
+			  "BCABKAsyEi5LZWVwYWxpdmVSZXNwb25zZRIjCgxsb2dpblJlcXVlc3QYBSAB",
+			  "KAsyDS5Mb2dpblJlcXVlc3QSJQoNbG9naW5SZXNwb25zZRgGIAEoCzIOLkxv",
+			  "Z2luUmVzcG9uc2USJQoNdXBsb2FkUmVxdWVzdBgHIAEoCzIOLlVwbG9hZFJl",
+			  "cXVlc3QSJwoOdXBsb2FkUmVzcG9uc2UYCCABKAsyDy5VcGxvYWRSZXNwb25z",
+			  "ZRIvChJwZXJzb25hbFNldFJlcXVlc3QYCSABKAsyEy5QZXJzb25hbFNldFJl",
+			  "cXVlc3QSMQoTcGVyc29uYWxTZXRSZXNwb25zZRgKIAEoCzIULlBlcnNvbmFs",
+			  "U2V0UmVzcG9uc2USNQoVbXVzY2xlU3RyZW5ndGhSZXF1ZXN0GAsgASgLMhYu",
+			  "TXVzY2xlU3RyZW5ndGhSZXF1ZXN0EjcKFm11c2NsZVN0cmVuZ3RoUmVzcG9u",
+			  "c2UYDCABKAsyFy5NdXNjbGVTdHJlbmd0aFJlc3BvbnNlEisKEGVycm9ySW5m",
+			  "b1JlcXVlc3QYDSABKAsyES5FcnJvckluZm9SZXF1ZXN0Ei0KEWVycm9ySW5m",
+			  "b1Jlc3BvbnNlGA4gASgLMhIuRXJyb3JJbmZvUmVzcG9uc2UqpAIKCEhlYWRU",
+			  "eXBlEhUKEUtlZXBhbGl2ZV9SZXF1ZXN0EAASFgoSS2VlcGFsaXZlX1Jlc3Bv",
+			  "bnNlEAESEQoNTG9naW5fUmVxdWVzdBACEhIKDkxvZ2luX1Jlc3BvbnNlEAMS",
+			  "EgoOVXBsb2FkX1JlcXVlc3QQBBITCg9VcGxvYWRfUmVzcG9uc2UQBRIXChNQ",
+			  "ZXJzb25hbFNldF9SZXF1ZXN0EAYSGAoUUGVyc29uYWxTZXRfUmVzcG9uc2UQ",
+			  "BxIaChZNdXNjbGVTdHJlbmd0aF9SZXF1ZXN0EAgSGwoXTXVzY2xlU3RyZW5n",
+			  "dGhfUmVzcG9uc2UQCRIVChFFcnJvckluZm9fUmVxdWVzdBAKEhYKEkVycm9y",
+			  "SW5mb19SZXNwb25zZRALKkcKCVRyYWluTW9kZRIXChNSZWhhYmlsaXRhdGlv",
+			  "bk1vZGVsEAASDwoLQWN0aXZlTW9kZWwQARIQCgxQYXNzaXZlTW9kZWwQAipm",
+			  "CgpEZXZpY2VUeXBlEgcKA1AwMBAAEgcKA1AwMRABEgcKA1AwMhACEgcKA1Aw",
+			  "MxADEgcKA1AwNBAEEgcKA1AwNRAFEgcKA1AwNhAGEgcKA1AwNxAHEgcKA1Aw",
+			  "OBAIEgcKA1AwORAJQiYKGGNvbS5iZGwuYWlyZWNvdmVyeS5wcm90b0IIQmRs",
+			  "UHJvdG9IAWIGcHJvdG8z"));
+		descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
+			new pbr::FileDescriptor[] { },
+			new pbr::GeneratedClrTypeInfo(new[] { typeof(global::HeadType), typeof(global::TrainMode), typeof(global::DeviceType), }, new pbr::GeneratedClrTypeInfo[] {
+		  new pbr::GeneratedClrTypeInfo(typeof(global::KeepaliveRequest), global::KeepaliveRequest.Parser, new[]{ "DeviceId", "DeviceType", "ClientTime" }, null, null, null),
+		  new pbr::GeneratedClrTypeInfo(typeof(global::KeepaliveResponse), global::KeepaliveResponse.Parser, new[]{ "DeviceId", "DeviceType", "ClientTime", "ServerTime" }, null, null, null),
+		  new pbr::GeneratedClrTypeInfo(typeof(global::LoginRequest), global::LoginRequest.Parser, new[]{ "Uid", "BindId", "DeviceType" }, null, null, null),
+		  new pbr::GeneratedClrTypeInfo(typeof(global::LoginResponse), global::LoginResponse.Parser, new[]{ "Uid", "DeviceTypeArr", "ExisitSetting", "TrainMode", "SeatHeight", "BackDistance", "FootboardDistance", "LeverAngle", "ForwardLimit", "BackLimit", "ConsequentForce", "ReverseForce", "Power", "DpStatus", "DpMoveway", "DpMemo", "DpGroupcount", "DpGroupnum", "DpRelaxtime", "SpeedRank", "SysVersion", "DpId" }, null, null, null),
+		  new pbr::GeneratedClrTypeInfo(typeof(global::UploadRequest), global::UploadRequest.Parser, new[]{ "Uid", "DeviceType", "TrainMode", "ConsequentForce", "ReverseForce", "Power", "SpeedRank", "FinishNum", "Distance", "Energy", "HeartRateList", "PrUserthoughts", "DataId", "BindId", "DpId" }, null, null, null),
+		  new pbr::GeneratedClrTypeInfo(typeof(global::UploadResponse), global::UploadResponse.Parser, new[]{ "Uid", "DeviceType", "Finished", "Success", "DataId" }, null, null, null),
+		  new pbr::GeneratedClrTypeInfo(typeof(global::PersonalSetRequest), global::PersonalSetRequest.Parser, new[]{ "Uid", "BindId", "DeviceType", "TrainMode", "SeatHeight", "BackDistance", "FootboardDistance", "LeverAngle", "ForwardLimit", "BackLimit", "ConsequentForce", "ReverseForce", "Power", "DataId" }, null, null, null),
+		  new pbr::GeneratedClrTypeInfo(typeof(global::PersonalSetResponse), global::PersonalSetResponse.Parser, new[]{ "DeviceType", "TrainMode", "Uid", "Success", "DataId" }, null, null, null),
+		  new pbr::GeneratedClrTypeInfo(typeof(global::MuscleStrengthRequest), global::MuscleStrengthRequest.Parser, new[]{ "Uid", "MuscleTestValue", "MuscleCreatTime" }, null, null, null),
+		  new pbr::GeneratedClrTypeInfo(typeof(global::MuscleStrengthResponse), global::MuscleStrengthResponse.Parser, new[]{ "Uid", "Success" }, null, null, null),
+		  new pbr::GeneratedClrTypeInfo(typeof(global::ErrorInfoRequest), global::ErrorInfoRequest.Parser, new[]{ "Uid", "DeviceType", "TrainMode", "Error", "ErrorStartTime" }, null, null, null),
+		  new pbr::GeneratedClrTypeInfo(typeof(global::ErrorInfoResponse), global::ErrorInfoResponse.Parser, new[]{ "Uid", "DeviceType", "TrainMode", "Success" }, null, null, null),
+		  new pbr::GeneratedClrTypeInfo(typeof(global::Message), global::Message.Parser, new[]{ "Type", "Sequence", "KeepaliveRequest", "KeepaliveResponse", "LoginRequest", "LoginResponse", "UploadRequest", "UploadResponse", "PersonalSetRequest", "PersonalSetResponse", "MuscleStrengthRequest", "MuscleStrengthResponse", "ErrorInfoRequest", "ErrorInfoResponse" }, null, null, null)
+			}));
+	}
+	#endregion
 
 }
 #region Enums
 /// <summary>
 ///通讯类型
 /// </summary>
-public enum HeadType {
-  /// <summary>
-  ///心跳请求ping;
-  /// </summary>
-  [pbr::OriginalName("Keepalive_Request")] KeepaliveRequest = 0,
-  /// <summary>
-  ///心跳请求pong
-  /// </summary>
-  [pbr::OriginalName("Keepalive_Response")] KeepaliveResponse = 1,
-  /// <summary>
-  ///登陆请求
-  /// </summary>
-  [pbr::OriginalName("Login_Request")] LoginRequest = 2,
-  /// <summary>
-  ///登录响应
-  /// </summary>
-  [pbr::OriginalName("Login_Response")] LoginResponse = 3,
-  /// <summary>
-  ///结果上传请求
-  /// </summary>
-  [pbr::OriginalName("Upload_Request")] UploadRequest = 4,
-  /// <summary>
-  ///结果上传响应
-  /// </summary>
-  [pbr::OriginalName("Upload_Response")] UploadResponse = 5,
-  /// <summary>
-  ///个人设置请求
-  /// </summary>
-  [pbr::OriginalName("PersonalSet_Request")] PersonalSetRequest = 6,
-  /// <summary>
-  ///个人设置响应
-  /// </summary>
-  [pbr::OriginalName("PersonalSet_Response")] PersonalSetResponse = 7,
-  /// <summary>
-  ///肌力测试上传请求
-  /// </summary>
-  [pbr::OriginalName("MuscleStrength_Request")] MuscleStrengthRequest = 8,
-  /// <summary>
-  ///肌力测试上传响应
-  /// </summary>
-  [pbr::OriginalName("MuscleStrength_Response")] MuscleStrengthResponse = 9,
-  /// <summary>
-  ///错误上传请求
-  /// </summary>
-  [pbr::OriginalName("ErrorInfo_Request")] ErrorInfoRequest = 10,
-  /// <summary>
-  ///错误上传响应 
-  /// </summary>
-  [pbr::OriginalName("ErrorInfo_Response")] ErrorInfoResponse = 11,
+public enum HeadType
+{
+	/// <summary>
+	///心跳请求ping;
+	/// </summary>
+	[pbr::OriginalName("Keepalive_Request")] KeepaliveRequest = 0,
+	/// <summary>
+	///心跳请求pong
+	/// </summary>
+	[pbr::OriginalName("Keepalive_Response")] KeepaliveResponse = 1,
+	/// <summary>
+	///登陆请求
+	/// </summary>
+	[pbr::OriginalName("Login_Request")] LoginRequest = 2,
+	/// <summary>
+	///登录响应
+	/// </summary>
+	[pbr::OriginalName("Login_Response")] LoginResponse = 3,
+	/// <summary>
+	///结果上传请求
+	/// </summary>
+	[pbr::OriginalName("Upload_Request")] UploadRequest = 4,
+	/// <summary>
+	///结果上传响应
+	/// </summary>
+	[pbr::OriginalName("Upload_Response")] UploadResponse = 5,
+	/// <summary>
+	///个人设置请求
+	/// </summary>
+	[pbr::OriginalName("PersonalSet_Request")] PersonalSetRequest = 6,
+	/// <summary>
+	///个人设置响应
+	/// </summary>
+	[pbr::OriginalName("PersonalSet_Response")] PersonalSetResponse = 7,
+	/// <summary>
+	///肌力测试上传请求
+	/// </summary>
+	[pbr::OriginalName("MuscleStrength_Request")] MuscleStrengthRequest = 8,
+	/// <summary>
+	///肌力测试上传响应
+	/// </summary>
+	[pbr::OriginalName("MuscleStrength_Response")] MuscleStrengthResponse = 9,
+	/// <summary>
+	///错误上传请求
+	/// </summary>
+	[pbr::OriginalName("ErrorInfo_Request")] ErrorInfoRequest = 10,
+	/// <summary>
+	///错误上传响应
+	/// </summary>
+	[pbr::OriginalName("ErrorInfo_Response")] ErrorInfoResponse = 11,
 }
 
 /// <summary>
 /// 训练模式
 /// </summary>
-public enum TrainMode {
-  /// <summary>
-  ///康复模式
-  /// </summary>
-  [pbr::OriginalName("RehabilitationModel")] RehabilitationModel = 0,
-  /// <summary>
-  ///主动模式
-  /// </summary>
-  [pbr::OriginalName("ActiveModel")] ActiveModel = 1,
-  /// <summary>
-  ///被动模式
-  /// </summary>
-  [pbr::OriginalName("PassiveModel")] PassiveModel = 2,
+public enum TrainMode
+{
+	/// <summary>
+	///康复模式
+	/// </summary>
+	[pbr::OriginalName("RehabilitationModel")] RehabilitationModel = 0,
+	/// <summary>
+	///主动模式
+	/// </summary>
+	[pbr::OriginalName("ActiveModel")] ActiveModel = 1,
+	/// <summary>
+	///被动模式
+	/// </summary>
+	[pbr::OriginalName("PassiveModel")] PassiveModel = 2,
 }
 
 /// <summary>
 /// 设备类型
 /// </summary>
-public enum DeviceType {
-  /// <summary>
-  ///坐式划船机
-  /// </summary>
-  [pbr::OriginalName("P00")] P00 = 0,
-  /// <summary>
-  ///坐式推胸机
-  /// </summary>
-  [pbr::OriginalName("P01")] P01 = 1,
-  /// <summary>
-  ///腿部推蹬机
-  /// </summary>
-  [pbr::OriginalName("P02")] P02 = 2,
-  /// <summary>
-  ///腹肌训练机
-  /// </summary>
-  [pbr::OriginalName("P03")] P03 = 3,
-  /// <summary>
-  ///三头肌训练机
-  /// </summary>
-  [pbr::OriginalName("P04")] P04 = 4,
-  /// <summary>
-  ///腿部外弯机
-  /// </summary>
-  [pbr::OriginalName("P05")] P05 = 5,
-  /// <summary>
-  ///腿部内弯机
-  /// </summary>
-  [pbr::OriginalName("P06")] P06 = 6,
-  /// <summary>
-  ///蝴蝶机
-  /// </summary>
-  [pbr::OriginalName("P07")] P07 = 7,
-  /// <summary>
-  ///反向蝴蝶机
-  /// </summary>
-  [pbr::OriginalName("P08")] P08 = 8,
-  /// <summary>
-  ///坐式背部伸展机
-  /// </summary>
-  [pbr::OriginalName("P09")] P09 = 9,
-}
-
-/// <summary>
-/// 用户运动模式
-/// </summary>
-public enum SportMode {
-  /// <summary>
-  ///计数模式
-  /// </summary>
-  [pbr::OriginalName("CountingMode")] CountingMode = 0,
-  /// <summary>
-  ///计时模式
-  /// </summary>
-  [pbr::OriginalName("TimerMode")] TimerMode = 1,
+public enum DeviceType
+{
+	/// <summary>
+	///坐式划船机
+	/// </summary>
+	[pbr::OriginalName("P00")] P00 = 0,
+	/// <summary>
+	///坐式推胸机
+	/// </summary>
+	[pbr::OriginalName("P01")] P01 = 1,
+	/// <summary>
+	///腿部推蹬机
+	/// </summary>
+	[pbr::OriginalName("P02")] P02 = 2,
+	/// <summary>
+	///腹肌训练机
+	/// </summary>
+	[pbr::OriginalName("P03")] P03 = 3,
+	/// <summary>
+	///三头肌训练机
+	/// </summary>
+	[pbr::OriginalName("P04")] P04 = 4,
+	/// <summary>
+	///腿部外弯机
+	/// </summary>
+	[pbr::OriginalName("P05")] P05 = 5,
+	/// <summary>
+	///腿部内弯机
+	/// </summary>
+	[pbr::OriginalName("P06")] P06 = 6,
+	/// <summary>
+	///蝴蝶机
+	/// </summary>
+	[pbr::OriginalName("P07")] P07 = 7,
+	/// <summary>
+	///反向蝴蝶机
+	/// </summary>
+	[pbr::OriginalName("P08")] P08 = 8,
+	/// <summary>
+	///坐式背部伸展机
+	/// </summary>
+	[pbr::OriginalName("P09")] P09 = 9,
 }
 
 #endregion
@@ -258,4562 +246,5338 @@ public enum SportMode {
 /// <summary>
 /// 心跳请求
 /// </summary>
-public sealed partial class KeepaliveRequest : pb::IMessage<KeepaliveRequest> {
-  private static readonly pb::MessageParser<KeepaliveRequest> _parser = new pb::MessageParser<KeepaliveRequest>(() => new KeepaliveRequest());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<KeepaliveRequest> Parser { get { return _parser; } }
+public sealed partial class KeepaliveRequest : pb::IMessage<KeepaliveRequest>
+{
+	private static readonly pb::MessageParser<KeepaliveRequest> _parser = new pb::MessageParser<KeepaliveRequest>(() => new KeepaliveRequest());
+	private pb::UnknownFieldSet _unknownFields;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pb::MessageParser<KeepaliveRequest> Parser { get { return _parser; } }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BdlProtoReflection.Descriptor.MessageTypes[0]; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pbr::MessageDescriptor Descriptor
+	{
+		get { return global::BdlProtoReflection.Descriptor.MessageTypes[0]; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	pbr::MessageDescriptor pb::IMessage.Descriptor
+	{
+		get { return Descriptor; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public KeepaliveRequest() {
-    OnConstruction();
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public KeepaliveRequest()
+	{
+		OnConstruction();
+	}
 
-  partial void OnConstruction();
+	partial void OnConstruction();
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public KeepaliveRequest(KeepaliveRequest other) : this() {
-    deviceId_ = other.deviceId_;
-    deviceType_ = other.deviceType_;
-    clientTime_ = other.clientTime_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public KeepaliveRequest(KeepaliveRequest other) : this()
+	{
+		deviceId_ = other.deviceId_;
+		deviceType_ = other.deviceType_;
+		clientTime_ = other.clientTime_;
+		_unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public KeepaliveRequest Clone() {
-    return new KeepaliveRequest(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public KeepaliveRequest Clone()
+	{
+		return new KeepaliveRequest(this);
+	}
 
-  /// <summary>Field number for the "deviceId" field.</summary>
-  public const int DeviceIdFieldNumber = 1;
-  private string deviceId_ = "";
-  /// <summary>
-  ///设备ID
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string DeviceId {
-    get { return deviceId_; }
-    set {
-      deviceId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "deviceId" field.</summary>
+	public const int DeviceIdFieldNumber = 1;
+	private string deviceId_ = "";
+	/// <summary>
+	///设备ID
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string DeviceId
+	{
+		get { return deviceId_; }
+		set
+		{
+			deviceId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "deviceType" field.</summary>
-  public const int DeviceTypeFieldNumber = 2;
-  private global::DeviceType deviceType_ = 0;
-  /// <summary>
-  ///设备类型
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::DeviceType DeviceType {
-    get { return deviceType_; }
-    set {
-      deviceType_ = value;
-    }
-  }
+	/// <summary>Field number for the "deviceType" field.</summary>
+	public const int DeviceTypeFieldNumber = 2;
+	private global::DeviceType deviceType_ = 0;
+	/// <summary>
+	///设备类型
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::DeviceType DeviceType
+	{
+		get { return deviceType_; }
+		set
+		{
+			deviceType_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "clientTime" field.</summary>
-  public const int ClientTimeFieldNumber = 3;
-  private string clientTime_ = "";
-  /// <summary>
-  ///客户端时间戳
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string ClientTime {
-    get { return clientTime_; }
-    set {
-      clientTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "clientTime" field.</summary>
+	public const int ClientTimeFieldNumber = 3;
+	private string clientTime_ = "";
+	/// <summary>
+	///客户端时间戳
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string ClientTime
+	{
+		get { return clientTime_; }
+		set
+		{
+			clientTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as KeepaliveRequest);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override bool Equals(object other)
+	{
+		return Equals(other as KeepaliveRequest);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(KeepaliveRequest other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (DeviceId != other.DeviceId) return false;
-    if (DeviceType != other.DeviceType) return false;
-    if (ClientTime != other.ClientTime) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Equals(KeepaliveRequest other)
+	{
+		if (ReferenceEquals(other, null))
+		{
+			return false;
+		}
+		if (ReferenceEquals(other, this))
+		{
+			return true;
+		}
+		if (DeviceId != other.DeviceId) return false;
+		if (DeviceType != other.DeviceType) return false;
+		if (ClientTime != other.ClientTime) return false;
+		return Equals(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (DeviceId.Length != 0) hash ^= DeviceId.GetHashCode();
-    if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
-    if (ClientTime.Length != 0) hash ^= ClientTime.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override int GetHashCode()
+	{
+		int hash = 1;
+		if (DeviceId.Length != 0) hash ^= DeviceId.GetHashCode();
+		if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
+		if (ClientTime.Length != 0) hash ^= ClientTime.GetHashCode();
+		if (_unknownFields != null)
+		{
+			hash ^= _unknownFields.GetHashCode();
+		}
+		return hash;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override string ToString()
+	{
+		return pb::JsonFormatter.ToDiagnosticString(this);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (DeviceId.Length != 0) {
-      output.WriteRawTag(10);
-      output.WriteString(DeviceId);
-    }
-    if (DeviceType != 0) {
-      output.WriteRawTag(16);
-      output.WriteEnum((int) DeviceType);
-    }
-    if (ClientTime.Length != 0) {
-      output.WriteRawTag(26);
-      output.WriteString(ClientTime);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void WriteTo(pb::CodedOutputStream output)
+	{
+		if (DeviceId.Length != 0)
+		{
+			output.WriteRawTag(10);
+			output.WriteString(DeviceId);
+		}
+		if (DeviceType != 0)
+		{
+			output.WriteRawTag(16);
+			output.WriteEnum((int)DeviceType);
+		}
+		if (ClientTime.Length != 0)
+		{
+			output.WriteRawTag(26);
+			output.WriteString(ClientTime);
+		}
+		if (_unknownFields != null)
+		{
+			_unknownFields.WriteTo(output);
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (DeviceId.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(DeviceId);
-    }
-    if (DeviceType != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DeviceType);
-    }
-    if (ClientTime.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientTime);
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int CalculateSize()
+	{
+		int size = 0;
+		if (DeviceId.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(DeviceId);
+		}
+		if (DeviceType != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)DeviceType);
+		}
+		if (ClientTime.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientTime);
+		}
+		if (_unknownFields != null)
+		{
+			size += _unknownFields.CalculateSize();
+		}
+		return size;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(KeepaliveRequest other) {
-    if (other == null) {
-      return;
-    }
-    if (other.DeviceId.Length != 0) {
-      DeviceId = other.DeviceId;
-    }
-    if (other.DeviceType != 0) {
-      DeviceType = other.DeviceType;
-    }
-    if (other.ClientTime.Length != 0) {
-      ClientTime = other.ClientTime;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(KeepaliveRequest other)
+	{
+		if (other == null)
+		{
+			return;
+		}
+		if (other.DeviceId.Length != 0)
+		{
+			DeviceId = other.DeviceId;
+		}
+		if (other.DeviceType != 0)
+		{
+			DeviceType = other.DeviceType;
+		}
+		if (other.ClientTime.Length != 0)
+		{
+			ClientTime = other.ClientTime;
+		}
+		_unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 10: {
-          DeviceId = input.ReadString();
-          break;
-        }
-        case 16: {
-          DeviceType = (global::DeviceType) input.ReadEnum();
-          break;
-        }
-        case 26: {
-          ClientTime = input.ReadString();
-          break;
-        }
-      }
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(pb::CodedInputStream input)
+	{
+		uint tag;
+		while ((tag = input.ReadTag()) != 0)
+		{
+			switch (tag)
+			{
+				default:
+					_unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+					break;
+				case 10:
+					{
+						DeviceId = input.ReadString();
+						break;
+					}
+				case 16:
+					{
+						DeviceType = (global::DeviceType)input.ReadEnum();
+						break;
+					}
+				case 26:
+					{
+						ClientTime = input.ReadString();
+						break;
+					}
+			}
+		}
+	}
 
 }
 
 /// <summary>
 /// 心跳响应
 /// </summary>
-public sealed partial class KeepaliveResponse : pb::IMessage<KeepaliveResponse> {
-  private static readonly pb::MessageParser<KeepaliveResponse> _parser = new pb::MessageParser<KeepaliveResponse>(() => new KeepaliveResponse());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<KeepaliveResponse> Parser { get { return _parser; } }
+public sealed partial class KeepaliveResponse : pb::IMessage<KeepaliveResponse>
+{
+	private static readonly pb::MessageParser<KeepaliveResponse> _parser = new pb::MessageParser<KeepaliveResponse>(() => new KeepaliveResponse());
+	private pb::UnknownFieldSet _unknownFields;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pb::MessageParser<KeepaliveResponse> Parser { get { return _parser; } }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BdlProtoReflection.Descriptor.MessageTypes[1]; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pbr::MessageDescriptor Descriptor
+	{
+		get { return global::BdlProtoReflection.Descriptor.MessageTypes[1]; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	pbr::MessageDescriptor pb::IMessage.Descriptor
+	{
+		get { return Descriptor; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public KeepaliveResponse() {
-    OnConstruction();
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public KeepaliveResponse()
+	{
+		OnConstruction();
+	}
 
-  partial void OnConstruction();
+	partial void OnConstruction();
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public KeepaliveResponse(KeepaliveResponse other) : this() {
-    deviceId_ = other.deviceId_;
-    deviceType_ = other.deviceType_;
-    clientTime_ = other.clientTime_;
-    serverTime_ = other.serverTime_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public KeepaliveResponse(KeepaliveResponse other) : this()
+	{
+		deviceId_ = other.deviceId_;
+		deviceType_ = other.deviceType_;
+		clientTime_ = other.clientTime_;
+		serverTime_ = other.serverTime_;
+		_unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public KeepaliveResponse Clone() {
-    return new KeepaliveResponse(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public KeepaliveResponse Clone()
+	{
+		return new KeepaliveResponse(this);
+	}
 
-  /// <summary>Field number for the "deviceId" field.</summary>
-  public const int DeviceIdFieldNumber = 1;
-  private string deviceId_ = "";
-  /// <summary>
-  ///设备ID
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string DeviceId {
-    get { return deviceId_; }
-    set {
-      deviceId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "deviceId" field.</summary>
+	public const int DeviceIdFieldNumber = 1;
+	private string deviceId_ = "";
+	/// <summary>
+	///设备ID
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string DeviceId
+	{
+		get { return deviceId_; }
+		set
+		{
+			deviceId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "deviceType" field.</summary>
-  public const int DeviceTypeFieldNumber = 2;
-  private global::DeviceType deviceType_ = 0;
-  /// <summary>
-  ///设备类型
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::DeviceType DeviceType {
-    get { return deviceType_; }
-    set {
-      deviceType_ = value;
-    }
-  }
+	/// <summary>Field number for the "deviceType" field.</summary>
+	public const int DeviceTypeFieldNumber = 2;
+	private global::DeviceType deviceType_ = 0;
+	/// <summary>
+	///设备类型
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::DeviceType DeviceType
+	{
+		get { return deviceType_; }
+		set
+		{
+			deviceType_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "clientTime" field.</summary>
-  public const int ClientTimeFieldNumber = 3;
-  private string clientTime_ = "";
-  /// <summary>
-  ///客户端时间戳
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string ClientTime {
-    get { return clientTime_; }
-    set {
-      clientTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "clientTime" field.</summary>
+	public const int ClientTimeFieldNumber = 3;
+	private string clientTime_ = "";
+	/// <summary>
+	///客户端时间戳
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string ClientTime
+	{
+		get { return clientTime_; }
+		set
+		{
+			clientTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "serverTime" field.</summary>
-  public const int ServerTimeFieldNumber = 4;
-  private string serverTime_ = "";
-  /// <summary>
-  ///服务端时间戳
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string ServerTime {
-    get { return serverTime_; }
-    set {
-      serverTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "serverTime" field.</summary>
+	public const int ServerTimeFieldNumber = 4;
+	private string serverTime_ = "";
+	/// <summary>
+	///服务端时间戳
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string ServerTime
+	{
+		get { return serverTime_; }
+		set
+		{
+			serverTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as KeepaliveResponse);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override bool Equals(object other)
+	{
+		return Equals(other as KeepaliveResponse);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(KeepaliveResponse other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (DeviceId != other.DeviceId) return false;
-    if (DeviceType != other.DeviceType) return false;
-    if (ClientTime != other.ClientTime) return false;
-    if (ServerTime != other.ServerTime) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Equals(KeepaliveResponse other)
+	{
+		if (ReferenceEquals(other, null))
+		{
+			return false;
+		}
+		if (ReferenceEquals(other, this))
+		{
+			return true;
+		}
+		if (DeviceId != other.DeviceId) return false;
+		if (DeviceType != other.DeviceType) return false;
+		if (ClientTime != other.ClientTime) return false;
+		if (ServerTime != other.ServerTime) return false;
+		return Equals(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (DeviceId.Length != 0) hash ^= DeviceId.GetHashCode();
-    if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
-    if (ClientTime.Length != 0) hash ^= ClientTime.GetHashCode();
-    if (ServerTime.Length != 0) hash ^= ServerTime.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override int GetHashCode()
+	{
+		int hash = 1;
+		if (DeviceId.Length != 0) hash ^= DeviceId.GetHashCode();
+		if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
+		if (ClientTime.Length != 0) hash ^= ClientTime.GetHashCode();
+		if (ServerTime.Length != 0) hash ^= ServerTime.GetHashCode();
+		if (_unknownFields != null)
+		{
+			hash ^= _unknownFields.GetHashCode();
+		}
+		return hash;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override string ToString()
+	{
+		return pb::JsonFormatter.ToDiagnosticString(this);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (DeviceId.Length != 0) {
-      output.WriteRawTag(10);
-      output.WriteString(DeviceId);
-    }
-    if (DeviceType != 0) {
-      output.WriteRawTag(16);
-      output.WriteEnum((int) DeviceType);
-    }
-    if (ClientTime.Length != 0) {
-      output.WriteRawTag(26);
-      output.WriteString(ClientTime);
-    }
-    if (ServerTime.Length != 0) {
-      output.WriteRawTag(34);
-      output.WriteString(ServerTime);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void WriteTo(pb::CodedOutputStream output)
+	{
+		if (DeviceId.Length != 0)
+		{
+			output.WriteRawTag(10);
+			output.WriteString(DeviceId);
+		}
+		if (DeviceType != 0)
+		{
+			output.WriteRawTag(16);
+			output.WriteEnum((int)DeviceType);
+		}
+		if (ClientTime.Length != 0)
+		{
+			output.WriteRawTag(26);
+			output.WriteString(ClientTime);
+		}
+		if (ServerTime.Length != 0)
+		{
+			output.WriteRawTag(34);
+			output.WriteString(ServerTime);
+		}
+		if (_unknownFields != null)
+		{
+			_unknownFields.WriteTo(output);
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (DeviceId.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(DeviceId);
-    }
-    if (DeviceType != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DeviceType);
-    }
-    if (ClientTime.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientTime);
-    }
-    if (ServerTime.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(ServerTime);
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int CalculateSize()
+	{
+		int size = 0;
+		if (DeviceId.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(DeviceId);
+		}
+		if (DeviceType != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)DeviceType);
+		}
+		if (ClientTime.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientTime);
+		}
+		if (ServerTime.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(ServerTime);
+		}
+		if (_unknownFields != null)
+		{
+			size += _unknownFields.CalculateSize();
+		}
+		return size;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(KeepaliveResponse other) {
-    if (other == null) {
-      return;
-    }
-    if (other.DeviceId.Length != 0) {
-      DeviceId = other.DeviceId;
-    }
-    if (other.DeviceType != 0) {
-      DeviceType = other.DeviceType;
-    }
-    if (other.ClientTime.Length != 0) {
-      ClientTime = other.ClientTime;
-    }
-    if (other.ServerTime.Length != 0) {
-      ServerTime = other.ServerTime;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(KeepaliveResponse other)
+	{
+		if (other == null)
+		{
+			return;
+		}
+		if (other.DeviceId.Length != 0)
+		{
+			DeviceId = other.DeviceId;
+		}
+		if (other.DeviceType != 0)
+		{
+			DeviceType = other.DeviceType;
+		}
+		if (other.ClientTime.Length != 0)
+		{
+			ClientTime = other.ClientTime;
+		}
+		if (other.ServerTime.Length != 0)
+		{
+			ServerTime = other.ServerTime;
+		}
+		_unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 10: {
-          DeviceId = input.ReadString();
-          break;
-        }
-        case 16: {
-          DeviceType = (global::DeviceType) input.ReadEnum();
-          break;
-        }
-        case 26: {
-          ClientTime = input.ReadString();
-          break;
-        }
-        case 34: {
-          ServerTime = input.ReadString();
-          break;
-        }
-      }
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(pb::CodedInputStream input)
+	{
+		uint tag;
+		while ((tag = input.ReadTag()) != 0)
+		{
+			switch (tag)
+			{
+				default:
+					_unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+					break;
+				case 10:
+					{
+						DeviceId = input.ReadString();
+						break;
+					}
+				case 16:
+					{
+						DeviceType = (global::DeviceType)input.ReadEnum();
+						break;
+					}
+				case 26:
+					{
+						ClientTime = input.ReadString();
+						break;
+					}
+				case 34:
+					{
+						ServerTime = input.ReadString();
+						break;
+					}
+			}
+		}
+	}
 
 }
 
 /// <summary>
 /// 登陆请求
 /// </summary>
-public sealed partial class LoginRequest : pb::IMessage<LoginRequest> {
-  private static readonly pb::MessageParser<LoginRequest> _parser = new pb::MessageParser<LoginRequest>(() => new LoginRequest());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<LoginRequest> Parser { get { return _parser; } }
+public sealed partial class LoginRequest : pb::IMessage<LoginRequest>
+{
+	private static readonly pb::MessageParser<LoginRequest> _parser = new pb::MessageParser<LoginRequest>(() => new LoginRequest());
+	private pb::UnknownFieldSet _unknownFields;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pb::MessageParser<LoginRequest> Parser { get { return _parser; } }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BdlProtoReflection.Descriptor.MessageTypes[2]; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pbr::MessageDescriptor Descriptor
+	{
+		get { return global::BdlProtoReflection.Descriptor.MessageTypes[2]; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	pbr::MessageDescriptor pb::IMessage.Descriptor
+	{
+		get { return Descriptor; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public LoginRequest() {
-    OnConstruction();
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public LoginRequest()
+	{
+		OnConstruction();
+	}
 
-  partial void OnConstruction();
+	partial void OnConstruction();
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public LoginRequest(LoginRequest other) : this() {
-    uid_ = other.uid_;
-    bindId_ = other.bindId_;
-    deviceType_ = other.deviceType_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public LoginRequest(LoginRequest other) : this()
+	{
+		uid_ = other.uid_;
+		bindId_ = other.bindId_;
+		deviceType_ = other.deviceType_;
+		_unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public LoginRequest Clone() {
-    return new LoginRequest(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public LoginRequest Clone()
+	{
+		return new LoginRequest(this);
+	}
 
-  /// <summary>Field number for the "uid" field.</summary>
-  public const int UidFieldNumber = 1;
-  private string uid_ = "";
-  /// <summary>
-  ///用户ID
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Uid {
-    get { return uid_; }
-    set {
-      uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "uid" field.</summary>
+	public const int UidFieldNumber = 1;
+	private string uid_ = "";
+	/// <summary>
+	///用户ID
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string Uid
+	{
+		get { return uid_; }
+		set
+		{
+			uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "bind_id" field.</summary>
-  public const int BindIdFieldNumber = 2;
-  private string bindId_ = "";
-  /// <summary>
-  ///手环id
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string BindId {
-    get { return bindId_; }
-    set {
-      bindId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "bind_id" field.</summary>
+	public const int BindIdFieldNumber = 2;
+	private string bindId_ = "";
+	/// <summary>
+	///手环id
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string BindId
+	{
+		get { return bindId_; }
+		set
+		{
+			bindId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "deviceType" field.</summary>
-  public const int DeviceTypeFieldNumber = 3;
-  private global::DeviceType deviceType_ = 0;
-  /// <summary>
-  ///设备类型
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::DeviceType DeviceType {
-    get { return deviceType_; }
-    set {
-      deviceType_ = value;
-    }
-  }
+	/// <summary>Field number for the "deviceType" field.</summary>
+	public const int DeviceTypeFieldNumber = 3;
+	private global::DeviceType deviceType_ = 0;
+	/// <summary>
+	///设备类型
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::DeviceType DeviceType
+	{
+		get { return deviceType_; }
+		set
+		{
+			deviceType_ = value;
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as LoginRequest);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override bool Equals(object other)
+	{
+		return Equals(other as LoginRequest);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(LoginRequest other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (Uid != other.Uid) return false;
-    if (BindId != other.BindId) return false;
-    if (DeviceType != other.DeviceType) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Equals(LoginRequest other)
+	{
+		if (ReferenceEquals(other, null))
+		{
+			return false;
+		}
+		if (ReferenceEquals(other, this))
+		{
+			return true;
+		}
+		if (Uid != other.Uid) return false;
+		if (BindId != other.BindId) return false;
+		if (DeviceType != other.DeviceType) return false;
+		return Equals(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (Uid.Length != 0) hash ^= Uid.GetHashCode();
-    if (BindId.Length != 0) hash ^= BindId.GetHashCode();
-    if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override int GetHashCode()
+	{
+		int hash = 1;
+		if (Uid.Length != 0) hash ^= Uid.GetHashCode();
+		if (BindId.Length != 0) hash ^= BindId.GetHashCode();
+		if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
+		if (_unknownFields != null)
+		{
+			hash ^= _unknownFields.GetHashCode();
+		}
+		return hash;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override string ToString()
+	{
+		return pb::JsonFormatter.ToDiagnosticString(this);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (Uid.Length != 0) {
-      output.WriteRawTag(10);
-      output.WriteString(Uid);
-    }
-    if (BindId.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteString(BindId);
-    }
-    if (DeviceType != 0) {
-      output.WriteRawTag(24);
-      output.WriteEnum((int) DeviceType);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void WriteTo(pb::CodedOutputStream output)
+	{
+		if (Uid.Length != 0)
+		{
+			output.WriteRawTag(10);
+			output.WriteString(Uid);
+		}
+		if (BindId.Length != 0)
+		{
+			output.WriteRawTag(18);
+			output.WriteString(BindId);
+		}
+		if (DeviceType != 0)
+		{
+			output.WriteRawTag(24);
+			output.WriteEnum((int)DeviceType);
+		}
+		if (_unknownFields != null)
+		{
+			_unknownFields.WriteTo(output);
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (Uid.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
-    }
-    if (BindId.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(BindId);
-    }
-    if (DeviceType != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DeviceType);
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int CalculateSize()
+	{
+		int size = 0;
+		if (Uid.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
+		}
+		if (BindId.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(BindId);
+		}
+		if (DeviceType != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)DeviceType);
+		}
+		if (_unknownFields != null)
+		{
+			size += _unknownFields.CalculateSize();
+		}
+		return size;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(LoginRequest other) {
-    if (other == null) {
-      return;
-    }
-    if (other.Uid.Length != 0) {
-      Uid = other.Uid;
-    }
-    if (other.BindId.Length != 0) {
-      BindId = other.BindId;
-    }
-    if (other.DeviceType != 0) {
-      DeviceType = other.DeviceType;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(LoginRequest other)
+	{
+		if (other == null)
+		{
+			return;
+		}
+		if (other.Uid.Length != 0)
+		{
+			Uid = other.Uid;
+		}
+		if (other.BindId.Length != 0)
+		{
+			BindId = other.BindId;
+		}
+		if (other.DeviceType != 0)
+		{
+			DeviceType = other.DeviceType;
+		}
+		_unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 10: {
-          Uid = input.ReadString();
-          break;
-        }
-        case 18: {
-          BindId = input.ReadString();
-          break;
-        }
-        case 24: {
-          DeviceType = (global::DeviceType) input.ReadEnum();
-          break;
-        }
-      }
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(pb::CodedInputStream input)
+	{
+		uint tag;
+		while ((tag = input.ReadTag()) != 0)
+		{
+			switch (tag)
+			{
+				default:
+					_unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+					break;
+				case 10:
+					{
+						Uid = input.ReadString();
+						break;
+					}
+				case 18:
+					{
+						BindId = input.ReadString();
+						break;
+					}
+				case 24:
+					{
+						DeviceType = (global::DeviceType)input.ReadEnum();
+						break;
+					}
+			}
+		}
+	}
 
 }
 
 /// <summary>
 /// 登录响应，C#需要判断是否存在个人设置,并返回个人设置和处方设置
 /// </summary>
-public sealed partial class LoginResponse : pb::IMessage<LoginResponse> {
-  private static readonly pb::MessageParser<LoginResponse> _parser = new pb::MessageParser<LoginResponse>(() => new LoginResponse());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<LoginResponse> Parser { get { return _parser; } }
+public sealed partial class LoginResponse : pb::IMessage<LoginResponse>
+{
+	private static readonly pb::MessageParser<LoginResponse> _parser = new pb::MessageParser<LoginResponse>(() => new LoginResponse());
+	private pb::UnknownFieldSet _unknownFields;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pb::MessageParser<LoginResponse> Parser { get { return _parser; } }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BdlProtoReflection.Descriptor.MessageTypes[3]; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pbr::MessageDescriptor Descriptor
+	{
+		get { return global::BdlProtoReflection.Descriptor.MessageTypes[3]; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	pbr::MessageDescriptor pb::IMessage.Descriptor
+	{
+		get { return Descriptor; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public LoginResponse() {
-    OnConstruction();
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public LoginResponse()
+	{
+		OnConstruction();
+	}
 
-  partial void OnConstruction();
+	partial void OnConstruction();
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public LoginResponse(LoginResponse other) : this() {
-    uid_ = other.uid_;
-    deviceTypeArr_ = other.deviceTypeArr_.Clone();
-    sportMode_ = other.sportMode_;
-    exisitSetting_ = other.exisitSetting_;
-    trainMode_ = other.trainMode_;
-    seatHeight_ = other.seatHeight_;
-    backDistance_ = other.backDistance_;
-    footboardDistance_ = other.footboardDistance_;
-    leverAngle_ = other.leverAngle_;
-    forwardLimit_ = other.forwardLimit_;
-    backLimit_ = other.backLimit_;
-    consequentForce_ = other.consequentForce_;
-    reverseForce_ = other.reverseForce_;
-    power_ = other.power_;
-    dpStatus_ = other.dpStatus_;
-    dpMoveway_ = other.dpMoveway_;
-    dpMemo_ = other.dpMemo_;
-    dpTimecount_ = other.dpTimecount_;
-    dpTargetNum_ = other.dpTargetNum_;
-    speedRank_ = other.speedRank_;
-    sysVersion_ = other.sysVersion_;
-    dpId_ = other.dpId_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public LoginResponse(LoginResponse other) : this()
+	{
+		uid_ = other.uid_;
+		deviceTypeArr_ = other.deviceTypeArr_.Clone();
+		exisitSetting_ = other.exisitSetting_;
+		trainMode_ = other.trainMode_;
+		seatHeight_ = other.seatHeight_;
+		backDistance_ = other.backDistance_;
+		footboardDistance_ = other.footboardDistance_;
+		leverAngle_ = other.leverAngle_;
+		forwardLimit_ = other.forwardLimit_;
+		backLimit_ = other.backLimit_;
+		consequentForce_ = other.consequentForce_;
+		reverseForce_ = other.reverseForce_;
+		power_ = other.power_;
+		dpStatus_ = other.dpStatus_;
+		dpMoveway_ = other.dpMoveway_;
+		dpMemo_ = other.dpMemo_;
+		dpGroupcount_ = other.dpGroupcount_;
+		dpGroupnum_ = other.dpGroupnum_;
+		dpRelaxtime_ = other.dpRelaxtime_;
+		speedRank_ = other.speedRank_;
+		sysVersion_ = other.sysVersion_;
+		dpId_ = other.dpId_;
+		_unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public LoginResponse Clone() {
-    return new LoginResponse(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public LoginResponse Clone()
+	{
+		return new LoginResponse(this);
+	}
 
-  /// <summary>Field number for the "uid" field.</summary>
-  public const int UidFieldNumber = 1;
-  private string uid_ = "";
-  /// <summary>
-  ///用户ID
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Uid {
-    get { return uid_; }
-    set {
-      uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "uid" field.</summary>
+	public const int UidFieldNumber = 1;
+	private string uid_ = "";
+	/// <summary>
+	///用户ID
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string Uid
+	{
+		get { return uid_; }
+		set
+		{
+			uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "deviceTypeArr" field.</summary>
-  public const int DeviceTypeArrFieldNumber = 2;
-  private static readonly pb::FieldCodec<global::DeviceType> _repeated_deviceTypeArr_codec
-      = pb::FieldCodec.ForEnum(18, x => (int) x, x => (global::DeviceType) x);
-  private readonly pbc::RepeatedField<global::DeviceType> deviceTypeArr_ = new pbc::RepeatedField<global::DeviceType>();
-  /// <summary>
-  ///待训练的设备列表
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public pbc::RepeatedField<global::DeviceType> DeviceTypeArr {
-    get { return deviceTypeArr_; }
-  }
+	/// <summary>Field number for the "deviceTypeArr" field.</summary>
+	public const int DeviceTypeArrFieldNumber = 2;
+	private static readonly pb::FieldCodec<global::DeviceType> _repeated_deviceTypeArr_codec
+		= pb::FieldCodec.ForEnum(18, x => (int)x, x => (global::DeviceType)x);
+	private readonly pbc::RepeatedField<global::DeviceType> deviceTypeArr_ = new pbc::RepeatedField<global::DeviceType>();
+	/// <summary>
+	///待训练的设备列表
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public pbc::RepeatedField<global::DeviceType> DeviceTypeArr
+	{
+		get { return deviceTypeArr_; }
+	}
 
-  /// <summary>Field number for the "sportMode" field.</summary>
-  public const int SportModeFieldNumber = 3;
-  private global::SportMode sportMode_ = 0;
-  /// <summary>
-  ///用户运动模式，计时模式或计数模式
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::SportMode SportMode {
-    get { return sportMode_; }
-    set {
-      sportMode_ = value;
-    }
-  }
+	/// <summary>Field number for the "exisitSetting" field.</summary>
+	public const int ExisitSettingFieldNumber = 4;
+	private bool exisitSetting_;
+	/// <summary>
+	///是否存在个人设置
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool ExisitSetting
+	{
+		get { return exisitSetting_; }
+		set
+		{
+			exisitSetting_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "exisitSetting" field.</summary>
-  public const int ExisitSettingFieldNumber = 4;
-  private bool exisitSetting_;
-  /// <summary>
-  ///是否存在个人设置
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool ExisitSetting {
-    get { return exisitSetting_; }
-    set {
-      exisitSetting_ = value;
-    }
-  }
+	/// <summary>Field number for the "trainMode" field.</summary>
+	public const int TrainModeFieldNumber = 5;
+	private global::TrainMode trainMode_ = 0;
+	/// <summary>
+	///训练模式:主被动，康复模式
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::TrainMode TrainMode
+	{
+		get { return trainMode_; }
+		set
+		{
+			trainMode_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "trainMode" field.</summary>
-  public const int TrainModeFieldNumber = 5;
-  private global::TrainMode trainMode_ = 0;
-  /// <summary>
-  ///训练模式:主被动，康复模式
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::TrainMode TrainMode {
-    get { return trainMode_; }
-    set {
-      trainMode_ = value;
-    }
-  }
+	/// <summary>Field number for the "seatHeight" field.</summary>
+	public const int SeatHeightFieldNumber = 7;
+	private int seatHeight_;
+	/// <summary>
+	///座椅高度
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int SeatHeight
+	{
+		get { return seatHeight_; }
+		set
+		{
+			seatHeight_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "seatHeight" field.</summary>
-  public const int SeatHeightFieldNumber = 7;
-  private int seatHeight_;
-  /// <summary>
-  ///座椅高度
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int SeatHeight {
-    get { return seatHeight_; }
-    set {
-      seatHeight_ = value;
-    }
-  }
+	/// <summary>Field number for the "backDistance" field.</summary>
+	public const int BackDistanceFieldNumber = 8;
+	private int backDistance_;
+	/// <summary>
+	///靠背距离
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int BackDistance
+	{
+		get { return backDistance_; }
+		set
+		{
+			backDistance_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "backDistance" field.</summary>
-  public const int BackDistanceFieldNumber = 8;
-  private int backDistance_;
-  /// <summary>
-  ///靠背距离
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int BackDistance {
-    get { return backDistance_; }
-    set {
-      backDistance_ = value;
-    }
-  }
+	/// <summary>Field number for the "footboardDistance" field.</summary>
+	public const int FootboardDistanceFieldNumber = 9;
+	private int footboardDistance_;
+	/// <summary>
+	///踏板距离
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int FootboardDistance
+	{
+		get { return footboardDistance_; }
+		set
+		{
+			footboardDistance_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "footboardDistance" field.</summary>
-  public const int FootboardDistanceFieldNumber = 9;
-  private int footboardDistance_;
-  /// <summary>
-  ///踏板距离
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int FootboardDistance {
-    get { return footboardDistance_; }
-    set {
-      footboardDistance_ = value;
-    }
-  }
+	/// <summary>Field number for the "leverAngle" field.</summary>
+	public const int LeverAngleFieldNumber = 10;
+	private double leverAngle_;
+	/// <summary>
+	///杠杆角度
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public double LeverAngle
+	{
+		get { return leverAngle_; }
+		set
+		{
+			leverAngle_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "leverAngle" field.</summary>
-  public const int LeverAngleFieldNumber = 10;
-  private double leverAngle_;
-  /// <summary>
-  ///杠杆角度
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public double LeverAngle {
-    get { return leverAngle_; }
-    set {
-      leverAngle_ = value;
-    }
-  }
+	/// <summary>Field number for the "forwardLimit" field.</summary>
+	public const int ForwardLimitFieldNumber = 11;
+	private int forwardLimit_;
+	/// <summary>
+	///前方限制
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int ForwardLimit
+	{
+		get { return forwardLimit_; }
+		set
+		{
+			forwardLimit_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "forwardLimit" field.</summary>
-  public const int ForwardLimitFieldNumber = 11;
-  private int forwardLimit_;
-  /// <summary>
-  ///前方限制
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int ForwardLimit {
-    get { return forwardLimit_; }
-    set {
-      forwardLimit_ = value;
-    }
-  }
+	/// <summary>Field number for the "backLimit" field.</summary>
+	public const int BackLimitFieldNumber = 12;
+	private int backLimit_;
+	/// <summary>
+	///后方限制
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int BackLimit
+	{
+		get { return backLimit_; }
+		set
+		{
+			backLimit_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "backLimit" field.</summary>
-  public const int BackLimitFieldNumber = 12;
-  private int backLimit_;
-  /// <summary>
-  ///后方限制
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int BackLimit {
-    get { return backLimit_; }
-    set {
-      backLimit_ = value;
-    }
-  }
+	/// <summary>Field number for the "consequentForce" field.</summary>
+	public const int ConsequentForceFieldNumber = 13;
+	private double consequentForce_;
+	/// <summary>
+	///顺向力
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public double ConsequentForce
+	{
+		get { return consequentForce_; }
+		set
+		{
+			consequentForce_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "consequentForce" field.</summary>
-  public const int ConsequentForceFieldNumber = 13;
-  private double consequentForce_;
-  /// <summary>
-  ///顺向力
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public double ConsequentForce {
-    get { return consequentForce_; }
-    set {
-      consequentForce_ = value;
-    }
-  }
+	/// <summary>Field number for the "reverseForce" field.</summary>
+	public const int ReverseForceFieldNumber = 14;
+	private double reverseForce_;
+	/// <summary>
+	///反向力
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public double ReverseForce
+	{
+		get { return reverseForce_; }
+		set
+		{
+			reverseForce_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "reverseForce" field.</summary>
-  public const int ReverseForceFieldNumber = 14;
-  private double reverseForce_;
-  /// <summary>
-  ///反向力
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public double ReverseForce {
-    get { return reverseForce_; }
-    set {
-      reverseForce_ = value;
-    }
-  }
+	/// <summary>Field number for the "power" field.</summary>
+	public const int PowerFieldNumber = 15;
+	private double power_;
+	/// <summary>
+	///功率
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public double Power
+	{
+		get { return power_; }
+		set
+		{
+			power_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "power" field.</summary>
-  public const int PowerFieldNumber = 15;
-  private double power_;
-  /// <summary>
-  ///功率
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public double Power {
-    get { return power_; }
-    set {
-      power_ = value;
-    }
-  }
+	/// <summary>Field number for the "dpStatus" field.</summary>
+	public const int DpStatusFieldNumber = 16;
+	private int dpStatus_;
+	/// <summary>
+	///'1做了 0没做'
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int DpStatus
+	{
+		get { return dpStatus_; }
+		set
+		{
+			dpStatus_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "dpStatus" field.</summary>
-  public const int DpStatusFieldNumber = 16;
-  private int dpStatus_;
-  /// <summary>
-  ///'1做了 0没做'
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int DpStatus {
-    get { return dpStatus_; }
-    set {
-      dpStatus_ = value;
-    }
-  }
+	/// <summary>Field number for the "dpMoveway" field.</summary>
+	public const int DpMovewayFieldNumber = 17;
+	private int dpMoveway_;
+	/// <summary>
+	///'移乘方式'
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int DpMoveway
+	{
+		get { return dpMoveway_; }
+		set
+		{
+			dpMoveway_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "dpMoveway" field.</summary>
-  public const int DpMovewayFieldNumber = 17;
-  private int dpMoveway_;
-  /// <summary>
-  ///'移乘方式'
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int DpMoveway {
-    get { return dpMoveway_; }
-    set {
-      dpMoveway_ = value;
-    }
-  }
+	/// <summary>Field number for the "dpMemo" field.</summary>
+	public const int DpMemoFieldNumber = 18;
+	private string dpMemo_ = "";
+	/// <summary>
+	///注意点、指示
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string DpMemo
+	{
+		get { return dpMemo_; }
+		set
+		{
+			dpMemo_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "dpMemo" field.</summary>
-  public const int DpMemoFieldNumber = 18;
-  private string dpMemo_ = "";
-  /// <summary>
-  ///注意点、指示
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string DpMemo {
-    get { return dpMemo_; }
-    set {
-      dpMemo_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "dp_groupcount" field.</summary>
+	public const int DpGroupcountFieldNumber = 19;
+	private int dpGroupcount_;
+	/// <summary>
+	///目标组数
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int DpGroupcount
+	{
+		get { return dpGroupcount_; }
+		set
+		{
+			dpGroupcount_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "dpTimecount" field.</summary>
-  public const int DpTimecountFieldNumber = 19;
-  private int dpTimecount_;
-  /// <summary>
-  ///目标运动时间
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int DpTimecount {
-    get { return dpTimecount_; }
-    set {
-      dpTimecount_ = value;
-    }
-  }
+	/// <summary>Field number for the "dp_groupnum" field.</summary>
+	public const int DpGroupnumFieldNumber = 20;
+	private int dpGroupnum_;
+	/// <summary>
+	///每组运动个数
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int DpGroupnum
+	{
+		get { return dpGroupnum_; }
+		set
+		{
+			dpGroupnum_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "dpTargetNum" field.</summary>
-  public const int DpTargetNumFieldNumber = 20;
-  private int dpTargetNum_;
-  /// <summary>
-  ///目标运动个数
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int DpTargetNum {
-    get { return dpTargetNum_; }
-    set {
-      dpTargetNum_ = value;
-    }
-  }
+	/// <summary>Field number for the "dp_relaxtime" field.</summary>
+	public const int DpRelaxtimeFieldNumber = 3;
+	private int dpRelaxtime_;
+	/// <summary>
+	///每组间隔休息时间
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int DpRelaxtime
+	{
+		get { return dpRelaxtime_; }
+		set
+		{
+			dpRelaxtime_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "speed_rank" field.</summary>
-  public const int SpeedRankFieldNumber = 21;
-  private int speedRank_;
-  /// <summary>
-  ///运动速度等级
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int SpeedRank {
-    get { return speedRank_; }
-    set {
-      speedRank_ = value;
-    }
-  }
+	/// <summary>Field number for the "speed_rank" field.</summary>
+	public const int SpeedRankFieldNumber = 21;
+	private int speedRank_;
+	/// <summary>
+	///运动速度等级
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int SpeedRank
+	{
+		get { return speedRank_; }
+		set
+		{
+			speedRank_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "sysVersion" field.</summary>
-  public const int SysVersionFieldNumber = 22;
-  private string sysVersion_ = "";
-  /// <summary>
-  ///系统版本
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string SysVersion {
-    get { return sysVersion_; }
-    set {
-      sysVersion_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "sysVersion" field.</summary>
+	public const int SysVersionFieldNumber = 22;
+	private string sysVersion_ = "";
+	/// <summary>
+	///系统版本
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string SysVersion
+	{
+		get { return sysVersion_; }
+		set
+		{
+			sysVersion_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "dpId" field.</summary>
-  public const int DpIdFieldNumber = 23;
-  private int dpId_;
-  /// <summary>
-  ///设备处方id
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int DpId {
-    get { return dpId_; }
-    set {
-      dpId_ = value;
-    }
-  }
+	/// <summary>Field number for the "dpId" field.</summary>
+	public const int DpIdFieldNumber = 23;
+	private int dpId_;
+	/// <summary>
+	///设备处方id
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int DpId
+	{
+		get { return dpId_; }
+		set
+		{
+			dpId_ = value;
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as LoginResponse);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override bool Equals(object other)
+	{
+		return Equals(other as LoginResponse);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(LoginResponse other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (Uid != other.Uid) return false;
-    if(!deviceTypeArr_.Equals(other.deviceTypeArr_)) return false;
-    if (SportMode != other.SportMode) return false;
-    if (ExisitSetting != other.ExisitSetting) return false;
-    if (TrainMode != other.TrainMode) return false;
-    if (SeatHeight != other.SeatHeight) return false;
-    if (BackDistance != other.BackDistance) return false;
-    if (FootboardDistance != other.FootboardDistance) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(LeverAngle, other.LeverAngle)) return false;
-    if (ForwardLimit != other.ForwardLimit) return false;
-    if (BackLimit != other.BackLimit) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ConsequentForce, other.ConsequentForce)) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ReverseForce, other.ReverseForce)) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Power, other.Power)) return false;
-    if (DpStatus != other.DpStatus) return false;
-    if (DpMoveway != other.DpMoveway) return false;
-    if (DpMemo != other.DpMemo) return false;
-    if (DpTimecount != other.DpTimecount) return false;
-    if (DpTargetNum != other.DpTargetNum) return false;
-    if (SpeedRank != other.SpeedRank) return false;
-    if (SysVersion != other.SysVersion) return false;
-    if (DpId != other.DpId) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Equals(LoginResponse other)
+	{
+		if (ReferenceEquals(other, null))
+		{
+			return false;
+		}
+		if (ReferenceEquals(other, this))
+		{
+			return true;
+		}
+		if (Uid != other.Uid) return false;
+		if (!deviceTypeArr_.Equals(other.deviceTypeArr_)) return false;
+		if (ExisitSetting != other.ExisitSetting) return false;
+		if (TrainMode != other.TrainMode) return false;
+		if (SeatHeight != other.SeatHeight) return false;
+		if (BackDistance != other.BackDistance) return false;
+		if (FootboardDistance != other.FootboardDistance) return false;
+		if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(LeverAngle, other.LeverAngle)) return false;
+		if (ForwardLimit != other.ForwardLimit) return false;
+		if (BackLimit != other.BackLimit) return false;
+		if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ConsequentForce, other.ConsequentForce)) return false;
+		if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ReverseForce, other.ReverseForce)) return false;
+		if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Power, other.Power)) return false;
+		if (DpStatus != other.DpStatus) return false;
+		if (DpMoveway != other.DpMoveway) return false;
+		if (DpMemo != other.DpMemo) return false;
+		if (DpGroupcount != other.DpGroupcount) return false;
+		if (DpGroupnum != other.DpGroupnum) return false;
+		if (DpRelaxtime != other.DpRelaxtime) return false;
+		if (SpeedRank != other.SpeedRank) return false;
+		if (SysVersion != other.SysVersion) return false;
+		if (DpId != other.DpId) return false;
+		return Equals(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (Uid.Length != 0) hash ^= Uid.GetHashCode();
-    hash ^= deviceTypeArr_.GetHashCode();
-    if (SportMode != 0) hash ^= SportMode.GetHashCode();
-    if (ExisitSetting != false) hash ^= ExisitSetting.GetHashCode();
-    if (TrainMode != 0) hash ^= TrainMode.GetHashCode();
-    if (SeatHeight != 0) hash ^= SeatHeight.GetHashCode();
-    if (BackDistance != 0) hash ^= BackDistance.GetHashCode();
-    if (FootboardDistance != 0) hash ^= FootboardDistance.GetHashCode();
-    if (LeverAngle != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(LeverAngle);
-    if (ForwardLimit != 0) hash ^= ForwardLimit.GetHashCode();
-    if (BackLimit != 0) hash ^= BackLimit.GetHashCode();
-    if (ConsequentForce != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ConsequentForce);
-    if (ReverseForce != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ReverseForce);
-    if (Power != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Power);
-    if (DpStatus != 0) hash ^= DpStatus.GetHashCode();
-    if (DpMoveway != 0) hash ^= DpMoveway.GetHashCode();
-    if (DpMemo.Length != 0) hash ^= DpMemo.GetHashCode();
-    if (DpTimecount != 0) hash ^= DpTimecount.GetHashCode();
-    if (DpTargetNum != 0) hash ^= DpTargetNum.GetHashCode();
-    if (SpeedRank != 0) hash ^= SpeedRank.GetHashCode();
-    if (SysVersion.Length != 0) hash ^= SysVersion.GetHashCode();
-    if (DpId != 0) hash ^= DpId.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override int GetHashCode()
+	{
+		int hash = 1;
+		if (Uid.Length != 0) hash ^= Uid.GetHashCode();
+		hash ^= deviceTypeArr_.GetHashCode();
+		if (ExisitSetting != false) hash ^= ExisitSetting.GetHashCode();
+		if (TrainMode != 0) hash ^= TrainMode.GetHashCode();
+		if (SeatHeight != 0) hash ^= SeatHeight.GetHashCode();
+		if (BackDistance != 0) hash ^= BackDistance.GetHashCode();
+		if (FootboardDistance != 0) hash ^= FootboardDistance.GetHashCode();
+		if (LeverAngle != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(LeverAngle);
+		if (ForwardLimit != 0) hash ^= ForwardLimit.GetHashCode();
+		if (BackLimit != 0) hash ^= BackLimit.GetHashCode();
+		if (ConsequentForce != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ConsequentForce);
+		if (ReverseForce != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ReverseForce);
+		if (Power != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Power);
+		if (DpStatus != 0) hash ^= DpStatus.GetHashCode();
+		if (DpMoveway != 0) hash ^= DpMoveway.GetHashCode();
+		if (DpMemo.Length != 0) hash ^= DpMemo.GetHashCode();
+		if (DpGroupcount != 0) hash ^= DpGroupcount.GetHashCode();
+		if (DpGroupnum != 0) hash ^= DpGroupnum.GetHashCode();
+		if (DpRelaxtime != 0) hash ^= DpRelaxtime.GetHashCode();
+		if (SpeedRank != 0) hash ^= SpeedRank.GetHashCode();
+		if (SysVersion.Length != 0) hash ^= SysVersion.GetHashCode();
+		if (DpId != 0) hash ^= DpId.GetHashCode();
+		if (_unknownFields != null)
+		{
+			hash ^= _unknownFields.GetHashCode();
+		}
+		return hash;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override string ToString()
+	{
+		return pb::JsonFormatter.ToDiagnosticString(this);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (Uid.Length != 0) {
-      output.WriteRawTag(10);
-      output.WriteString(Uid);
-    }
-    deviceTypeArr_.WriteTo(output, _repeated_deviceTypeArr_codec);
-    if (SportMode != 0) {
-      output.WriteRawTag(24);
-      output.WriteEnum((int) SportMode);
-    }
-    if (ExisitSetting != false) {
-      output.WriteRawTag(32);
-      output.WriteBool(ExisitSetting);
-    }
-    if (TrainMode != 0) {
-      output.WriteRawTag(40);
-      output.WriteEnum((int) TrainMode);
-    }
-    if (SeatHeight != 0) {
-      output.WriteRawTag(56);
-      output.WriteInt32(SeatHeight);
-    }
-    if (BackDistance != 0) {
-      output.WriteRawTag(64);
-      output.WriteInt32(BackDistance);
-    }
-    if (FootboardDistance != 0) {
-      output.WriteRawTag(72);
-      output.WriteInt32(FootboardDistance);
-    }
-    if (LeverAngle != 0D) {
-      output.WriteRawTag(81);
-      output.WriteDouble(LeverAngle);
-    }
-    if (ForwardLimit != 0) {
-      output.WriteRawTag(88);
-      output.WriteInt32(ForwardLimit);
-    }
-    if (BackLimit != 0) {
-      output.WriteRawTag(96);
-      output.WriteInt32(BackLimit);
-    }
-    if (ConsequentForce != 0D) {
-      output.WriteRawTag(105);
-      output.WriteDouble(ConsequentForce);
-    }
-    if (ReverseForce != 0D) {
-      output.WriteRawTag(113);
-      output.WriteDouble(ReverseForce);
-    }
-    if (Power != 0D) {
-      output.WriteRawTag(121);
-      output.WriteDouble(Power);
-    }
-    if (DpStatus != 0) {
-      output.WriteRawTag(128, 1);
-      output.WriteInt32(DpStatus);
-    }
-    if (DpMoveway != 0) {
-      output.WriteRawTag(136, 1);
-      output.WriteInt32(DpMoveway);
-    }
-    if (DpMemo.Length != 0) {
-      output.WriteRawTag(146, 1);
-      output.WriteString(DpMemo);
-    }
-    if (DpTimecount != 0) {
-      output.WriteRawTag(152, 1);
-      output.WriteInt32(DpTimecount);
-    }
-    if (DpTargetNum != 0) {
-      output.WriteRawTag(160, 1);
-      output.WriteInt32(DpTargetNum);
-    }
-    if (SpeedRank != 0) {
-      output.WriteRawTag(168, 1);
-      output.WriteInt32(SpeedRank);
-    }
-    if (SysVersion.Length != 0) {
-      output.WriteRawTag(178, 1);
-      output.WriteString(SysVersion);
-    }
-    if (DpId != 0) {
-      output.WriteRawTag(184, 1);
-      output.WriteInt32(DpId);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void WriteTo(pb::CodedOutputStream output)
+	{
+		if (Uid.Length != 0)
+		{
+			output.WriteRawTag(10);
+			output.WriteString(Uid);
+		}
+		deviceTypeArr_.WriteTo(output, _repeated_deviceTypeArr_codec);
+		if (DpRelaxtime != 0)
+		{
+			output.WriteRawTag(24);
+			output.WriteInt32(DpRelaxtime);
+		}
+		if (ExisitSetting != false)
+		{
+			output.WriteRawTag(32);
+			output.WriteBool(ExisitSetting);
+		}
+		if (TrainMode != 0)
+		{
+			output.WriteRawTag(40);
+			output.WriteEnum((int)TrainMode);
+		}
+		if (SeatHeight != 0)
+		{
+			output.WriteRawTag(56);
+			output.WriteInt32(SeatHeight);
+		}
+		if (BackDistance != 0)
+		{
+			output.WriteRawTag(64);
+			output.WriteInt32(BackDistance);
+		}
+		if (FootboardDistance != 0)
+		{
+			output.WriteRawTag(72);
+			output.WriteInt32(FootboardDistance);
+		}
+		if (LeverAngle != 0D)
+		{
+			output.WriteRawTag(81);
+			output.WriteDouble(LeverAngle);
+		}
+		if (ForwardLimit != 0)
+		{
+			output.WriteRawTag(88);
+			output.WriteInt32(ForwardLimit);
+		}
+		if (BackLimit != 0)
+		{
+			output.WriteRawTag(96);
+			output.WriteInt32(BackLimit);
+		}
+		if (ConsequentForce != 0D)
+		{
+			output.WriteRawTag(105);
+			output.WriteDouble(ConsequentForce);
+		}
+		if (ReverseForce != 0D)
+		{
+			output.WriteRawTag(113);
+			output.WriteDouble(ReverseForce);
+		}
+		if (Power != 0D)
+		{
+			output.WriteRawTag(121);
+			output.WriteDouble(Power);
+		}
+		if (DpStatus != 0)
+		{
+			output.WriteRawTag(128, 1);
+			output.WriteInt32(DpStatus);
+		}
+		if (DpMoveway != 0)
+		{
+			output.WriteRawTag(136, 1);
+			output.WriteInt32(DpMoveway);
+		}
+		if (DpMemo.Length != 0)
+		{
+			output.WriteRawTag(146, 1);
+			output.WriteString(DpMemo);
+		}
+		if (DpGroupcount != 0)
+		{
+			output.WriteRawTag(152, 1);
+			output.WriteInt32(DpGroupcount);
+		}
+		if (DpGroupnum != 0)
+		{
+			output.WriteRawTag(160, 1);
+			output.WriteInt32(DpGroupnum);
+		}
+		if (SpeedRank != 0)
+		{
+			output.WriteRawTag(168, 1);
+			output.WriteInt32(SpeedRank);
+		}
+		if (SysVersion.Length != 0)
+		{
+			output.WriteRawTag(178, 1);
+			output.WriteString(SysVersion);
+		}
+		if (DpId != 0)
+		{
+			output.WriteRawTag(184, 1);
+			output.WriteInt32(DpId);
+		}
+		if (_unknownFields != null)
+		{
+			_unknownFields.WriteTo(output);
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (Uid.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
-    }
-    size += deviceTypeArr_.CalculateSize(_repeated_deviceTypeArr_codec);
-    if (SportMode != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SportMode);
-    }
-    if (ExisitSetting != false) {
-      size += 1 + 1;
-    }
-    if (TrainMode != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) TrainMode);
-    }
-    if (SeatHeight != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(SeatHeight);
-    }
-    if (BackDistance != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(BackDistance);
-    }
-    if (FootboardDistance != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(FootboardDistance);
-    }
-    if (LeverAngle != 0D) {
-      size += 1 + 8;
-    }
-    if (ForwardLimit != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(ForwardLimit);
-    }
-    if (BackLimit != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(BackLimit);
-    }
-    if (ConsequentForce != 0D) {
-      size += 1 + 8;
-    }
-    if (ReverseForce != 0D) {
-      size += 1 + 8;
-    }
-    if (Power != 0D) {
-      size += 1 + 8;
-    }
-    if (DpStatus != 0) {
-      size += 2 + pb::CodedOutputStream.ComputeInt32Size(DpStatus);
-    }
-    if (DpMoveway != 0) {
-      size += 2 + pb::CodedOutputStream.ComputeInt32Size(DpMoveway);
-    }
-    if (DpMemo.Length != 0) {
-      size += 2 + pb::CodedOutputStream.ComputeStringSize(DpMemo);
-    }
-    if (DpTimecount != 0) {
-      size += 2 + pb::CodedOutputStream.ComputeInt32Size(DpTimecount);
-    }
-    if (DpTargetNum != 0) {
-      size += 2 + pb::CodedOutputStream.ComputeInt32Size(DpTargetNum);
-    }
-    if (SpeedRank != 0) {
-      size += 2 + pb::CodedOutputStream.ComputeInt32Size(SpeedRank);
-    }
-    if (SysVersion.Length != 0) {
-      size += 2 + pb::CodedOutputStream.ComputeStringSize(SysVersion);
-    }
-    if (DpId != 0) {
-      size += 2 + pb::CodedOutputStream.ComputeInt32Size(DpId);
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int CalculateSize()
+	{
+		int size = 0;
+		if (Uid.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
+		}
+		size += deviceTypeArr_.CalculateSize(_repeated_deviceTypeArr_codec);
+		if (ExisitSetting != false)
+		{
+			size += 1 + 1;
+		}
+		if (TrainMode != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)TrainMode);
+		}
+		if (SeatHeight != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(SeatHeight);
+		}
+		if (BackDistance != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(BackDistance);
+		}
+		if (FootboardDistance != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(FootboardDistance);
+		}
+		if (LeverAngle != 0D)
+		{
+			size += 1 + 8;
+		}
+		if (ForwardLimit != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(ForwardLimit);
+		}
+		if (BackLimit != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(BackLimit);
+		}
+		if (ConsequentForce != 0D)
+		{
+			size += 1 + 8;
+		}
+		if (ReverseForce != 0D)
+		{
+			size += 1 + 8;
+		}
+		if (Power != 0D)
+		{
+			size += 1 + 8;
+		}
+		if (DpStatus != 0)
+		{
+			size += 2 + pb::CodedOutputStream.ComputeInt32Size(DpStatus);
+		}
+		if (DpMoveway != 0)
+		{
+			size += 2 + pb::CodedOutputStream.ComputeInt32Size(DpMoveway);
+		}
+		if (DpMemo.Length != 0)
+		{
+			size += 2 + pb::CodedOutputStream.ComputeStringSize(DpMemo);
+		}
+		if (DpGroupcount != 0)
+		{
+			size += 2 + pb::CodedOutputStream.ComputeInt32Size(DpGroupcount);
+		}
+		if (DpGroupnum != 0)
+		{
+			size += 2 + pb::CodedOutputStream.ComputeInt32Size(DpGroupnum);
+		}
+		if (DpRelaxtime != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(DpRelaxtime);
+		}
+		if (SpeedRank != 0)
+		{
+			size += 2 + pb::CodedOutputStream.ComputeInt32Size(SpeedRank);
+		}
+		if (SysVersion.Length != 0)
+		{
+			size += 2 + pb::CodedOutputStream.ComputeStringSize(SysVersion);
+		}
+		if (DpId != 0)
+		{
+			size += 2 + pb::CodedOutputStream.ComputeInt32Size(DpId);
+		}
+		if (_unknownFields != null)
+		{
+			size += _unknownFields.CalculateSize();
+		}
+		return size;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(LoginResponse other) {
-    if (other == null) {
-      return;
-    }
-    if (other.Uid.Length != 0) {
-      Uid = other.Uid;
-    }
-    deviceTypeArr_.Add(other.deviceTypeArr_);
-    if (other.SportMode != 0) {
-      SportMode = other.SportMode;
-    }
-    if (other.ExisitSetting != false) {
-      ExisitSetting = other.ExisitSetting;
-    }
-    if (other.TrainMode != 0) {
-      TrainMode = other.TrainMode;
-    }
-    if (other.SeatHeight != 0) {
-      SeatHeight = other.SeatHeight;
-    }
-    if (other.BackDistance != 0) {
-      BackDistance = other.BackDistance;
-    }
-    if (other.FootboardDistance != 0) {
-      FootboardDistance = other.FootboardDistance;
-    }
-    if (other.LeverAngle != 0D) {
-      LeverAngle = other.LeverAngle;
-    }
-    if (other.ForwardLimit != 0) {
-      ForwardLimit = other.ForwardLimit;
-    }
-    if (other.BackLimit != 0) {
-      BackLimit = other.BackLimit;
-    }
-    if (other.ConsequentForce != 0D) {
-      ConsequentForce = other.ConsequentForce;
-    }
-    if (other.ReverseForce != 0D) {
-      ReverseForce = other.ReverseForce;
-    }
-    if (other.Power != 0D) {
-      Power = other.Power;
-    }
-    if (other.DpStatus != 0) {
-      DpStatus = other.DpStatus;
-    }
-    if (other.DpMoveway != 0) {
-      DpMoveway = other.DpMoveway;
-    }
-    if (other.DpMemo.Length != 0) {
-      DpMemo = other.DpMemo;
-    }
-    if (other.DpTimecount != 0) {
-      DpTimecount = other.DpTimecount;
-    }
-    if (other.DpTargetNum != 0) {
-      DpTargetNum = other.DpTargetNum;
-    }
-    if (other.SpeedRank != 0) {
-      SpeedRank = other.SpeedRank;
-    }
-    if (other.SysVersion.Length != 0) {
-      SysVersion = other.SysVersion;
-    }
-    if (other.DpId != 0) {
-      DpId = other.DpId;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(LoginResponse other)
+	{
+		if (other == null)
+		{
+			return;
+		}
+		if (other.Uid.Length != 0)
+		{
+			Uid = other.Uid;
+		}
+		deviceTypeArr_.Add(other.deviceTypeArr_);
+		if (other.ExisitSetting != false)
+		{
+			ExisitSetting = other.ExisitSetting;
+		}
+		if (other.TrainMode != 0)
+		{
+			TrainMode = other.TrainMode;
+		}
+		if (other.SeatHeight != 0)
+		{
+			SeatHeight = other.SeatHeight;
+		}
+		if (other.BackDistance != 0)
+		{
+			BackDistance = other.BackDistance;
+		}
+		if (other.FootboardDistance != 0)
+		{
+			FootboardDistance = other.FootboardDistance;
+		}
+		if (other.LeverAngle != 0D)
+		{
+			LeverAngle = other.LeverAngle;
+		}
+		if (other.ForwardLimit != 0)
+		{
+			ForwardLimit = other.ForwardLimit;
+		}
+		if (other.BackLimit != 0)
+		{
+			BackLimit = other.BackLimit;
+		}
+		if (other.ConsequentForce != 0D)
+		{
+			ConsequentForce = other.ConsequentForce;
+		}
+		if (other.ReverseForce != 0D)
+		{
+			ReverseForce = other.ReverseForce;
+		}
+		if (other.Power != 0D)
+		{
+			Power = other.Power;
+		}
+		if (other.DpStatus != 0)
+		{
+			DpStatus = other.DpStatus;
+		}
+		if (other.DpMoveway != 0)
+		{
+			DpMoveway = other.DpMoveway;
+		}
+		if (other.DpMemo.Length != 0)
+		{
+			DpMemo = other.DpMemo;
+		}
+		if (other.DpGroupcount != 0)
+		{
+			DpGroupcount = other.DpGroupcount;
+		}
+		if (other.DpGroupnum != 0)
+		{
+			DpGroupnum = other.DpGroupnum;
+		}
+		if (other.DpRelaxtime != 0)
+		{
+			DpRelaxtime = other.DpRelaxtime;
+		}
+		if (other.SpeedRank != 0)
+		{
+			SpeedRank = other.SpeedRank;
+		}
+		if (other.SysVersion.Length != 0)
+		{
+			SysVersion = other.SysVersion;
+		}
+		if (other.DpId != 0)
+		{
+			DpId = other.DpId;
+		}
+		_unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 10: {
-          Uid = input.ReadString();
-          break;
-        }
-        case 18:
-        case 16: {
-          deviceTypeArr_.AddEntriesFrom(input, _repeated_deviceTypeArr_codec);
-          break;
-        }
-        case 24: {
-          SportMode = (global::SportMode) input.ReadEnum();
-          break;
-        }
-        case 32: {
-          ExisitSetting = input.ReadBool();
-          break;
-        }
-        case 40: {
-          TrainMode = (global::TrainMode) input.ReadEnum();
-          break;
-        }
-        case 56: {
-          SeatHeight = input.ReadInt32();
-          break;
-        }
-        case 64: {
-          BackDistance = input.ReadInt32();
-          break;
-        }
-        case 72: {
-          FootboardDistance = input.ReadInt32();
-          break;
-        }
-        case 81: {
-          LeverAngle = input.ReadDouble();
-          break;
-        }
-        case 88: {
-          ForwardLimit = input.ReadInt32();
-          break;
-        }
-        case 96: {
-          BackLimit = input.ReadInt32();
-          break;
-        }
-        case 105: {
-          ConsequentForce = input.ReadDouble();
-          break;
-        }
-        case 113: {
-          ReverseForce = input.ReadDouble();
-          break;
-        }
-        case 121: {
-          Power = input.ReadDouble();
-          break;
-        }
-        case 128: {
-          DpStatus = input.ReadInt32();
-          break;
-        }
-        case 136: {
-          DpMoveway = input.ReadInt32();
-          break;
-        }
-        case 146: {
-          DpMemo = input.ReadString();
-          break;
-        }
-        case 152: {
-          DpTimecount = input.ReadInt32();
-          break;
-        }
-        case 160: {
-          DpTargetNum = input.ReadInt32();
-          break;
-        }
-        case 168: {
-          SpeedRank = input.ReadInt32();
-          break;
-        }
-        case 178: {
-          SysVersion = input.ReadString();
-          break;
-        }
-        case 184: {
-          DpId = input.ReadInt32();
-          break;
-        }
-      }
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(pb::CodedInputStream input)
+	{
+		uint tag;
+		while ((tag = input.ReadTag()) != 0)
+		{
+			switch (tag)
+			{
+				default:
+					_unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+					break;
+				case 10:
+					{
+						Uid = input.ReadString();
+						break;
+					}
+				case 18:
+				case 16:
+					{
+						deviceTypeArr_.AddEntriesFrom(input, _repeated_deviceTypeArr_codec);
+						break;
+					}
+				case 24:
+					{
+						DpRelaxtime = input.ReadInt32();
+						break;
+					}
+				case 32:
+					{
+						ExisitSetting = input.ReadBool();
+						break;
+					}
+				case 40:
+					{
+						TrainMode = (global::TrainMode)input.ReadEnum();
+						break;
+					}
+				case 56:
+					{
+						SeatHeight = input.ReadInt32();
+						break;
+					}
+				case 64:
+					{
+						BackDistance = input.ReadInt32();
+						break;
+					}
+				case 72:
+					{
+						FootboardDistance = input.ReadInt32();
+						break;
+					}
+				case 81:
+					{
+						LeverAngle = input.ReadDouble();
+						break;
+					}
+				case 88:
+					{
+						ForwardLimit = input.ReadInt32();
+						break;
+					}
+				case 96:
+					{
+						BackLimit = input.ReadInt32();
+						break;
+					}
+				case 105:
+					{
+						ConsequentForce = input.ReadDouble();
+						break;
+					}
+				case 113:
+					{
+						ReverseForce = input.ReadDouble();
+						break;
+					}
+				case 121:
+					{
+						Power = input.ReadDouble();
+						break;
+					}
+				case 128:
+					{
+						DpStatus = input.ReadInt32();
+						break;
+					}
+				case 136:
+					{
+						DpMoveway = input.ReadInt32();
+						break;
+					}
+				case 146:
+					{
+						DpMemo = input.ReadString();
+						break;
+					}
+				case 152:
+					{
+						DpGroupcount = input.ReadInt32();
+						break;
+					}
+				case 160:
+					{
+						DpGroupnum = input.ReadInt32();
+						break;
+					}
+				case 168:
+					{
+						SpeedRank = input.ReadInt32();
+						break;
+					}
+				case 178:
+					{
+						SysVersion = input.ReadString();
+						break;
+					}
+				case 184:
+					{
+						DpId = input.ReadInt32();
+						break;
+					}
+			}
+		}
+	}
 
 }
 
 /// <summary>
 /// 结果上传请求
 /// </summary>
-public sealed partial class UploadRequest : pb::IMessage<UploadRequest> {
-  private static readonly pb::MessageParser<UploadRequest> _parser = new pb::MessageParser<UploadRequest>(() => new UploadRequest());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<UploadRequest> Parser { get { return _parser; } }
+public sealed partial class UploadRequest : pb::IMessage<UploadRequest>
+{
+	private static readonly pb::MessageParser<UploadRequest> _parser = new pb::MessageParser<UploadRequest>(() => new UploadRequest());
+	private pb::UnknownFieldSet _unknownFields;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pb::MessageParser<UploadRequest> Parser { get { return _parser; } }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BdlProtoReflection.Descriptor.MessageTypes[4]; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pbr::MessageDescriptor Descriptor
+	{
+		get { return global::BdlProtoReflection.Descriptor.MessageTypes[4]; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	pbr::MessageDescriptor pb::IMessage.Descriptor
+	{
+		get { return Descriptor; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public UploadRequest() {
-    OnConstruction();
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public UploadRequest()
+	{
+		OnConstruction();
+	}
 
-  partial void OnConstruction();
+	partial void OnConstruction();
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public UploadRequest(UploadRequest other) : this() {
-    uid_ = other.uid_;
-    deviceType_ = other.deviceType_;
-    sportMode_ = other.sportMode_;
-    trainMode_ = other.trainMode_;
-    consequentForce_ = other.consequentForce_;
-    reverseForce_ = other.reverseForce_;
-    power_ = other.power_;
-    speedRank_ = other.speedRank_;
-    finishNum_ = other.finishNum_;
-    finishTime_ = other.finishTime_;
-    distance_ = other.distance_;
-    energy_ = other.energy_;
-    heartRateList_ = other.heartRateList_;
-    dataId_ = other.dataId_;
-    bindId_ = other.bindId_;
-    dpId_ = other.dpId_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public UploadRequest(UploadRequest other) : this()
+	{
+		uid_ = other.uid_;
+		deviceType_ = other.deviceType_;
+		trainMode_ = other.trainMode_;
+		consequentForce_ = other.consequentForce_;
+		reverseForce_ = other.reverseForce_;
+		power_ = other.power_;
+		speedRank_ = other.speedRank_;
+		finishNum_ = other.finishNum_;
+		distance_ = other.distance_;
+		energy_ = other.energy_;
+		heartRateList_ = other.heartRateList_;
+		prUserthoughts_ = other.prUserthoughts_;
+		dataId_ = other.dataId_;
+		bindId_ = other.bindId_;
+		dpId_ = other.dpId_;
+		_unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public UploadRequest Clone() {
-    return new UploadRequest(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public UploadRequest Clone()
+	{
+		return new UploadRequest(this);
+	}
 
-  /// <summary>Field number for the "uid" field.</summary>
-  public const int UidFieldNumber = 1;
-  private string uid_ = "";
-  /// <summary>
-  ///用户ID
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Uid {
-    get { return uid_; }
-    set {
-      uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "uid" field.</summary>
+	public const int UidFieldNumber = 1;
+	private string uid_ = "";
+	/// <summary>
+	///用户ID
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string Uid
+	{
+		get { return uid_; }
+		set
+		{
+			uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "deviceType" field.</summary>
-  public const int DeviceTypeFieldNumber = 2;
-  private global::DeviceType deviceType_ = 0;
-  /// <summary>
-  ///设备类型
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::DeviceType DeviceType {
-    get { return deviceType_; }
-    set {
-      deviceType_ = value;
-    }
-  }
+	/// <summary>Field number for the "deviceType" field.</summary>
+	public const int DeviceTypeFieldNumber = 2;
+	private global::DeviceType deviceType_ = 0;
+	/// <summary>
+	///设备类型
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::DeviceType DeviceType
+	{
+		get { return deviceType_; }
+		set
+		{
+			deviceType_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "sportMode" field.</summary>
-  public const int SportModeFieldNumber = 3;
-  private global::SportMode sportMode_ = 0;
-  /// <summary>
-  ///用户运动模式，计时模式或计数模式
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::SportMode SportMode {
-    get { return sportMode_; }
-    set {
-      sportMode_ = value;
-    }
-  }
+	/// <summary>Field number for the "trainMode" field.</summary>
+	public const int TrainModeFieldNumber = 4;
+	private global::TrainMode trainMode_ = 0;
+	/// <summary>
+	///训练模式
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::TrainMode TrainMode
+	{
+		get { return trainMode_; }
+		set
+		{
+			trainMode_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "trainMode" field.</summary>
-  public const int TrainModeFieldNumber = 4;
-  private global::TrainMode trainMode_ = 0;
-  /// <summary>
-  ///训练模式
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::TrainMode TrainMode {
-    get { return trainMode_; }
-    set {
-      trainMode_ = value;
-    }
-  }
+	/// <summary>Field number for the "consequentForce" field.</summary>
+	public const int ConsequentForceFieldNumber = 5;
+	private double consequentForce_;
+	/// <summary>
+	///顺向力
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public double ConsequentForce
+	{
+		get { return consequentForce_; }
+		set
+		{
+			consequentForce_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "consequentForce" field.</summary>
-  public const int ConsequentForceFieldNumber = 5;
-  private double consequentForce_;
-  /// <summary>
-  ///顺向力
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public double ConsequentForce {
-    get { return consequentForce_; }
-    set {
-      consequentForce_ = value;
-    }
-  }
+	/// <summary>Field number for the "reverseForce" field.</summary>
+	public const int ReverseForceFieldNumber = 6;
+	private double reverseForce_;
+	/// <summary>
+	///反向力
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public double ReverseForce
+	{
+		get { return reverseForce_; }
+		set
+		{
+			reverseForce_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "reverseForce" field.</summary>
-  public const int ReverseForceFieldNumber = 6;
-  private double reverseForce_;
-  /// <summary>
-  ///反向力
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public double ReverseForce {
-    get { return reverseForce_; }
-    set {
-      reverseForce_ = value;
-    }
-  }
+	/// <summary>Field number for the "power" field.</summary>
+	public const int PowerFieldNumber = 7;
+	private double power_;
+	/// <summary>
+	///功率
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public double Power
+	{
+		get { return power_; }
+		set
+		{
+			power_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "power" field.</summary>
-  public const int PowerFieldNumber = 7;
-  private double power_;
-  /// <summary>
-  ///功率
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public double Power {
-    get { return power_; }
-    set {
-      power_ = value;
-    }
-  }
+	/// <summary>Field number for the "speedRank" field.</summary>
+	public const int SpeedRankFieldNumber = 8;
+	private int speedRank_;
+	/// <summary>
+	///运动速度
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int SpeedRank
+	{
+		get { return speedRank_; }
+		set
+		{
+			speedRank_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "speedRank" field.</summary>
-  public const int SpeedRankFieldNumber = 8;
-  private int speedRank_;
-  /// <summary>
-  ///运动速度
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int SpeedRank {
-    get { return speedRank_; }
-    set {
-      speedRank_ = value;
-    }
-  }
+	/// <summary>Field number for the "finishNum" field.</summary>
+	public const int FinishNumFieldNumber = 9;
+	private int finishNum_;
+	/// <summary>
+	///完成运动个数：
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int FinishNum
+	{
+		get { return finishNum_; }
+		set
+		{
+			finishNum_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "finishNum" field.</summary>
-  public const int FinishNumFieldNumber = 9;
-  private int finishNum_;
-  /// <summary>
-  ///完成运动个数：计数模式完成个数
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int FinishNum {
-    get { return finishNum_; }
-    set {
-      finishNum_ = value;
-    }
-  }
+	/// <summary>Field number for the "distance" field.</summary>
+	public const int DistanceFieldNumber = 11;
+	private double distance_;
+	/// <summary>
+	///距离 千米，两位小数
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public double Distance
+	{
+		get { return distance_; }
+		set
+		{
+			distance_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "finishTime" field.</summary>
-  public const int FinishTimeFieldNumber = 10;
-  private int finishTime_;
-  /// <summary>
-  ///完成运动时间：计时模式运动时间
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int FinishTime {
-    get { return finishTime_; }
-    set {
-      finishTime_ = value;
-    }
-  }
+	/// <summary>Field number for the "energy" field.</summary>
+	public const int EnergyFieldNumber = 12;
+	private double energy_;
+	/// <summary>
+	///训练总耗能 单位卡路里
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public double Energy
+	{
+		get { return energy_; }
+		set
+		{
+			energy_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "distance" field.</summary>
-  public const int DistanceFieldNumber = 11;
-  private double distance_;
-  /// <summary>
-  ///距离 千米，两位小数
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public double Distance {
-    get { return distance_; }
-    set {
-      distance_ = value;
-    }
-  }
+	/// <summary>Field number for the "heart_rate_list" field.</summary>
+	public const int HeartRateListFieldNumber = 13;
+	private string heartRateList_ = "";
+	/// <summary>
+	///心率集合：运动过程实时心率集合，数据之间*分割'
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string HeartRateList
+	{
+		get { return heartRateList_; }
+		set
+		{
+			heartRateList_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "energy" field.</summary>
-  public const int EnergyFieldNumber = 12;
-  private double energy_;
-  /// <summary>
-  ///训练总耗能 单位卡路里
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public double Energy {
-    get { return energy_; }
-    set {
-      energy_ = value;
-    }
-  }
+	/// <summary>Field number for the "pr_userthoughts" field.</summary>
+	public const int PrUserthoughtsFieldNumber = 3;
+	private string prUserthoughts_ = "";
+	/// <summary>
+	///病人感想
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string PrUserthoughts
+	{
+		get { return prUserthoughts_; }
+		set
+		{
+			prUserthoughts_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "heart_rate_list" field.</summary>
-  public const int HeartRateListFieldNumber = 13;
-  private string heartRateList_ = "";
-  /// <summary>
-  ///心率集合：运动过程实时心率集合，数据之间*分割'
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string HeartRateList {
-    get { return heartRateList_; }
-    set {
-      heartRateList_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "dataId" field.</summary>
+	public const int DataIdFieldNumber = 14;
+	private string dataId_ = "";
+	/// <summary>
+	///安卓端记录的id
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string DataId
+	{
+		get { return dataId_; }
+		set
+		{
+			dataId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "dataId" field.</summary>
-  public const int DataIdFieldNumber = 14;
-  private string dataId_ = "";
-  /// <summary>
-  ///安卓端记录的id
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string DataId {
-    get { return dataId_; }
-    set {
-      dataId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "bindId" field.</summary>
+	public const int BindIdFieldNumber = 15;
+	private string bindId_ = "";
+	/// <summary>
+	///手环id
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string BindId
+	{
+		get { return bindId_; }
+		set
+		{
+			bindId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "bindId" field.</summary>
-  public const int BindIdFieldNumber = 15;
-  private string bindId_ = "";
-  /// <summary>
-  ///手环id
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string BindId {
-    get { return bindId_; }
-    set {
-      bindId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "dpId" field.</summary>
+	public const int DpIdFieldNumber = 16;
+	private int dpId_;
+	/// <summary>
+	///设备处方id
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int DpId
+	{
+		get { return dpId_; }
+		set
+		{
+			dpId_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "dpId" field.</summary>
-  public const int DpIdFieldNumber = 16;
-  private int dpId_;
-  /// <summary>
-  ///设备处方id
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int DpId {
-    get { return dpId_; }
-    set {
-      dpId_ = value;
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override bool Equals(object other)
+	{
+		return Equals(other as UploadRequest);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as UploadRequest);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Equals(UploadRequest other)
+	{
+		if (ReferenceEquals(other, null))
+		{
+			return false;
+		}
+		if (ReferenceEquals(other, this))
+		{
+			return true;
+		}
+		if (Uid != other.Uid) return false;
+		if (DeviceType != other.DeviceType) return false;
+		if (TrainMode != other.TrainMode) return false;
+		if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ConsequentForce, other.ConsequentForce)) return false;
+		if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ReverseForce, other.ReverseForce)) return false;
+		if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Power, other.Power)) return false;
+		if (SpeedRank != other.SpeedRank) return false;
+		if (FinishNum != other.FinishNum) return false;
+		if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Distance, other.Distance)) return false;
+		if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Energy, other.Energy)) return false;
+		if (HeartRateList != other.HeartRateList) return false;
+		if (PrUserthoughts != other.PrUserthoughts) return false;
+		if (DataId != other.DataId) return false;
+		if (BindId != other.BindId) return false;
+		if (DpId != other.DpId) return false;
+		return Equals(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(UploadRequest other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (Uid != other.Uid) return false;
-    if (DeviceType != other.DeviceType) return false;
-    if (SportMode != other.SportMode) return false;
-    if (TrainMode != other.TrainMode) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ConsequentForce, other.ConsequentForce)) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ReverseForce, other.ReverseForce)) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Power, other.Power)) return false;
-    if (SpeedRank != other.SpeedRank) return false;
-    if (FinishNum != other.FinishNum) return false;
-    if (FinishTime != other.FinishTime) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Distance, other.Distance)) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Energy, other.Energy)) return false;
-    if (HeartRateList != other.HeartRateList) return false;
-    if (DataId != other.DataId) return false;
-    if (BindId != other.BindId) return false;
-    if (DpId != other.DpId) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override int GetHashCode()
+	{
+		int hash = 1;
+		if (Uid.Length != 0) hash ^= Uid.GetHashCode();
+		if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
+		if (TrainMode != 0) hash ^= TrainMode.GetHashCode();
+		if (ConsequentForce != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ConsequentForce);
+		if (ReverseForce != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ReverseForce);
+		if (Power != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Power);
+		if (SpeedRank != 0) hash ^= SpeedRank.GetHashCode();
+		if (FinishNum != 0) hash ^= FinishNum.GetHashCode();
+		if (Distance != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Distance);
+		if (Energy != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Energy);
+		if (HeartRateList.Length != 0) hash ^= HeartRateList.GetHashCode();
+		if (PrUserthoughts.Length != 0) hash ^= PrUserthoughts.GetHashCode();
+		if (DataId.Length != 0) hash ^= DataId.GetHashCode();
+		if (BindId.Length != 0) hash ^= BindId.GetHashCode();
+		if (DpId != 0) hash ^= DpId.GetHashCode();
+		if (_unknownFields != null)
+		{
+			hash ^= _unknownFields.GetHashCode();
+		}
+		return hash;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (Uid.Length != 0) hash ^= Uid.GetHashCode();
-    if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
-    if (SportMode != 0) hash ^= SportMode.GetHashCode();
-    if (TrainMode != 0) hash ^= TrainMode.GetHashCode();
-    if (ConsequentForce != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ConsequentForce);
-    if (ReverseForce != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ReverseForce);
-    if (Power != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Power);
-    if (SpeedRank != 0) hash ^= SpeedRank.GetHashCode();
-    if (FinishNum != 0) hash ^= FinishNum.GetHashCode();
-    if (FinishTime != 0) hash ^= FinishTime.GetHashCode();
-    if (Distance != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Distance);
-    if (Energy != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Energy);
-    if (HeartRateList.Length != 0) hash ^= HeartRateList.GetHashCode();
-    if (DataId.Length != 0) hash ^= DataId.GetHashCode();
-    if (BindId.Length != 0) hash ^= BindId.GetHashCode();
-    if (DpId != 0) hash ^= DpId.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override string ToString()
+	{
+		return pb::JsonFormatter.ToDiagnosticString(this);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void WriteTo(pb::CodedOutputStream output)
+	{
+		if (Uid.Length != 0)
+		{
+			output.WriteRawTag(10);
+			output.WriteString(Uid);
+		}
+		if (DeviceType != 0)
+		{
+			output.WriteRawTag(16);
+			output.WriteEnum((int)DeviceType);
+		}
+		if (PrUserthoughts.Length != 0)
+		{
+			output.WriteRawTag(26);
+			output.WriteString(PrUserthoughts);
+		}
+		if (TrainMode != 0)
+		{
+			output.WriteRawTag(32);
+			output.WriteEnum((int)TrainMode);
+		}
+		if (ConsequentForce != 0D)
+		{
+			output.WriteRawTag(41);
+			output.WriteDouble(ConsequentForce);
+		}
+		if (ReverseForce != 0D)
+		{
+			output.WriteRawTag(49);
+			output.WriteDouble(ReverseForce);
+		}
+		if (Power != 0D)
+		{
+			output.WriteRawTag(57);
+			output.WriteDouble(Power);
+		}
+		if (SpeedRank != 0)
+		{
+			output.WriteRawTag(64);
+			output.WriteInt32(SpeedRank);
+		}
+		if (FinishNum != 0)
+		{
+			output.WriteRawTag(72);
+			output.WriteInt32(FinishNum);
+		}
+		if (Distance != 0D)
+		{
+			output.WriteRawTag(89);
+			output.WriteDouble(Distance);
+		}
+		if (Energy != 0D)
+		{
+			output.WriteRawTag(97);
+			output.WriteDouble(Energy);
+		}
+		if (HeartRateList.Length != 0)
+		{
+			output.WriteRawTag(106);
+			output.WriteString(HeartRateList);
+		}
+		if (DataId.Length != 0)
+		{
+			output.WriteRawTag(114);
+			output.WriteString(DataId);
+		}
+		if (BindId.Length != 0)
+		{
+			output.WriteRawTag(122);
+			output.WriteString(BindId);
+		}
+		if (DpId != 0)
+		{
+			output.WriteRawTag(128, 1);
+			output.WriteInt32(DpId);
+		}
+		if (_unknownFields != null)
+		{
+			_unknownFields.WriteTo(output);
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (Uid.Length != 0) {
-      output.WriteRawTag(10);
-      output.WriteString(Uid);
-    }
-    if (DeviceType != 0) {
-      output.WriteRawTag(16);
-      output.WriteEnum((int) DeviceType);
-    }
-    if (SportMode != 0) {
-      output.WriteRawTag(24);
-      output.WriteEnum((int) SportMode);
-    }
-    if (TrainMode != 0) {
-      output.WriteRawTag(32);
-      output.WriteEnum((int) TrainMode);
-    }
-    if (ConsequentForce != 0D) {
-      output.WriteRawTag(41);
-      output.WriteDouble(ConsequentForce);
-    }
-    if (ReverseForce != 0D) {
-      output.WriteRawTag(49);
-      output.WriteDouble(ReverseForce);
-    }
-    if (Power != 0D) {
-      output.WriteRawTag(57);
-      output.WriteDouble(Power);
-    }
-    if (SpeedRank != 0) {
-      output.WriteRawTag(64);
-      output.WriteInt32(SpeedRank);
-    }
-    if (FinishNum != 0) {
-      output.WriteRawTag(72);
-      output.WriteInt32(FinishNum);
-    }
-    if (FinishTime != 0) {
-      output.WriteRawTag(80);
-      output.WriteInt32(FinishTime);
-    }
-    if (Distance != 0D) {
-      output.WriteRawTag(89);
-      output.WriteDouble(Distance);
-    }
-    if (Energy != 0D) {
-      output.WriteRawTag(97);
-      output.WriteDouble(Energy);
-    }
-    if (HeartRateList.Length != 0) {
-      output.WriteRawTag(106);
-      output.WriteString(HeartRateList);
-    }
-    if (DataId.Length != 0) {
-      output.WriteRawTag(114);
-      output.WriteString(DataId);
-    }
-    if (BindId.Length != 0) {
-      output.WriteRawTag(122);
-      output.WriteString(BindId);
-    }
-    if (DpId != 0) {
-      output.WriteRawTag(128, 1);
-      output.WriteInt32(DpId);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int CalculateSize()
+	{
+		int size = 0;
+		if (Uid.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
+		}
+		if (DeviceType != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)DeviceType);
+		}
+		if (TrainMode != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)TrainMode);
+		}
+		if (ConsequentForce != 0D)
+		{
+			size += 1 + 8;
+		}
+		if (ReverseForce != 0D)
+		{
+			size += 1 + 8;
+		}
+		if (Power != 0D)
+		{
+			size += 1 + 8;
+		}
+		if (SpeedRank != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(SpeedRank);
+		}
+		if (FinishNum != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(FinishNum);
+		}
+		if (Distance != 0D)
+		{
+			size += 1 + 8;
+		}
+		if (Energy != 0D)
+		{
+			size += 1 + 8;
+		}
+		if (HeartRateList.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(HeartRateList);
+		}
+		if (PrUserthoughts.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(PrUserthoughts);
+		}
+		if (DataId.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(DataId);
+		}
+		if (BindId.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(BindId);
+		}
+		if (DpId != 0)
+		{
+			size += 2 + pb::CodedOutputStream.ComputeInt32Size(DpId);
+		}
+		if (_unknownFields != null)
+		{
+			size += _unknownFields.CalculateSize();
+		}
+		return size;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (Uid.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
-    }
-    if (DeviceType != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DeviceType);
-    }
-    if (SportMode != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SportMode);
-    }
-    if (TrainMode != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) TrainMode);
-    }
-    if (ConsequentForce != 0D) {
-      size += 1 + 8;
-    }
-    if (ReverseForce != 0D) {
-      size += 1 + 8;
-    }
-    if (Power != 0D) {
-      size += 1 + 8;
-    }
-    if (SpeedRank != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(SpeedRank);
-    }
-    if (FinishNum != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(FinishNum);
-    }
-    if (FinishTime != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(FinishTime);
-    }
-    if (Distance != 0D) {
-      size += 1 + 8;
-    }
-    if (Energy != 0D) {
-      size += 1 + 8;
-    }
-    if (HeartRateList.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(HeartRateList);
-    }
-    if (DataId.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(DataId);
-    }
-    if (BindId.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(BindId);
-    }
-    if (DpId != 0) {
-      size += 2 + pb::CodedOutputStream.ComputeInt32Size(DpId);
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(UploadRequest other)
+	{
+		if (other == null)
+		{
+			return;
+		}
+		if (other.Uid.Length != 0)
+		{
+			Uid = other.Uid;
+		}
+		if (other.DeviceType != 0)
+		{
+			DeviceType = other.DeviceType;
+		}
+		if (other.TrainMode != 0)
+		{
+			TrainMode = other.TrainMode;
+		}
+		if (other.ConsequentForce != 0D)
+		{
+			ConsequentForce = other.ConsequentForce;
+		}
+		if (other.ReverseForce != 0D)
+		{
+			ReverseForce = other.ReverseForce;
+		}
+		if (other.Power != 0D)
+		{
+			Power = other.Power;
+		}
+		if (other.SpeedRank != 0)
+		{
+			SpeedRank = other.SpeedRank;
+		}
+		if (other.FinishNum != 0)
+		{
+			FinishNum = other.FinishNum;
+		}
+		if (other.Distance != 0D)
+		{
+			Distance = other.Distance;
+		}
+		if (other.Energy != 0D)
+		{
+			Energy = other.Energy;
+		}
+		if (other.HeartRateList.Length != 0)
+		{
+			HeartRateList = other.HeartRateList;
+		}
+		if (other.PrUserthoughts.Length != 0)
+		{
+			PrUserthoughts = other.PrUserthoughts;
+		}
+		if (other.DataId.Length != 0)
+		{
+			DataId = other.DataId;
+		}
+		if (other.BindId.Length != 0)
+		{
+			BindId = other.BindId;
+		}
+		if (other.DpId != 0)
+		{
+			DpId = other.DpId;
+		}
+		_unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(UploadRequest other) {
-    if (other == null) {
-      return;
-    }
-    if (other.Uid.Length != 0) {
-      Uid = other.Uid;
-    }
-    if (other.DeviceType != 0) {
-      DeviceType = other.DeviceType;
-    }
-    if (other.SportMode != 0) {
-      SportMode = other.SportMode;
-    }
-    if (other.TrainMode != 0) {
-      TrainMode = other.TrainMode;
-    }
-    if (other.ConsequentForce != 0D) {
-      ConsequentForce = other.ConsequentForce;
-    }
-    if (other.ReverseForce != 0D) {
-      ReverseForce = other.ReverseForce;
-    }
-    if (other.Power != 0D) {
-      Power = other.Power;
-    }
-    if (other.SpeedRank != 0) {
-      SpeedRank = other.SpeedRank;
-    }
-    if (other.FinishNum != 0) {
-      FinishNum = other.FinishNum;
-    }
-    if (other.FinishTime != 0) {
-      FinishTime = other.FinishTime;
-    }
-    if (other.Distance != 0D) {
-      Distance = other.Distance;
-    }
-    if (other.Energy != 0D) {
-      Energy = other.Energy;
-    }
-    if (other.HeartRateList.Length != 0) {
-      HeartRateList = other.HeartRateList;
-    }
-    if (other.DataId.Length != 0) {
-      DataId = other.DataId;
-    }
-    if (other.BindId.Length != 0) {
-      BindId = other.BindId;
-    }
-    if (other.DpId != 0) {
-      DpId = other.DpId;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 10: {
-          Uid = input.ReadString();
-          break;
-        }
-        case 16: {
-          DeviceType = (global::DeviceType) input.ReadEnum();
-          break;
-        }
-        case 24: {
-          SportMode = (global::SportMode) input.ReadEnum();
-          break;
-        }
-        case 32: {
-          TrainMode = (global::TrainMode) input.ReadEnum();
-          break;
-        }
-        case 41: {
-          ConsequentForce = input.ReadDouble();
-          break;
-        }
-        case 49: {
-          ReverseForce = input.ReadDouble();
-          break;
-        }
-        case 57: {
-          Power = input.ReadDouble();
-          break;
-        }
-        case 64: {
-          SpeedRank = input.ReadInt32();
-          break;
-        }
-        case 72: {
-          FinishNum = input.ReadInt32();
-          break;
-        }
-        case 80: {
-          FinishTime = input.ReadInt32();
-          break;
-        }
-        case 89: {
-          Distance = input.ReadDouble();
-          break;
-        }
-        case 97: {
-          Energy = input.ReadDouble();
-          break;
-        }
-        case 106: {
-          HeartRateList = input.ReadString();
-          break;
-        }
-        case 114: {
-          DataId = input.ReadString();
-          break;
-        }
-        case 122: {
-          BindId = input.ReadString();
-          break;
-        }
-        case 128: {
-          DpId = input.ReadInt32();
-          break;
-        }
-      }
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(pb::CodedInputStream input)
+	{
+		uint tag;
+		while ((tag = input.ReadTag()) != 0)
+		{
+			switch (tag)
+			{
+				default:
+					_unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+					break;
+				case 10:
+					{
+						Uid = input.ReadString();
+						break;
+					}
+				case 16:
+					{
+						DeviceType = (global::DeviceType)input.ReadEnum();
+						break;
+					}
+				case 26:
+					{
+						PrUserthoughts = input.ReadString();
+						break;
+					}
+				case 32:
+					{
+						TrainMode = (global::TrainMode)input.ReadEnum();
+						break;
+					}
+				case 41:
+					{
+						ConsequentForce = input.ReadDouble();
+						break;
+					}
+				case 49:
+					{
+						ReverseForce = input.ReadDouble();
+						break;
+					}
+				case 57:
+					{
+						Power = input.ReadDouble();
+						break;
+					}
+				case 64:
+					{
+						SpeedRank = input.ReadInt32();
+						break;
+					}
+				case 72:
+					{
+						FinishNum = input.ReadInt32();
+						break;
+					}
+				case 89:
+					{
+						Distance = input.ReadDouble();
+						break;
+					}
+				case 97:
+					{
+						Energy = input.ReadDouble();
+						break;
+					}
+				case 106:
+					{
+						HeartRateList = input.ReadString();
+						break;
+					}
+				case 114:
+					{
+						DataId = input.ReadString();
+						break;
+					}
+				case 122:
+					{
+						BindId = input.ReadString();
+						break;
+					}
+				case 128:
+					{
+						DpId = input.ReadInt32();
+						break;
+					}
+			}
+		}
+	}
 
 }
 
 /// <summary>
 /// 结果上传响应
 /// </summary>
-public sealed partial class UploadResponse : pb::IMessage<UploadResponse> {
-  private static readonly pb::MessageParser<UploadResponse> _parser = new pb::MessageParser<UploadResponse>(() => new UploadResponse());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<UploadResponse> Parser { get { return _parser; } }
+public sealed partial class UploadResponse : pb::IMessage<UploadResponse>
+{
+	private static readonly pb::MessageParser<UploadResponse> _parser = new pb::MessageParser<UploadResponse>(() => new UploadResponse());
+	private pb::UnknownFieldSet _unknownFields;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pb::MessageParser<UploadResponse> Parser { get { return _parser; } }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BdlProtoReflection.Descriptor.MessageTypes[5]; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pbr::MessageDescriptor Descriptor
+	{
+		get { return global::BdlProtoReflection.Descriptor.MessageTypes[5]; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	pbr::MessageDescriptor pb::IMessage.Descriptor
+	{
+		get { return Descriptor; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public UploadResponse() {
-    OnConstruction();
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public UploadResponse()
+	{
+		OnConstruction();
+	}
 
-  partial void OnConstruction();
+	partial void OnConstruction();
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public UploadResponse(UploadResponse other) : this() {
-    uid_ = other.uid_;
-    deviceType_ = other.deviceType_;
-    sportMode_ = other.sportMode_;
-    finished_ = other.finished_;
-    success_ = other.success_;
-    dataId_ = other.dataId_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public UploadResponse(UploadResponse other) : this()
+	{
+		uid_ = other.uid_;
+		deviceType_ = other.deviceType_;
+		finished_ = other.finished_;
+		success_ = other.success_;
+		dataId_ = other.dataId_;
+		_unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public UploadResponse Clone() {
-    return new UploadResponse(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public UploadResponse Clone()
+	{
+		return new UploadResponse(this);
+	}
 
-  /// <summary>Field number for the "uid" field.</summary>
-  public const int UidFieldNumber = 1;
-  private string uid_ = "";
-  /// <summary>
-  ///用户ID
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Uid {
-    get { return uid_; }
-    set {
-      uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "uid" field.</summary>
+	public const int UidFieldNumber = 1;
+	private string uid_ = "";
+	/// <summary>
+	///用户ID
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string Uid
+	{
+		get { return uid_; }
+		set
+		{
+			uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "deviceType" field.</summary>
-  public const int DeviceTypeFieldNumber = 2;
-  private global::DeviceType deviceType_ = 0;
-  /// <summary>
-  ///设备类型
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::DeviceType DeviceType {
-    get { return deviceType_; }
-    set {
-      deviceType_ = value;
-    }
-  }
+	/// <summary>Field number for the "deviceType" field.</summary>
+	public const int DeviceTypeFieldNumber = 2;
+	private global::DeviceType deviceType_ = 0;
+	/// <summary>
+	///设备类型
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::DeviceType DeviceType
+	{
+		get { return deviceType_; }
+		set
+		{
+			deviceType_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "sportMode" field.</summary>
-  public const int SportModeFieldNumber = 3;
-  private global::SportMode sportMode_ = 0;
-  /// <summary>
-  ///用户运动模式，计时模式或计数模式
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::SportMode SportMode {
-    get { return sportMode_; }
-    set {
-      sportMode_ = value;
-    }
-  }
+	/// <summary>Field number for the "finished" field.</summary>
+	public const int FinishedFieldNumber = 4;
+	private bool finished_;
+	/// <summary>
+	///是否训练结束
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Finished
+	{
+		get { return finished_; }
+		set
+		{
+			finished_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "finished" field.</summary>
-  public const int FinishedFieldNumber = 4;
-  private bool finished_;
-  /// <summary>
-  ///是否训练结束
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Finished {
-    get { return finished_; }
-    set {
-      finished_ = value;
-    }
-  }
+	/// <summary>Field number for the "success" field.</summary>
+	public const int SuccessFieldNumber = 5;
+	private bool success_;
+	/// <summary>
+	///上传结果
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Success
+	{
+		get { return success_; }
+		set
+		{
+			success_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "success" field.</summary>
-  public const int SuccessFieldNumber = 5;
-  private bool success_;
-  /// <summary>
-  ///上传结果
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Success {
-    get { return success_; }
-    set {
-      success_ = value;
-    }
-  }
+	/// <summary>Field number for the "dataId" field.</summary>
+	public const int DataIdFieldNumber = 6;
+	private string dataId_ = "";
+	/// <summary>
+	///安卓端记录的id
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string DataId
+	{
+		get { return dataId_; }
+		set
+		{
+			dataId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "dataId" field.</summary>
-  public const int DataIdFieldNumber = 6;
-  private string dataId_ = "";
-  /// <summary>
-  ///安卓端记录的id
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string DataId {
-    get { return dataId_; }
-    set {
-      dataId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override bool Equals(object other)
+	{
+		return Equals(other as UploadResponse);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as UploadResponse);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Equals(UploadResponse other)
+	{
+		if (ReferenceEquals(other, null))
+		{
+			return false;
+		}
+		if (ReferenceEquals(other, this))
+		{
+			return true;
+		}
+		if (Uid != other.Uid) return false;
+		if (DeviceType != other.DeviceType) return false;
+		if (Finished != other.Finished) return false;
+		if (Success != other.Success) return false;
+		if (DataId != other.DataId) return false;
+		return Equals(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(UploadResponse other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (Uid != other.Uid) return false;
-    if (DeviceType != other.DeviceType) return false;
-    if (SportMode != other.SportMode) return false;
-    if (Finished != other.Finished) return false;
-    if (Success != other.Success) return false;
-    if (DataId != other.DataId) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override int GetHashCode()
+	{
+		int hash = 1;
+		if (Uid.Length != 0) hash ^= Uid.GetHashCode();
+		if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
+		if (Finished != false) hash ^= Finished.GetHashCode();
+		if (Success != false) hash ^= Success.GetHashCode();
+		if (DataId.Length != 0) hash ^= DataId.GetHashCode();
+		if (_unknownFields != null)
+		{
+			hash ^= _unknownFields.GetHashCode();
+		}
+		return hash;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (Uid.Length != 0) hash ^= Uid.GetHashCode();
-    if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
-    if (SportMode != 0) hash ^= SportMode.GetHashCode();
-    if (Finished != false) hash ^= Finished.GetHashCode();
-    if (Success != false) hash ^= Success.GetHashCode();
-    if (DataId.Length != 0) hash ^= DataId.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override string ToString()
+	{
+		return pb::JsonFormatter.ToDiagnosticString(this);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void WriteTo(pb::CodedOutputStream output)
+	{
+		if (Uid.Length != 0)
+		{
+			output.WriteRawTag(10);
+			output.WriteString(Uid);
+		}
+		if (DeviceType != 0)
+		{
+			output.WriteRawTag(16);
+			output.WriteEnum((int)DeviceType);
+		}
+		if (Finished != false)
+		{
+			output.WriteRawTag(32);
+			output.WriteBool(Finished);
+		}
+		if (Success != false)
+		{
+			output.WriteRawTag(40);
+			output.WriteBool(Success);
+		}
+		if (DataId.Length != 0)
+		{
+			output.WriteRawTag(50);
+			output.WriteString(DataId);
+		}
+		if (_unknownFields != null)
+		{
+			_unknownFields.WriteTo(output);
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (Uid.Length != 0) {
-      output.WriteRawTag(10);
-      output.WriteString(Uid);
-    }
-    if (DeviceType != 0) {
-      output.WriteRawTag(16);
-      output.WriteEnum((int) DeviceType);
-    }
-    if (SportMode != 0) {
-      output.WriteRawTag(24);
-      output.WriteEnum((int) SportMode);
-    }
-    if (Finished != false) {
-      output.WriteRawTag(32);
-      output.WriteBool(Finished);
-    }
-    if (Success != false) {
-      output.WriteRawTag(40);
-      output.WriteBool(Success);
-    }
-    if (DataId.Length != 0) {
-      output.WriteRawTag(50);
-      output.WriteString(DataId);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int CalculateSize()
+	{
+		int size = 0;
+		if (Uid.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
+		}
+		if (DeviceType != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)DeviceType);
+		}
+		if (Finished != false)
+		{
+			size += 1 + 1;
+		}
+		if (Success != false)
+		{
+			size += 1 + 1;
+		}
+		if (DataId.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(DataId);
+		}
+		if (_unknownFields != null)
+		{
+			size += _unknownFields.CalculateSize();
+		}
+		return size;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (Uid.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
-    }
-    if (DeviceType != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DeviceType);
-    }
-    if (SportMode != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SportMode);
-    }
-    if (Finished != false) {
-      size += 1 + 1;
-    }
-    if (Success != false) {
-      size += 1 + 1;
-    }
-    if (DataId.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(DataId);
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(UploadResponse other)
+	{
+		if (other == null)
+		{
+			return;
+		}
+		if (other.Uid.Length != 0)
+		{
+			Uid = other.Uid;
+		}
+		if (other.DeviceType != 0)
+		{
+			DeviceType = other.DeviceType;
+		}
+		if (other.Finished != false)
+		{
+			Finished = other.Finished;
+		}
+		if (other.Success != false)
+		{
+			Success = other.Success;
+		}
+		if (other.DataId.Length != 0)
+		{
+			DataId = other.DataId;
+		}
+		_unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(UploadResponse other) {
-    if (other == null) {
-      return;
-    }
-    if (other.Uid.Length != 0) {
-      Uid = other.Uid;
-    }
-    if (other.DeviceType != 0) {
-      DeviceType = other.DeviceType;
-    }
-    if (other.SportMode != 0) {
-      SportMode = other.SportMode;
-    }
-    if (other.Finished != false) {
-      Finished = other.Finished;
-    }
-    if (other.Success != false) {
-      Success = other.Success;
-    }
-    if (other.DataId.Length != 0) {
-      DataId = other.DataId;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 10: {
-          Uid = input.ReadString();
-          break;
-        }
-        case 16: {
-          DeviceType = (global::DeviceType) input.ReadEnum();
-          break;
-        }
-        case 24: {
-          SportMode = (global::SportMode) input.ReadEnum();
-          break;
-        }
-        case 32: {
-          Finished = input.ReadBool();
-          break;
-        }
-        case 40: {
-          Success = input.ReadBool();
-          break;
-        }
-        case 50: {
-          DataId = input.ReadString();
-          break;
-        }
-      }
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(pb::CodedInputStream input)
+	{
+		uint tag;
+		while ((tag = input.ReadTag()) != 0)
+		{
+			switch (tag)
+			{
+				default:
+					_unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+					break;
+				case 10:
+					{
+						Uid = input.ReadString();
+						break;
+					}
+				case 16:
+					{
+						DeviceType = (global::DeviceType)input.ReadEnum();
+						break;
+					}
+				case 32:
+					{
+						Finished = input.ReadBool();
+						break;
+					}
+				case 40:
+					{
+						Success = input.ReadBool();
+						break;
+					}
+				case 50:
+					{
+						DataId = input.ReadString();
+						break;
+					}
+			}
+		}
+	}
 
 }
 
 /// <summary>
 ///个人设置请求
 /// </summary>
-public sealed partial class PersonalSetRequest : pb::IMessage<PersonalSetRequest> {
-  private static readonly pb::MessageParser<PersonalSetRequest> _parser = new pb::MessageParser<PersonalSetRequest>(() => new PersonalSetRequest());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<PersonalSetRequest> Parser { get { return _parser; } }
+public sealed partial class PersonalSetRequest : pb::IMessage<PersonalSetRequest>
+{
+	private static readonly pb::MessageParser<PersonalSetRequest> _parser = new pb::MessageParser<PersonalSetRequest>(() => new PersonalSetRequest());
+	private pb::UnknownFieldSet _unknownFields;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pb::MessageParser<PersonalSetRequest> Parser { get { return _parser; } }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BdlProtoReflection.Descriptor.MessageTypes[6]; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pbr::MessageDescriptor Descriptor
+	{
+		get { return global::BdlProtoReflection.Descriptor.MessageTypes[6]; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	pbr::MessageDescriptor pb::IMessage.Descriptor
+	{
+		get { return Descriptor; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public PersonalSetRequest() {
-    OnConstruction();
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public PersonalSetRequest()
+	{
+		OnConstruction();
+	}
 
-  partial void OnConstruction();
+	partial void OnConstruction();
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public PersonalSetRequest(PersonalSetRequest other) : this() {
-    uid_ = other.uid_;
-    bindId_ = other.bindId_;
-    deviceType_ = other.deviceType_;
-    trainMode_ = other.trainMode_;
-    seatHeight_ = other.seatHeight_;
-    backDistance_ = other.backDistance_;
-    footboardDistance_ = other.footboardDistance_;
-    leverAngle_ = other.leverAngle_;
-    forwardLimit_ = other.forwardLimit_;
-    backLimit_ = other.backLimit_;
-    consequentForce_ = other.consequentForce_;
-    reverseForce_ = other.reverseForce_;
-    power_ = other.power_;
-    dataId_ = other.dataId_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public PersonalSetRequest(PersonalSetRequest other) : this()
+	{
+		uid_ = other.uid_;
+		bindId_ = other.bindId_;
+		deviceType_ = other.deviceType_;
+		trainMode_ = other.trainMode_;
+		seatHeight_ = other.seatHeight_;
+		backDistance_ = other.backDistance_;
+		footboardDistance_ = other.footboardDistance_;
+		leverAngle_ = other.leverAngle_;
+		forwardLimit_ = other.forwardLimit_;
+		backLimit_ = other.backLimit_;
+		consequentForce_ = other.consequentForce_;
+		reverseForce_ = other.reverseForce_;
+		power_ = other.power_;
+		dataId_ = other.dataId_;
+		_unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public PersonalSetRequest Clone() {
-    return new PersonalSetRequest(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public PersonalSetRequest Clone()
+	{
+		return new PersonalSetRequest(this);
+	}
 
-  /// <summary>Field number for the "uid" field.</summary>
-  public const int UidFieldNumber = 1;
-  private string uid_ = "";
-  /// <summary>
-  ///用户ID
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Uid {
-    get { return uid_; }
-    set {
-      uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "uid" field.</summary>
+	public const int UidFieldNumber = 1;
+	private string uid_ = "";
+	/// <summary>
+	///用户ID
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string Uid
+	{
+		get { return uid_; }
+		set
+		{
+			uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "bind_id" field.</summary>
-  public const int BindIdFieldNumber = 2;
-  private string bindId_ = "";
-  /// <summary>
-  ///手环id
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string BindId {
-    get { return bindId_; }
-    set {
-      bindId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "bind_id" field.</summary>
+	public const int BindIdFieldNumber = 2;
+	private string bindId_ = "";
+	/// <summary>
+	///手环id
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string BindId
+	{
+		get { return bindId_; }
+		set
+		{
+			bindId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "deviceType" field.</summary>
-  public const int DeviceTypeFieldNumber = 3;
-  private global::DeviceType deviceType_ = 0;
-  /// <summary>
-  ///设备类型
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::DeviceType DeviceType {
-    get { return deviceType_; }
-    set {
-      deviceType_ = value;
-    }
-  }
+	/// <summary>Field number for the "deviceType" field.</summary>
+	public const int DeviceTypeFieldNumber = 3;
+	private global::DeviceType deviceType_ = 0;
+	/// <summary>
+	///设备类型
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::DeviceType DeviceType
+	{
+		get { return deviceType_; }
+		set
+		{
+			deviceType_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "trainMode" field.</summary>
-  public const int TrainModeFieldNumber = 4;
-  private global::TrainMode trainMode_ = 0;
-  /// <summary>
-  ///训练模式	
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::TrainMode TrainMode {
-    get { return trainMode_; }
-    set {
-      trainMode_ = value;
-    }
-  }
+	/// <summary>Field number for the "trainMode" field.</summary>
+	public const int TrainModeFieldNumber = 4;
+	private global::TrainMode trainMode_ = 0;
+	/// <summary>
+	///训练模式
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::TrainMode TrainMode
+	{
+		get { return trainMode_; }
+		set
+		{
+			trainMode_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "seatHeight" field.</summary>
-  public const int SeatHeightFieldNumber = 7;
-  private int seatHeight_;
-  /// <summary>
-  ///座椅高度
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int SeatHeight {
-    get { return seatHeight_; }
-    set {
-      seatHeight_ = value;
-    }
-  }
+	/// <summary>Field number for the "seatHeight" field.</summary>
+	public const int SeatHeightFieldNumber = 7;
+	private int seatHeight_;
+	/// <summary>
+	///座椅高度
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int SeatHeight
+	{
+		get { return seatHeight_; }
+		set
+		{
+			seatHeight_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "backDistance" field.</summary>
-  public const int BackDistanceFieldNumber = 8;
-  private int backDistance_;
-  /// <summary>
-  ///靠背距离
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int BackDistance {
-    get { return backDistance_; }
-    set {
-      backDistance_ = value;
-    }
-  }
+	/// <summary>Field number for the "backDistance" field.</summary>
+	public const int BackDistanceFieldNumber = 8;
+	private int backDistance_;
+	/// <summary>
+	///靠背距离
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int BackDistance
+	{
+		get { return backDistance_; }
+		set
+		{
+			backDistance_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "footboardDistance" field.</summary>
-  public const int FootboardDistanceFieldNumber = 9;
-  private int footboardDistance_;
-  /// <summary>
-  ///踏板距离
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int FootboardDistance {
-    get { return footboardDistance_; }
-    set {
-      footboardDistance_ = value;
-    }
-  }
+	/// <summary>Field number for the "footboardDistance" field.</summary>
+	public const int FootboardDistanceFieldNumber = 9;
+	private int footboardDistance_;
+	/// <summary>
+	///踏板距离
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int FootboardDistance
+	{
+		get { return footboardDistance_; }
+		set
+		{
+			footboardDistance_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "leverAngle" field.</summary>
-  public const int LeverAngleFieldNumber = 10;
-  private double leverAngle_;
-  /// <summary>
-  ///杠杆角度
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public double LeverAngle {
-    get { return leverAngle_; }
-    set {
-      leverAngle_ = value;
-    }
-  }
+	/// <summary>Field number for the "leverAngle" field.</summary>
+	public const int LeverAngleFieldNumber = 10;
+	private double leverAngle_;
+	/// <summary>
+	///杠杆角度
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public double LeverAngle
+	{
+		get { return leverAngle_; }
+		set
+		{
+			leverAngle_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "forwardLimit" field.</summary>
-  public const int ForwardLimitFieldNumber = 11;
-  private int forwardLimit_;
-  /// <summary>
-  ///前方限制
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int ForwardLimit {
-    get { return forwardLimit_; }
-    set {
-      forwardLimit_ = value;
-    }
-  }
+	/// <summary>Field number for the "forwardLimit" field.</summary>
+	public const int ForwardLimitFieldNumber = 11;
+	private int forwardLimit_;
+	/// <summary>
+	///前方限制
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int ForwardLimit
+	{
+		get { return forwardLimit_; }
+		set
+		{
+			forwardLimit_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "backLimit" field.</summary>
-  public const int BackLimitFieldNumber = 12;
-  private int backLimit_;
-  /// <summary>
-  ///后方限制
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int BackLimit {
-    get { return backLimit_; }
-    set {
-      backLimit_ = value;
-    }
-  }
+	/// <summary>Field number for the "backLimit" field.</summary>
+	public const int BackLimitFieldNumber = 12;
+	private int backLimit_;
+	/// <summary>
+	///后方限制
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int BackLimit
+	{
+		get { return backLimit_; }
+		set
+		{
+			backLimit_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "consequentForce" field.</summary>
-  public const int ConsequentForceFieldNumber = 13;
-  private double consequentForce_;
-  /// <summary>
-  ///顺向力
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public double ConsequentForce {
-    get { return consequentForce_; }
-    set {
-      consequentForce_ = value;
-    }
-  }
+	/// <summary>Field number for the "consequentForce" field.</summary>
+	public const int ConsequentForceFieldNumber = 13;
+	private double consequentForce_;
+	/// <summary>
+	///顺向力
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public double ConsequentForce
+	{
+		get { return consequentForce_; }
+		set
+		{
+			consequentForce_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "reverseForce" field.</summary>
-  public const int ReverseForceFieldNumber = 14;
-  private double reverseForce_;
-  /// <summary>
-  ///反向力
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public double ReverseForce {
-    get { return reverseForce_; }
-    set {
-      reverseForce_ = value;
-    }
-  }
+	/// <summary>Field number for the "reverseForce" field.</summary>
+	public const int ReverseForceFieldNumber = 14;
+	private double reverseForce_;
+	/// <summary>
+	///反向力
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public double ReverseForce
+	{
+		get { return reverseForce_; }
+		set
+		{
+			reverseForce_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "power" field.</summary>
-  public const int PowerFieldNumber = 15;
-  private double power_;
-  /// <summary>
-  ///功率
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public double Power {
-    get { return power_; }
-    set {
-      power_ = value;
-    }
-  }
+	/// <summary>Field number for the "power" field.</summary>
+	public const int PowerFieldNumber = 15;
+	private double power_;
+	/// <summary>
+	///功率
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public double Power
+	{
+		get { return power_; }
+		set
+		{
+			power_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "dataId" field.</summary>
-  public const int DataIdFieldNumber = 16;
-  private string dataId_ = "";
-  /// <summary>
-  ///安卓端记录的id
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string DataId {
-    get { return dataId_; }
-    set {
-      dataId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "dataId" field.</summary>
+	public const int DataIdFieldNumber = 16;
+	private string dataId_ = "";
+	/// <summary>
+	///安卓端记录的id
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string DataId
+	{
+		get { return dataId_; }
+		set
+		{
+			dataId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as PersonalSetRequest);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override bool Equals(object other)
+	{
+		return Equals(other as PersonalSetRequest);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(PersonalSetRequest other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (Uid != other.Uid) return false;
-    if (BindId != other.BindId) return false;
-    if (DeviceType != other.DeviceType) return false;
-    if (TrainMode != other.TrainMode) return false;
-    if (SeatHeight != other.SeatHeight) return false;
-    if (BackDistance != other.BackDistance) return false;
-    if (FootboardDistance != other.FootboardDistance) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(LeverAngle, other.LeverAngle)) return false;
-    if (ForwardLimit != other.ForwardLimit) return false;
-    if (BackLimit != other.BackLimit) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ConsequentForce, other.ConsequentForce)) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ReverseForce, other.ReverseForce)) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Power, other.Power)) return false;
-    if (DataId != other.DataId) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Equals(PersonalSetRequest other)
+	{
+		if (ReferenceEquals(other, null))
+		{
+			return false;
+		}
+		if (ReferenceEquals(other, this))
+		{
+			return true;
+		}
+		if (Uid != other.Uid) return false;
+		if (BindId != other.BindId) return false;
+		if (DeviceType != other.DeviceType) return false;
+		if (TrainMode != other.TrainMode) return false;
+		if (SeatHeight != other.SeatHeight) return false;
+		if (BackDistance != other.BackDistance) return false;
+		if (FootboardDistance != other.FootboardDistance) return false;
+		if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(LeverAngle, other.LeverAngle)) return false;
+		if (ForwardLimit != other.ForwardLimit) return false;
+		if (BackLimit != other.BackLimit) return false;
+		if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ConsequentForce, other.ConsequentForce)) return false;
+		if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ReverseForce, other.ReverseForce)) return false;
+		if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Power, other.Power)) return false;
+		if (DataId != other.DataId) return false;
+		return Equals(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (Uid.Length != 0) hash ^= Uid.GetHashCode();
-    if (BindId.Length != 0) hash ^= BindId.GetHashCode();
-    if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
-    if (TrainMode != 0) hash ^= TrainMode.GetHashCode();
-    if (SeatHeight != 0) hash ^= SeatHeight.GetHashCode();
-    if (BackDistance != 0) hash ^= BackDistance.GetHashCode();
-    if (FootboardDistance != 0) hash ^= FootboardDistance.GetHashCode();
-    if (LeverAngle != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(LeverAngle);
-    if (ForwardLimit != 0) hash ^= ForwardLimit.GetHashCode();
-    if (BackLimit != 0) hash ^= BackLimit.GetHashCode();
-    if (ConsequentForce != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ConsequentForce);
-    if (ReverseForce != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ReverseForce);
-    if (Power != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Power);
-    if (DataId.Length != 0) hash ^= DataId.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override int GetHashCode()
+	{
+		int hash = 1;
+		if (Uid.Length != 0) hash ^= Uid.GetHashCode();
+		if (BindId.Length != 0) hash ^= BindId.GetHashCode();
+		if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
+		if (TrainMode != 0) hash ^= TrainMode.GetHashCode();
+		if (SeatHeight != 0) hash ^= SeatHeight.GetHashCode();
+		if (BackDistance != 0) hash ^= BackDistance.GetHashCode();
+		if (FootboardDistance != 0) hash ^= FootboardDistance.GetHashCode();
+		if (LeverAngle != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(LeverAngle);
+		if (ForwardLimit != 0) hash ^= ForwardLimit.GetHashCode();
+		if (BackLimit != 0) hash ^= BackLimit.GetHashCode();
+		if (ConsequentForce != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ConsequentForce);
+		if (ReverseForce != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ReverseForce);
+		if (Power != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Power);
+		if (DataId.Length != 0) hash ^= DataId.GetHashCode();
+		if (_unknownFields != null)
+		{
+			hash ^= _unknownFields.GetHashCode();
+		}
+		return hash;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override string ToString()
+	{
+		return pb::JsonFormatter.ToDiagnosticString(this);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (Uid.Length != 0) {
-      output.WriteRawTag(10);
-      output.WriteString(Uid);
-    }
-    if (BindId.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteString(BindId);
-    }
-    if (DeviceType != 0) {
-      output.WriteRawTag(24);
-      output.WriteEnum((int) DeviceType);
-    }
-    if (TrainMode != 0) {
-      output.WriteRawTag(32);
-      output.WriteEnum((int) TrainMode);
-    }
-    if (SeatHeight != 0) {
-      output.WriteRawTag(56);
-      output.WriteInt32(SeatHeight);
-    }
-    if (BackDistance != 0) {
-      output.WriteRawTag(64);
-      output.WriteInt32(BackDistance);
-    }
-    if (FootboardDistance != 0) {
-      output.WriteRawTag(72);
-      output.WriteInt32(FootboardDistance);
-    }
-    if (LeverAngle != 0D) {
-      output.WriteRawTag(81);
-      output.WriteDouble(LeverAngle);
-    }
-    if (ForwardLimit != 0) {
-      output.WriteRawTag(88);
-      output.WriteInt32(ForwardLimit);
-    }
-    if (BackLimit != 0) {
-      output.WriteRawTag(96);
-      output.WriteInt32(BackLimit);
-    }
-    if (ConsequentForce != 0D) {
-      output.WriteRawTag(105);
-      output.WriteDouble(ConsequentForce);
-    }
-    if (ReverseForce != 0D) {
-      output.WriteRawTag(113);
-      output.WriteDouble(ReverseForce);
-    }
-    if (Power != 0D) {
-      output.WriteRawTag(121);
-      output.WriteDouble(Power);
-    }
-    if (DataId.Length != 0) {
-      output.WriteRawTag(130, 1);
-      output.WriteString(DataId);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void WriteTo(pb::CodedOutputStream output)
+	{
+		if (Uid.Length != 0)
+		{
+			output.WriteRawTag(10);
+			output.WriteString(Uid);
+		}
+		if (BindId.Length != 0)
+		{
+			output.WriteRawTag(18);
+			output.WriteString(BindId);
+		}
+		if (DeviceType != 0)
+		{
+			output.WriteRawTag(24);
+			output.WriteEnum((int)DeviceType);
+		}
+		if (TrainMode != 0)
+		{
+			output.WriteRawTag(32);
+			output.WriteEnum((int)TrainMode);
+		}
+		if (SeatHeight != 0)
+		{
+			output.WriteRawTag(56);
+			output.WriteInt32(SeatHeight);
+		}
+		if (BackDistance != 0)
+		{
+			output.WriteRawTag(64);
+			output.WriteInt32(BackDistance);
+		}
+		if (FootboardDistance != 0)
+		{
+			output.WriteRawTag(72);
+			output.WriteInt32(FootboardDistance);
+		}
+		if (LeverAngle != 0D)
+		{
+			output.WriteRawTag(81);
+			output.WriteDouble(LeverAngle);
+		}
+		if (ForwardLimit != 0)
+		{
+			output.WriteRawTag(88);
+			output.WriteInt32(ForwardLimit);
+		}
+		if (BackLimit != 0)
+		{
+			output.WriteRawTag(96);
+			output.WriteInt32(BackLimit);
+		}
+		if (ConsequentForce != 0D)
+		{
+			output.WriteRawTag(105);
+			output.WriteDouble(ConsequentForce);
+		}
+		if (ReverseForce != 0D)
+		{
+			output.WriteRawTag(113);
+			output.WriteDouble(ReverseForce);
+		}
+		if (Power != 0D)
+		{
+			output.WriteRawTag(121);
+			output.WriteDouble(Power);
+		}
+		if (DataId.Length != 0)
+		{
+			output.WriteRawTag(130, 1);
+			output.WriteString(DataId);
+		}
+		if (_unknownFields != null)
+		{
+			_unknownFields.WriteTo(output);
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (Uid.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
-    }
-    if (BindId.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(BindId);
-    }
-    if (DeviceType != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DeviceType);
-    }
-    if (TrainMode != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) TrainMode);
-    }
-    if (SeatHeight != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(SeatHeight);
-    }
-    if (BackDistance != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(BackDistance);
-    }
-    if (FootboardDistance != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(FootboardDistance);
-    }
-    if (LeverAngle != 0D) {
-      size += 1 + 8;
-    }
-    if (ForwardLimit != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(ForwardLimit);
-    }
-    if (BackLimit != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(BackLimit);
-    }
-    if (ConsequentForce != 0D) {
-      size += 1 + 8;
-    }
-    if (ReverseForce != 0D) {
-      size += 1 + 8;
-    }
-    if (Power != 0D) {
-      size += 1 + 8;
-    }
-    if (DataId.Length != 0) {
-      size += 2 + pb::CodedOutputStream.ComputeStringSize(DataId);
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int CalculateSize()
+	{
+		int size = 0;
+		if (Uid.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
+		}
+		if (BindId.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(BindId);
+		}
+		if (DeviceType != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)DeviceType);
+		}
+		if (TrainMode != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)TrainMode);
+		}
+		if (SeatHeight != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(SeatHeight);
+		}
+		if (BackDistance != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(BackDistance);
+		}
+		if (FootboardDistance != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(FootboardDistance);
+		}
+		if (LeverAngle != 0D)
+		{
+			size += 1 + 8;
+		}
+		if (ForwardLimit != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(ForwardLimit);
+		}
+		if (BackLimit != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(BackLimit);
+		}
+		if (ConsequentForce != 0D)
+		{
+			size += 1 + 8;
+		}
+		if (ReverseForce != 0D)
+		{
+			size += 1 + 8;
+		}
+		if (Power != 0D)
+		{
+			size += 1 + 8;
+		}
+		if (DataId.Length != 0)
+		{
+			size += 2 + pb::CodedOutputStream.ComputeStringSize(DataId);
+		}
+		if (_unknownFields != null)
+		{
+			size += _unknownFields.CalculateSize();
+		}
+		return size;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(PersonalSetRequest other) {
-    if (other == null) {
-      return;
-    }
-    if (other.Uid.Length != 0) {
-      Uid = other.Uid;
-    }
-    if (other.BindId.Length != 0) {
-      BindId = other.BindId;
-    }
-    if (other.DeviceType != 0) {
-      DeviceType = other.DeviceType;
-    }
-    if (other.TrainMode != 0) {
-      TrainMode = other.TrainMode;
-    }
-    if (other.SeatHeight != 0) {
-      SeatHeight = other.SeatHeight;
-    }
-    if (other.BackDistance != 0) {
-      BackDistance = other.BackDistance;
-    }
-    if (other.FootboardDistance != 0) {
-      FootboardDistance = other.FootboardDistance;
-    }
-    if (other.LeverAngle != 0D) {
-      LeverAngle = other.LeverAngle;
-    }
-    if (other.ForwardLimit != 0) {
-      ForwardLimit = other.ForwardLimit;
-    }
-    if (other.BackLimit != 0) {
-      BackLimit = other.BackLimit;
-    }
-    if (other.ConsequentForce != 0D) {
-      ConsequentForce = other.ConsequentForce;
-    }
-    if (other.ReverseForce != 0D) {
-      ReverseForce = other.ReverseForce;
-    }
-    if (other.Power != 0D) {
-      Power = other.Power;
-    }
-    if (other.DataId.Length != 0) {
-      DataId = other.DataId;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(PersonalSetRequest other)
+	{
+		if (other == null)
+		{
+			return;
+		}
+		if (other.Uid.Length != 0)
+		{
+			Uid = other.Uid;
+		}
+		if (other.BindId.Length != 0)
+		{
+			BindId = other.BindId;
+		}
+		if (other.DeviceType != 0)
+		{
+			DeviceType = other.DeviceType;
+		}
+		if (other.TrainMode != 0)
+		{
+			TrainMode = other.TrainMode;
+		}
+		if (other.SeatHeight != 0)
+		{
+			SeatHeight = other.SeatHeight;
+		}
+		if (other.BackDistance != 0)
+		{
+			BackDistance = other.BackDistance;
+		}
+		if (other.FootboardDistance != 0)
+		{
+			FootboardDistance = other.FootboardDistance;
+		}
+		if (other.LeverAngle != 0D)
+		{
+			LeverAngle = other.LeverAngle;
+		}
+		if (other.ForwardLimit != 0)
+		{
+			ForwardLimit = other.ForwardLimit;
+		}
+		if (other.BackLimit != 0)
+		{
+			BackLimit = other.BackLimit;
+		}
+		if (other.ConsequentForce != 0D)
+		{
+			ConsequentForce = other.ConsequentForce;
+		}
+		if (other.ReverseForce != 0D)
+		{
+			ReverseForce = other.ReverseForce;
+		}
+		if (other.Power != 0D)
+		{
+			Power = other.Power;
+		}
+		if (other.DataId.Length != 0)
+		{
+			DataId = other.DataId;
+		}
+		_unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 10: {
-          Uid = input.ReadString();
-          break;
-        }
-        case 18: {
-          BindId = input.ReadString();
-          break;
-        }
-        case 24: {
-          DeviceType = (global::DeviceType) input.ReadEnum();
-          break;
-        }
-        case 32: {
-          TrainMode = (global::TrainMode) input.ReadEnum();
-          break;
-        }
-        case 56: {
-          SeatHeight = input.ReadInt32();
-          break;
-        }
-        case 64: {
-          BackDistance = input.ReadInt32();
-          break;
-        }
-        case 72: {
-          FootboardDistance = input.ReadInt32();
-          break;
-        }
-        case 81: {
-          LeverAngle = input.ReadDouble();
-          break;
-        }
-        case 88: {
-          ForwardLimit = input.ReadInt32();
-          break;
-        }
-        case 96: {
-          BackLimit = input.ReadInt32();
-          break;
-        }
-        case 105: {
-          ConsequentForce = input.ReadDouble();
-          break;
-        }
-        case 113: {
-          ReverseForce = input.ReadDouble();
-          break;
-        }
-        case 121: {
-          Power = input.ReadDouble();
-          break;
-        }
-        case 130: {
-          DataId = input.ReadString();
-          break;
-        }
-      }
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(pb::CodedInputStream input)
+	{
+		uint tag;
+		while ((tag = input.ReadTag()) != 0)
+		{
+			switch (tag)
+			{
+				default:
+					_unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+					break;
+				case 10:
+					{
+						Uid = input.ReadString();
+						break;
+					}
+				case 18:
+					{
+						BindId = input.ReadString();
+						break;
+					}
+				case 24:
+					{
+						DeviceType = (global::DeviceType)input.ReadEnum();
+						break;
+					}
+				case 32:
+					{
+						TrainMode = (global::TrainMode)input.ReadEnum();
+						break;
+					}
+				case 56:
+					{
+						SeatHeight = input.ReadInt32();
+						break;
+					}
+				case 64:
+					{
+						BackDistance = input.ReadInt32();
+						break;
+					}
+				case 72:
+					{
+						FootboardDistance = input.ReadInt32();
+						break;
+					}
+				case 81:
+					{
+						LeverAngle = input.ReadDouble();
+						break;
+					}
+				case 88:
+					{
+						ForwardLimit = input.ReadInt32();
+						break;
+					}
+				case 96:
+					{
+						BackLimit = input.ReadInt32();
+						break;
+					}
+				case 105:
+					{
+						ConsequentForce = input.ReadDouble();
+						break;
+					}
+				case 113:
+					{
+						ReverseForce = input.ReadDouble();
+						break;
+					}
+				case 121:
+					{
+						Power = input.ReadDouble();
+						break;
+					}
+				case 130:
+					{
+						DataId = input.ReadString();
+						break;
+					}
+			}
+		}
+	}
 
 }
 
 /// <summary>
 ///个人设置响应
 /// </summary>
-public sealed partial class PersonalSetResponse : pb::IMessage<PersonalSetResponse> {
-  private static readonly pb::MessageParser<PersonalSetResponse> _parser = new pb::MessageParser<PersonalSetResponse>(() => new PersonalSetResponse());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<PersonalSetResponse> Parser { get { return _parser; } }
+public sealed partial class PersonalSetResponse : pb::IMessage<PersonalSetResponse>
+{
+	private static readonly pb::MessageParser<PersonalSetResponse> _parser = new pb::MessageParser<PersonalSetResponse>(() => new PersonalSetResponse());
+	private pb::UnknownFieldSet _unknownFields;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pb::MessageParser<PersonalSetResponse> Parser { get { return _parser; } }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BdlProtoReflection.Descriptor.MessageTypes[7]; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pbr::MessageDescriptor Descriptor
+	{
+		get { return global::BdlProtoReflection.Descriptor.MessageTypes[7]; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	pbr::MessageDescriptor pb::IMessage.Descriptor
+	{
+		get { return Descriptor; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public PersonalSetResponse() {
-    OnConstruction();
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public PersonalSetResponse()
+	{
+		OnConstruction();
+	}
 
-  partial void OnConstruction();
+	partial void OnConstruction();
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public PersonalSetResponse(PersonalSetResponse other) : this() {
-    deviceType_ = other.deviceType_;
-    trainMode_ = other.trainMode_;
-    uid_ = other.uid_;
-    success_ = other.success_;
-    dataId_ = other.dataId_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public PersonalSetResponse(PersonalSetResponse other) : this()
+	{
+		deviceType_ = other.deviceType_;
+		trainMode_ = other.trainMode_;
+		uid_ = other.uid_;
+		success_ = other.success_;
+		dataId_ = other.dataId_;
+		_unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public PersonalSetResponse Clone() {
-    return new PersonalSetResponse(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public PersonalSetResponse Clone()
+	{
+		return new PersonalSetResponse(this);
+	}
 
-  /// <summary>Field number for the "deviceType" field.</summary>
-  public const int DeviceTypeFieldNumber = 1;
-  private global::DeviceType deviceType_ = 0;
-  /// <summary>
-  ///设备类型
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::DeviceType DeviceType {
-    get { return deviceType_; }
-    set {
-      deviceType_ = value;
-    }
-  }
+	/// <summary>Field number for the "deviceType" field.</summary>
+	public const int DeviceTypeFieldNumber = 1;
+	private global::DeviceType deviceType_ = 0;
+	/// <summary>
+	///设备类型
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::DeviceType DeviceType
+	{
+		get { return deviceType_; }
+		set
+		{
+			deviceType_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "trainMode" field.</summary>
-  public const int TrainModeFieldNumber = 2;
-  private global::TrainMode trainMode_ = 0;
-  /// <summary>
-  ///训练模式	
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::TrainMode TrainMode {
-    get { return trainMode_; }
-    set {
-      trainMode_ = value;
-    }
-  }
+	/// <summary>Field number for the "trainMode" field.</summary>
+	public const int TrainModeFieldNumber = 2;
+	private global::TrainMode trainMode_ = 0;
+	/// <summary>
+	///训练模式
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::TrainMode TrainMode
+	{
+		get { return trainMode_; }
+		set
+		{
+			trainMode_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "uid" field.</summary>
-  public const int UidFieldNumber = 3;
-  private string uid_ = "";
-  /// <summary>
-  ///用户ID
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Uid {
-    get { return uid_; }
-    set {
-      uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "uid" field.</summary>
+	public const int UidFieldNumber = 3;
+	private string uid_ = "";
+	/// <summary>
+	///用户ID
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string Uid
+	{
+		get { return uid_; }
+		set
+		{
+			uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "success" field.</summary>
-  public const int SuccessFieldNumber = 4;
-  private bool success_;
-  /// <summary>
-  ///响应结果
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Success {
-    get { return success_; }
-    set {
-      success_ = value;
-    }
-  }
+	/// <summary>Field number for the "success" field.</summary>
+	public const int SuccessFieldNumber = 4;
+	private bool success_;
+	/// <summary>
+	///响应结果
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Success
+	{
+		get { return success_; }
+		set
+		{
+			success_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "dataId" field.</summary>
-  public const int DataIdFieldNumber = 5;
-  private string dataId_ = "";
-  /// <summary>
-  ///安卓端记录的id
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string DataId {
-    get { return dataId_; }
-    set {
-      dataId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "dataId" field.</summary>
+	public const int DataIdFieldNumber = 5;
+	private string dataId_ = "";
+	/// <summary>
+	///安卓端记录的id
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string DataId
+	{
+		get { return dataId_; }
+		set
+		{
+			dataId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as PersonalSetResponse);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override bool Equals(object other)
+	{
+		return Equals(other as PersonalSetResponse);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(PersonalSetResponse other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (DeviceType != other.DeviceType) return false;
-    if (TrainMode != other.TrainMode) return false;
-    if (Uid != other.Uid) return false;
-    if (Success != other.Success) return false;
-    if (DataId != other.DataId) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Equals(PersonalSetResponse other)
+	{
+		if (ReferenceEquals(other, null))
+		{
+			return false;
+		}
+		if (ReferenceEquals(other, this))
+		{
+			return true;
+		}
+		if (DeviceType != other.DeviceType) return false;
+		if (TrainMode != other.TrainMode) return false;
+		if (Uid != other.Uid) return false;
+		if (Success != other.Success) return false;
+		if (DataId != other.DataId) return false;
+		return Equals(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
-    if (TrainMode != 0) hash ^= TrainMode.GetHashCode();
-    if (Uid.Length != 0) hash ^= Uid.GetHashCode();
-    if (Success != false) hash ^= Success.GetHashCode();
-    if (DataId.Length != 0) hash ^= DataId.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override int GetHashCode()
+	{
+		int hash = 1;
+		if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
+		if (TrainMode != 0) hash ^= TrainMode.GetHashCode();
+		if (Uid.Length != 0) hash ^= Uid.GetHashCode();
+		if (Success != false) hash ^= Success.GetHashCode();
+		if (DataId.Length != 0) hash ^= DataId.GetHashCode();
+		if (_unknownFields != null)
+		{
+			hash ^= _unknownFields.GetHashCode();
+		}
+		return hash;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override string ToString()
+	{
+		return pb::JsonFormatter.ToDiagnosticString(this);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (DeviceType != 0) {
-      output.WriteRawTag(8);
-      output.WriteEnum((int) DeviceType);
-    }
-    if (TrainMode != 0) {
-      output.WriteRawTag(16);
-      output.WriteEnum((int) TrainMode);
-    }
-    if (Uid.Length != 0) {
-      output.WriteRawTag(26);
-      output.WriteString(Uid);
-    }
-    if (Success != false) {
-      output.WriteRawTag(32);
-      output.WriteBool(Success);
-    }
-    if (DataId.Length != 0) {
-      output.WriteRawTag(42);
-      output.WriteString(DataId);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void WriteTo(pb::CodedOutputStream output)
+	{
+		if (DeviceType != 0)
+		{
+			output.WriteRawTag(8);
+			output.WriteEnum((int)DeviceType);
+		}
+		if (TrainMode != 0)
+		{
+			output.WriteRawTag(16);
+			output.WriteEnum((int)TrainMode);
+		}
+		if (Uid.Length != 0)
+		{
+			output.WriteRawTag(26);
+			output.WriteString(Uid);
+		}
+		if (Success != false)
+		{
+			output.WriteRawTag(32);
+			output.WriteBool(Success);
+		}
+		if (DataId.Length != 0)
+		{
+			output.WriteRawTag(42);
+			output.WriteString(DataId);
+		}
+		if (_unknownFields != null)
+		{
+			_unknownFields.WriteTo(output);
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (DeviceType != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DeviceType);
-    }
-    if (TrainMode != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) TrainMode);
-    }
-    if (Uid.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
-    }
-    if (Success != false) {
-      size += 1 + 1;
-    }
-    if (DataId.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(DataId);
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int CalculateSize()
+	{
+		int size = 0;
+		if (DeviceType != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)DeviceType);
+		}
+		if (TrainMode != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)TrainMode);
+		}
+		if (Uid.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
+		}
+		if (Success != false)
+		{
+			size += 1 + 1;
+		}
+		if (DataId.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(DataId);
+		}
+		if (_unknownFields != null)
+		{
+			size += _unknownFields.CalculateSize();
+		}
+		return size;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(PersonalSetResponse other) {
-    if (other == null) {
-      return;
-    }
-    if (other.DeviceType != 0) {
-      DeviceType = other.DeviceType;
-    }
-    if (other.TrainMode != 0) {
-      TrainMode = other.TrainMode;
-    }
-    if (other.Uid.Length != 0) {
-      Uid = other.Uid;
-    }
-    if (other.Success != false) {
-      Success = other.Success;
-    }
-    if (other.DataId.Length != 0) {
-      DataId = other.DataId;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(PersonalSetResponse other)
+	{
+		if (other == null)
+		{
+			return;
+		}
+		if (other.DeviceType != 0)
+		{
+			DeviceType = other.DeviceType;
+		}
+		if (other.TrainMode != 0)
+		{
+			TrainMode = other.TrainMode;
+		}
+		if (other.Uid.Length != 0)
+		{
+			Uid = other.Uid;
+		}
+		if (other.Success != false)
+		{
+			Success = other.Success;
+		}
+		if (other.DataId.Length != 0)
+		{
+			DataId = other.DataId;
+		}
+		_unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 8: {
-          DeviceType = (global::DeviceType) input.ReadEnum();
-          break;
-        }
-        case 16: {
-          TrainMode = (global::TrainMode) input.ReadEnum();
-          break;
-        }
-        case 26: {
-          Uid = input.ReadString();
-          break;
-        }
-        case 32: {
-          Success = input.ReadBool();
-          break;
-        }
-        case 42: {
-          DataId = input.ReadString();
-          break;
-        }
-      }
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(pb::CodedInputStream input)
+	{
+		uint tag;
+		while ((tag = input.ReadTag()) != 0)
+		{
+			switch (tag)
+			{
+				default:
+					_unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+					break;
+				case 8:
+					{
+						DeviceType = (global::DeviceType)input.ReadEnum();
+						break;
+					}
+				case 16:
+					{
+						TrainMode = (global::TrainMode)input.ReadEnum();
+						break;
+					}
+				case 26:
+					{
+						Uid = input.ReadString();
+						break;
+					}
+				case 32:
+					{
+						Success = input.ReadBool();
+						break;
+					}
+				case 42:
+					{
+						DataId = input.ReadString();
+						break;
+					}
+			}
+		}
+	}
 
 }
 
 /// <summary>
 ///上传肌力测试请求
 /// </summary>
-public sealed partial class MuscleStrengthRequest : pb::IMessage<MuscleStrengthRequest> {
-  private static readonly pb::MessageParser<MuscleStrengthRequest> _parser = new pb::MessageParser<MuscleStrengthRequest>(() => new MuscleStrengthRequest());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<MuscleStrengthRequest> Parser { get { return _parser; } }
+public sealed partial class MuscleStrengthRequest : pb::IMessage<MuscleStrengthRequest>
+{
+	private static readonly pb::MessageParser<MuscleStrengthRequest> _parser = new pb::MessageParser<MuscleStrengthRequest>(() => new MuscleStrengthRequest());
+	private pb::UnknownFieldSet _unknownFields;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pb::MessageParser<MuscleStrengthRequest> Parser { get { return _parser; } }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BdlProtoReflection.Descriptor.MessageTypes[8]; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pbr::MessageDescriptor Descriptor
+	{
+		get { return global::BdlProtoReflection.Descriptor.MessageTypes[8]; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	pbr::MessageDescriptor pb::IMessage.Descriptor
+	{
+		get { return Descriptor; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public MuscleStrengthRequest() {
-    OnConstruction();
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public MuscleStrengthRequest()
+	{
+		OnConstruction();
+	}
 
-  partial void OnConstruction();
+	partial void OnConstruction();
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public MuscleStrengthRequest(MuscleStrengthRequest other) : this() {
-    uid_ = other.uid_;
-    muscleTestValue_ = other.muscleTestValue_;
-    muscleCreatTime_ = other.muscleCreatTime_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public MuscleStrengthRequest(MuscleStrengthRequest other) : this()
+	{
+		uid_ = other.uid_;
+		muscleTestValue_ = other.muscleTestValue_;
+		muscleCreatTime_ = other.muscleCreatTime_;
+		_unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public MuscleStrengthRequest Clone() {
-    return new MuscleStrengthRequest(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public MuscleStrengthRequest Clone()
+	{
+		return new MuscleStrengthRequest(this);
+	}
 
-  /// <summary>Field number for the "uid" field.</summary>
-  public const int UidFieldNumber = 1;
-  private string uid_ = "";
-  /// <summary>
-  ///用户ID
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Uid {
-    get { return uid_; }
-    set {
-      uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "uid" field.</summary>
+	public const int UidFieldNumber = 1;
+	private string uid_ = "";
+	/// <summary>
+	///用户ID
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string Uid
+	{
+		get { return uid_; }
+		set
+		{
+			uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "muscleTestValue" field.</summary>
-  public const int MuscleTestValueFieldNumber = 2;
-  private string muscleTestValue_ = "";
-  /// <summary>
-  ///肌力测试值
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string MuscleTestValue {
-    get { return muscleTestValue_; }
-    set {
-      muscleTestValue_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "muscleTestValue" field.</summary>
+	public const int MuscleTestValueFieldNumber = 2;
+	private string muscleTestValue_ = "";
+	/// <summary>
+	///肌力测试值
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string MuscleTestValue
+	{
+		get { return muscleTestValue_; }
+		set
+		{
+			muscleTestValue_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "muscleCreatTime" field.</summary>
-  public const int MuscleCreatTimeFieldNumber = 3;
-  private string muscleCreatTime_ = "";
-  /// <summary>
-  ///肌力测试值创建时间
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string MuscleCreatTime {
-    get { return muscleCreatTime_; }
-    set {
-      muscleCreatTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "muscleCreatTime" field.</summary>
+	public const int MuscleCreatTimeFieldNumber = 3;
+	private string muscleCreatTime_ = "";
+	/// <summary>
+	///肌力测试值创建时间
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string MuscleCreatTime
+	{
+		get { return muscleCreatTime_; }
+		set
+		{
+			muscleCreatTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as MuscleStrengthRequest);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override bool Equals(object other)
+	{
+		return Equals(other as MuscleStrengthRequest);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(MuscleStrengthRequest other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (Uid != other.Uid) return false;
-    if (MuscleTestValue != other.MuscleTestValue) return false;
-    if (MuscleCreatTime != other.MuscleCreatTime) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Equals(MuscleStrengthRequest other)
+	{
+		if (ReferenceEquals(other, null))
+		{
+			return false;
+		}
+		if (ReferenceEquals(other, this))
+		{
+			return true;
+		}
+		if (Uid != other.Uid) return false;
+		if (MuscleTestValue != other.MuscleTestValue) return false;
+		if (MuscleCreatTime != other.MuscleCreatTime) return false;
+		return Equals(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (Uid.Length != 0) hash ^= Uid.GetHashCode();
-    if (MuscleTestValue.Length != 0) hash ^= MuscleTestValue.GetHashCode();
-    if (MuscleCreatTime.Length != 0) hash ^= MuscleCreatTime.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override int GetHashCode()
+	{
+		int hash = 1;
+		if (Uid.Length != 0) hash ^= Uid.GetHashCode();
+		if (MuscleTestValue.Length != 0) hash ^= MuscleTestValue.GetHashCode();
+		if (MuscleCreatTime.Length != 0) hash ^= MuscleCreatTime.GetHashCode();
+		if (_unknownFields != null)
+		{
+			hash ^= _unknownFields.GetHashCode();
+		}
+		return hash;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override string ToString()
+	{
+		return pb::JsonFormatter.ToDiagnosticString(this);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (Uid.Length != 0) {
-      output.WriteRawTag(10);
-      output.WriteString(Uid);
-    }
-    if (MuscleTestValue.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteString(MuscleTestValue);
-    }
-    if (MuscleCreatTime.Length != 0) {
-      output.WriteRawTag(26);
-      output.WriteString(MuscleCreatTime);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void WriteTo(pb::CodedOutputStream output)
+	{
+		if (Uid.Length != 0)
+		{
+			output.WriteRawTag(10);
+			output.WriteString(Uid);
+		}
+		if (MuscleTestValue.Length != 0)
+		{
+			output.WriteRawTag(18);
+			output.WriteString(MuscleTestValue);
+		}
+		if (MuscleCreatTime.Length != 0)
+		{
+			output.WriteRawTag(26);
+			output.WriteString(MuscleCreatTime);
+		}
+		if (_unknownFields != null)
+		{
+			_unknownFields.WriteTo(output);
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (Uid.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
-    }
-    if (MuscleTestValue.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(MuscleTestValue);
-    }
-    if (MuscleCreatTime.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(MuscleCreatTime);
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int CalculateSize()
+	{
+		int size = 0;
+		if (Uid.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
+		}
+		if (MuscleTestValue.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(MuscleTestValue);
+		}
+		if (MuscleCreatTime.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(MuscleCreatTime);
+		}
+		if (_unknownFields != null)
+		{
+			size += _unknownFields.CalculateSize();
+		}
+		return size;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(MuscleStrengthRequest other) {
-    if (other == null) {
-      return;
-    }
-    if (other.Uid.Length != 0) {
-      Uid = other.Uid;
-    }
-    if (other.MuscleTestValue.Length != 0) {
-      MuscleTestValue = other.MuscleTestValue;
-    }
-    if (other.MuscleCreatTime.Length != 0) {
-      MuscleCreatTime = other.MuscleCreatTime;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(MuscleStrengthRequest other)
+	{
+		if (other == null)
+		{
+			return;
+		}
+		if (other.Uid.Length != 0)
+		{
+			Uid = other.Uid;
+		}
+		if (other.MuscleTestValue.Length != 0)
+		{
+			MuscleTestValue = other.MuscleTestValue;
+		}
+		if (other.MuscleCreatTime.Length != 0)
+		{
+			MuscleCreatTime = other.MuscleCreatTime;
+		}
+		_unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 10: {
-          Uid = input.ReadString();
-          break;
-        }
-        case 18: {
-          MuscleTestValue = input.ReadString();
-          break;
-        }
-        case 26: {
-          MuscleCreatTime = input.ReadString();
-          break;
-        }
-      }
-    }
-  }
-
-}
-
-public sealed partial class MuscleStrengthResponse : pb::IMessage<MuscleStrengthResponse> {
-  private static readonly pb::MessageParser<MuscleStrengthResponse> _parser = new pb::MessageParser<MuscleStrengthResponse>(() => new MuscleStrengthResponse());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<MuscleStrengthResponse> Parser { get { return _parser; } }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BdlProtoReflection.Descriptor.MessageTypes[9]; }
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public MuscleStrengthResponse() {
-    OnConstruction();
-  }
-
-  partial void OnConstruction();
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public MuscleStrengthResponse(MuscleStrengthResponse other) : this() {
-    uid_ = other.uid_;
-    success_ = other.success_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public MuscleStrengthResponse Clone() {
-    return new MuscleStrengthResponse(this);
-  }
-
-  /// <summary>Field number for the "uid" field.</summary>
-  public const int UidFieldNumber = 1;
-  private string uid_ = "";
-  /// <summary>
-  ///用户ID
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Uid {
-    get { return uid_; }
-    set {
-      uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
-
-  /// <summary>Field number for the "success" field.</summary>
-  public const int SuccessFieldNumber = 2;
-  private bool success_;
-  /// <summary>
-  ///响应结果
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Success {
-    get { return success_; }
-    set {
-      success_ = value;
-    }
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as MuscleStrengthResponse);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(MuscleStrengthResponse other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (Uid != other.Uid) return false;
-    if (Success != other.Success) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (Uid.Length != 0) hash ^= Uid.GetHashCode();
-    if (Success != false) hash ^= Success.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (Uid.Length != 0) {
-      output.WriteRawTag(10);
-      output.WriteString(Uid);
-    }
-    if (Success != false) {
-      output.WriteRawTag(16);
-      output.WriteBool(Success);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (Uid.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
-    }
-    if (Success != false) {
-      size += 1 + 1;
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(MuscleStrengthResponse other) {
-    if (other == null) {
-      return;
-    }
-    if (other.Uid.Length != 0) {
-      Uid = other.Uid;
-    }
-    if (other.Success != false) {
-      Success = other.Success;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 10: {
-          Uid = input.ReadString();
-          break;
-        }
-        case 16: {
-          Success = input.ReadBool();
-          break;
-        }
-      }
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(pb::CodedInputStream input)
+	{
+		uint tag;
+		while ((tag = input.ReadTag()) != 0)
+		{
+			switch (tag)
+			{
+				default:
+					_unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+					break;
+				case 10:
+					{
+						Uid = input.ReadString();
+						break;
+					}
+				case 18:
+					{
+						MuscleTestValue = input.ReadString();
+						break;
+					}
+				case 26:
+					{
+						MuscleCreatTime = input.ReadString();
+						break;
+					}
+			}
+		}
+	}
 
 }
 
-public sealed partial class ErrorInfoRequest : pb::IMessage<ErrorInfoRequest> {
-  private static readonly pb::MessageParser<ErrorInfoRequest> _parser = new pb::MessageParser<ErrorInfoRequest>(() => new ErrorInfoRequest());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<ErrorInfoRequest> Parser { get { return _parser; } }
+public sealed partial class MuscleStrengthResponse : pb::IMessage<MuscleStrengthResponse>
+{
+	private static readonly pb::MessageParser<MuscleStrengthResponse> _parser = new pb::MessageParser<MuscleStrengthResponse>(() => new MuscleStrengthResponse());
+	private pb::UnknownFieldSet _unknownFields;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pb::MessageParser<MuscleStrengthResponse> Parser { get { return _parser; } }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BdlProtoReflection.Descriptor.MessageTypes[10]; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pbr::MessageDescriptor Descriptor
+	{
+		get { return global::BdlProtoReflection.Descriptor.MessageTypes[9]; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	pbr::MessageDescriptor pb::IMessage.Descriptor
+	{
+		get { return Descriptor; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public ErrorInfoRequest() {
-    OnConstruction();
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public MuscleStrengthResponse()
+	{
+		OnConstruction();
+	}
 
-  partial void OnConstruction();
+	partial void OnConstruction();
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public ErrorInfoRequest(ErrorInfoRequest other) : this() {
-    uid_ = other.uid_;
-    deviceType_ = other.deviceType_;
-    trainMode_ = other.trainMode_;
-    sportMode_ = other.sportMode_;
-    error_ = other.error_;
-    errorStartTime_ = other.errorStartTime_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public MuscleStrengthResponse(MuscleStrengthResponse other) : this()
+	{
+		uid_ = other.uid_;
+		success_ = other.success_;
+		_unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public ErrorInfoRequest Clone() {
-    return new ErrorInfoRequest(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public MuscleStrengthResponse Clone()
+	{
+		return new MuscleStrengthResponse(this);
+	}
 
-  /// <summary>Field number for the "uid" field.</summary>
-  public const int UidFieldNumber = 1;
-  private string uid_ = "";
-  /// <summary>
-  ///用户ID
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Uid {
-    get { return uid_; }
-    set {
-      uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "uid" field.</summary>
+	public const int UidFieldNumber = 1;
+	private string uid_ = "";
+	/// <summary>
+	///用户ID
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string Uid
+	{
+		get { return uid_; }
+		set
+		{
+			uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "deviceType" field.</summary>
-  public const int DeviceTypeFieldNumber = 2;
-  private global::DeviceType deviceType_ = 0;
-  /// <summary>
-  ///设备类型
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::DeviceType DeviceType {
-    get { return deviceType_; }
-    set {
-      deviceType_ = value;
-    }
-  }
+	/// <summary>Field number for the "success" field.</summary>
+	public const int SuccessFieldNumber = 2;
+	private bool success_;
+	/// <summary>
+	///响应结果
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Success
+	{
+		get { return success_; }
+		set
+		{
+			success_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "trainMode" field.</summary>
-  public const int TrainModeFieldNumber = 3;
-  private global::TrainMode trainMode_ = 0;
-  /// <summary>
-  ///训练模式	
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::TrainMode TrainMode {
-    get { return trainMode_; }
-    set {
-      trainMode_ = value;
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override bool Equals(object other)
+	{
+		return Equals(other as MuscleStrengthResponse);
+	}
 
-  /// <summary>Field number for the "sportMode" field.</summary>
-  public const int SportModeFieldNumber = 4;
-  private global::SportMode sportMode_ = 0;
-  /// <summary>
-  ///用户运动模式，计时模式或计数模式
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::SportMode SportMode {
-    get { return sportMode_; }
-    set {
-      sportMode_ = value;
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Equals(MuscleStrengthResponse other)
+	{
+		if (ReferenceEquals(other, null))
+		{
+			return false;
+		}
+		if (ReferenceEquals(other, this))
+		{
+			return true;
+		}
+		if (Uid != other.Uid) return false;
+		if (Success != other.Success) return false;
+		return Equals(_unknownFields, other._unknownFields);
+	}
 
-  /// <summary>Field number for the "error" field.</summary>
-  public const int ErrorFieldNumber = 5;
-  private string error_ = "";
-  /// <summary>
-  ///错误信息,主要是电机发生的错误
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Error {
-    get { return error_; }
-    set {
-      error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override int GetHashCode()
+	{
+		int hash = 1;
+		if (Uid.Length != 0) hash ^= Uid.GetHashCode();
+		if (Success != false) hash ^= Success.GetHashCode();
+		if (_unknownFields != null)
+		{
+			hash ^= _unknownFields.GetHashCode();
+		}
+		return hash;
+	}
 
-  /// <summary>Field number for the "errorStartTime" field.</summary>
-  public const int ErrorStartTimeFieldNumber = 6;
-  private string errorStartTime_ = "";
-  /// <summary>
-  ///错误发生时间
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string ErrorStartTime {
-    get { return errorStartTime_; }
-    set {
-      errorStartTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override string ToString()
+	{
+		return pb::JsonFormatter.ToDiagnosticString(this);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as ErrorInfoRequest);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void WriteTo(pb::CodedOutputStream output)
+	{
+		if (Uid.Length != 0)
+		{
+			output.WriteRawTag(10);
+			output.WriteString(Uid);
+		}
+		if (Success != false)
+		{
+			output.WriteRawTag(16);
+			output.WriteBool(Success);
+		}
+		if (_unknownFields != null)
+		{
+			_unknownFields.WriteTo(output);
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(ErrorInfoRequest other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (Uid != other.Uid) return false;
-    if (DeviceType != other.DeviceType) return false;
-    if (TrainMode != other.TrainMode) return false;
-    if (SportMode != other.SportMode) return false;
-    if (Error != other.Error) return false;
-    if (ErrorStartTime != other.ErrorStartTime) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int CalculateSize()
+	{
+		int size = 0;
+		if (Uid.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
+		}
+		if (Success != false)
+		{
+			size += 1 + 1;
+		}
+		if (_unknownFields != null)
+		{
+			size += _unknownFields.CalculateSize();
+		}
+		return size;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (Uid.Length != 0) hash ^= Uid.GetHashCode();
-    if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
-    if (TrainMode != 0) hash ^= TrainMode.GetHashCode();
-    if (SportMode != 0) hash ^= SportMode.GetHashCode();
-    if (Error.Length != 0) hash ^= Error.GetHashCode();
-    if (ErrorStartTime.Length != 0) hash ^= ErrorStartTime.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(MuscleStrengthResponse other)
+	{
+		if (other == null)
+		{
+			return;
+		}
+		if (other.Uid.Length != 0)
+		{
+			Uid = other.Uid;
+		}
+		if (other.Success != false)
+		{
+			Success = other.Success;
+		}
+		_unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (Uid.Length != 0) {
-      output.WriteRawTag(10);
-      output.WriteString(Uid);
-    }
-    if (DeviceType != 0) {
-      output.WriteRawTag(16);
-      output.WriteEnum((int) DeviceType);
-    }
-    if (TrainMode != 0) {
-      output.WriteRawTag(24);
-      output.WriteEnum((int) TrainMode);
-    }
-    if (SportMode != 0) {
-      output.WriteRawTag(32);
-      output.WriteEnum((int) SportMode);
-    }
-    if (Error.Length != 0) {
-      output.WriteRawTag(42);
-      output.WriteString(Error);
-    }
-    if (ErrorStartTime.Length != 0) {
-      output.WriteRawTag(50);
-      output.WriteString(ErrorStartTime);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (Uid.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
-    }
-    if (DeviceType != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DeviceType);
-    }
-    if (TrainMode != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) TrainMode);
-    }
-    if (SportMode != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SportMode);
-    }
-    if (Error.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-    }
-    if (ErrorStartTime.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(ErrorStartTime);
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(ErrorInfoRequest other) {
-    if (other == null) {
-      return;
-    }
-    if (other.Uid.Length != 0) {
-      Uid = other.Uid;
-    }
-    if (other.DeviceType != 0) {
-      DeviceType = other.DeviceType;
-    }
-    if (other.TrainMode != 0) {
-      TrainMode = other.TrainMode;
-    }
-    if (other.SportMode != 0) {
-      SportMode = other.SportMode;
-    }
-    if (other.Error.Length != 0) {
-      Error = other.Error;
-    }
-    if (other.ErrorStartTime.Length != 0) {
-      ErrorStartTime = other.ErrorStartTime;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 10: {
-          Uid = input.ReadString();
-          break;
-        }
-        case 16: {
-          DeviceType = (global::DeviceType) input.ReadEnum();
-          break;
-        }
-        case 24: {
-          TrainMode = (global::TrainMode) input.ReadEnum();
-          break;
-        }
-        case 32: {
-          SportMode = (global::SportMode) input.ReadEnum();
-          break;
-        }
-        case 42: {
-          Error = input.ReadString();
-          break;
-        }
-        case 50: {
-          ErrorStartTime = input.ReadString();
-          break;
-        }
-      }
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(pb::CodedInputStream input)
+	{
+		uint tag;
+		while ((tag = input.ReadTag()) != 0)
+		{
+			switch (tag)
+			{
+				default:
+					_unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+					break;
+				case 10:
+					{
+						Uid = input.ReadString();
+						break;
+					}
+				case 16:
+					{
+						Success = input.ReadBool();
+						break;
+					}
+			}
+		}
+	}
 
 }
 
-public sealed partial class ErrorInfoResponse : pb::IMessage<ErrorInfoResponse> {
-  private static readonly pb::MessageParser<ErrorInfoResponse> _parser = new pb::MessageParser<ErrorInfoResponse>(() => new ErrorInfoResponse());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<ErrorInfoResponse> Parser { get { return _parser; } }
+public sealed partial class ErrorInfoRequest : pb::IMessage<ErrorInfoRequest>
+{
+	private static readonly pb::MessageParser<ErrorInfoRequest> _parser = new pb::MessageParser<ErrorInfoRequest>(() => new ErrorInfoRequest());
+	private pb::UnknownFieldSet _unknownFields;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pb::MessageParser<ErrorInfoRequest> Parser { get { return _parser; } }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BdlProtoReflection.Descriptor.MessageTypes[11]; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pbr::MessageDescriptor Descriptor
+	{
+		get { return global::BdlProtoReflection.Descriptor.MessageTypes[10]; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	pbr::MessageDescriptor pb::IMessage.Descriptor
+	{
+		get { return Descriptor; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public ErrorInfoResponse() {
-    OnConstruction();
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public ErrorInfoRequest()
+	{
+		OnConstruction();
+	}
 
-  partial void OnConstruction();
+	partial void OnConstruction();
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public ErrorInfoResponse(ErrorInfoResponse other) : this() {
-    uid_ = other.uid_;
-    deviceType_ = other.deviceType_;
-    trainMode_ = other.trainMode_;
-    sportMode_ = other.sportMode_;
-    success_ = other.success_;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public ErrorInfoRequest(ErrorInfoRequest other) : this()
+	{
+		uid_ = other.uid_;
+		deviceType_ = other.deviceType_;
+		trainMode_ = other.trainMode_;
+		error_ = other.error_;
+		errorStartTime_ = other.errorStartTime_;
+		_unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public ErrorInfoResponse Clone() {
-    return new ErrorInfoResponse(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public ErrorInfoRequest Clone()
+	{
+		return new ErrorInfoRequest(this);
+	}
 
-  /// <summary>Field number for the "uid" field.</summary>
-  public const int UidFieldNumber = 1;
-  private string uid_ = "";
-  /// <summary>
-  ///用户ID
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Uid {
-    get { return uid_; }
-    set {
-      uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
+	/// <summary>Field number for the "uid" field.</summary>
+	public const int UidFieldNumber = 1;
+	private string uid_ = "";
+	/// <summary>
+	///用户ID
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string Uid
+	{
+		get { return uid_; }
+		set
+		{
+			uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "deviceType" field.</summary>
-  public const int DeviceTypeFieldNumber = 2;
-  private global::DeviceType deviceType_ = 0;
-  /// <summary>
-  ///设备类型
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::DeviceType DeviceType {
-    get { return deviceType_; }
-    set {
-      deviceType_ = value;
-    }
-  }
+	/// <summary>Field number for the "deviceType" field.</summary>
+	public const int DeviceTypeFieldNumber = 2;
+	private global::DeviceType deviceType_ = 0;
+	/// <summary>
+	///设备类型
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::DeviceType DeviceType
+	{
+		get { return deviceType_; }
+		set
+		{
+			deviceType_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "trainMode" field.</summary>
-  public const int TrainModeFieldNumber = 3;
-  private global::TrainMode trainMode_ = 0;
-  /// <summary>
-  ///训练模式	
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::TrainMode TrainMode {
-    get { return trainMode_; }
-    set {
-      trainMode_ = value;
-    }
-  }
+	/// <summary>Field number for the "trainMode" field.</summary>
+	public const int TrainModeFieldNumber = 3;
+	private global::TrainMode trainMode_ = 0;
+	/// <summary>
+	///训练模式
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::TrainMode TrainMode
+	{
+		get { return trainMode_; }
+		set
+		{
+			trainMode_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "sportMode" field.</summary>
-  public const int SportModeFieldNumber = 4;
-  private global::SportMode sportMode_ = 0;
-  /// <summary>
-  ///用户运动模式，计时模式或计数模式
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::SportMode SportMode {
-    get { return sportMode_; }
-    set {
-      sportMode_ = value;
-    }
-  }
+	/// <summary>Field number for the "error" field.</summary>
+	public const int ErrorFieldNumber = 5;
+	private string error_ = "";
+	/// <summary>
+	///错误信息,主要是电机发生的错误
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string Error
+	{
+		get { return error_; }
+		set
+		{
+			error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "success" field.</summary>
-  public const int SuccessFieldNumber = 5;
-  private bool success_;
-  /// <summary>
-  ///响应结果
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Success {
-    get { return success_; }
-    set {
-      success_ = value;
-    }
-  }
+	/// <summary>Field number for the "errorStartTime" field.</summary>
+	public const int ErrorStartTimeFieldNumber = 6;
+	private string errorStartTime_ = "";
+	/// <summary>
+	///错误发生时间
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string ErrorStartTime
+	{
+		get { return errorStartTime_; }
+		set
+		{
+			errorStartTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as ErrorInfoResponse);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override bool Equals(object other)
+	{
+		return Equals(other as ErrorInfoRequest);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(ErrorInfoResponse other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (Uid != other.Uid) return false;
-    if (DeviceType != other.DeviceType) return false;
-    if (TrainMode != other.TrainMode) return false;
-    if (SportMode != other.SportMode) return false;
-    if (Success != other.Success) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Equals(ErrorInfoRequest other)
+	{
+		if (ReferenceEquals(other, null))
+		{
+			return false;
+		}
+		if (ReferenceEquals(other, this))
+		{
+			return true;
+		}
+		if (Uid != other.Uid) return false;
+		if (DeviceType != other.DeviceType) return false;
+		if (TrainMode != other.TrainMode) return false;
+		if (Error != other.Error) return false;
+		if (ErrorStartTime != other.ErrorStartTime) return false;
+		return Equals(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (Uid.Length != 0) hash ^= Uid.GetHashCode();
-    if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
-    if (TrainMode != 0) hash ^= TrainMode.GetHashCode();
-    if (SportMode != 0) hash ^= SportMode.GetHashCode();
-    if (Success != false) hash ^= Success.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override int GetHashCode()
+	{
+		int hash = 1;
+		if (Uid.Length != 0) hash ^= Uid.GetHashCode();
+		if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
+		if (TrainMode != 0) hash ^= TrainMode.GetHashCode();
+		if (Error.Length != 0) hash ^= Error.GetHashCode();
+		if (ErrorStartTime.Length != 0) hash ^= ErrorStartTime.GetHashCode();
+		if (_unknownFields != null)
+		{
+			hash ^= _unknownFields.GetHashCode();
+		}
+		return hash;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override string ToString()
+	{
+		return pb::JsonFormatter.ToDiagnosticString(this);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (Uid.Length != 0) {
-      output.WriteRawTag(10);
-      output.WriteString(Uid);
-    }
-    if (DeviceType != 0) {
-      output.WriteRawTag(16);
-      output.WriteEnum((int) DeviceType);
-    }
-    if (TrainMode != 0) {
-      output.WriteRawTag(24);
-      output.WriteEnum((int) TrainMode);
-    }
-    if (SportMode != 0) {
-      output.WriteRawTag(32);
-      output.WriteEnum((int) SportMode);
-    }
-    if (Success != false) {
-      output.WriteRawTag(40);
-      output.WriteBool(Success);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void WriteTo(pb::CodedOutputStream output)
+	{
+		if (Uid.Length != 0)
+		{
+			output.WriteRawTag(10);
+			output.WriteString(Uid);
+		}
+		if (DeviceType != 0)
+		{
+			output.WriteRawTag(16);
+			output.WriteEnum((int)DeviceType);
+		}
+		if (TrainMode != 0)
+		{
+			output.WriteRawTag(24);
+			output.WriteEnum((int)TrainMode);
+		}
+		if (Error.Length != 0)
+		{
+			output.WriteRawTag(42);
+			output.WriteString(Error);
+		}
+		if (ErrorStartTime.Length != 0)
+		{
+			output.WriteRawTag(50);
+			output.WriteString(ErrorStartTime);
+		}
+		if (_unknownFields != null)
+		{
+			_unknownFields.WriteTo(output);
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (Uid.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
-    }
-    if (DeviceType != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DeviceType);
-    }
-    if (TrainMode != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) TrainMode);
-    }
-    if (SportMode != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SportMode);
-    }
-    if (Success != false) {
-      size += 1 + 1;
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int CalculateSize()
+	{
+		int size = 0;
+		if (Uid.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
+		}
+		if (DeviceType != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)DeviceType);
+		}
+		if (TrainMode != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)TrainMode);
+		}
+		if (Error.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
+		}
+		if (ErrorStartTime.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(ErrorStartTime);
+		}
+		if (_unknownFields != null)
+		{
+			size += _unknownFields.CalculateSize();
+		}
+		return size;
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(ErrorInfoResponse other) {
-    if (other == null) {
-      return;
-    }
-    if (other.Uid.Length != 0) {
-      Uid = other.Uid;
-    }
-    if (other.DeviceType != 0) {
-      DeviceType = other.DeviceType;
-    }
-    if (other.TrainMode != 0) {
-      TrainMode = other.TrainMode;
-    }
-    if (other.SportMode != 0) {
-      SportMode = other.SportMode;
-    }
-    if (other.Success != false) {
-      Success = other.Success;
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(ErrorInfoRequest other)
+	{
+		if (other == null)
+		{
+			return;
+		}
+		if (other.Uid.Length != 0)
+		{
+			Uid = other.Uid;
+		}
+		if (other.DeviceType != 0)
+		{
+			DeviceType = other.DeviceType;
+		}
+		if (other.TrainMode != 0)
+		{
+			TrainMode = other.TrainMode;
+		}
+		if (other.Error.Length != 0)
+		{
+			Error = other.Error;
+		}
+		if (other.ErrorStartTime.Length != 0)
+		{
+			ErrorStartTime = other.ErrorStartTime;
+		}
+		_unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 10: {
-          Uid = input.ReadString();
-          break;
-        }
-        case 16: {
-          DeviceType = (global::DeviceType) input.ReadEnum();
-          break;
-        }
-        case 24: {
-          TrainMode = (global::TrainMode) input.ReadEnum();
-          break;
-        }
-        case 32: {
-          SportMode = (global::SportMode) input.ReadEnum();
-          break;
-        }
-        case 40: {
-          Success = input.ReadBool();
-          break;
-        }
-      }
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(pb::CodedInputStream input)
+	{
+		uint tag;
+		while ((tag = input.ReadTag()) != 0)
+		{
+			switch (tag)
+			{
+				default:
+					_unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+					break;
+				case 10:
+					{
+						Uid = input.ReadString();
+						break;
+					}
+				case 16:
+					{
+						DeviceType = (global::DeviceType)input.ReadEnum();
+						break;
+					}
+				case 24:
+					{
+						TrainMode = (global::TrainMode)input.ReadEnum();
+						break;
+					}
+				case 42:
+					{
+						Error = input.ReadString();
+						break;
+					}
+				case 50:
+					{
+						ErrorStartTime = input.ReadString();
+						break;
+					}
+			}
+		}
+	}
 
 }
 
-public sealed partial class Message : pb::IMessage<Message> {
-  private static readonly pb::MessageParser<Message> _parser = new pb::MessageParser<Message>(() => new Message());
-  private pb::UnknownFieldSet _unknownFields;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<Message> Parser { get { return _parser; } }
+public sealed partial class ErrorInfoResponse : pb::IMessage<ErrorInfoResponse>
+{
+	private static readonly pb::MessageParser<ErrorInfoResponse> _parser = new pb::MessageParser<ErrorInfoResponse>(() => new ErrorInfoResponse());
+	private pb::UnknownFieldSet _unknownFields;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pb::MessageParser<ErrorInfoResponse> Parser { get { return _parser; } }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pbr::MessageDescriptor Descriptor {
-    get { return global::BdlProtoReflection.Descriptor.MessageTypes[12]; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pbr::MessageDescriptor Descriptor
+	{
+		get { return global::BdlProtoReflection.Descriptor.MessageTypes[11]; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  pbr::MessageDescriptor pb::IMessage.Descriptor {
-    get { return Descriptor; }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	pbr::MessageDescriptor pb::IMessage.Descriptor
+	{
+		get { return Descriptor; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public Message() {
-    OnConstruction();
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public ErrorInfoResponse()
+	{
+		OnConstruction();
+	}
 
-  partial void OnConstruction();
+	partial void OnConstruction();
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public Message(Message other) : this() {
-    type_ = other.type_;
-    sequence_ = other.sequence_;
-    keepaliveRequest_ = other.keepaliveRequest_ != null ? other.keepaliveRequest_.Clone() : null;
-    keepaliveResponse_ = other.keepaliveResponse_ != null ? other.keepaliveResponse_.Clone() : null;
-    loginRequest_ = other.loginRequest_ != null ? other.loginRequest_.Clone() : null;
-    loginResponse_ = other.loginResponse_ != null ? other.loginResponse_.Clone() : null;
-    uploadRequest_ = other.uploadRequest_ != null ? other.uploadRequest_.Clone() : null;
-    uploadResponse_ = other.uploadResponse_ != null ? other.uploadResponse_.Clone() : null;
-    personalSetRequest_ = other.personalSetRequest_ != null ? other.personalSetRequest_.Clone() : null;
-    personalSetResponse_ = other.personalSetResponse_ != null ? other.personalSetResponse_.Clone() : null;
-    muscleStrengthRequest_ = other.muscleStrengthRequest_ != null ? other.muscleStrengthRequest_.Clone() : null;
-    muscleStrengthResponse_ = other.muscleStrengthResponse_ != null ? other.muscleStrengthResponse_.Clone() : null;
-    errorInfoRequest_ = other.errorInfoRequest_ != null ? other.errorInfoRequest_.Clone() : null;
-    errorInfoResponse_ = other.errorInfoResponse_ != null ? other.errorInfoResponse_.Clone() : null;
-    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public ErrorInfoResponse(ErrorInfoResponse other) : this()
+	{
+		uid_ = other.uid_;
+		deviceType_ = other.deviceType_;
+		trainMode_ = other.trainMode_;
+		success_ = other.success_;
+		_unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public Message Clone() {
-    return new Message(this);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public ErrorInfoResponse Clone()
+	{
+		return new ErrorInfoResponse(this);
+	}
 
-  /// <summary>Field number for the "type" field.</summary>
-  public const int TypeFieldNumber = 1;
-  private global::HeadType type_ = 0;
-  /// <summary>
-  ///消息类型
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::HeadType Type {
-    get { return type_; }
-    set {
-      type_ = value;
-    }
-  }
+	/// <summary>Field number for the "uid" field.</summary>
+	public const int UidFieldNumber = 1;
+	private string uid_ = "";
+	/// <summary>
+	///用户ID
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public string Uid
+	{
+		get { return uid_; }
+		set
+		{
+			uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+		}
+	}
 
-  /// <summary>Field number for the "sequence" field.</summary>
-  public const int SequenceFieldNumber = 2;
-  private int sequence_;
-  /// <summary>
-  ///消息序列号
-  /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int Sequence {
-    get { return sequence_; }
-    set {
-      sequence_ = value;
-    }
-  }
+	/// <summary>Field number for the "deviceType" field.</summary>
+	public const int DeviceTypeFieldNumber = 2;
+	private global::DeviceType deviceType_ = 0;
+	/// <summary>
+	///设备类型
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::DeviceType DeviceType
+	{
+		get { return deviceType_; }
+		set
+		{
+			deviceType_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "keepaliveRequest" field.</summary>
-  public const int KeepaliveRequestFieldNumber = 3;
-  private global::KeepaliveRequest keepaliveRequest_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::KeepaliveRequest KeepaliveRequest {
-    get { return keepaliveRequest_; }
-    set {
-      keepaliveRequest_ = value;
-    }
-  }
+	/// <summary>Field number for the "trainMode" field.</summary>
+	public const int TrainModeFieldNumber = 3;
+	private global::TrainMode trainMode_ = 0;
+	/// <summary>
+	///训练模式
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::TrainMode TrainMode
+	{
+		get { return trainMode_; }
+		set
+		{
+			trainMode_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "keepaliveResponse" field.</summary>
-  public const int KeepaliveResponseFieldNumber = 4;
-  private global::KeepaliveResponse keepaliveResponse_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::KeepaliveResponse KeepaliveResponse {
-    get { return keepaliveResponse_; }
-    set {
-      keepaliveResponse_ = value;
-    }
-  }
+	/// <summary>Field number for the "success" field.</summary>
+	public const int SuccessFieldNumber = 5;
+	private bool success_;
+	/// <summary>
+	///响应结果
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Success
+	{
+		get { return success_; }
+		set
+		{
+			success_ = value;
+		}
+	}
 
-  /// <summary>Field number for the "loginRequest" field.</summary>
-  public const int LoginRequestFieldNumber = 5;
-  private global::LoginRequest loginRequest_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::LoginRequest LoginRequest {
-    get { return loginRequest_; }
-    set {
-      loginRequest_ = value;
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override bool Equals(object other)
+	{
+		return Equals(other as ErrorInfoResponse);
+	}
 
-  /// <summary>Field number for the "loginResponse" field.</summary>
-  public const int LoginResponseFieldNumber = 6;
-  private global::LoginResponse loginResponse_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::LoginResponse LoginResponse {
-    get { return loginResponse_; }
-    set {
-      loginResponse_ = value;
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Equals(ErrorInfoResponse other)
+	{
+		if (ReferenceEquals(other, null))
+		{
+			return false;
+		}
+		if (ReferenceEquals(other, this))
+		{
+			return true;
+		}
+		if (Uid != other.Uid) return false;
+		if (DeviceType != other.DeviceType) return false;
+		if (TrainMode != other.TrainMode) return false;
+		if (Success != other.Success) return false;
+		return Equals(_unknownFields, other._unknownFields);
+	}
 
-  /// <summary>Field number for the "uploadRequest" field.</summary>
-  public const int UploadRequestFieldNumber = 7;
-  private global::UploadRequest uploadRequest_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::UploadRequest UploadRequest {
-    get { return uploadRequest_; }
-    set {
-      uploadRequest_ = value;
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override int GetHashCode()
+	{
+		int hash = 1;
+		if (Uid.Length != 0) hash ^= Uid.GetHashCode();
+		if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
+		if (TrainMode != 0) hash ^= TrainMode.GetHashCode();
+		if (Success != false) hash ^= Success.GetHashCode();
+		if (_unknownFields != null)
+		{
+			hash ^= _unknownFields.GetHashCode();
+		}
+		return hash;
+	}
 
-  /// <summary>Field number for the "uploadResponse" field.</summary>
-  public const int UploadResponseFieldNumber = 8;
-  private global::UploadResponse uploadResponse_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::UploadResponse UploadResponse {
-    get { return uploadResponse_; }
-    set {
-      uploadResponse_ = value;
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override string ToString()
+	{
+		return pb::JsonFormatter.ToDiagnosticString(this);
+	}
 
-  /// <summary>Field number for the "personalSetRequest" field.</summary>
-  public const int PersonalSetRequestFieldNumber = 9;
-  private global::PersonalSetRequest personalSetRequest_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::PersonalSetRequest PersonalSetRequest {
-    get { return personalSetRequest_; }
-    set {
-      personalSetRequest_ = value;
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void WriteTo(pb::CodedOutputStream output)
+	{
+		if (Uid.Length != 0)
+		{
+			output.WriteRawTag(10);
+			output.WriteString(Uid);
+		}
+		if (DeviceType != 0)
+		{
+			output.WriteRawTag(16);
+			output.WriteEnum((int)DeviceType);
+		}
+		if (TrainMode != 0)
+		{
+			output.WriteRawTag(24);
+			output.WriteEnum((int)TrainMode);
+		}
+		if (Success != false)
+		{
+			output.WriteRawTag(40);
+			output.WriteBool(Success);
+		}
+		if (_unknownFields != null)
+		{
+			_unknownFields.WriteTo(output);
+		}
+	}
 
-  /// <summary>Field number for the "personalSetResponse" field.</summary>
-  public const int PersonalSetResponseFieldNumber = 10;
-  private global::PersonalSetResponse personalSetResponse_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::PersonalSetResponse PersonalSetResponse {
-    get { return personalSetResponse_; }
-    set {
-      personalSetResponse_ = value;
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int CalculateSize()
+	{
+		int size = 0;
+		if (Uid.Length != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
+		}
+		if (DeviceType != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)DeviceType);
+		}
+		if (TrainMode != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)TrainMode);
+		}
+		if (Success != false)
+		{
+			size += 1 + 1;
+		}
+		if (_unknownFields != null)
+		{
+			size += _unknownFields.CalculateSize();
+		}
+		return size;
+	}
 
-  /// <summary>Field number for the "muscleStrengthRequest" field.</summary>
-  public const int MuscleStrengthRequestFieldNumber = 11;
-  private global::MuscleStrengthRequest muscleStrengthRequest_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::MuscleStrengthRequest MuscleStrengthRequest {
-    get { return muscleStrengthRequest_; }
-    set {
-      muscleStrengthRequest_ = value;
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(ErrorInfoResponse other)
+	{
+		if (other == null)
+		{
+			return;
+		}
+		if (other.Uid.Length != 0)
+		{
+			Uid = other.Uid;
+		}
+		if (other.DeviceType != 0)
+		{
+			DeviceType = other.DeviceType;
+		}
+		if (other.TrainMode != 0)
+		{
+			TrainMode = other.TrainMode;
+		}
+		if (other.Success != false)
+		{
+			Success = other.Success;
+		}
+		_unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+	}
 
-  /// <summary>Field number for the "muscleStrengthResponse" field.</summary>
-  public const int MuscleStrengthResponseFieldNumber = 12;
-  private global::MuscleStrengthResponse muscleStrengthResponse_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::MuscleStrengthResponse MuscleStrengthResponse {
-    get { return muscleStrengthResponse_; }
-    set {
-      muscleStrengthResponse_ = value;
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(pb::CodedInputStream input)
+	{
+		uint tag;
+		while ((tag = input.ReadTag()) != 0)
+		{
+			switch (tag)
+			{
+				default:
+					_unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+					break;
+				case 10:
+					{
+						Uid = input.ReadString();
+						break;
+					}
+				case 16:
+					{
+						DeviceType = (global::DeviceType)input.ReadEnum();
+						break;
+					}
+				case 24:
+					{
+						TrainMode = (global::TrainMode)input.ReadEnum();
+						break;
+					}
+				case 40:
+					{
+						Success = input.ReadBool();
+						break;
+					}
+			}
+		}
+	}
 
-  /// <summary>Field number for the "errorInfoRequest" field.</summary>
-  public const int ErrorInfoRequestFieldNumber = 13;
-  private global::ErrorInfoRequest errorInfoRequest_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::ErrorInfoRequest ErrorInfoRequest {
-    get { return errorInfoRequest_; }
-    set {
-      errorInfoRequest_ = value;
-    }
-  }
+}
 
-  /// <summary>Field number for the "errorInfoResponse" field.</summary>
-  public const int ErrorInfoResponseFieldNumber = 14;
-  private global::ErrorInfoResponse errorInfoResponse_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::ErrorInfoResponse ErrorInfoResponse {
-    get { return errorInfoResponse_; }
-    set {
-      errorInfoResponse_ = value;
-    }
-  }
+public sealed partial class Message : pb::IMessage<Message>
+{
+	private static readonly pb::MessageParser<Message> _parser = new pb::MessageParser<Message>(() => new Message());
+	private pb::UnknownFieldSet _unknownFields;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pb::MessageParser<Message> Parser { get { return _parser; } }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as Message);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public static pbr::MessageDescriptor Descriptor
+	{
+		get { return global::BdlProtoReflection.Descriptor.MessageTypes[12]; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(Message other) {
-    if (ReferenceEquals(other, null)) {
-      return false;
-    }
-    if (ReferenceEquals(other, this)) {
-      return true;
-    }
-    if (Type != other.Type) return false;
-    if (Sequence != other.Sequence) return false;
-    if (!object.Equals(KeepaliveRequest, other.KeepaliveRequest)) return false;
-    if (!object.Equals(KeepaliveResponse, other.KeepaliveResponse)) return false;
-    if (!object.Equals(LoginRequest, other.LoginRequest)) return false;
-    if (!object.Equals(LoginResponse, other.LoginResponse)) return false;
-    if (!object.Equals(UploadRequest, other.UploadRequest)) return false;
-    if (!object.Equals(UploadResponse, other.UploadResponse)) return false;
-    if (!object.Equals(PersonalSetRequest, other.PersonalSetRequest)) return false;
-    if (!object.Equals(PersonalSetResponse, other.PersonalSetResponse)) return false;
-    if (!object.Equals(MuscleStrengthRequest, other.MuscleStrengthRequest)) return false;
-    if (!object.Equals(MuscleStrengthResponse, other.MuscleStrengthResponse)) return false;
-    if (!object.Equals(ErrorInfoRequest, other.ErrorInfoRequest)) return false;
-    if (!object.Equals(ErrorInfoResponse, other.ErrorInfoResponse)) return false;
-    return Equals(_unknownFields, other._unknownFields);
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	pbr::MessageDescriptor pb::IMessage.Descriptor
+	{
+		get { return Descriptor; }
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override int GetHashCode() {
-    int hash = 1;
-    if (Type != 0) hash ^= Type.GetHashCode();
-    if (Sequence != 0) hash ^= Sequence.GetHashCode();
-    if (keepaliveRequest_ != null) hash ^= KeepaliveRequest.GetHashCode();
-    if (keepaliveResponse_ != null) hash ^= KeepaliveResponse.GetHashCode();
-    if (loginRequest_ != null) hash ^= LoginRequest.GetHashCode();
-    if (loginResponse_ != null) hash ^= LoginResponse.GetHashCode();
-    if (uploadRequest_ != null) hash ^= UploadRequest.GetHashCode();
-    if (uploadResponse_ != null) hash ^= UploadResponse.GetHashCode();
-    if (personalSetRequest_ != null) hash ^= PersonalSetRequest.GetHashCode();
-    if (personalSetResponse_ != null) hash ^= PersonalSetResponse.GetHashCode();
-    if (muscleStrengthRequest_ != null) hash ^= MuscleStrengthRequest.GetHashCode();
-    if (muscleStrengthResponse_ != null) hash ^= MuscleStrengthResponse.GetHashCode();
-    if (errorInfoRequest_ != null) hash ^= ErrorInfoRequest.GetHashCode();
-    if (errorInfoResponse_ != null) hash ^= ErrorInfoResponse.GetHashCode();
-    if (_unknownFields != null) {
-      hash ^= _unknownFields.GetHashCode();
-    }
-    return hash;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public Message()
+	{
+		OnConstruction();
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override string ToString() {
-    return pb::JsonFormatter.ToDiagnosticString(this);
-  }
+	partial void OnConstruction();
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void WriteTo(pb::CodedOutputStream output) {
-    if (Type != 0) {
-      output.WriteRawTag(8);
-      output.WriteEnum((int) Type);
-    }
-    if (Sequence != 0) {
-      output.WriteRawTag(16);
-      output.WriteInt32(Sequence);
-    }
-    if (keepaliveRequest_ != null) {
-      output.WriteRawTag(26);
-      output.WriteMessage(KeepaliveRequest);
-    }
-    if (keepaliveResponse_ != null) {
-      output.WriteRawTag(34);
-      output.WriteMessage(KeepaliveResponse);
-    }
-    if (loginRequest_ != null) {
-      output.WriteRawTag(42);
-      output.WriteMessage(LoginRequest);
-    }
-    if (loginResponse_ != null) {
-      output.WriteRawTag(50);
-      output.WriteMessage(LoginResponse);
-    }
-    if (uploadRequest_ != null) {
-      output.WriteRawTag(58);
-      output.WriteMessage(UploadRequest);
-    }
-    if (uploadResponse_ != null) {
-      output.WriteRawTag(66);
-      output.WriteMessage(UploadResponse);
-    }
-    if (personalSetRequest_ != null) {
-      output.WriteRawTag(74);
-      output.WriteMessage(PersonalSetRequest);
-    }
-    if (personalSetResponse_ != null) {
-      output.WriteRawTag(82);
-      output.WriteMessage(PersonalSetResponse);
-    }
-    if (muscleStrengthRequest_ != null) {
-      output.WriteRawTag(90);
-      output.WriteMessage(MuscleStrengthRequest);
-    }
-    if (muscleStrengthResponse_ != null) {
-      output.WriteRawTag(98);
-      output.WriteMessage(MuscleStrengthResponse);
-    }
-    if (errorInfoRequest_ != null) {
-      output.WriteRawTag(106);
-      output.WriteMessage(ErrorInfoRequest);
-    }
-    if (errorInfoResponse_ != null) {
-      output.WriteRawTag(114);
-      output.WriteMessage(ErrorInfoResponse);
-    }
-    if (_unknownFields != null) {
-      _unknownFields.WriteTo(output);
-    }
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public Message(Message other) : this()
+	{
+		type_ = other.type_;
+		sequence_ = other.sequence_;
+		keepaliveRequest_ = other.keepaliveRequest_ != null ? other.keepaliveRequest_.Clone() : null;
+		keepaliveResponse_ = other.keepaliveResponse_ != null ? other.keepaliveResponse_.Clone() : null;
+		loginRequest_ = other.loginRequest_ != null ? other.loginRequest_.Clone() : null;
+		loginResponse_ = other.loginResponse_ != null ? other.loginResponse_.Clone() : null;
+		uploadRequest_ = other.uploadRequest_ != null ? other.uploadRequest_.Clone() : null;
+		uploadResponse_ = other.uploadResponse_ != null ? other.uploadResponse_.Clone() : null;
+		personalSetRequest_ = other.personalSetRequest_ != null ? other.personalSetRequest_.Clone() : null;
+		personalSetResponse_ = other.personalSetResponse_ != null ? other.personalSetResponse_.Clone() : null;
+		muscleStrengthRequest_ = other.muscleStrengthRequest_ != null ? other.muscleStrengthRequest_.Clone() : null;
+		muscleStrengthResponse_ = other.muscleStrengthResponse_ != null ? other.muscleStrengthResponse_.Clone() : null;
+		errorInfoRequest_ = other.errorInfoRequest_ != null ? other.errorInfoRequest_.Clone() : null;
+		errorInfoResponse_ = other.errorInfoResponse_ != null ? other.errorInfoResponse_.Clone() : null;
+		_unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int CalculateSize() {
-    int size = 0;
-    if (Type != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
-    }
-    if (Sequence != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Sequence);
-    }
-    if (keepaliveRequest_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(KeepaliveRequest);
-    }
-    if (keepaliveResponse_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(KeepaliveResponse);
-    }
-    if (loginRequest_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(LoginRequest);
-    }
-    if (loginResponse_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(LoginResponse);
-    }
-    if (uploadRequest_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(UploadRequest);
-    }
-    if (uploadResponse_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(UploadResponse);
-    }
-    if (personalSetRequest_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(PersonalSetRequest);
-    }
-    if (personalSetResponse_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(PersonalSetResponse);
-    }
-    if (muscleStrengthRequest_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(MuscleStrengthRequest);
-    }
-    if (muscleStrengthResponse_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(MuscleStrengthResponse);
-    }
-    if (errorInfoRequest_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrorInfoRequest);
-    }
-    if (errorInfoResponse_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrorInfoResponse);
-    }
-    if (_unknownFields != null) {
-      size += _unknownFields.CalculateSize();
-    }
-    return size;
-  }
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public Message Clone()
+	{
+		return new Message(this);
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(Message other) {
-    if (other == null) {
-      return;
-    }
-    if (other.Type != 0) {
-      Type = other.Type;
-    }
-    if (other.Sequence != 0) {
-      Sequence = other.Sequence;
-    }
-    if (other.keepaliveRequest_ != null) {
-      if (keepaliveRequest_ == null) {
-        KeepaliveRequest = new global::KeepaliveRequest();
-      }
-      KeepaliveRequest.MergeFrom(other.KeepaliveRequest);
-    }
-    if (other.keepaliveResponse_ != null) {
-      if (keepaliveResponse_ == null) {
-        KeepaliveResponse = new global::KeepaliveResponse();
-      }
-      KeepaliveResponse.MergeFrom(other.KeepaliveResponse);
-    }
-    if (other.loginRequest_ != null) {
-      if (loginRequest_ == null) {
-        LoginRequest = new global::LoginRequest();
-      }
-      LoginRequest.MergeFrom(other.LoginRequest);
-    }
-    if (other.loginResponse_ != null) {
-      if (loginResponse_ == null) {
-        LoginResponse = new global::LoginResponse();
-      }
-      LoginResponse.MergeFrom(other.LoginResponse);
-    }
-    if (other.uploadRequest_ != null) {
-      if (uploadRequest_ == null) {
-        UploadRequest = new global::UploadRequest();
-      }
-      UploadRequest.MergeFrom(other.UploadRequest);
-    }
-    if (other.uploadResponse_ != null) {
-      if (uploadResponse_ == null) {
-        UploadResponse = new global::UploadResponse();
-      }
-      UploadResponse.MergeFrom(other.UploadResponse);
-    }
-    if (other.personalSetRequest_ != null) {
-      if (personalSetRequest_ == null) {
-        PersonalSetRequest = new global::PersonalSetRequest();
-      }
-      PersonalSetRequest.MergeFrom(other.PersonalSetRequest);
-    }
-    if (other.personalSetResponse_ != null) {
-      if (personalSetResponse_ == null) {
-        PersonalSetResponse = new global::PersonalSetResponse();
-      }
-      PersonalSetResponse.MergeFrom(other.PersonalSetResponse);
-    }
-    if (other.muscleStrengthRequest_ != null) {
-      if (muscleStrengthRequest_ == null) {
-        MuscleStrengthRequest = new global::MuscleStrengthRequest();
-      }
-      MuscleStrengthRequest.MergeFrom(other.MuscleStrengthRequest);
-    }
-    if (other.muscleStrengthResponse_ != null) {
-      if (muscleStrengthResponse_ == null) {
-        MuscleStrengthResponse = new global::MuscleStrengthResponse();
-      }
-      MuscleStrengthResponse.MergeFrom(other.MuscleStrengthResponse);
-    }
-    if (other.errorInfoRequest_ != null) {
-      if (errorInfoRequest_ == null) {
-        ErrorInfoRequest = new global::ErrorInfoRequest();
-      }
-      ErrorInfoRequest.MergeFrom(other.ErrorInfoRequest);
-    }
-    if (other.errorInfoResponse_ != null) {
-      if (errorInfoResponse_ == null) {
-        ErrorInfoResponse = new global::ErrorInfoResponse();
-      }
-      ErrorInfoResponse.MergeFrom(other.ErrorInfoResponse);
-    }
-    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-  }
+	/// <summary>Field number for the "type" field.</summary>
+	public const int TypeFieldNumber = 1;
+	private global::HeadType type_ = 0;
+	/// <summary>
+	///消息类型
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::HeadType Type
+	{
+		get { return type_; }
+		set
+		{
+			type_ = value;
+		}
+	}
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(pb::CodedInputStream input) {
-    uint tag;
-    while ((tag = input.ReadTag()) != 0) {
-      switch(tag) {
-        default:
-          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-          break;
-        case 8: {
-          Type = (global::HeadType) input.ReadEnum();
-          break;
-        }
-        case 16: {
-          Sequence = input.ReadInt32();
-          break;
-        }
-        case 26: {
-          if (keepaliveRequest_ == null) {
-            KeepaliveRequest = new global::KeepaliveRequest();
-          }
-          input.ReadMessage(KeepaliveRequest);
-          break;
-        }
-        case 34: {
-          if (keepaliveResponse_ == null) {
-            KeepaliveResponse = new global::KeepaliveResponse();
-          }
-          input.ReadMessage(KeepaliveResponse);
-          break;
-        }
-        case 42: {
-          if (loginRequest_ == null) {
-            LoginRequest = new global::LoginRequest();
-          }
-          input.ReadMessage(LoginRequest);
-          break;
-        }
-        case 50: {
-          if (loginResponse_ == null) {
-            LoginResponse = new global::LoginResponse();
-          }
-          input.ReadMessage(LoginResponse);
-          break;
-        }
-        case 58: {
-          if (uploadRequest_ == null) {
-            UploadRequest = new global::UploadRequest();
-          }
-          input.ReadMessage(UploadRequest);
-          break;
-        }
-        case 66: {
-          if (uploadResponse_ == null) {
-            UploadResponse = new global::UploadResponse();
-          }
-          input.ReadMessage(UploadResponse);
-          break;
-        }
-        case 74: {
-          if (personalSetRequest_ == null) {
-            PersonalSetRequest = new global::PersonalSetRequest();
-          }
-          input.ReadMessage(PersonalSetRequest);
-          break;
-        }
-        case 82: {
-          if (personalSetResponse_ == null) {
-            PersonalSetResponse = new global::PersonalSetResponse();
-          }
-          input.ReadMessage(PersonalSetResponse);
-          break;
-        }
-        case 90: {
-          if (muscleStrengthRequest_ == null) {
-            MuscleStrengthRequest = new global::MuscleStrengthRequest();
-          }
-          input.ReadMessage(MuscleStrengthRequest);
-          break;
-        }
-        case 98: {
-          if (muscleStrengthResponse_ == null) {
-            MuscleStrengthResponse = new global::MuscleStrengthResponse();
-          }
-          input.ReadMessage(MuscleStrengthResponse);
-          break;
-        }
-        case 106: {
-          if (errorInfoRequest_ == null) {
-            ErrorInfoRequest = new global::ErrorInfoRequest();
-          }
-          input.ReadMessage(ErrorInfoRequest);
-          break;
-        }
-        case 114: {
-          if (errorInfoResponse_ == null) {
-            ErrorInfoResponse = new global::ErrorInfoResponse();
-          }
-          input.ReadMessage(ErrorInfoResponse);
-          break;
-        }
-      }
-    }
-  }
+	/// <summary>Field number for the "sequence" field.</summary>
+	public const int SequenceFieldNumber = 2;
+	private int sequence_;
+	/// <summary>
+	///消息序列号
+	/// </summary>
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int Sequence
+	{
+		get { return sequence_; }
+		set
+		{
+			sequence_ = value;
+		}
+	}
+
+	/// <summary>Field number for the "keepaliveRequest" field.</summary>
+	public const int KeepaliveRequestFieldNumber = 3;
+	private global::KeepaliveRequest keepaliveRequest_;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::KeepaliveRequest KeepaliveRequest
+	{
+		get { return keepaliveRequest_; }
+		set
+		{
+			keepaliveRequest_ = value;
+		}
+	}
+
+	/// <summary>Field number for the "keepaliveResponse" field.</summary>
+	public const int KeepaliveResponseFieldNumber = 4;
+	private global::KeepaliveResponse keepaliveResponse_;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::KeepaliveResponse KeepaliveResponse
+	{
+		get { return keepaliveResponse_; }
+		set
+		{
+			keepaliveResponse_ = value;
+		}
+	}
+
+	/// <summary>Field number for the "loginRequest" field.</summary>
+	public const int LoginRequestFieldNumber = 5;
+	private global::LoginRequest loginRequest_;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::LoginRequest LoginRequest
+	{
+		get { return loginRequest_; }
+		set
+		{
+			loginRequest_ = value;
+		}
+	}
+
+	/// <summary>Field number for the "loginResponse" field.</summary>
+	public const int LoginResponseFieldNumber = 6;
+	private global::LoginResponse loginResponse_;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::LoginResponse LoginResponse
+	{
+		get { return loginResponse_; }
+		set
+		{
+			loginResponse_ = value;
+		}
+	}
+
+	/// <summary>Field number for the "uploadRequest" field.</summary>
+	public const int UploadRequestFieldNumber = 7;
+	private global::UploadRequest uploadRequest_;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::UploadRequest UploadRequest
+	{
+		get { return uploadRequest_; }
+		set
+		{
+			uploadRequest_ = value;
+		}
+	}
+
+	/// <summary>Field number for the "uploadResponse" field.</summary>
+	public const int UploadResponseFieldNumber = 8;
+	private global::UploadResponse uploadResponse_;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::UploadResponse UploadResponse
+	{
+		get { return uploadResponse_; }
+		set
+		{
+			uploadResponse_ = value;
+		}
+	}
+
+	/// <summary>Field number for the "personalSetRequest" field.</summary>
+	public const int PersonalSetRequestFieldNumber = 9;
+	private global::PersonalSetRequest personalSetRequest_;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::PersonalSetRequest PersonalSetRequest
+	{
+		get { return personalSetRequest_; }
+		set
+		{
+			personalSetRequest_ = value;
+		}
+	}
+
+	/// <summary>Field number for the "personalSetResponse" field.</summary>
+	public const int PersonalSetResponseFieldNumber = 10;
+	private global::PersonalSetResponse personalSetResponse_;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::PersonalSetResponse PersonalSetResponse
+	{
+		get { return personalSetResponse_; }
+		set
+		{
+			personalSetResponse_ = value;
+		}
+	}
+
+	/// <summary>Field number for the "muscleStrengthRequest" field.</summary>
+	public const int MuscleStrengthRequestFieldNumber = 11;
+	private global::MuscleStrengthRequest muscleStrengthRequest_;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::MuscleStrengthRequest MuscleStrengthRequest
+	{
+		get { return muscleStrengthRequest_; }
+		set
+		{
+			muscleStrengthRequest_ = value;
+		}
+	}
+
+	/// <summary>Field number for the "muscleStrengthResponse" field.</summary>
+	public const int MuscleStrengthResponseFieldNumber = 12;
+	private global::MuscleStrengthResponse muscleStrengthResponse_;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::MuscleStrengthResponse MuscleStrengthResponse
+	{
+		get { return muscleStrengthResponse_; }
+		set
+		{
+			muscleStrengthResponse_ = value;
+		}
+	}
+
+	/// <summary>Field number for the "errorInfoRequest" field.</summary>
+	public const int ErrorInfoRequestFieldNumber = 13;
+	private global::ErrorInfoRequest errorInfoRequest_;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::ErrorInfoRequest ErrorInfoRequest
+	{
+		get { return errorInfoRequest_; }
+		set
+		{
+			errorInfoRequest_ = value;
+		}
+	}
+
+	/// <summary>Field number for the "errorInfoResponse" field.</summary>
+	public const int ErrorInfoResponseFieldNumber = 14;
+	private global::ErrorInfoResponse errorInfoResponse_;
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public global::ErrorInfoResponse ErrorInfoResponse
+	{
+		get { return errorInfoResponse_; }
+		set
+		{
+			errorInfoResponse_ = value;
+		}
+	}
+
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override bool Equals(object other)
+	{
+		return Equals(other as Message);
+	}
+
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public bool Equals(Message other)
+	{
+		if (ReferenceEquals(other, null))
+		{
+			return false;
+		}
+		if (ReferenceEquals(other, this))
+		{
+			return true;
+		}
+		if (Type != other.Type) return false;
+		if (Sequence != other.Sequence) return false;
+		if (!object.Equals(KeepaliveRequest, other.KeepaliveRequest)) return false;
+		if (!object.Equals(KeepaliveResponse, other.KeepaliveResponse)) return false;
+		if (!object.Equals(LoginRequest, other.LoginRequest)) return false;
+		if (!object.Equals(LoginResponse, other.LoginResponse)) return false;
+		if (!object.Equals(UploadRequest, other.UploadRequest)) return false;
+		if (!object.Equals(UploadResponse, other.UploadResponse)) return false;
+		if (!object.Equals(PersonalSetRequest, other.PersonalSetRequest)) return false;
+		if (!object.Equals(PersonalSetResponse, other.PersonalSetResponse)) return false;
+		if (!object.Equals(MuscleStrengthRequest, other.MuscleStrengthRequest)) return false;
+		if (!object.Equals(MuscleStrengthResponse, other.MuscleStrengthResponse)) return false;
+		if (!object.Equals(ErrorInfoRequest, other.ErrorInfoRequest)) return false;
+		if (!object.Equals(ErrorInfoResponse, other.ErrorInfoResponse)) return false;
+		return Equals(_unknownFields, other._unknownFields);
+	}
+
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override int GetHashCode()
+	{
+		int hash = 1;
+		if (Type != 0) hash ^= Type.GetHashCode();
+		if (Sequence != 0) hash ^= Sequence.GetHashCode();
+		if (keepaliveRequest_ != null) hash ^= KeepaliveRequest.GetHashCode();
+		if (keepaliveResponse_ != null) hash ^= KeepaliveResponse.GetHashCode();
+		if (loginRequest_ != null) hash ^= LoginRequest.GetHashCode();
+		if (loginResponse_ != null) hash ^= LoginResponse.GetHashCode();
+		if (uploadRequest_ != null) hash ^= UploadRequest.GetHashCode();
+		if (uploadResponse_ != null) hash ^= UploadResponse.GetHashCode();
+		if (personalSetRequest_ != null) hash ^= PersonalSetRequest.GetHashCode();
+		if (personalSetResponse_ != null) hash ^= PersonalSetResponse.GetHashCode();
+		if (muscleStrengthRequest_ != null) hash ^= MuscleStrengthRequest.GetHashCode();
+		if (muscleStrengthResponse_ != null) hash ^= MuscleStrengthResponse.GetHashCode();
+		if (errorInfoRequest_ != null) hash ^= ErrorInfoRequest.GetHashCode();
+		if (errorInfoResponse_ != null) hash ^= ErrorInfoResponse.GetHashCode();
+		if (_unknownFields != null)
+		{
+			hash ^= _unknownFields.GetHashCode();
+		}
+		return hash;
+	}
+
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public override string ToString()
+	{
+		return pb::JsonFormatter.ToDiagnosticString(this);
+	}
+
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void WriteTo(pb::CodedOutputStream output)
+	{
+		if (Type != 0)
+		{
+			output.WriteRawTag(8);
+			output.WriteEnum((int)Type);
+		}
+		if (Sequence != 0)
+		{
+			output.WriteRawTag(16);
+			output.WriteInt32(Sequence);
+		}
+		if (keepaliveRequest_ != null)
+		{
+			output.WriteRawTag(26);
+			output.WriteMessage(KeepaliveRequest);
+		}
+		if (keepaliveResponse_ != null)
+		{
+			output.WriteRawTag(34);
+			output.WriteMessage(KeepaliveResponse);
+		}
+		if (loginRequest_ != null)
+		{
+			output.WriteRawTag(42);
+			output.WriteMessage(LoginRequest);
+		}
+		if (loginResponse_ != null)
+		{
+			output.WriteRawTag(50);
+			output.WriteMessage(LoginResponse);
+		}
+		if (uploadRequest_ != null)
+		{
+			output.WriteRawTag(58);
+			output.WriteMessage(UploadRequest);
+		}
+		if (uploadResponse_ != null)
+		{
+			output.WriteRawTag(66);
+			output.WriteMessage(UploadResponse);
+		}
+		if (personalSetRequest_ != null)
+		{
+			output.WriteRawTag(74);
+			output.WriteMessage(PersonalSetRequest);
+		}
+		if (personalSetResponse_ != null)
+		{
+			output.WriteRawTag(82);
+			output.WriteMessage(PersonalSetResponse);
+		}
+		if (muscleStrengthRequest_ != null)
+		{
+			output.WriteRawTag(90);
+			output.WriteMessage(MuscleStrengthRequest);
+		}
+		if (muscleStrengthResponse_ != null)
+		{
+			output.WriteRawTag(98);
+			output.WriteMessage(MuscleStrengthResponse);
+		}
+		if (errorInfoRequest_ != null)
+		{
+			output.WriteRawTag(106);
+			output.WriteMessage(ErrorInfoRequest);
+		}
+		if (errorInfoResponse_ != null)
+		{
+			output.WriteRawTag(114);
+			output.WriteMessage(ErrorInfoResponse);
+		}
+		if (_unknownFields != null)
+		{
+			_unknownFields.WriteTo(output);
+		}
+	}
+
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public int CalculateSize()
+	{
+		int size = 0;
+		if (Type != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeEnumSize((int)Type);
+		}
+		if (Sequence != 0)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeInt32Size(Sequence);
+		}
+		if (keepaliveRequest_ != null)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeMessageSize(KeepaliveRequest);
+		}
+		if (keepaliveResponse_ != null)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeMessageSize(KeepaliveResponse);
+		}
+		if (loginRequest_ != null)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeMessageSize(LoginRequest);
+		}
+		if (loginResponse_ != null)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeMessageSize(LoginResponse);
+		}
+		if (uploadRequest_ != null)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeMessageSize(UploadRequest);
+		}
+		if (uploadResponse_ != null)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeMessageSize(UploadResponse);
+		}
+		if (personalSetRequest_ != null)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeMessageSize(PersonalSetRequest);
+		}
+		if (personalSetResponse_ != null)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeMessageSize(PersonalSetResponse);
+		}
+		if (muscleStrengthRequest_ != null)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeMessageSize(MuscleStrengthRequest);
+		}
+		if (muscleStrengthResponse_ != null)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeMessageSize(MuscleStrengthResponse);
+		}
+		if (errorInfoRequest_ != null)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrorInfoRequest);
+		}
+		if (errorInfoResponse_ != null)
+		{
+			size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrorInfoResponse);
+		}
+		if (_unknownFields != null)
+		{
+			size += _unknownFields.CalculateSize();
+		}
+		return size;
+	}
+
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(Message other)
+	{
+		if (other == null)
+		{
+			return;
+		}
+		if (other.Type != 0)
+		{
+			Type = other.Type;
+		}
+		if (other.Sequence != 0)
+		{
+			Sequence = other.Sequence;
+		}
+		if (other.keepaliveRequest_ != null)
+		{
+			if (keepaliveRequest_ == null)
+			{
+				KeepaliveRequest = new global::KeepaliveRequest();
+			}
+			KeepaliveRequest.MergeFrom(other.KeepaliveRequest);
+		}
+		if (other.keepaliveResponse_ != null)
+		{
+			if (keepaliveResponse_ == null)
+			{
+				KeepaliveResponse = new global::KeepaliveResponse();
+			}
+			KeepaliveResponse.MergeFrom(other.KeepaliveResponse);
+		}
+		if (other.loginRequest_ != null)
+		{
+			if (loginRequest_ == null)
+			{
+				LoginRequest = new global::LoginRequest();
+			}
+			LoginRequest.MergeFrom(other.LoginRequest);
+		}
+		if (other.loginResponse_ != null)
+		{
+			if (loginResponse_ == null)
+			{
+				LoginResponse = new global::LoginResponse();
+			}
+			LoginResponse.MergeFrom(other.LoginResponse);
+		}
+		if (other.uploadRequest_ != null)
+		{
+			if (uploadRequest_ == null)
+			{
+				UploadRequest = new global::UploadRequest();
+			}
+			UploadRequest.MergeFrom(other.UploadRequest);
+		}
+		if (other.uploadResponse_ != null)
+		{
+			if (uploadResponse_ == null)
+			{
+				UploadResponse = new global::UploadResponse();
+			}
+			UploadResponse.MergeFrom(other.UploadResponse);
+		}
+		if (other.personalSetRequest_ != null)
+		{
+			if (personalSetRequest_ == null)
+			{
+				PersonalSetRequest = new global::PersonalSetRequest();
+			}
+			PersonalSetRequest.MergeFrom(other.PersonalSetRequest);
+		}
+		if (other.personalSetResponse_ != null)
+		{
+			if (personalSetResponse_ == null)
+			{
+				PersonalSetResponse = new global::PersonalSetResponse();
+			}
+			PersonalSetResponse.MergeFrom(other.PersonalSetResponse);
+		}
+		if (other.muscleStrengthRequest_ != null)
+		{
+			if (muscleStrengthRequest_ == null)
+			{
+				MuscleStrengthRequest = new global::MuscleStrengthRequest();
+			}
+			MuscleStrengthRequest.MergeFrom(other.MuscleStrengthRequest);
+		}
+		if (other.muscleStrengthResponse_ != null)
+		{
+			if (muscleStrengthResponse_ == null)
+			{
+				MuscleStrengthResponse = new global::MuscleStrengthResponse();
+			}
+			MuscleStrengthResponse.MergeFrom(other.MuscleStrengthResponse);
+		}
+		if (other.errorInfoRequest_ != null)
+		{
+			if (errorInfoRequest_ == null)
+			{
+				ErrorInfoRequest = new global::ErrorInfoRequest();
+			}
+			ErrorInfoRequest.MergeFrom(other.ErrorInfoRequest);
+		}
+		if (other.errorInfoResponse_ != null)
+		{
+			if (errorInfoResponse_ == null)
+			{
+				ErrorInfoResponse = new global::ErrorInfoResponse();
+			}
+			ErrorInfoResponse.MergeFrom(other.ErrorInfoResponse);
+		}
+		_unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+	}
+
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+	public void MergeFrom(pb::CodedInputStream input)
+	{
+		uint tag;
+		while ((tag = input.ReadTag()) != 0)
+		{
+			switch (tag)
+			{
+				default:
+					_unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+					break;
+				case 8:
+					{
+						Type = (global::HeadType)input.ReadEnum();
+						break;
+					}
+				case 16:
+					{
+						Sequence = input.ReadInt32();
+						break;
+					}
+				case 26:
+					{
+						if (keepaliveRequest_ == null)
+						{
+							KeepaliveRequest = new global::KeepaliveRequest();
+						}
+						input.ReadMessage(KeepaliveRequest);
+						break;
+					}
+				case 34:
+					{
+						if (keepaliveResponse_ == null)
+						{
+							KeepaliveResponse = new global::KeepaliveResponse();
+						}
+						input.ReadMessage(KeepaliveResponse);
+						break;
+					}
+				case 42:
+					{
+						if (loginRequest_ == null)
+						{
+							LoginRequest = new global::LoginRequest();
+						}
+						input.ReadMessage(LoginRequest);
+						break;
+					}
+				case 50:
+					{
+						if (loginResponse_ == null)
+						{
+							LoginResponse = new global::LoginResponse();
+						}
+						input.ReadMessage(LoginResponse);
+						break;
+					}
+				case 58:
+					{
+						if (uploadRequest_ == null)
+						{
+							UploadRequest = new global::UploadRequest();
+						}
+						input.ReadMessage(UploadRequest);
+						break;
+					}
+				case 66:
+					{
+						if (uploadResponse_ == null)
+						{
+							UploadResponse = new global::UploadResponse();
+						}
+						input.ReadMessage(UploadResponse);
+						break;
+					}
+				case 74:
+					{
+						if (personalSetRequest_ == null)
+						{
+							PersonalSetRequest = new global::PersonalSetRequest();
+						}
+						input.ReadMessage(PersonalSetRequest);
+						break;
+					}
+				case 82:
+					{
+						if (personalSetResponse_ == null)
+						{
+							PersonalSetResponse = new global::PersonalSetResponse();
+						}
+						input.ReadMessage(PersonalSetResponse);
+						break;
+					}
+				case 90:
+					{
+						if (muscleStrengthRequest_ == null)
+						{
+							MuscleStrengthRequest = new global::MuscleStrengthRequest();
+						}
+						input.ReadMessage(MuscleStrengthRequest);
+						break;
+					}
+				case 98:
+					{
+						if (muscleStrengthResponse_ == null)
+						{
+							MuscleStrengthResponse = new global::MuscleStrengthResponse();
+						}
+						input.ReadMessage(MuscleStrengthResponse);
+						break;
+					}
+				case 106:
+					{
+						if (errorInfoRequest_ == null)
+						{
+							ErrorInfoRequest = new global::ErrorInfoRequest();
+						}
+						input.ReadMessage(ErrorInfoRequest);
+						break;
+					}
+				case 114:
+					{
+						if (errorInfoResponse_ == null)
+						{
+							ErrorInfoResponse = new global::ErrorInfoResponse();
+						}
+						input.ReadMessage(ErrorInfoResponse);
+						break;
+					}
+			}
+		}
+	}
 
 }
 
