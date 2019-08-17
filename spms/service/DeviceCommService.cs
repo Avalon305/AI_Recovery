@@ -217,10 +217,10 @@ namespace spms.service
 			var prescriptionResult = new PrescriptionResultTwo
 			{
 				Fk_dp_id = request.DpId,
-				Fk_ds_id = DeceiveTypeConvertTODsId(request.DeviceType),
+				Fk_ds_id = (long)(request.DeviceType),
 				Bind_id = request.BindId,
-				Sport_mode = SportModeTypeConcertToINT(request.SportMode),
-				Device_mode=TrainModeTypeConvertToInt(request.TrainMode),
+				Sport_mode = (int)(request.SportMode),
+				Device_mode=(int)(request.TrainMode),
 				Consequent_force=request.ConsequentForce,
 				Reverse_force=request.ReverseForce,
 				Power=request.Power,
@@ -373,8 +373,8 @@ namespace spms.service
 			{
 				Fk_member_id = long.Parse(request.Uid),
 				Member_id = request.BindId,
-				Device_code = DeceiveTypeConvertTODsName(request.DeviceType),
-				Device_order_number = DeceiveTypeConvertTODsId(request.DeviceType),
+				Device_code = ((int)request.DeviceType).ToString(),
+				Device_order_number = ((int)request.DeviceType+1),
 				Seat_height = request.SeatHeight,
 				Backrest_distance = request.BackDistance,
 				Footboard_distance = request.FootboardDistance,
