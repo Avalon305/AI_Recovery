@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80016
 File Encoding         : 65001
 
-Date: 2019-08-15 17:49:18
+Date: 2019-08-17 12:22:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -116,23 +116,26 @@ CREATE TABLE `bdl_deviceprescription` (
   `gmt_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `fk_ti_id` int(8) DEFAULT NULL COMMENT '外键（bdl_trianinfo : pk_ti_id）',
   `fk_ds_id` int(8) DEFAULT NULL COMMENT '外键（bdl_devicesort : pk_ds_id）',
-  `sport_mode` int(11) DEFAULT NULL COMMENT '用户运动模式:0：计数模式，1：计时模式',
   `device_mode` int(11) DEFAULT NULL COMMENT '设备训练模式:0康复模式，1主被动模式,2被动模式',
   `dp_status` tinyint(1) DEFAULT NULL COMMENT '1做了 0没做',
   `dp_moveway` int(3) DEFAULT NULL COMMENT '移乘方式',
   `dp_memo` text COMMENT '注意点、指示',
-  `dp_timecount` int(4) DEFAULT NULL COMMENT '目标运动时间',
-  `dp_target_num` int(11) DEFAULT NULL COMMENT '目标运动个数',
   `speed_rank` int(11) DEFAULT NULL COMMENT '运动速度等级',
   `consequent_force` double(10,2) unsigned DEFAULT NULL COMMENT '顺向力',
   `reverse_force` double(10,2) DEFAULT NULL COMMENT '反向力',
   `power` double(10,2) DEFAULT NULL COMMENT '功率',
+  `dp_groupcount` int(10) unsigned DEFAULT NULL COMMENT '组数',
+  `dp_groupnum` int(10) unsigned DEFAULT NULL COMMENT '每组个数',
+  `dp_relaxtime` int(10) unsigned DEFAULT NULL COMMENT '每组间隔休息时间',
+  `front_limit` int(10) DEFAULT NULL COMMENT '前方限制',
+  `back_limit` int(10) DEFAULT NULL COMMENT '后方限制',
   PRIMARY KEY (`pk_dp_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bdl_deviceprescription
 -- ----------------------------
+INSERT INTO `bdl_deviceprescription` VALUES ('179', '2019-08-17 10:00:11', '2019-08-17 10:00:16', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for bdl_deviceset
@@ -268,17 +271,16 @@ CREATE TABLE `bdl_prescriptionresult` (
   `fk_dp_id` int(8) DEFAULT NULL COMMENT '外键（dbl_deviceprescreiption : pk_dp_id）',
   `fk_ds_id` int(11) DEFAULT NULL COMMENT '关联的单一设备类型ID',
   `bind_id` varchar(255) DEFAULT NULL COMMENT '用户手环ID',
-  `sport_mode` int(10) unsigned DEFAULT NULL COMMENT '用户运动模式,0：计数模式，1：计时模式',
   `device_mode` int(10) unsigned DEFAULT NULL COMMENT '设备训练模式:训练模式：0康复模式，1主被动模式,2被动模式',
   `consequent_force` double(10,2) unsigned DEFAULT NULL COMMENT '顺向力',
   `reverse_force` double(10,2) DEFAULT NULL COMMENT '反向力',
   `power` double(10,2) DEFAULT NULL COMMENT '功率',
   `speed_rank` int(3) DEFAULT NULL COMMENT '运动速度等级:主被动模式/被动模式 只能选运动速度',
   `finishnum` int(10) unsigned DEFAULT NULL COMMENT '完成运动个数：计数模式完成个数',
-  `finish_time` int(11) DEFAULT NULL COMMENT '完成运动时间：计时模式运动时间',
   `distance` double(10,2) unsigned DEFAULT NULL COMMENT '距离 千米，两位小数',
   `energy` double(10,2) DEFAULT NULL COMMENT '训练总耗能 单位卡路里',
   `heart_rate_list` text COMMENT '心率集合：运动过程实时心率集合，数据之间*分割',
+  `pr_userthoughts` varchar(255) DEFAULT NULL COMMENT '病人感想，分级选择',
   `gmt_create` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `gmt_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`pk_pr_id`)
@@ -391,13 +393,14 @@ CREATE TABLE `bdl_uploadmanagement` (
   `um_datatable` varchar(255) NOT NULL COMMENT '待上传的数据表的名字',
   `um_exec` int(11) unsigned NOT NULL,
   PRIMARY KEY (`pk_um_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=326 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=327 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bdl_uploadmanagement
 -- ----------------------------
 INSERT INTO `bdl_uploadmanagement` VALUES ('324', '0', 'bdl_set', '0');
 INSERT INTO `bdl_uploadmanagement` VALUES ('325', '5', 'bdl_set', '1');
+INSERT INTO `bdl_uploadmanagement` VALUES ('326', '6', 'bdl_user', '0');
 
 -- ----------------------------
 -- Table structure for bdl_user
@@ -423,11 +426,12 @@ CREATE TABLE `bdl_user` (
   `is_deleted` tinyint(1) DEFAULT NULL COMMENT '是否删除',
   `user_privateinfo` text COMMENT '非公开信息',
   PRIMARY KEY (`pk_user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bdl_user
 -- ----------------------------
+INSERT INTO `bdl_user` VALUES ('6', '2019-08-16 19:14:36', '2019-08-16 19:14:36', '陈其钊', 'chenqizhao', '1', '2019-08-16', '', '4', '6', '', '', '', null, '37098219804052315', '17863979633', '0', '');
 
 -- ----------------------------
 -- Table structure for bdl_user_relation
