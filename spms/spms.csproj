@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DD5EACE7-134A-4473-9680-0B37FD7CB5FE}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>spms</RootNamespace>
     <AssemblyName>spms</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -60,6 +60,10 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -137,6 +141,10 @@
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.4.13\lib\net45\NLog.dll</HintPath>
     </Reference>
+    <Reference Include="nuitrack.net, Version=1.0.6848.20051, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\nuitrack.net.dll</HintPath>
+    </Reference>
     <Reference Include="Spire.License">
       <HintPath>..\..\..\..\项目\宝德龙康复训练器械系统\Spire\Spire.License.dll</HintPath>
     </Reference>
@@ -199,6 +207,7 @@
     <Compile Include="dao\app\SetterDAO.cs" />
     <Compile Include="dao\DataCodeDAO.cs" />
     <Compile Include="dao\PhysicalPowerDAO.cs" />
+    <Compile Include="dao\SkeletonLengthDAO.cs" />
     <Compile Include="dao\UploadManagementDAO.cs" />
     <Compile Include="dao\UserDAO.cs" />
     <Compile Include="dao\SymptomInfoDAO.cs" />
@@ -207,7 +216,7 @@
     <Compile Include="entity\DataCode.cs" />
     <Compile Include="entity\newEntity\DevicePrescription.cs" />
     <Compile Include="entity\newEntity\PrescriptionResult.cs" />
-    <Compile Include="entity\newEntity\SkeletonLength.cs" />
+    <Compile Include="entity\newEntity\SkeletonLengthEntity.cs" />
     <Compile Include="entity\newEntity\UserRelation.cs" />
     <Compile Include="entity\OnlineDevice.cs" />
     <Compile Include="entity\UploadManagement.cs" />
@@ -234,6 +243,8 @@
       <DependentUpon>ImageDealerUnsafe.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageDealer\PicZipUtil.cs" />
+    <Compile Include="protocol\BdlProto.cs" />
+    <Compile Include="service\DeviceCommService.cs" />
     <Compile Include="service\OnlineDeviceService.cs" />
     <Compile Include="util\ConfigUtil.cs" />
     <Compile Include="util\LanguageUtils.cs" />
@@ -242,6 +253,18 @@
     <Compile Include="view\converter\LanguageConverter.cs" />
     <Compile Include="view\converter\StrengthConverter.cs" />
     <Compile Include="view\converter\TimeConverter.cs" />
+    <Compile Include="view\Pages\ChildWin\Analyze.xaml.cs">
+      <DependentUpon>Analyze.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\BraceletMyodynamia.xaml.cs">
+      <DependentUpon>BraceletMyodynamia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\NuitrackScan.xaml.cs">
+      <DependentUpon>NuitrackScan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\OnlineChart.xaml.cs">
+      <DependentUpon>OnlineChart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\ChildWin\OnlineDeviceDetails.xaml.cs">
       <DependentUpon>OnlineDeviceDetails.xaml</DependentUpon>
     </Compile>
@@ -457,6 +480,22 @@
     <Compile Include="view\converter\StatusConverter.cs">
       <Generator>MSBuild:Compile</Generator>
     </Compile>
+    <Page Include="view\Pages\ChildWin\Analyze.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Pages\ChildWin\BraceletMyodynamia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Pages\ChildWin\NuitrackScan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Pages\ChildWin\OnlineChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\Pages\ChildWin\OnlineDeviceDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
