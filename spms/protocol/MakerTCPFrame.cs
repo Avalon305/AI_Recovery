@@ -337,7 +337,6 @@ namespace spms.protocol
 
             switch (deviceType)
             {
-<<<<<<< HEAD
                 case DeviceType.P00:
                     arr[84] = byte.Parse(attrs[0]);//动臂位置 1-5
                     arr[85] = byte.Parse(attrs[1]);//座椅位置1-9
@@ -388,7 +387,6 @@ namespace spms.protocol
                     arr[84] = byte.Parse(attrs[0]);//座椅位置
                     arr[85] = byte.Parse(attrs[1]);//动臂位置
                     break;
-=======
                 //case DeviceType.X01:
                 //    arr[84] = byte.Parse(attrs[0]);//动臂位置 1-5
                 //    arr[85] = byte.Parse(attrs[1]);//座椅位置1-9
@@ -422,7 +420,6 @@ namespace spms.protocol
                 //    string hand = attrs[2] + attrs[3];//手把/脚踏
                 //    arr[86] = byte.Parse(hand);
                 //    break;
->>>>>>> 13b869a90660a11afd7cfa465f801daebc1f98ee
             }
         }
 

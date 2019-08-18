@@ -36,17 +36,15 @@
     <!-- 标题 -->
     <s:String x:Key="Title.Title">宝德龙</s:String>
 
-<<<<<<< HEAD
     <!-- 设备 -->
-    <s:String x:Key="Dev.ChestPress">胸部推举机</s:String>
+    <!--<s:String x:Key="Dev.ChestPress">胸部推举机</s:String>
     <s:String x:Key="Dev.Rowing">坐姿划船机</s:String>
     <s:String x:Key="Dev.TorsoFlexion">身体伸展弯曲机</s:String>
     <s:String x:Key="Dev.LegExtension">腿部伸展弯曲机</s:String>
     <s:String x:Key="Dev.HorizontalLegPress">腿部推蹬机</s:String>
-    <s:String x:Key="Dev.HipAbduction">腿部外弯机</s:String>
-=======
-    <!-- 设备 2019/8/16 ZFC 修改 -->
-   
+    <s:String x:Key="Dev.HipAbduction">腿部外弯机</s:String>-->
+    
+    <!-- 设备 2019/8/16 ZFC 修改 -->   
     <s:String x:Key="Dev.Rowing">坐姿划船机</s:String>
 	<s:String x:Key="Dev.SittingBreastPusher">坐式推胸机</s:String>
 	<s:String x:Key="Dev.HorizontalLegPress">腿部推蹬机</s:String>
@@ -59,8 +57,7 @@
 	<s:String x:Key="Dev.SittingBack">坐式背部伸展机</s:String>
 	<s:String x:Key="Dev.TorsoFlexion">身体伸展弯曲机</s:String>
 	<s:String x:Key="Dev.LegExtension">腿部伸展弯曲机</s:String>
-	<s:String x:Key="Dev.ChestPress">胸部推举机</s:String>
->>>>>>> 13b869a90660a11afd7cfa465f801daebc1f98ee
+    <s:String x:Key="Dev.ChestPress">胸部推举机</s:String>
 
     <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">机构、团体名称</s:String>
