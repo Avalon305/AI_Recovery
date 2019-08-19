@@ -27,7 +27,7 @@ namespace spms.service
 		private static OnlineDeviceService onlineDeviceService = new OnlineDeviceService();
 		private static UserDAO userDAO = new UserDAO();
 		private static SetterService setterService = new SetterService();
-
+		private static SkeletonLengthDAO skeletonLengthDAO = new SkeletonLengthDAO();
 		///// <summary>
 		/// 处理登录请求
 		/// </summary>
@@ -41,13 +41,19 @@ namespace spms.service
 			string uid = (userRelation.Fk_user_id).ToString();
 			response.Uid = uid;
 			response.ExisitSetting = false;
-
+			response.ClientTime = request.ClientTime;
+			response.ServerTime = DateTime.Now.ToString();
 			//查询用户是否存在，若不存在 。。。打印日志
 			User user = userDAO.GetByPK(uid); 
 			if (user != null)
 			{
 				//Console.WriteLine("收到的UID:{0}在数据库中不存在，自动创建用户及计划", request.Uid);
 				logger.Info("用户存在", uid);
+				string birth_year = (user.User_Birth.ToString().Split('/'))[0];
+				int now_year = int.Parse((DateTime.Now.ToString("yyyy")));
+				response.Age = now_year - int.Parse(birth_year);
+				SkeletonLengthEntity skeletonLengthEntity= skeletonLengthDAO.getSkeletonLengthRecord(int.Parse(uid));
+				response.Weight = skeletonLengthEntity.Weigth;
 			}
 			else
 			{

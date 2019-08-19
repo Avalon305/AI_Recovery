@@ -19,6 +19,8 @@ namespace spms.entity.newEntity
         public long Id { get; set; } = 0;
         // 关联bdl_member表的主键
         public int Fk_member_id { get; set; }
+		//体重
+		public double Weigth { get; set; }
         public double Body_length { get; set; }
         //肩宽mm
         public double Shoulder_width { get; set; }
