@@ -33,7 +33,7 @@ namespace spms.service
                 switch (frameBean.DeviceType)
                 {
                     case DeviceType.P00:
-<<<<<<< HEAD
+
                         name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.Rowing");
                         name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.Rowing");
                         break;
@@ -72,31 +72,8 @@ namespace spms.service
                     case DeviceType.P09:
                         name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.SittingBackExtender");
                         name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.SittingBackExtender");
-=======
-                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.ChestPress");
-                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.ChestPress");
                         break;
-                    case DeviceType.P01:
-                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.HipAbduction");
-                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.HipAbduction");
-                        break;
-                    case DeviceType.P02:
-                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.LegExtension");
-                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.LegExtension");
-                        break;
-                    case DeviceType.P03:
-                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.TorsoFlexion");
-                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.TorsoFlexion");
-                        break;
-                    case DeviceType.P04:
-                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.Rowing");
-                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.Rowing");
-                        break;
-                    case DeviceType.P05:
-                        name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "Dev.HorizontalLegPress");
-                        name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "Dev.HorizontalLegPress");
->>>>>>> 13b869a90660a11afd7cfa465f801daebc1f98ee
-                        break;
+
                     default:
                         break;
                 }

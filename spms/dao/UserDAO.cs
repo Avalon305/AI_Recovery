@@ -26,6 +26,22 @@ namespace spms.dao
 
             }
         }
+
+		/// <summary>
+		/// 根据用户id获取用户信息
+		/// </summary>
+		/// <param name="uid"></param>
+		/// <returns></returns>
+		public User GetByPK(string uid)
+		{
+			using (var conn = DbUtil.getConn())
+			{
+				const string query = "select * from bdl_user where pk_user_id = @Pk_User_Id and Is_Deleted = 0";
+
+				return conn.QueryFirstOrDefault<User>(query, new { Pk_User_Id = uid });
+
+			}
+		}
         /// <summary>
         /// 根据手机号获取用户
         /// </summary>

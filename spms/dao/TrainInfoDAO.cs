@@ -143,6 +143,20 @@ namespace spms.dao
             }
         }
 		/// <summary>
+		/// 根据训练信息id和设备id查询处方
+		/// </summary>
+		/// <param name="tiId"></param>
+		/// <returns></returns>
+		public DevicePrescription GetByTIIdAndDsID(int tiId,int dsId)
+		{
+			using (var conn = DbUtil.getConn())
+			{
+				const string query = "select * from bdl_deviceprescription where fk_ti_id = @Fk_TI_Id and fk_ds_id = @Fk_DS_Id";
+
+				return conn.QueryFirstOrDefault<DevicePrescription>(query, new { Fk_TI_Id = tiId , Fk_DS_Id = dsId });
+			}
+		}
+		/// <summary>
 		/// 修改处方信息为完成
 		/// </summary>
 		/// <param name="dpid"></param>
@@ -260,7 +274,43 @@ namespace spms.dao
             }
         }
     }
-    public class PrescriptionResultDAO : BaseDAO<PrescriptionResult>
+
+	public class NewDevicePrescriptionDAO : BaseDAO<spms.entity.newEntity.DevicePrescription>
+	{
+
+		/// <summary>
+		/// 根据训练信息id和设备id查询处方
+		/// </summary>
+		/// <param name="tiId"></param>
+		/// <returns></returns>
+		public entity.newEntity.DevicePrescription GetByTIIdAndDsID(int tiId, int dsId)
+		{
+			using (var conn = DbUtil.getConn())
+			{
+				const string query = "select * from bdl_deviceprescription where fk_ti_id = @Fk_TI_Id and fk_ds_id = @Fk_DS_Id";
+
+				return conn.QueryFirstOrDefault<entity.newEntity.DevicePrescription>(query, new { Fk_TI_Id = tiId, Fk_DS_Id = dsId });
+			}
+		}
+
+		/// <summary>
+		/// 根据tiid 查询以完成的处方列表
+		/// </summary>
+		/// <param name="tiId"></param>
+		/// <returns></returns>
+		public List<entity.newEntity.DevicePrescription> findAllDevicePrescriptionByTiId(int tiId)
+		{
+			using (var conn = DbUtil.getConn())
+			{
+				const string query = "select * from bdl_deviceprescription where fk_ti_id = @Fk_TI_Id and fk_ti_id = @Fk_ti_id and dp_status=1";
+
+				return (List<entity.newEntity.DevicePrescription>)conn.Query<entity.newEntity.DevicePrescription>(query, new { Fk_ti_id = tiId });
+			}
+
+		}
+	}
+
+	public class PrescriptionResultDAO : BaseDAO<PrescriptionResult>
     {
         public PrescriptionResult GetByDPId(int devicePrescriptionPkDpId)
         {
