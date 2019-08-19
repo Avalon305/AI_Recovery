@@ -45,5 +45,27 @@ namespace spms.dao
 			}
 
 		}
+
+		/// <summary>
+		/// 查询个人设置
+		/// </summary>
+		/// <param name="member_id"></param>
+		/// <param name="deviceType"></param>
+		/// <param name="activityType"></param>
+		/// <returns></returns>
+		public PersonalSettingEntity GetSettingByMemberId(string user_id, string deviceType_code)
+		{
+			const string query = @"SELECT * FROM bdl_personal_setting WHERE fk_member_id = @user_id device_code = @DeviceCode 
+                             
+";
+			var para = new { user_id = user_id,  DeviceCode = deviceType_code };
+			using (var conn = DbUtil.getConn())
+			{
+				return conn.Query<PersonalSettingEntity>(query, para).FirstOrDefault();
+			}
+
+		}
+
+
 	}
 }

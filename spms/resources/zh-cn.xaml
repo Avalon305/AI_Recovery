@@ -56,10 +56,10 @@
 	<s:String x:Key="Dev.ReverseButterfly">反向蝴蝶机</s:String>
 	<s:String x:Key="Dev.SittingBack">坐式背部伸展机</s:String>
 	<s:String x:Key="Dev.TorsoFlexion">身体伸展弯曲机</s:String>
-	<s:String x:Key="Dev.LegExtension">腿部伸展弯曲机</s:String>
+    <s:String x:Key="Dev.LegExtension">腿部伸展弯曲机</s:String>
     <s:String x:Key="Dev.ChestPress">胸部推举机</s:String>
 
-    <!-- 设定界面 -->
+        <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">机构、团体名称</s:String>
     <s:String x:Key="SettingsView.FacilityType">机构分区</s:String>
     <s:String x:Key="SettingsView.Phone">机构电话</s:String>
@@ -307,6 +307,9 @@
     <s:String x:Key="TrainingListView.AngleOfArm2">动臂位置2</s:String>
     <s:String x:Key="TrainingListView.SeatPosition">座椅位置</s:String>
     <s:String x:Key="TrainingListView.TrunkPad">胸垫位置</s:String>
+    <!--lj +++-->
+    <s:String x:Key="TrainingListView.NFCLable">NFC标签</s:String>
+    <s:String x:Key="TrainingListView.TrainingPattern">训练模式</s:String>
 
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">输入体力评价</s:String>
@@ -507,9 +510,9 @@
     <s:String x:Key="Skeleton.Reset">重置</s:String>
 
     <!--手环和肌力测试-->
-    <s:String x:Key="BraceletMyodynamia.BraceletMyodynamia">手环和肌力测试</s:String>
-    <s:String x:Key="BraceletMyodynamia.Bracelet">手环信息</s:String>
-    <s:String x:Key="BraceletMyodynamia.Myodynamia">肌力测试信息</s:String>
+    <s:String x:Key="NfcMyodynamia.NfcMyodynamia">手环和肌力测试</s:String>
+    <s:String x:Key="NfcMyodynamia.Bracelet">手环信息</s:String>
+    <s:String x:Key="NfcMyodynamia.Myodynamia">肌力测试信息</s:String>
 
     <!-- 新设备 -->
     <s:String x:Key="NewDev.Rowing">坐式划船机</s:String>

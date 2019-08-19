@@ -179,7 +179,7 @@
                                 <Button Width="140" Height="25" Foreground="Black"  Margin="2,0,0,0" Click="Register" Style="{StaticResource Btn}" Content="{DynamicResource SubjectListView.AddSubject}"></Button>
                                 <Button Width="140" Height="25" Foreground="Black"  Margin="2,0,0,0" Click="UserUpdata" Style="{StaticResource Btn}" Content="{DynamicResource SubjectListView.EditSubject}"></Button>
                                 <Button Width="140"  Height="25" Foreground="Black"  Content="{DynamicResource SubjectListView.DeleteSubject}"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="Delete_User"/>
-                                <Button Width="140"  Height="25" Foreground="Black"  Content="{DynamicResource SubjectListView.AddBraceletMyodynamia}"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="AddBraceletMyodynamia"/>
+                                <Button Width="140"  Height="25" Foreground="Black"  Content="{DynamicResource SubjectListView.AddBraceletMyodynamia}"  Margin="2,0,0,0" Style="{StaticResource Btn}" Click="AddNfcMyodynamia"/>
                                 <Button Width="140" Foreground="Black"  Content="{DynamicResource SubjectListView.AddSkeleton}"  Margin="2,2,2,1.8" Style="{StaticResource Btn}" Click="Add_Skeleton"/>
                             </StackPanel>
                         </Border>

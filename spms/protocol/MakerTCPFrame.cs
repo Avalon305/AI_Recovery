@@ -387,39 +387,41 @@ namespace spms.protocol
                     arr[84] = byte.Parse(attrs[0]);//座椅位置
                     arr[85] = byte.Parse(attrs[1]);//动臂位置
                     break;
-                //case DeviceType.X01:
-                //    arr[84] = byte.Parse(attrs[0]);//动臂位置 1-5
-                //    arr[85] = byte.Parse(attrs[1]);//座椅位置1-9
-                //    arr[86] = 0x00;
-                //    break;
-                //case DeviceType.X02:
-                //    arr[84] = byte.Parse(attrs[0]);//手把位置
-                //    arr[85] = byte.Parse(attrs[1]);//背椅夹角
-                //    arr[86] = 0x00;
-                //    break;
-                //case DeviceType.X03:
-                //    string armPos =  attrs[0] + attrs[1];//动臂位置
-                //    arr[84] = byte.Parse(armPos);//动臂位置1和2
-                //    arr[85] = byte.Parse(attrs[2]);//靠背位置
-                //    arr[86] = byte.Parse(attrs[3]);//把手
-                //    break;
-                //case DeviceType.X04:
-                //    string armPos1 = attrs[0] + attrs[1];//动臂位置
-                //    arr[84] = byte.Parse(armPos1);//动臂位置1和2
-                //    arr[85] = byte.Parse(attrs[2]);//靠背位置
-                //    arr[86] = byte.Parse(attrs[3]);//座椅位置
-                //    break;
-                //case DeviceType.X05:
-                //    arr[84] = byte.Parse(attrs[0]);//胸垫位置
-                //    arr[85] = byte.Parse(attrs[1]);//动臂位置 
-                //    arr[86] = 0x00;
-                //    break;
-                //case DeviceType.X06:
-                //    arr[84] = byte.Parse(attrs[0]);//座椅位置
-                //    arr[85] = byte.Parse(attrs[1]);//动臂位置
-                //    string hand = attrs[2] + attrs[3];//手把/脚踏
-                //    arr[86] = byte.Parse(hand);
-                //    break;
+                    #region 初始版本
+                    //case DeviceType.X01:
+                    //    arr[84] = byte.Parse(attrs[0]);//动臂位置 1-5
+                    //    arr[85] = byte.Parse(attrs[1]);//座椅位置1-9
+                    //    arr[86] = 0x00;
+                    //    break;
+                    //case DeviceType.X02:
+                    //    arr[84] = byte.Parse(attrs[0]);//手把位置
+                    //    arr[85] = byte.Parse(attrs[1]);//背椅夹角
+                    //    arr[86] = 0x00;
+                    //    break;
+                    //case DeviceType.X03:
+                    //    string armPos =  attrs[0] + attrs[1];//动臂位置
+                    //    arr[84] = byte.Parse(armPos);//动臂位置1和2
+                    //    arr[85] = byte.Parse(attrs[2]);//靠背位置
+                    //    arr[86] = byte.Parse(attrs[3]);//把手
+                    //    break;
+                    //case DeviceType.X04:
+                    //    string armPos1 = attrs[0] + attrs[1];//动臂位置
+                    //    arr[84] = byte.Parse(armPos1);//动臂位置1和2
+                    //    arr[85] = byte.Parse(attrs[2]);//靠背位置
+                    //    arr[86] = byte.Parse(attrs[3]);//座椅位置
+                    //    break;
+                    //case DeviceType.X05:
+                    //    arr[84] = byte.Parse(attrs[0]);//胸垫位置
+                    //    arr[85] = byte.Parse(attrs[1]);//动臂位置 
+                    //    arr[86] = 0x00;
+                    //    break;
+                    //case DeviceType.X06:
+                    //    arr[84] = byte.Parse(attrs[0]);//座椅位置
+                    //    arr[85] = byte.Parse(attrs[1]);//动臂位置
+                    //    string hand = attrs[2] + attrs[3];//手把/脚踏
+                    //    arr[86] = byte.Parse(hand);
+                    //    break;
+                    #endregion
             }
         }
 

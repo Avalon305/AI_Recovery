@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace spms.view.Pages.ChildWin
 {
     /// <summary>
-    /// BraceletMyodynamia.xaml 的交互逻辑
+    /// NfcMyodynamia.xaml 的交互逻辑
     /// </summary>
-    public partial class BraceletMyodynamia : Window
+    public partial class NfcMyodynamia : Window
     {
-        public BraceletMyodynamia()
+        public NfcMyodynamia()
         {
             InitializeComponent();
         }

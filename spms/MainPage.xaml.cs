@@ -1087,6 +1087,7 @@ namespace spms.view.Pages
                     Dictionary<int, List<TrainDTO>> dic = new TrainService().getTrainDTOByUserA(user);
                     TrainingRecord_Frame trainingRecordFrame = new TrainingRecord_Frame();
                     List<TrainDTO> trainDtos = new List<TrainDTO>();
+
                     //dic.TryGetValue((int)DeviceType.X01, out trainDtos);
                     //trainingRecordFrame.TrainingRecord1.ItemsSource = trainDtos;
                     //dic.TryGetValue((int)DeviceType.X05, out trainDtos);
@@ -1240,16 +1241,16 @@ namespace spms.view.Pages
 
         }
 
-        private void AddBraceletMyodynamia(object sender, RoutedEventArgs e)
+        private void AddNfcMyodynamia(object sender, RoutedEventArgs e)
         {
-            BraceletMyodynamia braceletMyodynamia = new BraceletMyodynamia
+            NfcMyodynamia nfcMyodynamia = new NfcMyodynamia
             {
                 Owner = Window.GetWindow(this),
                 ShowActivated = true,
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            braceletMyodynamia.ShowDialog();
+            nfcMyodynamia.ShowDialog();
         }
     }
     }

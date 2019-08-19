@@ -72,6 +72,7 @@ namespace spms.service
                         name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.SittingBackExtender");
                         name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.SittingBackExtender");
                         break;
+
                     default:
                         break;
                 }

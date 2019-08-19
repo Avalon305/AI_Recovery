@@ -206,15 +206,20 @@
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="dao\app\SetterDAO.cs" />
     <Compile Include="dao\DataCodeDAO.cs" />
+    <Compile Include="dao\PersonalSettingDao.cs" />
     <Compile Include="dao\PhysicalPowerDAO.cs" />
+    <Compile Include="dao\PrescriptionResultTwoDao.cs" />
     <Compile Include="dao\SkeletonLengthDAO.cs" />
     <Compile Include="dao\UploadManagementDAO.cs" />
     <Compile Include="dao\UserDAO.cs" />
     <Compile Include="dao\SymptomInfoDAO.cs" />
     <Compile Include="dao\TrainInfoDAO.cs" />
+    <Compile Include="dao\UserRelationDao.cs" />
     <Compile Include="entity\CustomData.cs" />
     <Compile Include="entity\DataCode.cs" />
     <Compile Include="entity\newEntity\DevicePrescription.cs" />
+    <Compile Include="entity\newEntity\PersonalSettingEntity.cs" />
+    <Compile Include="entity\newEntity\PrescriptionResultTwo.cs" />
     <Compile Include="entity\newEntity\SkeletonLengthEntity.cs" />
     <Compile Include="entity\newEntity\UserRelation.cs" />
     <Compile Include="entity\OnlineDevice.cs" />
@@ -255,8 +260,8 @@
     <Compile Include="view\Pages\ChildWin\Analyze.xaml.cs">
       <DependentUpon>Analyze.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\Pages\ChildWin\BraceletMyodynamia.xaml.cs">
-      <DependentUpon>BraceletMyodynamia.xaml</DependentUpon>
+    <Compile Include="view\Pages\ChildWin\NfcMyodynamia.xaml.cs">
+      <DependentUpon>NfcMyodynamia.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\NuitrackScan.xaml.cs">
       <DependentUpon>NuitrackScan.xaml</DependentUpon>
@@ -483,7 +488,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\Pages\ChildWin\BraceletMyodynamia.xaml">
+    <Page Include="view\Pages\ChildWin\NfcMyodynamia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
