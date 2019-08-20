@@ -138,7 +138,7 @@
             <Setter  Property="BorderBrush" Value="Gray"></Setter>
         </Style>
     </Window.Resources>
-    <ScrollViewer Width="auto" VerticalAlignment="Bottom" Margin="0,0,0,50" >
+    <ScrollViewer Width="auto" VerticalAlignment="Bottom" Margin="0,0,0,3" >
         <Viewbox Name="viewbox" Loaded="viewbox_load" Stretch="Uniform" >
             <!-- 整体框架用的 StackPanel 布局-->
             <StackPanel Orientation="Vertical" Margin="0,0,0,-0.4">

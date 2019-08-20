@@ -298,6 +298,8 @@
     <s:String x:Key="TrainingListView.AngleOfArm2">Angle Of Arm2</s:String>
     <s:String x:Key="TrainingListView.SeatPosition">Seat Position</s:String>
     <s:String x:Key="TrainingListView.TrunkPad">Trunk Pad</s:String>
+    <!--lj +++-->
+    <s:String x:Key="TrainingListView.NFCLable">NFC Lable</s:String>
 
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">Physical Evaluation Form</s:String>
@@ -491,9 +493,9 @@
     <s:String x:Key="Skeleton.Reset">Reset</s:String>
 
     <!--手环和肌力测试-->
-    <s:String x:Key="BraceletMyodynamia.BraceletMyodynamia">Bracelet Myodynamia</s:String>
-    <s:String x:Key="BraceletMyodynamia.Bracelet">Bracelet</s:String>
-    <s:String x:Key="BraceletMyodynamia.Myodynamia">Myodynamia</s:String>
+    <s:String x:Key="NfcMyodynamia.NfcMyodynamia">Nfc Myodynamia</s:String>
+    <s:String x:Key="NfcMyodynamia.Bracelet">Bracelet</s:String>
+    <s:String x:Key="NfcMyodynamia.Myodynamia">Myodynamia</s:String>
 
     <!-- 新设备 -->
     <s:String x:Key="NewDev.Rowing">Rowing</s:String>

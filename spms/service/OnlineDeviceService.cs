@@ -33,7 +33,6 @@ namespace spms.service
                 switch (frameBean.DeviceType)
                 {
                     case DeviceType.P00:
-
                         name_en = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.EN, "NewDev.Rowing");
                         name_zh = LanguageUtils.GetLanuageStrByLanguageAndKey(LanguageUtils.ZH, "NewDev.Rowing");
                         break;
