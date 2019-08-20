@@ -12,7 +12,7 @@ namespace spms.entity.newEntity
     /// </summary>
     [Serializable]
     [Table("bdl_deviceprescription")]
-    public class DevicePrescription
+    public class NewDevicePrescription
     {
         //状态常量   1完成  0 未完成
         public static byte? UNDO = 0;

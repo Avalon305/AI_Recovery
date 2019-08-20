@@ -275,7 +275,7 @@ namespace spms.dao
         }
     }
 
-	public class NewDevicePrescriptionDAO : BaseDAO<spms.entity.newEntity.DevicePrescription>
+	public class NewDevicePrescriptionDAO : BaseDAO<spms.entity.newEntity.NewDevicePrescription>
 	{
 
 		/// <summary>
@@ -283,13 +283,14 @@ namespace spms.dao
 		/// </summary>
 		/// <param name="tiId"></param>
 		/// <returns></returns>
-		public entity.newEntity.DevicePrescription GetByTIIdAndDsID(int tiId, int dsId)
+		public entity.newEntity.NewDevicePrescription GetByTIIdAndDsID(int tiId, int dsId)
 		{
+            
 			using (var conn = DbUtil.getConn())
 			{
 				const string query = "select * from bdl_deviceprescription where fk_ti_id = @Fk_TI_Id and fk_ds_id = @Fk_DS_Id";
 
-				return conn.QueryFirstOrDefault<entity.newEntity.DevicePrescription>(query, new { Fk_TI_Id = tiId, Fk_DS_Id = dsId });
+				return conn.QueryFirstOrDefault<entity.newEntity.NewDevicePrescription>(query, new { Fk_TI_Id = tiId, Fk_DS_Id = dsId });
 			}
 		}
 
@@ -298,17 +299,47 @@ namespace spms.dao
 		/// </summary>
 		/// <param name="tiId"></param>
 		/// <returns></returns>
-		public List<entity.newEntity.DevicePrescription> findAllDevicePrescriptionByTiId(int tiId)
+		public List<entity.newEntity.NewDevicePrescription> findAllDevicePrescriptionByTiId(int tiId)
 		{
 			using (var conn = DbUtil.getConn())
 			{
 				const string query = "select * from bdl_deviceprescription where fk_ti_id = @Fk_TI_Id and fk_ti_id = @Fk_ti_id and dp_status=1";
 
-				return (List<entity.newEntity.DevicePrescription>)conn.Query<entity.newEntity.DevicePrescription>(query, new { Fk_ti_id = tiId });
+				return (List<entity.newEntity.NewDevicePrescription>)conn.Query<entity.newEntity.NewDevicePrescription>(query, new { Fk_ti_id = tiId });
 			}
 
 		}
-	}
+
+        /// <summary>
+        /// 根据训练信息id删除
+        /// </summary>
+        /// <param name="tiId"></param>
+        public void DeleteByTiId(int tiId)
+        {
+
+            using (var conn = DbUtil.getConn())
+            {
+                const string sql = "DELETE FROM bdl_deviceprescription WHERE fk_ti_id = @FK_Ti_Id";
+
+                conn.Execute(sql, new { FK_Ti_Id = tiId });
+            }
+        }
+
+        /// <summary>
+        /// 根据训练信息id查询处方
+        /// </summary>
+        /// <param name="tiId"></param>
+        /// <returns></returns>
+        public List<entity.newEntity.NewDevicePrescription> GetByTIId(int tiId)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select * from bdl_deviceprescription where fk_ti_id = @Fk_TI_Id";
+
+                return conn.Query<entity.newEntity.NewDevicePrescription>(query, new { Fk_TI_Id = tiId }).ToList();
+            }
+        }
+    }
 
 	public class PrescriptionResultDAO : BaseDAO<PrescriptionResult>
     {

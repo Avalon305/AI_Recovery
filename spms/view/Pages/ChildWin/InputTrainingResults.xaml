@@ -194,6 +194,7 @@
                                     <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
                                     <TextBox Grid.Row="2" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPRelaxTime" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
+                                    <!--砝码-->
                                     <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}"  />
                                     <TextBox Grid.Row="3" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0"   Name="HLPWeight" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
@@ -215,6 +216,7 @@
                                     <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Calorie(cal)}"  />
                                     <TextBox Grid.Row="9" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPCal" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
+                                    <!--指数-->
                                     <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Score}"  />
                                     <TextBox Grid.Row="10" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPIndex" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
 
@@ -223,10 +225,12 @@
 
                                     <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0"  Content="{DynamicResource TrainingResultView.TotalSetsdone}"  />
                                 <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="HLPFinishgroup" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>-->
-
+                                   
+                                    <!--时机姿势-->
                                     <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timing/form}"  />
                                     <ComboBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0"  Name="HLPEvaluate" IsTabStop="False"/>
 
+                                    <!--计时器-->
                                     <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Timer}"  />
                                     <ComboBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"   Name="HLPTimer" IsTabStop="False" DropDownClosed="HLPselect_change" >
                                         <ComboBoxItem Content="{DynamicResource TrainingListView.Valid}"></ComboBoxItem>
@@ -305,7 +309,7 @@
 
                                 <StackPanel Margin="0,50,0,9.6" Width="245" >
                                     <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,0,0" CaretBrush="Black" Name="HLPAttentionpoint" TextWrapping="Wrap"/>
+                                    <TextBox Height="165" Margin="0,2,0,0" CaretBrush="Black" Name="HLPAttentionpoint" TextWrapping="Wrap"/>
                                     <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
                                     -->
                                     <!--行间距-->
@@ -316,7 +320,7 @@
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
                                     <Label  Content="{DynamicResource TrainingResultView.Subjectcomment}"   Background="Gray"  Margin="0,2,-0.4,0" />
-                                    <TextBox Height="104"  Margin="0,2,0,0" CaretBrush="Black" Name="HLPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                    <TextBox Height="165"  Margin="0,2,0,0" CaretBrush="Black" Name="HLPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap"/>
                                     <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                     <!--行间距-->
@@ -326,8 +330,8 @@
                                         </FlowDocument>
                                     </RichTextBox.Document>
                                 </RichTextBox>-->
-                                    <Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,0,0" CaretBrush="Black" Name="HLPMemo" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                    <!--<Label  Content="{DynamicResource TrainingResultView.TrainingMemo}"  Background="Gray"  Margin="0,2,-0.4,0" />
+                                    <TextBox Height="104" Margin="0,2,0,0" CaretBrush="Black" Name="HLPMemo" AcceptsReturn="True" TextWrapping="Wrap"/>-->
                                     <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
                                     -->
                                     <!--行间距-->
