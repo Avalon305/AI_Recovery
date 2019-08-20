@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50634
 File Encoding         : 65001
 
-Date: 2019-08-19 16:23:56
+Date: 2019-08-20 16:04:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -171,16 +171,16 @@ CREATE TABLE `bdl_devicesort` (
 -- ----------------------------
 -- Records of bdl_devicesort
 -- ----------------------------
-INSERT INTO `bdl_devicesort` VALUES ('1', '坐式推胸机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('2', '腿部推蹬机', '2018-04-19 21:47:36', '2018-04-19 21:47:38', '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('3', '腹肌训练机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('4', '三头肌训练机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('5', '腿部外弯机', '2018-04-19 21:47:40', '2018-04-19 21:47:44', '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('6', '腿部内弯机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('7', '蝴蝶机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('8', '反向蝴蝶机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('9', '坐式背部伸展机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('100', '坐式划船机', '2018-03-21 23:54:19', '2018-03-21 23:54:21', '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('0', '坐式推胸机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('1', '腿部推蹬机', '2018-04-19 21:47:36', '2018-04-19 21:47:38', '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('2', '腹肌训练机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('3', '三头肌训练机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('4', '腿部外弯机', '2018-04-19 21:47:40', '2018-04-19 21:47:44', '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('5', '腿部内弯机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('6', '蝴蝶机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('7', '反向蝴蝶机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('8', '坐式背部伸展机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('9', '坐式划船机', '2018-03-21 23:54:19', '2018-03-21 23:54:21', '1', '1');
 
 -- ----------------------------
 -- Table structure for bdl_onlinedevice
@@ -193,7 +193,7 @@ CREATE TABLE `bdl_onlinedevice` (
   `od_clientname_ch` varchar(255) DEFAULT NULL,
   `od_gmt_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`pk_od_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bdl_onlinedevice
@@ -256,7 +256,7 @@ CREATE TABLE `bdl_physicalpower` (
   `pp_usermemo` text COMMENT '利用者感想',
   `pp_workermemo` text COMMENT '工作人员感想',
   PRIMARY KEY (`pk_pp_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bdl_physicalpower
@@ -361,7 +361,7 @@ CREATE TABLE `bdl_symptominfo` (
   `si_suf_pulse` int(3) DEFAULT NULL COMMENT '脉(康复后)',
   `si_suf_animalheat` varchar(255) DEFAULT NULL COMMENT '体温(康复后)',
   PRIMARY KEY (`pk_si_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bdl_symptominfo
@@ -378,7 +378,7 @@ CREATE TABLE `bdl_traininfo` (
   `fk_user_id` int(8) DEFAULT NULL COMMENT '外键（dbl_user : pk_user_id）',
   `status` int(1) DEFAULT NULL COMMENT '0 未做 1 完成 2 废弃',
   PRIMARY KEY (`pk_ti_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bdl_traininfo
