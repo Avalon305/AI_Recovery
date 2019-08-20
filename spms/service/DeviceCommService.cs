@@ -50,10 +50,12 @@ namespace spms.service
 				//Console.WriteLine("收到的UID:{0}在数据库中不存在，自动创建用户及计划", request.Uid);
 				logger.Info("用户存在", uid);
 				string birth_year = (user.User_Birth.ToString().Split('/'))[0];
+				
 				int now_year = int.Parse((DateTime.Now.ToString("yyyy")));
 				response.Age = now_year - int.Parse(birth_year);
 				SkeletonLengthEntity skeletonLengthEntity= skeletonLengthDAO.getSkeletonLengthRecord(int.Parse(uid));
 				response.Weight = skeletonLengthEntity.Weigth;
+				response.UserName = user.User_Name;
 			}
 			else
 			{
@@ -131,7 +133,7 @@ namespace spms.service
 				return response;
 			}
 
-			// 待训练列表 修改传入的fk_activity_id和course_count参数为活动记录表主键activityRecordId  --ByCQZ 4.7
+			// 待训练列表 
 			List<DeviceType> todoDevices = GenToDoDevices(trainInfo.Pk_TI_Id);
 			response.DeviceTypeArr.AddRange(todoDevices);
 			return response;
