@@ -96,10 +96,10 @@ namespace spms.service
 				var ds_id = (int)(request.DeviceType);
 
 				//根据traininfo_id和设备id获取处方信息
-				entity.newEntity.DevicePrescription newDevicePrescription = trainService.GetDevicePrescriptionByTiIdAndDsId(trainInfo_id, ds_id);
+				entity.newEntity.NewDevicePrescription newDevicePrescription = trainService.GetDevicePrescriptionByTiIdAndDsId(trainInfo_id, ds_id);
 				if (newDevicePrescription != null)
 				{
-					response.DpStatus = newDevicePrescription.Dp_status == entity.newEntity.DevicePrescription.UNDO ? 0 : 1;
+					response.DpStatus = newDevicePrescription.Dp_status == entity.newEntity.NewDevicePrescription.UNDO ? 0 : 1;
 					response.DpMoveway = (int)newDevicePrescription.Dp_moveway;
 					response.DpMemo = newDevicePrescription.Dp_memo;
 					response.DpGroupcount = (int)newDevicePrescription.Dp_groupcount;

@@ -19,6 +19,7 @@ using NLog;
 using spms.constant;
 using spms.dao;
 using spms.entity;
+using spms.entity.newEntity;
 using spms.http.dto;
 using spms.service;
 using spms.util;
@@ -26,9 +27,17 @@ using SymptomInfoDTO = spms.view.dto.SymptomInfoDTO;
 
 namespace spms.view.Pages.ChildWin
 {
-    
+    /// <summary>
+    /// 如果名字长度大于4则是非法
+    /// </summary>
     public class NameCheck : ValidationRule
     {
+        /// <summary>
+        /// 如果名字长度大于4则是非法
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="cultureInfo"></param>
+        /// <returns></returns>
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
             var name = Convert.ToString(value);
@@ -41,6 +50,10 @@ namespace spms.view.Pages.ChildWin
             return ValidationResult.ValidResult;
         }
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public class TextBoxText { 
         public string Text1 { get; set; }
         public string Text2 { get; set; }
@@ -48,8 +61,13 @@ namespace spms.view.Pages.ChildWin
         public string Text4 { get; set; }
         public string Text5 { get; set; }
         public string Text6 { get; set; }
+        public string Text7 { get; set; }
+        public string Text8 { get; set; }
+        public string Text9 { get; set; }
+        public string Text10 { get; set; }
 
     }
+
     /// <summary>
     /// InputTraining.xaml 的交互逻辑
     /// </summary>
@@ -67,17 +85,23 @@ namespace spms.view.Pages.ChildWin
 
         // 训练信息的缓存
         //List<DevicePrescription> devicePrescriptionsTmp = null;
-       
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public InputTraining()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.MaxHeight = SystemParameters.WorkArea.Size.Height;
             this.MaxWidth = SystemParameters.WorkArea.Size.Width;
-
         }
 
+        /// <summary>
+        /// 取消按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Cancel(object sender, RoutedEventArgs e)
         {
             Boolean dr = MessageBoxX.Question(LanguageUtils.ConvertLanguage("是否所有编辑都无效？", "Whether all editors are invalid?"));
@@ -87,6 +111,13 @@ namespace spms.view.Pages.ChildWin
             }
         }
 
+        /// <summary>
+        /// List增加规则
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="type">1为正常，2为联动</param>
+        /// <returns></returns>
         private List<double> Add(double start, double end, int type)
 
         {
@@ -113,30 +144,14 @@ namespace spms.view.Pages.ChildWin
             return list;
         }
 
-
         private void checkbox1_Unchecked(object sender, RoutedEventArgs e)
         {
-            //combobox_01.IsEnabled = false;
             combobox_01.Text = null;
-            //combobox_02.IsEnabled = false;
             combobox_02.Text = null;
-            //combobox_03.IsEnabled = false;
             combobox_03.Text = null;
-            //combobox_04.IsEnabled = false;
-            combobox_04.Text = null;
-            //combobox_05.IsEnabled = false;
             combobox_05.Text = null;
             combobox_06.Text = null;
             select_change(sender, e);
-            combobox_07.Text = null;
-            combobox_08.Text = null;
-            //com_01.IsEnabled = false;
-            com_01.Text = null;
-            //com_04.IsEnabled = false;
-            com_04.Text = null;
-            //com_02.IsEnabled = false;
-            //com_03.IsEnabled = false;
-            com_03.Text = null;
             t1.Text = null;
         }
 
@@ -273,71 +288,71 @@ namespace spms.view.Pages.ChildWin
 
         private void checkbox7_Unchecked(object sender, RoutedEventArgs e)
         {
-            combobox_59.Text = null;
-            combobox_60.Text = null;
             combobox_61.Text = null;
             combobox_62.Text = null;
             combobox_63.Text = null;
             combobox_64.Text = null;
-            select_change6(sender, e);
             combobox_65.Text = null;
             combobox_66.Text = null;
+            select_change7(sender, e);
+            combobox_67.Text = null;
+            combobox_68.Text = null;
             com_61.Text = null;
             com_63.Text = null;
             com_64.Text = null;
-            t6.Text = null;
+            t7.Text = null;
         }
 
         private void checkbox8_Unchecked(object sender, RoutedEventArgs e)
         {
-            combobox_51.Text = null;
-            combobox_52.Text = null;
-            combobox_53.Text = null;
-            combobox_54.Text = null;
-            combobox_55.Text = null;
-            combobox_56.Text = null;
-            select_change6(sender, e);
-            combobox_57.Text = null;
-            combobox_58.Text = null;
-            com_51.Text = null;
-            com_53.Text = null;
-            com_53_Copy.Text = null;
-            t6.Text = null;
+            combobox_71.Text = null;
+            combobox_72.Text = null;
+            combobox_73.Text = null;
+            combobox_74.Text = null;
+            combobox_75.Text = null;
+            combobox_76.Text = null;
+            select_change8(sender, e);
+            combobox_77.Text = null;
+            combobox_78.Text = null;
+            com_71.Text = null;
+            com_73.Text = null;
+            com_74.Text = null;
+            t8.Text = null;
         }
 
         private void checkbox9_Unchecked(object sender, RoutedEventArgs e)
         {
-            combobox_51.Text = null;
-            combobox_52.Text = null;
-            combobox_53.Text = null;
-            combobox_54.Text = null;
-            combobox_55.Text = null;
-            combobox_56.Text = null;
-            select_change6(sender, e);
-            combobox_57.Text = null;
-            combobox_58.Text = null;
-            com_51.Text = null;
-            com_53.Text = null;
-            com_53_Copy.Text = null;
-            t6.Text = null;
+            combobox_81.Text = null;
+            combobox_82.Text = null;
+            combobox_83.Text = null;
+            combobox_84.Text = null;
+            combobox_85.Text = null;
+            combobox_86.Text = null;
+            select_change9(sender, e);
+            combobox_87.Text = null;
+            combobox_88.Text = null;
+            com_81.Text = null;
+            com_83.Text = null;
+            com_84.Text = null;
+            t9.Text = null;
         }
 
         private void checkbox10_Unchecked(object sender, RoutedEventArgs e)
         {
-            combobox_51.Text = null;
-            combobox_52.Text = null;
-            combobox_53.Text = null;
-            combobox_54.Text = null;
-            combobox_55.Text = null;
-            combobox_56.Text = null;
-            select_change6(sender, e);
-            combobox_57.Text = null;
-            combobox_58.Text = null;
-            com_51.Text = null;
-            com_53.Text = null;
-            com_53_Copy.Text = null;
-            t6.Text = null;
+            combobox_91.Text = null;
+            combobox_92.Text = null;
+            combobox_93.Text = null;
+            combobox_94.Text = null;
+            combobox_95.Text = null;
+            combobox_96.Text = null;
+            select_change10(sender, e);
+            combobox_97.Text = null;
+            combobox_98.Text = null;
+            com_91.Text = null;
+            com_93.Text = null;
+            t10.Text = null;
         }
+
         /// <summary>
         /// 点击页面保存触发的方法：1.先缓存界面内容。2.然后存表，状态为save
         /// </summary>
@@ -360,58 +375,732 @@ namespace spms.view.Pages.ChildWin
             this.Close();
         }
 
-        private volatile List<DevicePrescription> devicePrescriptionList;
+        //private volatile List<DevicePrescription> devicePrescriptionList;
+        private volatile List<NewDevicePrescription> devicePrescriptionList;
 
-        //得到当前的训练计划，用于save时候的调用，强制进行数据一致性的设置。
-        private List<DevicePrescription> GetDevicePrescriptions()
+        /// <summary>
+        /// 得到当前的训练计划，用于save时候的调用，强制进行数据一致性的设置。
+        /// </summary>
+        /// <returns></returns>
+        private List<NewDevicePrescription> GetDevicePrescriptions()
         {
             return this.devicePrescriptionList;
         }
+
         /// <summary>
         /// 缓存当前的训练计划，在保存与写卡的时候调用
         /// </summary>
-        private void  CacheDevicePrescriptions(){
+        //        private void  CacheDevicePrescriptions(){
+        //            //当前页面的临时数据
+        //            List<DevicePrescription> devicePrescriptionsTmp = new List<DevicePrescription>();
+
+        //            string devName; //设备名字
+        //            string attr1; //属性1
+        //            string attr2; //2
+        //            string attr3; //3
+        //            string attr4; //4
+        //            string attr5; //5
+        //            DeviceSortDAO deviceSortDao = new DeviceSortDAO();
+        //            if (checkbox1.IsChecked == true)
+        //            {
+        //                //胸部推举机
+        //                //attr1 = com_01.Text; //属性1
+        //                //attr2 = com_02.Text; //2
+        //                attr3 = com_03.Text; //3
+        //                attr4 = com_04.Text; //4
+
+        //                //构建对象
+        //                DevicePrescription devicePrescription = new DevicePrescription();
+        //        devicePrescription.DP_Attrs = //attr1 + "*" +
+        //                                              //attr2 + "*" +
+        //                                              attr3 + "*" +
+        //                                              attr4;
+        //                devicePrescription.DP_Memo = t1.Text; //注意点
+        //              //  devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
+        //        devicePrescription.Gmt_Create = DateTime.Now;
+        //                devicePrescription.Gmt_Modified = DateTime.Now;
+        //                try
+        //                {
+        //                    devicePrescription.dp_movedistance = Convert.ToDouble(com_01.Text);
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_01.Text); //组数;
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_02.Text); //个数;
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_05.Text)); //移乘方式
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_03.Text); //间隔时间;
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_weight = Convert.ToDouble(combobox_04.Text); //砝码;
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
+        //                    throw e;
+        //                }
+
+        //                if (LanguageUtils.EqualsResource(combobox_06.Text, "TrainingListView.Valid"))
+        //                {
+        //                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+        //                    try
+        //                    {
+        //                        devicePrescription.dp_timecount = Byte.Parse(combobox_07.Text);
+
+        //                    }
+        //                    catch(Exception e)
+        //                    {
+        //                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+        //                        throw e;
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+        //                }
+        //                if (LanguageUtils.EqualsResource(combobox_08.Text, "TrainingListView.CountReverse"))
+        //                {
+        //                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+        //                }
+        //                else
+        //                {
+        //                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+        //                }
+
+        //                devicePrescription.Dp_status = 0;
+        //                devicePrescriptionsTmp.Add(devicePrescription);
+        //            }
+
+        //            if (checkbox2.IsChecked == true)
+        //            {
+        //                //坐姿划船机
+        //                devName = "坐姿划船机";
+        //                //attr1 = com_11.Text; //属性1
+        //                //attr2 = com_12.Text; //2
+        //                attr3 = com_13.Text; //3
+        //                attr4 = com_14.Text; //4
+
+        //                //构建对象
+        //                DevicePrescription devicePrescription = new DevicePrescription();
+        //devicePrescription.DP_Attrs = //attr1 + "*" +
+        //                                              //attr2 + "*" +
+        //                                              attr3 + "*" +
+        //                                              attr4;
+        //                devicePrescription.DP_Memo = t2.Text; //注意点
+        //               // devicePrescription.Fk_DS_Id = (int) DeviceType.X05;
+        //devicePrescription.Gmt_Create = DateTime.Now;
+        //                devicePrescription.Gmt_Modified = DateTime.Now;
+        //                try
+        //                {
+        //                    devicePrescription.dp_movedistance = Convert.ToDouble(com_11.Text);
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
+        //                    throw e;
+        //                }
+        //                try
+        //                {
+        //                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_11.Text); //组数
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_12.Text); //个数
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_15.Text)); //移乘方式
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_13.Text); //间隔时间
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_weight = Convert.ToDouble(combobox_14.Text); //砝码
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
+        //                    throw e;
+        //                }
+        //                if (LanguageUtils.EqualsResource(combobox_16.Text, "TrainingListView.Valid"))
+        //                {
+        //                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+        //                    try
+        //                    {
+        //                        devicePrescription.dp_timecount = Byte.Parse(combobox_17.Text);
+
+        //                    }
+        //                    catch (Exception e)
+        //                    {
+        //                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+        //                        throw e;
+        //                    }
+
+
+        //                }
+        //                else
+        //                {
+        //                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+        //                }
+        //                if (LanguageUtils.EqualsResource(combobox_18.Text, "TrainingListView.CountReverse"))
+        //                {
+        //                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+        //                }
+        //                else
+        //                {
+        //                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+        //                }
+        //                devicePrescription.Dp_status = 0;
+        //                devicePrescriptionsTmp.Add(devicePrescription);
+        //            }
+
+        //            if (checkbox3.IsChecked == true)
+        //            {
+        //                //身体伸展弯曲机
+        //                devName = "身体伸展弯曲机";
+        //                //attr1 = com_21.Text; //属性1
+        //                //attr2 = com_22.Text; //2
+        //                attr3 = com_23.Text; //3
+        //                attr4 = com_24.Text; //4
+        //                attr1 = com_24_Copy.Text;
+        //                attr2 = com_24_Copy1.Text;
+        //                //构建对象
+        //                DevicePrescription devicePrescription = new DevicePrescription();
+        //devicePrescription.DP_Attrs = //attr1 + "*" +
+        //                                              //attr2 + "*" +
+        //                                              attr3 + "*" +
+        //                                              attr4 + "*" +
+        //                                              attr1 + "*" +
+        //                                              attr2;
+        //                devicePrescription.DP_Memo = t3.Text; //注意点
+        //              //  devicePrescription.Fk_DS_Id = (int) DeviceType.X04;
+        //devicePrescription.Gmt_Create = DateTime.Now;
+        //                devicePrescription.Gmt_Modified = DateTime.Now;
+        //                try
+        //                {
+        //                    devicePrescription.dp_movedistance = Convert.ToDouble(com_21.Text);
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
+        //                    throw e;
+        //                }
+        //                try
+        //                {
+        //                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_21.Text); //组数
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_22.Text); //个数
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_25.Text)); //移乘方式
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_23.Text); //间隔时间
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_weight = Convert.ToDouble(combobox_24.Text); //砝码
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
+        //                    throw e;
+        //                }
+        //                if (LanguageUtils.EqualsResource(combobox_26.Text, "TrainingListView.Valid"))
+        //                {
+        //                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+        //                    try
+        //                    {
+        //                        devicePrescription.dp_timecount = Byte.Parse(combobox_27.Text);
+
+        //                    }
+        //                    catch (Exception e)
+        //                    {
+        //                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+        //                        throw e;
+        //                    }
+
+
+        //                }
+        //                else
+        //                {
+        //                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+        //                }
+        //                if (LanguageUtils.EqualsResource(combobox_28.Text, "TrainingListView.CountReverse"))
+        //                {
+        //                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+        //                }
+        //                else
+        //                {
+        //                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+        //                }
+        //                devicePrescription.Dp_status = 0;
+        //                devicePrescriptionsTmp.Add(devicePrescription);
+        //            }
+
+        //            if (checkbox4.IsChecked == true)
+        //            {
+        //                //腿部伸展弯曲机
+        //                devName = "腿部伸展弯曲机";
+        //                //attr1 = com_31.Text; //属性1
+        //                //attr2 = com_32.Text; //2
+        //                attr3 = com_33.Text; //3
+        //                attr4 = com_34.Text; //4
+        //                attr5 = com_35.Text; //5
+        //                attr1 = com_35_copy.Text;
+
+        //                //构建对象
+        //                DevicePrescription devicePrescription = new DevicePrescription();
+        //devicePrescription.DP_Attrs = //attr1 + "*" +
+        //                                              //attr2 + "*" +
+        //                                              attr3 + "*" +
+        //                                              attr4 + "*" +
+        //                                              attr5 + "*" +
+        //                                              attr1;
+        //                devicePrescription.DP_Memo = t4.Text; //注意点
+        //              //  devicePrescription.Fk_DS_Id = (int) DeviceType.X03;
+        //devicePrescription.Gmt_Create = DateTime.Now;
+        //                devicePrescription.Gmt_Modified = DateTime.Now;
+        //                try
+        //                {
+        //                    devicePrescription.dp_movedistance = Convert.ToDouble(com_31.Text);
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
+        //                    throw e;
+        //                }
+        //                try
+        //                {
+        //                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_31.Text); //组数
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_32.Text); //个数
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_35.Text)); //移乘方式
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_33.Text); //间隔时间
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_weight = Convert.ToDouble(combobox_34.Text); //砝码
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
+        //                    throw e;
+        //                }
+        //                if (LanguageUtils.EqualsResource(combobox_36.Text, "TrainingListView.Valid"))
+        //                {
+        //                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+        //                    try
+        //                    {
+        //                        devicePrescription.dp_timecount = Byte.Parse(combobox_37.Text);
+
+        //                    }
+        //                    catch (Exception e)
+        //                    {
+        //                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+        //                        throw e;
+        //                    }
+
+
+        //                }
+        //                else
+        //                {
+        //                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+        //                }
+        //                if (LanguageUtils.EqualsResource(combobox_38.Text, "TrainingListView.CountReverse"))
+        //                {
+        //                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+        //                }
+        //                else
+        //                {
+        //                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+        //                }
+        //                devicePrescription.Dp_status = 0;
+        //                devicePrescriptionsTmp.Add(devicePrescription);
+        //            }
+
+        //            if (checkbox5.IsChecked == true)
+        //            {
+        //                //腿部腿蹬机
+        //                //attr1 = com_41.Text; //属性1
+        //                //attr2 = com_42.Text; //2
+        //                attr3 = com_43.Text; //3
+        //                attr1 = com_43_Copy.Text; //3
+        //                attr2 = com_43_Copy1.Text; //3
+        //                attr4 = com_43_Copy2.Text; //3
+
+        //                //构建对象
+        //                DevicePrescription devicePrescription = new DevicePrescription();
+        //devicePrescription.DP_Attrs = //attr1 + "*" +
+        //                                              //attr2 + "*" +
+        //                                              attr3 + "*" +
+        //                                              attr1 + "*" +
+        //                                              attr2 + "*" +
+        //                                              attr4;
+        //                devicePrescription.DP_Memo = t5.Text; //注意点
+        //              //  devicePrescription.Fk_DS_Id = (int) DeviceType.X06;
+        //devicePrescription.Gmt_Create = DateTime.Now;
+        //                devicePrescription.Gmt_Modified = DateTime.Now;
+        //                try
+        //                {
+        //                    devicePrescription.dp_movedistance = Convert.ToDouble(com_41.Text);
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
+        //                    throw e;
+        //                }
+        //                try
+        //                {
+        //                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_41.Text); //组数
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_42.Text); //个数
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_45.Text)); //移乘方式
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_43.Text); //间隔时间
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_weight = Convert.ToDouble(combobox_44.Text); //砝码
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
+        //                    throw e;
+        //                }
+        //                if (LanguageUtils.EqualsResource(combobox_46.Text, "TrainingListView.Valid"))
+        //                {
+        //                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+        //                    try
+        //                    {
+        //                        devicePrescription.dp_timecount =Byte.Parse(combobox_47.Text);
+
+        //                    }
+        //                    catch (Exception e)
+        //                    {
+        //                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+        //                        throw e;
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+        //                }
+        //                if (LanguageUtils.EqualsResource(combobox_48.Text, "TrainingListView.CountReverse"))
+        //                {
+        //                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+        //                }
+        //                else
+        //                {
+        //                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+        //                }
+        //                devicePrescription.Dp_status = 0;
+        //                devicePrescriptionsTmp.Add(devicePrescription);
+        //            }
+
+        //            if (checkbox6.IsChecked == true)
+        //            {
+        //                //腿部内外弯机
+        //                //attr1 = com_51.Text; //属性1
+        //                //attr2 = com_52.Text; //2
+        //                attr3 = com_53.Text; //3
+        //                attr4 = com_53_Copy.Text; //3
+
+        //                //构建对象
+        //                DevicePrescription devicePrescription = new DevicePrescription();
+        //devicePrescription.DP_Attrs = //attr1 + "*" +
+        //                                              //attr2 + "*" +
+        //                                              attr3 + "*" +
+        //                                              attr4;
+        //                devicePrescription.DP_Memo = t6.Text; //注意点
+        //               // devicePrescription.Fk_DS_Id = (int) DeviceType.X02;
+        //devicePrescription.Gmt_Create = DateTime.Now;
+        //                devicePrescription.Gmt_Modified = DateTime.Now;
+        //                try
+        //                {
+        //                    devicePrescription.dp_movedistance = Convert.ToDouble(com_51.Text);
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
+        //                    throw e;
+        //                }
+        //                try
+        //                {
+        //                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_51.Text); //组数
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_52.Text); //个数
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_55.Text)); //移乘方式
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_53.Text); //间隔时间
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+        //                    throw e;
+        //                }
+
+        //                try
+        //                {
+        //                    devicePrescription.dp_weight = Convert.ToDouble(combobox_54.Text); //砝码
+        //                }
+        //                catch (Exception e)
+        //                {
+        //                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
+        //                    throw e;
+        //                }
+        //                if (LanguageUtils.EqualsResource(combobox_56.Text, "TrainingListView.Valid"))
+        //                {
+        //                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
+
+        //                    try
+        //                    {
+        //                        devicePrescription.dp_timecount = Byte.Parse(combobox_57.Text);
+
+        //                    }
+        //                    catch (Exception e)
+        //                    {
+        //                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
+        //                        throw e;
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
+        //                }
+        //                if (LanguageUtils.EqualsResource(combobox_58.Text, "TrainingListView.CountReverse"))
+        //                {
+        //                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
+        //                }
+        //                else
+        //                {
+        //                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
+        //                }
+        //                devicePrescription.Dp_status = 0;
+        //                devicePrescriptionsTmp.Add(devicePrescription);
+        //            }
+        //            //如果还没有赋值，则赋值
+        //            if (this.devicePrescriptionList == null) {
+        //                this.devicePrescriptionList = new List<DevicePrescription>();
+        //            }
+        //            //移除所有元素，保险起见
+        //            this.devicePrescriptionList.Clear();
+        //            //复制当前元素，而不是简单的内存指向
+        //            devicePrescriptionsTmp.ForEach(i => this.devicePrescriptionList.Add(i));
+
+
+        //        }
+        private void CacheDevicePrescriptions()
+        {
             //当前页面的临时数据
-            List<DevicePrescription> devicePrescriptionsTmp = new List<DevicePrescription>();
+            List<NewDevicePrescription> devicePrescriptionsTmp = new List<NewDevicePrescription>();
 
             string devName; //设备名字
-            string attr1; //属性1
-            string attr2; //2
-            string attr3; //3
-            string attr4; //4
-            string attr5; //5
+
             DeviceSortDAO deviceSortDao = new DeviceSortDAO();
+            // 坐式推胸机
             if (checkbox1.IsChecked == true)
             {
-                //胸部推举机
-                //attr1 = com_01.Text; //属性1
-                //attr2 = com_02.Text; //2
-                attr3 = com_03.Text; //3
-                attr4 = com_04.Text; //4
+                devName = "坐式推胸机";
 
-                //构建对象
-                DevicePrescription devicePrescription = new DevicePrescription();
-        devicePrescription.DP_Attrs = //attr1 + "*" +
-                                              //attr2 + "*" +
-                                              attr3 + "*" +
-                                              attr4;
-                devicePrescription.DP_Memo = t1.Text; //注意点
-              //  devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
-        devicePrescription.Gmt_Create = DateTime.Now;
-                devicePrescription.Gmt_Modified = DateTime.Now;
-                try
-                {
-                    devicePrescription.dp_movedistance = Convert.ToDouble(com_01.Text);
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
-                    throw e;
-                }
+                NewDevicePrescription devicePrescription = new NewDevicePrescription();
+                devicePrescription.Dp_memo = t1.Text; //注意点
+                                                      //  devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
+                devicePrescription.Gmt_create = DateTime.Now;
+                devicePrescription.Gmt_modified = DateTime.Now;
+
+                // 移动距离
+                // ...
 
                 try
                 {
-                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_01.Text); //组数;
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_01.Text); //组数;
                 }
                 catch (Exception e)
                 {
@@ -421,7 +1110,7 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_02.Text); //个数;
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_02.Text); //个数;
                 }
                 catch (Exception e)
                 {
@@ -431,7 +1120,7 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_05.Text)); //移乘方式
+                    devicePrescription.Dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_05.Text)); //移乘方式
                 }
                 catch (Exception e)
                 {
@@ -441,7 +1130,7 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_03.Text); //间隔时间;
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_03.Text); //间隔时间;
                 }
                 catch (Exception e)
                 {
@@ -449,79 +1138,28 @@ namespace spms.view.Pages.ChildWin
                     throw e;
                 }
 
-                try
-                {
-                    devicePrescription.dp_weight = Convert.ToDouble(combobox_04.Text); //砝码;
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
-                    throw e;
-                }
-
-                if (LanguageUtils.EqualsResource(combobox_06.Text, "TrainingListView.Valid"))
-                {
-                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
-
-                    try
-                    {
-                        devicePrescription.dp_timecount = Byte.Parse(combobox_07.Text);
-                        
-                    }
-                    catch(Exception e)
-                    {
-                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
-                        throw e;
-                    }
-                }
-                else
-                {
-                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
-                }
-                if (LanguageUtils.EqualsResource(combobox_08.Text, "TrainingListView.CountReverse"))
-                {
-                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
-                }
-                else
-                {
-                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
-                }
+                // 砝码
+                // ...
+                // 计时器
+                // ...
 
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
-
+            // 坐姿划船机
             if (checkbox2.IsChecked == true)
             {
                 //坐姿划船机
                 devName = "坐姿划船机";
-                //attr1 = com_11.Text; //属性1
-                //attr2 = com_12.Text; //2
-                attr3 = com_13.Text; //3
-                attr4 = com_14.Text; //4
 
-                //构建对象
-                DevicePrescription devicePrescription = new DevicePrescription();
-devicePrescription.DP_Attrs = //attr1 + "*" +
-                                              //attr2 + "*" +
-                                              attr3 + "*" +
-                                              attr4;
-                devicePrescription.DP_Memo = t2.Text; //注意点
-               // devicePrescription.Fk_DS_Id = (int) DeviceType.X05;
-devicePrescription.Gmt_Create = DateTime.Now;
-                devicePrescription.Gmt_Modified = DateTime.Now;
+                NewDevicePrescription devicePrescription = new NewDevicePrescription();
+                devicePrescription.Dp_memo = t2.Text; //注意点
+                devicePrescription.Gmt_create = DateTime.Now;
+                devicePrescription.Gmt_modified = DateTime.Now;
+
                 try
                 {
-                    devicePrescription.dp_movedistance = Convert.ToDouble(com_11.Text);
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
-                    throw e;
-                }
-                try
-                {
-                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_11.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_11.Text); //组数
                 }
                 catch (Exception e)
                 {
@@ -531,7 +1169,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_12.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_12.Text); //个数
                 }
                 catch (Exception e)
                 {
@@ -541,7 +1179,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_15.Text)); //移乘方式
+                    devicePrescription.Dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_15.Text)); //移乘方式
                 }
                 catch (Exception e)
                 {
@@ -551,7 +1189,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_13.Text); //间隔时间
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_13.Text); //间隔时间
                 }
                 catch (Exception e)
                 {
@@ -559,82 +1197,22 @@ devicePrescription.Gmt_Create = DateTime.Now;
                     throw e;
                 }
 
-                try
-                {
-                    devicePrescription.dp_weight = Convert.ToDouble(combobox_14.Text); //砝码
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
-                    throw e;
-                }
-                if (LanguageUtils.EqualsResource(combobox_16.Text, "TrainingListView.Valid"))
-                {
-                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
-
-                    try
-                    {
-                        devicePrescription.dp_timecount = Byte.Parse(combobox_17.Text);
-
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
-                        throw e;
-                    }
-
-                    
-                }
-                else
-                {
-                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
-                }
-                if (LanguageUtils.EqualsResource(combobox_18.Text, "TrainingListView.CountReverse"))
-                {
-                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
-                }
-                else
-                {
-                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
-                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
-
+            // 坐式背部伸展机
             if (checkbox3.IsChecked == true)
             {
-                //身体伸展弯曲机
-                devName = "身体伸展弯曲机";
-                //attr1 = com_21.Text; //属性1
-                //attr2 = com_22.Text; //2
-                attr3 = com_23.Text; //3
-                attr4 = com_24.Text; //4
-                attr1 = com_24_Copy.Text;
-                attr2 = com_24_Copy1.Text;
-                //构建对象
-                DevicePrescription devicePrescription = new DevicePrescription();
-devicePrescription.DP_Attrs = //attr1 + "*" +
-                                              //attr2 + "*" +
-                                              attr3 + "*" +
-                                              attr4 + "*" +
-                                              attr1 + "*" +
-                                              attr2;
-                devicePrescription.DP_Memo = t3.Text; //注意点
-              //  devicePrescription.Fk_DS_Id = (int) DeviceType.X04;
-devicePrescription.Gmt_Create = DateTime.Now;
-                devicePrescription.Gmt_Modified = DateTime.Now;
+                devName = "坐式背部伸展机";
+                NewDevicePrescription devicePrescription = new NewDevicePrescription();
+
+                devicePrescription.Dp_memo = t3.Text; //注意点
+                devicePrescription.Gmt_create = DateTime.Now;
+                devicePrescription.Gmt_modified = DateTime.Now;
+
                 try
                 {
-                    devicePrescription.dp_movedistance = Convert.ToDouble(com_21.Text);
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
-                    throw e;
-                }
-                try
-                {
-                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_21.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_21.Text); //组数
                 }
                 catch (Exception e)
                 {
@@ -644,7 +1222,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_22.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_22.Text); //个数
                 }
                 catch (Exception e)
                 {
@@ -654,7 +1232,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_25.Text)); //移乘方式
+                    devicePrescription.Dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_25.Text)); //移乘方式
                 }
                 catch (Exception e)
                 {
@@ -664,7 +1242,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_23.Text); //间隔时间
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_23.Text); //间隔时间
                 }
                 catch (Exception e)
                 {
@@ -672,83 +1250,23 @@ devicePrescription.Gmt_Create = DateTime.Now;
                     throw e;
                 }
 
-                try
-                {
-                    devicePrescription.dp_weight = Convert.ToDouble(combobox_24.Text); //砝码
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
-                    throw e;
-                }
-                if (LanguageUtils.EqualsResource(combobox_26.Text, "TrainingListView.Valid"))
-                {
-                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
-
-                    try
-                    {
-                        devicePrescription.dp_timecount = Byte.Parse(combobox_27.Text);
-
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
-                        throw e;
-                    }
-
-                    
-                }
-                else
-                {
-                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
-                }
-                if (LanguageUtils.EqualsResource(combobox_28.Text, "TrainingListView.CountReverse"))
-                {
-                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
-                }
-                else
-                {
-                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
-                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
-
+            // 腿部内弯机
             if (checkbox4.IsChecked == true)
             {
-                //腿部伸展弯曲机
-                devName = "腿部伸展弯曲机";
-                //attr1 = com_31.Text; //属性1
-                //attr2 = com_32.Text; //2
-                attr3 = com_33.Text; //3
-                attr4 = com_34.Text; //4
-                attr5 = com_35.Text; //5
-                attr1 = com_35_copy.Text;
+                devName = "腿部内弯机";
+                NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
-                //构建对象
-                DevicePrescription devicePrescription = new DevicePrescription();
-devicePrescription.DP_Attrs = //attr1 + "*" +
-                                              //attr2 + "*" +
-                                              attr3 + "*" +
-                                              attr4 + "*" +
-                                              attr5 + "*" +
-                                              attr1;
-                devicePrescription.DP_Memo = t4.Text; //注意点
-              //  devicePrescription.Fk_DS_Id = (int) DeviceType.X03;
-devicePrescription.Gmt_Create = DateTime.Now;
-                devicePrescription.Gmt_Modified = DateTime.Now;
+                devicePrescription.Dp_memo = t4.Text; //注意点
+                                                      //  devicePrescription.Fk_DS_Id = (int) DeviceType.X03;
+                devicePrescription.Gmt_create = DateTime.Now;
+                devicePrescription.Gmt_modified = DateTime.Now;
+
                 try
                 {
-                    devicePrescription.dp_movedistance = Convert.ToDouble(com_31.Text);
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
-                    throw e;
-                }
-                try
-                {
-                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_31.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_31.Text); //组数
                 }
                 catch (Exception e)
                 {
@@ -758,7 +1276,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_32.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_32.Text); //个数
                 }
                 catch (Exception e)
                 {
@@ -768,7 +1286,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_35.Text)); //移乘方式
+                    devicePrescription.Dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_35.Text)); //移乘方式
                 }
                 catch (Exception e)
                 {
@@ -778,7 +1296,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_33.Text); //间隔时间
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_33.Text); //间隔时间
                 }
                 catch (Exception e)
                 {
@@ -786,82 +1304,23 @@ devicePrescription.Gmt_Create = DateTime.Now;
                     throw e;
                 }
 
-                try
-                {
-                    devicePrescription.dp_weight = Convert.ToDouble(combobox_34.Text); //砝码
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
-                    throw e;
-                }
-                if (LanguageUtils.EqualsResource(combobox_36.Text, "TrainingListView.Valid"))
-                {
-                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
-
-                    try
-                    {
-                        devicePrescription.dp_timecount = Byte.Parse(combobox_37.Text);
-
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
-                        throw e;
-                    }
-
-                    
-                }
-                else
-                {
-                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
-                }
-                if (LanguageUtils.EqualsResource(combobox_38.Text, "TrainingListView.CountReverse"))
-                {
-                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
-                }
-                else
-                {
-                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
-                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
-
+            // 腿部推蹬机
             if (checkbox5.IsChecked == true)
             {
-                //腿部腿蹬机
-                //attr1 = com_41.Text; //属性1
-                //attr2 = com_42.Text; //2
-                attr3 = com_43.Text; //3
-                attr1 = com_43_Copy.Text; //3
-                attr2 = com_43_Copy1.Text; //3
-                attr4 = com_43_Copy2.Text; //3
+                // 腿部推蹬机
+                devName = "腿部推蹬机";
+                NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
-                //构建对象
-                DevicePrescription devicePrescription = new DevicePrescription();
-devicePrescription.DP_Attrs = //attr1 + "*" +
-                                              //attr2 + "*" +
-                                              attr3 + "*" +
-                                              attr1 + "*" +
-                                              attr2 + "*" +
-                                              attr4;
-                devicePrescription.DP_Memo = t5.Text; //注意点
-              //  devicePrescription.Fk_DS_Id = (int) DeviceType.X06;
-devicePrescription.Gmt_Create = DateTime.Now;
-                devicePrescription.Gmt_Modified = DateTime.Now;
+                devicePrescription.Dp_memo = t5.Text; //注意点
+                devicePrescription.Gmt_create = DateTime.Now;
+                devicePrescription.Gmt_modified = DateTime.Now;
+
                 try
                 {
-                    devicePrescription.dp_movedistance = Convert.ToDouble(com_41.Text);
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
-                    throw e;
-                }
-                try
-                {
-                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_41.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_41.Text); //组数
                 }
                 catch (Exception e)
                 {
@@ -871,7 +1330,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_42.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_42.Text); //个数
                 }
                 catch (Exception e)
                 {
@@ -881,7 +1340,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_45.Text)); //移乘方式
+                    devicePrescription.Dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_45.Text)); //移乘方式
                 }
                 catch (Exception e)
                 {
@@ -889,86 +1348,22 @@ devicePrescription.Gmt_Create = DateTime.Now;
                     throw e;
                 }
 
-                try
-                {
-                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_43.Text); //间隔时间
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
-                    throw e;
-                }
-
-                try
-                {
-                    devicePrescription.dp_weight = Convert.ToDouble(combobox_44.Text); //砝码
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
-                    throw e;
-                }
-                if (LanguageUtils.EqualsResource(combobox_46.Text, "TrainingListView.Valid"))
-                {
-                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
-
-                    try
-                    {
-                        devicePrescription.dp_timecount =Byte.Parse(combobox_47.Text);
-
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
-                        throw e;
-                    }
-                }
-                else
-                {
-                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
-                }
-                if (LanguageUtils.EqualsResource(combobox_48.Text, "TrainingListView.CountReverse"))
-                {
-                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
-                }
-                else
-                {
-                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
-                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
-
+            // 腿部外弯机
             if (checkbox6.IsChecked == true)
             {
-                //腿部内外弯机
-                //attr1 = com_51.Text; //属性1
-                //attr2 = com_52.Text; //2
-                attr3 = com_53.Text; //3
-                attr4 = com_53_Copy.Text; //3
+                devName = "腿部外弯机";
+                NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
-                //构建对象
-                DevicePrescription devicePrescription = new DevicePrescription();
-devicePrescription.DP_Attrs = //attr1 + "*" +
-                                              //attr2 + "*" +
-                                              attr3 + "*" +
-                                              attr4;
-                devicePrescription.DP_Memo = t6.Text; //注意点
-               // devicePrescription.Fk_DS_Id = (int) DeviceType.X02;
-devicePrescription.Gmt_Create = DateTime.Now;
-                devicePrescription.Gmt_Modified = DateTime.Now;
+                devicePrescription.Dp_memo = t6.Text; //注意点
+                devicePrescription.Gmt_create = DateTime.Now;
+                devicePrescription.Gmt_modified = DateTime.Now;
+
                 try
                 {
-                    devicePrescription.dp_movedistance = Convert.ToDouble(com_51.Text);
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移动距离", "Please select the correct moving distance"));
-                    throw e;
-                }
-                try
-                {
-                    devicePrescription.dp_groupcount = Convert.ToInt32(combobox_51.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_51.Text); //组数
                 }
                 catch (Exception e)
                 {
@@ -978,7 +1373,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_groupnum = Convert.ToInt32(combobox_52.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_52.Text); //个数
                 }
                 catch (Exception e)
                 {
@@ -988,7 +1383,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_55.Text)); //移乘方式
+                    devicePrescription.Dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_55.Text)); //移乘方式
                 }
                 catch (Exception e)
                 {
@@ -998,7 +1393,7 @@ devicePrescription.Gmt_Create = DateTime.Now;
 
                 try
                 {
-                    devicePrescription.dp_relaxtime = Convert.ToInt32(combobox_53.Text); //间隔时间
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_53.Text); //间隔时间
                 }
                 catch (Exception e)
                 {
@@ -1006,57 +1401,237 @@ devicePrescription.Gmt_Create = DateTime.Now;
                     throw e;
                 }
 
-                try
-                {
-                    devicePrescription.dp_weight = Convert.ToDouble(combobox_54.Text); //砝码
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的砝码", "Please choose the right weight"));
-                    throw e;
-                }
-                if (LanguageUtils.EqualsResource(combobox_56.Text, "TrainingListView.Valid"))
-                {
-                    devicePrescription.dp_timer = DevConstants.TIMER_VALID;
-
-                    try
-                    {
-                        devicePrescription.dp_timecount = Byte.Parse(combobox_57.Text);
-
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的计时时间", "Please choose the right timecount"));
-                        throw e;
-                    }
-                }
-                else
-                {
-                    devicePrescription.dp_timer = DevConstants.TIMER_INVALID;
-                }
-                if (LanguageUtils.EqualsResource(combobox_58.Text, "TrainingListView.CountReverse"))
-                {
-                    devicePrescription.dp_timetype = DevConstants.COUNT_REVERSE;
-                }
-                else
-                {
-                    devicePrescription.dp_timetype = DevConstants.COUNT_FORWARD;
-                }
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
+            // 腹肌训练机
+            if (checkbox7.IsChecked == true)
+            {
+                devName = "腹肌训练机";
+                NewDevicePrescription devicePrescription = new NewDevicePrescription();
+
+                devicePrescription.Dp_memo = t7.Text; //注意点
+                devicePrescription.Gmt_create = DateTime.Now;
+                devicePrescription.Gmt_modified = DateTime.Now;
+
+                try
+                {
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_61.Text); //组数
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_62.Text); //个数
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_65.Text)); //移乘方式
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_63.Text); //间隔时间
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+                    throw e;
+                }
+
+                devicePrescription.Dp_status = 0;
+                devicePrescriptionsTmp.Add(devicePrescription);
+            }
+            // 三头肌训练机
+            if (checkbox8.IsChecked == true)
+            {
+                devName = "三头训练机";
+                NewDevicePrescription devicePrescription = new NewDevicePrescription();
+
+                devicePrescription.Dp_memo = t8.Text; //注意点
+                devicePrescription.Gmt_create = DateTime.Now;
+                devicePrescription.Gmt_modified = DateTime.Now;
+
+                try
+                {
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_71.Text); //组数
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_72.Text); //个数
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_75.Text)); //移乘方式
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_73.Text); //间隔时间
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+                    throw e;
+                }
+
+                devicePrescription.Dp_status = 0;
+                devicePrescriptionsTmp.Add(devicePrescription);
+            }
+            // 蝴蝶机
+            if (checkbox9.IsChecked == true)
+            {
+                devName = "蝴蝶机";
+                NewDevicePrescription devicePrescription = new NewDevicePrescription();
+
+                devicePrescription.Dp_memo = t9.Text; //注意点
+                devicePrescription.Gmt_create = DateTime.Now;
+                devicePrescription.Gmt_modified = DateTime.Now;
+
+                try
+                {
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_81.Text); //组数
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_82.Text); //个数
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_85.Text)); //移乘方式
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_83.Text); //间隔时间
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+                    throw e;
+                }
+
+                devicePrescription.Dp_status = 0;
+                devicePrescriptionsTmp.Add(devicePrescription);
+            }
+            // 反向蝴蝶机
+            if (checkbox10.IsChecked == true)
+            {
+                devName = "反向蝴蝶机";
+                NewDevicePrescription devicePrescription = new NewDevicePrescription();
+
+                devicePrescription.Dp_memo = t10.Text; //注意点
+                devicePrescription.Gmt_create = DateTime.Now;
+                devicePrescription.Gmt_modified = DateTime.Now;
+
+                try
+                {
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_91.Text); //组数
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的组数", "Please select the correct number of groups"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_92.Text); //个数
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_95.Text)); //移乘方式
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_93.Text); //间隔时间
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
+                    throw e;
+                }
+
+                devicePrescription.Dp_status = 0;
+                devicePrescriptionsTmp.Add(devicePrescription);
+            }
+
             //如果还没有赋值，则赋值
-            if (this.devicePrescriptionList == null) {
-                this.devicePrescriptionList = new List<DevicePrescription>();
+            if (this.devicePrescriptionList == null)
+            {
+                this.devicePrescriptionList = new List<NewDevicePrescription>();
             }
             //移除所有元素，保险起见
             this.devicePrescriptionList.Clear();
             //复制当前元素，而不是简单的内存指向
             devicePrescriptionsTmp.ForEach(i => this.devicePrescriptionList.Add(i));
-              
-             
         }
 
+        /// <summary>
+        /// 症状记录
+        /// </summary>
+        /// <param name="status"></param>
         private void SaveTrainInfo2DB(TrainInfoStatus status)
         {
 
@@ -1106,19 +1681,16 @@ devicePrescription.Gmt_Create = DateTime.Now;
                     dataItems.Add(dataCode.Code_D_Value);
                 }
             }
-
+            
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
             var nullTiIdByUserId = new SymptomInfoDao().GetNullTiIdByUserId(user.Pk_User_Id);
             symp.ItemsSource = new SymptomInfoDTO().ConvertDtoList(nullTiIdByUserId);
-            com_01.ItemsSource = Add(1, 46, 2);
-            //com_02.ItemsSource = Add(0, 30, 2);
-            com_03.ItemsSource = Add(1, 4, 2);
-            com_04.ItemsSource = Add(1, 6, 2);
+
             combobox_01.ItemsSource = Add(1, 3, 2);
             combobox_02.ItemsSource = Add(1, 20, 2);
             combobox_03.ItemsSource = Add(1, 60, 2);
-            combobox_04.ItemsSource = Add(0.5, 30.0, 1);
+            //combobox_04.ItemsSource = Add(0.5, 30.0, 1);
             combobox_05.ItemsSource = dataItems;
 
             com_11.ItemsSource = Add(1, 43, 2);
@@ -1177,222 +1749,161 @@ devicePrescription.Gmt_Create = DateTime.Now;
             combobox_54.ItemsSource = Add(0.5, 30.0, 1);
             combobox_55.ItemsSource = dataItems;
 
-            List<DevicePrescription> devicePrescriptions = new TrainService().GetSaveDevicePrescriptionsByUser(user);
+            com_61.ItemsSource = Add(1, 43, 2);
+            //com_12.ItemsSource = Add(0, 30, 1);
+            com_63.ItemsSource = Add(1, 8, 2);
+            com_64.ItemsSource = Add(1, 4, 2);
+            combobox_61.ItemsSource = Add(1, 3, 2);
+            combobox_62.ItemsSource = Add(1, 20, 2);
+            combobox_63.ItemsSource = Add(1, 60, 2);
+            combobox_64.ItemsSource = Add(0.5, 30.0, 1);
+            combobox_65.ItemsSource = dataItems;
+
+            com_71.ItemsSource = Add(1, 47, 2);
+            //com_22.ItemsSource = Add(0, 30, 1);
+            com_73.ItemsSource = Add(1, 6, 2);
+            com_74.ItemsSource = Add(1, 3, 2);
+            com_74_Copy.ItemsSource = Add(1, 4, 2);
+            com_74_Copy1.ItemsSource = Add(46, 60, 2);
+            combobox_71.ItemsSource = Add(1, 3, 2);
+            combobox_72.ItemsSource = Add(1, 20, 2);
+            combobox_73.ItemsSource = Add(1, 60, 2);
+            combobox_74.ItemsSource = Add(0.5, 30.0, 1);
+            combobox_75.ItemsSource = dataItems;
+
+            com_81.ItemsSource = Add(1, 47, 2);
+            //com_32.ItemsSource = Add(0, 30, 1);
+            com_83.ItemsSource = Add(1, 5, 2);
+            com_84.ItemsSource = Add(1, 6, 2);
+            com_85.ItemsSource = Add(1, 5, 2);
+            com_85_copy.ItemsSource = Add(1, 2, 2);
+            combobox_81.ItemsSource = Add(1, 3, 2);
+            combobox_82.ItemsSource = Add(1, 20, 2);
+            combobox_83.ItemsSource = Add(1, 60, 2);
+            combobox_84.ItemsSource = Add(0.5, 30.0, 1);
+            combobox_85.ItemsSource = dataItems;
+
+            com_91.ItemsSource = Add(1, 50, 2);
+            //com_42.ItemsSource = Add(0, 30, 1);
+            com_93.ItemsSource = Add(1, 6, 2);
+            com_93_Copy.ItemsSource = Add(1, 5, 2);
+            com_93_Copy1.ItemsSource = Add(1, 2, 2);
+            com_93_Copy2.ItemsSource = Add(1, 3, 2);
+            combobox_91.ItemsSource = Add(1, 3, 2);
+            combobox_92.ItemsSource = Add(1, 20, 2);
+            combobox_93.ItemsSource = Add(1, 60, 2);
+            combobox_94.ItemsSource = Add(0.5, 75.0, 1);
+            combobox_95.ItemsSource = dataItems;
+
+            List<NewDevicePrescription> devicePrescriptions = new TrainService().GetSaveDevicePrescriptionsByUser(user);
             if (devicePrescriptions == null)
             {
                 return;
             }
-            foreach (DevicePrescription devicePrescription in devicePrescriptions)
+            foreach (NewDevicePrescription devicePrescription in devicePrescriptions)
             {
-                if (devicePrescription.DP_Attrs == null)
-                {
-                    //如果没设置属性，直接跳过
-                    continue;
-                }
-                string[] attrs = devicePrescription.DP_Attrs.Split(new char[] {'*'});
-                int devName = devicePrescription.Fk_DS_Id;
+                long devName = devicePrescription.Fk_ds_id;
                 switch (devName)
                 {
-                    case (int)DeviceType.P00:
+                    case (int)DeviceType.P01:
                         checkbox1.IsChecked = true;
-                        //设置属性
-                        com_01.Text = devicePrescription.dp_movedistance.ToString();
-                        //com_02.Text = attrs[1];
-                        com_03.Text = attrs[0];
-                        com_04.Text = attrs[1];
                         //设置处方信息
-                        combobox_01.Text = devicePrescription.dp_groupcount.ToString();
-                        combobox_02.Text = devicePrescription.dp_groupnum.ToString();
-                        combobox_03.Text = devicePrescription.dp_relaxtime.ToString();
-                        combobox_04.Text = devicePrescription.dp_weight.ToString();
-                        combobox_05.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
-                        t1.Text = devicePrescription.DP_Memo;
-                        if(devicePrescription.dp_timer == DevConstants.TIMER_VALID)
-                        {
-                            combobox_06.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Valid");
-                            select_change(combobox_06, new EventArgs());
-                            combobox_07.Text = devicePrescription.dp_timecount.ToString();
-                            if(devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
-                            {
-                                combobox_08.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.CountForward");
-                            }
-                            else
-                            {
-                                combobox_08.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.CountReverse");
-                            }
-                        }
-                        else
-                        {
-                            combobox_06.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Invalid");
-                        }
+                        combobox_01.Text = devicePrescription.Dp_groupcount.ToString();
+                        combobox_02.Text = devicePrescription.Dp_groupnum.ToString();
+                        combobox_03.Text = devicePrescription.Dp_relaxtime.ToString();
+                        combobox_05.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
+                        t1.Text = devicePrescription.Dp_memo;
+                        combobox_06.Text = "0";
                         break;
-                    case (int)DeviceType.P03:
+                    case (int)DeviceType.P00:
                         checkbox2.IsChecked = true;
-                        com_11.Text = devicePrescription.dp_movedistance.ToString();
-                        //com_12.Text = attrs[1];
-                        com_13.Text = attrs[0];
-                        com_14.Text = attrs[1];
-                        combobox_11.Text = devicePrescription.dp_groupcount.ToString();
-                        combobox_12.Text = devicePrescription.dp_groupnum.ToString();
-                        combobox_13.Text = devicePrescription.dp_relaxtime.ToString();
-                        combobox_14.Text = devicePrescription.dp_weight.ToString();
-                        combobox_15.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
-                        t2.Text = devicePrescription.DP_Memo;
-                        if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
-                        {
-                            combobox_16.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Valid");
-                            select_change2(combobox_16, new EventArgs());
-                            combobox_17.Text = devicePrescription.dp_timecount.ToString();
-                            if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
-                            {
-                                combobox_18.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.CountForward");
-                            }
-                            else
-                            {
-                                combobox_18.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.CountReverse");
-                            }
-                        }
-                        else
-                        {
-                            combobox_16.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Invalid");
-                        }
+                        combobox_11.Text = devicePrescription.Dp_groupcount.ToString();
+                        combobox_12.Text = devicePrescription.Dp_groupnum.ToString();
+                        combobox_13.Text = devicePrescription.Dp_relaxtime.ToString();
+                        combobox_15.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
+                        t2.Text = devicePrescription.Dp_memo;
+                        combobox_16.Text = "0";
                         break;
-                    case (int)DeviceType.P04:
+                    case (int)DeviceType.P09:
                         checkbox3.IsChecked = true;
-                        com_21.Text = devicePrescription.dp_movedistance.ToString();
-                        //com_22.Text = attrs[1];
-                        com_23.Text = attrs[0];
-                        com_24.Text = attrs[1];
-                        com_24_Copy.Text = attrs[2];
-                        com_24_Copy1.Text = attrs[3];
-                        combobox_21.Text = devicePrescription.dp_groupcount.ToString();
-                        combobox_22.Text = devicePrescription.dp_groupnum.ToString();
-                        combobox_23.Text = devicePrescription.dp_relaxtime.ToString();
-                        combobox_24.Text = devicePrescription.dp_weight.ToString();
-                        combobox_25.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
-                        t3.Text = devicePrescription.DP_Memo;
-                        if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
-                        {
-                            combobox_26.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Valid");
-                            select_change3(combobox_26, new EventArgs());
-                            combobox_27.Text = devicePrescription.dp_timecount.ToString();
-                            if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
-                            {
-                                combobox_28.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.CountForward");
-                            }
-                            else
-                            {
-                                combobox_28.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.CountReverse");
-                            }
-                        }
-                        else
-                        {
-                            combobox_26.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Invalid");
-                        }
-                        break;
-                    case (int)DeviceType.P05:
-                        checkbox4.IsChecked = true;
-                        com_31.Text = devicePrescription.dp_movedistance.ToString();
-                        //com_32.Text = attrs[1];
-                        com_33.Text = attrs[0];
-                        com_34.Text = attrs[1];
-                        com_35.Text = attrs[2];
-                        com_35_copy.Text = attrs[3];
-                        combobox_31.Text = devicePrescription.dp_groupcount.ToString();
-                        combobox_32.Text = devicePrescription.dp_groupnum.ToString();
-                        combobox_33.Text = devicePrescription.dp_relaxtime.ToString();
-                        combobox_34.Text = devicePrescription.dp_weight.ToString();
-                        combobox_35.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
-                        t4.Text = devicePrescription.DP_Memo;
-                        if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
-                        {
-                            combobox_36.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Valid");
-                            select_change4(combobox_36, new EventArgs());
-                            combobox_37.Text = devicePrescription.dp_timecount.ToString();
-                            if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
-                            {
-                                combobox_38.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.CountForward");
-                            }
-                            else
-                            {
-                                combobox_38.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.CountReverse");
-                            }
-                        }
-                        else
-                        {
-                            combobox_36.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Invalid");
-                        }
+                        combobox_21.Text = devicePrescription.Dp_groupcount.ToString();
+                        combobox_22.Text = devicePrescription.Dp_groupnum.ToString();
+                        combobox_23.Text = devicePrescription.Dp_relaxtime.ToString();
+                        combobox_25.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
+                        t3.Text = devicePrescription.Dp_memo;
+                        combobox_26.Text = "0";
                         break;
                     case (int)DeviceType.P06:
+                        checkbox4.IsChecked = true;
+                        combobox_31.Text = devicePrescription.Dp_groupcount.ToString();
+                        combobox_32.Text = devicePrescription.Dp_groupnum.ToString();
+                        combobox_33.Text = devicePrescription.Dp_relaxtime.ToString();
+                        combobox_35.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
+                        t4.Text = devicePrescription.Dp_memo;
+                        combobox_36.Text = "0";
+                        break;
+                    case (int)DeviceType.P02:
                         checkbox5.IsChecked = true;
-                        com_41.Text = devicePrescription.dp_movedistance.ToString();
-                        //com_42.Text = attrs[1];
-                        com_43.Text = attrs[0];
-                        com_43_Copy.Text = attrs[1];
-                        com_43_Copy1.Text = attrs[2];
-                        com_43_Copy2.Text = attrs[3];
-                        combobox_41.Text = devicePrescription.dp_groupcount.ToString();
-                        combobox_42.Text = devicePrescription.dp_groupnum.ToString();
-                        combobox_43.Text = devicePrescription.dp_relaxtime.ToString();
-                        combobox_44.Text = devicePrescription.dp_weight.ToString();
-                        combobox_45.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
-                        //t5.Text = "";好了！！
-                        t5.Text = devicePrescription.DP_Memo;
-                        if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
-                        {
-                            combobox_46.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Valid");
-                            select_change5(combobox_46, new EventArgs());
-                            combobox_47.Text = devicePrescription.dp_timecount.ToString();
-                            if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
-                            {
-                                combobox_48.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.CountForward");
-                            }
-                            else
-                            {
-                                combobox_48.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.CountReverse");
-                            }
-                        }
-                        else
-                        {
-                            combobox_46.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Invalid");
-                        }
+                        combobox_41.Text = devicePrescription.Dp_groupcount.ToString();
+                        combobox_42.Text = devicePrescription.Dp_groupnum.ToString();
+                        combobox_43.Text = devicePrescription.Dp_relaxtime.ToString();
+                        combobox_45.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
+                        t5.Text = devicePrescription.Dp_memo;
+                        combobox_46.Text = "0";
+                        break;
+                    case (int)DeviceType.P05:
+                        checkbox6.IsChecked = true;
+                        combobox_51.Text = devicePrescription.Dp_groupcount.ToString();
+                        combobox_52.Text = devicePrescription.Dp_groupnum.ToString();
+                        combobox_53.Text = devicePrescription.Dp_relaxtime.ToString();
+                        combobox_55.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
+                        t6.Text = devicePrescription.Dp_memo;
+                        combobox_56.Text = "0";
+                        break;
+                    case (int)DeviceType.P03:
+                        checkbox7.IsChecked = true;
+                        combobox_61.Text = devicePrescription.Dp_groupcount.ToString();
+                        combobox_62.Text = devicePrescription.Dp_groupnum.ToString();
+                        combobox_63.Text = devicePrescription.Dp_relaxtime.ToString();
+                        combobox_65.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
+                        t7.Text = devicePrescription.Dp_memo;
+                        combobox_66.Text = "0";
+                        break;
+                    case (int)DeviceType.P04:
+                        checkbox8.IsChecked = true;
+                        combobox_71.Text = devicePrescription.Dp_groupcount.ToString();
+                        combobox_72.Text = devicePrescription.Dp_groupnum.ToString();
+                        combobox_73.Text = devicePrescription.Dp_relaxtime.ToString();
+                        combobox_75.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
+                        t8.Text = devicePrescription.Dp_memo;
+                        combobox_76.Text = "0";
                         break;
                     case (int)DeviceType.P07:
-                        checkbox6.IsChecked = true;
-                        com_51.Text = devicePrescription.dp_movedistance.ToString();
-                        //com_52.Text = attrs[1];
-                        com_53.Text = attrs[0];
-                        com_53_Copy.Text = attrs[1];
-                        combobox_51.Text = devicePrescription.dp_groupcount.ToString();
-                        combobox_52.Text = devicePrescription.dp_groupnum.ToString();
-                        combobox_53.Text = devicePrescription.dp_relaxtime.ToString();
-                        combobox_54.Text = devicePrescription.dp_weight.ToString();
-                        combobox_55.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.dp_moveway.ToString());
-                        t6.Text = devicePrescription.DP_Memo;
-                        if (devicePrescription.dp_timer == DevConstants.TIMER_VALID)
-                        {
-                            combobox_56.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Valid");
-                            select_change6(combobox_56, new EventArgs());
-                            combobox_57.Text = devicePrescription.dp_timecount.ToString();
-                            if (devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
-                            {
-                                combobox_58.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.CountForward");
-                            }
-                            else
-                            {
-                                combobox_58.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.CountReverse");
-                            }
-                        }
-                        else
-                        {
-                            combobox_56.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.Invalid");
-                        }
+                        checkbox9.IsChecked = true;
+                        combobox_81.Text = devicePrescription.Dp_groupcount.ToString();
+                        combobox_82.Text = devicePrescription.Dp_groupnum.ToString();
+                        combobox_83.Text = devicePrescription.Dp_relaxtime.ToString();
+                        combobox_85.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
+                        t9.Text = devicePrescription.Dp_memo;
+                        combobox_86.Text = "0";
+                        break;
+                    case (int)DeviceType.P08:
+                        checkbox10.IsChecked = true;
+                        combobox_91.Text = devicePrescription.Dp_groupcount.ToString();
+                        combobox_92.Text = devicePrescription.Dp_groupnum.ToString();
+                        combobox_93.Text = devicePrescription.Dp_relaxtime.ToString();
+                        combobox_95.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
+                        t10.Text = devicePrescription.Dp_memo;
+                        combobox_96.Text = "0";
                         break;
                 }
 
             }
         }
 
+        /// <summary>
+        /// 确定哪些设备可用
+        /// </summary>
         private void Certain_Dev()
         {
             var devs = new DeviceSortDAO().ListAll();
@@ -1403,35 +1914,55 @@ devicePrescription.Gmt_Create = DateTime.Now;
                     continue;
                 }
 
-                if (LanguageUtils.EqualsResource(dev.DS_name, "Dev.ChestPress"))
-                {
-                    checkbox1.IsChecked = false;
-                    checkbox1.IsEnabled = false;
-                }
-                else if (LanguageUtils.EqualsResource(dev.DS_name, "Dev.Rowing"))
+                if (LanguageUtils.EqualsResource(dev.DS_name, "NewDev.Rowing"))
                 {
                     checkbox2.IsChecked = false;
                     checkbox2.IsEnabled = false;
                 }
-                else if (LanguageUtils.EqualsResource(dev.DS_name, "Dev.TorsoFlexion"))
+                else if (LanguageUtils.EqualsResource(dev.DS_name, "NewDev.ChestPress"))
                 {
-                    checkbox3.IsChecked = false;
-                    checkbox3.IsEnabled = false;
+                    checkbox1.IsChecked = false;
+                    checkbox1.IsEnabled = false;
                 }
-                else if (LanguageUtils.EqualsResource(dev.DS_name, "Dev.LegExtension"))
-                {
-                    checkbox4.IsChecked = false;
-                    checkbox4.IsEnabled = false;
-                }
-                else if (LanguageUtils.EqualsResource(dev.DS_name, "Dev.HorizontalLegPress"))
+                else if (LanguageUtils.EqualsResource(dev.DS_name, "NewDev.HorizontalLegPress"))
                 {
                     checkbox5.IsChecked = false;
                     checkbox5.IsEnabled = false;
                 }
-                else if (LanguageUtils.EqualsResource(dev.DS_name, "Dev.HipAbduction"))
+                else if (LanguageUtils.EqualsResource(dev.DS_name, "NewDev.AbdominalMuscleTraining"))
+                {
+                    checkbox7.IsChecked = false;
+                    checkbox7.IsEnabled = false;
+                }
+                else if (LanguageUtils.EqualsResource(dev.DS_name, "NewDev.TricepsTraining"))
+                {
+                    checkbox8.IsChecked = false;
+                    checkbox8.IsEnabled = false;
+                }
+                else if (LanguageUtils.EqualsResource(dev.DS_name, "NewDev.LegAbduction"))
                 {
                     checkbox6.IsChecked = false;
                     checkbox6.IsEnabled = false;
+                }
+                else if (LanguageUtils.EqualsResource(dev.DS_name, "NewDev.LegInturn"))
+                {
+                    checkbox4.IsChecked = false;
+                    checkbox4.IsEnabled = false;
+                }
+                else if (LanguageUtils.EqualsResource(dev.DS_name, "NewDev.ButterflyMachine"))
+                {
+                    checkbox9.IsChecked = false;
+                    checkbox9.IsEnabled = false;
+                }
+                else if (LanguageUtils.EqualsResource(dev.DS_name, "NewDev.ReverseButterflyMachine"))
+                {
+                    checkbox10.IsChecked = false;
+                    checkbox10.IsEnabled = false;
+                }
+                else if (LanguageUtils.EqualsResource(dev.DS_name, "NewDev.SittingBackExtender"))
+                {
+                    checkbox3.IsChecked = false;
+                    checkbox3.IsEnabled = false;
                 }
             }
         }
@@ -1974,31 +2505,32 @@ devicePrescription.Gmt_Create = DateTime.Now;
             }
 
         }
+
         private void select_change(object sender, EventArgs e)
         {
 
-            if (String.IsNullOrEmpty(combobox_06.Text)|| LanguageUtils.EqualsResource(combobox_06.Text, "TrainingListView.Invalid"))
-            {
-                border1.Background = Brushes.White;
-                border2.Background = Brushes.White;
-                combobox_07.Visibility = Visibility.Hidden;
-                border3.Background = Brushes.White;
-                border4.Background = Brushes.White;
-                combobox_08.Visibility = Visibility.Hidden;
-                stackpanel.Margin = new Thickness(0, 149.8, 0, 0);
-                t1.Height = 170;
-            }
-            else
-            {
-                border1.Background = Brushes.Gray;
-                border2.Background = Brushes.Gray;
-                combobox_07.Visibility = Visibility.Visible;
-                border3.Background = Brushes.Gray;
-                border4.Background = Brushes.Gray;
-                combobox_08.Visibility = Visibility.Visible;
-                stackpanel.Margin = new Thickness(0, 199.8, 0, 0);
-                t1.Height = 120;
-            }
+            //if (String.IsNullOrEmpty(combobox_06.Text)|| LanguageUtils.EqualsResource(combobox_06.Text, "TrainingListView.Invalid"))
+            //{
+            //    border1.Background = Brushes.White;
+            //    border2.Background = Brushes.White;
+            //    combobox_07.Visibility = Visibility.Hidden;
+            //    border3.Background = Brushes.White;
+            //    border4.Background = Brushes.White;
+            //    combobox_08.Visibility = Visibility.Hidden;
+            //    stackpanel.Margin = new Thickness(0, 149.8, 0, 0);
+            //    t1.Height = 170;
+            //}
+            //else
+            //{
+            //    border1.Background = Brushes.Gray;
+            //    border2.Background = Brushes.Gray;
+            //    combobox_07.Visibility = Visibility.Visible;
+            //    border3.Background = Brushes.Gray;
+            //    border4.Background = Brushes.Gray;
+            //    combobox_08.Visibility = Visibility.Visible;
+            //    stackpanel.Margin = new Thickness(0, 199.8, 0, 0);
+            //    t1.Height = 120;
+            //}
         }
         private void select_change2(object sender, EventArgs e)
         {
@@ -2125,30 +2657,115 @@ devicePrescription.Gmt_Create = DateTime.Now;
                 t6.Height = 120;
             }
         }
+        private void select_change7(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(combobox_16.Text) || LanguageUtils.EqualsResource(combobox_16.Text, "TrainingListView.Invalid"))
+            {
+                border11.Background = Brushes.White;
+                border12.Background = Brushes.White;
+                combobox_17.Visibility = Visibility.Hidden;
+                border13.Background = Brushes.White;
+                border14.Background = Brushes.White;
+                combobox_18.Visibility = Visibility.Hidden;
+                stackpanel2.Margin = new Thickness(0, 149.8, 0, 0);
+                t2.Height = 170;
+            }
+            else
+            {
+                border11.Background = Brushes.Gray;
+                border12.Background = Brushes.Gray;
+                combobox_17.Visibility = Visibility.Visible;
+                border13.Background = Brushes.Gray;
+                border14.Background = Brushes.Gray;
+                combobox_18.Visibility = Visibility.Visible;
+                stackpanel2.Margin = new Thickness(0, 199.8, 0, 0);
+                t2.Height = 120;
+            }
+        }
+        private void select_change8(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(combobox_26.Text) || LanguageUtils.EqualsResource(combobox_26.Text, "TrainingListView.Invalid"))
+            {
+                border21.Background = Brushes.White;
+                border22.Background = Brushes.White;
+                combobox_27.Visibility = Visibility.Hidden;
+                border23.Background = Brushes.White;
+                border24.Background = Brushes.White;
+                combobox_28.Visibility = Visibility.Hidden;
+                stackpanel3.Margin = new Thickness(0, 149.8, 0, 0);
+                t3.Height = 170;
+            }
+            else
+            {
+                border21.Background = Brushes.Gray;
+                border22.Background = Brushes.Gray;
+                combobox_27.Visibility = Visibility.Visible;
+                border23.Background = Brushes.Gray;
+                border24.Background = Brushes.Gray;
+                combobox_28.Visibility = Visibility.Visible;
+                stackpanel3.Margin = new Thickness(0, 199.8, 0, 0);
+                t3.Height = 120;
+            }
+        }
+        private void select_change9(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(combobox_36.Text) || LanguageUtils.EqualsResource(combobox_36.Text, "TrainingListView.Invalid"))
+            {
+                border31.Background = Brushes.White;
+                border32.Background = Brushes.White;
+                combobox_37.Visibility = Visibility.Hidden;
+                border33.Background = Brushes.White;
+                border34.Background = Brushes.White;
+                combobox_38.Visibility = Visibility.Hidden;
+                stackpanel4.Margin = new Thickness(0, 149.8, 0, 0);
+                t4.Height = 170;
+            }
+            else
+            {
+                border31.Background = Brushes.Gray;
+                border32.Background = Brushes.Gray;
+                combobox_37.Visibility = Visibility.Visible;
+                border33.Background = Brushes.Gray;
+                border34.Background = Brushes.Gray;
+                combobox_38.Visibility = Visibility.Visible;
+                stackpanel4.Margin = new Thickness(0, 199.8, 0, 0);
+                t4.Height = 120;
+            }
+        }
+        private void select_change10(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(combobox_46.Text) || LanguageUtils.EqualsResource(combobox_46.Text, "TrainingListView.Invalid"))
+            {
+                border41.Background = Brushes.White;
+                border42.Background = Brushes.White;
+                combobox_47.Visibility = Visibility.Hidden;
+                border43.Background = Brushes.White;
+                border44.Background = Brushes.White;
+                combobox_48.Visibility = Visibility.Hidden;
+                stackpanel5.Margin = new Thickness(0, 149.8, 0, 0);
+                t5.Height = 170;
+            }
+            else
+            {
+                border41.Background = Brushes.Gray;
+                border42.Background = Brushes.Gray;
+                combobox_47.Visibility = Visibility.Visible;
+                border43.Background = Brushes.Gray;
+                border44.Background = Brushes.Gray;
+                combobox_48.Visibility = Visibility.Visible;
+                stackpanel5.Margin = new Thickness(0, 199.8, 0, 0);
+                t5.Height = 120;
+            }
+        }
 
         private void Checkbox1_OnChecked(object sender, RoutedEventArgs e)
         {
-            //combobox_01.IsEnabled = false;
             combobox_01.SelectedIndex = 0;
-            //combobox_02.IsEnabled = false;
             combobox_02.SelectedIndex = 0;
-            //combobox_03.IsEnabled = false;
             combobox_03.SelectedIndex = 0;
-            //combobox_04.IsEnabled = false;
-            combobox_04.SelectedIndex = 0;
-            //combobox_05.IsEnabled = false;
             combobox_05.SelectedIndex = 0;
             combobox_06.SelectedIndex = 1;
             select_change(sender, e);
-            combobox_07.SelectedIndex = 0;
-            combobox_08.SelectedIndex = 0;
-            //com_01.IsEnabled = false;
-            com_01.SelectedIndex = 0;
-            //com_04.IsEnabled = false;
-            com_04.SelectedIndex = 0;
-            //com_02.IsEnabled = false;
-            //com_03.IsEnabled = false;
-            com_03.SelectedIndex = 0;
             t1.Text = "";
         }
         private void Checkbox2_OnChecked(object sender, RoutedEventArgs e)
@@ -2202,7 +2819,8 @@ devicePrescription.Gmt_Create = DateTime.Now;
             //com_03.IsEnabled = false;
             com_23.SelectedIndex = 0;
             t3.Text = "";
-        }private void Checkbox4_OnChecked(object sender, RoutedEventArgs e)
+        }
+        private void Checkbox4_OnChecked(object sender, RoutedEventArgs e)
         {
             //combobox_01.IsEnabled = false;
             combobox_31.SelectedIndex = 0;
@@ -2278,6 +2896,111 @@ devicePrescription.Gmt_Create = DateTime.Now;
             com_53.SelectedIndex = 0;
             com_53_Copy.SelectedIndex = 0;
             t6.Text = "";
+        }
+        private void Checkbox7_OnChecked(object sender, RoutedEventArgs e)
+        {
+            //combobox_01.IsEnabled = false;
+            combobox_11.SelectedIndex = 0;
+            //combobox_02.IsEnabled = false;
+            combobox_12.SelectedIndex = 0;
+            //combobox_03.IsEnabled = false;
+            combobox_13.SelectedIndex = 0;
+            //combobox_04.IsEnabled = false;
+            combobox_14.SelectedIndex = 0;
+            //combobox_05.IsEnabled = false;
+            combobox_15.SelectedIndex = 0;
+            combobox_16.SelectedIndex = 1;
+            select_change(sender, e);
+            combobox_17.SelectedIndex = 0;
+            combobox_18.SelectedIndex = 0;
+            //com_01.IsEnabled = false;
+            com_11.SelectedIndex = 0;
+            //com_04.IsEnabled = false;
+            com_14.SelectedIndex = 0;
+            //com_02.IsEnabled = false;
+            //com_03.IsEnabled = false;
+            com_13.SelectedIndex = 0;
+            t2.Text = "";
+        }
+        private void Checkbox8_OnChecked(object sender, RoutedEventArgs e)
+        {
+            //combobox_01.IsEnabled = false;
+            combobox_21.SelectedIndex = 0;
+            //combobox_02.IsEnabled = false;
+            combobox_22.SelectedIndex = 0;
+            //combobox_03.IsEnabled = false;
+            combobox_23.SelectedIndex = 0;
+            //combobox_04.IsEnabled = false;
+            combobox_24.SelectedIndex = 0;
+            //combobox_05.IsEnabled = false;
+            combobox_25.SelectedIndex = 0;
+            combobox_26.SelectedIndex = 1;
+            select_change2(sender, e);
+            combobox_27.SelectedIndex = 0;
+            combobox_28.SelectedIndex = 0;
+            //com_01.IsEnabled = false;
+            com_21.SelectedIndex = 0;
+            //com_04.IsEnabled = false;
+            com_24.SelectedIndex = 0;
+            com_24_Copy.SelectedIndex = 0;
+            com_24_Copy1.SelectedIndex = 0;
+            //com_02.IsEnabled = false;
+            //com_03.IsEnabled = false;
+            com_23.SelectedIndex = 0;
+            t3.Text = "";
+        }
+        private void Checkbox9_OnChecked(object sender, RoutedEventArgs e)
+        {
+            //combobox_01.IsEnabled = false;
+            combobox_31.SelectedIndex = 0;
+            //combobox_02.IsEnabled = false;
+            combobox_32.SelectedIndex = 0;
+            //combobox_03.IsEnabled = false;
+            combobox_33.SelectedIndex = 0;
+            //combobox_04.IsEnabled = false;
+            combobox_34.SelectedIndex = 0;
+            //combobox_05.IsEnabled = false;
+            combobox_35.SelectedIndex = 0;
+            combobox_36.SelectedIndex = 1;
+            select_change3(sender, e);
+            combobox_37.SelectedIndex = 0;
+            combobox_38.SelectedIndex = 0;
+            //com_01.IsEnabled = false;
+            com_31.SelectedIndex = 0;
+            //com_04.IsEnabled = false;
+            com_34.SelectedIndex = 0;
+            //com_02.IsEnabled = false;
+            com_35.SelectedIndex = 0;
+            com_35_copy.SelectedIndex = 0;
+            com_33.SelectedIndex = 0;
+            t4.Text = "";
+        }
+        private void Checkbox10_OnChecked(object sender, RoutedEventArgs e)
+        {
+            //combobox_01.IsEnabled = false;
+            combobox_41.SelectedIndex = 0;
+            //combobox_02.IsEnabled = false;
+            combobox_42.SelectedIndex = 0;
+            //combobox_03.IsEnabled = false;
+            combobox_43.SelectedIndex = 0;
+            //combobox_04.IsEnabled = false;
+            combobox_44.SelectedIndex = 0;
+            //combobox_05.IsEnabled = false;
+            combobox_45.SelectedIndex = 0;
+            combobox_46.SelectedIndex = 1;
+            select_change4(sender, e);
+            combobox_47.SelectedIndex = 0;
+            combobox_48.SelectedIndex = 0;
+            //com_01.IsEnabled = false;
+            com_41.SelectedIndex = 0;
+            //com_04.IsEnabled = false;
+            //com_02.IsEnabled = false;
+            //com_03.IsEnabled = false;
+            com_43.SelectedIndex = 0;
+            com_43_Copy2.SelectedIndex = 0;
+            com_43_Copy1.SelectedIndex = 0;
+            com_43_Copy.SelectedIndex = 0;
+            t5.Text = "";
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

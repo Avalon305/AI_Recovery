@@ -9,6 +9,7 @@ using spms.bean;
 using spms.constant;
 using spms.dao;
 using spms.entity;
+using spms.entity.newEntity;
 using spms.util;
 using spms.view.dto;
 
@@ -17,7 +18,7 @@ namespace spms.service
     class TrainService
     {
         static UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
-        static DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
+        static NewDevicePrescriptionDAO devicePrescriptionDao = new NewDevicePrescriptionDAO();
         static TrainInfoDAO trainInfoDao = new TrainInfoDAO();
         static SymptomInfoDao symptomInfoDao = new SymptomInfoDao();
         static DevicePrescriptionDAO devicePrescriptionDAO = new DevicePrescriptionDAO();
@@ -25,10 +26,11 @@ namespace spms.service
 		static PrescriptionResultTwoDao prescriptionResultTwoDao = new PrescriptionResultTwoDao();
         /// <summary>
         /// 保存训练信息
+        /// DevicePrescription
         /// </summary>
         /// <param name="trainInfo"></param>
         /// <param name="devicePrescriptions"></param>
-        public void SaveTraininfo(object siId,TrainInfo trainInfo, List<DevicePrescription> devicePrescriptions)
+        public void SaveTraininfo(object siId,TrainInfo trainInfo, List<NewDevicePrescription> devicePrescriptions)
         {
             using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
             {
@@ -77,9 +79,9 @@ namespace spms.service
                 //插入设备处方
                 if (devicePrescriptions != null)
                 {
-                    foreach (DevicePrescription devicePrescription in devicePrescriptions)
+                    foreach (NewDevicePrescription devicePrescription in devicePrescriptions)
                     {
-                        devicePrescription.Fk_TI_Id = tiId;
+                        devicePrescription.Fk_ti_id = tiId;
                         dpId = (int)devicePrescriptionDao.Insert(devicePrescription);
                         //插入至上传表
                         uploadManagementDao.Insert(new UploadManagement(dpId, "bdl_deviceprescription", 0));
@@ -241,13 +243,13 @@ namespace spms.service
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public List<DevicePrescription> GetSaveDevicePrescriptionsByUser(User user)
+        public List<NewDevicePrescription> GetSaveDevicePrescriptionsByUser(User user)
         {
             TrainInfo trainInfoFromDB = GetTrainInfoByUserIdAndStatus(user.Pk_User_Id, (int)TrainInfoStatus.Save);
-            List<DevicePrescription> devicePrescriptions = null;
+            List<NewDevicePrescription> devicePrescriptions = null;
             if (trainInfoFromDB != null)
             {
-                devicePrescriptions = new DevicePrescriptionDAO().GetByTIId(trainInfoFromDB.Pk_TI_Id);
+                devicePrescriptions = new NewDevicePrescriptionDAO().GetByTIId(trainInfoFromDB.Pk_TI_Id);
             }
 
             return devicePrescriptions;
@@ -283,7 +285,7 @@ namespace spms.service
 		public List<long> dscodelist(int tiid)
 		{
 
-			List<entity.newEntity.DevicePrescription> devicePrescriptions = new NewDevicePrescriptionDAO().findAllDevicePrescriptionByTiId(tiid);
+			List<entity.newEntity.NewDevicePrescription> devicePrescriptions = new NewDevicePrescriptionDAO().findAllDevicePrescriptionByTiId(tiid);
 
 			List<long> listdscoed = new List<long>();
 			for (int i = 0; i < devicePrescriptions.Count; i++)
@@ -299,7 +301,7 @@ namespace spms.service
 		/// <param name="tiid"></param>
 		/// <param name="dsid"></param>
 		/// <returns></returns>
-		public entity.newEntity.DevicePrescription GetDevicePrescriptionByTiIdAndDsId(int tiid,int dsid)
+		public entity.newEntity.NewDevicePrescription GetDevicePrescriptionByTiIdAndDsId(int tiid,int dsid)
 		{
 			return new NewDevicePrescriptionDAO().GetByTIIdAndDsID(tiid, dsid);
 		}

@@ -76,6 +76,9 @@ namespace spms.view.Pages.ChildWin
             symp.ItemsSource = new SymptomInfoDTO().ConvertDtoList(nullTiIdByUserId);
         }
 
+        /// <summary>
+        /// 设备
+        /// </summary>
         private void Certain_Dev()
         {
             var devs = new DeviceSortDAO().ListAll();
@@ -120,8 +123,8 @@ namespace spms.view.Pages.ChildWin
                 }
             }
         }
-        private List<double> Add(double start, double end, int type)
 
+        private List<double> Add(double start, double end, int type)
         {
             List<double> list = new List<double>();
             switch (type)
@@ -145,7 +148,9 @@ namespace spms.view.Pages.ChildWin
 
             return list;
         }
+
         private User user;
+
         public InputTrainingResults()
         {
             InitializeComponent();
@@ -153,7 +158,12 @@ namespace spms.view.Pages.ChildWin
             this.MaxHeight = SystemParameters.WorkArea.Size.Height;
             this.MaxWidth = SystemParameters.WorkArea.Size.Width;
         }
-        //取消操作，关闭窗体
+
+        /// <summary>
+        /// 取消操作，关闭窗体
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -369,7 +379,7 @@ namespace spms.view.Pages.ChildWin
                 }
                 prescriptionResult.PR_AttentionPoint = HLPAttentionpoint.Text;
                 prescriptionResult.PR_UserThoughts = HLPUserthoughts.Text;
-                prescriptionResult.PR_Memo = HLPMemo.Text;
+                //prescriptionResult.PR_Memo = HLPMemo.Text;
                 
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -1507,8 +1517,12 @@ namespace spms.view.Pages.ChildWin
             CPMoveway.ItemsSource = dataItemsMoveWay;
             CPEvaluate.ItemsSource = dataItemsEvaluate;
         }
-        
-        //输入正数
+
+        /// <summary>
+        /// 输入正数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnlyInputNumbers(object sender, TextCompositionEventArgs e)
         {
             Regex re = new Regex("[^0-9]+");
@@ -1516,14 +1530,23 @@ namespace spms.view.Pages.ChildWin
             e.Handled = re.IsMatch(e.Text);
         }
 
-        //输入小数
+        /// <summary>
+        /// 输入小数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnlyInputDouble(object sender, TextCompositionEventArgs e)
         {
             Regex re = new Regex("[^0-9.]+");
 
             e.Handled = re.IsMatch(e.Text);
         }
-        //回车按钮
+
+        /// <summary>
+        /// 回车按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -1534,6 +1557,7 @@ namespace spms.view.Pages.ChildWin
             }
 
         }
+
         private void HLPselect_change(object sender, EventArgs e)
         {
 
@@ -1559,6 +1583,7 @@ namespace spms.view.Pages.ChildWin
                 HLPTime.Visibility = Visibility.Visible;
             }
         }
+
         private void ROWselect_change(object sender, EventArgs e)
         {
 
@@ -1584,6 +1609,7 @@ namespace spms.view.Pages.ChildWin
                 ROWTime.Visibility = Visibility.Visible;
             }
         }
+
         private void TFselect_change(object sender, EventArgs e)
         {
 
@@ -1610,6 +1636,7 @@ namespace spms.view.Pages.ChildWin
                 TFTime.Visibility = Visibility.Visible;
             }
         }
+
         private void LEselect_change(object sender, EventArgs e)
         {
 
@@ -1635,6 +1662,7 @@ namespace spms.view.Pages.ChildWin
                 LETime.Visibility = Visibility.Visible;
             }
         }
+
         private void HAselect_change(object sender, EventArgs e)
         {
 
@@ -1660,6 +1688,7 @@ namespace spms.view.Pages.ChildWin
                 HATime.Visibility = Visibility.Visible;
             }
         }
+
         private void CPselect_change(object sender, EventArgs e)
         {
 
@@ -1685,6 +1714,7 @@ namespace spms.view.Pages.ChildWin
                 CPTime.Visibility = Visibility.Visible;
             }
         }
+
         private void viewbox_load(object sender, RoutedEventArgs e)
         {
             this.Width = viewbox.ActualWidth;
