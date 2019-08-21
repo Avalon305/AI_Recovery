@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Com.Bdl.Proto;
+
 using DotNetty.Codecs.Protobuf;
 using DotNetty.Transport.Bootstrapping;
 using DotNetty.Transport.Channels;

@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using DotNetty.Codecs;
 using DotNetty.Buffers;
+using DotNetty.Codecs.Protobuf;
 
 namespace spms.server
 {
@@ -58,14 +59,13 @@ namespace spms.server
                     .Handler(new LoggingHandler("SRV-LSTN")) // 
                     .ChildHandler(new ActionChannelInitializer<ISocketChannel>(channel =>
                     { // 
-                        IChannelPipeline pipeline = channel.Pipeline;
-                      
-                         IByteBuffer delimiter = Unpooled.Buffer(); ;
-                        delimiter.WriteByte((byte)0x7E);
-                        pipeline.AddLast(new DelimiterBasedFrameDecoder(1024, delimiter));
-                        pipeline.AddLast(new LoggingHandler("SRV-CONN"));
-                        pipeline.AddLast("tcpHandler", new ProtocolHandler());
-                    }));
+						IChannelPipeline pipeline = channel.Pipeline;
+						pipeline.AddLast("frameDecoder", new ProtobufVarint32FrameDecoder());
+						pipeline.AddLast("decoder", handler: new ProtobufDecoder(Message.Parser));
+						pipeline.AddLast("frameEncoder", new ProtobufVarint32LengthFieldPrepender());
+						pipeline.AddLast("encoder", new ProtobufEncoder());
+						pipeline.AddLast("tcpHandler", new ProtocolHandler());
+					}));
 
                 // bootstrap bind port 
                 IChannel boundChannel = await bootstrap.BindAsync(port);
