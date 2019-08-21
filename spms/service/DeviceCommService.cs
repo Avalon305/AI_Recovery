@@ -83,6 +83,7 @@ namespace spms.service
 			else
 			{
 				logger.Info("用户不存在个人设置");
+			    //默认个人设置，男女
 				return response;
 			}
 

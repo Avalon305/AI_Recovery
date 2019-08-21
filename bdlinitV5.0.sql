@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50634
 File Encoding         : 65001
 
-Date: 2019-08-20 16:04:05
+Date: 2019-08-21 11:26:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -166,21 +166,21 @@ CREATE TABLE `bdl_devicesort` (
   `fk_dset_id` int(8) DEFAULT NULL COMMENT '外键（bdl_deviceset : pk_dset_id）',
   `ds_status` tinyint(1) DEFAULT NULL COMMENT '复选框状态是否选中',
   PRIMARY KEY (`pk_ds_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bdl_devicesort
 -- ----------------------------
-INSERT INTO `bdl_devicesort` VALUES ('0', '坐式推胸机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('1', '腿部推蹬机', '2018-04-19 21:47:36', '2018-04-19 21:47:38', '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('2', '腹肌训练机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('3', '三头肌训练机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('4', '腿部外弯机', '2018-04-19 21:47:40', '2018-04-19 21:47:44', '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('5', '腿部内弯机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('6', '蝴蝶机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('7', '反向蝴蝶机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('8', '坐式背部伸展机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('9', '坐式划船机', '2018-03-21 23:54:19', '2018-03-21 23:54:21', '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('0', '坐式划船机', '2018-03-21 23:54:19', '2018-03-21 23:54:21', '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('1', '坐式推胸机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('2', '腿部推蹬机', '2018-04-19 21:47:36', '2018-04-19 21:47:38', '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('3', '腹肌训练机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('4', '三头肌训练机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('5', '腿部外弯机', '2018-04-19 21:47:40', '2018-04-19 21:47:44', '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('6', '腿部内弯机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('7', '蝴蝶机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('8', '反向蝴蝶机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('9', '坐式背部伸展机', null, null, '1', '1');
 
 -- ----------------------------
 -- Table structure for bdl_onlinedevice
