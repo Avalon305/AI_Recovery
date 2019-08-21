@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50634
 File Encoding         : 65001
 
-Date: 2019-08-21 11:26:20
+Date: 2019-08-21 11:37:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -299,6 +299,7 @@ CREATE TABLE `bdl_set` (
   `set_unique_id` text COMMENT '客户机唯一id',
   `set_organizationname` varchar(255) DEFAULT NULL COMMENT '组织名称',
   `set_photolocation` varchar(255) DEFAULT NULL COMMENT '照片位置',
+  `set_organizationaddress` varchar(255) DEFAULT NULL,
   `set_organizationphone` varchar(255) DEFAULT NULL COMMENT '联系电话',
   `set_language` varchar(255) DEFAULT NULL,
   `set_organizationsort` varchar(255) DEFAULT NULL,
@@ -310,7 +311,7 @@ CREATE TABLE `bdl_set` (
 -- ----------------------------
 -- Records of bdl_set
 -- ----------------------------
-INSERT INTO `bdl_set` VALUES ('5', '2DE22181A14ADBD0BB1D437550B1A0F61AD1AE0A59B79794CBCD3C1607AEBD48', 'bodystrong03', 'D:\\SPMS_ALL\\spms2019-7-5\\image\\', '', '1', '7', '1.0', 'D:\\SPMS_ALL\\spms2019-7-5\\BackUp\\');
+INSERT INTO `bdl_set` VALUES ('5', '2DE22181A14ADBD0BB1D437550B1A0F61AD1AE0A59B79794CBCD3C1607AEBD48', 'bodystrong03', 'D:\\SPMS_ALL\\spms2019-7-5\\image\\', null, '', '1', '7', '1.0', 'D:\\SPMS_ALL\\spms2019-7-5\\BackUp\\');
 
 -- ----------------------------
 -- Table structure for bdl_skeleton_length

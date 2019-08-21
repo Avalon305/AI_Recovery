@@ -68,7 +68,7 @@ namespace spms.heartbeat
             //使用期限
             sendHeartBeat.UseDeadTime = result.Auth_OfflineTime.ToString().Replace("/", "-");
 			//地理位置
-			sendHeartBeat.Address = "德州";
+			sendHeartBeat.Address = setter.Set_Organizationaddress;
             //冻结
             if (result.User_Status == Auther.USER_STATUS_FREEZE)
             {
