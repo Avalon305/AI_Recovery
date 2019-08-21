@@ -151,121 +151,66 @@ namespace spms.view.Pages.ChildWin
             combobox_03.Text = null;
             combobox_05.Text = null;
             combobox_06.Text = null;
+            combobox_07.Text = null;
+            combobox_08.Text = null;
+            combobox_09.Text = null;
             select_change(sender, e);
             t1.Text = null;
         }
 
         private void checkbox2_Unchecked(object sender, RoutedEventArgs e)
         {
-            //combobox_11.IsEnabled = false;
             combobox_11.Text = null;
-            // combobox_12.IsEnabled = false;
             combobox_12.Text = null;
-            //combobox_13.IsEnabled = false;
             combobox_13.Text = null;
-            //combobox_14.IsEnabled = false;
-            combobox_14.Text = null;
-            //combobox_15.IsEnabled = false;
             combobox_15.Text = null;
             combobox_16.Text = null;
-            select_change2(sender, e);
             combobox_17.Text = null;
             combobox_18.Text = null;
-            //com_11.IsEnabled = false;
-            com_11.Text = null;
-            //com_12.IsEnabled = false;
-            //com_13.IsEnabled = false;
-            com_13.Text = null;
-            //com_14.IsEnabled = false;
-            com_14.Text = null;
+            combobox_19.Text = null;
+            select_change2(sender, e);
             t2.Text = null;
         }
 
         private void checkbox3_Unchecked(object sender, RoutedEventArgs e)
         {
-            //combobox_21.IsEnabled = false;
             combobox_21.Text = null;
-            //combobox_22.IsEnabled = false;
             combobox_22.Text = null;
-            //combobox_23.IsEnabled = false;
             combobox_23.Text = null;
-            //combobox_24.IsEnabled = false;
-            combobox_24.Text = null;
-            //combobox_25.IsEnabled = false;
             combobox_25.Text = null;
             combobox_26.Text = null;
-            select_change3(sender, e);
             combobox_27.Text = null;
             combobox_28.Text = null;
-            //com_21.IsEnabled = false;
-            com_21.Text = null;
-            // com_24.IsEnabled = false;
-            com_24.Text = null;
-            com_24_Copy.Text = null;
-            com_24_Copy1.Text = null;
-            //com_22.IsEnabled = false;
-            // com_23.IsEnabled = false;
-            com_23.Text = null;
+            combobox_29.Text = null;
+            select_change3(sender, e);
             t3.Text = null;
-
         }
 
         private void checkbox4_Unchecked(object sender, RoutedEventArgs e)
         {
-            //combobox_31.IsEnabled = false;
-
-            //combobox_32.IsEnabled = false;
-            //combobox_33.IsEnabled = false;
-            //combobox_34.IsEnabled = false;
-            //combobox_35.IsEnabled = false;
-            //com_31.IsEnabled = false;
-            //com_34.IsEnabled = false;
-            ////com_32.IsEnabled = false;
-            //com_33.IsEnabled = false;
-            //com_35.IsEnabled = false;
             combobox_31.Text = null;
             combobox_32.Text = null;
             combobox_33.Text = null;
-
-            combobox_34.Text = null;
             combobox_35.Text = null;
             combobox_36.Text = null;
             select_change4(sender, e);
             combobox_37.Text = null;
             combobox_38.Text = null;
-            com_31.Text = null;
-            com_34.Text = null;
-            com_33.Text = null;
-            com_35.Text = null;
-            com_35_copy.Text = null;
+            combobox_39.Text = null;
             t4.Text = null;
         }
 
         private void checkbox5_Unchecked(object sender, RoutedEventArgs e)
         {
-            //combobox_41.IsEnabled = false;
-            //combobox_42.IsEnabled = false;
-            //combobox_43.IsEnabled = false;
-            //combobox_44.IsEnabled = false;
-            //combobox_45.IsEnabled = false;
-            //com_41.IsEnabled = false;
-            ////com_42.IsEnabled = false;
-            //com_43.IsEnabled = false;
             combobox_41.Text = null;
             combobox_42.Text = null;
-
             combobox_43.Text = null;
-            combobox_44.Text = null;
             combobox_45.Text = null;
             combobox_46.Text = null;
             select_change5(sender, e);
             combobox_47.Text = null;
             combobox_48.Text = null;
-            com_41.Text = null;
-            com_43.Text = null;
-            com_43_Copy2.Text = null;
-            com_43_Copy1.Text = null;
-            com_43_Copy.Text = null;
+            combobox_49.Text = null;
             t5.Text = null;
         }
 
@@ -274,15 +219,12 @@ namespace spms.view.Pages.ChildWin
             combobox_51.Text = null;
             combobox_52.Text = null;
             combobox_53.Text = null;
-            combobox_54.Text = null;
             combobox_55.Text = null;
             combobox_56.Text = null;
             select_change6(sender, e);
             combobox_57.Text = null;
             combobox_58.Text = null;
-            com_51.Text = null;
-            com_53.Text = null;
-            com_53_Copy.Text = null;
+            combobox_59.Text = null;
             t6.Text = null;
         }
 
@@ -291,15 +233,12 @@ namespace spms.view.Pages.ChildWin
             combobox_61.Text = null;
             combobox_62.Text = null;
             combobox_63.Text = null;
-            combobox_64.Text = null;
             combobox_65.Text = null;
             combobox_66.Text = null;
             select_change7(sender, e);
             combobox_67.Text = null;
             combobox_68.Text = null;
-            com_61.Text = null;
-            com_63.Text = null;
-            com_64.Text = null;
+            combobox_69.Text = null;
             t7.Text = null;
         }
 
@@ -308,15 +247,12 @@ namespace spms.view.Pages.ChildWin
             combobox_71.Text = null;
             combobox_72.Text = null;
             combobox_73.Text = null;
-            combobox_74.Text = null;
             combobox_75.Text = null;
             combobox_76.Text = null;
             select_change8(sender, e);
             combobox_77.Text = null;
             combobox_78.Text = null;
-            com_71.Text = null;
-            com_73.Text = null;
-            com_74.Text = null;
+            combobox_79.Text = null;
             t8.Text = null;
         }
 
@@ -325,15 +261,12 @@ namespace spms.view.Pages.ChildWin
             combobox_81.Text = null;
             combobox_82.Text = null;
             combobox_83.Text = null;
-            combobox_84.Text = null;
             combobox_85.Text = null;
             combobox_86.Text = null;
             select_change9(sender, e);
             combobox_87.Text = null;
             combobox_88.Text = null;
-            com_81.Text = null;
-            com_83.Text = null;
-            com_84.Text = null;
+            combobox_89.Text = null;
             t9.Text = null;
         }
 
@@ -342,14 +275,12 @@ namespace spms.view.Pages.ChildWin
             combobox_91.Text = null;
             combobox_92.Text = null;
             combobox_93.Text = null;
-            combobox_94.Text = null;
             combobox_95.Text = null;
             combobox_96.Text = null;
             select_change10(sender, e);
             combobox_97.Text = null;
             combobox_98.Text = null;
-            com_91.Text = null;
-            com_93.Text = null;
+            combobox_99.Text = null;
             t10.Text = null;
         }
 
@@ -1091,7 +1022,6 @@ namespace spms.view.Pages.ChildWin
 
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
                 devicePrescription.Dp_memo = t1.Text; //注意点
-                                                      //  devicePrescription.Fk_DS_Id = (int) DeviceType.X01;
                 devicePrescription.Gmt_create = DateTime.Now;
                 devicePrescription.Gmt_modified = DateTime.Now;
 
@@ -1120,16 +1050,6 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_05.Text)); //移乘方式
-                }
-                catch (Exception e)
-                {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
-                    throw e;
-                }
-
-                try
-                {
                     devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_03.Text); //间隔时间;
                 }
                 catch (Exception e)
@@ -1138,6 +1058,67 @@ namespace spms.view.Pages.ChildWin
                     throw e;
                 }
 
+                try
+                {
+                    devicePrescription.Dp_moveway = Convert.ToInt32(DataCodeCache.GetInstance().GetCodeSValue(DataCodeTypeEnum.MoveWay, combobox_05.Text)); //移乘方式
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
+                    throw e;
+                }
+
+                if (LanguageUtils.EqualsResource(combobox_06.Text, "TrainingListView.RehabilitationModel"))
+                {
+                    devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Consequent_force = int.Parse(combobox_07.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的顺向力", "Please choose the right consequent force"));
+                        throw e;
+                    }
+                    try
+                    {
+                        devicePrescription.Reverse_force = int.Parse(combobox_08.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的反向力", "Please choose the right reverse force"));
+                        throw e;
+                    }
+                }
+                else if(LanguageUtils.EqualsResource(combobox_06.Text, "TrainingListView.ActiveModel"))
+                {
+                    devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_09.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
+                }
+                else
+                {
+                    devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_09.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
+                }
                 // 砝码
                 // ...
                 // 计时器
@@ -1159,7 +1140,7 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_11.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_11.Text); //组数;
                 }
                 catch (Exception e)
                 {
@@ -1169,11 +1150,21 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_12.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_12.Text); //个数;
                 }
                 catch (Exception e)
                 {
                     MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_13.Text); //间隔时间;
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -1187,14 +1178,56 @@ namespace spms.view.Pages.ChildWin
                     throw e;
                 }
 
-                try
+                if (LanguageUtils.EqualsResource(combobox_16.Text, "TrainingListView.RehabilitationModel"))
                 {
-                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_13.Text); //间隔时间
+                    devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Consequent_force = int.Parse(combobox_17.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的顺向力", "Please choose the right consequent force"));
+                        throw e;
+                    }
+                    try
+                    {
+                        devicePrescription.Reverse_force = int.Parse(combobox_18.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的反向力", "Please choose the right reverse force"));
+                        throw e;
+                    }
                 }
-                catch (Exception e)
+                else if (LanguageUtils.EqualsResource(combobox_16.Text, "TrainingListView.ActiveModel"))
                 {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
-                    throw e;
+                    devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_19.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
+                }
+                else
+                {
+                    devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_19.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
                 }
 
                 devicePrescription.Dp_status = 0;
@@ -1212,7 +1245,7 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_21.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_21.Text); //组数;
                 }
                 catch (Exception e)
                 {
@@ -1222,11 +1255,21 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_22.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_22.Text); //个数;
                 }
                 catch (Exception e)
                 {
                     MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_23.Text); //间隔时间;
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -1240,14 +1283,56 @@ namespace spms.view.Pages.ChildWin
                     throw e;
                 }
 
-                try
+                if (LanguageUtils.EqualsResource(combobox_26.Text, "TrainingListView.RehabilitationModel"))
                 {
-                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_23.Text); //间隔时间
+                    devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Consequent_force = int.Parse(combobox_27.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的顺向力", "Please choose the right consequent force"));
+                        throw e;
+                    }
+                    try
+                    {
+                        devicePrescription.Reverse_force = int.Parse(combobox_28.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的反向力", "Please choose the right reverse force"));
+                        throw e;
+                    }
                 }
-                catch (Exception e)
+                else if (LanguageUtils.EqualsResource(combobox_26.Text, "TrainingListView.ActiveModel"))
                 {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
-                    throw e;
+                    devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_29.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
+                }
+                else
+                {
+                    devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_29.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
                 }
 
                 devicePrescription.Dp_status = 0;
@@ -1266,7 +1351,7 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_31.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_31.Text); //组数;
                 }
                 catch (Exception e)
                 {
@@ -1276,11 +1361,21 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_32.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_32.Text); //个数;
                 }
                 catch (Exception e)
                 {
                     MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_33.Text); //间隔时间;
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -1294,14 +1389,56 @@ namespace spms.view.Pages.ChildWin
                     throw e;
                 }
 
-                try
+                if (LanguageUtils.EqualsResource(combobox_36.Text, "TrainingListView.RehabilitationModel"))
                 {
-                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_33.Text); //间隔时间
+                    devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Consequent_force = int.Parse(combobox_37.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的顺向力", "Please choose the right consequent force"));
+                        throw e;
+                    }
+                    try
+                    {
+                        devicePrescription.Reverse_force = int.Parse(combobox_38.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的反向力", "Please choose the right reverse force"));
+                        throw e;
+                    }
                 }
-                catch (Exception e)
+                else if (LanguageUtils.EqualsResource(combobox_36.Text, "TrainingListView.ActiveModel"))
                 {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
-                    throw e;
+                    devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_39.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
+                }
+                else
+                {
+                    devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_39.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
                 }
 
                 devicePrescription.Dp_status = 0;
@@ -1320,7 +1457,7 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_41.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_41.Text); //组数;
                 }
                 catch (Exception e)
                 {
@@ -1330,11 +1467,21 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_42.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_42.Text); //个数;
                 }
                 catch (Exception e)
                 {
                     MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_43.Text); //间隔时间;
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -1346,6 +1493,58 @@ namespace spms.view.Pages.ChildWin
                 {
                     MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的移乘方式", "Please select the correct moveway"));
                     throw e;
+                }
+
+                if (LanguageUtils.EqualsResource(combobox_46.Text, "TrainingListView.RehabilitationModel"))
+                {
+                    devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Consequent_force = int.Parse(combobox_47.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的顺向力", "Please choose the right consequent force"));
+                        throw e;
+                    }
+                    try
+                    {
+                        devicePrescription.Reverse_force = int.Parse(combobox_48.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的反向力", "Please choose the right reverse force"));
+                        throw e;
+                    }
+                }
+                else if (LanguageUtils.EqualsResource(combobox_46.Text, "TrainingListView.ActiveModel"))
+                {
+                    devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_49.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
+                }
+                else
+                {
+                    devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_49.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
                 }
 
                 devicePrescription.Dp_status = 0;
@@ -1363,7 +1562,7 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_51.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_51.Text); //组数;
                 }
                 catch (Exception e)
                 {
@@ -1373,11 +1572,21 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_52.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_52.Text); //个数;
                 }
                 catch (Exception e)
                 {
                     MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_53.Text); //间隔时间;
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -1391,14 +1600,56 @@ namespace spms.view.Pages.ChildWin
                     throw e;
                 }
 
-                try
+                if (LanguageUtils.EqualsResource(combobox_56.Text, "TrainingListView.RehabilitationModel"))
                 {
-                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_53.Text); //间隔时间
+                    devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Consequent_force = int.Parse(combobox_57.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的顺向力", "Please choose the right consequent force"));
+                        throw e;
+                    }
+                    try
+                    {
+                        devicePrescription.Reverse_force = int.Parse(combobox_58.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的反向力", "Please choose the right reverse force"));
+                        throw e;
+                    }
                 }
-                catch (Exception e)
+                else if (LanguageUtils.EqualsResource(combobox_56.Text, "TrainingListView.ActiveModel"))
                 {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
-                    throw e;
+                    devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_59.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
+                }
+                else
+                {
+                    devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_59.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
                 }
 
                 devicePrescription.Dp_status = 0;
@@ -1416,7 +1667,7 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_61.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_61.Text); //组数;
                 }
                 catch (Exception e)
                 {
@@ -1426,11 +1677,21 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_62.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_62.Text); //个数;
                 }
                 catch (Exception e)
                 {
                     MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_63.Text); //间隔时间;
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -1444,14 +1705,56 @@ namespace spms.view.Pages.ChildWin
                     throw e;
                 }
 
-                try
+                if (LanguageUtils.EqualsResource(combobox_66.Text, "TrainingListView.RehabilitationModel"))
                 {
-                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_63.Text); //间隔时间
+                    devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Consequent_force = int.Parse(combobox_67.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的顺向力", "Please choose the right consequent force"));
+                        throw e;
+                    }
+                    try
+                    {
+                        devicePrescription.Reverse_force = int.Parse(combobox_68.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的反向力", "Please choose the right reverse force"));
+                        throw e;
+                    }
                 }
-                catch (Exception e)
+                else if (LanguageUtils.EqualsResource(combobox_66.Text, "TrainingListView.ActiveModel"))
                 {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
-                    throw e;
+                    devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_69.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
+                }
+                else
+                {
+                    devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_69.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
                 }
 
                 devicePrescription.Dp_status = 0;
@@ -1469,7 +1772,7 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_71.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_71.Text); //组数;
                 }
                 catch (Exception e)
                 {
@@ -1479,11 +1782,21 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_72.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_72.Text); //个数;
                 }
                 catch (Exception e)
                 {
                     MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_73.Text); //间隔时间;
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -1497,14 +1810,56 @@ namespace spms.view.Pages.ChildWin
                     throw e;
                 }
 
-                try
+                if (LanguageUtils.EqualsResource(combobox_76.Text, "TrainingListView.RehabilitationModel"))
                 {
-                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_73.Text); //间隔时间
+                    devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Consequent_force = int.Parse(combobox_77.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的顺向力", "Please choose the right consequent force"));
+                        throw e;
+                    }
+                    try
+                    {
+                        devicePrescription.Reverse_force = int.Parse(combobox_78.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的反向力", "Please choose the right reverse force"));
+                        throw e;
+                    }
                 }
-                catch (Exception e)
+                else if (LanguageUtils.EqualsResource(combobox_76.Text, "TrainingListView.ActiveModel"))
                 {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
-                    throw e;
+                    devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_79.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
+                }
+                else
+                {
+                    devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_79.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
                 }
 
                 devicePrescription.Dp_status = 0;
@@ -1522,7 +1877,7 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_81.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_81.Text); //组数;
                 }
                 catch (Exception e)
                 {
@@ -1532,11 +1887,21 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_82.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_82.Text); //个数;
                 }
                 catch (Exception e)
                 {
                     MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_83.Text); //间隔时间;
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -1550,14 +1915,56 @@ namespace spms.view.Pages.ChildWin
                     throw e;
                 }
 
-                try
+                if (LanguageUtils.EqualsResource(combobox_86.Text, "TrainingListView.RehabilitationModel"))
                 {
-                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_83.Text); //间隔时间
+                    devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Consequent_force = int.Parse(combobox_87.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的顺向力", "Please choose the right consequent force"));
+                        throw e;
+                    }
+                    try
+                    {
+                        devicePrescription.Reverse_force = int.Parse(combobox_88.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的反向力", "Please choose the right reverse force"));
+                        throw e;
+                    }
                 }
-                catch (Exception e)
+                else if (LanguageUtils.EqualsResource(combobox_86.Text, "TrainingListView.ActiveModel"))
                 {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
-                    throw e;
+                    devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_89.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
+                }
+                else
+                {
+                    devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_89.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
                 }
 
                 devicePrescription.Dp_status = 0;
@@ -1575,7 +1982,7 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_91.Text); //组数
+                    devicePrescription.Dp_groupcount = Convert.ToInt32(combobox_91.Text); //组数;
                 }
                 catch (Exception e)
                 {
@@ -1585,11 +1992,21 @@ namespace spms.view.Pages.ChildWin
 
                 try
                 {
-                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_92.Text); //个数
+                    devicePrescription.Dp_groupnum = Convert.ToInt32(combobox_92.Text); //个数;
                 }
                 catch (Exception e)
                 {
                     MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的个数", "Please select the correct number"));
+                    throw e;
+                }
+
+                try
+                {
+                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_93.Text); //间隔时间;
+                }
+                catch (Exception e)
+                {
+                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
                     throw e;
                 }
 
@@ -1603,14 +2020,56 @@ namespace spms.view.Pages.ChildWin
                     throw e;
                 }
 
-                try
+                if (LanguageUtils.EqualsResource(combobox_96.Text, "TrainingListView.RehabilitationModel"))
                 {
-                    devicePrescription.Dp_relaxtime = Convert.ToInt32(combobox_93.Text); //间隔时间
+                    devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Consequent_force = int.Parse(combobox_97.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的顺向力", "Please choose the right consequent force"));
+                        throw e;
+                    }
+                    try
+                    {
+                        devicePrescription.Reverse_force = int.Parse(combobox_98.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的反向力", "Please choose the right reverse force"));
+                        throw e;
+                    }
                 }
-                catch (Exception e)
+                else if (LanguageUtils.EqualsResource(combobox_96.Text, "TrainingListView.ActiveModel"))
                 {
-                    MessageBoxX.Info(LanguageUtils.ConvertLanguage("请选择正确的间隔时间", "Please choose the right interval"));
-                    throw e;
+                    devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_99.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
+                }
+                else
+                {
+                    devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
+
+                    try
+                    {
+                        devicePrescription.Speed_rank = int.Parse(combobox_99.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBoxX.Info(LanguageUtils.ConvertLanguage("请输入正确的运动速度等级", "Please choose the right speed rank"));
+                        throw e;
+                    }
                 }
 
                 devicePrescription.Dp_status = 0;
@@ -1668,9 +2127,6 @@ namespace spms.view.Pages.ChildWin
             //确定哪些设备可用
             Certain_Dev();
            
-            
-            
-            //
             user = (User) DataContext;
             List<DataCode> dataCodes = DataCodeCache.GetInstance().GetDateCodeList(DataCodeTypeEnum.MoveWay);
             List<string> dataItems = new List<string>();
@@ -1690,110 +2146,82 @@ namespace spms.view.Pages.ChildWin
             combobox_01.ItemsSource = Add(1, 3, 2);
             combobox_02.ItemsSource = Add(1, 20, 2);
             combobox_03.ItemsSource = Add(1, 60, 2);
-            //combobox_04.ItemsSource = Add(0.5, 30.0, 1);
             combobox_05.ItemsSource = dataItems;
+            combobox_07.ItemsSource = Add(5, 100, 2);
+            combobox_08.ItemsSource = Add(5, 100, 2);
+            combobox_09.ItemsSource = Add(1, 7, 2);
 
-            com_11.ItemsSource = Add(1, 43, 2);
-            //com_12.ItemsSource = Add(0, 30, 1);
-            com_13.ItemsSource = Add(1, 8, 2);
-            com_14.ItemsSource = Add(1, 4, 2);
             combobox_11.ItemsSource = Add(1, 3, 2);
             combobox_12.ItemsSource = Add(1, 20, 2);
             combobox_13.ItemsSource = Add(1, 60, 2);
-            combobox_14.ItemsSource = Add(0.5, 30.0, 1);
             combobox_15.ItemsSource = dataItems;
+            combobox_17.ItemsSource = Add(5, 100, 2);
+            combobox_18.ItemsSource = Add(5, 100, 2);
+            combobox_19.ItemsSource = Add(1, 7, 2);
 
-            com_21.ItemsSource = Add(1, 47, 2);
-            //com_22.ItemsSource = Add(0, 30, 1);
-            com_23.ItemsSource = Add(1, 6, 2);
-            com_24.ItemsSource = Add(1, 3, 2);
-            com_24_Copy.ItemsSource = Add(1, 4, 2);
-            com_24_Copy1.ItemsSource = Add(46, 60, 2);
             combobox_21.ItemsSource = Add(1, 3, 2);
             combobox_22.ItemsSource = Add(1, 20, 2);
             combobox_23.ItemsSource = Add(1, 60, 2);
-            combobox_24.ItemsSource = Add(0.5, 30.0, 1);
             combobox_25.ItemsSource = dataItems;
+            combobox_27.ItemsSource = Add(5, 100, 2);
+            combobox_28.ItemsSource = Add(5, 100, 2);
+            combobox_29.ItemsSource = Add(1, 7, 2);
 
-            com_31.ItemsSource = Add(1, 47, 2);
-            //com_32.ItemsSource = Add(0, 30, 1);
-            com_33.ItemsSource = Add(1, 5, 2);
-            com_34.ItemsSource = Add(1, 6, 2);
-            com_35.ItemsSource = Add(1, 5, 2);
-            com_35_copy.ItemsSource = Add(1, 2, 2);
             combobox_31.ItemsSource = Add(1, 3, 2);
             combobox_32.ItemsSource = Add(1, 20, 2);
             combobox_33.ItemsSource = Add(1, 60, 2);
-            combobox_34.ItemsSource = Add(0.5, 30.0, 1);
             combobox_35.ItemsSource = dataItems;
+            combobox_37.ItemsSource = Add(5, 100, 2);
+            combobox_38.ItemsSource = Add(5, 100, 2);
+            combobox_39.ItemsSource = Add(1, 7, 2);
 
-            com_41.ItemsSource = Add(1, 50, 2);
-            //com_42.ItemsSource = Add(0, 30, 1);
-            com_43.ItemsSource = Add(1, 6, 2);
-            com_43_Copy.ItemsSource = Add(1, 5, 2);
-            com_43_Copy1.ItemsSource = Add(1, 2, 2);
-            com_43_Copy2.ItemsSource = Add(1, 3, 2);
             combobox_41.ItemsSource = Add(1, 3, 2);
             combobox_42.ItemsSource = Add(1, 20, 2);
             combobox_43.ItemsSource = Add(1, 60, 2);
-            combobox_44.ItemsSource = Add(0.5, 75.0, 1);
             combobox_45.ItemsSource = dataItems;
+            combobox_47.ItemsSource = Add(5, 100, 2);
+            combobox_48.ItemsSource = Add(5, 100, 2);
+            combobox_49.ItemsSource = Add(1, 7, 2);
 
-            com_51.ItemsSource = Add(1, 20, 2);
-            //com_52.ItemsSource = Add(0, 30, 1);
-            com_53.ItemsSource = Add(1, 4, 2);
-            com_53_Copy.ItemsSource = Add(0, 30, 2);
             combobox_51.ItemsSource = Add(1, 3, 2);
             combobox_52.ItemsSource = Add(1, 20, 2);
             combobox_53.ItemsSource = Add(1, 60, 2);
-            combobox_54.ItemsSource = Add(0.5, 30.0, 1);
             combobox_55.ItemsSource = dataItems;
+            combobox_57.ItemsSource = Add(5, 100, 2);
+            combobox_58.ItemsSource = Add(5, 100, 2);
+            combobox_59.ItemsSource = Add(1, 7, 2);
 
-            com_61.ItemsSource = Add(1, 43, 2);
-            //com_12.ItemsSource = Add(0, 30, 1);
-            com_63.ItemsSource = Add(1, 8, 2);
-            com_64.ItemsSource = Add(1, 4, 2);
             combobox_61.ItemsSource = Add(1, 3, 2);
             combobox_62.ItemsSource = Add(1, 20, 2);
             combobox_63.ItemsSource = Add(1, 60, 2);
-            combobox_64.ItemsSource = Add(0.5, 30.0, 1);
             combobox_65.ItemsSource = dataItems;
+            combobox_67.ItemsSource = Add(5, 100, 2);
+            combobox_68.ItemsSource = Add(5, 100, 2);
+            combobox_69.ItemsSource = Add(1, 7, 2);
 
-            com_71.ItemsSource = Add(1, 47, 2);
-            //com_22.ItemsSource = Add(0, 30, 1);
-            com_73.ItemsSource = Add(1, 6, 2);
-            com_74.ItemsSource = Add(1, 3, 2);
-            com_74_Copy.ItemsSource = Add(1, 4, 2);
-            com_74_Copy1.ItemsSource = Add(46, 60, 2);
             combobox_71.ItemsSource = Add(1, 3, 2);
             combobox_72.ItemsSource = Add(1, 20, 2);
             combobox_73.ItemsSource = Add(1, 60, 2);
-            combobox_74.ItemsSource = Add(0.5, 30.0, 1);
             combobox_75.ItemsSource = dataItems;
+            combobox_77.ItemsSource = Add(5, 100, 2);
+            combobox_78.ItemsSource = Add(5, 100, 2);
+            combobox_79.ItemsSource = Add(1, 7, 2);
 
-            com_81.ItemsSource = Add(1, 47, 2);
-            //com_32.ItemsSource = Add(0, 30, 1);
-            com_83.ItemsSource = Add(1, 5, 2);
-            com_84.ItemsSource = Add(1, 6, 2);
-            com_85.ItemsSource = Add(1, 5, 2);
-            com_85_copy.ItemsSource = Add(1, 2, 2);
             combobox_81.ItemsSource = Add(1, 3, 2);
             combobox_82.ItemsSource = Add(1, 20, 2);
             combobox_83.ItemsSource = Add(1, 60, 2);
-            combobox_84.ItemsSource = Add(0.5, 30.0, 1);
             combobox_85.ItemsSource = dataItems;
+            combobox_87.ItemsSource = Add(5, 100, 2);
+            combobox_88.ItemsSource = Add(5, 100, 2);
+            combobox_89.ItemsSource = Add(1, 7, 2);
 
-            com_91.ItemsSource = Add(1, 50, 2);
-            //com_42.ItemsSource = Add(0, 30, 1);
-            com_93.ItemsSource = Add(1, 6, 2);
-            com_93_Copy.ItemsSource = Add(1, 5, 2);
-            com_93_Copy1.ItemsSource = Add(1, 2, 2);
-            com_93_Copy2.ItemsSource = Add(1, 3, 2);
             combobox_91.ItemsSource = Add(1, 3, 2);
             combobox_92.ItemsSource = Add(1, 20, 2);
             combobox_93.ItemsSource = Add(1, 60, 2);
-            combobox_94.ItemsSource = Add(0.5, 75.0, 1);
             combobox_95.ItemsSource = dataItems;
+            combobox_97.ItemsSource = Add(5, 100, 2);
+            combobox_98.ItemsSource = Add(5, 100, 2);
+            combobox_99.ItemsSource = Add(1, 7, 2);
 
             List<NewDevicePrescription> devicePrescriptions = new TrainService().GetSaveDevicePrescriptionsByUser(user);
             if (devicePrescriptions == null)
@@ -1813,7 +2241,25 @@ namespace spms.view.Pages.ChildWin
                         combobox_03.Text = devicePrescription.Dp_relaxtime.ToString();
                         combobox_05.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
                         t1.Text = devicePrescription.Dp_memo;
-                        combobox_06.Text = "0";
+                        if (devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            combobox_06.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.RehabilitationModel");
+                            select_change(combobox_06, new EventArgs());
+                            combobox_07.Text = devicePrescription.Consequent_force.ToString();
+                            combobox_08.Text = devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            combobox_06.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.ActiveModel");
+                            select_change(combobox_06, new EventArgs());
+                            combobox_09.Text = devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            combobox_06.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.PassiveModel");
+                            select_change(combobox_06, new EventArgs());
+                            combobox_09.Text = devicePrescription.Speed_rank.ToString();
+                        }
                         break;
                     case (int)DeviceType.P00:
                         checkbox2.IsChecked = true;
@@ -1822,7 +2268,25 @@ namespace spms.view.Pages.ChildWin
                         combobox_13.Text = devicePrescription.Dp_relaxtime.ToString();
                         combobox_15.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
                         t2.Text = devicePrescription.Dp_memo;
-                        combobox_16.Text = "0";
+                        if (devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            combobox_16.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.RehabilitationModel");
+                            select_change2(combobox_16, new EventArgs());
+                            combobox_17.Text = devicePrescription.Consequent_force.ToString();
+                            combobox_18.Text = devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            combobox_16.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.ActiveModel");
+                            select_change2(combobox_16, new EventArgs());
+                            combobox_19.Text = devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            combobox_16.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.PassiveModel");
+                            select_change2(combobox_16, new EventArgs());
+                            combobox_19.Text = devicePrescription.Speed_rank.ToString();
+                        }
                         break;
                     case (int)DeviceType.P09:
                         checkbox3.IsChecked = true;
@@ -1831,7 +2295,25 @@ namespace spms.view.Pages.ChildWin
                         combobox_23.Text = devicePrescription.Dp_relaxtime.ToString();
                         combobox_25.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
                         t3.Text = devicePrescription.Dp_memo;
-                        combobox_26.Text = "0";
+                        if (devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            combobox_26.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.RehabilitationModel");
+                            select_change3(combobox_26, new EventArgs());
+                            combobox_27.Text = devicePrescription.Consequent_force.ToString();
+                            combobox_28.Text = devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            combobox_26.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.ActiveModel");
+                            select_change3(combobox_26, new EventArgs());
+                            combobox_29.Text = devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            combobox_26.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.PassiveModel");
+                            select_change3(combobox_26, new EventArgs());
+                            combobox_29.Text = devicePrescription.Speed_rank.ToString();
+                        }
                         break;
                     case (int)DeviceType.P06:
                         checkbox4.IsChecked = true;
@@ -1840,7 +2322,25 @@ namespace spms.view.Pages.ChildWin
                         combobox_33.Text = devicePrescription.Dp_relaxtime.ToString();
                         combobox_35.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
                         t4.Text = devicePrescription.Dp_memo;
-                        combobox_36.Text = "0";
+                        if (devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            combobox_36.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.RehabilitationModel");
+                            select_change4(combobox_36, new EventArgs());
+                            combobox_37.Text = devicePrescription.Consequent_force.ToString();
+                            combobox_38.Text = devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            combobox_36.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.ActiveModel");
+                            select_change4(combobox_36, new EventArgs());
+                            combobox_39.Text = devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            combobox_36.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.PassiveModel");
+                            select_change4(combobox_36, new EventArgs());
+                            combobox_39.Text = devicePrescription.Speed_rank.ToString();
+                        }
                         break;
                     case (int)DeviceType.P02:
                         checkbox5.IsChecked = true;
@@ -1849,7 +2349,25 @@ namespace spms.view.Pages.ChildWin
                         combobox_43.Text = devicePrescription.Dp_relaxtime.ToString();
                         combobox_45.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
                         t5.Text = devicePrescription.Dp_memo;
-                        combobox_46.Text = "0";
+                        if (devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            combobox_46.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.RehabilitationModel");
+                            select_change5(combobox_46, new EventArgs());
+                            combobox_47.Text = devicePrescription.Consequent_force.ToString();
+                            combobox_48.Text = devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            combobox_46.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.ActiveModel");
+                            select_change5(combobox_46, new EventArgs());
+                            combobox_49.Text = devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            combobox_46.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.PassiveModel");
+                            select_change5(combobox_46, new EventArgs());
+                            combobox_49.Text = devicePrescription.Speed_rank.ToString();
+                        }
                         break;
                     case (int)DeviceType.P05:
                         checkbox6.IsChecked = true;
@@ -1858,7 +2376,25 @@ namespace spms.view.Pages.ChildWin
                         combobox_53.Text = devicePrescription.Dp_relaxtime.ToString();
                         combobox_55.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
                         t6.Text = devicePrescription.Dp_memo;
-                        combobox_56.Text = "0";
+                        if (devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            combobox_56.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.RehabilitationModel");
+                            select_change6(combobox_56, new EventArgs());
+                            combobox_57.Text = devicePrescription.Consequent_force.ToString();
+                            combobox_58.Text = devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            combobox_56.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.ActiveModel");
+                            select_change6(combobox_56, new EventArgs());
+                            combobox_59.Text = devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            combobox_56.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.PassiveModel");
+                            select_change6(combobox_56, new EventArgs());
+                            combobox_59.Text = devicePrescription.Speed_rank.ToString();
+                        }
                         break;
                     case (int)DeviceType.P03:
                         checkbox7.IsChecked = true;
@@ -1867,7 +2403,25 @@ namespace spms.view.Pages.ChildWin
                         combobox_63.Text = devicePrescription.Dp_relaxtime.ToString();
                         combobox_65.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
                         t7.Text = devicePrescription.Dp_memo;
-                        combobox_66.Text = "0";
+                        if (devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            combobox_66.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.RehabilitationModel");
+                            select_change7(combobox_66, new EventArgs());
+                            combobox_67.Text = devicePrescription.Consequent_force.ToString();
+                            combobox_68.Text = devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            combobox_66.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.ActiveModel");
+                            select_change7(combobox_66, new EventArgs());
+                            combobox_69.Text = devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            combobox_66.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.PassiveModel");
+                            select_change7(combobox_66, new EventArgs());
+                            combobox_69.Text = devicePrescription.Speed_rank.ToString();
+                        }
                         break;
                     case (int)DeviceType.P04:
                         checkbox8.IsChecked = true;
@@ -1876,7 +2430,25 @@ namespace spms.view.Pages.ChildWin
                         combobox_73.Text = devicePrescription.Dp_relaxtime.ToString();
                         combobox_75.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
                         t8.Text = devicePrescription.Dp_memo;
-                        combobox_76.Text = "0";
+                        if (devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            combobox_76.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.RehabilitationModel");
+                            select_change8(combobox_76, new EventArgs());
+                            combobox_77.Text = devicePrescription.Consequent_force.ToString();
+                            combobox_78.Text = devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            combobox_76.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.ActiveModel");
+                            select_change8(combobox_76, new EventArgs());
+                            combobox_79.Text = devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            combobox_76.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.PassiveModel");
+                            select_change8(combobox_76, new EventArgs());
+                            combobox_79.Text = devicePrescription.Speed_rank.ToString();
+                        }
                         break;
                     case (int)DeviceType.P07:
                         checkbox9.IsChecked = true;
@@ -1885,7 +2457,25 @@ namespace spms.view.Pages.ChildWin
                         combobox_83.Text = devicePrescription.Dp_relaxtime.ToString();
                         combobox_85.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
                         t9.Text = devicePrescription.Dp_memo;
-                        combobox_86.Text = "0";
+                        if (devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            combobox_86.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.RehabilitationModel");
+                            select_change9(combobox_86, new EventArgs());
+                            combobox_87.Text = devicePrescription.Consequent_force.ToString();
+                            combobox_88.Text = devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            combobox_86.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.ActiveModel");
+                            select_change9(combobox_86, new EventArgs());
+                            combobox_89.Text = devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            combobox_86.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.PassiveModel");
+                            select_change9(combobox_86, new EventArgs());
+                            combobox_89.Text = devicePrescription.Speed_rank.ToString();
+                        }
                         break;
                     case (int)DeviceType.P08:
                         checkbox10.IsChecked = true;
@@ -1894,7 +2484,25 @@ namespace spms.view.Pages.ChildWin
                         combobox_93.Text = devicePrescription.Dp_relaxtime.ToString();
                         combobox_95.Text = DataCodeCache.GetInstance().GetCodeDValue(DataCodeTypeEnum.MoveWay, devicePrescription.Dp_moveway.ToString());
                         t10.Text = devicePrescription.Dp_memo;
-                        combobox_96.Text = "0";
+                        if (devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            combobox_96.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.RehabilitationModel");
+                            select_change10(combobox_96, new EventArgs());
+                            combobox_97.Text = devicePrescription.Consequent_force.ToString();
+                            combobox_98.Text = devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            combobox_96.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.ActiveModel");
+                            select_change10(combobox_96, new EventArgs());
+                            combobox_99.Text = devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            combobox_96.Text = LanguageUtils.GetCurrentLanuageStrByKey("TrainingListView.PassiveModel");
+                            select_change10(combobox_96, new EventArgs());
+                            combobox_99.Text = devicePrescription.Speed_rank.ToString();
+                        }
                         break;
                 }
 
@@ -1975,7 +2583,9 @@ namespace spms.view.Pages.ChildWin
  
         /// <summary>
         /// 点击写卡时触发的方法
-        /// 对于数据库内容的操作：1.先把当前用户的所有暂存状态的数据置为废弃。2.往数据库里面插入一条暂存状态的训练信息。3.等收到写卡成功的反馈之后，把数据库中该用户的唯一一条暂存状态的数据置为nomal
+        /// 对于数据库内容的操作：
+        /// 1.先把当前用户的所有暂存状态的数据置为废弃。
+        /// 2.往数据库里面插入一条暂存状态的训练信息。3.等收到写卡成功的反馈之后，把数据库中该用户的唯一一条暂存状态的数据置为nomal
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -2007,7 +2617,7 @@ namespace spms.view.Pages.ChildWin
 
                 if (user != null)
                 {
-                    byte[] data = new byte[90];
+                    byte[] data = new byte[180];//90
                     //用户id
                     string str = new UserService().getUserByUserId(user.Pk_User_Id).User_IDCard + "";
                     byte[] idBytes = Encoding.ASCII.GetBytes(str);
@@ -2024,43 +2634,61 @@ namespace spms.view.Pages.ChildWin
                     //设备
                     if (checkbox1.IsChecked == true)
                     {
-                        //胸部推举机0x01
-                        data[position] = (byte)DeviceType.P00;
+                        data[position] = (byte)DeviceType.P01;
                         position += 1;
                     }
 
                     if (checkbox2.IsChecked == true)
                     {
-                        //坐姿划船机 0x05
-                        data[position] = (byte)DeviceType.P01;
+                        data[position] = (byte)DeviceType.P00;
                         position += 1;
                     }
 
                     if (checkbox3.IsChecked == true)
                     {
-                        //身体伸展弯曲机 0x04
-                        //data[position] = (byte)DeviceType.X04;
+                        data[position] = (byte)DeviceType.P09;
                         position += 1;
                     }
 
                     if (checkbox4.IsChecked == true)
                     {
-                        //腿部伸展弯曲机 0x03
-                       // data[position] = (byte)DeviceType.X03;
+                        data[position] = (byte)DeviceType.P06;
                         position += 1;
                     }
 
                     if (checkbox5.IsChecked == true)
                     {
-                        //胸部推举机 0x06
-                        //data[position] = (byte)DeviceType.X06;
+                        data[position] = (byte)DeviceType.P02;
+                        position += 1;
+                    }
+
+                    if (checkbox7.IsChecked == true)
+                    {
+                        data[position] = (byte)DeviceType.P05;
+                        position += 1;
+                    }
+
+                    if (checkbox8.IsChecked == true)
+                    {
+                        data[position] = (byte)DeviceType.P03;
+                        position += 1;
+                    }
+
+                    if (checkbox9.IsChecked == true)
+                    {
+                        data[position] = (byte)DeviceType.P04;
+                        position += 1;
+                    }
+
+                    if (checkbox10.IsChecked == true)
+                    {
+                        data[position] = (byte)DeviceType.P07;
                         position += 1;
                     }
 
                     if (checkbox6.IsChecked == true)
                     {
-                        //腿部内外弯机 0x02
-                       // data[position] = (byte)DeviceType.X02;
+                        data[position] = (byte)DeviceType.P08;
                     }
 
                     //Console.WriteLine("发卡的内容：" + ProtocolUtil.ByteToStringOk(data));
@@ -2202,7 +2830,7 @@ namespace spms.view.Pages.ChildWin
                 SaveTrainInfo2DB(TrainInfoStatus.Temp);
                 if (user != null)
                 {
-                    byte[] data = new byte[90];
+                    byte[] data = new byte[180];//90
                     //用户id
                     string str = new UserService().getUserByUserId(user.Pk_User_Id).User_IDCard + "";
                     byte[] idBytes = Encoding.ASCII.GetBytes(str);
@@ -2219,43 +2847,61 @@ namespace spms.view.Pages.ChildWin
                     //设备
                     if (checkbox1.IsChecked == true)
                     {
-                        //胸部推举机0x01
                         data[position] = (byte)DeviceType.P01;
                         position += 1;
                     }
 
                     if (checkbox2.IsChecked == true)
                     {
-                        //坐姿划船机 0x05
-                        data[position] = (byte)DeviceType.P02;
+                        data[position] = (byte)DeviceType.P00;
                         position += 1;
                     }
 
                     if (checkbox3.IsChecked == true)
                     {
-                        //身体伸展弯曲机 0x04
-                        data[position] = (byte)DeviceType.P03;
+                        data[position] = (byte)DeviceType.P09;
                         position += 1;
                     }
 
                     if (checkbox4.IsChecked == true)
                     {
-                        //腿部伸展弯曲机 0x03
-                        data[position] = (byte)DeviceType.P04;
+                        data[position] = (byte)DeviceType.P06;
                         position += 1;
                     }
 
                     if (checkbox5.IsChecked == true)
                     {
-                        //胸部推举机 0x06
-                        data[position] = (byte)DeviceType.P05;
+                        data[position] = (byte)DeviceType.P02;
                         position += 1;
                     }
 
                     if (checkbox6.IsChecked == true)
                     {
-                        //腿部内外弯机 0x02
-                        data[position] = (byte)DeviceType.P06;
+                        data[position] = (byte)DeviceType.P05;
+                        position += 1;
+                    }
+
+                    if (checkbox7.IsChecked == true)
+                    {
+                        data[position] = (byte)DeviceType.P03;
+                        position += 1;
+                    }
+
+                    if (checkbox8.IsChecked == true)
+                    {
+                        data[position] = (byte)DeviceType.P04;
+                        position += 1;
+                    }
+
+                    if (checkbox9.IsChecked == true)
+                    {
+                        data[position] = (byte)DeviceType.P07;
+                        position += 1;
+                    }
+
+                    if (checkbox10.IsChecked == true)
+                    {
+                        data[position] = (byte)DeviceType.P08;
                     }
 
                     //Console.WriteLine("发卡的内容：" + ProtocolUtil.ByteToStringOk(data));
@@ -2379,7 +3025,6 @@ namespace spms.view.Pages.ChildWin
                 byte[] receiveData = new byte[len];
                 serialPort.Read(receiveData, 0, len);
 
-                //Console.WriteLine("收到数据："+ProtocolUtil.ByteToStringOk(receiveData));
                 logger.Debug("收到数据：" + ProtocolUtil.ByteToStringOk(receiveData));
 
                 int offset = 0;
@@ -2427,12 +3072,8 @@ namespace spms.view.Pages.ChildWin
                     Array.Copy(buffer, 1, data, 0, 3);
                     if (buffer[buffer.Length - 2] == ProtocolUtil.XorByByte(data))
                     {
-                        //Console.WriteLine("校验成功");
                         if (buffer[buffer.Length - 3] == 0x00)
                         {
-                            //Console.WriteLine("发卡成功");
-                            //SaveTrainInfo2DB(TrainInfoStatus.Normal);
-
                             //此时处于发卡成功的逻辑，需要把打击写卡时候的暂存状态的数据，设置为nomal状态
                             Dispatcher.Invoke(new Action(() =>
                             {
@@ -2450,15 +3091,10 @@ namespace spms.view.Pages.ChildWin
                                     return;
                                 }
                             }));
-                            //MessageBox.Show(LanguageUtils.ConvertLanguage("写卡成功", "Write card success"), "结果", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                             MessageBoxX.Info(LanguageUtils.ConvertLanguage("写卡成功", "Write card success"));
                         }
                         else
                         {
-                            //this.Close();
-                            //Console.WriteLine("发卡失败");
-                            //MessageBox.Show(LanguageUtils.ConvertLanguage("写卡失败", "Failed to write to card"));
-                            //MessageBox.Show(LanguageUtils.ConvertLanguage("写卡失败", "Failed to write to card"), "结果", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                             MessageBoxX.Error(LanguageUtils.ConvertLanguage("写卡失败", "Failed to write to card"));
                         }
                     }
@@ -2508,33 +3144,67 @@ namespace spms.view.Pages.ChildWin
 
         private void select_change(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(combobox_06.Text) || LanguageUtils.EqualsResource(combobox_06.Text, "TrainingListView.RehabilitationModel"))
+            {
+                border6.Background = Brushes.White;
+                border7.Background = Brushes.White;
+                combobox_09.Visibility = Visibility.Hidden;
+                Grid.SetRow(border6, 7);
+                Grid.SetRow(border7, 7);
 
-            //if (String.IsNullOrEmpty(combobox_06.Text)|| LanguageUtils.EqualsResource(combobox_06.Text, "TrainingListView.Invalid"))
-            //{
-            //    border1.Background = Brushes.White;
-            //    border2.Background = Brushes.White;
-            //    combobox_07.Visibility = Visibility.Hidden;
-            //    border3.Background = Brushes.White;
-            //    border4.Background = Brushes.White;
-            //    combobox_08.Visibility = Visibility.Hidden;
-            //    stackpanel.Margin = new Thickness(0, 149.8, 0, 0);
-            //    t1.Height = 170;
-            //}
-            //else
-            //{
-            //    border1.Background = Brushes.Gray;
-            //    border2.Background = Brushes.Gray;
-            //    combobox_07.Visibility = Visibility.Visible;
-            //    border3.Background = Brushes.Gray;
-            //    border4.Background = Brushes.Gray;
-            //    combobox_08.Visibility = Visibility.Visible;
-            //    stackpanel.Margin = new Thickness(0, 199.8, 0, 0);
-            //    t1.Height = 120;
-            //}
+                border1.Background = Brushes.Gray;
+                border2.Background = Brushes.Gray;
+                combobox_07.Visibility = Visibility.Visible;
+                border3.Background = Brushes.Gray;
+                border4.Background = Brushes.Gray;
+                combobox_08.Visibility = Visibility.Visible;
+                stackpanel.Margin = new Thickness(0, 169.8, 0, 0);
+                Grid.SetRow(border1, 5);
+                Grid.SetRow(border2, 5);
+                t1.Height = 150;
+            }
+            else
+            {
+                border1.Background = Brushes.White;
+                border2.Background = Brushes.White;
+                combobox_07.Visibility = Visibility.Hidden;
+                border3.Background = Brushes.White;
+                border4.Background = Brushes.White;
+                combobox_08.Visibility = Visibility.Hidden;
+                Grid.SetRow(border1, 7);
+                Grid.SetRow(border2, 7);
+
+                border6.Background = Brushes.Gray;
+                border7.Background = Brushes.Gray;
+                combobox_09.Visibility = Visibility.Visible;
+                stackpanel.Margin = new Thickness(0, 149.8, 0, 0);
+                Grid.SetRow(border6, 5);
+                Grid.SetRow(border7, 5);
+                t1.Height = 170;
+            }
         }
         private void select_change2(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_16.Text) || LanguageUtils.EqualsResource(combobox_16.Text, "TrainingListView.Invalid"))
+            if (String.IsNullOrEmpty(combobox_16.Text) || LanguageUtils.EqualsResource(combobox_16.Text, "TrainingListView.RehabilitationModel"))
+            {
+                border16.Background = Brushes.White;
+                border17.Background = Brushes.White;
+                combobox_19.Visibility = Visibility.Hidden;
+                Grid.SetRow(border16, 7);
+                Grid.SetRow(border17, 7);
+
+                border11.Background = Brushes.Gray;
+                border12.Background = Brushes.Gray;
+                combobox_17.Visibility = Visibility.Visible;
+                border13.Background = Brushes.Gray;
+                border14.Background = Brushes.Gray;
+                combobox_18.Visibility = Visibility.Visible;
+                stackpanel2.Margin = new Thickness(0, 169.8, 0, 0);
+                Grid.SetRow(border11, 5);
+                Grid.SetRow(border12, 5);
+                t2.Height = 150;
+            }
+            else
             {
                 border11.Background = Brushes.White;
                 border12.Background = Brushes.White;
@@ -2542,24 +3212,40 @@ namespace spms.view.Pages.ChildWin
                 border13.Background = Brushes.White;
                 border14.Background = Brushes.White;
                 combobox_18.Visibility = Visibility.Hidden;
+                Grid.SetRow(border11, 7);
+                Grid.SetRow(border12, 7);
+
+                border16.Background = Brushes.Gray;
+                border17.Background = Brushes.Gray;
+                combobox_09.Visibility = Visibility.Visible;
                 stackpanel2.Margin = new Thickness(0, 149.8, 0, 0);
+                Grid.SetRow(border16, 5);
+                Grid.SetRow(border17, 5);
                 t2.Height = 170;
-            }
-            else
-            {
-                border11.Background = Brushes.Gray;
-                border12.Background = Brushes.Gray;
-                combobox_17.Visibility = Visibility.Visible;
-                border13.Background = Brushes.Gray;
-                border14.Background = Brushes.Gray;
-                combobox_18.Visibility = Visibility.Visible;
-                stackpanel2.Margin = new Thickness(0, 199.8, 0, 0);
-                t2.Height = 120;
             }
         }
         private void select_change3(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_26.Text) || LanguageUtils.EqualsResource(combobox_26.Text, "TrainingListView.Invalid"))
+            if (String.IsNullOrEmpty(combobox_26.Text) || LanguageUtils.EqualsResource(combobox_26.Text, "TrainingListView.RehabilitationModel"))
+            {
+                border26.Background = Brushes.White;
+                border27.Background = Brushes.White;
+                combobox_29.Visibility = Visibility.Hidden;
+                Grid.SetRow(border26, 7);
+                Grid.SetRow(border27, 7);
+
+                border21.Background = Brushes.Gray;
+                border22.Background = Brushes.Gray;
+                combobox_27.Visibility = Visibility.Visible;
+                border23.Background = Brushes.Gray;
+                border24.Background = Brushes.Gray;
+                combobox_28.Visibility = Visibility.Visible;
+                stackpanel3.Margin = new Thickness(0, 169.8, 0, 0);
+                Grid.SetRow(border21, 5);
+                Grid.SetRow(border22, 5);
+                t3.Height = 150;
+            }
+            else
             {
                 border21.Background = Brushes.White;
                 border22.Background = Brushes.White;
@@ -2567,24 +3253,40 @@ namespace spms.view.Pages.ChildWin
                 border23.Background = Brushes.White;
                 border24.Background = Brushes.White;
                 combobox_28.Visibility = Visibility.Hidden;
+                Grid.SetRow(border21, 7);
+                Grid.SetRow(border22, 7);
+
+                border26.Background = Brushes.Gray;
+                border27.Background = Brushes.Gray;
+                combobox_29.Visibility = Visibility.Visible;
                 stackpanel3.Margin = new Thickness(0, 149.8, 0, 0);
+                Grid.SetRow(border26, 5);
+                Grid.SetRow(border27, 5);
                 t3.Height = 170;
-            }
-            else
-            {
-                border21.Background = Brushes.Gray;
-                border22.Background = Brushes.Gray;
-                combobox_27.Visibility = Visibility.Visible;
-                border23.Background = Brushes.Gray;
-                border24.Background = Brushes.Gray;
-                combobox_28.Visibility = Visibility.Visible;
-                stackpanel3.Margin = new Thickness(0, 199.8, 0, 0);
-                t3.Height = 120;
             }
         }
         private void select_change4(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_36.Text) || LanguageUtils.EqualsResource(combobox_36.Text, "TrainingListView.Invalid"))
+            if (String.IsNullOrEmpty(combobox_36.Text) || LanguageUtils.EqualsResource(combobox_36.Text, "TrainingListView.RehabilitationModel"))
+            {
+                border36.Background = Brushes.White;
+                border37.Background = Brushes.White;
+                combobox_39.Visibility = Visibility.Hidden;
+                Grid.SetRow(border36, 7);
+                Grid.SetRow(border37, 7);
+
+                border31.Background = Brushes.Gray;
+                border32.Background = Brushes.Gray;
+                combobox_37.Visibility = Visibility.Visible;
+                border33.Background = Brushes.Gray;
+                border34.Background = Brushes.Gray;
+                combobox_38.Visibility = Visibility.Visible;
+                stackpanel4.Margin = new Thickness(0, 169.8, 0, 0);
+                Grid.SetRow(border31, 5);
+                Grid.SetRow(border32, 5);
+                t4.Height = 150;
+            }
+            else
             {
                 border31.Background = Brushes.White;
                 border32.Background = Brushes.White;
@@ -2592,24 +3294,40 @@ namespace spms.view.Pages.ChildWin
                 border33.Background = Brushes.White;
                 border34.Background = Brushes.White;
                 combobox_38.Visibility = Visibility.Hidden;
+                Grid.SetRow(border31, 7);
+                Grid.SetRow(border32, 7);
+
+                border36.Background = Brushes.Gray;
+                border37.Background = Brushes.Gray;
+                combobox_39.Visibility = Visibility.Visible;
                 stackpanel4.Margin = new Thickness(0, 149.8, 0, 0);
+                Grid.SetRow(border36, 5);
+                Grid.SetRow(border37, 5);
                 t4.Height = 170;
-            }
-            else
-            {
-                border31.Background = Brushes.Gray;
-                border32.Background = Brushes.Gray;
-                combobox_37.Visibility = Visibility.Visible;
-                border33.Background = Brushes.Gray;
-                border34.Background = Brushes.Gray;
-                combobox_38.Visibility = Visibility.Visible;
-                stackpanel4.Margin = new Thickness(0, 199.8, 0, 0);
-                t4.Height = 120;
             }
         }
         private void select_change5(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_46.Text) || LanguageUtils.EqualsResource(combobox_46.Text, "TrainingListView.Invalid"))
+            if (String.IsNullOrEmpty(combobox_46.Text) || LanguageUtils.EqualsResource(combobox_46.Text, "TrainingListView.RehabilitationModel"))
+            {
+                border46.Background = Brushes.White;
+                border47.Background = Brushes.White;
+                combobox_49.Visibility = Visibility.Hidden;
+                Grid.SetRow(border46, 7);
+                Grid.SetRow(border47, 7);
+
+                border41.Background = Brushes.Gray;
+                border42.Background = Brushes.Gray;
+                combobox_47.Visibility = Visibility.Visible;
+                border43.Background = Brushes.Gray;
+                border44.Background = Brushes.Gray;
+                combobox_48.Visibility = Visibility.Visible;
+                stackpanel5.Margin = new Thickness(0, 169.8, 0, 0);
+                Grid.SetRow(border41, 5);
+                Grid.SetRow(border42, 5);
+                t5.Height = 150;
+            }
+            else
             {
                 border41.Background = Brushes.White;
                 border42.Background = Brushes.White;
@@ -2617,24 +3335,40 @@ namespace spms.view.Pages.ChildWin
                 border43.Background = Brushes.White;
                 border44.Background = Brushes.White;
                 combobox_48.Visibility = Visibility.Hidden;
+                Grid.SetRow(border41, 7);
+                Grid.SetRow(border42, 7);
+
+                border46.Background = Brushes.Gray;
+                border47.Background = Brushes.Gray;
+                combobox_49.Visibility = Visibility.Visible;
                 stackpanel5.Margin = new Thickness(0, 149.8, 0, 0);
+                Grid.SetRow(border46, 5);
+                Grid.SetRow(border47, 5);
                 t5.Height = 170;
-            }
-            else
-            {
-                border41.Background = Brushes.Gray;
-                border42.Background = Brushes.Gray;
-                combobox_47.Visibility = Visibility.Visible;
-                border43.Background = Brushes.Gray;
-                border44.Background = Brushes.Gray;
-                combobox_48.Visibility = Visibility.Visible;
-                stackpanel5.Margin = new Thickness(0, 199.8, 0, 0);
-                t5.Height = 120;
             }
         }
         private void select_change6(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_56.Text) || LanguageUtils.EqualsResource(combobox_56.Text, "TrainingListView.Invalid"))
+            if (String.IsNullOrEmpty(combobox_56.Text) || LanguageUtils.EqualsResource(combobox_56.Text, "TrainingListView.RehabilitationModel"))
+            {
+                border56.Background = Brushes.White;
+                border57.Background = Brushes.White;
+                combobox_59.Visibility = Visibility.Hidden;
+                Grid.SetRow(border56, 7);
+                Grid.SetRow(border57, 7);
+
+                border51.Background = Brushes.Gray;
+                border52.Background = Brushes.Gray;
+                combobox_57.Visibility = Visibility.Visible;
+                border53.Background = Brushes.Gray;
+                border54.Background = Brushes.Gray;
+                combobox_58.Visibility = Visibility.Visible;
+                stackpanel6.Margin = new Thickness(0, 169.8, 0, 0);
+                Grid.SetRow(border51, 5);
+                Grid.SetRow(border52, 5);
+                t6.Height = 150;
+            }
+            else
             {
                 border51.Background = Brushes.White;
                 border52.Background = Brushes.White;
@@ -2642,119 +3376,180 @@ namespace spms.view.Pages.ChildWin
                 border53.Background = Brushes.White;
                 border54.Background = Brushes.White;
                 combobox_58.Visibility = Visibility.Hidden;
+                Grid.SetRow(border51, 7);
+                Grid.SetRow(border52, 7);
+
+                border56.Background = Brushes.Gray;
+                border57.Background = Brushes.Gray;
+                combobox_59.Visibility = Visibility.Visible;
                 stackpanel6.Margin = new Thickness(0, 149.8, 0, 0);
+                Grid.SetRow(border56, 5);
+                Grid.SetRow(border57, 5);
                 t6.Height = 170;
-            }
-            else
-            {
-                border51.Background = Brushes.Gray;
-                border52.Background = Brushes.Gray;
-                combobox_57.Visibility = Visibility.Visible;
-                border53.Background = Brushes.Gray;
-                border54.Background = Brushes.Gray;
-                combobox_58.Visibility = Visibility.Visible;
-                stackpanel6.Margin = new Thickness(0, 199.8, 0, 0);
-                t6.Height = 120;
             }
         }
         private void select_change7(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_16.Text) || LanguageUtils.EqualsResource(combobox_16.Text, "TrainingListView.Invalid"))
+            if (String.IsNullOrEmpty(combobox_66.Text) || LanguageUtils.EqualsResource(combobox_66.Text, "TrainingListView.RehabilitationModel"))
             {
-                border11.Background = Brushes.White;
-                border12.Background = Brushes.White;
-                combobox_17.Visibility = Visibility.Hidden;
-                border13.Background = Brushes.White;
-                border14.Background = Brushes.White;
-                combobox_18.Visibility = Visibility.Hidden;
-                stackpanel2.Margin = new Thickness(0, 149.8, 0, 0);
-                t2.Height = 170;
+                border66.Background = Brushes.White;
+                border67.Background = Brushes.White;
+                combobox_69.Visibility = Visibility.Hidden;
+                Grid.SetRow(border66, 7);
+                Grid.SetRow(border67, 7);
+
+                border61.Background = Brushes.Gray;
+                border62.Background = Brushes.Gray;
+                combobox_67.Visibility = Visibility.Visible;
+                border63.Background = Brushes.Gray;
+                border64.Background = Brushes.Gray;
+                combobox_68.Visibility = Visibility.Visible;
+                stackpanel7.Margin = new Thickness(0, 169.8, 0, 0);
+                Grid.SetRow(border61, 5);
+                Grid.SetRow(border62, 5);
+                t7.Height = 150;
             }
             else
             {
-                border11.Background = Brushes.Gray;
-                border12.Background = Brushes.Gray;
-                combobox_17.Visibility = Visibility.Visible;
-                border13.Background = Brushes.Gray;
-                border14.Background = Brushes.Gray;
-                combobox_18.Visibility = Visibility.Visible;
-                stackpanel2.Margin = new Thickness(0, 199.8, 0, 0);
-                t2.Height = 120;
+                border61.Background = Brushes.White;
+                border62.Background = Brushes.White;
+                combobox_67.Visibility = Visibility.Hidden;
+                border63.Background = Brushes.White;
+                border64.Background = Brushes.White;
+                combobox_68.Visibility = Visibility.Hidden;
+                Grid.SetRow(border61, 7);
+                Grid.SetRow(border62, 7);
+
+                border66.Background = Brushes.Gray;
+                border67.Background = Brushes.Gray;
+                combobox_69.Visibility = Visibility.Visible;
+                stackpanel7.Margin = new Thickness(0, 149.8, 0, 0);
+                Grid.SetRow(border66, 5);
+                Grid.SetRow(border67, 5);
+                t7.Height = 170;
             }
         }
         private void select_change8(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_26.Text) || LanguageUtils.EqualsResource(combobox_26.Text, "TrainingListView.Invalid"))
+            if (String.IsNullOrEmpty(combobox_76.Text) || LanguageUtils.EqualsResource(combobox_76.Text, "TrainingListView.RehabilitationModel"))
             {
-                border21.Background = Brushes.White;
-                border22.Background = Brushes.White;
-                combobox_27.Visibility = Visibility.Hidden;
-                border23.Background = Brushes.White;
-                border24.Background = Brushes.White;
-                combobox_28.Visibility = Visibility.Hidden;
-                stackpanel3.Margin = new Thickness(0, 149.8, 0, 0);
-                t3.Height = 170;
+                border76.Background = Brushes.White;
+                border77.Background = Brushes.White;
+                combobox_79.Visibility = Visibility.Hidden;
+                Grid.SetRow(border76, 7);
+                Grid.SetRow(border77, 7);
+
+                border71.Background = Brushes.Gray;
+                border72.Background = Brushes.Gray;
+                combobox_77.Visibility = Visibility.Visible;
+                border73.Background = Brushes.Gray;
+                border74.Background = Brushes.Gray;
+                combobox_78.Visibility = Visibility.Visible;
+                stackpanel8.Margin = new Thickness(0, 169.8, 0, 0);
+                Grid.SetRow(border71, 5);
+                Grid.SetRow(border72, 5);
+                t8.Height = 150;
             }
             else
             {
-                border21.Background = Brushes.Gray;
-                border22.Background = Brushes.Gray;
-                combobox_27.Visibility = Visibility.Visible;
-                border23.Background = Brushes.Gray;
-                border24.Background = Brushes.Gray;
-                combobox_28.Visibility = Visibility.Visible;
-                stackpanel3.Margin = new Thickness(0, 199.8, 0, 0);
-                t3.Height = 120;
+                border71.Background = Brushes.White;
+                border72.Background = Brushes.White;
+                combobox_77.Visibility = Visibility.Hidden;
+                border73.Background = Brushes.White;
+                border74.Background = Brushes.White;
+                combobox_78.Visibility = Visibility.Hidden;
+                Grid.SetRow(border71, 7);
+                Grid.SetRow(border72, 7);
+
+                border76.Background = Brushes.Gray;
+                border77.Background = Brushes.Gray;
+                combobox_79.Visibility = Visibility.Visible;
+                stackpanel8.Margin = new Thickness(0, 149.8, 0, 0);
+                Grid.SetRow(border76, 5);
+                Grid.SetRow(border77, 5);
+                t7.Height = 170;
             }
         }
         private void select_change9(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_36.Text) || LanguageUtils.EqualsResource(combobox_36.Text, "TrainingListView.Invalid"))
+            if (String.IsNullOrEmpty(combobox_86.Text) || LanguageUtils.EqualsResource(combobox_86.Text, "TrainingListView.RehabilitationModel"))
             {
-                border31.Background = Brushes.White;
-                border32.Background = Brushes.White;
-                combobox_37.Visibility = Visibility.Hidden;
-                border33.Background = Brushes.White;
-                border34.Background = Brushes.White;
-                combobox_38.Visibility = Visibility.Hidden;
-                stackpanel4.Margin = new Thickness(0, 149.8, 0, 0);
-                t4.Height = 170;
+                border86.Background = Brushes.White;
+                border87.Background = Brushes.White;
+                combobox_89.Visibility = Visibility.Hidden;
+                Grid.SetRow(border86, 7);
+                Grid.SetRow(border87, 7);
+
+                border81.Background = Brushes.Gray;
+                border82.Background = Brushes.Gray;
+                combobox_87.Visibility = Visibility.Visible;
+                border83.Background = Brushes.Gray;
+                border84.Background = Brushes.Gray;
+                combobox_88.Visibility = Visibility.Visible;
+                stackpanel9.Margin = new Thickness(0, 169.8, 0, 0);
+                Grid.SetRow(border81, 5);
+                Grid.SetRow(border82, 5);
+                t9.Height = 150;
             }
             else
             {
-                border31.Background = Brushes.Gray;
-                border32.Background = Brushes.Gray;
-                combobox_37.Visibility = Visibility.Visible;
-                border33.Background = Brushes.Gray;
-                border34.Background = Brushes.Gray;
-                combobox_38.Visibility = Visibility.Visible;
-                stackpanel4.Margin = new Thickness(0, 199.8, 0, 0);
-                t4.Height = 120;
+                border81.Background = Brushes.White;
+                border82.Background = Brushes.White;
+                combobox_87.Visibility = Visibility.Hidden;
+                border83.Background = Brushes.White;
+                border84.Background = Brushes.White;
+                combobox_88.Visibility = Visibility.Hidden;
+                Grid.SetRow(border81, 7);
+                Grid.SetRow(border82, 7);
+
+                border86.Background = Brushes.Gray;
+                border87.Background = Brushes.Gray;
+                combobox_89.Visibility = Visibility.Visible;
+                stackpanel9.Margin = new Thickness(0, 149.8, 0, 0);
+                Grid.SetRow(border86, 5);
+                Grid.SetRow(border87, 5);
+                t9.Height = 170;
             }
         }
         private void select_change10(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_46.Text) || LanguageUtils.EqualsResource(combobox_46.Text, "TrainingListView.Invalid"))
+            if (String.IsNullOrEmpty(combobox_96.Text) || LanguageUtils.EqualsResource(combobox_96.Text, "TrainingListView.RehabilitationModel"))
             {
-                border41.Background = Brushes.White;
-                border42.Background = Brushes.White;
-                combobox_47.Visibility = Visibility.Hidden;
-                border43.Background = Brushes.White;
-                border44.Background = Brushes.White;
-                combobox_48.Visibility = Visibility.Hidden;
-                stackpanel5.Margin = new Thickness(0, 149.8, 0, 0);
-                t5.Height = 170;
+                border96.Background = Brushes.White;
+                border97.Background = Brushes.White;
+                combobox_99.Visibility = Visibility.Hidden;
+                Grid.SetRow(border96, 7);
+                Grid.SetRow(border97, 7);
+
+                border91.Background = Brushes.Gray;
+                border92.Background = Brushes.Gray;
+                combobox_97.Visibility = Visibility.Visible;
+                border93.Background = Brushes.Gray;
+                border94.Background = Brushes.Gray;
+                combobox_98.Visibility = Visibility.Visible;
+                stackpanel10.Margin = new Thickness(0, 169.8, 0, 0);
+                Grid.SetRow(border91, 5);
+                Grid.SetRow(border92, 5);
+                t10.Height = 150;
             }
             else
             {
-                border41.Background = Brushes.Gray;
-                border42.Background = Brushes.Gray;
-                combobox_47.Visibility = Visibility.Visible;
-                border43.Background = Brushes.Gray;
-                border44.Background = Brushes.Gray;
-                combobox_48.Visibility = Visibility.Visible;
-                stackpanel5.Margin = new Thickness(0, 199.8, 0, 0);
-                t5.Height = 120;
+                border91.Background = Brushes.White;
+                border92.Background = Brushes.White;
+                combobox_97.Visibility = Visibility.Hidden;
+                border93.Background = Brushes.White;
+                border94.Background = Brushes.White;
+                combobox_98.Visibility = Visibility.Hidden;
+                Grid.SetRow(border91, 7);
+                Grid.SetRow(border92, 7);
+
+                border96.Background = Brushes.Gray;
+                border97.Background = Brushes.Gray;
+                combobox_99.Visibility = Visibility.Visible;
+                stackpanel10.Margin = new Thickness(0, 149.8, 0, 0);
+                Grid.SetRow(border96, 5);
+                Grid.SetRow(border97, 5);
+                t10.Height = 170;
             }
         }
 
@@ -2765,242 +3560,128 @@ namespace spms.view.Pages.ChildWin
             combobox_03.SelectedIndex = 0;
             combobox_05.SelectedIndex = 0;
             combobox_06.SelectedIndex = 1;
+            combobox_07.SelectedIndex = 0;
+            combobox_08.SelectedIndex = 0;
+            combobox_09.SelectedIndex = 0;
             select_change(sender, e);
             t1.Text = "";
         }
         private void Checkbox2_OnChecked(object sender, RoutedEventArgs e)
         {
-            //combobox_01.IsEnabled = false;
             combobox_11.SelectedIndex = 0;
-            //combobox_02.IsEnabled = false;
             combobox_12.SelectedIndex = 0;
-            //combobox_03.IsEnabled = false;
             combobox_13.SelectedIndex = 0;
-            //combobox_04.IsEnabled = false;
-            combobox_14.SelectedIndex = 0;
-            //combobox_05.IsEnabled = false;
             combobox_15.SelectedIndex = 0;
             combobox_16.SelectedIndex = 1;
-            select_change(sender, e);
+            select_change2(sender, e);
             combobox_17.SelectedIndex = 0;
             combobox_18.SelectedIndex = 0;
-            //com_01.IsEnabled = false;
-            com_11.SelectedIndex = 0;
-            //com_04.IsEnabled = false;
-            com_14.SelectedIndex = 0;
-            //com_02.IsEnabled = false;
-            //com_03.IsEnabled = false;
-            com_13.SelectedIndex = 0;
+            combobox_19.SelectedIndex = 0;
             t2.Text = "";
         }
         private void Checkbox3_OnChecked(object sender, RoutedEventArgs e)
         {
-            //combobox_01.IsEnabled = false;
             combobox_21.SelectedIndex = 0;
-            //combobox_02.IsEnabled = false;
             combobox_22.SelectedIndex = 0;
-            //combobox_03.IsEnabled = false;
             combobox_23.SelectedIndex = 0;
-            //combobox_04.IsEnabled = false;
-            combobox_24.SelectedIndex = 0;
-            //combobox_05.IsEnabled = false;
             combobox_25.SelectedIndex = 0;
             combobox_26.SelectedIndex = 1;
-            select_change2(sender, e);
+            select_change3(sender, e);
             combobox_27.SelectedIndex = 0;
             combobox_28.SelectedIndex = 0;
-            //com_01.IsEnabled = false;
-            com_21.SelectedIndex = 0;
-            //com_04.IsEnabled = false;
-            com_24.SelectedIndex = 0;
-            com_24_Copy.SelectedIndex = 0;
-            com_24_Copy1.SelectedIndex = 0;
-            //com_02.IsEnabled = false;
-            //com_03.IsEnabled = false;
-            com_23.SelectedIndex = 0;
+            combobox_29.SelectedIndex = 0;
             t3.Text = "";
         }
         private void Checkbox4_OnChecked(object sender, RoutedEventArgs e)
         {
-            //combobox_01.IsEnabled = false;
             combobox_31.SelectedIndex = 0;
-            //combobox_02.IsEnabled = false;
             combobox_32.SelectedIndex = 0;
-            //combobox_03.IsEnabled = false;
             combobox_33.SelectedIndex = 0;
-            //combobox_04.IsEnabled = false;
-            combobox_34.SelectedIndex = 0;
-            //combobox_05.IsEnabled = false;
             combobox_35.SelectedIndex = 0;
             combobox_36.SelectedIndex = 1;
-            select_change3(sender, e);
+            select_change4(sender, e);
             combobox_37.SelectedIndex = 0;
             combobox_38.SelectedIndex = 0;
-            //com_01.IsEnabled = false;
-            com_31.SelectedIndex = 0;
-            //com_04.IsEnabled = false;
-            com_34.SelectedIndex = 0;
-            //com_02.IsEnabled = false;
-            com_35.SelectedIndex = 0;
-            com_35_copy.SelectedIndex = 0;
-            com_33.SelectedIndex = 0;
+            combobox_39.SelectedIndex = 0;
             t4.Text = "";
         }
         private void Checkbox5_OnChecked(object sender, RoutedEventArgs e)
         {
-            //combobox_01.IsEnabled = false;
             combobox_41.SelectedIndex = 0;
-            //combobox_02.IsEnabled = false;
             combobox_42.SelectedIndex = 0;
-            //combobox_03.IsEnabled = false;
             combobox_43.SelectedIndex = 0;
-            //combobox_04.IsEnabled = false;
-            combobox_44.SelectedIndex = 0;
-            //combobox_05.IsEnabled = false;
             combobox_45.SelectedIndex = 0;
             combobox_46.SelectedIndex = 1;
-            select_change4(sender, e);
+            select_change5(sender, e);
             combobox_47.SelectedIndex = 0;
             combobox_48.SelectedIndex = 0;
-            //com_01.IsEnabled = false;
-            com_41.SelectedIndex = 0;
-            //com_04.IsEnabled = false;
-            //com_02.IsEnabled = false;
-            //com_03.IsEnabled = false;
-            com_43.SelectedIndex = 0;
-            com_43_Copy2.SelectedIndex = 0;
-            com_43_Copy1.SelectedIndex = 0;
-            com_43_Copy.SelectedIndex = 0;
+            combobox_49.SelectedIndex = 0;
             t5.Text = "";
         }
         private void Checkbox6_OnChecked(object sender, RoutedEventArgs e)
         {
-            //combobox_01.IsEnabled = false;
             combobox_51.SelectedIndex = 0;
-            //combobox_02.IsEnabled = false;
             combobox_52.SelectedIndex = 0;
-            //combobox_03.IsEnabled = false;
             combobox_53.SelectedIndex = 0;
-            //combobox_04.IsEnabled = false;
-            combobox_54.SelectedIndex = 0;
-            //combobox_05.IsEnabled = false;
             combobox_55.SelectedIndex = 0;
             combobox_56.SelectedIndex = 1;
-            select_change5(sender, e);
+            select_change6(sender, e);
             combobox_57.SelectedIndex = 0;
             combobox_58.SelectedIndex = 0;
-            //com_01.IsEnabled = false;
-            com_51.SelectedIndex = 0;
-            //com_04.IsEnabled = false;
-            //com_02.IsEnabled = false;
-            com_53.SelectedIndex = 0;
-            com_53_Copy.SelectedIndex = 0;
+            combobox_59.SelectedIndex = 0;
             t6.Text = "";
         }
         private void Checkbox7_OnChecked(object sender, RoutedEventArgs e)
         {
-            //combobox_01.IsEnabled = false;
-            combobox_11.SelectedIndex = 0;
-            //combobox_02.IsEnabled = false;
-            combobox_12.SelectedIndex = 0;
-            //combobox_03.IsEnabled = false;
-            combobox_13.SelectedIndex = 0;
-            //combobox_04.IsEnabled = false;
-            combobox_14.SelectedIndex = 0;
-            //combobox_05.IsEnabled = false;
-            combobox_15.SelectedIndex = 0;
-            combobox_16.SelectedIndex = 1;
-            select_change(sender, e);
-            combobox_17.SelectedIndex = 0;
-            combobox_18.SelectedIndex = 0;
-            //com_01.IsEnabled = false;
-            com_11.SelectedIndex = 0;
-            //com_04.IsEnabled = false;
-            com_14.SelectedIndex = 0;
-            //com_02.IsEnabled = false;
-            //com_03.IsEnabled = false;
-            com_13.SelectedIndex = 0;
-            t2.Text = "";
+            combobox_61.SelectedIndex = 0;
+            combobox_62.SelectedIndex = 0;
+            combobox_63.SelectedIndex = 0;
+            combobox_65.SelectedIndex = 0;
+            combobox_66.SelectedIndex = 1;
+            select_change7(sender, e);
+            combobox_67.SelectedIndex = 0;
+            combobox_68.SelectedIndex = 0;
+            combobox_69.SelectedIndex = 0;
+            t7.Text = "";
         }
         private void Checkbox8_OnChecked(object sender, RoutedEventArgs e)
         {
-            //combobox_01.IsEnabled = false;
-            combobox_21.SelectedIndex = 0;
-            //combobox_02.IsEnabled = false;
-            combobox_22.SelectedIndex = 0;
-            //combobox_03.IsEnabled = false;
-            combobox_23.SelectedIndex = 0;
-            //combobox_04.IsEnabled = false;
-            combobox_24.SelectedIndex = 0;
-            //combobox_05.IsEnabled = false;
-            combobox_25.SelectedIndex = 0;
-            combobox_26.SelectedIndex = 1;
-            select_change2(sender, e);
-            combobox_27.SelectedIndex = 0;
-            combobox_28.SelectedIndex = 0;
-            //com_01.IsEnabled = false;
-            com_21.SelectedIndex = 0;
-            //com_04.IsEnabled = false;
-            com_24.SelectedIndex = 0;
-            com_24_Copy.SelectedIndex = 0;
-            com_24_Copy1.SelectedIndex = 0;
-            //com_02.IsEnabled = false;
-            //com_03.IsEnabled = false;
-            com_23.SelectedIndex = 0;
-            t3.Text = "";
+            combobox_71.SelectedIndex = 0;
+            combobox_72.SelectedIndex = 0;
+            combobox_73.SelectedIndex = 0;
+            combobox_75.SelectedIndex = 0;
+            combobox_76.SelectedIndex = 1;
+            select_change8(sender, e);
+            combobox_77.SelectedIndex = 0;
+            combobox_78.SelectedIndex = 0;
+            combobox_79.SelectedIndex = 0;
+            t8.Text = "";
         }
         private void Checkbox9_OnChecked(object sender, RoutedEventArgs e)
         {
-            //combobox_01.IsEnabled = false;
-            combobox_31.SelectedIndex = 0;
-            //combobox_02.IsEnabled = false;
-            combobox_32.SelectedIndex = 0;
-            //combobox_03.IsEnabled = false;
-            combobox_33.SelectedIndex = 0;
-            //combobox_04.IsEnabled = false;
-            combobox_34.SelectedIndex = 0;
-            //combobox_05.IsEnabled = false;
-            combobox_35.SelectedIndex = 0;
-            combobox_36.SelectedIndex = 1;
-            select_change3(sender, e);
-            combobox_37.SelectedIndex = 0;
-            combobox_38.SelectedIndex = 0;
-            //com_01.IsEnabled = false;
-            com_31.SelectedIndex = 0;
-            //com_04.IsEnabled = false;
-            com_34.SelectedIndex = 0;
-            //com_02.IsEnabled = false;
-            com_35.SelectedIndex = 0;
-            com_35_copy.SelectedIndex = 0;
-            com_33.SelectedIndex = 0;
-            t4.Text = "";
+            combobox_81.SelectedIndex = 0;
+            combobox_82.SelectedIndex = 0;
+            combobox_83.SelectedIndex = 0;
+            combobox_85.SelectedIndex = 0;
+            combobox_86.SelectedIndex = 1;
+            select_change9(sender, e);
+            combobox_87.SelectedIndex = 0;
+            combobox_88.SelectedIndex = 0;
+            combobox_89.SelectedIndex = 0;
+            t9.Text = "";
         }
         private void Checkbox10_OnChecked(object sender, RoutedEventArgs e)
         {
-            //combobox_01.IsEnabled = false;
-            combobox_41.SelectedIndex = 0;
-            //combobox_02.IsEnabled = false;
-            combobox_42.SelectedIndex = 0;
-            //combobox_03.IsEnabled = false;
-            combobox_43.SelectedIndex = 0;
-            //combobox_04.IsEnabled = false;
-            combobox_44.SelectedIndex = 0;
-            //combobox_05.IsEnabled = false;
-            combobox_45.SelectedIndex = 0;
-            combobox_46.SelectedIndex = 1;
-            select_change4(sender, e);
-            combobox_47.SelectedIndex = 0;
-            combobox_48.SelectedIndex = 0;
-            //com_01.IsEnabled = false;
-            com_41.SelectedIndex = 0;
-            //com_04.IsEnabled = false;
-            //com_02.IsEnabled = false;
-            //com_03.IsEnabled = false;
-            com_43.SelectedIndex = 0;
-            com_43_Copy2.SelectedIndex = 0;
-            com_43_Copy1.SelectedIndex = 0;
-            com_43_Copy.SelectedIndex = 0;
-            t5.Text = "";
+            combobox_91.SelectedIndex = 0;
+            combobox_92.SelectedIndex = 0;
+            combobox_93.SelectedIndex = 0;
+            combobox_95.SelectedIndex = 0;
+            combobox_96.SelectedIndex = 1;
+            select_change10(sender, e);
+            combobox_97.SelectedIndex = 0;
+            combobox_98.SelectedIndex = 0;
+            combobox_99.SelectedIndex = 0;
+            t10.Text = "";
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

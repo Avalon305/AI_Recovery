@@ -580,7 +580,11 @@ namespace spms.view.Pages.ChildWin
 
         }
 
-
+        /// <summary>
+        /// 开始按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             const int jointSize = 10;
@@ -591,6 +595,11 @@ namespace spms.view.Pages.ChildWin
 
         }
 
+        /// <summary>
+        /// 保存按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
             //string fk_member_id = "123456";
@@ -603,6 +612,7 @@ namespace spms.view.Pages.ChildWin
             int fk_member_id = skeletonLengthDAO.getUserIdBuUserName(userName);
 
             SkeletonLengthEntity skeletonLengthEntity = new SkeletonLengthEntity();
+            skeletonLengthEntity.Weigth = System.Convert.ToDouble(Weigth.Text);
             skeletonLengthEntity.Shoulder_width = System.Convert.ToDouble(Shoulder_width.Text);
             skeletonLengthEntity.Arm_length_up = System.Convert.ToDouble(Arm_length_up.Text);
             skeletonLengthEntity.Arm_length_down = System.Convert.ToDouble(Arm_length_down.Text);
@@ -623,6 +633,11 @@ namespace spms.view.Pages.ChildWin
             MessageBoxX.Info("保存成功");
         }
 
+        /// <summary>
+        /// 重置按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_Clear(object sender, RoutedEventArgs e)
         {
             //重新调用扫描的构造函数 cqz
