@@ -1,4 +1,4 @@
-﻿using Com.Bdl.Proto;
+﻿
 using MySql.Data.MySqlClient;
 using NLog;
 using spms.bean;
