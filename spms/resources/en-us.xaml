@@ -300,6 +300,13 @@
     <s:String x:Key="TrainingListView.TrunkPad">Trunk Pad</s:String>
     <!--lj +++-->
     <s:String x:Key="TrainingListView.NFCLable">NFC Lable</s:String>
+    <s:String x:Key="TrainingListView.TrainingModel">Training Model</s:String>
+    <s:String x:Key="TrainingListView.RehabilitationModel">Rehabilitation Model</s:String>
+    <s:String x:Key="TrainingListView.ActiveModel">Active Model</s:String>
+    <s:String x:Key="TrainingListView.PassiveModel">Passive Model</s:String>
+    <s:String x:Key="TrainingListView.ConsequentForce">Consequent Force</s:String>
+    <s:String x:Key="TrainingListView.ReverseForce">Reverse Force</s:String>
+    <s:String x:Key="TrainingListView.SpeedRank">Speed Rank</s:String>
 
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">Physical Evaluation Form</s:String>
@@ -481,6 +488,7 @@
 
     <!--3D扫描-->
     <s:String x:Key="Skeleton.UserName">User Name</s:String>
+    <s:String x:Key="Skeleton.Weigth">Weigth</s:String>
     <s:String x:Key="Skeleton.Stature">Stature(cm)</s:String>
     <s:String x:Key="Skeleton.ShoulderBreadth">Shoulder Breadth(cm)</s:String>
     <s:String x:Key="Skeleton.ArmLengthUp">Arm Length(Up)(cm)</s:String>

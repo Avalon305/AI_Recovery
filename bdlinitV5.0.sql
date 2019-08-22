@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50634
 File Encoding         : 65001
 
-Date: 2019-08-20 16:04:05
+Date: 2019-08-22 15:41:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -123,19 +123,16 @@ CREATE TABLE `bdl_deviceprescription` (
   `speed_rank` int(11) DEFAULT NULL COMMENT '运动速度等级',
   `consequent_force` double(10,2) unsigned DEFAULT NULL COMMENT '顺向力',
   `reverse_force` double(10,2) DEFAULT NULL COMMENT '反向力',
-  `power` double(10,2) DEFAULT NULL COMMENT '功率',
   `dp_groupcount` int(10) unsigned DEFAULT NULL COMMENT '组数',
   `dp_groupnum` int(10) unsigned DEFAULT NULL COMMENT '每组个数',
   `dp_relaxtime` int(10) unsigned DEFAULT NULL COMMENT '每组间隔休息时间',
-  `front_limit` int(10) DEFAULT NULL COMMENT '前方限制',
-  `back_limit` int(10) DEFAULT NULL COMMENT '后方限制',
   PRIMARY KEY (`pk_dp_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bdl_deviceprescription
 -- ----------------------------
-INSERT INTO `bdl_deviceprescription` VALUES ('179', '2019-08-17 10:00:11', '2019-08-17 10:00:16', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `bdl_deviceprescription` VALUES ('179', '2019-08-17 10:00:11', '2019-08-17 10:00:16', null, null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for bdl_deviceset
@@ -166,21 +163,21 @@ CREATE TABLE `bdl_devicesort` (
   `fk_dset_id` int(8) DEFAULT NULL COMMENT '外键（bdl_deviceset : pk_dset_id）',
   `ds_status` tinyint(1) DEFAULT NULL COMMENT '复选框状态是否选中',
   PRIMARY KEY (`pk_ds_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bdl_devicesort
 -- ----------------------------
-INSERT INTO `bdl_devicesort` VALUES ('0', '坐式推胸机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('1', '腿部推蹬机', '2018-04-19 21:47:36', '2018-04-19 21:47:38', '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('2', '腹肌训练机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('3', '三头肌训练机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('4', '腿部外弯机', '2018-04-19 21:47:40', '2018-04-19 21:47:44', '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('5', '腿部内弯机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('6', '蝴蝶机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('7', '反向蝴蝶机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('8', '坐式背部伸展机', null, null, '1', '1');
-INSERT INTO `bdl_devicesort` VALUES ('9', '坐式划船机', '2018-03-21 23:54:19', '2018-03-21 23:54:21', '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('0', '坐式划船机', '2018-03-21 23:54:19', '2018-03-21 23:54:21', '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('1', '坐式推胸机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('2', '腿部推蹬机', '2018-04-19 21:47:36', '2018-04-19 21:47:38', '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('3', '腹肌训练机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('4', '三头肌训练机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('5', '腿部外弯机', '2018-04-19 21:47:40', '2018-04-19 21:47:44', '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('6', '腿部内弯机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('7', '蝴蝶机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('8', '反向蝴蝶机', null, null, '1', '1');
+INSERT INTO `bdl_devicesort` VALUES ('9', '坐式背部伸展机', null, null, '1', '1');
 
 -- ----------------------------
 -- Table structure for bdl_onlinedevice
@@ -277,7 +274,7 @@ CREATE TABLE `bdl_prescriptionresult` (
   `power` double(10,2) DEFAULT NULL COMMENT '功率',
   `speed_rank` int(3) DEFAULT NULL COMMENT '运动速度等级:主被动模式/被动模式 只能选运动速度',
   `finishnum` int(10) unsigned DEFAULT NULL COMMENT '完成运动个数：计数模式完成个数',
-  `distance` double(10,2) unsigned DEFAULT NULL COMMENT '距离 千米，两位小数',
+  `finishtime` int(11) DEFAULT NULL,
   `energy` double(10,2) DEFAULT NULL COMMENT '训练总耗能 单位卡路里',
   `heart_rate_list` text COMMENT '心率集合：运动过程实时心率集合，数据之间*分割',
   `pr_userthoughts` varchar(255) DEFAULT NULL COMMENT '病人感想，分级选择',
@@ -299,6 +296,7 @@ CREATE TABLE `bdl_set` (
   `set_unique_id` text COMMENT '客户机唯一id',
   `set_organizationname` varchar(255) DEFAULT NULL COMMENT '组织名称',
   `set_photolocation` varchar(255) DEFAULT NULL COMMENT '照片位置',
+  `set_organizationaddress` varchar(255) DEFAULT NULL,
   `set_organizationphone` varchar(255) DEFAULT NULL COMMENT '联系电话',
   `set_language` varchar(255) DEFAULT NULL,
   `set_organizationsort` varchar(255) DEFAULT NULL,
@@ -310,7 +308,7 @@ CREATE TABLE `bdl_set` (
 -- ----------------------------
 -- Records of bdl_set
 -- ----------------------------
-INSERT INTO `bdl_set` VALUES ('5', '2DE22181A14ADBD0BB1D437550B1A0F61AD1AE0A59B79794CBCD3C1607AEBD48', 'bodystrong03', 'D:\\SPMS_ALL\\spms2019-7-5\\image\\', '', '1', '7', '1.0', 'D:\\SPMS_ALL\\spms2019-7-5\\BackUp\\');
+INSERT INTO `bdl_set` VALUES ('5', '2DE22181A14ADBD0BB1D437550B1A0F61AD1AE0A59B79794CBCD3C1607AEBD48', 'bodystrong03', 'D:\\SPMS_ALL\\spms2019-7-5\\image\\', null, '', '1', '7', '1.0', 'D:\\SPMS_ALL\\spms2019-7-5\\BackUp\\');
 
 -- ----------------------------
 -- Table structure for bdl_skeleton_length

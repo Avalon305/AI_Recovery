@@ -1,5 +1,4 @@
-﻿using Com.Bdl.Proto;
-using Dapper;
+﻿using Dapper;
 using spms.dao;
 using spms.entity;
 using spms.http.entity;
@@ -68,6 +67,8 @@ namespace spms.heartbeat
             sendHeartBeat.ProductName = "医疗康复";
             //使用期限
             sendHeartBeat.UseDeadTime = result.Auth_OfflineTime.ToString().Replace("/", "-");
+			//地理位置
+			sendHeartBeat.Address = setter.Set_Organizationaddress;
             //冻结
             if (result.User_Status == Auther.USER_STATUS_FREEZE)
             {

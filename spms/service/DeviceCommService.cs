@@ -44,16 +44,16 @@ namespace spms.service
 			response.ClientTime = request.ClientTime;
 			response.ServerTime = DateTime.Now.ToString();
 			//查询用户是否存在，若不存在 。。。打印日志
-			User user = userDAO.GetByPK(uid); 
+			User user = userDAO.GetByPK(uid);
 			if (user != null)
 			{
-				//Console.WriteLine("收到的UID:{0}在数据库中不存在，自动创建用户及计划", request.Uid);
+
 				logger.Info("用户存在", uid);
 				string birth_year = (user.User_Birth.ToString().Split('/'))[0];
-				
+
 				int now_year = int.Parse((DateTime.Now.ToString("yyyy")));
 				response.Age = now_year - int.Parse(birth_year);
-				SkeletonLengthEntity skeletonLengthEntity= skeletonLengthDAO.getSkeletonLengthRecord(int.Parse(uid));
+				SkeletonLengthEntity skeletonLengthEntity = skeletonLengthDAO.getSkeletonLengthRecord(int.Parse(uid));
 				response.Weight = skeletonLengthEntity.Weigth;
 				response.UserName = user.User_Name;
 			}
@@ -61,10 +61,11 @@ namespace spms.service
 			{
 				//Console.WriteLine("用户存在");
 				logger.Info("用户不存在");
+				response.InfoResponse = 0;
 				return response;
 			}
 
-		    //查询用户是否存在个人设置
+			//查询用户是否存在个人设置
 			var pSetting = personalSettingDAO.GetSettingByMemberId(uid, ((int)request.DeviceType).ToString());
 			if (pSetting != null)
 			{//存在个人设置
@@ -72,50 +73,85 @@ namespace spms.service
 				response.TrainMode = (TrainMode)Enum.Parse(typeof(TrainMode), pSetting.Training_mode);
 				response.SeatHeight = pSetting.Seat_height == null ? 0 : (int)pSetting.Seat_height;
 				response.BackDistance = pSetting.Backrest_distance == null ? 0 : (int)pSetting.Backrest_distance;
-				response.FootboardDistance=pSetting.Footboard_distance==null ? 0: (int)pSetting.Backrest_distance;
+				response.FootboardDistance = pSetting.Footboard_distance == null ? 0 : (int)pSetting.Backrest_distance;
 				response.LeverAngle = pSetting.Lever_angle == null ? 0 : (double)pSetting.Lever_angle;
 				response.ForwardLimit = pSetting.Front_limit == null ? 0 : (int)pSetting.Front_limit;
 				response.BackLimit = pSetting.Back_limit == null ? 0 : (int)pSetting.Back_limit;
 				response.ConsequentForce = pSetting.Consequent_force == null ? 0 : (double)pSetting.Consequent_force;
 				response.ReverseForce = pSetting.Reverse_force == null ? 0 : (double)pSetting.Reverse_force;
-				response.Power=pSetting.Power == null ? 0 : (double)pSetting.Power;
+				response.Power = pSetting.Power == null ? 0 : (double)pSetting.Power;
 			}
 			else
 			{
 				logger.Info("用户不存在个人设置");
+				//默认个人设置，男女
 				return response;
 			}
 
 
 			//查询此用户是否有未做大处方
-			TrainInfo trainInfo =  trainService.GetTrainInfoByUserIdAndStatus(int.Parse(uid), 0);
-			if (trainInfo != null) {
-
-				var trainInfo_id = trainInfo.Pk_TI_Id;
-				var ds_id = (int)(request.DeviceType);
-
-				//根据traininfo_id和设备id获取处方信息
-				entity.newEntity.NewDevicePrescription newDevicePrescription = trainService.GetDevicePrescriptionByTiIdAndDsId(trainInfo_id, ds_id);
-				if (newDevicePrescription != null)
+			TrainInfo trainInfo = trainService.GetTrainInfoByUserId(int.Parse(uid));
+			if (trainInfo != null)
+			{
+				//有大处方信息
+				if (trainInfo.Status == 0)
 				{
-					response.DpStatus = newDevicePrescription.Dp_status == entity.newEntity.NewDevicePrescription.UNDO ? 0 : 1;
-					response.DpMoveway = (int)newDevicePrescription.Dp_moveway;
-					response.DpMemo = newDevicePrescription.Dp_memo;
-					response.DpGroupcount = (int)newDevicePrescription.Dp_groupcount;
-					response.DpGroupnum = (int)newDevicePrescription.Dp_groupnum;
-					response.DpRelaxtime = (int)newDevicePrescription.Dp_relaxtime;
-					response.SpeedRank = (int)newDevicePrescription.Speed_rank;
-					response.DpId = (int)newDevicePrescription.Pk_dp_id;
+					var trainInfo_id = trainInfo.Pk_TI_Id;
+					var ds_id = (int)(request.DeviceType);
+
+					//根据traininfo_id和设备id获取处方信息
+					entity.newEntity.NewDevicePrescription newDevicePrescription = trainService.GetDevicePrescriptionByTiIdAndDsId(trainInfo_id, ds_id);
+					if (newDevicePrescription != null)
+					{
+						if (newDevicePrescription.Dp_status == 0)
+						{
+							//有大处方，有此设备的训练计划,，没完成
+							response.DpStatus = 0;
+							response.DpMoveway = (int)newDevicePrescription.Dp_moveway;
+							response.DpMemo = newDevicePrescription.Dp_memo;
+							response.DpGroupcount = (int)newDevicePrescription.Dp_groupcount;
+							response.DpGroupnum = (int)newDevicePrescription.Dp_groupnum;
+							response.DpRelaxtime = (int)newDevicePrescription.Dp_relaxtime;
+							response.SpeedRank = (int)newDevicePrescription.Speed_rank;
+							response.DpId = (int)newDevicePrescription.Pk_dp_id;
+							response.InfoResponse = 6;
+						}
+						else
+						{
+							//有大处方，有此设备的训练计划,，完成了
+							response.DpStatus = 1;
+							response.InfoResponse = 6;
+						}
+
+					}
+					else
+					{
+						//有大处方，无此设备的训练计划
+						response.InfoResponse = 5;
+						return response;
+					}
 				}
-				else
+				else if (trainInfo.Status == 1)
 				{
-					logger.Info("用户不存未完成的处方或没有处方");
-					return response;
+					//大处方完成了
+					logger.Info("大处方完成了" + uid);
+					response.InfoResponse = 3;
+
 				}
-				
+				else if (trainInfo.Status == 2)
+				{
+					//大处方以废弃
+					logger.Info("大处方以废弃" + uid);
+					response.InfoResponse = 4;
+				}
+
+
 			}
-			else {
-				logger.Info("用户不存未完成的trainInfo或没有trainInfo");
+			else
+			{
+				//无大处方
+				logger.Info("无大处方" + uid);
+				response.InfoResponse = 1;
 				return response;
 			}
 
@@ -152,9 +188,9 @@ namespace spms.service
 			todoDevices.AddRange(new DeviceType[]{
 					DeviceType.P00, DeviceType.P01, DeviceType.P02,DeviceType.P03,DeviceType.P04,DeviceType.P05,DeviceType.P06,
 					DeviceType.P07,DeviceType.P08,DeviceType.P09
-				});			
-		
-	
+				});
+
+
 			for (int i = 0; i < doneList.Count; i++)
 			{
 				int ecode = (int)doneList[i];
@@ -208,17 +244,17 @@ namespace spms.service
 				Fk_dp_id = request.DpId,
 				Fk_ds_id = (long)(request.DeviceType),
 				Bind_id = request.BindId,
-				Device_mode=(int)(request.TrainMode),
-				Consequent_force=request.ConsequentForce,
-				Reverse_force=request.ReverseForce,
-				Power=request.Power,
-				Speed_rank=request.SpeedRank,
-				Finish_num=request.FinishNum,
-				Distance=request.Distance,
-				Energy=request.Energy,
-				Heart_rate_list=request.HeartRateList,
-				pr_userthoughts =request.PrUserthoughts
-				
+				Device_mode = (int)(request.TrainMode),
+				Consequent_force = request.ConsequentForce,
+				Reverse_force = request.ReverseForce,
+				Power = request.Power,
+				Speed_rank = request.SpeedRank,
+				Finish_num = request.FinishNum,
+				Finish_time=request.FinishTime,
+				Energy = request.Energy,
+				Heart_rate_list = request.HeartRateList,
+				pr_userthoughts = request.PrUserthoughts
+
 			};
 			try
 			{
@@ -229,7 +265,7 @@ namespace spms.service
 				response.Success = false;
 				logger.Error("更新上传处方结果失败" + ex.ToString());
 			}
-		
+
 			return response;
 		}
 
@@ -303,7 +339,7 @@ namespace spms.service
 			}
 
 		}
-	
+
 
 		/// <summary>
 		/// 将接受来的TrainModeType转化为int 设备训练模式 0康复模式，1主被动模式,2被动模式
@@ -346,7 +382,7 @@ namespace spms.service
 				Fk_member_id = long.Parse(request.Uid),
 				Member_id = request.BindId,
 				Device_code = ((int)request.DeviceType).ToString(),
-				Device_order_number = ((int)request.DeviceType+1),
+				Device_order_number = ((int)request.DeviceType + 1),
 				Seat_height = request.SeatHeight,
 				Backrest_distance = request.BackDistance,
 				Footboard_distance = request.FootboardDistance,
@@ -411,11 +447,11 @@ namespace spms.service
 				Success = false
 			};
 
-			logger.Error("当前出现错误时间" + request.ErrorStartTime
-						 + "用户id" + request.Uid
-						 + "设备类型" + request.Uid
-						 + "训练模式" + request.TrainMode
-						 + "错误信息" + request.Error
+			logger.Error("当前出现错误时间," + request.ErrorStartTime
+						 + ",用户id" + request.Uid
+						 + ",设备类型" + (int)request.DeviceType
+						 + ",训练模式" + (int)request.TrainMode
+						 + ",错误信息" + request.Error
 				);
 			response.Success = true;
 			return response;

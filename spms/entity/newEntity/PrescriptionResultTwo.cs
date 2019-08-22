@@ -38,9 +38,7 @@ namespace spms.entity.newEntity
         // 完成运动个数
         public int? Finish_num { get; set; }
         // 完成运动时间 废弃
-       // public int? Finish_time { get; set; }
-        // 跑步机单车距离
-        public double? Distance { get; set; }
+        public int? Finish_time { get; set; }
         // 训练总耗能
         public double? Energy { get; set; }
         //心率集合：运动过程实时心率集合，数据之间*分割

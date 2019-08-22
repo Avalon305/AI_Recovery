@@ -41,6 +41,8 @@
         <StackPanel Grid.Column="10" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="7" Width="300">
             <Label Content="{DynamicResource Skeleton.UserName}" FontSize="20" Background="Gray" Foreground="White"></Label>
             <TextBox Margin="10,5"  Text="" Name="User_Name" Height="30"/>
+            <Label Content="{DynamicResource Skeleton.Weigth}" FontSize="20" Background="Gray" Foreground="White"></Label>
+            <TextBox Margin="10,5"  Text="" Name="Weigth" Height="30"/>
             <Label Content="{DynamicResource Skeleton.Stature}" FontSize="20" Background="Gray" Foreground="White"></Label>
             <TextBox Margin="10,5"  Text="" Name="Man_Height" Height="30"/>
             <Label Content="{DynamicResource Skeleton.ShoulderBreadth}" FontSize="20" Background="Gray" Foreground="White"></Label>

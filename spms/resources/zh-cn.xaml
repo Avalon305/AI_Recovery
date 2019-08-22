@@ -309,8 +309,14 @@
     <s:String x:Key="TrainingListView.TrunkPad">胸垫位置</s:String>
     <!--lj +++-->
     <s:String x:Key="TrainingListView.NFCLable">NFC标签</s:String>
-    <s:String x:Key="TrainingListView.TrainingPattern">训练模式</s:String>
-
+    <s:String x:Key="TrainingListView.TrainingModel">训练模式</s:String>
+    <s:String x:Key="TrainingListView.RehabilitationModel">康复模式</s:String>
+    <s:String x:Key="TrainingListView.ActiveModel">主动模式</s:String>
+    <s:String x:Key="TrainingListView.PassiveModel">被动模式</s:String>
+    <s:String x:Key="TrainingListView.ConsequentForce">顺向力</s:String>
+    <s:String x:Key="TrainingListView.ReverseForce">反向力</s:String>
+    <s:String x:Key="TrainingListView.SpeedRank">运动速度等级</s:String>
+ 
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">输入体力评价</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.ViewPhysicalEvaluationForm">查看体力评价</s:String>
@@ -498,6 +504,7 @@
 
     <!--3D扫描-->
     <s:String x:Key="Skeleton.UserName">用户名</s:String>
+    <s:String x:Key="Skeleton.Weigth">体重</s:String>
     <s:String x:Key="Skeleton.Stature">身高(cm)</s:String>
     <s:String x:Key="Skeleton.ShoulderBreadth">肩宽(cm)</s:String>
     <s:String x:Key="Skeleton.ArmLengthUp">臂长(上)(cm)</s:String>

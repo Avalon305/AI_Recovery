@@ -109,12 +109,26 @@ namespace spms.service
                 return trainInfos[0];
             }
         }
-        /// <summary>
-        /// 添加训练结果，设备上报上来的结果
-        /// </summary>
-        /// <param name="idCard"></param>
-        /// <param name="result"></param>
-        public void AddPrescriptionResult(string idCard, PrescriptionResult result,DeviceType deviceType)
+
+		public TrainInfo GetTrainInfoByUserId(int userId)
+		{
+			List<TrainInfo> trainInfos = trainInfoDao.GetTrainInfoByUserId(userId);
+			if (trainInfos == null || trainInfos.Count == 0)
+			{
+				Console.WriteLine("用户没有设置大处方信息");
+				return null;
+			}
+			else
+			{
+				return trainInfos[0];
+			}
+		}
+		/// <summary>
+		/// 添加训练结果，设备上报上来的结果
+		/// </summary>
+		/// <param name="idCard"></param>
+		/// <param name="result"></param>
+		public void AddPrescriptionResult(string idCard, PrescriptionResult result,DeviceType deviceType)
         {
             using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
             {

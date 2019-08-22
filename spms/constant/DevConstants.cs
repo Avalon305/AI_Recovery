@@ -27,7 +27,19 @@ namespace spms.constant
         /// 倒计时
         /// </summary>
         public static readonly byte COUNT_REVERSE = 0x01;
+        /// <summary>
+        /// 康复模式
+        /// </summary>
+        public static readonly int REHABILITATION_MODEL = 0;
+        /// <summary>
+        /// 主动模式
+        /// </summary>
+        public static readonly int ACTIVE_MODEL = 1;
+        /// <summary>
+        /// 被动模式
+        /// </summary>
+        public static readonly int PASSIVE_MODEL = 2;
 
- 
+
     }
 }

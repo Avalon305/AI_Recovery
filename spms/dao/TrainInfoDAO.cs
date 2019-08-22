@@ -27,7 +27,23 @@ namespace spms.dao
             }
         }
 
-        public void UpdateStatusByUserId(int userId)
+		/// <summary>
+		/// 根据病人id获取训练信息 zfc
+		/// </summary>
+		/// <param name="userId"></param>
+		/// <param name="status"></param>
+		/// <returns></returns>
+		public List<TrainInfo> GetTrainInfoByUserId(int userId)
+		{
+			using (var conn = DbUtil.getConn())
+			{
+				const string query = "SELECT * FROM bdl_traininfo WHERE fk_user_id = @FK_User_Id;";
+
+				return conn.Query<TrainInfo>(query, new { FK_User_Id = userId }).ToList();
+			}
+		}
+
+		public void UpdateStatusByUserId(int userId)
         {
             //插入至上传表
             UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
