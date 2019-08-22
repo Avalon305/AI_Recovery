@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50634
 File Encoding         : 65001
 
-Date: 2019-08-22 15:35:54
+Date: 2019-08-22 15:41:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -123,19 +123,16 @@ CREATE TABLE `bdl_deviceprescription` (
   `speed_rank` int(11) DEFAULT NULL COMMENT '运动速度等级',
   `consequent_force` double(10,2) unsigned DEFAULT NULL COMMENT '顺向力',
   `reverse_force` double(10,2) DEFAULT NULL COMMENT '反向力',
-  `power` double(10,2) DEFAULT NULL COMMENT '功率',
   `dp_groupcount` int(10) unsigned DEFAULT NULL COMMENT '组数',
   `dp_groupnum` int(10) unsigned DEFAULT NULL COMMENT '每组个数',
   `dp_relaxtime` int(10) unsigned DEFAULT NULL COMMENT '每组间隔休息时间',
-  `front_limit` int(10) DEFAULT NULL COMMENT '前方限制',
-  `back_limit` int(10) DEFAULT NULL COMMENT '后方限制',
   PRIMARY KEY (`pk_dp_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bdl_deviceprescription
 -- ----------------------------
-INSERT INTO `bdl_deviceprescription` VALUES ('179', '2019-08-17 10:00:11', '2019-08-17 10:00:16', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `bdl_deviceprescription` VALUES ('179', '2019-08-17 10:00:11', '2019-08-17 10:00:16', null, null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for bdl_deviceset
@@ -277,7 +274,7 @@ CREATE TABLE `bdl_prescriptionresult` (
   `power` double(10,2) DEFAULT NULL COMMENT '功率',
   `speed_rank` int(3) DEFAULT NULL COMMENT '运动速度等级:主被动模式/被动模式 只能选运动速度',
   `finishnum` int(10) unsigned DEFAULT NULL COMMENT '完成运动个数：计数模式完成个数',
-  `distance` double(10,2) unsigned DEFAULT NULL COMMENT '距离 千米，两位小数',
+  `finishtime` int(11) DEFAULT NULL,
   `energy` double(10,2) DEFAULT NULL COMMENT '训练总耗能 单位卡路里',
   `heart_rate_list` text COMMENT '心率集合：运动过程实时心率集合，数据之间*分割',
   `pr_userthoughts` varchar(255) DEFAULT NULL COMMENT '病人感想，分级选择',
