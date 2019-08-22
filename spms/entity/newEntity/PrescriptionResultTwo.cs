@@ -12,7 +12,7 @@ namespace spms.entity.newEntity
     /// </summary>
     [Serializable]
     [Table("bdl_prescriptionresult")]
-    class PrescriptionResultTwo
+    public class PrescriptionResultTwo
     {
         // 主键 自增
         [Key]

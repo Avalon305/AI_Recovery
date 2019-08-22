@@ -417,6 +417,20 @@
     <s:String x:Key="TrainingResultView.TrainingMemo">Training Memo</s:String>
     <s:String x:Key="TrainingResultView.Save">Save</s:String>
     <s:String x:Key="TrainingResultView.Back">Back</s:String>
+    <!--lj ++-->
+    <s:String x:Key="TrainingResultView.Power">Power</s:String>
+    <s:String x:Key="TrainingResultView.HeartRateList">Heart Rate List</s:String>
+    <s:String x:Key="TrainingResultView.TrainingModel">Training Model</s:String>
+    <s:String x:Key="TrainingResultView.RehabilitationModel">Rehabilitation Model</s:String>
+    <s:String x:Key="TrainingResultView.ActiveModel">Active Model</s:String>
+    <s:String x:Key="TrainingResultView.PassiveModel">Passive Model</s:String>
+    <s:String x:Key="TrainingResultView.ConsequentForce">Consequent Force</s:String>
+    <s:String x:Key="TrainingResultView.ReverseForce">Reverse Force</s:String>
+    <s:String x:Key="TrainingResultView.SpeedRank">Speed Rank</s:String>
+    <s:String x:Key="TrainingResultView.HeartRateLineChart">Heart Rate Line Chart</s:String>
+    <s:String x:Key="TrainingResultView.UsertHoughts(6-15)">Usert Houghts(6-15)</s:String>
+    <s:String x:Key="TrainingResultView.Energy(J)">Energy(J)</s:String>
+    <s:String x:Key="TrainingResultView.FinishNumber">Finish Number</s:String>
 
     <!-- 用户注册界面 -->
     <s:String x:Key="RegisterView.Register">Register</s:String>

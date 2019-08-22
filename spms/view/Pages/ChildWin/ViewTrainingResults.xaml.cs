@@ -38,8 +38,13 @@ namespace spms.view.Pages.ChildWin
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
         private User user;
-        private TrainDTO trainDto;
+        private NewTrainDTO trainDto;
 
+        /// <summary>
+        /// dic未知
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.Height = SystemParameters.WorkArea.Size.Height;
@@ -49,7 +54,7 @@ namespace spms.view.Pages.ChildWin
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
             Dictionary<string, object> dic = (Dictionary<string, Object>) DataContext;
             user = (User) dic["user"];
-            trainDto = (TrainDTO) dic["trainDto"];
+            trainDto = (NewTrainDTO) dic["trainDto"];
             logger.Info("user:" + user + "; trainDto:" + trainDto);
             //绑定数据
             Load_Data();
@@ -69,301 +74,382 @@ namespace spms.view.Pages.ChildWin
             }
         }
 
+        /// <summary>
+        /// 加载数据
+        /// </summary>
         private void Load_Data()
         {
             //用户信息
             l1.Content = user.User_Name;
             l2.Content = user.Pk_User_Id;
             //训练日期
-            da.Content = trainDto.prescriptionResult.Gmt_Create.ToString();
+            da.Content = trainDto.prescriptionResult.Gmt_create.ToString();
 
             //查询处方和结果
-            List<TrainDTO> trainDtos = new TrainService().GetTrainDTOByPRId(trainDto.prescriptionResult.Pk_PR_Id);
+            List<NewTrainDTO> trainDtos = new TrainService().GetTrainDTOByPRId(Convert.ToInt32(trainDto.prescriptionResult.Pk_pr_id));
             DeviceSortDAO deviceSortDao = new DeviceSortDAO();
+            //ResultLine resultLine = new ResultLine();
             //循环判断填充数据
-            foreach (TrainDTO trainDto in trainDtos)
+            foreach (NewTrainDTO trainDto in trainDtos)
             {
-                string[] attrs = trainDto.devicePrescription.DP_Attrs.Split(new char[]{'*'});
-                switch (trainDto.devicePrescription.Fk_DS_Id)
+                switch (trainDto.devicePrescription.Fk_ds_id)
                 {
                     case (int)DeviceType.P01:
-                        HLPGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
-                        HLPGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
-                        HLPRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
-                        HLPWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
+                        HLPGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
+                        HLPGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
+                        HLPRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
                         HLPMoveway.Text = trainDto.moveway;
-                        HLPAttr1.Text = trainDto.devicePrescription.dp_movedistance.ToString();
-                        //HLPAttr2.Text = attrs[1];
-                        HLPAttr3.Text = attrs[0];
-                        HLPAttr4.Text = attrs[1];
-                        if (trainDto.devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
-                            HLPTimer.Text = LanguageUtils.ConvertLanguage("有效", "Valid");
+                            HLPTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式","Rehabilitation Model");
                             HLPselect_change();
-                            HLPTime.Text = trainDto.devicePrescription.dp_timecount.ToString();
-                            if (trainDto.devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
-                            {
-                                HLPTiming.Text = LanguageUtils.ConvertLanguage("正计时", "Count Forward");
-                            }
-                            else
-                            {
-                                HLPTiming.Text = LanguageUtils.ConvertLanguage("倒计时", "Count Reverse");
-                            }
+                            HLPConsequentForce.Text = trainDto.devicePrescription.Consequent_force.ToString();
+                            HLPReverseForce.Text = trainDto.devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            HLPTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式","Active Model");
+                            HLPselect_change();
+                            HLPSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
                         else
                         {
-                            HLPTimer.Text = LanguageUtils.ConvertLanguage("无效", "Invalid");
+                            HLPTrainingModel.Text = LanguageUtils.ConvertLanguage("被动模式", "Passive Model");
+                            HLPselect_change();
+                            HLPSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
                         }
-                        HLPSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.PR_SportStrength.ToString());
-                        HLPTime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
-                        HLPDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
-                        HLPCountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
-                        HLPCal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
-                        HLPIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
-                        HLPTime2.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time2).ToLongTimeString();
-                        //HLPFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
-                        HLPEvaluate.Text = trainDto.evaluate;
-                        HLPAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
-                        HLPUserthoughts.Text = trainDto.prescriptionResult.PR_UserThoughts;
-                        HLPMemo.Text = trainDto.prescriptionResult.PR_Memo;
+                        HLPSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.pr_userthoughts.ToString());
+                        HLPHeartRateList.Text = trainDto.prescriptionResult.Heart_rate_list;
+                        HLPEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
+                        HLPFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
+                        HLPAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+
+                        // 心率折线图
+                        //resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
+                        //HLPWeb.ObjectForScripting = resultLine;
+                        //获取项目的根路径
+                        string path = AppDomain.CurrentDomain.BaseDirectory;
+                        string rootpath = path.Substring(0, path.LastIndexOf("bin"));
+
+                        HLPWeb.Navigate(new Uri(rootpath + "View/Echarts/HLPLine.html"));
                         break;
-                    case (int)DeviceType.P05:
-                        ROWGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
-                        ROWGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
-                        ROWRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
-                        ROWWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
+                    case (int)DeviceType.P00:
+                        ROWGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
+                        ROWGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
+                        ROWRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
                         ROWMoveway.Text = trainDto.moveway;
-                        ROWAttr1.Text = trainDto.devicePrescription.dp_movedistance.ToString();
-                        //ROWAttr2.Text = attrs[1];
-                        ROWAttr3.Text = attrs[0];
-                        ROWAttr4.Text = attrs[1];
-                        if (trainDto.devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
-                            ROWTimer.Text = LanguageUtils.ConvertLanguage("有效", "Valid");
+                            ROWTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
                             ROWselect_change();
-                            ROWTime.Text = trainDto.devicePrescription.dp_timecount.ToString();
-                            if (trainDto.devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
-                            {
-                                ROWTiming.Text = LanguageUtils.ConvertLanguage("正计时", "Count Forward");
-                            }
-                            else
-                            {
-                                ROWTiming.Text = LanguageUtils.ConvertLanguage("倒计时", "Count Reverse");
-                            }
+                            ROWConsequentForce.Text = trainDto.devicePrescription.Consequent_force.ToString();
+                            ROWReverseForce.Text = trainDto.devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            ROWTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            ROWselect_change();
+                            ROWSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
                         else
                         {
-                            ROWTimer.Text = LanguageUtils.ConvertLanguage("无效", "Invalid");
+                            ROWTrainingModel.Text = LanguageUtils.ConvertLanguage("被动模式", "Passive Model");
+                            ROWselect_change();
+                            ROWSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
                         }
-                        ROWSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.PR_SportStrength.ToString());
-                        ROWTime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
-                        ROWDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
-                        ROWCountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
-                        ROWCal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
-                        ROWIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
-                        ROWTime2.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time2).ToLongTimeString();
-                        //ROWFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
-                        ROWEvaluate.Text = trainDto.evaluate;
-                        ROWAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
-                        ROWUserthoughts.Text = trainDto.prescriptionResult.PR_UserThoughts;
-                        ROWMemo.Text = trainDto.prescriptionResult.PR_Memo;
-
+                        ROWSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.pr_userthoughts.ToString());
+                        ROWHeartRateList.Text = trainDto.prescriptionResult.Heart_rate_list;
+                        ROWEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
+                        ROWFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
+                        ROWAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
                         break;
-                    case (int)DeviceType.P04:
-                        TFGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
-                        TFGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
-                        TFRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
-                        TFWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
+                    case (int)DeviceType.P09:
+                        TFGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
+                        TFGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
+                        TFRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
                         TFMoveway.Text = trainDto.moveway;
-                        TFAttr1.Text = trainDto.devicePrescription.dp_movedistance.ToString();
-                        //TFAttr2.Text = attrs[1];
-                        TFAttr3.Text = attrs[0];
-                        TFAttr4.Text = attrs[1];
-                        if (trainDto.devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
-                            TFTimer.Text = LanguageUtils.ConvertLanguage("有效", "Valid");
+                            TFTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
                             TFselect_change();
-                            TFTime.Text = trainDto.devicePrescription.dp_timecount.ToString();
-                            if (trainDto.devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
-                            {
-                                TFTiming.Text = LanguageUtils.ConvertLanguage("正计时", "Count Forward");
-                            }
-                            else
-                            {
-                                TFTiming.Text = LanguageUtils.ConvertLanguage("倒计时", "Count Reverse");
-                            }
+                            TFConsequentForce.Text = trainDto.devicePrescription.Consequent_force.ToString();
+                            TFReverseForce.Text = trainDto.devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            TFTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            TFselect_change();
+                            TFSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
                         else
                         {
-                            TFTimer.Text = LanguageUtils.ConvertLanguage("无效", "Invalid");
+                            TFTrainingModel.Text = LanguageUtils.ConvertLanguage("被动模式", "Passive Model");
+                            TFselect_change();
+                            TFSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
                         }
-                        TFSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.PR_SportStrength.ToString());
-                        TFTime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
-                        TFDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
-                        TFCountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
-                        TFCal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
-                        TFIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
-                        TFTime2.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time2).ToLongTimeString();
-                        //TFFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
-                        TFEvaluate.Text = trainDto.evaluate;
-                        TFAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
-                        TFUserthoughts.Text = trainDto.prescriptionResult.PR_UserThoughts;
-                        TFMemo.Text = trainDto.prescriptionResult.PR_Memo;
-
-                        break;
-                    case (int)DeviceType.P03:
-                        LEGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
-                        LEGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
-                        LERelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
-                        LEWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
-                        LEMoveway.Text = trainDto.moveway;
-                        LEAttr1.Text = trainDto.devicePrescription.dp_movedistance.ToString();
-                        //LEAttr2.Text = attrs[1];
-                        LEAttr3.Text = attrs[0];
-                        LEAttr4.Text = attrs[1];
-                        LEAttr5.Text = attrs[2];
-                        if (trainDto.devicePrescription.dp_timer == DevConstants.TIMER_VALID)
-                        {
-                            LETimer.Text = LanguageUtils.ConvertLanguage("有效", "Valid");
-                            LEselect_change();
-                            LETime.Text = trainDto.devicePrescription.dp_timecount.ToString();
-                            if (trainDto.devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
-                            {
-                                LETiming.Text = LanguageUtils.ConvertLanguage("正计时", "Count Forward");
-                            }
-                            else
-                            {
-                                LETiming.Text = LanguageUtils.ConvertLanguage("倒计时", "Count Reverse");
-                            }
-                        }
-                        else
-                        {
-                            LETimer.Text = LanguageUtils.ConvertLanguage("无效", "Invalid");
-                        }
-                        if (trainDto.prescriptionResult == null)
-                        {
-                            break;
-                        }
-                        LESportstrength.Text = StrengthConverter(trainDto.prescriptionResult.PR_SportStrength.ToString());
-                        LETime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
-                        LEDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
-                        LECountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
-                        LECal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
-                        LEIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
-                        LETime2.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time2).ToLongTimeString();
-                        //LEFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
-                        LEEvaluate.Text = trainDto.evaluate;
-                        LEAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
-                        LEUserthoughts.Text = trainDto.prescriptionResult.PR_UserThoughts;
-                        LEMemo.Text = trainDto.prescriptionResult.PR_Memo;
-
+                        TFSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.pr_userthoughts.ToString());
+                        TFHeartRateList.Text = trainDto.prescriptionResult.Heart_rate_list;
+                        TFEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
+                        TFFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
+                        TFAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
                         break;
                     case (int)DeviceType.P06:
-                        HAGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
-                        HAGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
-                        HARelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
-                        HAWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
-                        HAMoveway.Text = trainDto.moveway;
-                        HAAttr1.Text = trainDto.devicePrescription.dp_movedistance.ToString();
-                        //HAAttr2.Text = attrs[1];
-                        HAAttr3.Text = attrs[0];
-                        if (trainDto.devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        LEGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
+                        LEGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
+                        LERelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
+                        LEMoveway.Text = trainDto.moveway;
+                        if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
-                            HATimer.Text = LanguageUtils.ConvertLanguage("有效", "Valid");
-                            HAselect_change();
-                            HATime.Text = trainDto.devicePrescription.dp_timecount.ToString();
-                            if (trainDto.devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
-                            {
-                                HATiming.Text = LanguageUtils.ConvertLanguage("正计时", "Count Forward");
-                            }
-                            else
-                            {
-                                HATiming.Text = LanguageUtils.ConvertLanguage("倒计时", "Count Reverse");
-                            }
+                            LETrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
+                            LEselect_change();
+                            LEConsequentForce.Text = trainDto.devicePrescription.Consequent_force.ToString();
+                            LEReverseForce.Text = trainDto.devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            LETrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            LEselect_change();
+                            LESpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
                         else
                         {
-                            HATimer.Text = LanguageUtils.ConvertLanguage("无效", "Invalid");
+                            LETrainingModel.Text = LanguageUtils.ConvertLanguage("被动模式", "Passive Model");
+                            LEselect_change();
+                            LESpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
                         }
-                        HASportstrength.Text = StrengthConverter(trainDto.prescriptionResult.PR_SportStrength.ToString());
-                        HATime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
-                        HADistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
-                        HACountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
-                        HACal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
-                        HAIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
-                        HATime2.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time2).ToLongTimeString();
-                        //HAFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
-                        HAEvaluate.Text = trainDto.evaluate;
-                        HAAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
-                        HAUserthoughts.Text = trainDto.prescriptionResult.PR_UserThoughts;
-                        HAMemo.Text = trainDto.prescriptionResult.PR_Memo;
-
+                        LESportstrength.Text = StrengthConverter(trainDto.prescriptionResult.pr_userthoughts.ToString());
+                        LEHeartRateList.Text = trainDto.prescriptionResult.Heart_rate_list;
+                        LEEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
+                        LEFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
+                        LEAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
                         break;
                     case (int)DeviceType.P02:
-                        CPGroupcount.Text = trainDto.devicePrescription.dp_groupcount.ToString();
-                        CPGroupnum.Text = trainDto.devicePrescription.dp_groupnum.ToString();
-                        CPRelaxTime.Text = trainDto.devicePrescription.dp_relaxtime.ToString();
-                        CPWeight.Text = trainDto.devicePrescription.dp_weight.ToString();
-                        CPMoveway.Text = trainDto.moveway;
-                        CPAttr1.Text = trainDto.devicePrescription.dp_movedistance.ToString();
-                        //CPAttr2.Text = attrs[1];
-                        CPAttr3.Text = attrs[0];
-                        if (trainDto.devicePrescription.dp_timer == DevConstants.TIMER_VALID)
+                        HAGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
+                        HAGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
+                        HARelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
+                        HAMoveway.Text = trainDto.moveway;
+                        if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
-                            CPTimer.Text = LanguageUtils.ConvertLanguage("有效", "Valid");
-                            CPselect_change();
-                            CPTime.Text = trainDto.devicePrescription.dp_timecount.ToString();
-                            if (trainDto.devicePrescription.dp_timetype == DevConstants.COUNT_FORWARD)
-                            {
-                                CPTiming.Text = LanguageUtils.ConvertLanguage("正计时", "Count Forward");
-                            }
-                            else
-                            {
-                                CPTiming.Text = LanguageUtils.ConvertLanguage("倒计时", "Count Reverse");
-                            }
+                            HATrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
+                            HAselect_change();
+                            HAConsequentForce.Text = trainDto.devicePrescription.Consequent_force.ToString();
+                            HAReverseForce.Text = trainDto.devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            HATrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            HAselect_change();
+                            HASpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
                         else
                         {
-                            CPTimer.Text = LanguageUtils.ConvertLanguage("无效", "Invalid");
+                            HATrainingModel.Text = LanguageUtils.ConvertLanguage("被动模式", "Passive Model");
+                            HAselect_change();
+                            HASpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
                         if (trainDto.prescriptionResult == null)
                         {
                             break;
                         }
-                        CPSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.PR_SportStrength.ToString());
-                        CPTime1.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time1).ToLongTimeString();
-                        CPDistance.Text = trainDto.prescriptionResult.PR_Distance.ToString();
-                        CPCountworkqu.Text = trainDto.prescriptionResult.PR_CountWorkQuantity.ToString();
-                        CPCal.Text = trainDto.prescriptionResult.PR_Cal.ToString();
-                        CPIndex.Text = trainDto.prescriptionResult.PR_Index.ToString();
-                        CPTime2.Text = this.TimeConverter(trainDto.prescriptionResult.PR_Time2).ToLongTimeString();
-                        //CPFinishgroup.Text = trainDto.prescriptionResult.PR_FinishGroup.ToString();
-                        CPEvaluate.Text = trainDto.evaluate;
-                        CPAttentionpoint.Text = trainDto.prescriptionResult.PR_AttentionPoint;
-                        CPUserthoughts.Text = trainDto.prescriptionResult.PR_UserThoughts;
-                        CPMemo.Text = trainDto.prescriptionResult.PR_Memo;
-
+                        HASportstrength.Text = StrengthConverter(trainDto.prescriptionResult.pr_userthoughts.ToString());
+                        HAHeartRateList.Text = trainDto.prescriptionResult.Heart_rate_list;
+                        HAEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
+                        HAFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
+                        HAAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+                        break;
+                    case (int)DeviceType.P05:
+                        CPGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
+                        CPGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
+                        CPRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
+                        CPMoveway.Text = trainDto.moveway;
+                        if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            CPTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
+                            CPselect_change();
+                            CPConsequentForce.Text = trainDto.devicePrescription.Consequent_force.ToString();
+                            CPReverseForce.Text = trainDto.devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            CPTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            CPselect_change();
+                            CPSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            CPTrainingModel.Text = LanguageUtils.ConvertLanguage("被动模式", "Passive Model");
+                            CPselect_change();
+                            CPSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
+                        }
+                        if (trainDto.prescriptionResult == null)
+                        {
+                            break;
+                        }
+                        CPSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.pr_userthoughts.ToString());
+                        CPHeartRateList.Text = trainDto.prescriptionResult.Heart_rate_list;
+                        CPEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
+                        CPFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
+                        CPAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+                        break;
+                    case (int)DeviceType.P03:
+                        NewAGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
+                        NewAGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
+                        NewARelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
+                        NewAMoveway.Text = trainDto.moveway;
+                        if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            NewATrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
+                            NewAselect_change();
+                            NewAConsequentForce.Text = trainDto.devicePrescription.Consequent_force.ToString();
+                            NewAReverseForce.Text = trainDto.devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            NewATrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            NewAselect_change();
+                            NewASpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            NewATrainingModel.Text = LanguageUtils.ConvertLanguage("被动模式", "Passive Model");
+                            NewAselect_change();
+                            NewASpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
+                        }
+                        if (trainDto.prescriptionResult == null)
+                        {
+                            break;
+                        }
+                        NewASportstrength.Text = StrengthConverter(trainDto.prescriptionResult.pr_userthoughts.ToString());
+                        NewAHeartRateList.Text = trainDto.prescriptionResult.Heart_rate_list;
+                        NewAEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
+                        NewAFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
+                        NewAAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+                        break;
+                    case (int)DeviceType.P04:
+                        NewBGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
+                        NewBGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
+                        NewBRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
+                        NewBMoveway.Text = trainDto.moveway;
+                        if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            NewBTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
+                            NewBselect_change();
+                            NewBConsequentForce.Text = trainDto.devicePrescription.Consequent_force.ToString();
+                            NewBReverseForce.Text = trainDto.devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            NewBTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            NewBselect_change();
+                            NewBSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            NewBTrainingModel.Text = LanguageUtils.ConvertLanguage("被动模式", "Passive Model");
+                            NewBselect_change();
+                            NewBSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
+                        }
+                        if (trainDto.prescriptionResult == null)
+                        {
+                            break;
+                        }
+                        NewBSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.pr_userthoughts.ToString());
+                        NewBHeartRateList.Text = trainDto.prescriptionResult.Heart_rate_list;
+                        NewBEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
+                        NewBFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
+                        NewBAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+                        break;
+                    case (int)DeviceType.P07:
+                        NewCGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
+                        NewCGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
+                        NewCRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
+                        NewCMoveway.Text = trainDto.moveway;
+                        if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            NewCTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
+                            NewCselect_change();
+                            NewCConsequentForce.Text = trainDto.devicePrescription.Consequent_force.ToString();
+                            NewCReverseForce.Text = trainDto.devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            NewCTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            NewCselect_change();
+                            NewCSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            NewCTrainingModel.Text = LanguageUtils.ConvertLanguage("被动模式", "Passive Model");
+                            NewCselect_change();
+                            NewCSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
+                        }
+                        if (trainDto.prescriptionResult == null)
+                        {
+                            break;
+                        }
+                        NewCSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.pr_userthoughts.ToString());
+                        NewCHeartRateList.Text = trainDto.prescriptionResult.Heart_rate_list;
+                        NewCEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
+                        NewCFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
+                        NewCAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+                        break;
+                    case (int)DeviceType.P08:
+                        NewDGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
+                        NewDGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
+                        NewDRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
+                        NewDMoveway.Text = trainDto.moveway;
+                        if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
+                        {
+                            NewDTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
+                            NewDselect_change();
+                            NewDConsequentForce.Text = trainDto.devicePrescription.Consequent_force.ToString();
+                            NewDReverseForce.Text = trainDto.devicePrescription.Reverse_force.ToString();
+                        }
+                        else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
+                        {
+                            NewDTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            NewDselect_change();
+                            NewDSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
+                        }
+                        else
+                        {
+                            NewDTrainingModel.Text = LanguageUtils.ConvertLanguage("被动模式", "Passive Model");
+                            NewDselect_change();
+                            NewDSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
+                        }
+                        if (trainDto.prescriptionResult == null)
+                        {
+                            break;
+                        }
+                        NewDSportstrength.Text = StrengthConverter(trainDto.prescriptionResult.pr_userthoughts.ToString());
+                        NewDHeartRateList.Text = trainDto.prescriptionResult.Heart_rate_list;
+                        NewDEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
+                        NewDFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
+                        NewDAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
                         break;
                 }
             }
         }
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public ViewTrainingResults()
         {
             InitializeComponent();
@@ -372,12 +458,21 @@ namespace spms.view.Pages.ChildWin
             this.MaxWidth = SystemParameters.WorkArea.Size.Width;
         }
 
-        //取消操作，关闭窗体
+        /// <summary>
+        /// 取消操作，关闭窗体
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-        //回车按钮
+
+        /// <summary>
+        /// 回车按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void key_dowm(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -388,132 +483,318 @@ namespace spms.view.Pages.ChildWin
             }
 
         }
+
         private void HLPselect_change()
         {
-
-            if (HLPTimer.Text.Equals("无效") || HLPTimer.Text.Equals("Invalid"))
+            if (HLPTrainingModel.Text.Equals("康复模式") || HLPTrainingModel.Text.Equals("Rehabilitation Model"))
             {
-                HLPTime_Label.Background = Brushes.White;
-                HLPTiming_Label.Background = Brushes.White;
-                HLPTiming.Visibility = Visibility.Hidden;
+                HLPSR_Label.Background = Brushes.White;
+                HLPSpeedRank.Visibility = Visibility.Hidden;
+                Grid.SetRow(HLPSR_Label, 13);
+                Grid.SetRow(HLPSpeedRank, 13);
 
-                HLPTime.Visibility = Visibility.Hidden;
-
+                HLPCF_Label.Background = Brushes.Gray;
+                HLPConsequentForce.Visibility = Visibility.Visible;
+                HLPRF_Label.Background = Brushes.Gray;
+                HLPReverseForce.Visibility = Visibility.Visible;
+                Grid.SetRow(HLPRF_Label, 11);
+                Grid.SetRow(HLPRF_Label, 11);
             }
-            else if (HLPTimer.Text.Equals("有效") || HLPTimer.Text.Equals("Valid"))
+            else
             {
-                HLPTime_Label.Background = Brushes.Gray;
-                HLPTiming_Label.Background = Brushes.Gray;
-                HLPTiming.Visibility = Visibility.Visible;
+                HLPCF_Label.Background = Brushes.White;
+                HLPConsequentForce.Visibility = Visibility.Hidden;
+                HLPRF_Label.Background = Brushes.White;
+                HLPReverseForce.Visibility = Visibility.Hidden;
+                Grid.SetRow(HLPCF_Label, 13);
+                Grid.SetRow(HLPConsequentForce, 13);
 
-                HLPTime.Visibility = Visibility.Visible;
+                HLPSR_Label.Background = Brushes.Gray;
+                HLPSpeedRank.Visibility = Visibility.Visible;
+                Grid.SetRow(HLPSR_Label, 11);
+                Grid.SetRow(HLPSpeedRank, 11);
             }
         }
         private void ROWselect_change()
         {
-
-            if (ROWTimer.Text.Equals("无效") || ROWTimer.Text.Equals("Invalid"))
+            if (ROWTrainingModel.Text.Equals("康复模式") || ROWTrainingModel.Text.Equals("Rehabilitation Model"))
             {
-                ROWTime_Label.Background = Brushes.White;
-                ROWTiming_Label.Background = Brushes.White;
-                ROWTiming.Visibility = Visibility.Hidden;
+                ROWSR_Label.Background = Brushes.White;
+                ROWSpeedRank.Visibility = Visibility.Hidden;
+                Grid.SetRow(ROWSR_Label, 13);
+                Grid.SetRow(ROWSpeedRank, 13);
 
-                ROWTime.Visibility = Visibility.Hidden;
-
+                ROWCF_Label.Background = Brushes.Gray;
+                ROWConsequentForce.Visibility = Visibility.Visible;
+                ROWRF_Label.Background = Brushes.Gray;
+                ROWReverseForce.Visibility = Visibility.Visible;
+                Grid.SetRow(ROWRF_Label, 11);
+                Grid.SetRow(ROWRF_Label, 11);
             }
-            else if (ROWTimer.Text.Equals("有效") || ROWTimer.Text.Equals("Valid"))
+            else
             {
-                ROWTime_Label.Background = Brushes.Gray;
-                ROWTiming_Label.Background = Brushes.Gray;
-                ROWTiming.Visibility = Visibility.Visible;
+                ROWCF_Label.Background = Brushes.White;
+                ROWConsequentForce.Visibility = Visibility.Hidden;
+                ROWRF_Label.Background = Brushes.White;
+                ROWReverseForce.Visibility = Visibility.Hidden;
+                Grid.SetRow(ROWCF_Label, 13);
+                Grid.SetRow(ROWConsequentForce, 13);
 
-                ROWTime.Visibility = Visibility.Visible;
+                ROWSR_Label.Background = Brushes.Gray;
+                ROWSpeedRank.Visibility = Visibility.Visible;
+                Grid.SetRow(ROWSR_Label, 11);
+                Grid.SetRow(ROWSpeedRank, 11);
             }
         }
         private void TFselect_change()
         {
-
-            if (TFTimer.Text.Equals("无效") || TFTimer.Text.Equals("Invalid"))
+            if (TFTrainingModel.Text.Equals("康复模式") || TFTrainingModel.Text.Equals("Rehabilitation Model"))
             {
-                TFTime_Label.Background = Brushes.White;
-                TFTiming_Label.Background = Brushes.White;
-                TFTiming.Visibility = Visibility.Hidden;
+                TFSR_Label.Background = Brushes.White;
+                TFSpeedRank.Visibility = Visibility.Hidden;
+                Grid.SetRow(TFSR_Label, 13);
+                Grid.SetRow(TFSpeedRank, 13);
 
-                TFTime.Visibility = Visibility.Hidden;
-
+                TFCF_Label.Background = Brushes.Gray;
+                TFConsequentForce.Visibility = Visibility.Visible;
+                TFRF_Label.Background = Brushes.Gray;
+                TFReverseForce.Visibility = Visibility.Visible;
+                Grid.SetRow(TFRF_Label, 11);
+                Grid.SetRow(TFRF_Label, 11);
             }
-            else if (TFTimer.Text.Equals("有效") || TFTimer.Text.Equals("Valid"))
+            else
             {
-                TFTime_Label.Background = Brushes.Gray;
-                TFTiming_Label.Background = Brushes.Gray;
-                TFTiming.Visibility = Visibility.Visible;
+                TFCF_Label.Background = Brushes.White;
+                TFConsequentForce.Visibility = Visibility.Hidden;
+                TFRF_Label.Background = Brushes.White;
+                TFReverseForce.Visibility = Visibility.Hidden;
+                Grid.SetRow(TFCF_Label, 13);
+                Grid.SetRow(TFConsequentForce, 13);
 
-                TFTime.Visibility = Visibility.Visible;
+                TFSR_Label.Background = Brushes.Gray;
+                TFSpeedRank.Visibility = Visibility.Visible;
+                Grid.SetRow(TFSR_Label, 11);
+                Grid.SetRow(TFSpeedRank, 11);
             }
         }
         private void LEselect_change()
         {
-
-            if (LETimer.Text.Equals("无效") || LETimer.Text.Equals("Invalid"))
+            if (LETrainingModel.Text.Equals("康复模式") || LETrainingModel.Text.Equals("Rehabilitation Model"))
             {
-                LETime_Label.Background = Brushes.White;
-                LETiming_Label.Background = Brushes.White;
-                LETiming.Visibility = Visibility.Hidden;
+                LESR_Label.Background = Brushes.White;
+                LESpeedRank.Visibility = Visibility.Hidden;
+                Grid.SetRow(LESR_Label, 13);
+                Grid.SetRow(LESpeedRank, 13);
 
-                LETime.Visibility = Visibility.Hidden;
-
+                LECF_Label.Background = Brushes.Gray;
+                LEConsequentForce.Visibility = Visibility.Visible;
+                LERF_Label.Background = Brushes.Gray;
+                LEReverseForce.Visibility = Visibility.Visible;
+                Grid.SetRow(LERF_Label, 11);
+                Grid.SetRow(LERF_Label, 11);
             }
-            else if (LETimer.Text.Equals("有效") || LETimer.Text.Equals("Valid"))
+            else
             {
-                LETime_Label.Background = Brushes.Gray;
-                LETiming_Label.Background = Brushes.Gray;
-                LETiming.Visibility = Visibility.Visible;
+                LECF_Label.Background = Brushes.White;
+                LEConsequentForce.Visibility = Visibility.Hidden;
+                LERF_Label.Background = Brushes.White;
+                LEReverseForce.Visibility = Visibility.Hidden;
+                Grid.SetRow(LECF_Label, 13);
+                Grid.SetRow(LEConsequentForce, 13);
 
-                LETime.Visibility = Visibility.Visible;
+                LESR_Label.Background = Brushes.Gray;
+                LESpeedRank.Visibility = Visibility.Visible;
+                Grid.SetRow(LESR_Label, 11);
+                Grid.SetRow(LESpeedRank, 11);
             }
         }
         private void HAselect_change()
         {
-
-            if (HATimer.Text.Equals("无效") || HATimer.Text.Equals("Invalid"))
+            if (HATrainingModel.Text.Equals("康复模式") || HATrainingModel.Text.Equals("Rehabilitation Model"))
             {
-                HATime_Label.Background = Brushes.White;
-                HATiming_Label.Background = Brushes.White;
-                HATiming.Visibility = Visibility.Hidden;
+                HASR_Label.Background = Brushes.White;
+                HASpeedRank.Visibility = Visibility.Hidden;
+                Grid.SetRow(HASR_Label, 13);
+                Grid.SetRow(HASpeedRank, 13);
 
-                HATime.Visibility = Visibility.Hidden;
-
+                HACF_Label.Background = Brushes.Gray;
+                HAConsequentForce.Visibility = Visibility.Visible;
+                HARF_Label.Background = Brushes.Gray;
+                HAReverseForce.Visibility = Visibility.Visible;
+                Grid.SetRow(HARF_Label, 11);
+                Grid.SetRow(HARF_Label, 11);
             }
-            else if (HATimer.Text.Equals("有效") || HATimer.Text.Equals("Valid"))
+            else
             {
-                HATime_Label.Background = Brushes.Gray;
-                HATiming_Label.Background = Brushes.Gray;
-                HATiming.Visibility = Visibility.Visible;
+                HACF_Label.Background = Brushes.White;
+                HAConsequentForce.Visibility = Visibility.Hidden;
+                HARF_Label.Background = Brushes.White;
+                HAReverseForce.Visibility = Visibility.Hidden;
+                Grid.SetRow(HACF_Label, 13);
+                Grid.SetRow(HAConsequentForce, 13);
 
-                HATime.Visibility = Visibility.Visible;
+                HASR_Label.Background = Brushes.Gray;
+                HASpeedRank.Visibility = Visibility.Visible;
+                Grid.SetRow(HASR_Label, 11);
+                Grid.SetRow(HASpeedRank, 11);
             }
         }
         private void CPselect_change()
         {
-
-            if (CPTimer.Text.Equals("无效") || CPTimer.Text.Equals("Invalid"))
+            if (CPTrainingModel.Text.Equals("康复模式") || CPTrainingModel.Text.Equals("Rehabilitation Model"))
             {
-                CPTime_Label.Background = Brushes.White;
-                CPTiming_Label.Background = Brushes.White;
-                CPTiming.Visibility = Visibility.Hidden;
+                CPSR_Label.Background = Brushes.White;
+                CPSpeedRank.Visibility = Visibility.Hidden;
+                Grid.SetRow(CPSR_Label, 13);
+                Grid.SetRow(CPSpeedRank, 13);
 
-                CPTime.Visibility = Visibility.Hidden;
-
+                CPCF_Label.Background = Brushes.Gray;
+                CPConsequentForce.Visibility = Visibility.Visible;
+                CPRF_Label.Background = Brushes.Gray;
+                CPReverseForce.Visibility = Visibility.Visible;
+                Grid.SetRow(CPRF_Label, 11);
+                Grid.SetRow(CPRF_Label, 11);
             }
-            else if (CPTimer.Text.Equals("有效") || CPTimer.Text.Equals("Valid"))
+            else
             {
-                CPTime_Label.Background = Brushes.Gray;
-                CPTiming_Label.Background = Brushes.Gray;
-                CPTiming.Visibility = Visibility.Visible;
+                CPCF_Label.Background = Brushes.White;
+                CPConsequentForce.Visibility = Visibility.Hidden;
+                CPRF_Label.Background = Brushes.White;
+                CPReverseForce.Visibility = Visibility.Hidden;
+                Grid.SetRow(CPCF_Label, 13);
+                Grid.SetRow(CPConsequentForce, 13);
 
-                CPTime.Visibility = Visibility.Visible;
+                CPSR_Label.Background = Brushes.Gray;
+                CPSpeedRank.Visibility = Visibility.Visible;
+                Grid.SetRow(CPSR_Label, 11);
+                Grid.SetRow(CPSpeedRank, 11);
             }
         }
+        private void NewAselect_change()
+        {
+            if (NewATrainingModel.Text.Equals("康复模式") || NewATrainingModel.Text.Equals("Rehabilitation Model"))
+            {
+                NewASR_Label.Background = Brushes.White;
+                NewASpeedRank.Visibility = Visibility.Hidden;
+                Grid.SetRow(NewASR_Label, 13);
+                Grid.SetRow(NewASpeedRank, 13);
+
+                NewACF_Label.Background = Brushes.Gray;
+                NewAConsequentForce.Visibility = Visibility.Visible;
+                NewARF_Label.Background = Brushes.Gray;
+                NewAReverseForce.Visibility = Visibility.Visible;
+                Grid.SetRow(NewARF_Label, 11);
+                Grid.SetRow(NewARF_Label, 11);
+            }
+            else
+            {
+                NewACF_Label.Background = Brushes.White;
+                NewAConsequentForce.Visibility = Visibility.Hidden;
+                NewARF_Label.Background = Brushes.White;
+                NewAReverseForce.Visibility = Visibility.Hidden;
+                Grid.SetRow(NewACF_Label, 13);
+                Grid.SetRow(NewAConsequentForce, 13);
+
+                NewASR_Label.Background = Brushes.Gray;
+                NewASpeedRank.Visibility = Visibility.Visible;
+                Grid.SetRow(NewASR_Label, 11);
+                Grid.SetRow(NewASpeedRank, 11);
+            }
+        }
+        private void NewBselect_change()
+        {
+            if (NewBTrainingModel.Text.Equals("康复模式") || NewBTrainingModel.Text.Equals("Rehabilitation Model"))
+            {
+                NewBSR_Label.Background = Brushes.White;
+                NewBSpeedRank.Visibility = Visibility.Hidden;
+                Grid.SetRow(NewBSR_Label, 13);
+                Grid.SetRow(NewBSpeedRank, 13);
+
+                NewBCF_Label.Background = Brushes.Gray;
+                NewBConsequentForce.Visibility = Visibility.Visible;
+                NewBRF_Label.Background = Brushes.Gray;
+                NewBReverseForce.Visibility = Visibility.Visible;
+                Grid.SetRow(NewBRF_Label, 11);
+                Grid.SetRow(NewBRF_Label, 11);
+            }
+            else
+            {
+                NewBCF_Label.Background = Brushes.White;
+                NewBConsequentForce.Visibility = Visibility.Hidden;
+                NewBRF_Label.Background = Brushes.White;
+                NewBReverseForce.Visibility = Visibility.Hidden;
+                Grid.SetRow(NewBCF_Label, 13);
+                Grid.SetRow(NewBConsequentForce, 13);
+
+                NewBSR_Label.Background = Brushes.Gray;
+                NewBSpeedRank.Visibility = Visibility.Visible;
+                Grid.SetRow(NewBSR_Label, 11);
+                Grid.SetRow(NewBSpeedRank, 11);
+            }
+        }
+        private void NewCselect_change()
+        {
+            if (NewCTrainingModel.Text.Equals("康复模式") || NewCTrainingModel.Text.Equals("Rehabilitation Model"))
+            {
+                NewCSR_Label.Background = Brushes.White;
+                NewCSpeedRank.Visibility = Visibility.Hidden;
+                Grid.SetRow(NewCSR_Label, 13);
+                Grid.SetRow(NewCSpeedRank, 13);
+
+                NewCCF_Label.Background = Brushes.Gray;
+                NewCConsequentForce.Visibility = Visibility.Visible;
+                NewCRF_Label.Background = Brushes.Gray;
+                NewCReverseForce.Visibility = Visibility.Visible;
+                Grid.SetRow(NewCRF_Label, 11);
+                Grid.SetRow(NewCRF_Label, 11);
+            }
+            else
+            {
+                NewCCF_Label.Background = Brushes.White;
+                NewCConsequentForce.Visibility = Visibility.Hidden;
+                NewCRF_Label.Background = Brushes.White;
+                NewCReverseForce.Visibility = Visibility.Hidden;
+                Grid.SetRow(NewCCF_Label, 13);
+                Grid.SetRow(NewCConsequentForce, 13);
+
+                NewCSR_Label.Background = Brushes.Gray;
+                NewCSpeedRank.Visibility = Visibility.Visible;
+                Grid.SetRow(NewCSR_Label, 11);
+                Grid.SetRow(NewCSpeedRank, 11);
+            }
+        }
+        private void NewDselect_change()
+        {
+            if (NewDTrainingModel.Text.Equals("康复模式") || NewDTrainingModel.Text.Equals("Rehabilitation Model"))
+            {
+                NewDSR_Label.Background = Brushes.White;
+                NewDSpeedRank.Visibility = Visibility.Hidden;
+                Grid.SetRow(NewDSR_Label, 13);
+                Grid.SetRow(NewDSpeedRank, 13);
+
+                NewDCF_Label.Background = Brushes.Gray;
+                NewDConsequentForce.Visibility = Visibility.Visible;
+                NewDRF_Label.Background = Brushes.Gray;
+                NewDReverseForce.Visibility = Visibility.Visible;
+                Grid.SetRow(NewDRF_Label, 11);
+                Grid.SetRow(NewDRF_Label, 11);
+            }
+            else
+            {
+                NewDCF_Label.Background = Brushes.White;
+                NewDConsequentForce.Visibility = Visibility.Hidden;
+                NewDRF_Label.Background = Brushes.White;
+                NewDReverseForce.Visibility = Visibility.Hidden;
+                Grid.SetRow(NewDCF_Label, 13);
+                Grid.SetRow(NewDConsequentForce, 13);
+
+                NewDSR_Label.Background = Brushes.Gray;
+                NewDSpeedRank.Visibility = Visibility.Visible;
+                Grid.SetRow(NewDSR_Label, 11);
+                Grid.SetRow(NewDSpeedRank, 11);
+            }
+        }
+
         private DateTime TimeConverter(double dateTime)
         {
             int hours = (int)(dateTime / 3600.0);
@@ -525,6 +806,7 @@ namespace spms.view.Pages.ChildWin
            // time.AddSeconds(second);
             return time;
         }
+
         private void viewbox_load(object sender, RoutedEventArgs e)
         {
             //this.Visibility = Visibility.Collapsed;
@@ -540,6 +822,7 @@ namespace spms.view.Pages.ChildWin
             //  this.Visibility = Visibility.Visible;
 
         }
+
         private String StrengthConverter(String value)
         {
             if(value == "")

@@ -888,24 +888,24 @@
                             </ComboBox>
                         </Border>
 
-                        <Border Grid.Row="5" Grid.Column="0" Name="border51" Background="White" Margin="10,3,0,0" >
+                        <Border Grid.Row="5" Grid.Column="0" Name="border51" Background="White" Margin="0,3,0,0" >
                             <Label  FontSize="10" Foreground="White" Height="21"   VerticalContentAlignment="Center" Padding="4" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.ConsequentForce}"></Label>
                         </Border>
-                        <Border Grid.Row="5" Grid.Column="1" Background="White" Name="border52" Margin="10,3,10,0">
+                        <Border Grid.Row="5" Grid.Column="1" Background="White" Name="border52" Margin="0,3,10,0">
                             <ComboBox Name="combobox_57" IsTabStop="False" Height="21"   Padding="4" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" Visibility="Hidden"/>
                         </Border>
 
-                        <Border Grid.Row="6" Grid.Column="0" Name="border53" Background="White" Margin="10,3,0,0" >
+                        <Border Grid.Row="6" Grid.Column="0" Name="border53" Background="White" Margin="0,3,0,0" >
                             <Label  FontSize="10" Foreground="White" Height="21"   VerticalContentAlignment="Center" Padding="4" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.ReverseForce}"></Label>
                         </Border>
-                        <Border Grid.Row="6" Grid.Column="1" Background="White" Name="border54" Margin="10,3,10,0">
+                        <Border Grid.Row="6" Grid.Column="1" Background="White" Name="border54" Margin="0,3,10,0">
                             <ComboBox Name="combobox_58" IsTabStop="False" Height="21"   Padding="4" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" Visibility="Hidden"/>
                         </Border>
 
-                        <Border Grid.Row="7" Grid.Column="0" Name="border56" Background="White" Margin="10,3,0,0" >
+                        <Border Grid.Row="7" Grid.Column="0" Name="border56" Background="White" Margin="0,3,0,0" >
                             <Label  FontSize="10" Foreground="White" Height="21"   VerticalContentAlignment="Center" Padding="4" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.SpeedRank}"></Label>
                         </Border>
-                        <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border57" Margin="10,3,10,0">
+                        <Border Grid.Row="7" Grid.Column="1" Background="White" Name="border57" Margin="0,3,10,0">
                             <ComboBox Name="combobox_59" IsTabStop="False" Height="21"   Padding="4" IsEnabled="{Binding IsChecked, ElementName=checkbox6}" Visibility="Hidden"/>
                         </Border>
                     </Grid>

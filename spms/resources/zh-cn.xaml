@@ -427,6 +427,21 @@
     <s:String x:Key="TrainingResultView.TrainingMemo">时机、姿势备忘</s:String>
     <s:String x:Key="TrainingResultView.Save">保存</s:String>
     <s:String x:Key="TrainingResultView.Back">返回</s:String>
+    <!--lj ++-->
+    <s:String x:Key="TrainingResultView.Power">功率</s:String>
+    <s:String x:Key="TrainingResultView.HeartRateList">心率集合</s:String>
+    <s:String x:Key="TrainingResultView.TrainingModel">训练模式</s:String>
+    <s:String x:Key="TrainingResultView.RehabilitationModel">康复模式</s:String>
+    <s:String x:Key="TrainingResultView.ActiveModel">主动模式</s:String>
+    <s:String x:Key="TrainingResultView.PassiveModel">被动模式</s:String>
+    <s:String x:Key="TrainingResultView.ConsequentForce">顺向力</s:String>
+    <s:String x:Key="TrainingResultView.ReverseForce">反向力</s:String>
+    <s:String x:Key="TrainingResultView.SpeedRank">运动速度等级</s:String>
+    <s:String x:Key="TrainingResultView.HeartRateLineChart">心率折线图</s:String>
+    <s:String x:Key="TrainingResultView.UsertHoughts(6-15)">用户感想(6-15)</s:String>
+    <s:String x:Key="TrainingResultView.Energy(J)">训练总耗能(J)</s:String>
+    <s:String x:Key="TrainingResultView.FinishNumber">运动完成个数</s:String>
+
     <!--在线设备明细-->
     <s:String x:Key="RegisterView.OnlineDeviceDetails">在线设备情况</s:String>
     <s:String x:Key="RegisterView.TerminalID">终端编号</s:String>

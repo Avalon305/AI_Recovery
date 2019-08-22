@@ -262,6 +262,7 @@
     <Compile Include="view\converter\LanguageConverter.cs" />
     <Compile Include="view\converter\StrengthConverter.cs" />
     <Compile Include="view\converter\TimeConverter.cs" />
+    <Compile Include="view\dto\NewTrainDTO.cs" />
     <Compile Include="view\Pages\ChildWin\Analyze.xaml.cs">
       <DependentUpon>Analyze.xaml</DependentUpon>
     </Compile>

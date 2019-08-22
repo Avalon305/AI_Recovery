@@ -11,829 +11,574 @@
         ResizeMode="CanMinimize"  SizeToContent="WidthAndHeight" 
         Loaded="Window_Loaded">
     <Viewbox Name="viewbox" Loaded="viewbox_load" Stretch="Uniform">
-    <StackPanel>
-        <!--Border 使用者一览表以及按钮  开始-->
-        <Border Height="40" CornerRadius="5,5,0,0"  Margin="5,0,5,0">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="Silver" Offset="0.1"/>
-                    <GradientStop Color="Gray" Offset="0.9"/>
-                </LinearGradientBrush>
+        <StackPanel>
+            <!--Border 使用者一览表以及按钮  开始-->
+            <Border Height="40" CornerRadius="5,5,0,0"  Margin="5,0,5,0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="Silver" Offset="0.1"/>
+                        <GradientStop Color="Gray" Offset="0.9"/>
+                    </LinearGradientBrush>
 
-            </Border.Background>
-            <Grid>
+                </Border.Background>
+                <Grid>
                     <Label VerticalAlignment="Bottom" Margin="10,0,0,0" Foreground="White" FontSize="20" Height="38" Content="{DynamicResource TrainingResultView.TrainingResult}"></Label>
-            </Grid>
-        </Border>
-        <!--Border 训练结果以及按钮  结束-->
+                </Grid>
+            </Border>
+            <!--Border 训练结果以及按钮  结束-->
 
-        <!--StackPanel 信息以及日期-->
-        <StackPanel  Orientation="Horizontal" Margin="5,0,5,0">
-            <!--Grid 使用者信息展示-->
-            <Grid Height="30" Margin="0,0,18.6,0" Width="609">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="15*"/>
-                    <ColumnDefinition Width="82*"/>
-                </Grid.ColumnDefinitions>
+            <!--StackPanel 信息以及日期-->
+            <StackPanel  Orientation="Horizontal" Margin="5,0,5,0">
+                <!--Grid 使用者信息展示-->
+                <Grid Height="30" Margin="0,0,18.6,0" Width="609">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="82*"/>
+                    </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0"  Content="{DynamicResource TrainingResultView.SubjectID}" Visibility="Collapsed" Margin="0,-6,34.4,15.6" Grid.RowSpan="2"/>
-                <Label Grid.Row="0"  Margin="65,-6,-0.2,15.6" Name="l2" Grid.ColumnSpan="2" Visibility="Collapsed" Grid.RowSpan="2"/>
+                    <Label Grid.Row="0"  Margin="65,-6,-0.2,15.6" Name="l2" Grid.ColumnSpan="2" Visibility="Collapsed" Grid.RowSpan="2"/>
                     <Label Grid.Column="0"  Content="{DynamicResource TrainingResultView.LastName}" VerticalAlignment="Center" Margin="0,3,22.4,1.4" Grid.RowSpan="2"/>
                     <Label  Margin="77,11,-0.2,9.4" Name="l1" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center"/>
-            </Grid>
-        </StackPanel>
+                </Grid>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-            <Border Margin="5,0,5,0" Background="LightGray" Height="25">
+                <Border Margin="5,0,5,0" Background="LightGray" Height="25">
                     <Label  Content="{DynamicResource TrainingResultView.Date}"  FontSize="12" Margin="0,0,0,0.2"/>
-            </Border>
-            <!--日历-->
-            <Border Margin="10" Width="153" Height="25" BorderThickness="1" BorderBrush="Gray" >
-                <StackPanel Orientation="Horizontal" >
-                    <Label x:Name="da" Width="125" VerticalContentAlignment="Center" IsEnabled="False" Height="23" BorderBrush="Gray" BorderThickness="0"></Label>
-                    <Image Source="/view/Images/date.png" Margin="5,5,0,5"></Image>
-                </StackPanel>
-            </Border>
-        </StackPanel>
-        <Grid Height="532" Margin="0,0,-0.4,0"  Name="grid">
-            <Grid.Resources>
-                <Style TargetType="Label">
-                    <Setter Property="Foreground" Value="White"/>
-                </Style>
+                </Border>
+                <!--日历-->
+                <Border Margin="10" Width="153" Height="25" BorderThickness="1" BorderBrush="Gray" >
+                    <StackPanel Orientation="Horizontal" >
+                        <Label x:Name="da" Width="125" VerticalContentAlignment="Center" IsEnabled="False" Height="23" BorderBrush="Gray" BorderThickness="0"></Label>
+                        <Image Source="/view/Images/date.png" Margin="5,5,0,5"></Image>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <Grid Height="532" Margin="0,0,-0.4,0"  Name="grid">
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="Foreground" Value="White"/>
+                    </Style>
 
-            </Grid.Resources>
-            <Grid Margin="5,0,5,10">
-                <TabControl Name="TabControl1"  Margin="0,0,0,0"  >
+                </Grid.Resources>
+                <Grid Margin="5,0,5,10">
+                    <TabControl Name="TabControl1"  Margin="0,0,0,0"  >
                         <TabItem Header="{DynamicResource NewDev.ChestPress}" Width="115" FocusVisualStyle="{x:Null}">
-                        <StackPanel Orientation="Horizontal">
-                            <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
-                                </Grid.Background>
-                                <TextBox Name="HLPAttr1" Height="20" Width="50" Margin="46,154,200,141.2"  IsEnabled="False" ></TextBox>
-                                <!--<TextBox  Name="HLPAttr2" Height="20" Width="50" Margin="34,208,212,87.2"  IsEnabled="False" ></TextBox>-->
-                                <TextBox Name="HLPAttr3" Height="20" Width="50" Margin="61,102,185,193.2"   IsEnabled="False" ></TextBox>
-                                <TextBox Name="HLPAttr4" Height="20" Width="50" Margin="154,228,92,67.2"  IsEnabled="False" ></TextBox>
-                            </Grid>
+                            <StackPanel Orientation="Horizontal">
+                                <Grid Margin="30,50,0,128.4" Width="296">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="/view/Images/KFA-01.jpg" Stretch="Fill"  />
+                                    </Grid.Background>
+                                </Grid>
 
-                            <Grid Margin="30,50,0,0" Width="286" >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                <Grid Margin="30,50,0,0" Width="286" >
+                                    <Grid.RowDefinitions>
                                         <RowDefinition/>
                                         <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="HLPGroupcount" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" CaretBrush="Black" Margin="0,0,20,0" Name="HLPGroupcount" VerticalContentAlignment="Center" />
 
-                                <Label Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="HLPGroupnum" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Reps}"  Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPGroupnum" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="HLPRelaxTime" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
+                                    <TextBox Grid.Row="2" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPRelaxTime" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"   Name="HLPWeight" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Power}"  />
+                                    <TextBox Grid.Row="3" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPPower" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0"  Name="HLPMoveway"  IsEnabled="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="HLPMoveway"  IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="HLPSportstrength" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
+                                    <TextBox Grid.Row="5" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPSportstrength" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime}" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="HLPTime1"  VerticalContentAlignment="Center"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
+                                    <TextBox Grid.Row="6" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPTime1" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="HLPDistance" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPHeartRateList" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="HLPCountworkqu" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
+                                    <TextBox Grid.Row="8" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPEnergy" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="HLPCal" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.FinishNumber}"  />
+                                    <TextBox Grid.Row="9" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPFinishNum" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="HLPIndex" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainingModel}"  />
+                                    <TextBox  Grid.Row="10" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="HLPTrainingModel" IsTabStop="False"  />
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time}" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="HLPTime2" VerticalContentAlignment="Center"  IsEnabled="False" />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="White" Name="HLPCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
+                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPConsequentForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="HLPFinishgroup" VerticalContentAlignment="Center"  IsEnabled="False" />-->
+                                    <Label Grid.Row="12" Grid.Column="0" Background="White" Name="HLPRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
+                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPReverseForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0"  Name="HLPEvaluate"  IsEnabled="False"/>
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                <TextBox  Grid.Row="13" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTimer" IsTabStop="False" IsEnabled="False"  >
-                                </TextBox>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="White" Name="HLPSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
+                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPSpeedRank" VerticalContentAlignment="Center"  Visibility="Hidden"/>
+                                </Grid>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="White" Name="HLPTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                <TextBox Grid.Row="14" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTime" IsTabStop="False" IsEnabled="False" Visibility="Hidden">
-                                   
-                                </TextBox>
+                                <StackPanel Margin="0,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="HLPAttentionpoint" TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <StackPanel Margin="20,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <!--<TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="HLPChart" TextWrapping="Wrap"/>-->
+                                    <Grid>
+                                        <WebBrowser Name="HLPWeb" Height="275">
+                                        </WebBrowser>
+                                    </Grid>
+                                </StackPanel>
 
-                                <Label Grid.Row="16" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="HLPTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                <TextBox  Grid.Row="16" Grid.Column="1" Margin="0,3,20,0"  Name="HLPTiming" IsTabStop="False" IsEnabled="False" Visibility="Hidden">
-                                </TextBox>
-                            </Grid>
-
-                            <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                    <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HLPAttentionpoint" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
-                                <Label Content="{DynamicResource TrainingResultView.Subjectcomment}"  Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104"  Margin="0,2,-0.2,0" Name="HLPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
-                                <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HLPMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
                             </StackPanel>
-
-                        </StackPanel>
-                    </TabItem>
+                        </TabItem>
                         <TabItem Header="{DynamicResource NewDev.Rowing}" Width="115" FocusVisualStyle="{x:Null}">
-                        <StackPanel Orientation="Horizontal">
-                            <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
-                                </Grid.Background>
-                                <TextBox Name="ROWAttr1" Height="20" Width="50" Margin="66,115,180,180.2"  IsEnabled="False" ></TextBox>
-                                <!--<TextBox Name="ROWAttr2" Height="20" Width="50" Margin="50,202,196,93.2"  IsEnabled="False" ></TextBox>-->
-                                <TextBox Name="ROWAttr3" Height="20" Width="50" Margin="174,182,72,113.2"  IsEnabled="False" ></TextBox>
-                                <TextBox Name="ROWAttr4" Height="20" Width="50" Margin="147,238,99,57.2"   IsEnabled="False"></TextBox>
-                            </Grid>
+                            <StackPanel Orientation="Horizontal">
+                                <Grid Margin="30,50,0,128.4" Width="296">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="/view/Images/KFA-04.jpg" Stretch="Fill"  />
+                                    </Grid.Background>
+                                </Grid>
 
-                            <Grid Margin="30,50,0,0" Width="286" >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                <Grid Margin="30,50,0,0" Width="286" >
+                                    <Grid.RowDefinitions>
                                         <RowDefinition/>
                                         <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0"  Name="ROWGroupcount"  IsEnabled="False" />
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" CaretBrush="Black" Margin="0,0,20,0" Name="ROWGroupcount" VerticalContentAlignment="Center" />
 
-                                <Label Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="ROWGroupnum"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Reps}"  Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWGroupnum" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="ROWRelaxTime"  IsEnabled="False" />
+                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
+                                    <TextBox Grid.Row="2" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWRelaxTime" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"   Name="ROWWeight"  IsEnabled="False" />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Power}"  />
+                                    <TextBox Grid.Row="3" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWPower" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="ROWMoveway"  IsEnabled="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="ROWMoveway"  IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="ROWSportstrength"  IsEnabled="False" />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
+                                    <TextBox Grid.Row="5" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWSportstrength" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="ROWTime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
+                                    <TextBox Grid.Row="6" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWTime1" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="ROWDistance"  IsEnabled="False" />
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWHeartRateList" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="ROWCountworkqu"  IsEnabled="False" />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
+                                    <TextBox Grid.Row="8" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWEnergy" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="ROWCal"  IsEnabled="False" />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.FinishNumber}"  />
+                                    <TextBox Grid.Row="9" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWFinishNum" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="ROWIndex"  IsEnabled="False" />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainingModel}"  />
+                                    <TextBox  Grid.Row="10" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="ROWTrainingModel" IsTabStop="False"  />
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="ROWTime2"  IsEnabled="False" />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="White" Name="ROWCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
+                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWConsequentForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="ROWFinishgroup"  IsEnabled="False" />-->
+                                    <Label Grid.Row="12" Grid.Column="0" Background="White" Name="ROWRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
+                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWReverseForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="ROWEvaluate" IsEnabled="False"/>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="White" Name="ROWSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
+                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWSpeedRank" VerticalContentAlignment="Center"  Visibility="Hidden"/>
+                                </Grid>
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                    <TextBox  Grid.Row="13" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="ROWTimer" IsTabStop="False"  >
-                                </TextBox>
+                                <StackPanel Margin="0,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="ROWAttentionpoint" TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <StackPanel Margin="20,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="ROWChart" TextWrapping="Wrap"/>
+                                </StackPanel>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="White" Name="ROWTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                <TextBox  Grid.Row="14" Grid.Column="1" Margin="0,3,20,0" IsEnabled="False" Name="ROWTime" IsTabStop="False"  Visibility="Hidden">
-                                </TextBox>
-
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="ROWTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                    <TextBox  Grid.Row="15" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="ROWTiming" IsTabStop="False" Visibility="Hidden">
-                                </TextBox>
-                            </Grid>
-
-                            <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0"  />
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="ROWAttentionpoint" AcceptsReturn="True" IsEnabled="False" TextWrapping="Wrap"/>
-                                <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0"  />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="ROWUserthoughts" AcceptsReturn="True" IsEnabled="False" TextWrapping="Wrap"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
-                                <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="ROWMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
                             </StackPanel>
-
-                        </StackPanel>
-                    </TabItem>
+                        </TabItem>
                         <TabItem Header="{DynamicResource NewDev.SittingBackExtender}" Width="115"  FocusVisualStyle="{x:Null}">
-                        <StackPanel Orientation="Horizontal">
-                            <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
-                                </Grid.Background>
-                                <TextBox Name="TFAttr1" Height="20" Width="50" Margin="65,74,181,221.2" RenderTransformOrigin="-1.18,0.73"  IsEnabled="False" ></TextBox>
-                                <!--<TextBox Name="TFAttr2" Height="20" Width="50" Margin="55,191,191,104.2"  IsEnabled="False" ></TextBox>-->
-                                <TextBox Name="TFAttr3" Height="20" Width="50" Margin="181,122,65,173.2" RenderTransformOrigin="0.564,0.01"  IsEnabled="False" ></TextBox>
-                                <TextBox Name="TFAttr4" Height="20" Width="50" Margin="214,41,32,254.2" RenderTransformOrigin="0.564,0.01"  IsEnabled="False" ></TextBox>
-                            </Grid>
+                            <StackPanel Orientation="Horizontal">
+                                <Grid Margin="30,50,0,128.4" Width="296">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="/view/Images/KFA-10.jpg" Stretch="Fill"  />
+                                    </Grid.Background>
+                                </Grid>
 
-                            <Grid Margin="30,50,0,0" Width="286" >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
+                                <Grid Margin="30,50,0,0" Width="286" >
+                                    <Grid.RowDefinitions>
                                         <RowDefinition/>
                                         <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
                                         <RowDefinition/>
                                         <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="TFGroupcount"  IsEnabled="False" />
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" CaretBrush="Black" Margin="0,0,20,0" Name="TFGroupcount" VerticalContentAlignment="Center" />
 
-                                <Label Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="TFGroupnum"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Reps}"  Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFGroupnum" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="TFRelaxTime"  IsEnabled="False" />
+                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
+                                    <TextBox Grid.Row="2" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFRelaxTime" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"  Name="TFWeight"   IsEnabled="False"/>
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Power}"  />
+                                    <TextBox Grid.Row="3" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFPower" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="TFMoveway"   IsEnabled="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="TFMoveway"  IsEnabled="False"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="TFSportstrength"   IsEnabled="False"/>
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
+                                    <TextBox Grid.Row="5" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFSportstrength" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="TFTime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
+                                    <TextBox Grid.Row="6" CaretBrush="Black" Margin="143,0,20.4,0.4" Name="TFTime1" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Height="24" VerticalAlignment="Bottom" />
 
-                                <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="TFDistance"   IsEnabled="False"/>
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFHeartRateList" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="TFCountworkqu"  IsEnabled="False" />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
+                                    <TextBox Grid.Row="8" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFEnergy" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="TFCal" IsEnabled="False"  />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.FinishNumber}"  />
+                                    <TextBox Grid.Row="9" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFFinishNum" VerticalContentAlignment="Center" />
 
-                                <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="TFIndex"  IsEnabled="False" />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainingModel}"  />
+                                    <TextBox  Grid.Row="10" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="TFTrainingModel" IsTabStop="False"  />
 
-                                <Label Grid.Row="11" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="TFTime2"  IsEnabled="False" />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="White" Name="TFCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
+                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFConsequentForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,1,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,1,20,0" Name="TFFinishgroup" IsEnabled="False"  />-->
+                                    <Label Grid.Row="12" Grid.Column="0" Background="White" Name="TFRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
+                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFReverseForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                <Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="TFEvaluate" IsEnabled="False"/>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="White" Name="TFSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
+                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFSpeedRank" VerticalContentAlignment="Center"  Visibility="Hidden"/>
+                                </Grid>
 
-                                <Label Grid.Row="13" Grid.Column="0" Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                    <TextBox Grid.Row="13" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="TFTimer" IsTabStop="False"  >
-                                </TextBox>
+                                <StackPanel Margin="0,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="TFAttentionpoint" TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <StackPanel Margin="20,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="TFChart" TextWrapping="Wrap"/>
+                                </StackPanel>
 
-                                <Label Grid.Row="14" Grid.Column="0" Background="White" Name="TFTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                    <TextBox  Grid.Row="14" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="TFTime" IsTabStop="False"  Visibility="Hidden">
-                                </TextBox>
-
-                                <Label Grid.Row="15" Grid.Column="0" Background="White" Margin="0,3,10,0" Name="TFTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                    <TextBox  Grid.Row="15" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="TFTiming" IsTabStop="False" Visibility="Hidden">
-                                </TextBox>
-                            </Grid>
-
-                            <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="TFAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
-                                <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="TFUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
-                                <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="TFMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
                             </StackPanel>
-
-                        </StackPanel>
-                    </TabItem>
+                        </TabItem>
                         <TabItem Header="{DynamicResource NewDev.LegInturn}" Width="115" FocusVisualStyle="{x:Null}">
-                        <StackPanel Orientation="Horizontal">
-                            <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
-                                </Grid.Background>
-                                <TextBox Name="LEAttr1" Height="20" Width="50" Margin="107,58,139,237.2"  IsEnabled="False" ></TextBox>
-                                <!--<TextBox Name="LEAttr2" Height="20" Width="50" Margin="24,189,222,106.2"   IsEnabled="False"></TextBox>-->
-                                <TextBox Name="LEAttr3" Height="20" Width="50" Margin="24,102,222,193.2"   IsEnabled="False"></TextBox>
-                                <TextBox Name="LEAttr4" Height="20" Width="50" Margin="144,240,102,55.2"   IsEnabled="False"></TextBox>
-                                <TextBox Name="LEAttr5" Height="20" Width="50" Margin="174,189,72,106.2"   IsEnabled="False"></TextBox>
-                            </Grid>
+                            <StackPanel Orientation="Horizontal">
+                                <Grid Margin="30,50,0,128.4" Width="296">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="/view/Images/KFA-14.jpg" Stretch="Fill"  />
+                                    </Grid.Background>
+                                </Grid>
 
-                            <Grid Margin="30,50,0,0" Width="286" >
+                                <Grid Margin="30,50,0,0" Width="286" >
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                    <Label Background="Gray" Margin="0,0,10,0 "   Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="LEGroupcount"  IsEnabled="False" />
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" CaretBrush="Black" Margin="0,0,20,0" Name="LEGroupcount" VerticalContentAlignment="Center" />
 
-                                    <Label Background="Gray" Margin="0,3,10,0"   Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="LEGroupnum"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Reps}"  Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LEGroupnum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="LERelaxTime"   IsEnabled="False"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
+                                    <TextBox Grid.Row="2" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LERelaxTime" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray"    Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"  Name="LEWeight"   IsEnabled="False" />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Power}"  />
+                                    <TextBox Grid.Row="3" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LEPower" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="LEMoveway" IsEnabled="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="LEMoveway"  IsEnabled="False"/>
 
-                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="LESportstrength"  IsEnabled="False" />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
+                                    <TextBox Grid.Row="5" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LESportstrength" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="LETime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
+                                    <TextBox Grid.Row="6" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LETime1" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="LEDistance" IsEnabled="False"  />
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LEHeartRateList" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="LECountworkqu"   IsEnabled="False"/>
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
+                                    <TextBox Grid.Row="8" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LEEnergy" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="LECal"  IsEnabled="False" />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.FinishNumber}"  />
+                                    <TextBox Grid.Row="9" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LEFinishNum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="LEIndex"  IsEnabled="False" />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainingModel}"  />
+                                    <TextBox  Grid.Row="10" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="LETrainingModel" IsTabStop="False"  />
 
-                                    <Label Grid.Row="11" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="LETime2"  IsEnabled="False" />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="White" Name="LECF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
+                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LEConsequentForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                    <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="LEFinishgroup"  IsEnabled="False" />-->
+                                    <Label Grid.Row="12" Grid.Column="0" Background="White" Name="LERF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
+                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LEReverseForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                    <Label Grid.Row="12" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="LEEvaluate" IsEnabled="False"/>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="White" Name="LESR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
+                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LESpeedRank" VerticalContentAlignment="Center"  Visibility="Hidden"/>
+                                </Grid>
 
-                                    <Label Grid.Row="13" Grid.Column="0" Background="Gray"    Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                    <TextBox  Grid.Row="13" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="LETimer" IsTabStop="False"  >
-                                </TextBox>
+                                <StackPanel Margin="0,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="LEAttentionpoint" TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <StackPanel Margin="20,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="LEChart" TextWrapping="Wrap"/>
+                                </StackPanel>
 
-                                    <Label Grid.Row="14" Grid.Column="0" Background="White"    Name="LETime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                    <TextBox  Grid.Row="14" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="LETime" IsTabStop="False"  Visibility="Hidden">
-                                   
-                                </TextBox>
-
-                                    <Label Grid.Row="15" Grid.Column="0" Background="White"    Margin="0,3,10,0" Name="LETiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                    <TextBox  Grid.Row="15" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="LETiming" IsTabStop="False" Visibility="Hidden">
-                                </TextBox>
-                            </Grid>
-
-                            <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="LEAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
-                                <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="LEUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
-                                <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="LEMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
                             </StackPanel>
-
-                        </StackPanel>
-                    </TabItem>
+                        </TabItem>
                         <TabItem Header="{DynamicResource NewDev.HorizontalLegPress}" Width="145" FocusVisualStyle="{x:Null}">
-                        <StackPanel Orientation="Horizontal">
-                            <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
-                                </Grid.Background>
-                                <TextBox Name="HAAttr1" Height="20" Width="50" Margin="160,66,86,229.2" RenderTransformOrigin="-0.096,-0.43"  IsEnabled="False" ></TextBox>
-                                <!--<TextBox Name="HAAttr2" Height="20" Width="50" Margin="78,169,168,126.2"   IsEnabled="False"/>-->
-                                <TextBox Name="HAAttr3" Height="20" Width="50" Margin="171,202,75,93.2" RenderTransformOrigin="0.328,0.47"  IsEnabled="False" ></TextBox>
-                            </Grid>
-                            <Grid Margin="30,50,0,0" Width="286"   >
+                            <StackPanel Orientation="Horizontal">
+                                <Grid Margin="30,50,0,128.4" Width="296">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="/view/Images/KFA-15.jpg" Stretch="Fill"  />
+                                    </Grid.Background>
+                                </Grid>
+                                <Grid Margin="30,50,0,0" Width="286" >
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                    <Label Background="Gray" Margin="0,0,10,0"   Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="HAGroupcount"  IsEnabled="False" />
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" CaretBrush="Black" Margin="0,0,20,0" Name="HAGroupcount" VerticalContentAlignment="Center" />
 
-                                    <Label Background="Gray" Margin="0,3,10,0"   Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="HAGroupnum"  IsEnabled="False"  />
+                                    <Label Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Reps}"  Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HAGroupnum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="HARelaxTime"  IsEnabled="False" />
+                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
+                                    <TextBox Grid.Row="2" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HARelaxTime" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray"   Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"  Name="HAWeight"  IsEnabled="False" />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Power}"  />
+                                    <TextBox Grid.Row="3" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HAPower" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="HAMoveway" IsEnabled="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="HAMoveway"  IsEnabled="False"/>
 
-                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="HASportstrength"  IsEnabled="False" />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
+                                    <TextBox Grid.Row="5" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HASportstrength" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="HATime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
+                                    <TextBox Grid.Row="6" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HATime1" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="HADistance"  IsEnabled="False" />
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HAHeartRateList" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="HACountworkqu"  IsEnabled="False" />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
+                                    <TextBox Grid.Row="8" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HAEnergy" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="HACal"  IsEnabled="False" />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.FinishNumber}"  />
+                                    <TextBox Grid.Row="9" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HAFinishNum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="HAIndex"   IsEnabled="False"/>
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainingModel}"  />
+                                    <TextBox  Grid.Row="10" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="HATrainingModel" IsTabStop="False"  />
 
-                                    <Label Grid.Row="11" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="HATime2"  IsEnabled="False" />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="White" Name="HACF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
+                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HAConsequentForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                <!--<Label Grid.Row="12" Grid.Column="0" Background="Gray" Margin="0,3,10,0"   Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="HAFinishgroup"  IsEnabled="False" />-->
+                                    <Label Grid.Row="12" Grid.Column="0" Background="White" Name="HARF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
+                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HAReverseForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                    <Label Grid.Row="12" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="HAEvaluate" IsEnabled="False"/>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="White" Name="HASR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
+                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HASpeedRank" VerticalContentAlignment="Center"  Visibility="Hidden"/>
+                                </Grid>
 
-                                    <Label Grid.Row="13" Grid.Column="0" Background="Gray"   Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                    <TextBox  Grid.Row="13" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="HATimer" IsTabStop="False" >
-                                </TextBox>
+                                <StackPanel Margin="0,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="HAAttentionpoint" TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <StackPanel Margin="20,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="HAChart" TextWrapping="Wrap"/>
+                                </StackPanel>
 
-                                    <Label Grid.Row="14" Grid.Column="0" Background="White"   Name="HATime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                    <TextBox  Grid.Row="14" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="HATime" IsTabStop="False"  Visibility="Hidden">
-                                </TextBox>
-
-                                    <Label Grid.Row="15" Grid.Column="0" Background="White"   Margin="0,3,10,0" Name="HATiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                    <TextBox  Grid.Row="15" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="HATiming" IsTabStop="False" Visibility="Hidden">
-                                </TextBox>
-                            </Grid>
-
-                            <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HAAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
-                                <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HAUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
-                                <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="HAMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0">
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
                             </StackPanel>
-
-                        </StackPanel>
-                    </TabItem>
+                        </TabItem>
                         <TabItem Header="{DynamicResource NewDev.LegAbduction}" Width="115" FocusVisualStyle="{x:Null}">
-                        <StackPanel Orientation="Horizontal">
-                            <Grid Margin="30,50,0,128.4" Width="296">
-                                <Grid.Background>
-                                    <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
-                                </Grid.Background>
-                                <TextBox Name="CPAttr1" Height="20" Width="50" Margin="130,66,116,229.2" RenderTransformOrigin="-0.188,-0.34"  IsEnabled="False" ></TextBox>
-                                <!--<TextBox Name="CPAttr2" Height="20" Width="50" Margin="47,171,199,124.2" IsEnabled="False"  ></TextBox>-->
-                                <TextBox Name="CPAttr3" Width="50" Height="20" Margin="150,204,96,94.2"  IsEnabled="False" />
-                            </Grid>
+                            <StackPanel Orientation="Horizontal">
+                                <Grid Margin="30,50,0,128.4" Width="296">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
+                                    </Grid.Background>
+                                </Grid>
 
-                            <Grid Margin="30,50,0,0" Width="286" >
+                                <Grid Margin="30,50,0,0" Width="286" >
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                    <Label Background="Gray" Margin="0,0,10,0"  Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="CPGroupcount"  IsEnabled="False" />
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" CaretBrush="Black" Margin="0,0,20,0" Name="CPGroupcount" VerticalContentAlignment="Center" />
 
-                                    <Label Background="Gray" Margin="0,3,10,0"   Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="CPGroupnum"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Reps}"  Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPGroupnum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="2" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="CPRelaxTime" IsEnabled="False"  />
+                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
+                                    <TextBox Grid.Row="2" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPRelaxTime" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="3" Grid.Column="0"   Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"  Name="CPWeight"  IsEnabled="False" />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Power}"  />
+                                    <TextBox Grid.Row="3" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPPower" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="4" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="CPMoveway" IsEnabled="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="CPMoveway"  IsEnabled="False"/>
 
-                                    <Label Grid.Row="5" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="CPSportstrength"  IsEnabled="False" />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
+                                    <TextBox Grid.Row="5" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPSportstrength" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="6" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="CPTime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
+                                    <TextBox Grid.Row="6" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPTime1" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="7" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="CPDistance"   IsEnabled="False"/>
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPHeartRateList" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="8" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="CPCountworkqu"  IsEnabled="False" />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
+                                    <TextBox Grid.Row="8" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPEnergy" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="9" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="CPCal"   IsEnabled="False" />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.FinishNumber}"  />
+                                    <TextBox Grid.Row="9" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPFinishNum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="10" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="CPIndex"  IsEnabled="False" />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainingModel}"  />
+                                    <TextBox  Grid.Row="10" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="CPTrainingModel" IsTabStop="False"  />
 
-                                    <Label Grid.Row="11" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
-                                <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="CPTime2"  IsEnabled="False" />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="White" Name="CPCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
+                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPConsequentForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                    <!--<Label Grid.Row="12" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalSetsdone}" />
-                                <TextBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="CPFinishgroup"  IsEnabled="False" />-->
+                                    <Label Grid.Row="12" Grid.Column="0" Background="White" Name="CPRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
+                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPReverseForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                    <Label Grid.Row="12" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="CPEvaluate" IsEnabled="False"/>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="White" Name="CPSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
+                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPSpeedRank" VerticalContentAlignment="Center"  Visibility="Hidden"/>
+                                </Grid>
 
+                                <StackPanel Margin="0,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="CPAttentionpoint" TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <StackPanel Margin="20,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="CPChart" TextWrapping="Wrap"/>
+                                </StackPanel>
 
-                                    <Label Grid.Row="13" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                    <TextBox  Grid.Row="13" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="CPTimer" IsTabStop="False"  >
-                                </TextBox>
-
-                                    <Label Grid.Row="14" Grid.Column="0"   Background="White" Name="CPTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                    <TextBox  Grid.Row="14" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="CPTime" IsTabStop="False"  Visibility="Hidden" >
-                                </TextBox>
-
-                                    <Label Grid.Row="15" Grid.Column="0"   Background="White" Margin="0,3,10,0" Name="CPTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                    <TextBox  Grid.Row="15" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="CPTiming" IsTabStop="False" Visibility="Hidden">
-                                </TextBox>
-                            </Grid>
-
-                            <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="CPAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
-                                <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="CPUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
-                                <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                <TextBox Height="104" Margin="0,2,-0.2,0" Name="CPMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-                                <!--<RichTextBox  AcceptsReturn="True"   Height="104" Margin="0,2,26,0" >
-                                    -->
-                                <!--行间距-->
-                                <!--
-                                    <RichTextBox.Document>
-                                        <FlowDocument Focusable="True" LineHeight="1" >
-                                        </FlowDocument>
-                                    </RichTextBox.Document>
-                                </RichTextBox>-->
                             </StackPanel>
-
-                        </StackPanel>
-                    </TabItem>
+                        </TabItem>
                         <TabItem Header="{DynamicResource NewDev.AbdominalMuscleTraining}" Width="115" FocusVisualStyle="{x:Null}">
                             <StackPanel Orientation="Horizontal">
                                 <Grid Margin="30,50,0,128.4" Width="296">
@@ -865,67 +610,56 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Background="Gray" Margin="0,0,10,0"  Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
-                                    <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="AMTGroupcount"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" CaretBrush="Black" Margin="0,0,20,0" Name="NewAGroupcount" VerticalContentAlignment="Center" />
 
-                                    <Label Background="Gray" Margin="0,3,10,0"   Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                    <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="AMTGroupnum"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Reps}"  Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewAGroupnum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="2" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                    <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="AMTRelaxTime" IsEnabled="False"  />
+                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
+                                    <TextBox Grid.Row="2" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewARelaxTime" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="3" Grid.Column="0"   Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                    <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"  Name="AMTWeight"  IsEnabled="False" />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Power}"  />
+                                    <TextBox Grid.Row="3" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewAPower" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="4" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="AMTMoveway" IsEnabled="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="NewAMoveway"  IsEnabled="False"/>
 
-                                    <Label Grid.Row="5" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                    <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="AMTSportstrength"  IsEnabled="False" />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
+                                    <TextBox Grid.Row="5" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewASportstrength" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="6" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
-                                    <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="AMTTime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
+                                    <TextBox Grid.Row="6" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewATime1" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="7" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                    <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="AMTDistance"   IsEnabled="False"/>
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewAHeartRateList" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="8" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                    <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="AMTCountworkqu"  IsEnabled="False" />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
+                                    <TextBox Grid.Row="8" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewAEnergy" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="9" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                    <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="AMTCal"   IsEnabled="False" />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.FinishNumber}"  />
+                                    <TextBox Grid.Row="9" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewAFinishNum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="10" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                    <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="AMTIndex"  IsEnabled="False" />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainingModel}"  />
+                                    <TextBox  Grid.Row="10" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="NewATrainingModel" IsTabStop="False"  />
 
-                                    <Label Grid.Row="11" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
-                                    <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="AMTTime2"  IsEnabled="False" />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="White" Name="NewACF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
+                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewAConsequentForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                    <Label Grid.Row="12" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                    <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="AMTEvaluate" IsEnabled="False"/>
+                                    <Label Grid.Row="12" Grid.Column="0" Background="White" Name="NewARF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
+                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewAReverseForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                    <Label Grid.Row="13" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                    <TextBox  Grid.Row="13" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="AMTTimer" IsTabStop="False"  >
-                                    </TextBox>
-
-                                    <Label Grid.Row="14" Grid.Column="0"   Background="White" Name="AMTTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                    <TextBox  Grid.Row="14" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="AMTTime" IsTabStop="False"  Visibility="Hidden" >
-                                    </TextBox>
-
-                                    <Label Grid.Row="15" Grid.Column="0"   Background="White" Margin="0,3,10,0" Name="AMTTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                    <TextBox  Grid.Row="15" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="AMTTiming" IsTabStop="False" Visibility="Hidden">
-                                    </TextBox>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="White" Name="NewASR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
+                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewASpeedRank" VerticalContentAlignment="Center"  Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                    <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,-0.2,0" Name="AMTAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-
-                                    <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,-0.2,0" Name="AMTUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-
-                                    <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,-0.2,0" Name="AMTMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="NewAAttentionpoint" TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <StackPanel Margin="20,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="NewAChart" TextWrapping="Wrap"/>
                                 </StackPanel>
 
                             </StackPanel>
@@ -961,67 +695,56 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Background="Gray" Margin="0,0,10,0"  Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
-                                    <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="TTGroupcount"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" CaretBrush="Black" Margin="0,0,20,0" Name="NewBGroupcount" VerticalContentAlignment="Center" />
 
-                                    <Label Background="Gray" Margin="0,3,10,0"   Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                    <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="TTGroupnum"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Reps}"  Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBGroupnum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="2" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                    <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="TTRelaxTime" IsEnabled="False"  />
+                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
+                                    <TextBox Grid.Row="2" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBRelaxTime" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="3" Grid.Column="0"   Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                    <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"  Name="TTWeight"  IsEnabled="False" />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Power}"  />
+                                    <TextBox Grid.Row="3" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBPower" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="4" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="TTMoveway" IsEnabled="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="NewBMoveway"  IsEnabled="False"/>
 
-                                    <Label Grid.Row="5" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                    <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="TTSportstrength"  IsEnabled="False" />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
+                                    <TextBox Grid.Row="5" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBSportstrength" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="6" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
-                                    <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="TTTime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
+                                    <TextBox Grid.Row="6" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBTime1" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="7" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                    <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="TTDistance"   IsEnabled="False"/>
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBHeartRateList" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="8" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                    <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="TTCountworkqu"  IsEnabled="False" />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
+                                    <TextBox Grid.Row="8" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBEnergy" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="9" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                    <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="TTCal"   IsEnabled="False" />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.FinishNumber}"  />
+                                    <TextBox Grid.Row="9" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBFinishNum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="10" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                    <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="TTIndex"  IsEnabled="False" />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainingModel}"  />
+                                    <TextBox  Grid.Row="10" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="NewBTrainingModel" IsTabStop="False"  />
 
-                                    <Label Grid.Row="11" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
-                                    <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="TTTime2"  IsEnabled="False" />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="White" Name="NewBCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
+                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBConsequentForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                    <Label Grid.Row="12" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                    <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="TTEvaluate" IsEnabled="False"/>
+                                    <Label Grid.Row="12" Grid.Column="0" Background="White" Name="NewBRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
+                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBReverseForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                    <Label Grid.Row="13" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                    <TextBox  Grid.Row="13" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="TTTimer" IsTabStop="False"  >
-                                    </TextBox>
-
-                                    <Label Grid.Row="14" Grid.Column="0"   Background="White" Name="TTTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                    <TextBox  Grid.Row="14" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="TTTime" IsTabStop="False"  Visibility="Hidden" >
-                                    </TextBox>
-
-                                    <Label Grid.Row="15" Grid.Column="0"   Background="White" Margin="0,3,10,0" Name="TTTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                    <TextBox  Grid.Row="15" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="TTTiming" IsTabStop="False" Visibility="Hidden">
-                                    </TextBox>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="White" Name="NewBSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
+                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBSpeedRank" VerticalContentAlignment="Center"  Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                    <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,-0.2,0" Name="TTAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-
-                                    <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,-0.2,0" Name="TTUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-
-                                    <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,-0.2,0" Name="TTMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="NewBAttentionpoint" TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <StackPanel Margin="20,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="NewBChart" TextWrapping="Wrap"/>
                                 </StackPanel>
 
                             </StackPanel>
@@ -1033,7 +756,6 @@
                                         <ImageBrush ImageSource="/view/Images/KFA-1819.jpg" Stretch="Fill"  />
                                     </Grid.Background>
                                 </Grid>
-
                                 <Grid Margin="30,50,0,0" Width="286" >
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
@@ -1057,67 +779,56 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Background="Gray" Margin="0,0,10,0"  Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
-                                    <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="BMGroupcount"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" CaretBrush="Black" Margin="0,0,20,0" Name="NewCGroupcount" VerticalContentAlignment="Center" />
 
-                                    <Label Background="Gray" Margin="0,3,10,0"   Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                    <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="BMGroupnum"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Reps}"  Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCGroupnum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="2" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                    <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="BMRelaxTime" IsEnabled="False"  />
+                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
+                                    <TextBox Grid.Row="2" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCRelaxTime" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="3" Grid.Column="0"   Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                    <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"  Name="BMWeight"  IsEnabled="False" />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Power}"  />
+                                    <TextBox Grid.Row="3" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCPower" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="4" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="BMMoveway" IsEnabled="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="NewCMoveway"  IsEnabled="False"/>
 
-                                    <Label Grid.Row="5" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                    <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="BMSportstrength"  IsEnabled="False" />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
+                                    <TextBox Grid.Row="5" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCSportstrength" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="6" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
-                                    <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="BMTime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
+                                    <TextBox Grid.Row="6" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCTime1" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="7" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                    <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="BMDistance"   IsEnabled="False"/>
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCHeartRateList" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="8" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                    <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="BMCountworkqu"  IsEnabled="False" />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
+                                    <TextBox Grid.Row="8" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCEnergy" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="9" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                    <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="BMCal"   IsEnabled="False" />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.FinishNumber}"  />
+                                    <TextBox Grid.Row="9" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCFinishNum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="10" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                    <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="BMIndex"  IsEnabled="False" />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainingModel}"  />
+                                    <TextBox  Grid.Row="10" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="NewCTrainingModel" IsTabStop="False"  />
 
-                                    <Label Grid.Row="11" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
-                                    <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="BMTime2"  IsEnabled="False" />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="White" Name="NewCCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
+                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCConsequentForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                    <Label Grid.Row="12" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                    <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="BMEvaluate" IsEnabled="False"/>
+                                    <Label Grid.Row="12" Grid.Column="0" Background="White" Name="NewCRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
+                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCReverseForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                    <Label Grid.Row="13" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                    <TextBox  Grid.Row="13" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="BMTimer" IsTabStop="False"  >
-                                    </TextBox>
-
-                                    <Label Grid.Row="14" Grid.Column="0"   Background="White" Name="BMTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                    <TextBox  Grid.Row="14" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="BMTime" IsTabStop="False"  Visibility="Hidden" >
-                                    </TextBox>
-
-                                    <Label Grid.Row="15" Grid.Column="0"   Background="White" Margin="0,3,10,0" Name="BMTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                    <TextBox  Grid.Row="15" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="BMTiming" IsTabStop="False" Visibility="Hidden">
-                                    </TextBox>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="White" Name="NewCSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
+                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCSpeedRank" VerticalContentAlignment="Center"  Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                    <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,-0.2,0" Name="BMAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-
-                                    <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,-0.2,0" Name="BMUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-
-                                    <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,-0.2,0" Name="BMMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="NewCAttentionpoint" TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <StackPanel Margin="20,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="NewCChart" TextWrapping="Wrap"/>
                                 </StackPanel>
 
                             </StackPanel>
@@ -1153,81 +864,70 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Background="Gray" Margin="0,0,10,0"  Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
-                                    <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" Name="RBMGroupcount"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,0,10,0" Content="{DynamicResource TrainingResultView.#ofSets}" Grid.Row="0" Grid.Column="0"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" CaretBrush="Black" Margin="0,0,20,0" Name="NewDGroupcount" VerticalContentAlignment="Center" />
 
-                                    <Label Background="Gray" Margin="0,3,10,0"   Content="{DynamicResource TrainingResultView.Reps}" Grid.Row="1" Grid.Column="0"/>
-                                    <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3,20,0" Name="RBMGroupnum"  IsEnabled="False" />
+                                    <Label Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Reps}"  Grid.Row="1" Grid.Column="0"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDGroupnum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="2" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Resttime}" />
-                                    <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3,20,0" Name="RBMRelaxTime" IsEnabled="False"  />
+                                    <Label Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Resttime}"  />
+                                    <TextBox Grid.Row="2" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDRelaxTime" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="3" Grid.Column="0"   Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Weight}" />
-                                    <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3,20,0"  Name="RBMWeight"  IsEnabled="False" />
+                                    <Label Grid.Row="3" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Power}"  />
+                                    <TextBox Grid.Row="3" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDPower" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="4" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Transfer}" />
-                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="RBMMoveway" IsEnabled="False"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Transfer}"  />
+                                    <TextBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="NewDMoveway"  IsEnabled="False"/>
 
-                                    <Label Grid.Row="5" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.BorgScale}" />
-                                    <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="RBMSportstrength"  IsEnabled="False" />
+                                    <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
+                                    <TextBox Grid.Row="5" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDSportstrength" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="6" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TrainTime(min)}" />
-                                    <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3,20,0" Name="RBMTime1"  IsEnabled="False" />
+                                    <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
+                                    <TextBox Grid.Row="6" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDTime1" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="7" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Distance(m)}" />
-                                    <TextBox Grid.Row="7" Grid.Column="1" Margin="0,3,20,0" Name="RBMDistance"   IsEnabled="False"/>
+                                    <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDHeartRateList" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="8" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TotalWork(J)}"  />
-                                    <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3,20,0" Name="RBMCountworkqu"  IsEnabled="False" />
+                                    <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
+                                    <TextBox Grid.Row="8" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDEnergy" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="9" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Calorie(cal)}" />
-                                    <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3,20,0" Name="RBMCal"   IsEnabled="False" />
+                                    <Label Grid.Row="9" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.FinishNumber}"  />
+                                    <TextBox Grid.Row="9" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDFinishNum" VerticalContentAlignment="Center" />
 
-                                    <Label Grid.Row="10" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Score}" />
-                                    <TextBox Grid.Row="10" Grid.Column="1" Margin="0,3,20,0" Name="RBMIndex"  IsEnabled="False" />
+                                    <Label Grid.Row="10" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainingModel}"  />
+                                    <TextBox  Grid.Row="10" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="NewDTrainingModel" IsTabStop="False"  />
 
-                                    <Label Grid.Row="11" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Time(min)}" />
-                                    <TextBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="RBMTime2"  IsEnabled="False" />
+                                    <Label Grid.Row="11" Grid.Column="0" Background="White" Name="NewDCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
+                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDConsequentForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                    <Label Grid.Row="12" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timing/form}" />
-                                    <TextBox  Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="RBMEvaluate" IsEnabled="False"/>
+                                    <Label Grid.Row="12" Grid.Column="0" Background="White" Name="NewDRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
+                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDReverseForce" VerticalContentAlignment="Center"  Visibility="Hidden"/>
 
-                                    <Label Grid.Row="13" Grid.Column="0"   Background="Gray" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.Timer}" />
-                                    <TextBox  Grid.Row="13" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="RBMTimer" IsTabStop="False"  >
-                                    </TextBox>
-
-                                    <Label Grid.Row="14" Grid.Column="0"   Background="White" Name="RBMTime_Label" Margin="0,3,10,0" Content="{DynamicResource TrainingResultView.TimerCount}"  />
-                                    <TextBox  Grid.Row="14" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="RBMTime" IsTabStop="False"  Visibility="Hidden" >
-                                    </TextBox>
-
-                                    <Label Grid.Row="15" Grid.Column="0"   Background="White" Margin="0,3,10,0" Name="RBMTiming_Label" Content="{DynamicResource TrainingResultView.TimeType}" />
-                                    <TextBox  Grid.Row="15" Grid.Column="1" IsEnabled="False" Margin="0,3,20,0"  Name="RBMTiming" IsTabStop="False" Visibility="Hidden">
-                                    </TextBox>
+                                    <Label Grid.Row="13" Grid.Column="0" Background="White" Name="NewDSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
+                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDSpeedRank" VerticalContentAlignment="Center"  Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="0,50,0,9.6" Width="245" >
-                                    <Label Content="{DynamicResource TrainingResultView.TrainingCaution}" Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,-0.2,0" Name="RBMAttentionpoint" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-
-                                    <Label Content="{DynamicResource TrainingResultView.Subjectcomment}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,-0.2,0" Name="RBMUserthoughts" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
-
-                                    <Label Content="{DynamicResource TrainingResultView.TrainingMemo}" Background="Gray"  Margin="0,2,-0.4,0" />
-                                    <TextBox Height="104" Margin="0,2,-0.2,0" Name="RBMMemo" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+                                    <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="NewDAttentionpoint" TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <StackPanel Margin="20,50,0,9.6" Width="245" >
+                                    <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
+                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="NewDChart" TextWrapping="Wrap"/>
                                 </StackPanel>
 
                             </StackPanel>
                         </TabItem>
                     </TabControl>
+                </Grid>
             </Grid>
-        </Grid>
-        <!-- 四个按钮排放位置-->
-        <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="335" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2" Margin="0,0,5,10">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+            <!-- 四个按钮排放位置-->
+            <Border CornerRadius="5,5,0,0" Background="White" HorizontalAlignment="Right" Width="335" Height="29" VerticalAlignment="Bottom" Padding="0,2,0,2" Margin="0,0,5,10">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
 
-                <Button Width="140"  Content="关闭"  Style="{StaticResource Btn}" Margin="2,0,0,-0.2" Click="Cancel"/>
-            </StackPanel>
-        </Border>
-    </StackPanel>
+                    <Button Width="140"  Content="关闭"  Style="{StaticResource Btn}" Margin="2,0,0,-0.2" Click="Cancel"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
     </Viewbox>
 </Window>
