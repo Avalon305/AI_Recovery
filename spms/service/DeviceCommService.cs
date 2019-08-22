@@ -250,7 +250,7 @@ namespace spms.service
 				Power = request.Power,
 				Speed_rank = request.SpeedRank,
 				Finish_num = request.FinishNum,
-				Distance = request.Distance,
+				Finish_time=request.FinishTime,
 				Energy = request.Energy,
 				Heart_rate_list = request.HeartRateList,
 				pr_userthoughts = request.PrUserthoughts
@@ -447,11 +447,11 @@ namespace spms.service
 				Success = false
 			};
 
-			logger.Error("当前出现错误时间" + request.ErrorStartTime
-						 + "用户id" + request.Uid
-						 + "设备类型" + request.Uid
-						 + "训练模式" + request.TrainMode
-						 + "错误信息" + request.Error
+			logger.Error("当前出现错误时间," + request.ErrorStartTime
+						 + ",用户id" + request.Uid
+						 + ",设备类型" + (int)request.DeviceType
+						 + ",训练模式" + (int)request.TrainMode
+						 + ",错误信息" + request.Error
 				);
 			response.Success = true;
 			return response;
