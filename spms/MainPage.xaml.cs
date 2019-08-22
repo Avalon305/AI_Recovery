@@ -1235,9 +1235,37 @@ namespace spms.view.Pages
             };
             nuitrackScan.ShowDialog();
         }
-
+        /// <summary>
+        /// 查看图表按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ViewChart(object sender, RoutedEventArgs e)
         {
+            //EchartWindow echartWindow = new EchartWindow();
+            //echartWindow.ShowDialog();
+            User user = (User)UsersInfo.SelectedItem;
+            Muscle muscle = new Muscle
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+            };
+            if (user == null)
+            {
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                return;
+            }
+            if (string.IsNullOrEmpty(user.User_Phone) || string.IsNullOrEmpty(user.User_IDCard))
+            {
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("用户信息不完整！", "Subject information is incomplete!"));
+                return;
+            }
+            //muscle.DataContext = user;
+            //改为设置配置属性来记录选择的用户id
+            CommUtil.UpdateSettingString("selectedUserId",user.Pk_User_Id.ToString());
+            muscle.ShowDialog();
 
         }
 

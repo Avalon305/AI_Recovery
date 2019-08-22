@@ -169,6 +169,7 @@
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
@@ -206,9 +207,11 @@
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="dao\app\SetterDAO.cs" />
     <Compile Include="dao\DataCodeDAO.cs" />
+    <Compile Include="dao\MusclePieChartDAO.cs" />
     <Compile Include="dao\PersonalSettingDao.cs" />
     <Compile Include="dao\PhysicalPowerDAO.cs" />
     <Compile Include="dao\PrescriptionResultTwoDao.cs" />
+    <Compile Include="dao\ProcessDAO.cs" />
     <Compile Include="dao\SkeletonLengthDAO.cs" />
     <Compile Include="dao\UploadManagementDAO.cs" />
     <Compile Include="dao\UserDAO.cs" />
@@ -249,7 +252,9 @@
     <Compile Include="ImageDealer\PicZipUtil.cs" />
     <Compile Include="protocol\BdlProto.cs" />
     <Compile Include="service\DeviceCommService.cs" />
+    <Compile Include="service\MusclePieChartService.cs" />
     <Compile Include="service\OnlineDeviceService.cs" />
+    <Compile Include="service\ProcessService.cs" />
     <Compile Include="util\ConfigUtil.cs" />
     <Compile Include="util\LanguageUtils.cs" />
     <Compile Include="view\converter\CareLevelConvert.cs" />
@@ -279,8 +284,14 @@
     <Compile Include="view\Pages\ChildWin\UpdateSymptominfo.xaml.cs">
       <DependentUpon>UpdateSymptominfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\Pages\EchartWindow.xaml.cs">
+      <DependentUpon>EchartWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\MessageBoxX.xaml.cs">
       <DependentUpon>MessageBoxX.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\Muscle.xaml.cs">
+      <DependentUpon>Muscle.xaml</DependentUpon>
     </Compile>
     <Compile Include="zero.xaml.cs">
       <DependentUpon>zero.xaml</DependentUpon>
@@ -512,7 +523,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\Pages\EchartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\Pages\MessageBoxX.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\Muscle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -765,6 +784,21 @@
     </Resource>
     <Resource Include="doc\none_english.png" />
     <Resource Include="doc\logo_english.png" />
+    <Content Include="Echarts\dist\AerobicStacked.html" />
+    <Content Include="Echarts\dist\CourseRecord.html" />
+    <Content Include="Echarts\dist\echarts-all.js" />
+    <Content Include="Echarts\dist\echarts.js" />
+    <Content Include="Echarts\dist\EndurancePie.html" />
+    <Content Include="Echarts\dist\Line.html" />
+    <Content Include="Echarts\dist\LineChart.html" />
+    <Content Include="Echarts\dist\macarons.js" />
+    <Content Include="Echarts\dist\Pie.html" />
+    <Content Include="Echarts\dist\shine.js" />
+    <Content Include="Echarts\dist\Stacked.html" />
+    <Content Include="Echarts\dist\StrengthEnduranceStacked.html" />
+    <Content Include="Echarts\dist\StrengthStacked.html" />
+    <Content Include="Echarts\dist\Test.html" />
+    <Content Include="Echarts\dist\TrainingUnit.html" />
     <Content Include="lib\libmupdf.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -860,6 +894,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Echarts\dist\chart\" />
     <Folder Include="System\Windows\" />
   </ItemGroup>
   <ItemGroup>
