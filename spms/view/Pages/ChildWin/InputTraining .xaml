@@ -877,10 +877,10 @@
                             <ComboBox Name="combobox_55" IsTabStop="False" Height="21"   IsEnabled="{Binding IsChecked, ElementName=checkbox6}"/>
                         </Border>
 
-                        <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="10,3,0,0" >
+                        <Border Grid.Row="4" Grid.Column="0" Background="Gray" Margin="0,3,10,0" >
                             <Label  FontSize="10" Foreground="White" Height="21"  VerticalContentAlignment="Center" Margin="0,0,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=checkbox6}" Content="{DynamicResource TrainingListView.TrainingModel}"></Label>
                         </Border>
-                        <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="10,3,10,0">
+                        <Border Grid.Row="4" Grid.Column="1" Background="Gray" Margin="0,3,10,0">
                             <ComboBox Name="combobox_56" IsTabStop="False" Height="21"  DropDownClosed="select_change6"  IsEnabled="{Binding IsChecked, ElementName=checkbox6}">
                                 <ComboBoxItem Content="{DynamicResource TrainingListView.RehabilitationModel}"></ComboBoxItem>
                                 <ComboBoxItem Content="{DynamicResource TrainingListView.ActiveModel}"></ComboBoxItem>

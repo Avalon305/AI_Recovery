@@ -116,7 +116,7 @@ namespace spms.view.Pages.ChildWin
         /// </summary>
         /// <param name="start"></param>
         /// <param name="end"></param>
-        /// <param name="type">1为正常，2为联动</param>
+        /// <param name="type">1为一次+0.5，2为一次+1</param>
         /// <returns></returns>
         private List<double> Add(double start, double end, int type)
 
@@ -1022,6 +1022,7 @@ namespace spms.view.Pages.ChildWin
 
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
                 devicePrescription.Dp_memo = t1.Text; //注意点
+                devicePrescription.Fk_ds_id = (int)DeviceType.P01;
                 devicePrescription.Gmt_create = DateTime.Now;
                 devicePrescription.Gmt_modified = DateTime.Now;
 
@@ -1135,6 +1136,7 @@ namespace spms.view.Pages.ChildWin
 
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
                 devicePrescription.Dp_memo = t2.Text; //注意点
+                devicePrescription.Fk_ds_id = (int)DeviceType.P00;
                 devicePrescription.Gmt_create = DateTime.Now;
                 devicePrescription.Gmt_modified = DateTime.Now;
 
@@ -1238,7 +1240,7 @@ namespace spms.view.Pages.ChildWin
             {
                 devName = "坐式背部伸展机";
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
-
+                devicePrescription.Fk_ds_id = (int)DeviceType.P09;
                 devicePrescription.Dp_memo = t3.Text; //注意点
                 devicePrescription.Gmt_create = DateTime.Now;
                 devicePrescription.Gmt_modified = DateTime.Now;
@@ -1345,7 +1347,7 @@ namespace spms.view.Pages.ChildWin
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t4.Text; //注意点
-                                                      //  devicePrescription.Fk_DS_Id = (int) DeviceType.X03;
+                devicePrescription.Fk_ds_id = (int)DeviceType.P06;
                 devicePrescription.Gmt_create = DateTime.Now;
                 devicePrescription.Gmt_modified = DateTime.Now;
 
@@ -1452,6 +1454,7 @@ namespace spms.view.Pages.ChildWin
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t5.Text; //注意点
+                devicePrescription.Fk_ds_id = (int)DeviceType.P02;
                 devicePrescription.Gmt_create = DateTime.Now;
                 devicePrescription.Gmt_modified = DateTime.Now;
 
@@ -1557,6 +1560,7 @@ namespace spms.view.Pages.ChildWin
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t6.Text; //注意点
+                devicePrescription.Fk_ds_id = (int)DeviceType.P05;
                 devicePrescription.Gmt_create = DateTime.Now;
                 devicePrescription.Gmt_modified = DateTime.Now;
 
@@ -1662,6 +1666,7 @@ namespace spms.view.Pages.ChildWin
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t7.Text; //注意点
+                devicePrescription.Fk_ds_id = (int)DeviceType.P03;
                 devicePrescription.Gmt_create = DateTime.Now;
                 devicePrescription.Gmt_modified = DateTime.Now;
 
@@ -1767,6 +1772,7 @@ namespace spms.view.Pages.ChildWin
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t8.Text; //注意点
+                devicePrescription.Fk_ds_id = (int)DeviceType.P04;
                 devicePrescription.Gmt_create = DateTime.Now;
                 devicePrescription.Gmt_modified = DateTime.Now;
 
@@ -1872,6 +1878,7 @@ namespace spms.view.Pages.ChildWin
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t9.Text; //注意点
+                devicePrescription.Fk_ds_id = (int)DeviceType.P07;
                 devicePrescription.Gmt_create = DateTime.Now;
                 devicePrescription.Gmt_modified = DateTime.Now;
 
@@ -1977,6 +1984,7 @@ namespace spms.view.Pages.ChildWin
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t10.Text; //注意点
+                devicePrescription.Fk_ds_id = (int)DeviceType.P08;
                 devicePrescription.Gmt_create = DateTime.Now;
                 devicePrescription.Gmt_modified = DateTime.Now;
 
@@ -3144,7 +3152,7 @@ namespace spms.view.Pages.ChildWin
 
         private void select_change(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_06.Text) || LanguageUtils.EqualsResource(combobox_06.Text, "TrainingListView.RehabilitationModel"))
+            if (LanguageUtils.EqualsResource(combobox_06.Text, "TrainingListView.RehabilitationModel"))
             {
                 border6.Background = Brushes.White;
                 border7.Background = Brushes.White;
@@ -3182,10 +3190,25 @@ namespace spms.view.Pages.ChildWin
                 Grid.SetRow(border7, 5);
                 t1.Height = 170;
             }
+            if (String.IsNullOrEmpty(combobox_06.Text))
+            {
+                border1.Background = Brushes.White;
+                border2.Background = Brushes.White;
+                combobox_07.Visibility = Visibility.Hidden;
+                border3.Background = Brushes.White;
+                border4.Background = Brushes.White;
+                combobox_08.Visibility = Visibility.Hidden;
+                border6.Background = Brushes.White;
+                border7.Background = Brushes.White;
+                combobox_09.Visibility = Visibility.Hidden;
+
+                stackpanel.Margin = new Thickness(0, 129.8, 0, 0);
+                t1.Height = 190;
+            }
         }
         private void select_change2(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_16.Text) || LanguageUtils.EqualsResource(combobox_16.Text, "TrainingListView.RehabilitationModel"))
+            if (LanguageUtils.EqualsResource(combobox_16.Text, "TrainingListView.RehabilitationModel"))
             {
                 border16.Background = Brushes.White;
                 border17.Background = Brushes.White;
@@ -3217,16 +3240,31 @@ namespace spms.view.Pages.ChildWin
 
                 border16.Background = Brushes.Gray;
                 border17.Background = Brushes.Gray;
-                combobox_09.Visibility = Visibility.Visible;
+                combobox_19.Visibility = Visibility.Visible;
                 stackpanel2.Margin = new Thickness(0, 149.8, 0, 0);
                 Grid.SetRow(border16, 5);
                 Grid.SetRow(border17, 5);
                 t2.Height = 170;
             }
+            if (String.IsNullOrEmpty(combobox_16.Text))
+            {
+                border11.Background = Brushes.White;
+                border12.Background = Brushes.White;
+                combobox_17.Visibility = Visibility.Hidden;
+                border13.Background = Brushes.White;
+                border14.Background = Brushes.White;
+                combobox_18.Visibility = Visibility.Hidden;
+                border16.Background = Brushes.White;
+                border17.Background = Brushes.White;
+                combobox_19.Visibility = Visibility.Hidden;
+
+                stackpanel2.Margin = new Thickness(0, 129.8, 0, 0);
+                t2.Height = 190;
+            }
         }
         private void select_change3(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_26.Text) || LanguageUtils.EqualsResource(combobox_26.Text, "TrainingListView.RehabilitationModel"))
+            if (LanguageUtils.EqualsResource(combobox_26.Text, "TrainingListView.RehabilitationModel"))
             {
                 border26.Background = Brushes.White;
                 border27.Background = Brushes.White;
@@ -3264,10 +3302,25 @@ namespace spms.view.Pages.ChildWin
                 Grid.SetRow(border27, 5);
                 t3.Height = 170;
             }
+            if (String.IsNullOrEmpty(combobox_26.Text))
+            {
+                border21.Background = Brushes.White;
+                border22.Background = Brushes.White;
+                combobox_27.Visibility = Visibility.Hidden;
+                border23.Background = Brushes.White;
+                border24.Background = Brushes.White;
+                combobox_28.Visibility = Visibility.Hidden;
+                border26.Background = Brushes.White;
+                border27.Background = Brushes.White;
+                combobox_29.Visibility = Visibility.Hidden;
+
+                stackpanel3.Margin = new Thickness(0, 129.8, 0, 0);
+                t3.Height = 190;
+            }
         }
         private void select_change4(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_36.Text) || LanguageUtils.EqualsResource(combobox_36.Text, "TrainingListView.RehabilitationModel"))
+            if (LanguageUtils.EqualsResource(combobox_36.Text, "TrainingListView.RehabilitationModel"))
             {
                 border36.Background = Brushes.White;
                 border37.Background = Brushes.White;
@@ -3305,10 +3358,25 @@ namespace spms.view.Pages.ChildWin
                 Grid.SetRow(border37, 5);
                 t4.Height = 170;
             }
+            if (String.IsNullOrEmpty(combobox_36.Text))
+            {
+                border31.Background = Brushes.White;
+                border32.Background = Brushes.White;
+                combobox_37.Visibility = Visibility.Hidden;
+                border33.Background = Brushes.White;
+                border34.Background = Brushes.White;
+                combobox_38.Visibility = Visibility.Hidden;
+                border36.Background = Brushes.White;
+                border37.Background = Brushes.White;
+                combobox_39.Visibility = Visibility.Hidden;
+
+                stackpanel4.Margin = new Thickness(0, 129.8, 0, 0);
+                t4.Height = 190;
+            }
         }
         private void select_change5(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_46.Text) || LanguageUtils.EqualsResource(combobox_46.Text, "TrainingListView.RehabilitationModel"))
+            if (LanguageUtils.EqualsResource(combobox_46.Text, "TrainingListView.RehabilitationModel"))
             {
                 border46.Background = Brushes.White;
                 border47.Background = Brushes.White;
@@ -3346,10 +3414,25 @@ namespace spms.view.Pages.ChildWin
                 Grid.SetRow(border47, 5);
                 t5.Height = 170;
             }
+            if (String.IsNullOrEmpty(combobox_46.Text))
+            {
+                border41.Background = Brushes.White;
+                border42.Background = Brushes.White;
+                combobox_47.Visibility = Visibility.Hidden;
+                border43.Background = Brushes.White;
+                border44.Background = Brushes.White;
+                combobox_48.Visibility = Visibility.Hidden;
+                border46.Background = Brushes.White;
+                border47.Background = Brushes.White;
+                combobox_49.Visibility = Visibility.Hidden;
+
+                stackpanel5.Margin = new Thickness(0, 129.8, 0, 0);
+                t5.Height = 190;
+            }
         }
         private void select_change6(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_56.Text) || LanguageUtils.EqualsResource(combobox_56.Text, "TrainingListView.RehabilitationModel"))
+            if (LanguageUtils.EqualsResource(combobox_56.Text, "TrainingListView.RehabilitationModel"))
             {
                 border56.Background = Brushes.White;
                 border57.Background = Brushes.White;
@@ -3387,10 +3470,25 @@ namespace spms.view.Pages.ChildWin
                 Grid.SetRow(border57, 5);
                 t6.Height = 170;
             }
+            if (String.IsNullOrEmpty(combobox_56.Text))
+            {
+                border51.Background = Brushes.White;
+                border52.Background = Brushes.White;
+                combobox_57.Visibility = Visibility.Hidden;
+                border53.Background = Brushes.White;
+                border54.Background = Brushes.White;
+                combobox_58.Visibility = Visibility.Hidden;
+                border56.Background = Brushes.White;
+                border57.Background = Brushes.White;
+                combobox_59.Visibility = Visibility.Hidden;
+
+                stackpanel6.Margin = new Thickness(0, 129.8, 0, 0);
+                t6.Height = 190;
+            }
         }
         private void select_change7(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_66.Text) || LanguageUtils.EqualsResource(combobox_66.Text, "TrainingListView.RehabilitationModel"))
+            if (LanguageUtils.EqualsResource(combobox_66.Text, "TrainingListView.RehabilitationModel"))
             {
                 border66.Background = Brushes.White;
                 border67.Background = Brushes.White;
@@ -3428,10 +3526,25 @@ namespace spms.view.Pages.ChildWin
                 Grid.SetRow(border67, 5);
                 t7.Height = 170;
             }
+            if (String.IsNullOrEmpty(combobox_66.Text))
+            {
+                border61.Background = Brushes.White;
+                border62.Background = Brushes.White;
+                combobox_67.Visibility = Visibility.Hidden;
+                border63.Background = Brushes.White;
+                border64.Background = Brushes.White;
+                combobox_68.Visibility = Visibility.Hidden;
+                border66.Background = Brushes.White;
+                border67.Background = Brushes.White;
+                combobox_69.Visibility = Visibility.Hidden;
+
+                stackpanel7.Margin = new Thickness(0, 129.8, 0, 0);
+                t7.Height = 190;
+            }
         }
         private void select_change8(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_76.Text) || LanguageUtils.EqualsResource(combobox_76.Text, "TrainingListView.RehabilitationModel"))
+            if (LanguageUtils.EqualsResource(combobox_76.Text, "TrainingListView.RehabilitationModel"))
             {
                 border76.Background = Brushes.White;
                 border77.Background = Brushes.White;
@@ -3467,12 +3580,27 @@ namespace spms.view.Pages.ChildWin
                 stackpanel8.Margin = new Thickness(0, 149.8, 0, 0);
                 Grid.SetRow(border76, 5);
                 Grid.SetRow(border77, 5);
-                t7.Height = 170;
+                t8.Height = 170;
+            }
+            if (String.IsNullOrEmpty(combobox_76.Text))
+            {
+                border71.Background = Brushes.White;
+                border72.Background = Brushes.White;
+                combobox_77.Visibility = Visibility.Hidden;
+                border73.Background = Brushes.White;
+                border74.Background = Brushes.White;
+                combobox_78.Visibility = Visibility.Hidden;
+                border76.Background = Brushes.White;
+                border77.Background = Brushes.White;
+                combobox_79.Visibility = Visibility.Hidden;
+
+                stackpanel8.Margin = new Thickness(0, 129.8, 0, 0);
+                t8.Height = 190;
             }
         }
         private void select_change9(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_86.Text) || LanguageUtils.EqualsResource(combobox_86.Text, "TrainingListView.RehabilitationModel"))
+            if (LanguageUtils.EqualsResource(combobox_86.Text, "TrainingListView.RehabilitationModel"))
             {
                 border86.Background = Brushes.White;
                 border87.Background = Brushes.White;
@@ -3510,10 +3638,25 @@ namespace spms.view.Pages.ChildWin
                 Grid.SetRow(border87, 5);
                 t9.Height = 170;
             }
+            if (String.IsNullOrEmpty(combobox_86.Text))
+            {
+                border81.Background = Brushes.White;
+                border82.Background = Brushes.White;
+                combobox_87.Visibility = Visibility.Hidden;
+                border83.Background = Brushes.White;
+                border84.Background = Brushes.White;
+                combobox_88.Visibility = Visibility.Hidden;
+                border86.Background = Brushes.White;
+                border87.Background = Brushes.White;
+                combobox_89.Visibility = Visibility.Hidden;
+
+                stackpanel9.Margin = new Thickness(0, 129.8, 0, 0);
+                t9.Height = 190;
+            }
         }
         private void select_change10(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(combobox_96.Text) || LanguageUtils.EqualsResource(combobox_96.Text, "TrainingListView.RehabilitationModel"))
+            if (LanguageUtils.EqualsResource(combobox_96.Text, "TrainingListView.RehabilitationModel"))
             {
                 border96.Background = Brushes.White;
                 border97.Background = Brushes.White;
@@ -3551,6 +3694,21 @@ namespace spms.view.Pages.ChildWin
                 Grid.SetRow(border97, 5);
                 t10.Height = 170;
             }
+            if (String.IsNullOrEmpty(combobox_96.Text))
+            {
+                border91.Background = Brushes.White;
+                border92.Background = Brushes.White;
+                combobox_97.Visibility = Visibility.Hidden;
+                border93.Background = Brushes.White;
+                border94.Background = Brushes.White;
+                combobox_98.Visibility = Visibility.Hidden;
+                border96.Background = Brushes.White;
+                border97.Background = Brushes.White;
+                combobox_99.Visibility = Visibility.Hidden;
+
+                stackpanel10.Margin = new Thickness(0, 129.8, 0, 0);
+                t10.Height = 190;
+            }
         }
 
         private void Checkbox1_OnChecked(object sender, RoutedEventArgs e)
@@ -3559,7 +3717,7 @@ namespace spms.view.Pages.ChildWin
             combobox_02.SelectedIndex = 0;
             combobox_03.SelectedIndex = 0;
             combobox_05.SelectedIndex = 0;
-            combobox_06.SelectedIndex = 1;
+            combobox_06.SelectedIndex = -1;
             combobox_07.SelectedIndex = 0;
             combobox_08.SelectedIndex = 0;
             combobox_09.SelectedIndex = 0;
@@ -3572,7 +3730,7 @@ namespace spms.view.Pages.ChildWin
             combobox_12.SelectedIndex = 0;
             combobox_13.SelectedIndex = 0;
             combobox_15.SelectedIndex = 0;
-            combobox_16.SelectedIndex = 1;
+            //combobox_16.SelectedIndex = 1;
             select_change2(sender, e);
             combobox_17.SelectedIndex = 0;
             combobox_18.SelectedIndex = 0;
