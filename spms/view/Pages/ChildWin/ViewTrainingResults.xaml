@@ -144,7 +144,7 @@
                                     <Label  Content="{DynamicResource TrainingResultView.TrainingCaution}"  Background="Gray"  Margin="0,0,-0.4,0" />
                                     <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="HLPAttentionpoint" TextWrapping="Wrap"/>
                                 </StackPanel>
-                                <StackPanel Margin="20,50,0,9.6" Width="245" >
+                                <StackPanel Margin="20,50,0,9.6" Width="260" >
                                     <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
                                     <!--<TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="HLPChart" TextWrapping="Wrap"/>-->
                                     <Grid>

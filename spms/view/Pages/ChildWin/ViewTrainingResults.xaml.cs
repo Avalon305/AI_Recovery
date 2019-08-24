@@ -18,6 +18,7 @@ using spms.entity;
 using spms.service;
 using spms.util;
 using spms.view.dto;
+using spms.view.EchartsClass;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -84,11 +85,12 @@ namespace spms.view.Pages.ChildWin
             l2.Content = user.Pk_User_Id;
             //训练日期
             da.Content = trainDto.prescriptionResult.Gmt_create.ToString();
-
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            string rootpath = path.Substring(0, path.LastIndexOf("bin"));
             //查询处方和结果
             List<NewTrainDTO> trainDtos = new TrainService().GetTrainDTOByPRId(Convert.ToInt32(trainDto.prescriptionResult.Pk_pr_id));
             DeviceSortDAO deviceSortDao = new DeviceSortDAO();
-            //ResultLine resultLine = new ResultLine();
+            ResultLine resultLine = new ResultLine();
             //循环判断填充数据
             foreach (NewTrainDTO trainDto in trainDtos)
             {
@@ -129,13 +131,10 @@ namespace spms.view.Pages.ChildWin
                         HLPAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
 
                         // 心率折线图
-                        //resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
-                        //HLPWeb.ObjectForScripting = resultLine;
-                        //获取项目的根路径
-                        string path = AppDomain.CurrentDomain.BaseDirectory;
-                        string rootpath = path.Substring(0, path.LastIndexOf("bin"));
-
-                        HLPWeb.Navigate(new Uri(rootpath + "View/Echarts/HLPLine.html"));
+                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
+                        HLPWeb.ObjectForScripting = resultLine;
+                        // 获取项目的根路径
+                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/HLPLine.html"));
                         break;
                     case (int)DeviceType.P00:
                         ROWGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -170,6 +169,12 @@ namespace spms.view.Pages.ChildWin
                         ROWEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
                         ROWFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
                         ROWAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+
+                        // 心率折线图
+                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
+                        HLPWeb.ObjectForScripting = resultLine;
+                        // 获取项目的根路径
+                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/RowLine.html"));
                         break;
                     case (int)DeviceType.P09:
                         TFGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -204,6 +209,12 @@ namespace spms.view.Pages.ChildWin
                         TFEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
                         TFFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
                         TFAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+
+                        // 心率折线图
+                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
+                        HLPWeb.ObjectForScripting = resultLine;
+                        // 获取项目的根路径
+                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/TFLine.html"));
                         break;
                     case (int)DeviceType.P06:
                         LEGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -238,6 +249,12 @@ namespace spms.view.Pages.ChildWin
                         LEEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
                         LEFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
                         LEAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+
+                        // 心率折线图
+                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
+                        HLPWeb.ObjectForScripting = resultLine;
+                        // 获取项目的根路径
+                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/LELine.html"));
                         break;
                     case (int)DeviceType.P02:
                         HAGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -272,6 +289,12 @@ namespace spms.view.Pages.ChildWin
                         HAEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
                         HAFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
                         HAAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+
+                        // 心率折线图
+                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
+                        HLPWeb.ObjectForScripting = resultLine;
+                        // 获取项目的根路径
+                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/HALine.html"));
                         break;
                     case (int)DeviceType.P05:
                         CPGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -306,6 +329,12 @@ namespace spms.view.Pages.ChildWin
                         CPEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
                         CPFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
                         CPAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+
+                        // 心率折线图
+                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
+                        HLPWeb.ObjectForScripting = resultLine;
+                        // 获取项目的根路径
+                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/CPLine.html"));
                         break;
                     case (int)DeviceType.P03:
                         NewAGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -340,6 +369,12 @@ namespace spms.view.Pages.ChildWin
                         NewAEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
                         NewAFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
                         NewAAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+
+                        // 心率折线图
+                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
+                        HLPWeb.ObjectForScripting = resultLine;
+                        // 获取项目的根路径
+                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/NewALine.html"));
                         break;
                     case (int)DeviceType.P04:
                         NewBGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -374,6 +409,12 @@ namespace spms.view.Pages.ChildWin
                         NewBEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
                         NewBFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
                         NewBAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+
+                        // 心率折线图
+                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
+                        HLPWeb.ObjectForScripting = resultLine;
+                        // 获取项目的根路径
+                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/NewBLine.html"));
                         break;
                     case (int)DeviceType.P07:
                         NewCGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -408,6 +449,12 @@ namespace spms.view.Pages.ChildWin
                         NewCEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
                         NewCFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
                         NewCAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+
+                        // 心率折线图
+                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
+                        HLPWeb.ObjectForScripting = resultLine;
+                        // 获取项目的根路径
+                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/NewCLine.html"));
                         break;
                     case (int)DeviceType.P08:
                         NewDGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -442,6 +489,12 @@ namespace spms.view.Pages.ChildWin
                         NewDEnergy.Text = trainDto.prescriptionResult.Energy.ToString();
                         NewDFinishNum.Text = trainDto.prescriptionResult.Finish_num.ToString();
                         NewDAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
+
+                        // 心率折线图
+                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
+                        HLPWeb.ObjectForScripting = resultLine;
+                        // 获取项目的根路径
+                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/NewDLine.html"));
                         break;
                 }
             }
@@ -456,6 +509,12 @@ namespace spms.view.Pages.ChildWin
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.MaxHeight = SystemParameters.WorkArea.Size.Height;
             this.MaxWidth = SystemParameters.WorkArea.Size.Width;
+
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            Console.WriteLine(path);
+            string rootpath = path.Substring(0, path.LastIndexOf("bin"));
+            Console.WriteLine(rootpath);
+            HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/HLPLine.html"));
         }
 
         /// <summary>

@@ -44,22 +44,19 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
-
-                            <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.BorgScale}" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding evaluate}" Header="{DynamicResource TrainingHistoryView.Timing/form}" Width="110"/>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Memo}" Width="185" >
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_pr_id}" Header="ID" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="150" />
+                            <DataGridTextColumn Binding="{Binding devicePrescription.moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
+                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -70,27 +67,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
-                                    </Style>
-                                </DataGridTemplateColumn.CellStyle>
-                            </DataGridTemplateColumn>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Subjectcommment}" Width="198">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellStyle>
-                                    <Style TargetType="DataGridCell" >
-                                        <Style.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                        <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -128,24 +105,19 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
-
-                            <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="{DynamicResource TrainingHistoryView.BorgScale}" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding evaluate}" Header="{DynamicResource TrainingHistoryView.Timing/form}" Width="110"/>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Memo}" Width="185" >
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_pr_id}" Header="ID" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="150" />
+                            <DataGridTextColumn Binding="{Binding devicePrescription.moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
+                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -156,27 +128,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
-                                    </Style>
-                                </DataGridTemplateColumn.CellStyle>
-                            </DataGridTemplateColumn>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Subjectcommment}" Width="198">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellStyle>
-                                    <Style TargetType="DataGridCell" >
-                                        <Style.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                        <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -217,23 +169,19 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
-
-                            <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="{DynamicResource TrainingHistoryView.BorgScale}" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding evaluate}" Header="{DynamicResource TrainingHistoryView.Timing/form}" Width="110"/>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Memo}" Width="185" >
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_pr_id}" Header="ID" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="150" />
+                            <DataGridTextColumn Binding="{Binding devicePrescription.moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
+                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -244,27 +192,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
-                                    </Style>
-                                </DataGridTemplateColumn.CellStyle>
-                            </DataGridTemplateColumn>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Subjectcommment}" Width="198">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellStyle>
-                                    <Style TargetType="DataGridCell" >
-                                        <Style.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                        <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -305,23 +233,19 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
-
-                            <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="{DynamicResource TrainingHistoryView.BorgScale}" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding evaluate}" Header="{DynamicResource TrainingHistoryView.Timing/form}" Width="110"/>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Memo}" Width="185" >
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_pr_id}" Header="ID" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="150" />
+                            <DataGridTextColumn Binding="{Binding devicePrescription.moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
+                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -332,27 +256,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
-                                    </Style>
-                                </DataGridTemplateColumn.CellStyle>
-                            </DataGridTemplateColumn>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Subjectcommment}" Width="198">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellStyle>
-                                    <Style TargetType="DataGridCell" >
-                                        <Style.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                        <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
@@ -393,23 +297,19 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
-
-                            <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="{DynamicResource TrainingHistoryView.BorgScale}" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding evaluate}" Header="{DynamicResource TrainingHistoryView.Timing/form}" Width="110"/>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Memo}" Width="185" >
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_pr_id}" Header="ID" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="150" />
+                            <DataGridTextColumn Binding="{Binding devicePrescription.moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
+                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -420,31 +320,10 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Subjectcommment}" Width="198">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellStyle>
-                                    <Style TargetType="DataGridCell" >
-                                        <Style.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                        <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
-                                    </Style>
-                                </DataGridTemplateColumn.CellStyle>
-                            </DataGridTemplateColumn>
-
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -482,23 +361,19 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
-
-                            <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="{DynamicResource TrainingHistoryView.BorgScale}" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding evaluate}" Header="{DynamicResource TrainingHistoryView.Timing/form}" Width="110"/>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Memo}" Width="185" >
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_pr_id}" Header="ID" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="150" />
+                            <DataGridTextColumn Binding="{Binding devicePrescription.moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
+                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -509,31 +384,10 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Subjectcommment}" Width="198">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellStyle>
-                                    <Style TargetType="DataGridCell" >
-                                        <Style.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                        <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
-                                    </Style>
-                                </DataGridTemplateColumn.CellStyle>
-                            </DataGridTemplateColumn>
-
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -570,23 +424,19 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
-
-                            <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="{DynamicResource TrainingHistoryView.BorgScale}" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding evaluate}" Header="{DynamicResource TrainingHistoryView.Timing/form}" Width="110"/>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Memo}" Width="185" >
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_pr_id}" Header="ID" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="150" />
+                            <DataGridTextColumn Binding="{Binding devicePrescription.moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
+                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -597,31 +447,10 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Subjectcommment}" Width="198">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellStyle>
-                                    <Style TargetType="DataGridCell" >
-                                        <Style.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                        <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
-                                    </Style>
-                                </DataGridTemplateColumn.CellStyle>
-                            </DataGridTemplateColumn>
-
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -658,23 +487,19 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
-
-                            <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="{DynamicResource TrainingHistoryView.BorgScale}" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding evaluate}" Header="{DynamicResource TrainingHistoryView.Timing/form}" Width="110"/>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Memo}" Width="185" >
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_pr_id}" Header="ID" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="150" />
+                            <DataGridTextColumn Binding="{Binding devicePrescription.moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
+                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -685,31 +510,10 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Subjectcommment}" Width="198">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellStyle>
-                                    <Style TargetType="DataGridCell" >
-                                        <Style.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                        <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
-                                    </Style>
-                                </DataGridTemplateColumn.CellStyle>
-                            </DataGridTemplateColumn>
-
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -746,23 +550,19 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
-
-                            <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="{DynamicResource TrainingHistoryView.BorgScale}" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding evaluate}" Header="{DynamicResource TrainingHistoryView.Timing/form}" Width="110"/>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Memo}" Width="185" >
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_pr_id}" Header="ID" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="150" />
+                            <DataGridTextColumn Binding="{Binding devicePrescription.moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
+                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -773,31 +573,10 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Subjectcommment}" Width="198">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellStyle>
-                                    <Style TargetType="DataGridCell" >
-                                        <Style.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                        <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
-                                    </Style>
-                                </DataGridTemplateColumn.CellStyle>
-                            </DataGridTemplateColumn>
-
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -809,7 +588,7 @@
                         <ColumnDefinition Width="20*"/>
                         <ColumnDefinition Width="451*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="TrainingRecord10" HorizontalAlignment="Left" CanUserAddRows="False" CanUserDeleteRows="False" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" KeyboardNavigation.TabNavigation="None"  SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="943" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False"  BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="2" Margin="0,0,-13,0" SelectionChanged="TrainingRecord10_SelectionChanged">
+                    <DataGrid x:Name="TrainingRecord10" HorizontalAlignment="Left" CanUserAddRows="False" CanUserDeleteRows="False" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" KeyboardNavigation.TabNavigation="None"  SelectionMode="Single" VerticalAlignment="Top"  GridLinesVisibility="None" Height="280" Width="943" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False"  BorderThickness="0" IsReadOnly="true" Grid.ColumnSpan="2" Margin="0,0,-13,0">
                         <!--选中行失去焦点时的颜色-->
                         <DataGrid.Resources>
                             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
@@ -834,23 +613,19 @@
                             </Style>
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_PR_Id}" Header="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_Modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="130" />
-
-                            <DataGridTextColumn Binding="{Binding moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_weight}" Header="{DynamicResource TrainingHistoryView.Wt.}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding devicePrescription.dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_SportStrength}" Header="{DynamicResource TrainingHistoryView.BorgScale}" Width="90"/>
-                            <DataGridTextColumn Binding="{Binding evaluate}" Header="{DynamicResource TrainingHistoryView.Timing/form}" Width="110"/>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_Memo}" Header="备忘" Width="185"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Memo}" Width="185" >
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Pk_pr_id}" Header="ID" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Gmt_modified,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource TrainingHistoryView.Date}" Width="150" />
+                            <DataGridTextColumn Binding="{Binding devicePrescription.moveway}" Header="{DynamicResource TrainingHistoryView.Transfer}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
+                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellStyle>
@@ -861,31 +636,10 @@
                                             </Trigger>
                                         </Style.Triggers>
                                         <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_Memo, Converter={StaticResource textconverter}}"/>
+                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding devicePrescription.Dp_memo, Converter={StaticResource textconverter}}"/>
                                     </Style>
                                 </DataGridTemplateColumn.CellStyle>
                             </DataGridTemplateColumn>
-                            <!--<DataGridTextColumn Binding="{Binding prescriptionResult.PR_UserThoughts}" Header="使用者者感想" Width="200"/>-->
-                            <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.Subjectcommment}" Width="198">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <!--设置当单元格内容超过最大长度时，显示...-->
-                                        <TextBlock Text="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}" TextTrimming="WordEllipsis"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellStyle>
-                                    <Style TargetType="DataGridCell" >
-                                        <Style.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                        <!--加tooltip，显示单元格内容-->
-                                        <Setter Property="ToolTipService.ToolTip" Value="{Binding prescriptionResult.PR_UserThoughts, Converter={StaticResource textconverter}}"/>
-                                    </Style>
-                                </DataGridTemplateColumn.CellStyle>
-                            </DataGridTemplateColumn>
-
                         </DataGrid.Columns>
                     </DataGrid>
 

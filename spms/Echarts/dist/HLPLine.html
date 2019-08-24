@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body scroll="no">
+    <div id="main" style="width:343px;height:355px" />
+    <script src="echarts.js"></script>
+    <script src="echarts-all.js"></script>
+    <script>
+        var arr = window.external.getHLPHeartRateList();
+
+        myChart = echarts.init(document.getElementById('main'));
+        option = {
+            //去掉外部边框
+            grid: { show: 'true', borderWidth: '0' },
+            //标题
+            //title: {
+            //    text: '心率折线图',
+            //},
+            //提示框，鼠标悬浮交互时的信息提示
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {           
+                    type: ''        
+                }
+            },
+            //右上角按钮
+            toolbox: {
+                show: true,
+                feature: {
+                    mark: { show: true },
+                    magicType: { show: true, type: ['line', 'bar'] },
+                    restore: { show: true }
+                }
+            },
+            calculable: true,
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: [1, 2, 3, 4, 5, 6, 7],
+                    splitLine: {     //网格线
+                        show: false
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    axisLine: {       //y轴
+                        show: false
+                    },
+                    axisTick: {       //y轴刻度线
+                        show: false
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '心率值',
+                    type: 'line',
+                    data: arr
+                }
+            ]
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

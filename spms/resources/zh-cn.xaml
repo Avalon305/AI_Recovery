@@ -231,6 +231,12 @@
     <s:String x:Key="TrainingHistoryView.Timing/form">动作时机、姿势等</s:String>
     <s:String x:Key="TrainingHistoryView.Memo">备忘</s:String>
     <s:String x:Key="TrainingHistoryView.Subjectcommment">使用者感想</s:String>
+    <!--lj++-->
+    <s:String x:Key="TrainingHistoryView.TrainModel">训练模式</s:String>
+    <s:String x:Key="TrainingHistoryView.Energy">训练总耗能</s:String>
+    <s:String x:Key="TrainingHistoryView.UserThough">病人感想</s:String>
+    <s:String x:Key="TrainingHistoryView.NewMemo">医生指示建议</s:String>
+
 
     <!-- 体力评价记录 -->
     <s:String x:Key="PhysicalEvaluationHistory.Date">日期</s:String>

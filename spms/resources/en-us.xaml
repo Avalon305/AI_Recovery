@@ -222,6 +222,11 @@
     <s:String x:Key="TrainingHistoryView.Timing/form">Timing/form</s:String>
     <s:String x:Key="TrainingHistoryView.Memo">Memo</s:String>
     <s:String x:Key="TrainingHistoryView.Subjectcommment">Subject commment</s:String>
+    <!--lj++-->
+    <s:String x:Key="TrainingHistoryView.TrainModel">Train Model</s:String>
+    <s:String x:Key="TrainingHistoryView.Energy">Energy</s:String>
+    <s:String x:Key="TrainingHistoryView.UserThough">User Though</s:String>
+    <s:String x:Key="TrainingHistoryView.NewMemo">Memo</s:String>
 
     <!-- 体力评价记录 -->
     <s:String x:Key="PhysicalEvaluationHistory.Date">Date</s:String>

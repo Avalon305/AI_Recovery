@@ -172,8 +172,10 @@
                     <Label Grid.Column="0"  Content="{DynamicResource TrainingListView.LastName}" Margin="0,0,120.4,0" VerticalAlignment="Center" Grid.RowSpan="2"/>
                     <Label Grid.Row="0" Grid.RowSpan="2"  Content="{DynamicResource TrainingListView.SympInfo}" Height="25" Margin="1130,0,130.8,0" VerticalAlignment="Center" Background="Gray" Foreground="White"/>
                     <ComboBox  Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" ItemsSource="{Binding SymptomInfoDTO,Mode=OneWay}" DisplayMemberPath="DateStr" SelectedValuePath="ID"  Margin="1235,0,0,0"  Name="symp" Height="25" Width="131" />
-
                     <Label  Margin="79,0,205.2,0" VerticalAlignment="Center" Name="l1" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2"/>
+                    <!--nfc-->
+                    <Label Grid.Column="0"  Content="{DynamicResource TrainingListView.NFCLable}" Margin="300,0,120.4,0" VerticalAlignment="Center" Grid.RowSpan="2"/>
+                    <Label  Margin="379,0,205.2,0" VerticalAlignment="Center" Name="nfc" Content="{Binding  Bind_id}" Grid.RowSpan="2"/>
                 </Grid>
                 <!--Grid 使用者信息展示 结束-->
 
