@@ -14,21 +14,30 @@ using System.Windows.Shapes;
 
 namespace spms.view.Pages.ChildWin
 {
-
-
     /// <summary>
-    /// NfcInfo.xaml 的交互逻辑
+    /// NfcTip.xaml 的交互逻辑
     /// </summary>
-    public partial class NfcInfo : Window
+    public partial class NfcTip : Window
     {
-        public NfcInfo()
+        public string G_nfcInfo = "";
+
+        public NfcTip()
         {
             InitializeComponent();
         }
 
-        public string getNfcInfo()
+        private void Button_Cancel(object sender, RoutedEventArgs e)
         {
-            return nfcInfo.Text.ToString();
+            this.Close();
+        }
+
+        private void NfcInfo_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(nfcInfo.Text.Length == 16)
+            {
+                G_nfcInfo = nfcInfo.Text;
+                nfcInfo.Focusable = false;
+            }
         }
     }
 }

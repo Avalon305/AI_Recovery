@@ -322,7 +322,9 @@
     <s:String x:Key="TrainingListView.ConsequentForce">顺向力</s:String>
     <s:String x:Key="TrainingListView.ReverseForce">反向力</s:String>
     <s:String x:Key="TrainingListView.SpeedRank">运动速度等级</s:String>
- 
+    <s:String x:Key="TrainingListView.Prescription">下处方</s:String>
+    <s:String x:Key="TrainingListView.BindNfc">绑定NFC</s:String>
+
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">输入体力评价</s:String>
     <s:String x:Key="PhysicalEvaluationFormView.ViewPhysicalEvaluationForm">查看体力评价</s:String>
@@ -553,4 +555,12 @@
     <s:String x:Key="NewDev.ButterflyMachine">蝴蝶机</s:String>
     <s:String x:Key="NewDev.ReverseButterflyMachine">反向蝴蝶机</s:String>
     <s:String x:Key="NewDev.SittingBackExtender">坐式背部伸展机</s:String>
+
+    <!-- nfctip -->
+    <s:String x:Key="NfcTip.Title">提示</s:String>
+    <s:String x:Key="NfcTip.OneContent">点击确定后，请刷NFC获得处方，成功会显示数字</s:String>
+    <s:String x:Key="NfcTip.TwoContent">请刷NFC绑定处方</s:String>
+    <s:String x:Key="NfcTip.Cancle">取消</s:String>
+    <s:String x:Key="NfcTip.Confirm">确认</s:String>
+    <s:String x:Key="NfcTip.OneTip">请刷NFC，将自动绑定NFC信息</s:String>
 </ResourceDictionary>

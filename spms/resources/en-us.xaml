@@ -36,20 +36,20 @@
     <s:String x:Key="Title.Title">Body Strong</s:String>
 
     <!-- 设备 -->
-	<s:String x:Key="Dev.Rowing">Rowing</s:String>
-	<s:String x:Key="Dev.SittingBreastPusher">Sitting Breast Pusher</s:String>
-	<s:String x:Key="Dev.HorizontalLegPress">HorizontalLeg Press</s:String>
-	<s:String x:Key="Dev.AbdominalMuscleTraining">Abdominal Muscle Training</s:String>
-	<s:String x:Key="Dev.TricepsTraining">Triceps Training</s:String>
-	<s:String x:Key="Dev.HipAbduction">HipAbduction</s:String>
-	<s:String x:Key="Dev.LegBender">Leg Bender</s:String>
-	<s:String x:Key="Dev.Butterfly">Butterfly</s:String>
-	<s:String x:Key="Dev.ReverseButterfly">Reverse Butterfly</s:String>
-	<s:String x:Key="Dev.SittingBack">Sitting Back</s:String>
-	<s:String x:Key="Dev.TorsoFlexion">Torso Flexion</s:String>
-	<s:String x:Key="Dev.LegExtension">LegExtension</s:String>
-	<s:String x:Key="Dev.ChestPress">Chest Press</s:String>
-	<!--在线设备情况-->
+    <s:String x:Key="Dev.Rowing">Rowing</s:String>
+    <s:String x:Key="Dev.SittingBreastPusher">Sitting Breast Pusher</s:String>
+    <s:String x:Key="Dev.HorizontalLegPress">HorizontalLeg Press</s:String>
+    <s:String x:Key="Dev.AbdominalMuscleTraining">Abdominal Muscle Training</s:String>
+    <s:String x:Key="Dev.TricepsTraining">Triceps Training</s:String>
+    <s:String x:Key="Dev.HipAbduction">HipAbduction</s:String>
+    <s:String x:Key="Dev.LegBender">Leg Bender</s:String>
+    <s:String x:Key="Dev.Butterfly">Butterfly</s:String>
+    <s:String x:Key="Dev.ReverseButterfly">Reverse Butterfly</s:String>
+    <s:String x:Key="Dev.SittingBack">Sitting Back</s:String>
+    <s:String x:Key="Dev.TorsoFlexion">Torso Flexion</s:String>
+    <s:String x:Key="Dev.LegExtension">LegExtension</s:String>
+    <s:String x:Key="Dev.ChestPress">Chest Press</s:String>
+    <!--在线设备情况-->
     <s:String x:Key="RegisterView.OnlineDeviceDetails">Online Equipment Situation</s:String>
     <s:String x:Key="RegisterView.TerminalID">TerminalID</s:String>
     <s:String x:Key="RegisterView.TerminalType">TerminalType</s:String>
@@ -58,7 +58,7 @@
     <!-- 设定界面 -->
     <s:String x:Key="SettingsView.FacilityName">Facility Name</s:String>
     <s:String x:Key="SettingsView.Return">Return</s:String>
-    <s:String x:Key="SettingsView.PremarySettings">Premary Settings</s:String> 
+    <s:String x:Key="SettingsView.PremarySettings">Premary Settings</s:String>
     <s:String x:Key="SettingsView.AdvancedSettings">Advanced Settings</s:String>
     <s:String x:Key="SettingsView.BackUp">Back Up</s:String>
     <s:String x:Key="SettingsView.OnlineEquipmentSituation">Online Equipment Situation</s:String>
@@ -312,6 +312,8 @@
     <s:String x:Key="TrainingListView.ConsequentForce">Consequent Force</s:String>
     <s:String x:Key="TrainingListView.ReverseForce">Reverse Force</s:String>
     <s:String x:Key="TrainingListView.SpeedRank">Speed Rank</s:String>
+    <s:String x:Key="TrainingListView.Prescription">Prescription</s:String>
+    <s:String x:Key="TrainingListView.BindNfc">Bind NFC</s:String>
 
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">Physical Evaluation Form</s:String>
@@ -489,7 +491,7 @@
     <s:String x:Key="SerialPortView.CurrentSerialPort">Current SerialPort</s:String>
     <s:String x:Key="SerialPortView.Confirm">Confirm</s:String>
     <s:String x:Key="SerialPortView.cancel">cancel</s:String>
-    
+
     <!-- 打印预览 -->
     <s:String x:Key="PdfViewer.Print">Print</s:String>
     <s:String x:Key="PdfViewer.ZoomIn">Zoom In</s:String>
@@ -535,4 +537,12 @@
     <s:String x:Key="NewDev.ButterflyMachine">Butterfly Machine</s:String>
     <s:String x:Key="NewDev.ReverseButterflyMachine">Reverse Butterfly Machine</s:String>
     <s:String x:Key="NewDev.SittingBackExtender">Sitting Back Extender</s:String>
+
+    <!-- nfctip -->
+    <s:String x:Key="NfcTip.Title">Tip</s:String>
+    <s:String x:Key="NfcTip.OneContent">After clicking on the confirmation,please brush the NFC to get the prescription,success will shows numbers</s:String>
+    <s:String x:Key="NfcTip.TwoContent">Please brush the NFC to Binding the Prescription</s:String>
+    <s:String x:Key="NfcTip.Cancle">Cancle</s:String>
+    <s:String x:Key="NfcTip.Confirm">Confirm</s:String>
+    <s:String x:Key="NfcTip.OneTip">Please brush the NFC to automatically bind the NFC information</s:String>
 </ResourceDictionary>

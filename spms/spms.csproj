@@ -39,6 +39,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -62,8 +63,7 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>spms.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -256,8 +256,10 @@
     <Compile Include="service\MusclePieChartService.cs" />
     <Compile Include="service\OnlineDeviceService.cs" />
     <Compile Include="service\ProcessService.cs" />
+    <Compile Include="usb\hid.cs" />
     <Compile Include="usb\R2.cs" />
     <Compile Include="usb\Received.cs" />
+    <Compile Include="usb\usbTest.cs" />
     <Compile Include="util\ConfigUtil.cs" />
     <Compile Include="util\LanguageUtils.cs" />
     <Compile Include="view\ChartsTest.xaml.cs">
@@ -269,20 +271,20 @@
     <Compile Include="view\converter\StrengthConverter.cs" />
     <Compile Include="view\converter\TimeConverter.cs" />
     <Compile Include="view\dto\NewTrainDTO.cs" />
-    <Compile Include="view\Pages\ChildWin\Analyze.xaml.cs">
-      <DependentUpon>Analyze.xaml</DependentUpon>
+    <Compile Include="view\Pages\ChildWin\NfcTip.xaml.cs">
+      <DependentUpon>NfcTip.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\Pages\ChildWin\NfcInfo.xaml.cs">
-      <DependentUpon>NfcInfo.xaml</DependentUpon>
+    <Compile Include="view\Pages\ChildWin\NfcTipOne.xaml.cs">
+      <DependentUpon>NfcTipOne.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\NfcTipTwo.xaml.cs">
+      <DependentUpon>NfcTipTwo.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\NfcMyodynamia.xaml.cs">
       <DependentUpon>NfcMyodynamia.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\NuitrackScan.xaml.cs">
       <DependentUpon>NuitrackScan.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\Pages\ChildWin\OnlineChart.xaml.cs">
-      <DependentUpon>OnlineChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\OnlineDeviceDetails.xaml.cs">
       <DependentUpon>OnlineDeviceDetails.xaml</DependentUpon>
@@ -509,23 +511,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\Pages\ChildWin\Analyze.xaml">
+    <Page Include="view\Pages\ChildWin\NfcTip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\Pages\ChildWin\NfcInfo.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="view\Pages\ChildWin\NfcTipOne.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\NfcTipTwo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="view\Pages\ChildWin\NfcMyodynamia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\ChildWin\NuitrackScan.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="view\Pages\ChildWin\OnlineChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

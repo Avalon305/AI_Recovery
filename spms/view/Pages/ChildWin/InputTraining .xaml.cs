@@ -2807,7 +2807,12 @@ namespace spms.view.Pages.ChildWin
            
 
         }
-        // 本机写卡使用方法
+
+        /// <summary>
+        /// 本机写卡使用方法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonBase_OnClick1(object sender, RoutedEventArgs e)
         {
              
@@ -2952,6 +2957,59 @@ namespace spms.view.Pages.ChildWin
             //SaveTrainInfo2DB(TrainInfoStatus.Normal);
             //MessageBox.Show("已写卡");
             //this.Close();
+        }
+        
+        public int nfc_change = 0;
+        /// <summary>
+        /// nfc
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonBase_OnClick2(object sender, RoutedEventArgs e)
+        {
+            InputMethod.SetIsInputMethodEnabled(nfc, false);
+            if (String.IsNullOrEmpty(nfc.Text) || nfc.Text.Length != 16)
+            {
+                NfcTipTwo nfcTipTwo = new NfcTipTwo
+                {
+                    Owner = Window.GetWindow(this),
+                    ShowActivated = true,
+                    ShowInTaskbar = false,
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen
+                };
+                nfcTipTwo.ShowDialog();
+                nfc.Focus();
+                return;
+            }
+
+            try
+            {
+                //写卡
+                TrainInfo trainInfo = new TrainService().GetTrainInfoByUserIdAndStatus(user.Pk_User_Id, (int)TrainInfoStatus.Normal);
+                if (trainInfo != null)
+                {
+
+                    if (!MessageBoxX.Question(LanguageUtils.ConvertLanguage("是否覆盖用户" + user.User_Name + "的已有训练计划？", "Whether or not to cover?")))
+                    {
+                        return;
+                    }
+                }
+
+                //触发写卡之前，缓存界面数据的方法，保证当前对象存储的是最新的界面数据
+                CacheDevicePrescriptions();
+
+                //new TrainService().AbandonAllTempTrainInfo(user.Pk_User_Id);
+                // 将当前训练信息存入数据库表，此时是暂存状态，在此之前设置该用户所有暂存状态的数据为废弃。此过程在servie中实现
+                SaveTrainInfo2DB(TrainInfoStatus.Temp);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("插入数据库异常。", "Insert database exception."));
+                return;
+            }
+
+
         }
 
         /// <summary>
@@ -3876,6 +3934,59 @@ namespace spms.view.Pages.ChildWin
                 field.SetValue(null, false);
 
                 ifLeft = SystemParameters.MenuDropAlignment;
+            }
+        }
+
+        /// <summary>
+        /// 绑定NFC按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Bind_Nfc(object sender, RoutedEventArgs e)
+        {
+            //InputMethod.SetIsInputMethodEnabled(nfc, false);
+            //if (String.IsNullOrEmpty(nfc.Text) || nfc.Text.Length != 16)
+            //{
+            //    NfcTip nfcTip = new NfcTip
+            //    {
+            //        Owner = Window.GetWindow(this),
+            //        ShowActivated = true,
+            //        ShowInTaskbar = false,
+            //        WindowStartupLocation = WindowStartupLocation.CenterScreen
+            //    };
+            //    nfcTip.ShowDialog();
+            //    if (nfcTip.G_nfcInfo.Length == 16)
+            //    {
+            //        nfc.Text = nfcTip.G_nfcInfo;
+            //        nfcTip.G_nfcInfo = "";
+            //        nfc.Focusable = false;
+            //    }
+            //}
+        }
+
+        /// <summary>
+        /// 获取的NFC信息处理
+        /// </summary>
+        public void HandleNfc()
+        {
+            string nfcOriginalInfo = "";
+            string nfcTrueInfo = "";
+
+            while (String.IsNullOrEmpty(nfc.Text) || nfc.Text.Length != 16)
+            {
+                nfcOriginalInfo = nfc.Text;
+                nfcTrueInfo = nfcOriginalInfo.Substring(4, 2) + nfcOriginalInfo.Substring(6, 2) + nfcOriginalInfo.Substring(8, 2) + nfcOriginalInfo.Substring(10, 2) + nfcOriginalInfo.Substring(12, 2);
+            }
+
+            Console.WriteLine(nfcTrueInfo);
+        }
+
+        private void nfc_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(nfc.Text.Length == 16)
+            {
+                // insert
+                nfc.Focusable = false;
             }
         }
     }
