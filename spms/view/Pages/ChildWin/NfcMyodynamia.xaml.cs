@@ -30,20 +30,5 @@ namespace spms.view.Pages.ChildWin
         {
             this.Close();
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.Height = SystemParameters.WorkArea.Size.Height;
-            //绑定数据
-            Load_Data();
-        }
-
-        private void Load_Data()
-        {
-            UserDAO userDAO = new UserDAO();
-
-            UserRelationDao userRelationDao = new UserRelationDao();
-            userRelationDao.FindUserRelationByuserID(((User)UsersInfo.SelectedItem).User_Id);
-        }
     }
 }
