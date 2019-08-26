@@ -818,17 +818,14 @@
     <Content Include="Echarts\dist\echarts-all.js" />
     <Content Include="Echarts\dist\echarts.js" />
     <Content Include="Echarts\dist\EndurancePie.html" />
-<<<<<<< HEAD
+
     <Content Include="Echarts\dist\ThoughtsLine.html" />
     <Content Include="Echarts\dist\Line2.html" />
     <Content Include="Echarts\dist\Line1.html" />
     <Content Include="Echarts\dist\Line5.html" />
     <Content Include="Echarts\dist\Line4.html" />
     <Content Include="Echarts\dist\Line3.html" />
-=======
     <Content Include="Echarts\dist\HLPLine.html" />
-    <Content Include="Echarts\dist\Line.html" />
->>>>>>> 703468c5f155c7d6b95da2a960b6f01884a9683c
     <Content Include="Echarts\dist\LineChart.html" />
     <Content Include="Echarts\dist\macarons.js" />
     <Content Include="Echarts\dist\Pie.html" />
