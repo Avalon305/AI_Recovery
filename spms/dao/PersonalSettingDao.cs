@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace spms.dao
 {
-	class PersonalSettingDao
+	class PersonalSettingDao:BaseDAO<PersonalSettingEntity>
 	{
 		private static Logger logger = LogManager.GetCurrentClassLogger();
 

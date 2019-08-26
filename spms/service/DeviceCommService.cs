@@ -65,7 +65,7 @@ namespace spms.service
 				return response;
 			}
 
-			//查询用户是否存在个人设置
+			//查询用户此台设备是否存在个人设置，如果不存在，为其增加此设备的个人设置
 			var pSetting = personalSettingDAO.GetSettingByMemberId(uid, ((int)request.DeviceType).ToString());
 			if (pSetting != null)
 			{//存在个人设置
@@ -83,8 +83,7 @@ namespace spms.service
 			}
 			else
 			{
-				logger.Info("用户不存在个人设置");
-				//默认个人设置，男女
+				logger.Info("用户不存在个人设置，自创建个人设置未生效");
 				return response;
 			}
 
@@ -175,6 +174,8 @@ namespace spms.service
 			return response;
 		}
 
+		//public void insertPersonalset
+		
 		/// <summary>
 		/// 获取待训练设备列表 
 		/// </summary>

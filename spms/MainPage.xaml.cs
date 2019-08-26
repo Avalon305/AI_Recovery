@@ -22,6 +22,7 @@ using spms.bean;
 using spms.constant;
 using spms.dao;
 using spms.entity;
+using spms.entity.newEntity;
 using spms.http;
 using spms.http.entity;
 using spms.service;
@@ -54,9 +55,6 @@ namespace spms.view.Pages
 
         private AuthDAO authDao = new AuthDAO();
 
-
-
-
         //后台心跳更新UI线程
         public System.Timers.Timer timerNotice = null;
 
@@ -83,12 +81,11 @@ namespace spms.view.Pages
             e.Row.Header = e.Row.GetIndex() + 1;
 
         }
+
         //private void dgData_LoadingRow(object sender, DataGridRowEventArgs e)
         //{
         //    e.Row.Header = e.Row.GetIndex() + 1;
         //}
-
-
 
         /// <summary>
         /// 选中使用者信息时触发，将详细信息展示在左下角
@@ -297,6 +294,62 @@ namespace spms.view.Pages
             Refresh_RecordFrame_Action();
 
 
+        }
+
+        /// <summary>
+        /// 按钮：手环和肌力测试
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddNfcMyodynamia(object sender, RoutedEventArgs e)
+        {
+
+            //检查是否选中
+            if (selectUser == null)
+            {
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                return;
+            }
+            NfcMyodynamia nfcMyodynamia = new NfcMyodynamia
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            User user = (User)UsersInfo.SelectedItem;
+            Console.WriteLine("Pk_User_Id = " + user.Pk_User_Id);
+            UserRelationDao userRelationDao = new UserRelationDao();
+            UserRelation userRelation = new UserRelation();
+
+            userRelation = userRelationDao.FindUserRelationByuserID((user.Pk_User_Id));
+            if (userRelation != null)
+            {
+                if (userRelation.Bind_id == null || userRelation.Bind_id == "")
+                {
+                    nfcMyodynamia.bracelet.Content = "未设置";
+                }
+                else
+                {
+                    nfcMyodynamia.bracelet.Content = userRelation.Bind_id;
+                }
+                if (userRelation.Muscle_test_val == null || userRelation.Muscle_test_val == "")
+                {
+                    nfcMyodynamia.myodynamia.Content = "未设置";
+                }
+                else
+                {
+                    nfcMyodynamia.myodynamia.Content = userRelation.Muscle_test_val;
+                }
+            }
+            //else
+            //{
+            //    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("数据库为空！", "The database is empty!"));
+            //}
+            nfcMyodynamia.ShowDialog();
+            //关闭后刷新界面
+            //users = userService.GetAllUsers();
+            //UsersInfo.ItemsSource = users;
         }
 
         //按钮：删除
@@ -1009,6 +1062,14 @@ namespace spms.view.Pages
                 return;
             }
             inputTraining.DataContext = user;
+            Console.WriteLine(user.Pk_User_Id);
+            UserRelationDao userRelationDao = new UserRelationDao();
+            UserRelation userRelation = new UserRelation();
+            userRelation = userRelationDao.FindUserRelationByuserID((user.Pk_User_Id));
+            if (userRelation.Bind_id != null || userRelation.Bind_id != "")
+            {
+                inputTraining.nfc.Text = userRelation.Bind_id;
+            }
             inputTraining.ShowDialog();
         }
 
@@ -1270,16 +1331,16 @@ namespace spms.view.Pages
 
         }
 
-        private void AddNfcMyodynamia(object sender, RoutedEventArgs e)
-        {
-            NfcMyodynamia nfcMyodynamia = new NfcMyodynamia
-            {
-                Owner = Window.GetWindow(this),
-                ShowActivated = true,
-                ShowInTaskbar = false,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen
-            };
-            nfcMyodynamia.ShowDialog();
-        }
+        //private void AddNfcMyodynamia(object sender, RoutedEventArgs e)
+        //{
+        //    NfcMyodynamia nfcMyodynamia = new NfcMyodynamia
+        //    {
+        //        Owner = Window.GetWindow(this),
+        //        ShowActivated = true,
+        //        ShowInTaskbar = false,
+        //        WindowStartupLocation = WindowStartupLocation.CenterScreen
+        //    };
+        //    nfcMyodynamia.ShowDialog();
+        //}
     }
-    }
+ }

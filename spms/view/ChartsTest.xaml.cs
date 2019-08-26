@@ -10,19 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace spms.view.Pages.ChildWin
+namespace spms.view
 {
     /// <summary>
-    /// Analyze.xaml 的交互逻辑
+    /// ChartsTest.xaml 的交互逻辑
     /// </summary>
-    public partial class Analyze : Page
+    public partial class ChartsTest : Window
     {
-        public Analyze()
+        public ChartsTest()
         {
             InitializeComponent();
+
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            Console.WriteLine(path);
+            string rootpath = path.Substring(0, path.LastIndexOf("bin"));
+            Console.WriteLine(rootpath);
+            HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/HLPLine.html"));
         }
     }
 }

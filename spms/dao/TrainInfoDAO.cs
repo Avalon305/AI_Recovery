@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Dapper;
 using spms.constant;
 using spms.entity;
+using spms.entity.newEntity;
 using spms.util;
 
 namespace spms.dao
@@ -355,6 +356,16 @@ namespace spms.dao
                 return conn.Query<entity.newEntity.NewDevicePrescription>(query, new { Fk_TI_Id = tiId }).ToList();
             }
         }
+
+        public int GetTIIdByPRId(int id)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "SELECT fk_ti_id FROM bdl_deviceprescription JOIN bdl_prescriptionresult ON bdl_deviceprescription.pk_dp_id = bdl_prescriptionresult.fk_dp_id WHERE bdl_prescriptionresult.pk_pr_id = @Pk_PR_Id";
+
+                return conn.QueryFirstOrDefault<int>(query, new { Pk_PR_Id = id });
+            }
+        }
     }
 
 	public class PrescriptionResultDAO : BaseDAO<PrescriptionResult>
@@ -369,10 +380,25 @@ namespace spms.dao
             }
         }
     }
+
+    public class NewPrescriptionResultDAO : BaseDAO<PrescriptionResultTwo>
+    {
+        public PrescriptionResultTwo GetByDPId(int devicePrescriptionPkDpId)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select * from bdl_prescriptionresult where fk_dp_id=@Fk_DP_Id";
+
+                return conn.QueryFirstOrDefault<PrescriptionResultTwo>(query, new { Fk_DP_Id = devicePrescriptionPkDpId });
+            }
+        }
+    }
+
     public class DeviceSetDAO : BaseDAO<DeviceSet>
     {
         
     }
+
     public class DeviceSortDAO : BaseDAO<DeviceSort>
     {
         /// <summary>

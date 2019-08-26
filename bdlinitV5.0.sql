@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50634
 File Encoding         : 65001
 
-Date: 2019-08-22 15:41:24
+Date: 2019-08-22 16:07:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -112,8 +112,6 @@ INSERT INTO `bdl_datacode` VALUES ('46', '3', 'TRAIN_MODE', '2', '康复模式',
 DROP TABLE IF EXISTS `bdl_deviceprescription`;
 CREATE TABLE `bdl_deviceprescription` (
   `pk_dp_id` int(8) NOT NULL AUTO_INCREMENT COMMENT '设备处方id',
-  `gmt_create` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `gmt_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `fk_ti_id` int(8) DEFAULT NULL COMMENT '外键（bdl_trianinfo : pk_ti_id）',
   `fk_ds_id` int(8) DEFAULT NULL COMMENT '外键（bdl_devicesort : pk_ds_id）',
   `device_mode` int(11) DEFAULT NULL COMMENT '设备训练模式:0康复模式，1主被动模式,2被动模式',
@@ -126,13 +124,15 @@ CREATE TABLE `bdl_deviceprescription` (
   `dp_groupcount` int(10) unsigned DEFAULT NULL COMMENT '组数',
   `dp_groupnum` int(10) unsigned DEFAULT NULL COMMENT '每组个数',
   `dp_relaxtime` int(10) unsigned DEFAULT NULL COMMENT '每组间隔休息时间',
+  `gmt_create` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `gmt_modified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`pk_dp_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bdl_deviceprescription
 -- ----------------------------
-INSERT INTO `bdl_deviceprescription` VALUES ('179', '2019-08-17 10:00:11', '2019-08-17 10:00:16', null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `bdl_deviceprescription` VALUES ('179', null, null, null, null, null, null, null, null, null, null, null, null, '2019-08-17 10:00:11', '2019-08-17 10:00:16');
 
 -- ----------------------------
 -- Table structure for bdl_deviceset

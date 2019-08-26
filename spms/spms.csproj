@@ -39,6 +39,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -62,8 +63,7 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>spms.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -218,6 +218,7 @@
     <Compile Include="dao\SymptomInfoDAO.cs" />
     <Compile Include="dao\TrainInfoDAO.cs" />
     <Compile Include="dao\UserRelationDao.cs" />
+    <Compile Include="Echarts\EchartsClass\ResultLine.cs" />
     <Compile Include="entity\CustomData.cs" />
     <Compile Include="entity\DataCode.cs" />
     <Compile Include="entity\newEntity\NewDevicePrescription.cs" />
@@ -255,24 +256,35 @@
     <Compile Include="service\MusclePieChartService.cs" />
     <Compile Include="service\OnlineDeviceService.cs" />
     <Compile Include="service\ProcessService.cs" />
+    <Compile Include="usb\hid.cs" />
+    <Compile Include="usb\R2.cs" />
+    <Compile Include="usb\Received.cs" />
+    <Compile Include="usb\usbTest.cs" />
     <Compile Include="util\ConfigUtil.cs" />
     <Compile Include="util\LanguageUtils.cs" />
+    <Compile Include="view\ChartsTest.xaml.cs">
+      <DependentUpon>ChartsTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\converter\CareLevelConvert.cs" />
     <Compile Include="view\converter\IDCardConverter.cs" />
     <Compile Include="view\converter\LanguageConverter.cs" />
     <Compile Include="view\converter\StrengthConverter.cs" />
     <Compile Include="view\converter\TimeConverter.cs" />
-    <Compile Include="view\Pages\ChildWin\Analyze.xaml.cs">
-      <DependentUpon>Analyze.xaml</DependentUpon>
+    <Compile Include="view\dto\NewTrainDTO.cs" />
+    <Compile Include="view\Pages\ChildWin\NfcTip.xaml.cs">
+      <DependentUpon>NfcTip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\NfcTipOne.xaml.cs">
+      <DependentUpon>NfcTipOne.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Pages\ChildWin\NfcTipTwo.xaml.cs">
+      <DependentUpon>NfcTipTwo.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\NfcMyodynamia.xaml.cs">
       <DependentUpon>NfcMyodynamia.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\NuitrackScan.xaml.cs">
       <DependentUpon>NuitrackScan.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\Pages\ChildWin\OnlineChart.xaml.cs">
-      <DependentUpon>OnlineChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Pages\ChildWin\OnlineDeviceDetails.xaml.cs">
       <DependentUpon>OnlineDeviceDetails.xaml</DependentUpon>
@@ -495,19 +507,27 @@
     <Compile Include="view\converter\StatusConverter.cs">
       <Generator>MSBuild:Compile</Generator>
     </Compile>
-    <Page Include="view\Pages\ChildWin\Analyze.xaml">
+    <Page Include="view\ChartsTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Pages\ChildWin\NfcTip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Pages\ChildWin\NfcTipOne.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ChildWin\NfcTipTwo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="view\Pages\ChildWin\NfcMyodynamia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\ChildWin\NuitrackScan.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="view\Pages\ChildWin\OnlineChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -785,16 +805,30 @@
     <Resource Include="doc\none_english.png" />
     <Resource Include="doc\logo_english.png" />
     <Content Include="Echarts\dist\AerobicStacked.html" />
+    <Content Include="Echarts\dist\NewDLine.html" />
+    <Content Include="Echarts\dist\NewCLine.html" />
+    <Content Include="Echarts\dist\NewBLine.html" />
+    <Content Include="Echarts\dist\HALine.html" />
+    <Content Include="Echarts\dist\CPLine.html" />
+    <Content Include="Echarts\dist\NewALine.html" />
+    <Content Include="Echarts\dist\LELine.html" />
+    <Content Include="Echarts\dist\TFLine.html" />
+    <Content Include="Echarts\dist\ROWLine.html" />
     <Content Include="Echarts\dist\CourseRecord.html" />
     <Content Include="Echarts\dist\echarts-all.js" />
     <Content Include="Echarts\dist\echarts.js" />
     <Content Include="Echarts\dist\EndurancePie.html" />
+<<<<<<< HEAD
     <Content Include="Echarts\dist\ThoughtsLine.html" />
     <Content Include="Echarts\dist\Line2.html" />
     <Content Include="Echarts\dist\Line1.html" />
     <Content Include="Echarts\dist\Line5.html" />
     <Content Include="Echarts\dist\Line4.html" />
     <Content Include="Echarts\dist\Line3.html" />
+=======
+    <Content Include="Echarts\dist\HLPLine.html" />
+    <Content Include="Echarts\dist\Line.html" />
+>>>>>>> 703468c5f155c7d6b95da2a960b6f01884a9683c
     <Content Include="Echarts\dist\LineChart.html" />
     <Content Include="Echarts\dist\macarons.js" />
     <Content Include="Echarts\dist\Pie.html" />

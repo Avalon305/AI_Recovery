@@ -176,12 +176,12 @@ namespace spms.service
             }
         }
 
-		/// <summary>
-		/// 添加训练结果，设备上报上来的结果，zfc
-		/// </summary>
-		/// <param name="request"></param>
-		/// <param name="entity"></param>
-		public void InsertPrescriptionResult(UploadRequest request, entity.newEntity.PrescriptionResultTwo entity )
+        /// <summary>
+        /// 添加训练结果，设备上报上来的结果，zfc
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="entity"></param>
+        public void InsertPrescriptionResult(UploadRequest request, entity.newEntity.PrescriptionResultTwo entity )
 		{
 			using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
 			{
@@ -203,6 +203,7 @@ namespace spms.service
 				ts.Complete();
 			}
 		}
+
 		/// <summary>
 		/// 添加训练结果，返回主键
 		/// </summary>
@@ -251,6 +252,53 @@ namespace spms.service
             }
         }
 
+        /// <summary>
+        /// 添加训练结果，返回主键,lj
+        /// </summary>
+        public void AddPrescriptionResultTwo(object siId, TrainInfo trainInfo,
+            Dictionary<NewDevicePrescription, PrescriptionResultTwo> prescriptionDic)
+        {
+            UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+            NewDevicePrescriptionDAO devicePrescriptionDao = new NewDevicePrescriptionDAO();
+            NewPrescriptionResultDAO prescriptionResultDao = new NewPrescriptionResultDAO();
+
+            using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
+            {
+                //插入训练信息和上传表
+                int tiId = (int)new TrainInfoDAO().Insert(trainInfo);
+                uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo", 0));
+                if (siId != null)
+                {
+                    //改变症状表外键关联
+                    var symptomInfo = symptomInfoDao.Load((int)siId);
+                    symptomInfo.Fk_TI_Id = tiId;
+                    symptomInfoDao.UpdateByPrimaryKey(symptomInfo);
+                    //将更新信息插入至上传表
+                    uploadManagementDao.Insert(new UploadManagement(tiId, "bdl_traininfo", 1));
+                }
+                if (prescriptionDic != null)
+                {
+                    int dpId;
+                    int prId;
+                    foreach (KeyValuePair<NewDevicePrescription, PrescriptionResultTwo> prescription in prescriptionDic)
+                    {
+                        NewDevicePrescription devicePrescription = prescription.Key;
+                        PrescriptionResultTwo prescriptionResult = prescription.Value;
+                        //插入设备处方、上传表
+                        devicePrescription.Fk_ti_id = tiId;
+                        dpId = (int)devicePrescriptionDao.Insert(devicePrescription);
+                        uploadManagementDao.Insert(new UploadManagement(dpId, "bdl_deviceprescription", 0));
+
+                        //插入设备处方结果、上传表
+                        prescriptionResult.Fk_dp_id = dpId;
+                        prId = (int)prescriptionResultDao.Insert(prescriptionResult);
+                        uploadManagementDao.Insert(new UploadManagement(prId, "bdl_prescriptionresult", 0));
+                    }
+                }
+
+                ts.Complete();
+            }
+        }
 
         /// <summary>
         /// 获取该用户保存的训练处方
@@ -416,24 +464,24 @@ namespace spms.service
         /// 根据训练结果id获取扩展类
         /// </summary>
         /// <param name="prescriptionResultPkPrId"></param>
-        public List<TrainDTO> GetTrainDTOByPRId(int prId)
+        public List<NewTrainDTO> GetTrainDTOByPRId(int prId)
         {
-            DevicePrescriptionDAO devicePrescriptionDao = new DevicePrescriptionDAO();
-            PrescriptionResultDAO prescriptionResultDao = new PrescriptionResultDAO();
+            NewDevicePrescriptionDAO devicePrescriptionDao = new NewDevicePrescriptionDAO();
+            NewPrescriptionResultDAO prescriptionResultDao = new NewPrescriptionResultDAO();
 
-            List<TrainDTO> trainDtos = new List<TrainDTO>();
+            List<NewTrainDTO> trainDtos = new List<NewTrainDTO>();
 
             //根据训练结果id查询所在处方id
             int tiId = devicePrescriptionDao.GetTIIdByPRId(prId);
 
             //根据处方id查询处方+结果
-            List<DevicePrescription> devicePrescriptions = devicePrescriptionDao.GetByTIId(tiId);
-            foreach (DevicePrescription devicePrescription in devicePrescriptions)
+            List<NewDevicePrescription> devicePrescriptions = devicePrescriptionDao.GetByTIId(tiId);
+            foreach (NewDevicePrescription devicePrescription in devicePrescriptions)
             {
                 //根据处方查找训练结果
-                PrescriptionResult prescriptionResult = prescriptionResultDao.GetByDPId(devicePrescription.Pk_DP_Id);
+                PrescriptionResultTwo prescriptionResult = prescriptionResultDao.GetByDPId(Convert.ToInt32(devicePrescription.Pk_dp_id));
                 
-                trainDtos.Add(new TrainDTO(null, devicePrescription, prescriptionResult));
+                trainDtos.Add(new NewTrainDTO(null, devicePrescription, prescriptionResult));
             }
 
             return trainDtos;

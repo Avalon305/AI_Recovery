@@ -25,6 +25,9 @@ using System.Windows.Shapes;
 using spms.constant;
 using static spms.entity.CustomData;
 using WpfApp2;
+using spms.entity.newEntity;
+using spms.dao;
+using NLog;
 
 namespace spms.view.Pages.ChildWin
 {
@@ -35,10 +38,13 @@ namespace spms.view.Pages.ChildWin
     {
         //照片的url
         public string photoName { get; set; }
-        //用户是否自己选择照片
-        private bool userIfSelectPic = false;
-        //去除窗体叉号
-        private const int GWL_STYLE = -16;
+		private static Logger logger = LogManager.GetCurrentClassLogger();
+		//用户是否自己选择照片
+		private bool userIfSelectPic = false;
+		private PersonalSettingDao personalSettingDAO = new PersonalSettingDao();
+		private UserRelationDao userRelationDao = new UserRelationDao();
+		//去除窗体叉号
+		private const int GWL_STYLE = -16;
         private const int WS_SYSMENU = 0x80000;
         [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
@@ -370,12 +376,56 @@ namespace spms.view.Pages.ChildWin
             //将图片的url传到数据库
             user.User_PhotoLocation = photoName;
             userService.InsertUser(user);
-            //保存照片的路径
-            this.Close();
+			//为用户添加个人默认设置
+			User CurrentUseR =userService.GetByIdCard(user.User_IDCard);
+			UserRelation userRelation = userRelationDao.FindUserRelationByuserID(CurrentUseR.Pk_User_Id);
+			var bind_id = userRelation.Bind_id;
+			long result =AutoSavePersonalSettings(CurrentUseR.Pk_User_Id.ToString(), bind_id);
+			if (result == 10)
+			{
+				logger.Info("为刚刚创建的用自动添加个人设置");
+			}
+			//保存照片的路径
+			this.Close();
         }
 
-        // 摄像
-        private void Photograph(object sender, RoutedEventArgs e)
+		/// <summary>
+		/// 当创建完用户后，自动为用户创建个人设置
+		/// </summary>
+		/// <param name="userId"></param>
+		/// <param name="bindId"></param>
+		/// <returns></returns>
+		public long AutoSavePersonalSettings(string userId, string bindId)
+		{
+			long resultCode = 0;
+
+			//批量插入 构建集合
+			var personalSettingList = new List<PersonalSettingEntity>();
+			for (int i = 0; i < 10; i++)
+			{
+				var personalSetting = new PersonalSettingEntity();
+				personalSetting.Fk_member_id = long.Parse(userId);
+				personalSetting.Member_id = bindId;
+				personalSetting.Device_code = i.ToString();
+				personalSetting.Device_order_number = i + 1;
+				personalSetting.Training_mode = "0"; //默认为0
+				personalSetting.Seat_height = null; //默认为null
+				personalSetting.Backrest_distance = null;//默认为null
+				personalSetting.Footboard_distance = null;
+				personalSetting.Lever_angle = null;
+				personalSetting.Power = null;
+				personalSetting.Consequent_force = 21;//顺向力
+				personalSetting.Reverse_force = 21;//反向力
+				personalSetting.Front_limit = 150;//前方限制
+				personalSetting.Back_limit = 20;//后方限制
+
+				personalSettingList.Add(personalSetting);
+			}
+			resultCode = personalSettingDAO.BatchInsert(personalSettingList);
+			return resultCode;
+		}
+		// 摄像
+		private void Photograph(object sender, RoutedEventArgs e)
         {
             if (t3.Text == "" || IDCard.Text == "")
             {

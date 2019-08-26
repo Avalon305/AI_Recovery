@@ -1,6 +1,4 @@
-﻿using spms.dao;
-using spms.entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,18 +15,29 @@ using System.Windows.Shapes;
 namespace spms.view.Pages.ChildWin
 {
     /// <summary>
-    /// NfcMyodynamia.xaml 的交互逻辑
+    /// NfcTip.xaml 的交互逻辑
     /// </summary>
-    public partial class NfcMyodynamia : Window
+    public partial class NfcTip : Window
     {
-        public NfcMyodynamia()
+        public string G_nfcInfo = "";
+
+        public NfcTip()
         {
             InitializeComponent();
         }
 
-        private void Button_OK(object sender, RoutedEventArgs e)
+        private void Button_Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void NfcInfo_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(nfcInfo.Text.Length == 16)
+            {
+                G_nfcInfo = nfcInfo.Text;
+                nfcInfo.Focusable = false;
+            }
         }
     }
 }
