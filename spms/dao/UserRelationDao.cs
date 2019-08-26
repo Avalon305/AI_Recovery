@@ -60,5 +60,33 @@ namespace spms.dao
 
 			}
 		}
-	}
+
+        public int insertUserRelation(UserRelation userRelation)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string insert = "INSERT INTO bdl_user_relation (`fk_user_id`, `bind_id`, `muscle_test_val `) VALUES (@Fk_user_id, @Bind_id, @Muscle_test_val)";
+
+                return conn.Execute(insert, userRelation);
+
+            }
+        }
+
+        public void updateUserRelationByFk_user_id(int Fk_user_id)
+        {
+            string sql = @"update bdl_user_relation set bind_id=@Bind_id where fk_user_id = @Fk_user_id";
+            using (var conn = DbUtil.getConn())
+            {
+                try
+                {
+                    conn.Execute(sql, Fk_user_id);
+                }
+                catch (Exception ex)
+                {
+                    logger.Error("数据库updateUserRelation操作异常：" + ex.ToString());
+                }
+
+            }
+        }
+    }
 }

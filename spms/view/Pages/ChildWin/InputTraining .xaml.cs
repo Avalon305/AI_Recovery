@@ -3995,6 +3995,17 @@ namespace spms.view.Pages.ChildWin
             {
                 // insert
                 nfc.Focusable = false;
+                UserRelationDao userRelationDao = new UserRelationDao();
+                UserRelation userRelation = new UserRelation();
+                userRelation = userRelationDao.FindUserRelationByuserID((user.Pk_User_Id));
+                if (userRelation != null)
+                {
+                    userRelationDao.insertUserRelation(userRelation);
+                }
+                else
+                {
+                    userRelationDao.updateUserRelationByFk_user_id(user.Pk_User_Id);
+                }
             }
         }
     }
