@@ -38,12 +38,12 @@
                             <Border Grid.Row="0" Grid.Column="0" Background="Gray"   Margin="0,0,4,2">
                                 <Label Content="{DynamicResource NfcMyodynamia.Bracelet}"  VerticalAlignment="Center"  Foreground="White"/>
                             </Border>
-                            <Label Grid.Row="0" Name="Bracelet" Grid.Column="1"  Margin="0.2,0.2,0,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                            <Label Grid.Row="0" Name="bracelet" Grid.Column="1"  Margin="0.2,0.2,0,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                             <!--<TextBox Grid.Row="0"  CaretBrush="Black" LostFocus="Name_LostFocus" Name="UserName" Grid.Column="1"  Margin="0.2,0.2,0,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>-->
                             <Border Grid.Row="2" Grid.Column="0" Background="Gray" Margin="0,0,4,2">
                                 <Label Content="{DynamicResource NfcMyodynamia.Myodynamia}"  FontStyle="Normal"  Foreground="White"/>
                             </Border>
-                            <Label Grid.Row="2" Name="Myodynamia" Grid.Column="1"  Margin="0.2,0.2,0,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                            <Label Grid.Row="2" Name="myodynamia" Grid.Column="1"  Margin="0.2,0.2,0,1.6" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                         </Grid>
                         <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Center" Width="303" Height="47" VerticalAlignment="Top" BorderBrush="White" Margin="0,0,9.6,0">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">

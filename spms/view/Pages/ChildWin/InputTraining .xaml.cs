@@ -2515,6 +2515,14 @@ namespace spms.view.Pages.ChildWin
                 }
 
             }
+
+            UserRelationDao userRelationDao = new UserRelationDao();
+            UserRelation userRelation = new UserRelation();
+            userRelation = userRelationDao.FindUserRelationByuserID((user.Pk_User_Id));
+            if (userRelation != null)
+            {
+                nfc.Text = userRelation.Bind_id.ToString();
+            }
         }
 
         /// <summary>

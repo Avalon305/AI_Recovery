@@ -22,6 +22,7 @@ using spms.bean;
 using spms.constant;
 using spms.dao;
 using spms.entity;
+using spms.entity.newEntity;
 using spms.http;
 using spms.http.entity;
 using spms.service;
@@ -297,6 +298,47 @@ namespace spms.view.Pages
             Refresh_RecordFrame_Action();
 
 
+        }
+
+        /// <summary>
+        /// 按钮：手环和肌力测试
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddNfcMyodynamia(object sender, RoutedEventArgs e)
+        {
+
+            //检查是否选中
+            if (selectUser == null)
+            {
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                return;
+            }
+            NfcMyodynamia nfcMyodynamia = new NfcMyodynamia
+            {
+                Owner = Window.GetWindow(this),
+                ShowActivated = true,
+                ShowInTaskbar = false,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            User user = (User)UsersInfo.SelectedItem;
+
+            UserRelationDao userRelationDao = new UserRelationDao();
+            UserRelation userRelation = new UserRelation();
+            userRelation = userRelationDao.FindUserRelationByuserID((user.Pk_User_Id));
+            if (userRelation != null)
+            {
+                nfcMyodynamia.bracelet.Content = userRelation.Bind_id.ToString();
+                nfcMyodynamia.bracelet.Content = userRelation.Muscle_test_val;
+            }
+            else
+            {
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("数据库为空！", "The database is empty!"));
+            }
+            nfcMyodynamia.ShowDialog();
+            //关闭后刷新界面
+            //users = userService.GetAllUsers();
+            //UsersInfo.ItemsSource = users;
         }
 
         //按钮：删除
@@ -1269,16 +1311,16 @@ namespace spms.view.Pages
 
         }
 
-        private void AddNfcMyodynamia(object sender, RoutedEventArgs e)
-        {
-            NfcMyodynamia nfcMyodynamia = new NfcMyodynamia
-            {
-                Owner = Window.GetWindow(this),
-                ShowActivated = true,
-                ShowInTaskbar = false,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen
-            };
-            nfcMyodynamia.ShowDialog();
-        }
+        //private void AddNfcMyodynamia(object sender, RoutedEventArgs e)
+        //{
+        //    NfcMyodynamia nfcMyodynamia = new NfcMyodynamia
+        //    {
+        //        Owner = Window.GetWindow(this),
+        //        ShowActivated = true,
+        //        ShowInTaskbar = false,
+        //        WindowStartupLocation = WindowStartupLocation.CenterScreen
+        //    };
+        //    nfcMyodynamia.ShowDialog();
+        //}
     }
     }

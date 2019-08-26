@@ -1,4 +1,6 @@
-﻿using System;
+﻿using spms.dao;
+using spms.entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +29,21 @@ namespace spms.view.Pages.ChildWin
         private void Button_OK(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Height = SystemParameters.WorkArea.Size.Height;
+            //绑定数据
+            Load_Data();
+        }
+
+        private void Load_Data()
+        {
+            UserDAO userDAO = new UserDAO();
+
+            UserRelationDao userRelationDao = new UserRelationDao();
+            userRelationDao.FindUserRelationByuserID(((User)UsersInfo.SelectedItem).User_Id);
         }
     }
 }
