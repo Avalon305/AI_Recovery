@@ -55,9 +55,6 @@ namespace spms.view.Pages
 
         private AuthDAO authDao = new AuthDAO();
 
-
-
-
         //后台心跳更新UI线程
         public System.Timers.Timer timerNotice = null;
 
@@ -84,12 +81,11 @@ namespace spms.view.Pages
             e.Row.Header = e.Row.GetIndex() + 1;
 
         }
+
         //private void dgData_LoadingRow(object sender, DataGridRowEventArgs e)
         //{
         //    e.Row.Header = e.Row.GetIndex() + 1;
         //}
-
-
 
         /// <summary>
         /// 选中使用者信息时触发，将详细信息展示在左下角
@@ -322,19 +318,34 @@ namespace spms.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             User user = (User)UsersInfo.SelectedItem;
-
+            Console.WriteLine("Pk_User_Id = " + user.Pk_User_Id);
             UserRelationDao userRelationDao = new UserRelationDao();
             UserRelation userRelation = new UserRelation();
+
             userRelation = userRelationDao.FindUserRelationByuserID((user.Pk_User_Id));
             if (userRelation != null)
             {
-                nfcMyodynamia.bracelet.Content = userRelation.Bind_id.ToString();
-                nfcMyodynamia.bracelet.Content = userRelation.Muscle_test_val;
+                if (userRelation.Bind_id == null || userRelation.Bind_id == "")
+                {
+                    nfcMyodynamia.bracelet.Content = "未设置";
+                }
+                else
+                {
+                    nfcMyodynamia.bracelet.Content = userRelation.Bind_id;
+                }
+                if (userRelation.Muscle_test_val == null || userRelation.Muscle_test_val == "")
+                {
+                    nfcMyodynamia.myodynamia.Content = "未设置";
+                }
+                else
+                {
+                    nfcMyodynamia.myodynamia.Content = userRelation.Muscle_test_val;
+                }
             }
-            else
-            {
-                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("数据库为空！", "The database is empty!"));
-            }
+            //else
+            //{
+            //    MessageBoxX.Warning(LanguageUtils.ConvertLanguage("数据库为空！", "The database is empty!"));
+            //}
             nfcMyodynamia.ShowDialog();
             //关闭后刷新界面
             //users = userService.GetAllUsers();
@@ -1051,6 +1062,14 @@ namespace spms.view.Pages
                 return;
             }
             inputTraining.DataContext = user;
+            Console.WriteLine(user.Pk_User_Id);
+            UserRelationDao userRelationDao = new UserRelationDao();
+            UserRelation userRelation = new UserRelation();
+            userRelation = userRelationDao.FindUserRelationByuserID((user.Pk_User_Id));
+            if (userRelation.Bind_id != null || userRelation.Bind_id != "")
+            {
+                inputTraining.nfc.Text = userRelation.Bind_id;
+            }
             inputTraining.ShowDialog();
         }
 
@@ -1323,4 +1342,4 @@ namespace spms.view.Pages
         //    nfcMyodynamia.ShowDialog();
         //}
     }
-    }
+ }

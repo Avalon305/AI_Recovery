@@ -2515,14 +2515,6 @@ namespace spms.view.Pages.ChildWin
                 }
 
             }
-
-            UserRelationDao userRelationDao = new UserRelationDao();
-            UserRelation userRelation = new UserRelation();
-            userRelation = userRelationDao.FindUserRelationByuserID((user.Pk_User_Id));
-            if (userRelation != null)
-            {
-                nfc.Text = userRelation.Bind_id.ToString();
-            }
         }
 
         /// <summary>
@@ -2976,7 +2968,7 @@ namespace spms.view.Pages.ChildWin
         private void ButtonBase_OnClick2(object sender, RoutedEventArgs e)
         {
             InputMethod.SetIsInputMethodEnabled(nfc, false);
-            if (String.IsNullOrEmpty(nfc.Text) || nfc.Text.Length != 16)
+            if (String.IsNullOrEmpty(nfc.Text) || nfc.Text.Length != 10)
             {
                 NfcTipTwo nfcTipTwo = new NfcTipTwo
                 {
@@ -3209,7 +3201,7 @@ namespace spms.view.Pages.ChildWin
         {
             if (e.Key == Key.Enter)
             {
-                Button_Save(this, null);
+                //Button_Save(this, null);
                 //使键盘失去焦点，解决窗口反复出现
                 Keyboard.ClearFocus();
             }
@@ -3952,6 +3944,9 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Bind_Nfc(object sender, RoutedEventArgs e)
         {
+            nfc.Focusable = true;
+            nfc.Text = "";
+            nfc.Focus();
             //InputMethod.SetIsInputMethodEnabled(nfc, false);
             //if (String.IsNullOrEmpty(nfc.Text) || nfc.Text.Length != 16)
             //{
@@ -3975,36 +3970,47 @@ namespace spms.view.Pages.ChildWin
         /// <summary>
         /// 获取的NFC信息处理
         /// </summary>
-        public void HandleNfc()
+        public string DecodeNfc(string nfcOriginalInfo)
         {
-            string nfcOriginalInfo = "";
             string nfcTrueInfo = "";
 
-            while (String.IsNullOrEmpty(nfc.Text) || nfc.Text.Length != 16)
-            {
-                nfcOriginalInfo = nfc.Text;
-                nfcTrueInfo = nfcOriginalInfo.Substring(4, 2) + nfcOriginalInfo.Substring(6, 2) + nfcOriginalInfo.Substring(8, 2) + nfcOriginalInfo.Substring(10, 2) + nfcOriginalInfo.Substring(12, 2);
-            }
+            nfcOriginalInfo = nfc.Text;
+            nfcTrueInfo = nfcOriginalInfo.Substring(12, 2) + nfcOriginalInfo.Substring(10, 2) + nfcOriginalInfo.Substring(8, 2) + nfcOriginalInfo.Substring(6, 2) + nfcOriginalInfo.Substring(4, 2);
 
-            Console.WriteLine(nfcTrueInfo);
+            return nfcTrueInfo;
         }
 
+        /// <summary>
+        /// NFC绑定，一人只能绑定一个NFC
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nfc_TextChanged(object sender, TextChangedEventArgs e)
         {
             if(nfc.Text.Length == 16)
             {
-                // insert
-                nfc.Focusable = false;
+                nfc.Text = DecodeNfc(nfc.Text);
+                if(nfc.Text.Length == 10)
+                {
+                    nfc.Focusable = false;
+                }
+
                 UserRelationDao userRelationDao = new UserRelationDao();
                 UserRelation userRelation = new UserRelation();
-                userRelation = userRelationDao.FindUserRelationByuserID((user.Pk_User_Id));
-                if (userRelation != null)
+                UserRelation userRelationTwo = new UserRelation();
+
+                userRelationTwo = userRelationDao.FindUserRelationByuserID(user.Pk_User_Id);
+                if(userRelationTwo == null)
                 {
+                    userRelation.Fk_user_id = user.Pk_User_Id;
+                    userRelation.Bind_id = nfc.Text;
                     userRelationDao.insertUserRelation(userRelation);
                 }
                 else
                 {
-                    userRelationDao.updateUserRelationByFk_user_id(user.Pk_User_Id);
+                    userRelation.Fk_user_id = user.Pk_User_Id;
+                    userRelation.Bind_id = nfc.Text;
+                    userRelationDao.updateBind_idByFk_user_id(userRelation);
                 }
             }
         }

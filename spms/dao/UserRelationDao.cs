@@ -54,9 +54,9 @@ namespace spms.dao
 		{
 			using (var conn = DbUtil.getConn())
 			{
-				const string query = "select * from bdl_user_relation where fk_user_id = @fk_user_id ";
+				const string query = "select * from bdl_user_relation where fk_user_id = @Fk_user_id ";
 
-				return conn.QueryFirstOrDefault<UserRelation>(query, new { fk_user_id = user_id });
+				return conn.QueryFirstOrDefault<UserRelation>(query, new { Fk_user_id = user_id });
 
 			}
 		}
@@ -65,21 +65,21 @@ namespace spms.dao
         {
             using (var conn = DbUtil.getConn())
             {
-                const string insert = "INSERT INTO bdl_user_relation (`fk_user_id`, `bind_id`, `muscle_test_val `) VALUES (@Fk_user_id, @Bind_id, @Muscle_test_val)";
+                const string insert = "INSERT INTO bdl_user_relation (`fk_user_id`, `bind_id`) VALUES (@Fk_user_id, @Bind_id)";
 
                 return conn.Execute(insert, userRelation);
 
             }
         }
 
-        public void updateUserRelationByFk_user_id(int Fk_user_id)
+        public void updateBind_idByFk_user_id(UserRelation userRelation)
         {
-            string sql = @"update bdl_user_relation set bind_id=@Bind_id where fk_user_id = @Fk_user_id";
+            string sql = @"update bdl_user_relation set bind_id=@Bind_id ,gmt_modified=@Gmt_modified where fk_user_id = @Fk_user_id";
             using (var conn = DbUtil.getConn())
             {
                 try
                 {
-                    conn.Execute(sql, Fk_user_id);
+                    conn.Execute(sql, userRelation);
                 }
                 catch (Exception ex)
                 {

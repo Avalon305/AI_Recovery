@@ -176,7 +176,7 @@
                     <Label  Margin="79,0,205.2,0" VerticalAlignment="Center" Name="l1" Content="{Binding  Pk_User_Id}" Grid.RowSpan="2"/>
                     <!--nfc-->
                     <Label Grid.Column="0"  Content="{DynamicResource TrainingListView.NFCLable}" Margin="300,0,120.4,0" VerticalAlignment="Center" Grid.RowSpan="2"/>
-                    <TextBox  Margin="379,0,605.2,0" InputMethod.IsInputMethodEnabled="False" VerticalAlignment="Center" Name="nfc" Text="{Binding  Bind_id}" Grid.RowSpan="2" BorderBrush="White" MaxLength="16" TextChanged="nfc_TextChanged">
+                    <TextBox  Margin="379,0,605.2,0" InputMethod.IsInputMethodEnabled="False" VerticalAlignment="Center" Name="nfc" Grid.RowSpan="2" BorderBrush="White" MaxLength="16" TextChanged="nfc_TextChanged">
                         <TextBox.Resources>
                             <VisualBrush x:Key="HintText" TileMode="None" Opacity="0.5" Stretch="None" AlignmentX="Left">
                                 <VisualBrush.Visual>
@@ -197,7 +197,7 @@
                             </Style>
                           </TextBox.Style>
                     </TextBox>
-                    <!--<Button Width="140" Height="22"  IsTabStop="False"   Margin="720,0,0,5" Grid.RowSpan="2" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Bind_Nfc" Name="Bind_nfc"  Content="{DynamicResource TrainingListView.BindNfc}"></Button>-->
+                    <Button Width="120" Height="22"  IsTabStop="False"   Margin="720,0,0,5" Grid.RowSpan="2" Style="{StaticResource Btn}" VerticalAlignment="Bottom" Click="Bind_Nfc" Name="Bind_nfc"  Content="{DynamicResource TrainingListView.AgainBindNfc}"></Button>
 
                 </Grid>
                 <!--Grid 使用者信息展示 结束-->
