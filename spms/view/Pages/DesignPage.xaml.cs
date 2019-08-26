@@ -25,6 +25,9 @@ namespace spms.view.Pages
             InitializeComponent();
         }
 
-       
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

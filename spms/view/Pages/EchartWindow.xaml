@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spms.view.Pages"
         mc:Ignorable="d"
-        Title="在线报表" Height="1080" Width="1300">
+        Title="在线报表" Height="1000" Width="1800" WindowStartupLocation="CenterScreen">
     <Grid >
         <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="790*"/>
@@ -13,14 +13,12 @@
             <ColumnDefinition Width="454*"/>
         </Grid.ColumnDefinitions>-->
         <ScrollViewer Width="auto" VerticalAlignment="Bottom" Margin="0,0,0,50" Grid.ColumnSpan="3" >
-            <Grid Height="3000" Background="White">
+            <Grid Height="1800" Background="White">
                 <Grid.RowDefinitions >
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="5*"/>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="6*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="5*"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
@@ -28,45 +26,59 @@
                         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,40,0,20" Foreground="#04243D" Content="肌肉群运动比例"  FontFamily="Microsoft YaHei" FontSize="50"></Label>
 
                         <!--<Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,20" Foreground="#04243D" Content="力量循环"  FontFamily="Microsoft YaHei"></Label>-->
-                        <GridSplitter Height="3" Width="1300"/>
+                        <GridSplitter Height="3" Width="2000"/>
                     </StackPanel>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <!--<Label HorizontalAlignment="Center" Margin="0,150,0,0" Foreground="#04243D" Content="力量耐力循环柱状图填充位置" Style="{DynamicResource h3}" FontFamily="Microsoft YaHei" FontSize="22"></Label>-->
+                    
+                    <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Content="选择设备：" Foreground="Black" Margin="20,0" FontSize="30"/>
+                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="30" FontSize="20" Margin="160,10,0,0" x:Name="comboxDevice" ItemsSource="{Binding}" SelectedIndex ="0"  SelectedValuePath="Code_S_Value" DisplayMemberPath="Code_C_Value" />
 
-                    <!--<WebBrowser  Name="Web" Height="700">
-                    </WebBrowser>-->
+
+                    <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Content="选择次数：" Foreground="Black" Margin="300,0,0,0" FontSize="30"/>
+                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="30" Margin="440,10,0,0" x:Name="comboxNum" FontSize="20" SelectedIndex ="0">
+                        <ComboBoxItem>1</ComboBoxItem>
+                        <ComboBoxItem>2</ComboBoxItem>
+                        <ComboBoxItem>3</ComboBoxItem>
+                        <ComboBoxItem>4</ComboBoxItem>
+                        <ComboBoxItem>5</ComboBoxItem>
+
+                    </ComboBox>
+
+
+                    <Button x:Name="button" Content="查询" HorizontalAlignment="Left" Margin="600,5,0,0"  VerticalAlignment="Top" Width="75" Height="35" Background="#FF04243D" FontSize="20" Style="{StaticResource Btn}" Click="Button_Click" />
+
+                    <WebBrowser  Name="HeartRateChart" Height="600">
+                    </WebBrowser>
 
                 </Grid>
 
                 <Grid Grid.Row="2">
                     <StackPanel>
-                        <GridSplitter Height="3" Width="1500"></GridSplitter>
-                        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,40,0,20" Foreground="#04243D" Content="设备耗能"  FontFamily="Microsoft YaHei" FontSize="50"></Label>
+                        <GridSplitter Height="3" Width="2000"></GridSplitter>
+                        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,40,0,20" Foreground="#04243D" Content="使用感想变化"  FontFamily="Microsoft YaHei" FontSize="50"></Label>
 
                         <!--<Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,20" Foreground="#04243D" Content="力量循环"  FontFamily="Microsoft YaHei"></Label>-->
-                        <GridSplitter Height="3" Width="1500"/>
+                        <GridSplitter Height="3" Width="2000"/>
                     </StackPanel>
                 </Grid>
 
                 <Grid Grid.Row="3">
-                    <StackPanel>
+                        <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Content="选择设备：" Foreground="Black" Margin="20,0" FontSize="30"/>
+                        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="30" FontSize="20" Margin="160,10,0,0" x:Name="comboxDevice2" ItemsSource="{Binding}" SelectedIndex ="0"  SelectedValuePath="Code_S_Value" DisplayMemberPath="Code_C_Value" />
+                         <Button x:Name="button2" Content="查询" HorizontalAlignment="Left" Margin="600,5,0,0"  VerticalAlignment="Top" Width="75" Height="35" Background="#FF04243D" FontSize="20" Style="{StaticResource Btn}" Click="Button2_Click" />
 
-                        <!--<Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0" Foreground="#04243D" Content="力量耐力循环"  FontFamily="Microsoft YaHei"></Label>
-                        <GridSplitter Height="3" Width="2600"></GridSplitter>
-                        <Label HorizontalAlignment="Center" Margin="0,150,0,0" Foreground="#04243D" Content="力量柱状图填充位置" Style="{DynamicResource h3}" FontFamily="Microsoft YaHei" FontSize="22"></Label>
 
-                        <WebBrowser  Name="Endurance" Height="400">
-                        </WebBrowser>-->
+                    <WebBrowser  Name="ThoughtsLine" Height="600">
+                        </WebBrowser>
 
-                    </StackPanel>
                 </Grid>
             </Grid>
 
         </ScrollViewer>
-        <GridSplitter Height="2" Margin="-227,0,0,48"  VerticalAlignment="Bottom" Width="1300" Grid.ColumnSpan="3"/>
-        <Button x:Name="button" Content="后退" HorizontalAlignment="Right" Margin="0,0,20,10"  VerticalAlignment="Bottom" Width="75" Height="35" Background="#FF04243D" FontSize="20" Style="{StaticResource Btn}" Click="Button_Click" Grid.Column="2"/>
+        <GridSplitter Height="2" Margin="-227,0,0,48"  VerticalAlignment="Bottom" Width="2000" Grid.ColumnSpan="3"/>
+        <!--<Button x:Name="button" Content="后退" HorizontalAlignment="Right" Margin="0,0,20,10"  VerticalAlignment="Bottom" Width="75" Height="35" Background="#FF04243D" FontSize="20" Style="{StaticResource Btn}" Click="Button_Click" Grid.Column="2"/>-->
         <!--<Button x:Name="speech" Content="AI教练" HorizontalAlignment="Left" Margin="100,0,0,10" Grid.Row="2" VerticalAlignment="Bottom" Width="100" FontSize="20" Style="{DynamicResource btn-success}" Click="Speech_Click"/>
         <Button x:Name="stop" Content="STOP" HorizontalAlignment="Left" Margin="205,0,0,10" Grid.Row="2" VerticalAlignment="Bottom" Width="100" FontSize="20" Style="{DynamicResource btn-danger}" Click="Stop_Click" Visibility="Hidden"/>-->
 
