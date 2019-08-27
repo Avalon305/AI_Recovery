@@ -437,7 +437,7 @@
     <s:String x:Key="TrainingResultView.Back">返回</s:String>
     <!--lj ++-->
     <s:String x:Key="TrainingResultView.Power">功率</s:String>
-    <s:String x:Key="TrainingResultView.HeartRateList">心率集合</s:String>
+    <s:String x:Key="TrainingResultView.HeartRateList">心率集合(1*1*1)</s:String>
     <s:String x:Key="TrainingResultView.TrainingModel">训练模式</s:String>
     <s:String x:Key="TrainingResultView.RehabilitationModel">康复模式</s:String>
     <s:String x:Key="TrainingResultView.ActiveModel">主动模式</s:String>
@@ -527,7 +527,7 @@
 
     <!--3D扫描-->
     <s:String x:Key="Skeleton.UserName">用户名</s:String>
-    <s:String x:Key="Skeleton.Weigth">体重</s:String>
+    <s:String x:Key="Skeleton.Weigth">体重(kg)</s:String>
     <s:String x:Key="Skeleton.Stature">身高(cm)</s:String>
     <s:String x:Key="Skeleton.ShoulderBreadth">肩宽(cm)</s:String>
     <s:String x:Key="Skeleton.ArmLengthUp">臂长(上)(cm)</s:String>
@@ -543,6 +543,8 @@
     <s:String x:Key="NfcMyodynamia.NfcMyodynamia">手环和肌力测试</s:String>
     <s:String x:Key="NfcMyodynamia.Bracelet">手环信息</s:String>
     <s:String x:Key="NfcMyodynamia.Myodynamia">肌力测试信息</s:String>
+    <s:String x:Key="NfcMyodynamia.Tips">温馨提示</s:String>
+    <s:String x:Key="NfcMyodynamia.TipsInfo">点击开始后，请站到对着摄像头的一个合适距离的位置</s:String>
 
     <!-- 新设备 -->
     <s:String x:Key="NewDev.Rowing">坐式划船机</s:String>

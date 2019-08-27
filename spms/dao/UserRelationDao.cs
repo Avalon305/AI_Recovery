@@ -44,9 +44,17 @@ namespace spms.dao
 			using (var conn = DbUtil.getConn())
 			{
 				const string query = "select * from bdl_user_relation where bind_id = @Bind_id ";
+				try
+				{
+					return conn.QueryFirstOrDefault<UserRelation>(query, new { Bind_id = bind_id });
 
-				return conn.QueryFirstOrDefault<UserRelation>(query, new { Bind_id = bind_id });
-
+				}
+				catch (Exception ex)
+				{
+					logger.Error("数据库跟新操作异常：" + ex.ToString());
+					throw;
+				}
+				
 			}
 		}
 

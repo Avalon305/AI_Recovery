@@ -55,7 +55,7 @@ namespace spms.dao
 		/// <returns></returns>
 		public PersonalSettingEntity GetSettingByMemberId(string user_id, string deviceType_code)
 		{
-			const string query = @"SELECT * FROM bdl_personal_setting WHERE fk_member_id = @user_id device_code = @DeviceCode 
+			const string query = @"SELECT * FROM bdl_personal_setting WHERE fk_member_id = @user_id and device_code = @DeviceCode 
                              
 ";
 			var para = new { user_id = user_id,  DeviceCode = deviceType_code };
@@ -66,6 +66,26 @@ namespace spms.dao
 
 		}
 
+		/// <summary>
+		/// 根据主键id删除个人设置
+		/// </summary>
+		/// <param name="user_id"></param>
+		public void DeleteSettingByUserId(string user_id)
+		{
+			string sql = @"delete from bdl_personal_setting where fk_member_id = @Fk_member_id";
+			using (var conn = DbUtil.getConn())
+			{
+				try
+				{
+					conn.Execute(sql, new { Fk_member_id = user_id });
+				}
+				catch (Exception ex)
+				{
+					logger.Error("数据库DELETESETTTING操作异常" + ex.ToString());
+				}
+
+			}
+		}
 
 	}
 }

@@ -21,6 +21,9 @@ namespace spms.entity.newEntity
         public int Fk_member_id { get; set; }
 		//体重
 		public double Weigth { get; set; }
+        //身高
+        public double Height { get; set; }
+        //躯干长
         public double Body_length { get; set; }
         //肩宽mm
         public double Shoulder_width { get; set; }

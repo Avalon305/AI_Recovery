@@ -131,9 +131,7 @@ namespace spms.view.Pages.ChildWin
                         HLPAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
 
                         // 心率折线图
-                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
-                        HLPWeb.ObjectForScripting = resultLine;
-                        // 获取项目的根路径
+                        HLPWeb.ObjectForScripting = new ResultLine(trainDto.prescriptionResult.Heart_rate_list, 0);
                         HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/HLPLine.html"));
                         break;
                     case (int)DeviceType.P00:
@@ -171,10 +169,8 @@ namespace spms.view.Pages.ChildWin
                         ROWAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
 
                         // 心率折线图
-                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
-                        HLPWeb.ObjectForScripting = resultLine;
-                        // 获取项目的根路径
-                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/RowLine.html"));
+                        ROWWeb.ObjectForScripting = new ResultLine(trainDto.prescriptionResult.Heart_rate_list, 1);
+                        ROWWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/ROWLine.html"));
                         break;
                     case (int)DeviceType.P09:
                         TFGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -211,10 +207,8 @@ namespace spms.view.Pages.ChildWin
                         TFAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
 
                         // 心率折线图
-                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
-                        HLPWeb.ObjectForScripting = resultLine;
-                        // 获取项目的根路径
-                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/TFLine.html"));
+                        TFWeb.ObjectForScripting = new ResultLine(trainDto.prescriptionResult.Heart_rate_list, 2);
+                        TFWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/TFLine.html"));
                         break;
                     case (int)DeviceType.P06:
                         LEGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -251,10 +245,8 @@ namespace spms.view.Pages.ChildWin
                         LEAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
 
                         // 心率折线图
-                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
-                        HLPWeb.ObjectForScripting = resultLine;
-                        // 获取项目的根路径
-                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/LELine.html"));
+                        LEWeb.ObjectForScripting = new ResultLine(trainDto.prescriptionResult.Heart_rate_list, 3);
+                        LEWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/LELine.html"));
                         break;
                     case (int)DeviceType.P02:
                         HAGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -291,10 +283,8 @@ namespace spms.view.Pages.ChildWin
                         HAAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
 
                         // 心率折线图
-                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
-                        HLPWeb.ObjectForScripting = resultLine;
-                        // 获取项目的根路径
-                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/HALine.html"));
+                        HAWeb.ObjectForScripting = new ResultLine(trainDto.prescriptionResult.Heart_rate_list, 4);
+                        HAWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/HALine.html"));
                         break;
                     case (int)DeviceType.P05:
                         CPGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -331,10 +321,8 @@ namespace spms.view.Pages.ChildWin
                         CPAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
 
                         // 心率折线图
-                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
-                        HLPWeb.ObjectForScripting = resultLine;
-                        // 获取项目的根路径
-                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/CPLine.html"));
+                        CPWeb.ObjectForScripting = new ResultLine(trainDto.prescriptionResult.Heart_rate_list, 5);
+                        CPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/CPLine.html"));
                         break;
                     case (int)DeviceType.P03:
                         NewAGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -371,10 +359,8 @@ namespace spms.view.Pages.ChildWin
                         NewAAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
 
                         // 心率折线图
-                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
-                        HLPWeb.ObjectForScripting = resultLine;
-                        // 获取项目的根路径
-                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/NewALine.html"));
+                        NewAWeb.ObjectForScripting = new ResultLine(trainDto.prescriptionResult.Heart_rate_list, 6);
+                        NewAWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/NewALine.html"));
                         break;
                     case (int)DeviceType.P04:
                         NewBGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -411,10 +397,8 @@ namespace spms.view.Pages.ChildWin
                         NewBAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
 
                         // 心率折线图
-                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
-                        HLPWeb.ObjectForScripting = resultLine;
-                        // 获取项目的根路径
-                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/NewBLine.html"));
+                        NewBWeb.ObjectForScripting = new ResultLine(trainDto.prescriptionResult.Heart_rate_list, 7);
+                        NewBWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/NewBLine.html"));
                         break;
                     case (int)DeviceType.P07:
                         NewCGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -451,10 +435,8 @@ namespace spms.view.Pages.ChildWin
                         NewCAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
 
                         // 心率折线图
-                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
-                        HLPWeb.ObjectForScripting = resultLine;
-                        // 获取项目的根路径
-                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/NewCLine.html"));
+                        NewCWeb.ObjectForScripting = new ResultLine(trainDto.prescriptionResult.Heart_rate_list, 8);
+                        NewCWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/NewCLine.html"));
                         break;
                     case (int)DeviceType.P08:
                         NewDGroupcount.Text = trainDto.devicePrescription.Dp_groupcount.ToString();
@@ -491,10 +473,8 @@ namespace spms.view.Pages.ChildWin
                         NewDAttentionpoint.Text = trainDto.devicePrescription.Dp_memo;
 
                         // 心率折线图
-                        resultLine.HLPHeartRateList = trainDto.prescriptionResult.Heart_rate_list.Split(new char[] { '*' });
-                        HLPWeb.ObjectForScripting = resultLine;
-                        // 获取项目的根路径
-                        HLPWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/NewDLine.html"));
+                        NewDWeb.ObjectForScripting = new ResultLine(trainDto.prescriptionResult.Heart_rate_list, 9);
+                        NewDWeb.Navigate(new Uri(rootpath + "spms/Echarts/dist/NewDLine.html"));
                         break;
                 }
             }
@@ -556,8 +536,8 @@ namespace spms.view.Pages.ChildWin
                 HLPConsequentForce.Visibility = Visibility.Visible;
                 HLPRF_Label.Background = Brushes.Gray;
                 HLPReverseForce.Visibility = Visibility.Visible;
-                Grid.SetRow(HLPRF_Label, 11);
-                Grid.SetRow(HLPRF_Label, 11);
+                Grid.SetRow(HLPCF_Label, 11);
+                Grid.SetRow(HLPConsequentForce, 11);
             }
             else
             {
@@ -587,8 +567,8 @@ namespace spms.view.Pages.ChildWin
                 ROWConsequentForce.Visibility = Visibility.Visible;
                 ROWRF_Label.Background = Brushes.Gray;
                 ROWReverseForce.Visibility = Visibility.Visible;
-                Grid.SetRow(ROWRF_Label, 11);
-                Grid.SetRow(ROWRF_Label, 11);
+                Grid.SetRow(ROWCF_Label, 11);
+                Grid.SetRow(ROWConsequentForce, 11);
             }
             else
             {
@@ -618,8 +598,8 @@ namespace spms.view.Pages.ChildWin
                 TFConsequentForce.Visibility = Visibility.Visible;
                 TFRF_Label.Background = Brushes.Gray;
                 TFReverseForce.Visibility = Visibility.Visible;
-                Grid.SetRow(TFRF_Label, 11);
-                Grid.SetRow(TFRF_Label, 11);
+                Grid.SetRow(TFCF_Label, 11);
+                Grid.SetRow(TFConsequentForce, 11);
             }
             else
             {
@@ -649,8 +629,8 @@ namespace spms.view.Pages.ChildWin
                 LEConsequentForce.Visibility = Visibility.Visible;
                 LERF_Label.Background = Brushes.Gray;
                 LEReverseForce.Visibility = Visibility.Visible;
-                Grid.SetRow(LERF_Label, 11);
-                Grid.SetRow(LERF_Label, 11);
+                Grid.SetRow(LECF_Label, 11);
+                Grid.SetRow(LEConsequentForce, 11);
             }
             else
             {
@@ -680,8 +660,8 @@ namespace spms.view.Pages.ChildWin
                 HAConsequentForce.Visibility = Visibility.Visible;
                 HARF_Label.Background = Brushes.Gray;
                 HAReverseForce.Visibility = Visibility.Visible;
-                Grid.SetRow(HARF_Label, 11);
-                Grid.SetRow(HARF_Label, 11);
+                Grid.SetRow(HACF_Label, 11);
+                Grid.SetRow(HAConsequentForce, 11);
             }
             else
             {
@@ -711,8 +691,8 @@ namespace spms.view.Pages.ChildWin
                 CPConsequentForce.Visibility = Visibility.Visible;
                 CPRF_Label.Background = Brushes.Gray;
                 CPReverseForce.Visibility = Visibility.Visible;
-                Grid.SetRow(CPRF_Label, 11);
-                Grid.SetRow(CPRF_Label, 11);
+                Grid.SetRow(CPCF_Label, 11);
+                Grid.SetRow(CPConsequentForce, 11);
             }
             else
             {
@@ -742,8 +722,8 @@ namespace spms.view.Pages.ChildWin
                 NewAConsequentForce.Visibility = Visibility.Visible;
                 NewARF_Label.Background = Brushes.Gray;
                 NewAReverseForce.Visibility = Visibility.Visible;
-                Grid.SetRow(NewARF_Label, 11);
-                Grid.SetRow(NewARF_Label, 11);
+                Grid.SetRow(NewACF_Label, 11);
+                Grid.SetRow(NewAConsequentForce, 11);
             }
             else
             {
@@ -773,8 +753,8 @@ namespace spms.view.Pages.ChildWin
                 NewBConsequentForce.Visibility = Visibility.Visible;
                 NewBRF_Label.Background = Brushes.Gray;
                 NewBReverseForce.Visibility = Visibility.Visible;
-                Grid.SetRow(NewBRF_Label, 11);
-                Grid.SetRow(NewBRF_Label, 11);
+                Grid.SetRow(NewBCF_Label, 11);
+                Grid.SetRow(NewBConsequentForce, 11);
             }
             else
             {
@@ -804,8 +784,8 @@ namespace spms.view.Pages.ChildWin
                 NewCConsequentForce.Visibility = Visibility.Visible;
                 NewCRF_Label.Background = Brushes.Gray;
                 NewCReverseForce.Visibility = Visibility.Visible;
-                Grid.SetRow(NewCRF_Label, 11);
-                Grid.SetRow(NewCRF_Label, 11);
+                Grid.SetRow(NewCCF_Label, 11);
+                Grid.SetRow(NewCConsequentForce, 11);
             }
             else
             {
@@ -835,8 +815,8 @@ namespace spms.view.Pages.ChildWin
                 NewDConsequentForce.Visibility = Visibility.Visible;
                 NewDRF_Label.Background = Brushes.Gray;
                 NewDReverseForce.Visibility = Visibility.Visible;
-                Grid.SetRow(NewDRF_Label, 11);
-                Grid.SetRow(NewDRF_Label, 11);
+                Grid.SetRow(NewDCF_Label, 11);
+                Grid.SetRow(NewDConsequentForce, 11);
             }
             else
             {

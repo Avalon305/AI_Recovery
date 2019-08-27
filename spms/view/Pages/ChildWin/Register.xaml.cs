@@ -376,54 +376,11 @@ namespace spms.view.Pages.ChildWin
             //将图片的url传到数据库
             user.User_PhotoLocation = photoName;
             userService.InsertUser(user);
-			//为用户添加个人默认设置
-			User CurrentUseR =userService.GetByIdCard(user.User_IDCard);
-			UserRelation userRelation = userRelationDao.FindUserRelationByuserID(CurrentUseR.Pk_User_Id);
-			var bind_id = userRelation.Bind_id;
-			long result =AutoSavePersonalSettings(CurrentUseR.Pk_User_Id.ToString(), bind_id);
-			if (result == 10)
-			{
-				logger.Info("为刚刚创建的用自动添加个人设置");
-			}
 			//保存照片的路径
 			this.Close();
         }
 
-		/// <summary>
-		/// 当创建完用户后，自动为用户创建个人设置
-		/// </summary>
-		/// <param name="userId"></param>
-		/// <param name="bindId"></param>
-		/// <returns></returns>
-		public long AutoSavePersonalSettings(string userId, string bindId)
-		{
-			long resultCode = 0;
-
-			//批量插入 构建集合
-			var personalSettingList = new List<PersonalSettingEntity>();
-			for (int i = 0; i < 10; i++)
-			{
-				var personalSetting = new PersonalSettingEntity();
-				personalSetting.Fk_member_id = long.Parse(userId);
-				personalSetting.Member_id = bindId;
-				personalSetting.Device_code = i.ToString();
-				personalSetting.Device_order_number = i + 1;
-				personalSetting.Training_mode = "0"; //默认为0
-				personalSetting.Seat_height = null; //默认为null
-				personalSetting.Backrest_distance = null;//默认为null
-				personalSetting.Footboard_distance = null;
-				personalSetting.Lever_angle = null;
-				personalSetting.Power = null;
-				personalSetting.Consequent_force = 21;//顺向力
-				personalSetting.Reverse_force = 21;//反向力
-				personalSetting.Front_limit = 150;//前方限制
-				personalSetting.Back_limit = 20;//后方限制
-
-				personalSettingList.Add(personalSetting);
-			}
-			resultCode = personalSettingDAO.BatchInsert(personalSettingList);
-			return resultCode;
-		}
+	
 		// 摄像
 		private void Photograph(object sender, RoutedEventArgs e)
         {
@@ -432,7 +389,7 @@ namespace spms.view.Pages.ChildWin
                 MessageBoxX.Info(LanguageUtils.ConvertLanguage("请填写完整信息", "Please fill in the complete information"));
                 return;
             }
-           
+
             Photograph photograph = new Photograph
             {
                 Owner = Window.GetWindow(this),
@@ -441,7 +398,7 @@ namespace spms.view.Pages.ChildWin
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             //如果不存在摄像头，不必打开界面
-            if (!photograph.existCameras) {
+            if (photograph.existCameras == false) {
                 return;
             }
             
@@ -452,8 +409,6 @@ namespace spms.view.Pages.ChildWin
             photoName = photograph.photoName;
             oldPhotoName = photoName;
             //photograph.Close();
-            Console.WriteLine(photoName);
-
             //展示摄像的时候的图片
             if (File.Exists(CommUtil.GetUserPic() + photoName))
             {

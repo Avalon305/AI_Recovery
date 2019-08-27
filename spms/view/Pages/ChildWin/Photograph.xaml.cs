@@ -81,6 +81,7 @@ namespace spms.view.Pages.ChildWin
             cb.ItemsSource = MultimediaUtil.VideoInputNames;
             if (MultimediaUtil.VideoInputNames.Length > 0)
             {
+                existCameras = true;
                 cb.SelectedIndex = 0;//第0个摄像头为默认摄像头
             }
             else

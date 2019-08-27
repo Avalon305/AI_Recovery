@@ -235,7 +235,10 @@
                                 </StackPanel>
                                 <StackPanel Margin="20,50,0,9.6" Width="245" >
                                     <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="ROWChart" TextWrapping="Wrap"/>
+                                    <Grid>
+                                        <WebBrowser Name="ROWWeb" Height="275">
+                                        </WebBrowser>
+                                    </Grid>
                                 </StackPanel>
 
                             </StackPanel>
@@ -320,7 +323,10 @@
                                 </StackPanel>
                                 <StackPanel Margin="20,50,0,9.6" Width="245" >
                                     <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="TFChart" TextWrapping="Wrap"/>
+                                    <Grid>
+                                        <WebBrowser Name="TFWeb" Height="275">
+                                        </WebBrowser>
+                                    </Grid>
                                 </StackPanel>
 
                             </StackPanel>
@@ -405,7 +411,10 @@
                                 </StackPanel>
                                 <StackPanel Margin="20,50,0,9.6" Width="245" >
                                     <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="LEChart" TextWrapping="Wrap"/>
+                                    <Grid>
+                                        <WebBrowser Name="LEWeb" Height="275">
+                                        </WebBrowser>
+                                    </Grid>
                                 </StackPanel>
 
                             </StackPanel>
@@ -489,7 +498,10 @@
                                 </StackPanel>
                                 <StackPanel Margin="20,50,0,9.6" Width="245" >
                                     <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="HAChart" TextWrapping="Wrap"/>
+                                    <Grid>
+                                        <WebBrowser Name="HAWeb" Height="275">
+                                        </WebBrowser>
+                                    </Grid>
                                 </StackPanel>
 
                             </StackPanel>
@@ -574,7 +586,10 @@
                                 </StackPanel>
                                 <StackPanel Margin="20,50,0,9.6" Width="245" >
                                     <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="CPChart" TextWrapping="Wrap"/>
+                                    <Grid>
+                                        <WebBrowser Name="CPWeb" Height="275">
+                                        </WebBrowser>
+                                    </Grid>
                                 </StackPanel>
 
                             </StackPanel>
@@ -659,7 +674,10 @@
                                 </StackPanel>
                                 <StackPanel Margin="20,50,0,9.6" Width="245" >
                                     <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="NewAChart" TextWrapping="Wrap"/>
+                                    <Grid>
+                                        <WebBrowser Name="NewAWeb" Height="275">
+                                        </WebBrowser>
+                                    </Grid>
                                 </StackPanel>
 
                             </StackPanel>
@@ -744,7 +762,10 @@
                                 </StackPanel>
                                 <StackPanel Margin="20,50,0,9.6" Width="245" >
                                     <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="NewBChart" TextWrapping="Wrap"/>
+                                    <Grid>
+                                        <WebBrowser Name="NewBWeb" Height="275">
+                                        </WebBrowser>
+                                    </Grid>
                                 </StackPanel>
 
                             </StackPanel>
@@ -828,7 +849,10 @@
                                 </StackPanel>
                                 <StackPanel Margin="20,50,0,9.6" Width="245" >
                                     <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="NewCChart" TextWrapping="Wrap"/>
+                                    <Grid>
+                                        <WebBrowser Name="NewCWeb" Height="275">
+                                        </WebBrowser>
+                                    </Grid>
                                 </StackPanel>
 
                             </StackPanel>
@@ -913,7 +937,10 @@
                                 </StackPanel>
                                 <StackPanel Margin="20,50,0,9.6" Width="245" >
                                     <Label  Content="{DynamicResource TrainingResultView.HeartRateLineChart}"  Background="Gray"  Margin="0,0,-0.4,0" />
-                                    <TextBox Height="275" Margin="0,2,0,0" CaretBrush="Black" Name="NewDChart" TextWrapping="Wrap"/>
+                                    <Grid>
+                                        <WebBrowser Name="NewDWeb" Height="275">
+                                        </WebBrowser>
+                                    </Grid>
                                 </StackPanel>
 
                             </StackPanel>

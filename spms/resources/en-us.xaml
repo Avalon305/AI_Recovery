@@ -426,7 +426,7 @@
     <s:String x:Key="TrainingResultView.Back">Back</s:String>
     <!--lj ++-->
     <s:String x:Key="TrainingResultView.Power">Power</s:String>
-    <s:String x:Key="TrainingResultView.HeartRateList">Heart Rate List</s:String>
+    <s:String x:Key="TrainingResultView.HeartRateList">Heart Rate List(1*1*1)</s:String>
     <s:String x:Key="TrainingResultView.TrainingModel">Training Model</s:String>
     <s:String x:Key="TrainingResultView.RehabilitationModel">Rehabilitation Model</s:String>
     <s:String x:Key="TrainingResultView.ActiveModel">Active Model</s:String>
@@ -509,7 +509,7 @@
 
     <!--3D扫描-->
     <s:String x:Key="Skeleton.UserName">User Name</s:String>
-    <s:String x:Key="Skeleton.Weigth">Weigth</s:String>
+    <s:String x:Key="Skeleton.Weigth">Weigth(kg)</s:String>
     <s:String x:Key="Skeleton.Stature">Stature(cm)</s:String>
     <s:String x:Key="Skeleton.ShoulderBreadth">Shoulder Breadth(cm)</s:String>
     <s:String x:Key="Skeleton.ArmLengthUp">Arm Length(Up)(cm)</s:String>
@@ -525,6 +525,8 @@
     <s:String x:Key="NfcMyodynamia.NfcMyodynamia">Nfc Myodynamia</s:String>
     <s:String x:Key="NfcMyodynamia.Bracelet">Bracelet</s:String>
     <s:String x:Key="NfcMyodynamia.Myodynamia">Myodynamia</s:String>
+    <s:String x:Key="NfcMyodynamia.Tips">Tips</s:String>
+    <s:String x:Key="NfcMyodynamia.TipsInfo">After clicking Start,Please stand at a suitable distance from the camera.</s:String>
 
     <!-- 新设备 -->
     <s:String x:Key="NewDev.Rowing">Rowing</s:String>
