@@ -323,7 +323,7 @@
     <s:String x:Key="TrainingListView.ReverseForce">反向力</s:String>
     <s:String x:Key="TrainingListView.SpeedRank">运动速度等级</s:String>
     <s:String x:Key="TrainingListView.Prescription">下处方</s:String>
-    <s:String x:Key="TrainingListView.BindNfc">绑定NFC</s:String>
+    <s:String x:Key="TrainingListView.AgainBindNfc">重新绑定NFC</s:String>
 
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">输入体力评价</s:String>

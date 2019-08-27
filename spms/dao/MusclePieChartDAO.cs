@@ -1,10 +1,12 @@
 ﻿using spms.util;
 using Dapper;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using spms.entity;
+using spms.entity.newEntity;
+using System.Collections.Generic;
 
 namespace AI_Sports.AISports.Dao
 {
@@ -38,6 +40,35 @@ namespace AI_Sports.AISports.Dao
                 const string query = "SELECT SUM(energy) FROM bdl_prescriptionresult as pr JOIN bdl_user_relation as ur ON pr.bind_id = ur.bind_id  WHERE ur.fk_user_id = @userId AND pr.fk_ds_id = @deviceId";
                 var para = new { userId,deviceId };
                 return conn.QueryFirstOrDefault<int?>(query, para);
+            }
+        }
+        /// <summary>
+        /// 折线图查询处方结果 根据用户ID，设备类型，次数查询几条
+        /// </summary>
+        /// <param name="devicePrescriptionPkDpId"></param>
+        /// <returns></returns>
+        public List<PrescriptionResultTwo> ListHeartRate(long userId,int deviceId,int num)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select pr.heart_rate_list,pr.gmt_create from bdl_prescriptionresult as pr JOIN bdl_user_relation as ur ON pr.bind_id = ur.bind_id  WHERE ur.fk_user_id = @userId AND pr.fk_ds_id = @deviceId ORDER BY pr.gmt_create DESC LIMIT 0,@num";
+                var para = new { userId, deviceId, num };
+                return conn.Query<PrescriptionResultTwo>(query, para).ToList();
+            }
+        }
+        /// <summary>
+        /// 查询用户使用感想折线 限制最近20条
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="deviceId"></param>
+        /// <returns></returns>
+        public List<PrescriptionResultTwo> ListUserThoughts(long userId, int deviceId)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select pr.pr_userthoughts,pr.gmt_create from bdl_prescriptionresult as pr JOIN bdl_user_relation as ur ON pr.bind_id = ur.bind_id  WHERE ur.fk_user_id = @userId AND pr.fk_ds_id = @deviceId ORDER BY pr.gmt_create DESC LIMIT 20";
+                var para = new { userId, deviceId };
+                return conn.Query<PrescriptionResultTwo>(query, para).ToList();
             }
         }
 

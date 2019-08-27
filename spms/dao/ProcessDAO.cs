@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace AI_Sports.AISports.Dao
 {
+    //废弃的图表查询DAO
     class ProcessDAO
     {
        

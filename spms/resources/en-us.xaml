@@ -313,7 +313,7 @@
     <s:String x:Key="TrainingListView.ReverseForce">Reverse Force</s:String>
     <s:String x:Key="TrainingListView.SpeedRank">Speed Rank</s:String>
     <s:String x:Key="TrainingListView.Prescription">Prescription</s:String>
-    <s:String x:Key="TrainingListView.BindNfc">Bind NFC</s:String>
+    <s:String x:Key="TrainingListView.AgainBindNfc">Again Bind NFC</s:String>
 
     <!-- 输入体力评价界面 -->
     <s:String x:Key="PhysicalEvaluationFormView.PhysicalEvaluationForm">Physical Evaluation Form</s:String>
