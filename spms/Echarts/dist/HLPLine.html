@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- saved from url=(0013)about:internet -->
 <head>
     <meta charset="utf-8" />
     <title></title>
@@ -10,7 +11,19 @@
     <script src="echarts.js"></script>
     <script src="echarts-all.js"></script>
     <script>
-        var arr = window.external.getHLPHeartRateList();
+        function click() {
+            alert("dasda");
+            window.external.ShowMsg("这是一条信息");
+        }
+        function Type(info) {
+            if (info == 0) {
+                myChart.clear();
+            }
+            else {
+                myChart.setOption(option);
+            }
+        }
+        var arr = window.external.getHLPHeartRateList().split("*");
 
         myChart = echarts.init(document.getElementById('main'));
         option = {
@@ -23,8 +36,8 @@
             //提示框，鼠标悬浮交互时的信息提示
             tooltip: {
                 trigger: 'axis',
-                axisPointer: {           
-                    type: ''        
+                axisPointer: {
+                    type: ''
                 }
             },
             //右上角按钮

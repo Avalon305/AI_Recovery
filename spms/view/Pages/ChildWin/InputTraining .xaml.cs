@@ -2152,6 +2152,7 @@ namespace spms.view.Pages.ChildWin
             var nullTiIdByUserId = new SymptomInfoDao().GetNullTiIdByUserId(user.Pk_User_Id);
             symp.ItemsSource = new SymptomInfoDTO().ConvertDtoList(nullTiIdByUserId);
 
+            #region 输入框设置值的范围
             combobox_01.ItemsSource = Add(1, 3, 2);
             combobox_02.ItemsSource = Add(1, 20, 2);
             combobox_03.ItemsSource = Add(1, 60, 2);
@@ -2231,7 +2232,9 @@ namespace spms.view.Pages.ChildWin
             combobox_97.ItemsSource = Add(5, 100, 2);
             combobox_98.ItemsSource = Add(5, 100, 2);
             combobox_99.ItemsSource = Add(1, 7, 2);
+            #endregion
 
+            // status为1：完成
             List<NewDevicePrescription> devicePrescriptions = new TrainService().GetSaveDevicePrescriptionsByUser(user);
             if (devicePrescriptions == null)
             {
@@ -3776,7 +3779,7 @@ namespace spms.view.Pages.ChildWin
             combobox_02.SelectedIndex = 0;
             combobox_03.SelectedIndex = 0;
             combobox_05.SelectedIndex = 0;
-            combobox_06.SelectedIndex = -1;
+            //combobox_06.SelectedIndex = -1;
             combobox_07.SelectedIndex = 0;
             combobox_08.SelectedIndex = 0;
             combobox_09.SelectedIndex = 0;
@@ -3802,7 +3805,7 @@ namespace spms.view.Pages.ChildWin
             combobox_22.SelectedIndex = 0;
             combobox_23.SelectedIndex = 0;
             combobox_25.SelectedIndex = 0;
-            combobox_26.SelectedIndex = 1;
+            //combobox_26.SelectedIndex = 1;
             select_change3(sender, e);
             combobox_27.SelectedIndex = 0;
             combobox_28.SelectedIndex = 0;
@@ -3815,7 +3818,7 @@ namespace spms.view.Pages.ChildWin
             combobox_32.SelectedIndex = 0;
             combobox_33.SelectedIndex = 0;
             combobox_35.SelectedIndex = 0;
-            combobox_36.SelectedIndex = 1;
+            //combobox_36.SelectedIndex = 1;
             select_change4(sender, e);
             combobox_37.SelectedIndex = 0;
             combobox_38.SelectedIndex = 0;
@@ -3828,7 +3831,7 @@ namespace spms.view.Pages.ChildWin
             combobox_42.SelectedIndex = 0;
             combobox_43.SelectedIndex = 0;
             combobox_45.SelectedIndex = 0;
-            combobox_46.SelectedIndex = 1;
+            //combobox_46.SelectedIndex = 1;
             select_change5(sender, e);
             combobox_47.SelectedIndex = 0;
             combobox_48.SelectedIndex = 0;
@@ -3841,7 +3844,7 @@ namespace spms.view.Pages.ChildWin
             combobox_52.SelectedIndex = 0;
             combobox_53.SelectedIndex = 0;
             combobox_55.SelectedIndex = 0;
-            combobox_56.SelectedIndex = 1;
+            //combobox_56.SelectedIndex = 1;
             select_change6(sender, e);
             combobox_57.SelectedIndex = 0;
             combobox_58.SelectedIndex = 0;
@@ -3854,7 +3857,7 @@ namespace spms.view.Pages.ChildWin
             combobox_62.SelectedIndex = 0;
             combobox_63.SelectedIndex = 0;
             combobox_65.SelectedIndex = 0;
-            combobox_66.SelectedIndex = 1;
+            //combobox_66.SelectedIndex = 1;
             select_change7(sender, e);
             combobox_67.SelectedIndex = 0;
             combobox_68.SelectedIndex = 0;
@@ -3867,7 +3870,7 @@ namespace spms.view.Pages.ChildWin
             combobox_72.SelectedIndex = 0;
             combobox_73.SelectedIndex = 0;
             combobox_75.SelectedIndex = 0;
-            combobox_76.SelectedIndex = 1;
+            //combobox_76.SelectedIndex = 1;
             select_change8(sender, e);
             combobox_77.SelectedIndex = 0;
             combobox_78.SelectedIndex = 0;
@@ -3880,7 +3883,7 @@ namespace spms.view.Pages.ChildWin
             combobox_82.SelectedIndex = 0;
             combobox_83.SelectedIndex = 0;
             combobox_85.SelectedIndex = 0;
-            combobox_86.SelectedIndex = 1;
+            //combobox_86.SelectedIndex = 1;
             select_change9(sender, e);
             combobox_87.SelectedIndex = 0;
             combobox_88.SelectedIndex = 0;
@@ -3893,7 +3896,7 @@ namespace spms.view.Pages.ChildWin
             combobox_92.SelectedIndex = 0;
             combobox_93.SelectedIndex = 0;
             combobox_95.SelectedIndex = 0;
-            combobox_96.SelectedIndex = 1;
+            //combobox_96.SelectedIndex = 1;
             select_change10(sender, e);
             combobox_97.SelectedIndex = 0;
             combobox_98.SelectedIndex = 0;

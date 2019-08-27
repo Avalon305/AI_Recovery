@@ -412,6 +412,56 @@ namespace spms.service
             return dic;
             return null;
         }
+
+        /// <summary>
+        /// 主页面训练结果
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public Dictionary<int, List<NewTrainDTO>> getNewTrainDTOByUserA(User user)
+        {
+            TrainInfoDAO trainInfoDao = new TrainInfoDAO();
+            NewDevicePrescriptionDAO devicePrescriptionDao = new NewDevicePrescriptionDAO();
+            NewPrescriptionResultDAO prescriptionResultDao = new NewPrescriptionResultDAO();
+            DeviceSortDAO deviceSortDao = new DeviceSortDAO();
+
+            Dictionary<int, List<NewTrainDTO>> dic = new Dictionary<int, List<NewTrainDTO>>();
+
+            //找到该用户训练记录(训练记录状态为0或2)
+            List<TrainInfo> trainInfos = trainInfoDao.GetFinishOrNormalTrainInfoByUserId(user.Pk_User_Id);
+            foreach (TrainInfo trainInfo in trainInfos)
+            {
+                //根据训练信息id查找处方
+                List<NewDevicePrescription> devicePrescriptions = devicePrescriptionDao.GetByTIId(trainInfo.Pk_TI_Id);
+                foreach (NewDevicePrescription devicePrescription in devicePrescriptions)
+                {
+                    int devId = Convert.ToInt32(devicePrescription.Fk_ds_id);
+
+                    //根据处方查找训练结果
+                    PrescriptionResultTwo prescriptionResult =
+                        prescriptionResultDao.GetByDPId(Convert.ToInt32(devicePrescription.Pk_dp_id));
+                    if (prescriptionResult == null)
+                    {
+                        //如果没有训练结果，
+                        continue;
+                    }
+
+                    //查找字典是否有以此设备名字命名的key,不存在则先创建
+                    if (!dic.ContainsKey(devId))
+                    {
+                        List<NewTrainDTO> trainDtos = new List<NewTrainDTO>();
+                        dic.Add(devId, trainDtos);
+                    }
+                    //                    Console.WriteLine(prescriptionResult.PR_Evaluate);
+                    //PR_Evaluate 总是1？？？？
+                    dic[devId].Add(new NewTrainDTO(trainInfo, devicePrescription, prescriptionResult));
+
+                }
+            }
+
+            return dic;
+        }
+
         /// <summary>
         /// 根据用户id获取扩展类
         /// </summary>
@@ -460,6 +510,7 @@ namespace spms.service
             
             return dic;
         }
+
         /// <summary>
         /// 根据训练结果id获取扩展类
         /// </summary>

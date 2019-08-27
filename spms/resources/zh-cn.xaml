@@ -437,7 +437,7 @@
     <s:String x:Key="TrainingResultView.Back">返回</s:String>
     <!--lj ++-->
     <s:String x:Key="TrainingResultView.Power">功率</s:String>
-    <s:String x:Key="TrainingResultView.HeartRateList">心率集合</s:String>
+    <s:String x:Key="TrainingResultView.HeartRateList">心率集合(1*1*1)</s:String>
     <s:String x:Key="TrainingResultView.TrainingModel">训练模式</s:String>
     <s:String x:Key="TrainingResultView.RehabilitationModel">康复模式</s:String>
     <s:String x:Key="TrainingResultView.ActiveModel">主动模式</s:String>

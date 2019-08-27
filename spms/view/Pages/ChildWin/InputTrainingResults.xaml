@@ -197,7 +197,18 @@
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0"  Name="HLPMoveway" IsTabStop="False" />
 
                                     <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
-                                    <TextBox Grid.Row="5" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPSportstrength" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="HLPSportstrength" IsTabStop="False">
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                    </ComboBox>
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPTime1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -219,13 +230,13 @@
                                     </ComboBox>
 
                                     <Label Grid.Row="11" Grid.Column="0" Background="White" Name="HLPCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
-                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPConsequentForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="HLPConsequentForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="12" Grid.Column="0" Background="White" Name="HLPRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
-                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPReverseForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="HLPReverseForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="13" Grid.Column="0" Background="White" Name="HLPSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
-                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPSpeedRank" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="13" Grid.Column="1" Margin="0,3,20,0" Name="HLPSpeedRank" Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="50,50,0,9.6" Width="245" >
@@ -286,8 +297,19 @@
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="ROWMoveway" IsTabStop="False"/>
 
                                     <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
-                                    <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="ROWSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-
+                                    <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="ROWSportstrength" IsTabStop="False">
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                    </ComboBox>
+                                    
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="ROWTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
@@ -308,13 +330,13 @@
                                     </ComboBox>
 
                                     <Label Grid.Row="11" Grid.Column="0" Background="White" Name="ROWCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
-                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWConsequentForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="ROWConsequentForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="12" Grid.Column="0" Background="White" Name="ROWRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
-                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWReverseForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="ROWReverseForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="13" Grid.Column="0" Background="White" Name="ROWSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
-                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWSpeedRank" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="13" Grid.Column="1" Margin="0,3,20,0" Name="ROWSpeedRank" Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="50,50,0,9.6" Width="245" >
@@ -382,8 +404,19 @@
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" x:Name="TFMoveway" IsTabStop="False" />
 
                                     <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
-                                    <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" x:Name="TFSportstrength" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-
+                                    <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="TFSportstrength" IsTabStop="False">
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                    </ComboBox>
+                                    
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" x:Name="TFTime1" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
@@ -402,15 +435,15 @@
                                         <ComboBoxItem Content="{DynamicResource TrainingListView.ActiveModel}"></ComboBoxItem>
                                         <ComboBoxItem Content="{DynamicResource TrainingListView.PassiveModel}"></ComboBoxItem>
                                     </ComboBox>
-
+                                    
                                     <Label Grid.Row="11" Grid.Column="0" Background="White" Name="TFCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
-                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFConsequentForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="TFConsequentForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="12" Grid.Column="0" Background="White" Name="TFRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
-                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFReverseForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="TFReverseForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="13" Grid.Column="0" Background="White" Name="TFSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
-                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFSpeedRank" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="13" Grid.Column="1" Margin="0,3,20,0" Name="TFSpeedRank" Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="50,50,0,9.6" Width="245" >
@@ -477,7 +510,18 @@
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="LEMoveway" IsTabStop="False"/>
 
                                     <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
-                                    <TextBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="LESportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="LESportstrength" IsTabStop="False">
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                    </ComboBox>
 
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="LETime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
@@ -499,13 +543,13 @@
                                     </ComboBox>
 
                                     <Label Grid.Row="11" Grid.Column="0" Background="White" Name="LECF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
-                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LEConsequentForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="LEConsequentForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="12" Grid.Column="0" Background="White" Name="LERF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
-                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LEReverseForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="LEReverseForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="13" Grid.Column="0" Background="White" Name="LESR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
-                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LESpeedRank" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="13" Grid.Column="1" Margin="0,3,20,0" Name="LESpeedRank" Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="50,50,0,9.6" Width="245" >
@@ -572,8 +616,19 @@
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="HAMoveway" IsTabStop="False"/>
 
                                     <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
-                                    <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="HASportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-
+                                    <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="HASportstrength" IsTabStop="False">
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                    </ComboBox>
+                                    
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="HATime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
@@ -594,13 +649,13 @@
                                     </ComboBox>
 
                                     <Label Grid.Row="11" Grid.Column="0" Background="White" Name="HACF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
-                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HAConsequentForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="HAConsequentForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="12" Grid.Column="0" Background="White" Name="HARF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
-                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HAReverseForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="HAReverseForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="13" Grid.Column="0" Background="White" Name="HASR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
-                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HASpeedRank" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="13" Grid.Column="1" Margin="0,3,20,0" Name="HASpeedRank" Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="50,50,0,9.6" Width="245" >
@@ -666,8 +721,19 @@
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="CPMoveway" IsTabStop="False"/>
 
                                     <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
-                                    <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="CPSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-
+                                    <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="CPSportstrength" IsTabStop="False">
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                    </ComboBox>
+                                    
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="CPTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
@@ -688,13 +754,13 @@
                                     </ComboBox>
 
                                     <Label Grid.Row="11" Grid.Column="0" Background="White" Name="CPCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
-                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPConsequentForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="CPConsequentForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="12" Grid.Column="0" Background="White" Name="CPRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
-                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPReverseForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="CPReverseForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="13" Grid.Column="0" Background="White" Name="CPSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
-                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPSpeedRank" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="13" Grid.Column="1" Margin="0,3,20,0" Name="CPSpeedRank" Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="50,50,0,9.6" Width="245" >
@@ -758,8 +824,19 @@
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="NewAMoveway" IsTabStop="False"/>
 
                                     <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
-                                    <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewASportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-
+                                    <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="NewASportstrength" IsTabStop="False">
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                    </ComboBox>
+                                    
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewATime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
@@ -780,13 +857,13 @@
                                     </ComboBox>
 
                                     <Label Grid.Row="11" Grid.Column="0" Background="White" Name="NewACF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
-                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewAConsequentForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="NewAConsequentForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="12" Grid.Column="0" Background="White" Name="NewARF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
-                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewAReverseForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="NewAReverseForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="13" Grid.Column="0" Background="White" Name="NewASR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
-                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewASpeedRank" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="13" Grid.Column="1" Margin="0,3,20,0" Name="NewASpeedRank" Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="50,50,0,9.6" Width="245" >
@@ -850,8 +927,18 @@
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="NewBMoveway" IsTabStop="False"/>
 
                                     <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
-                                    <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewBSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-
+                                    <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="NewBSportstrength" IsTabStop="False">
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                    </ComboBox>
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewBTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
@@ -872,13 +959,13 @@
                                     </ComboBox>
 
                                     <Label Grid.Row="11" Grid.Column="0" Background="White" Name="NewBCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
-                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBConsequentForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="NewBConsequentForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="12" Grid.Column="0" Background="White" Name="NewBRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
-                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBReverseForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="NewBReverseForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="13" Grid.Column="0" Background="White" Name="NewBSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
-                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBSpeedRank" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="13" Grid.Column="1" Margin="0,3,20,0" Name="NewBSpeedRank" Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="50,50,0,9.6" Width="245" >
@@ -943,8 +1030,18 @@
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="NewCMoveway" IsTabStop="False"/>
 
                                     <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
-                                    <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewCSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-
+                                    <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="NewCSportstrength" IsTabStop="False">
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                    </ComboBox>
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewCTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
@@ -965,13 +1062,13 @@
                                     </ComboBox>
 
                                     <Label Grid.Row="11" Grid.Column="0" Background="White" Name="NewCCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
-                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCConsequentForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="NewCConsequentForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="12" Grid.Column="0" Background="White" Name="NewCRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
-                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCReverseForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="NewCReverseForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="13" Grid.Column="0" Background="White" Name="NewCSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
-                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCSpeedRank" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="13" Grid.Column="1" Margin="0,3,20,0" Name="NewCSpeedRank" Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="50,50,0,9.6" Width="245" >
@@ -1035,8 +1132,19 @@
                                     <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3,20,0" Name="NewDMoveway" IsTabStop="False"/>
 
                                     <Label Grid.Row="5" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.UsertHoughts(6-15)}"  />
-                                    <TextBox Grid.Row="5" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewDSportstrength" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
-
+                                    <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,3,20,0" Name="NewDSportstrength" IsTabStop="False">
+                                        <ComboBoxItem>6</ComboBoxItem>
+                                        <ComboBoxItem>7</ComboBoxItem>
+                                        <ComboBoxItem>8</ComboBoxItem>
+                                        <ComboBoxItem>9</ComboBoxItem>
+                                        <ComboBoxItem>10</ComboBoxItem>
+                                        <ComboBoxItem>11</ComboBoxItem>
+                                        <ComboBoxItem>12</ComboBoxItem>
+                                        <ComboBoxItem>13</ComboBoxItem>
+                                        <ComboBoxItem>14</ComboBoxItem>
+                                        <ComboBoxItem>15</ComboBoxItem>
+                                    </ComboBox>
+                                    
                                     <Label Grid.Row="6" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.TrainTime(min)}"  />
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewDTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
@@ -1057,13 +1165,13 @@
                                     </ComboBox>
 
                                     <Label Grid.Row="11" Grid.Column="0" Background="White" Name="NewDCF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ConsequentForce}"  />
-                                    <TextBox Grid.Row="11" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDConsequentForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="11" Grid.Column="1" Margin="0,3,20,0" Name="NewDConsequentForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="12" Grid.Column="0" Background="White" Name="NewDRF_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.ReverseForce}"  />
-                                    <TextBox Grid.Row="12" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDReverseForce" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="12" Grid.Column="1" Margin="0,3,20,0" Name="NewDReverseForce" Visibility="Hidden"/>
 
                                     <Label Grid.Row="13" Grid.Column="0" Background="White" Name="NewDSR_Label" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.SpeedRank}"  />
-                                    <TextBox Grid.Row="13" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDSpeedRank" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers" Visibility="Hidden"/>
+                                    <ComboBox Grid.Row="13" Grid.Column="1" Margin="0,3,20,0" Name="NewDSpeedRank" Visibility="Hidden"/>
                                 </Grid>
 
                                 <StackPanel Margin="50,50,0,9.6" Width="245" >

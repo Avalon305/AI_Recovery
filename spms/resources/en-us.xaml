@@ -426,7 +426,7 @@
     <s:String x:Key="TrainingResultView.Back">Back</s:String>
     <!--lj ++-->
     <s:String x:Key="TrainingResultView.Power">Power</s:String>
-    <s:String x:Key="TrainingResultView.HeartRateList">Heart Rate List</s:String>
+    <s:String x:Key="TrainingResultView.HeartRateList">Heart Rate List(1*1*1)</s:String>
     <s:String x:Key="TrainingResultView.TrainingModel">Training Model</s:String>
     <s:String x:Key="TrainingResultView.RehabilitationModel">Rehabilitation Model</s:String>
     <s:String x:Key="TrainingResultView.ActiveModel">Active Model</s:String>

@@ -791,7 +791,7 @@ namespace spms.view.Pages
                 };
 
                 Object o = record.Content;
-                TrainDTO trainDto = null;
+                NewTrainDTO trainDto = null;
                 User user = (User)UsersInfo.SelectedItem;
                 if (o is TrainingRecord_Frame)
                 {
@@ -800,26 +800,38 @@ namespace spms.view.Pages
                     switch (index)
                     {
                         case 0:
-                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord1.SelectedItem;
+                            trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord1.SelectedItem;
                             break;
                         case 1:
-                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord2.SelectedItem;
+                            trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord2.SelectedItem;
                             break;
                         case 2:
-                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord3.SelectedItem;
+                            trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord3.SelectedItem;
                             break;
                         case 3:
-                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord4.SelectedItem;
+                            trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord4.SelectedItem;
                             break;
                         case 4:
-                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord5.SelectedItem;
+                            trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord5.SelectedItem;
                             break;
                         case 5:
-                            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord6.SelectedItem;
+                            trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord6.SelectedItem;
+                            break;
+                        case 6:
+                            trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord7.SelectedItem;
+                            break;
+                        case 7:
+                            trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord8.SelectedItem;
+                            break;
+                        case 8:
+                            trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord9.SelectedItem;
+                            break;
+                        case 9:
+                            trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord10.SelectedItem;
                             break;
                     }
                 }
-
+                Console.WriteLine("trainDto.moveway = " + trainDto.moveway);
                 if (user == null)
                 {
                     MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
@@ -1145,22 +1157,10 @@ namespace spms.view.Pages
                 {
 
                     //Dictionary<int, List<TrainDTO>> dic = new TrainService().getTrainDTOByUser(user);
-                    Dictionary<int, List<TrainDTO>> dic = new TrainService().getTrainDTOByUserA(user);
+                    Dictionary<int, List<NewTrainDTO>> dic = new TrainService().getNewTrainDTOByUserA(user);
                     TrainingRecord_Frame trainingRecordFrame = new TrainingRecord_Frame();
-                    List<TrainDTO> trainDtos = new List<TrainDTO>();
+                    List<NewTrainDTO> trainDtos = new List<NewTrainDTO>();
 
-                    //dic.TryGetValue((int)DeviceType.X01, out trainDtos);
-                    //trainingRecordFrame.TrainingRecord1.ItemsSource = trainDtos;
-                    //dic.TryGetValue((int)DeviceType.X05, out trainDtos);
-                    //trainingRecordFrame.TrainingRecord2.ItemsSource = trainDtos;
-                    //dic.TryGetValue((int)DeviceType.X04, out trainDtos);
-                    //trainingRecordFrame.TrainingRecord3.ItemsSource = trainDtos;
-                    //dic.TryGetValue((int)DeviceType.X03, out trainDtos);
-                    //trainingRecordFrame.TrainingRecord4.ItemsSource = trainDtos;
-                    //dic.TryGetValue((int)DeviceType.X06, out trainDtos);
-                    //trainingRecordFrame.TrainingRecord5.ItemsSource = trainDtos;
-                    //dic.TryGetValue((int)DeviceType.X02, out trainDtos);
-                    //trainingRecordFrame.TrainingRecord6.ItemsSource = trainDtos;
                     dic.TryGetValue((int)DeviceType.P01, out trainDtos);
                     trainingRecordFrame.TrainingRecord1.ItemsSource = trainDtos;
 

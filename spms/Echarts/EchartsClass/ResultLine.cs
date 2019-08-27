@@ -10,75 +10,107 @@ namespace spms.view.EchartsClass
 {
     public class ResultLine
     {
-        //private NewTrainDTO trainDto;
-        private string[] hLPHeartRateList;
-        private string[] pOWHeartRateList;
-        private string[] tFHeartRateList;
-        private string[] lEHeartRateList;
-        private string[] hAPHeartRateList;
-        private string[] cPPHeartRateList;
-        private string[] newAPHeartRateList;
-        private string[] newBPHeartRateList;
-        private string[] newCPHeartRateList;
-        private string[] newDPHeartRateList;
+        private string hLPHeartRateList;
+        private string rOWHeartRateList;
+        private string tFHeartRateList;
+        private string lEHeartRateList;
+        private string hAPHeartRateList;
+        private string cPHeartRateList;
+        private string newAHeartRateList;
+        private string newBHeartRateList;
+        private string newCHeartRateList;
+        private string newDHeartRateList;
+
+        public ResultLine(string HeartRateList, int type)
+        {
+            if(type == 0)
+            {
+                this.hLPHeartRateList = HeartRateList;
+            }
+            else if (type == 1)
+            {
+                this.rOWHeartRateList = HeartRateList;
+            }
+            else if (type == 2)
+            {
+                this.tFHeartRateList = HeartRateList;
+            }
+            else if (type == 3)
+            {
+                this.lEHeartRateList = HeartRateList;
+            }
+            else if (type == 4)
+            {
+                this.hAPHeartRateList = HeartRateList;
+            }
+            else if (type == 5)
+            {
+                this.cPHeartRateList = HeartRateList;
+            }
+            else if (type == 6)
+            {
+                this.newAHeartRateList = HeartRateList;
+            }
+            else if (type == 7)
+            {
+                this.newBHeartRateList = HeartRateList;
+            }
+            else if (type == 8)
+            {
+                this.newCHeartRateList = HeartRateList;
+            }
+            else if (type == 9)
+            {
+                this.newDHeartRateList = HeartRateList;
+            }
+        }
 
         public ResultLine() { }
-
-        public string[] HLPHeartRateList { get => hLPHeartRateList; set => hLPHeartRateList = value; }
-        public string[] POWHeartRateList { get => pOWHeartRateList; set => pOWHeartRateList = value; }
-        public string[] TFHeartRateList { get => tFHeartRateList; set => tFHeartRateList = value; }
-        public string[] LEHeartRateList { get => lEHeartRateList; set => lEHeartRateList = value; }
-        public string[] HAPHeartRateList { get => hAPHeartRateList; set => hAPHeartRateList = value; }
-        public string[] CPPHeartRateList { get => cPPHeartRateList; set => cPPHeartRateList = value; }
-        public string[] NewAPHeartRateList { get => newAPHeartRateList; set => newAPHeartRateList = value; }
-        public string[] NewBPHeartRateList { get => newBPHeartRateList; set => newBPHeartRateList = value; }
-        public string[] NewCPHeartRateList { get => newCPHeartRateList; set => newCPHeartRateList = value; }
-        public string[] NewDPHeartRateList { get => newDPHeartRateList; set => newDPHeartRateList = value; }
 
         /// <summary>
         /// html获取心率
         /// </summary>
         /// <param name="HLPHeartRates"></param>
         /// <returns></returns>
-        public string[] getHLPHeartRateList()
+        public string getHLPHeartRateList()
         {
             return hLPHeartRateList;
         }
-        public string[] getROWHeartRateList()
+        public string getROWHeartRateList()
         {
-            return hLPHeartRateList;
+            return rOWHeartRateList;
         }
-        public string[] getTFHeartRateList()
+        public string getTFHeartRateList()
         {
-            return hLPHeartRateList;
+            return tFHeartRateList;
         }
-        public string[] getLEHeartRateList()
+        public string getLEHeartRateList()
         {
-            return hLPHeartRateList;
+            return lEHeartRateList;
         }
-        public string[] getHAHeartRateList()
+        public string getHAHeartRateList()
         {
-            return hLPHeartRateList;
+            return hAPHeartRateList;
         }
-        public string[] getCPHeartRateList()
+        public string getCPHeartRateList()
         {
-            return hLPHeartRateList;
+            return cPHeartRateList;
         }
-        public string[] getNewAHeartRateList()
+        public string getNewAHeartRateList()
         {
-            return hLPHeartRateList;
+            return newAHeartRateList;
         }
-        public string[] getNewBHeartRateList()
+        public string getNewBHeartRateList()
         {
-            return hLPHeartRateList;
+            return newBHeartRateList;
         }
-        public string[] getNewCHeartRateList()
+        public string getNewCHeartRateList()
         {
-            return hLPHeartRateList;
+            return newCHeartRateList;
         }
-        public string[] getNewDHeartRateList()
+        public string getNewDHeartRateList()
         {
-            return hLPHeartRateList;
+            return newDHeartRateList;
         }
     }
 }
