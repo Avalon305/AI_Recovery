@@ -55,7 +55,7 @@ namespace spms.dao
 		/// <returns></returns>
 		public PersonalSettingEntity GetSettingByMemberId(string user_id, string deviceType_code)
 		{
-			const string query = @"SELECT * FROM bdl_personal_setting WHERE fk_member_id = @user_id device_code = @DeviceCode 
+			const string query = @"SELECT * FROM bdl_personal_setting WHERE fk_member_id = @user_id and device_code = @DeviceCode 
                              
 ";
 			var para = new { user_id = user_id,  DeviceCode = deviceType_code };

@@ -418,17 +418,25 @@ namespace spms.service
 				Uid = request.Uid,
 				Success = false,
 			};
-
-			string muscleCreatTime = request.MuscleCreatTime;
-			DateTime dt = DateTime.ParseExact(muscleCreatTime, "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture);
-			var userRelationEntity = new UserRelation
+			try
 			{
-				Fk_user_id = int.Parse(request.Uid),
-				Muscle_test_val = request.MuscleTestValue,
-				Mtv_create_time = dt
-			};
+				string muscleCreatTime = request.MuscleCreatTime;
+				DateTime dt = DateTime.ParseExact(muscleCreatTime, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.CurrentCulture);
+				var userRelationEntity = new UserRelation
+				{
+					Fk_user_id = int.Parse(request.Uid),
+					Muscle_test_val = request.MuscleTestValue,
+					Mtv_create_time = dt
+				};
 
-			userRelationDao.updateMuscle(userRelationEntity);
+				userRelationDao.updateMuscle(userRelationEntity);
+			}
+			catch (Exception ex)
+			{
+				logger.Error(ex.ToString());
+				throw;
+			}
+			
 			response.Success = true;
 			return response;
 		}

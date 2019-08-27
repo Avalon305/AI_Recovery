@@ -377,14 +377,14 @@ namespace spms.view.Pages.ChildWin
             user.User_PhotoLocation = photoName;
             userService.InsertUser(user);
 			//为用户添加个人默认设置
-			User CurrentUseR =userService.GetByIdCard(user.User_IDCard);
-			UserRelation userRelation = userRelationDao.FindUserRelationByuserID(CurrentUseR.Pk_User_Id);
-			var bind_id = userRelation.Bind_id;
-			long result =AutoSavePersonalSettings(CurrentUseR.Pk_User_Id.ToString(), bind_id);
-			if (result == 10)
-			{
-				logger.Info("为刚刚创建的用自动添加个人设置");
-			}
+			//User CurrentUseR =userService.GetByIdCard(user.User_IDCard);
+			//UserRelation userRelation = userRelationDao.FindUserRelationByuserID(CurrentUseR.Pk_User_Id);
+			//var bind_id = userRelation.Bind_id;
+			//long result =AutoSavePersonalSettings(CurrentUseR.Pk_User_Id.ToString(), bind_id);
+			//if (result == 10)
+			//{
+			//	logger.Info("为刚刚创建的用自动添加个人设置");
+			//}
 			//保存照片的路径
 			this.Close();
         }
