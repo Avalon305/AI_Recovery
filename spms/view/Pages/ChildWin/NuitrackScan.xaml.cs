@@ -75,6 +75,7 @@ namespace spms.view.Pages.ChildWin
             BitsHandle.Free();
         }
     }
+
     /// <summary>
     /// NuitrackScan.xaml 的交互逻辑
     /// </summary>
@@ -86,6 +87,8 @@ namespace spms.view.Pages.ChildWin
         private DirectBitmap _bitmap;
         private bool _visualizeColorImage = true;
         private bool _colorStreamEnabled = false;
+        ///传递过来的User
+        public entity.User SelectUser { get; set; }
 
         private DepthSensor _depthSensor;
         private ColorSensor _colorSensor;
@@ -102,13 +105,14 @@ namespace spms.view.Pages.ChildWin
         bool flag = false;
         int clicknum = 0;
         SkeletonLengthDAO skeletonLengthDAO = new SkeletonLengthDAO();
-        //PersonalSettingService personalSettingService = new PersonalSettingService();
+
         public NuitrackScan()
         {
             InitializeComponent();
             //调用3D扫描的构造函数 cqz
             NuitrackCreate();
         }
+
         /// <summary>
         ///3D扫描的构造函数 -byCQZ 2019.6.16
         ///
@@ -184,6 +188,31 @@ namespace spms.view.Pages.ChildWin
                 //throw exception;
                 MessageBoxX.Warning("3D摄像头启动失败，请检查SDK配置和是否进行密钥认证。");
 
+            }
+        }
+
+        /// <summary>
+        /// 页面加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SkeletonLengthEntity skeletonLengthEntity = new SkeletonLengthEntity();
+            skeletonLengthEntity = skeletonLengthDAO.GetByPk_User_Id(SelectUser.Pk_User_Id);
+            if(skeletonLengthEntity != null)
+            {
+                if(skeletonLengthEntity.Weigth > 0)
+                {
+                    Weigth.Text = skeletonLengthEntity.Weigth.ToString();
+                }
+                Man_Height.Text = skeletonLengthEntity.Height.ToString();
+                Shoulder_width.Text = skeletonLengthEntity.Shoulder_width.ToString();
+                Arm_length_up.Text = skeletonLengthEntity.Arm_length_up.ToString();
+                Arm_length_down.Text = skeletonLengthEntity.Arm_length_down.ToString();
+                Leg_length_up.Text = skeletonLengthEntity.Leg_length_up.ToString();
+                Leg_length_down.Text = skeletonLengthEntity.Leg_length_down.ToString();
+                Body_length.Text = skeletonLengthEntity.Body_length.ToString();
             }
         }
 
@@ -342,6 +371,7 @@ namespace spms.view.Pages.ChildWin
             foreach (var gesture in gestureData.Gestures)
                 Console.WriteLine("Recognized {0} from user {1}", gesture.Type.ToString(), gesture.UserID);
         }
+
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
             if (clicknum == 0)
@@ -375,6 +405,7 @@ namespace spms.view.Pages.ChildWin
             }
 
         }
+
         private void DealWith()
         {
             try
@@ -602,34 +633,36 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
-            //string fk_member_id = "123456";
-            //string memberPK = CommUtil.GetSettingString("memberPrimarykey");
-            //string coachId = CommUtil.GetSettingString("coachId");
-
-            //string fk_member_id = (memberPK != null && memberPK != "") ? memberPK : coachId;
-            // 未改
-            string userName = System.Convert.ToString(User_Name.Text);
-            int fk_member_id = skeletonLengthDAO.getUserIdBuUserName(userName);
 
             SkeletonLengthEntity skeletonLengthEntity = new SkeletonLengthEntity();
-            skeletonLengthEntity.Weigth = System.Convert.ToDouble(Weigth.Text);
+            skeletonLengthEntity.Fk_member_id = SelectUser.Pk_User_Id;
+            if(Weigth.Text != null && Weigth.Text != "")
+            {
+                skeletonLengthEntity.Weigth = System.Convert.ToDouble(Weigth.Text);
+            }
+            skeletonLengthEntity.Height = System.Convert.ToDouble(Man_Height.Text);
             skeletonLengthEntity.Shoulder_width = System.Convert.ToDouble(Shoulder_width.Text);
             skeletonLengthEntity.Arm_length_up = System.Convert.ToDouble(Arm_length_up.Text);
             skeletonLengthEntity.Arm_length_down = System.Convert.ToDouble(Arm_length_down.Text);
             skeletonLengthEntity.Leg_length_up = System.Convert.ToDouble(Leg_length_up.Text);
             skeletonLengthEntity.Leg_length_down = System.Convert.ToDouble(Leg_length_down.Text);
             skeletonLengthEntity.Body_length = System.Convert.ToDouble(Body_length.Text);
-            skeletonLengthEntity.Fk_member_id = fk_member_id;
-            if (skeletonLengthDAO.getSkeletonLengthRecord(fk_member_id) == null)
+
+            if (skeletonLengthDAO.getSkeletonLengthRecord(SelectUser.Pk_User_Id) == null)
             {
                 skeletonLengthDAO.insertSkeletonLengthRecord(skeletonLengthEntity);
             }
             else
             {
-                skeletonLengthDAO.updateSkeletonLengthRecord(skeletonLengthEntity);
+                if (Weigth.Text != null && Weigth.Text != "")
+                {
+                    skeletonLengthDAO.updateSkeletonLengthAndWeightRecord(skeletonLengthEntity);
+                }
+                else
+                {
+                    skeletonLengthDAO.updateSkeletonLengthRecord(skeletonLengthEntity);
+                }
             }
-            //根据身体数据更新个人设置 byCQZ 2019.4.23 V1.0 未确定具体参数 只是架子
-            //personalSettingService.UpdatePersonalSettingBy3DScan();
             MessageBoxX.Info("保存成功");
         }
 
@@ -643,6 +676,7 @@ namespace spms.view.Pages.ChildWin
             //重新调用扫描的构造函数 cqz
             NuitrackCreate();
 
+            Weigth.Text = null;
             Man_Height.Text = null;
             Shoulder_width.Text = null;
             Arm_length_up.Text = null;
@@ -699,6 +733,7 @@ namespace spms.view.Pages.ChildWin
             Console.WriteLine("图像处理后" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff"));
             return retval;
         }
+
         private double ComputeDistanceBetween2Joints(Joint Joint1, Joint Joint2)
         {
             return Math.Sqrt(Math.Pow(Joint1.Real.X - Joint2.Real.X, 2) + Math.Pow(Joint1.Real.Y - Joint2.Real.Y, 2) + Math.Pow(Joint1.Real.Z - Joint2.Real.Z, 2));

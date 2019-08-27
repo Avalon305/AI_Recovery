@@ -1285,8 +1285,22 @@ namespace spms.view.Pages
             Refresh_RecordFrame_Action();
         }
 
+        /// <summary>
+        /// 按钮，肌力测试和NFC
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_Skeleton(object sender, RoutedEventArgs e)
         {
+            //检查是否选中
+            if ((User)UsersInfo.SelectedItem == null)
+            //if (selectUser == null)//4.7 lzh
+            {
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                // MessageBox.Show(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                return;
+            }
+
             NuitrackScan nuitrackScan = new NuitrackScan
             {
                 Owner = Window.GetWindow(this),
@@ -1294,6 +1308,10 @@ namespace spms.view.Pages
                 ShowInTaskbar = false,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
+
+            User user = (User)UsersInfo.SelectedItem;
+            nuitrackScan.SelectUser = user;
+
             nuitrackScan.ShowDialog();
         }
         /// <summary>

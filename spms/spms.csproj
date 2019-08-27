@@ -31,7 +31,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -251,6 +251,7 @@
       <DependentUpon>ImageDealerUnsafe.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageDealer\PicZipUtil.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="protocol\BdlProto.cs" />
     <Compile Include="service\DeviceCommService.cs" />
     <Compile Include="service\MusclePieChartService.cs" />
@@ -771,6 +772,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\right.png" />
     <Resource Include="view\Images\KFA-01.png" />
     <Resource Include="view\Images\KFA-04.png" />
     <Resource Include="view\Images\KFA-10.png" />
@@ -818,7 +820,6 @@
     <Content Include="Echarts\dist\echarts-all.js" />
     <Content Include="Echarts\dist\echarts.js" />
     <Content Include="Echarts\dist\EndurancePie.html" />
-
     <Content Include="Echarts\dist\ThoughtsLine.html" />
     <Content Include="Echarts\dist\Line2.html" />
     <Content Include="Echarts\dist\Line1.html" />
