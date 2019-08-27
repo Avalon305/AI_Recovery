@@ -389,7 +389,7 @@ namespace spms.view.Pages.ChildWin
                 MessageBoxX.Info(LanguageUtils.ConvertLanguage("请填写完整信息", "Please fill in the complete information"));
                 return;
             }
-           
+
             Photograph photograph = new Photograph
             {
                 Owner = Window.GetWindow(this),
@@ -398,7 +398,7 @@ namespace spms.view.Pages.ChildWin
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             //如果不存在摄像头，不必打开界面
-            if (!photograph.existCameras) {
+            if (photograph.existCameras == false) {
                 return;
             }
             
@@ -409,8 +409,6 @@ namespace spms.view.Pages.ChildWin
             photoName = photograph.photoName;
             oldPhotoName = photoName;
             //photograph.Close();
-            Console.WriteLine(photoName);
-
             //展示摄像的时候的图片
             if (File.Exists(CommUtil.GetUserPic() + photoName))
             {
