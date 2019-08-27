@@ -54,9 +54,9 @@ namespace spms.view.Pages
             //选择的设备ID
             int deviceId = CommUtil.ParseInt(comboxDevice.SelectedValue.ToString());
             //初始化心率折线图表 默认加载第一台设备，1条记录
-            RefreshChart(userId, 1, 1);
+            RefreshChart(userId, deviceId, 1);
             //初始化感想折线
-            drawUserThoughts(1);
+            drawUserThoughts(deviceId);
         }
         //查询按钮，刷新加载图表
         private void Button_Click(object sender, RoutedEventArgs e)
