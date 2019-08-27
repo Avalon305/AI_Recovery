@@ -252,7 +252,6 @@
       <DependentUpon>ImageDealerUnsafe.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageDealer\PicZipUtil.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="protocol\BdlProto.cs" />
     <Compile Include="service\DeviceCommService.cs" />
     <Compile Include="service\MusclePieChartService.cs" />
