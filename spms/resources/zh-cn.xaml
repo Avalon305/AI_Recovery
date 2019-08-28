@@ -538,6 +538,7 @@
     <s:String x:Key="Skeleton.Start">开始</s:String>
     <s:String x:Key="Skeleton.Save">保存</s:String>
     <s:String x:Key="Skeleton.Reset">重置</s:String>
+    <s:String x:Key="Skeleton.Close">关闭</s:String>
 
     <!--手环和肌力测试-->
     <s:String x:Key="NfcMyodynamia.NfcMyodynamia">手环和肌力测试</s:String>

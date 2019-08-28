@@ -520,6 +520,7 @@
     <s:String x:Key="Skeleton.Start">Start</s:String>
     <s:String x:Key="Skeleton.Save">Save</s:String>
     <s:String x:Key="Skeleton.Reset">Reset</s:String>
+    <s:String x:Key="Skeleton.Close">Close</s:String>
 
     <!--手环和肌力测试-->
     <s:String x:Key="NfcMyodynamia.NfcMyodynamia">Nfc Myodynamia</s:String>

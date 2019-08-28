@@ -738,5 +738,10 @@ namespace spms.view.Pages.ChildWin
         {
             return Math.Sqrt(Math.Pow(Joint1.Real.X - Joint2.Real.X, 2) + Math.Pow(Joint1.Real.Y - Joint2.Real.Y, 2) + Math.Pow(Joint1.Real.Z - Joint2.Real.Z, 2));
         }
+
+        private void Button_Close(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
