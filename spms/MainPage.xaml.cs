@@ -1296,6 +1296,27 @@ namespace spms.view.Pages
                 MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
                 return;
             }
+            int Pk_user_id = selectUser.Pk_User_Id;
+
+
+            SkeletonLengthDAO skeletonLengthDAO = new SkeletonLengthDAO();
+            NuitrackEntity nuitrackEntity = new NuitrackEntity();
+            if (skeletonLengthDAO.getNuitrackByFk_user_id(Pk_user_id) != null)
+            {
+                nuitrackEntity = skeletonLengthDAO.getNuitrackByFk_user_id(Pk_user_id);
+                if (nuitrackEntity.Status == 1)
+                {
+
+                }
+            }
+            else
+            {
+                nuitrackEntity = new NuitrackEntity();
+                nuitrackEntity.Fk_user_id = Pk_user_id;
+                nuitrackEntity.Status = 1;
+                skeletonLengthDAO.insertNuitrack(nuitrackEntity);
+            }
+
             string path = AppDomain.CurrentDomain.BaseDirectory;
             string rootpath = path.Substring(0, path.LastIndexOf("bin"));
             string baseDir = rootpath + "NuitrackScanProgress\\bin\\Debug\\";

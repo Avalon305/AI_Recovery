@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NuitrackScanProgress.dao;
+using NuitrackScanProgress.entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,9 +55,46 @@ namespace NuitrackScanProgress.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
 
+            SkeletonLengthDAO skeletonLengthDAO = new SkeletonLengthDAO();
+            NuitrackEntity nuitrackEntity = new NuitrackEntity();
+            if (skeletonLengthDAO.GetPk_user_idByStatus(1) == null)
+            {
+                this.Hide();
+                nuitrackScan.ShowDialog();
+                G_NfcTipTwoStatus = 0;
+                this.Close();
+                return;
+            }
+            nuitrackEntity = skeletonLengthDAO.GetPk_user_idByStatus(1);
 
+            nuitrackScan.Pk_User_Id = nuitrackEntity.Fk_user_id;
+            skeletonLengthDAO.updateStatusByFk_user_id(nuitrackEntity);
+
+            SkeletonLengthEntity skeletonLengthEntity = new SkeletonLengthEntity();
+            skeletonLengthEntity = skeletonLengthDAO.GetByPk_User_Id(nuitrackScan.Pk_User_Id);
+            if (skeletonLengthEntity != null)
+            {
+                if (skeletonLengthEntity.Weigth > 0)
+                {
+                    nuitrackScan.Weigth.Text = skeletonLengthEntity.Weigth.ToString();
+                }
+                nuitrackScan.Man_Height.Text = skeletonLengthEntity.Height.ToString();
+                nuitrackScan.Shoulder_width.Text = skeletonLengthEntity.Shoulder_width.ToString();
+                nuitrackScan.Arm_length_up.Text = skeletonLengthEntity.Arm_length_up.ToString();
+                nuitrackScan.Arm_length_down.Text = skeletonLengthEntity.Arm_length_down.ToString();
+                nuitrackScan.Leg_length_up.Text = skeletonLengthEntity.Leg_length_up.ToString();
+                nuitrackScan.Leg_length_down.Text = skeletonLengthEntity.Leg_length_down.ToString();
+                nuitrackScan.Body_length.Text = skeletonLengthEntity.Body_length.ToString();
+            }
+
+            this.Hide();
             nuitrackScan.ShowDialog();
             G_NfcTipTwoStatus = 0;
+            this.Close();
+        }
+
+        private void Button_Cancel(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
     }

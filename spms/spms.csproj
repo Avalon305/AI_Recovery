@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DD5EACE7-134A-4473-9680-0B37FD7CB5FE}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>spms</RootNamespace>
     <AssemblyName>spms</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -249,6 +249,7 @@
     <Compile Include="entity\newEntity\NewTrainComprehensive.cs" />
     <Compile Include="entity\newEntity\NewTrainExcelVO.cs" />
     <Compile Include="entity\newEntity\NewTrainingAndSymptomBean.cs" />
+    <Compile Include="entity\newEntity\NuitrackEntity.cs" />
     <Compile Include="entity\newEntity\PersonalSettingEntity.cs" />
     <Compile Include="entity\newEntity\PrescriptionResultTwo.cs" />
     <Compile Include="entity\newEntity\SkeletonLengthEntity.cs" />

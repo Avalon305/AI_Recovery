@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NuitrackScanProgress.entity
+namespace spms.entity.newEntity
 {
     [Serializable]
     [Table("bdl_nuitrack")]

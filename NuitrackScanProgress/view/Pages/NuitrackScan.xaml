@@ -8,7 +8,7 @@
         Icon="../Images/icon2.png"
         Title="{DynamicResource Title.Title}"
         ResizeMode="CanMinimize" 
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded" Height="830" Width="1300">
     <Viewbox Name="viewbox" Stretch="Fill" >
         <Grid Margin="20">
             <Grid.RowDefinitions>

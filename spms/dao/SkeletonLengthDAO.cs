@@ -65,6 +65,45 @@ namespace spms.dao
 
             }
         }
+
+        public int insertNuitrack(NuitrackEntity nuitrackEntity)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string insert = "INSERT INTO bdl_nuitrack (`fk_user_id`, `status`) VALUES (@Fk_user_id, @Status)";
+
+                return conn.Execute(insert, nuitrackEntity);
+
+            }
+        }
+
+        public NuitrackEntity getNuitrackByFk_user_id(int Fk_user_id)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select * from bdl_nuitrack where fk_user_id=@Fk_user_id";
+
+                return conn.QueryFirstOrDefault<NuitrackEntity>(query, new { Fk_user_id });
+
+            }
+        }
+
+        public void updateStatusByFk_user_id(NuitrackEntity nuitrackEntity)
+        {
+            string sql = @"update bdl_nuitrack set status=0 where fk_user_id = @Fk_user_id";
+            using (var conn = DbUtil.getConn())
+            {
+                try
+                {
+                    conn.Execute(sql, nuitrackEntity);
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+            }
+        }
     }
 
 }

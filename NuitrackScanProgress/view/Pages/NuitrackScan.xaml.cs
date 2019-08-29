@@ -86,7 +86,7 @@ namespace NuitrackScanProgress.view.Pages
         private DirectBitmap _bitmap;
         private bool _visualizeColorImage = true;
         private bool _colorStreamEnabled = false;
-        private int Pk_User_Id = 0;
+        public int Pk_User_Id = 0;
 
         private DepthSensor _depthSensor;
         private ColorSensor _colorSensor;
@@ -102,7 +102,6 @@ namespace NuitrackScanProgress.view.Pages
         SkeletonLengthEntity skeletonLength = new SkeletonLengthEntity();
         bool flag = false;
         int clicknum = 0;
-        int status = 1;
         SkeletonLengthDAO skeletonLengthDAO = new SkeletonLengthDAO();
 
         private const int GWL_STYLE = -16;
@@ -207,32 +206,6 @@ namespace NuitrackScanProgress.view.Pages
             //取消窗体X操作
             var hwnd = new WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
-
-            SkeletonLengthEntity skeletonLengthEntity = new SkeletonLengthEntity();
-            NuitrackEntity nuitrackEntity = new NuitrackEntity();
-            nuitrackEntity = skeletonLengthDAO.GetPk_user_idByStatus(status);
-            if (nuitrackEntity == null)
-            {
-                return;
-            }
-            skeletonLengthDAO.updateStatusByFk_user_id(nuitrackEntity);
-            Pk_User_Id = nuitrackEntity.Pk_user_id;
-
-            skeletonLengthEntity = skeletonLengthDAO.GetByPk_User_Id(Pk_User_Id);
-            if (skeletonLengthEntity != null)
-            {
-                if (skeletonLengthEntity.Weigth > 0)
-                {
-                    Weigth.Text = skeletonLengthEntity.Weigth.ToString();
-                }
-                Man_Height.Text = skeletonLengthEntity.Height.ToString();
-                Shoulder_width.Text = skeletonLengthEntity.Shoulder_width.ToString();
-                Arm_length_up.Text = skeletonLengthEntity.Arm_length_up.ToString();
-                Arm_length_down.Text = skeletonLengthEntity.Arm_length_down.ToString();
-                Leg_length_up.Text = skeletonLengthEntity.Leg_length_up.ToString();
-                Leg_length_down.Text = skeletonLengthEntity.Leg_length_down.ToString();
-                Body_length.Text = skeletonLengthEntity.Body_length.ToString();
-            }
         }
 
         private void onIssueDataUpdate(IssuesData issuesData)
