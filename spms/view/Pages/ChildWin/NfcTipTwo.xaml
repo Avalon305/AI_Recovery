@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Icon="/view/Images/icon2.png"
         Title="{DynamicResource Title.Title}"
-        ResizeMode="CanMinimize"  Height="400" Width="800">
+        ResizeMode="CanMinimize"  Height="600" Width="1200">
     <Grid>
         <Viewbox Stretch="Uniform" Name="viewbox" >
             <Grid>

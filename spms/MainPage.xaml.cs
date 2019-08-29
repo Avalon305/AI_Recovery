@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -488,24 +489,24 @@ namespace spms.view.Pages
                         //导出训练记录
                         if (selectUser != null)
                         {
-                            List<TrainComprehensive> lists = new ExcelService().ListTrainExcekVOByUserId(selectUser.Pk_User_Id);
+                            List<NewTrainComprehensive> lists = new ExcelService().ListTrainExcekVOByUserId(selectUser.Pk_User_Id);
                             if (lists.Count > 0)
                             {
                                 List<object> excelLists = new List<object>();
-                                foreach (TrainComprehensive trainComprehensive in lists)
+                                foreach (NewTrainComprehensive trainComprehensive in lists)
                                 {
-                                    excelLists.Add(new TrainExcelVO(trainComprehensive));
+                                    excelLists.Add(new NewTrainExcelVO(trainComprehensive));
                                 }
                                 //Console.WriteLine(lists.ToString());
                                 //存放信息导出的列名
                                 if (LanguageUtils.IsChainese())
                                 {
-                                    string[] colNames = { "实施日期", "使用器械", "组数", "组的个数", "组间隔休息时间", " 砝码", "移乘方法", "自觉运动强度", "时间（秒）", " 距离（mm）", "总工作量（J）", "热量（cal）", "指数", "已完成组数", "时机、姿势", "备忘", "注意点", "利用者感想" };
+                                    string[] colNames = { "实施日期", "使用器械", "组数", "组的个数", "组间隔休息时间", "移乘方法", "自觉运动强度", "时间（秒）", "训练总耗能（J)", "已完成个数", "使用者感想" };
                                     ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("训练记录", colNames, excelLists));
                                 }
                                 else
                                 {
-                                    string[] colNames = { "Date", "Device name", "Groups", "Number", "Break time", " Weights", "Transfer method", "Conscious exercise intensity", "Time (seconds)", " Distance (mm)", "Total workload (J)", "Calories (cal)", "Index", "Completed groups", "Timing, posture", "Remark", "Be careful", "User feelings" };
+                                    string[] colNames = { "Date", "Device name", "Groups", "Number", "Transfer method", "Conscious exercise intensity", "Time (seconds)", "Energy (J)", "Finish num", "User feelings" };
                                     ExcelUtil.GenerateOrdinaryExcel(sfd.FileName.ToString(), selectUser, ExcelUtil.ToDataTable("Training record", colNames, excelLists));
                                 }
                             }
@@ -585,10 +586,9 @@ namespace spms.view.Pages
                     ShowActivated = true,
                     ShowInTaskbar = false,
                     WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                MaxHeight = SystemParameters.WorkArea.Size.Height,
-                MaxWidth = SystemParameters.WorkArea.Size.Width
-
-            };
+                    MaxHeight = SystemParameters.WorkArea.Size.Height,
+                    MaxWidth = SystemParameters.WorkArea.Size.Width
+                };
 
                 //设置用户信息
                 if (selectUser != null)
@@ -597,11 +597,11 @@ namespace spms.view.Pages
                     trainingReport.User_Name.Content = selectUser.User_Name;
                     trainingReport.Current_User = selectUser;
 
-                    List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(selectUser.Pk_User_Id);
+                    List<NewTrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(selectUser.Pk_User_Id);
                     trainingReport.datalist.DataContext = list;
                     trainingReport.trainingAndSymptomBeans = list;//赋值全局变量
                     List<DateTime?> dateTimes = new List<DateTime?>();
-                    foreach (TrainingAndSymptomBean tas in list)
+                    foreach (NewTrainingAndSymptomBean tas in list)
                     {
                         dateTimes.Add(tas.Gmt_Create);
                     }
@@ -620,27 +620,6 @@ namespace spms.view.Pages
                     trainingReport.ShowDialog();
                 }
             }
-            //打开训练报告页面
-            //else if (is_trainingrecord.IsChecked == true)
-            //{
-            //    TrainingReport trainingReport = new TrainingReport
-            //    {
-            //        Owner = Window.GetWindow(this),
-            //        ShowActivated = true,
-            //        ShowInTaskbar = false,
-            //        WindowStartupLocation = WindowStartupLocation.CenterScreen
-            //    };
-            //    List<TrainInfo> list = new List<TrainInfo>();
-            //    TrainInfo trainInfo = new TrainInfo
-            //    {
-            //        Gmt_Create = new DateTime(2012, 01, 02)
-            //    };
-            //    list.Add(trainInfo);
-            //    Console.WriteLine(trainInfo.Gmt_Create);
-            //    list.Add(trainInfo);
-            //    trainingReport.datalist.DataContext = list;
-            //    trainingReport.ShowDialog();
-            //}
             //打开体力评价报告页面
             else
             {
@@ -684,22 +663,7 @@ namespace spms.view.Pages
                     }
                     physicalAssessmentReport.ShowDialog();
                 }
-                //List<TrainInfo> list = new List<TrainInfo>();
-                //TrainInfo trainInfo = new TrainInfo
-                //{
-                //    Gmt_Create = new DateTime(2012, 01, 02)
-                //};
-                //list.Add(trainInfo);
-                //Console.WriteLine(trainInfo.Gmt_Create);
-                //list.Add(trainInfo);
-
             }
-
-            ////List<String> list = new List<string>();
-            ////for (int i = 0; i < 100; i++)
-            ////{
-            ////    list.Add("sas" + i);
-            ////}
         }
 
         //按钮：输入训练结果
@@ -1078,9 +1042,12 @@ namespace spms.view.Pages
             UserRelationDao userRelationDao = new UserRelationDao();
             UserRelation userRelation = new UserRelation();
             userRelation = userRelationDao.FindUserRelationByuserID((user.Pk_User_Id));
-            if (userRelation.Bind_id != null || userRelation.Bind_id != "")
+            if (userRelation != null)
             {
-                inputTraining.nfc.Text = userRelation.Bind_id;
+                if (userRelation.Bind_id != null || userRelation.Bind_id != "")
+                {
+                    inputTraining.nfc.Text = userRelation.Bind_id;
+                }
             }
             inputTraining.ShowDialog();
         }
@@ -1314,6 +1281,31 @@ namespace spms.view.Pages
 
             nuitrackScan.ShowDialog();
         }
+
+        /// <summary>
+        /// 按钮，肌力测试和NFC
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Add_SkeletonProgram(object sender, RoutedEventArgs e)
+        {
+            //检查是否选中
+            if ((User)UsersInfo.SelectedItem == null)
+            //if (selectUser == null)//4.7 lzh
+            {
+                MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
+                return;
+            }
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            string rootpath = path.Substring(0, path.LastIndexOf("bin"));
+            string baseDir = rootpath + "NuitrackScanProgress\\bin\\Debug\\";
+            Process startProc = new Process();
+            startProc.StartInfo.FileName = System.IO.Path.Combine(baseDir, "NuitrackScanProgress.exe");  //就是你要打开的文件的详细路径
+            startProc.StartInfo.UseShellExecute = true;
+            startProc.StartInfo.WorkingDirectory = baseDir; //就是如APGIS.Tools.exe 执行文件是在那个文件夹下。
+            startProc.Start();
+        }
+
         /// <summary>
         /// 查看图表按钮
         /// </summary>
@@ -1348,6 +1340,34 @@ namespace spms.view.Pages
             echartWindow.ShowDialog();
 
         }
+
+        /// <summary>
+        /// 启动其他的应用程序
+        /// </summary>
+        /// <param name="file">应用程序名称</param>
+        /// <param name="workdirectory">应用程序工作目录</param>
+        /// <param name="args">命令行参数</param>
+        /// <param name="style">窗口风格</param>
+        /// <returns></returns>
+        public static bool StartProcess(string file, string workdirectory, string args)
+        {
+            try
+            {
+                Process myprocess = new Process();
+                ProcessStartInfo startInfo = new ProcessStartInfo(file, args);
+                //startInfo.WindowStyle = style;
+                startInfo.WorkingDirectory = workdirectory;
+                myprocess.StartInfo = startInfo;
+                myprocess.StartInfo.UseShellExecute = false;
+                myprocess.Start();
+                return true;
+            }
+            catch (Exception e0)
+            {
+                MessageBox.Show("启动应用程序时出错！原因：" + e0.Message);
+            }
+            return false;
+        } 
 
         //private void AddNfcMyodynamia(object sender, RoutedEventArgs e)
         //{

@@ -113,7 +113,7 @@ namespace spms.http
                 // Console.WriteLine("大数据线程实例化Upload方法-table:" + uploadManagement.UM_DataTable);
                 //1.根据上传表内容查询具体数据（这里的数据是已经转换成json串形式），赋值给字段content
                 ServiceResult serviceResult = uploadManagementService.GetServiceResult(uploadManagement);
-                sendMsgDto.content = serviceResult.Data;
+
                 /*
                 int i = 1;
                 Console.WriteLine("这里是上传表的每一条内容" + i + "数字" + uploadManagement.Pk_UM_Id + uploadManagement.UM_DataId + uploadManagement.UM_Exec);
@@ -124,6 +124,7 @@ namespace spms.http
                     Console.WriteLine("上传表查询失败____________________");
                     return;
                 }
+                sendMsgDto.content = serviceResult.Data;
                 //用于接受云服务器端返回的字符串
                 string strWebResult = "";
                 //创建一个新的用来接受服务器端返回结果的对象

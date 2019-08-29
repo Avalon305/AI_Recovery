@@ -1,6 +1,7 @@
 ﻿using spms.bean;
 using spms.dao;
 using spms.entity;
+using spms.entity.newEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,11 @@ namespace spms.service
 {
     class ExcelService
     {
-        public List<TrainingAndSymptomBean> ListTrainingAndSymptomByUserId(int userId) {
+        public List<NewTrainingAndSymptomBean> ListTrainingAndSymptomByUserId(int userId) {
             ExcelDao excelDao = new ExcelDao();
             return excelDao.ListTrainingAndSymptomByUserId(userId);
         }
-        public List<DevicePrescriptionExcel> ListTrainingDetailByUserId(int userId)
+        public List<NewDevicePrescriptionExcel> ListTrainingDetailByUserId(int userId)
         {
             ExcelDao excelDao = new ExcelDao();
             return excelDao.ListTrainingDetailByUserId(userId);
@@ -31,7 +32,7 @@ namespace spms.service
             ExcelDao excelDao = new ExcelDao();
             return excelDao.ListPhysicalPowerExcelVO(userId);
         }
-        public List<TrainComprehensive> ListTrainExcekVOByUserId(int userId)
+        public List<NewTrainComprehensive> ListTrainExcekVOByUserId(int userId)
         {
             ExcelDao excelDao = new ExcelDao();
             return excelDao.ListTrainExcekVOByUserId(userId);

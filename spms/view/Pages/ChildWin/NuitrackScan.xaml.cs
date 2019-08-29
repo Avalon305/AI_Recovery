@@ -106,6 +106,13 @@ namespace spms.view.Pages.ChildWin
         int clicknum = 0;
         SkeletonLengthDAO skeletonLengthDAO = new SkeletonLengthDAO();
 
+        private const int GWL_STYLE = -16;
+        private const int WS_SYSMENU = 0x80000;
+        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
         public NuitrackScan()
         {
             InitializeComponent();
@@ -198,6 +205,10 @@ namespace spms.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //取消窗体X操作
+            var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+            SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+
             SkeletonLengthEntity skeletonLengthEntity = new SkeletonLengthEntity();
             skeletonLengthEntity = skeletonLengthDAO.GetByPk_User_Id(SelectUser.Pk_User_Id);
             if(skeletonLengthEntity != null)
@@ -743,5 +754,7 @@ namespace spms.view.Pages.ChildWin
         {
             this.Close();
         }
+
+
     }
 }

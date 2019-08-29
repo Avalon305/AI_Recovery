@@ -1,0 +1,36 @@
+﻿<Application x:Class="NuitrackScanProgress.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:NuitrackScanProgress"
+             StartupUri="view/Pages/NfcTipTwo.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FIcon" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value=" /view/fonts/#SF2015"></Setter>
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <FontFamily x:Key="微软雅黑">
+                /view/fonts/#微软雅黑
+            </FontFamily>
+            <FontFamily x:Key="MAGNETOB">
+                /view/fonts/#Magneto
+            </FontFamily>
+            <FontFamily x:Key="华文彩云">
+                /view/fonts/#华文彩云
+            </FontFamily>
+            <FontFamily x:Key="LiSu">
+                /view/fonts/#LiSu
+            </FontFamily>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="resources\en-us.xaml"/>
+                <ResourceDictionary Source="resources\zh-cn.xaml"/>
+                <ResourceDictionary Source="view/Dictionary/Button.xaml"/>
+                <ResourceDictionary Source="view/Dictionary/Btn.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

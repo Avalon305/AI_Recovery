@@ -40,16 +40,17 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Prefer32Bit>false</Prefer32Bit>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>view\Images\123.ico</ApplicationIcon>
@@ -60,11 +61,31 @@
   <PropertyGroup>
     <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>spms.App</StartupObject>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -209,6 +230,7 @@
     <Compile Include="dao\app\SetterDAO.cs" />
     <Compile Include="dao\DataCodeDAO.cs" />
     <Compile Include="dao\MusclePieChartDAO.cs" />
+    <Compile Include="dao\NewDao\NewExcelDao.cs" />
     <Compile Include="dao\PersonalSettingDao.cs" />
     <Compile Include="dao\PhysicalPowerDAO.cs" />
     <Compile Include="dao\PrescriptionResultTwoDao.cs" />
@@ -223,6 +245,10 @@
     <Compile Include="entity\CustomData.cs" />
     <Compile Include="entity\DataCode.cs" />
     <Compile Include="entity\newEntity\NewDevicePrescription.cs" />
+    <Compile Include="entity\newEntity\NewDevicePrescriptionExcel.cs" />
+    <Compile Include="entity\newEntity\NewTrainComprehensive.cs" />
+    <Compile Include="entity\newEntity\NewTrainExcelVO.cs" />
+    <Compile Include="entity\newEntity\NewTrainingAndSymptomBean.cs" />
     <Compile Include="entity\newEntity\PersonalSettingEntity.cs" />
     <Compile Include="entity\newEntity\PrescriptionResultTwo.cs" />
     <Compile Include="entity\newEntity\SkeletonLengthEntity.cs" />
@@ -255,6 +281,7 @@
     <Compile Include="protocol\BdlProto.cs" />
     <Compile Include="service\DeviceCommService.cs" />
     <Compile Include="service\MusclePieChartService.cs" />
+    <Compile Include="service\NewService\NewExcelService.cs" />
     <Compile Include="service\OnlineDeviceService.cs" />
     <Compile Include="service\ProcessService.cs" />
     <Compile Include="usb\hid.cs" />

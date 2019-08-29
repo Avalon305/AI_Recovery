@@ -5,6 +5,7 @@ using OfficeOpenXml.Style;
 using Spire.Xls;
 using spms.bean;
 using spms.entity;
+using spms.entity.newEntity;
 using spms.service;
 using spms.util;
 using System;
@@ -164,14 +165,14 @@ namespace spms.view.Pages.ChildWin
         /// </summary>
         private void GenerateTrainReport()
         {
-            List<TrainingAndSymptomBean> list = new List<TrainingAndSymptomBean>();
+            List<NewTrainingAndSymptomBean> list = new List<NewTrainingAndSymptomBean>();
             for (int i = 0; i < datalist.Items.Count; i++)
             {
                 //判断选中哪些时间
-                if (selectedDate.Contains((datalist.Items[i] as TrainingAndSymptomBean).Gmt_Create))
+                if (selectedDate.Contains((datalist.Items[i] as NewTrainingAndSymptomBean).Gmt_Create))
                 {
                     //Console.WriteLine("打印的内容" + datalist.Items[i].ToString());
-                    list.Add((datalist.Items[i] as TrainingAndSymptomBean));
+                    list.Add((datalist.Items[i] as NewTrainingAndSymptomBean));
                 }
             }
 
@@ -249,7 +250,6 @@ namespace spms.view.Pages.ChildWin
                     worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("实施日期", "Date");
                     worksheet.Cells[tableRow, 3].Value = LanguageUtils.ConvertLanguage("血压", "Blood pressure");
                     worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("水分摄取量", "Moisture intake");
-                    worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("平均指数", "Average index");
                     worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("总运动时间", "Total exercise time");
                     worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("总消耗热量", "Total calories consumed");
                     worksheet.Cells[tableRow, 9].Value = LanguageUtils.ConvertLanguage("看护记录", "Care record");
@@ -279,10 +279,8 @@ namespace spms.view.Pages.ChildWin
                         worksheet.Cells[row, 3].Value = list[k].SI_Pre_HighPressure + "/" + list[k].SI_Pre_LowPressure;
                         worksheet.Cells[row, 4].Value = list[k].SI_Suf_HighPressure + "/" + list[k].SI_Suf_LowPressure;
                         worksheet.Cells[row, 5].Value = list[k].SI_WaterInput;
-                        worksheet.Cells[row, 6].Value = list[k].PR_Index;
-                        //worksheet.Cells[row, 7].Value = list[k].PR_Time2 - list[i].PR_Time1;
-                        worksheet.Cells[row, 7].Value = list[k].PR_Time1;
-                        worksheet.Cells[row, 8].Value = list[k].PR_Cal;
+                        worksheet.Cells[row, 7].Value = list[k].PR_Finish_Time;
+                        worksheet.Cells[row, 8].Value = list[k].PR_Energy;
                         worksheet.Cells[row, 9].Value = list[k].SI_CareInfo;
                     }
 
@@ -344,14 +342,14 @@ namespace spms.view.Pages.ChildWin
         /// </summary>
         private void GenerateDetailReport()
         {
-            List<DevicePrescriptionExcel> list = new List<DevicePrescriptionExcel>();
+            List<NewDevicePrescriptionExcel> list = new List<NewDevicePrescriptionExcel>();
             for (int i = 0; i < datalist.Items.Count; i++)
             {
                 //判断选中哪些时间
-                if (selectedDate.Contains((datalist.Items[i] as DevicePrescriptionExcel).Gmt_Create))
+                if (selectedDate.Contains((datalist.Items[i] as NewDevicePrescriptionExcel).Gmt_Create))
                 {
                     //Console.WriteLine("打印的内容" + datalist.Items[i].ToString());
-                    list.Add((datalist.Items[i] as DevicePrescriptionExcel));
+                    list.Add((datalist.Items[i] as NewDevicePrescriptionExcel));
                 }
             }
             FileInfo newFile = ExcelUtil.GetExcelFile();
@@ -398,11 +396,9 @@ namespace spms.view.Pages.ChildWin
                     worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("器械名称", "Device name");
                     worksheet.Cells[tableRow, 4].Value = LanguageUtils.ConvertLanguage("实施日期", "Date");
                     worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("移乘方法", "Transfer method");
-                    worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("砝码", "Weights");
-                    worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("组数", "Groups");
-                    worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("个数", "Number");
-                    worksheet.Cells[tableRow, 9].Value = "Borg";
-                    worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("动作时机、姿势等", "Movement timing,posture..");
+                    worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("组数", "Groups");
+                    worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("个数", "Number");
+                    worksheet.Cells[tableRow, 8].Value = "Borg";
 
                     using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow, 11])
                     {
@@ -438,24 +434,9 @@ namespace spms.view.Pages.ChildWin
                         {
                             worksheet.Cells[row, 5].Value = LanguageUtils.ConvertLanguage("完全失能", "Completely disabled");
                         }
-                        worksheet.Cells[row, 6].Value = list[k].dp_weight;
-                        worksheet.Cells[row, 7].Value = list[k].dp_groupcount;
-                        worksheet.Cells[row, 8].Value = list[k].dp_groupnum;
-                        worksheet.Cells[row, 9].Value = list[k].dp_relaxtime;
-                        Console.WriteLine(list[k].PR_Evaluate);
-                        if (list[k].PR_Evaluate == 0)
-                        {
-                            worksheet.Cells[row, 10].Value = LanguageUtils.ConvertLanguage("没问题", "No problem");
-                        }
-                        else if (list[k].PR_Evaluate == 1)
-                        {
-                            worksheet.Cells[row, 10].Value = LanguageUtils.ConvertLanguage("有些许问题", "Some problems");
-                        }
-                        else if (list[k].PR_Evaluate == 2)
-                        {
-                            worksheet.Cells[row, 10].Value = LanguageUtils.ConvertLanguage("有问题", "Has a problem");
-                        }
-                        //worksheet.Cells[row, 10].Value = list[k].PR_Evaluate;
+                        worksheet.Cells[row, 6].Value = list[k].dp_groupcount;
+                        worksheet.Cells[row, 7].Value = list[k].dp_groupnum;
+                        worksheet.Cells[row, 8].Value = list[k].dp_relaxtime;
                     }
 
                     int borderRows = (j + 1) * count < list.Count ? count : list.Count - j * count;
@@ -483,25 +464,19 @@ namespace spms.view.Pages.ChildWin
         /// </summary>
         private void GenerateNurseReport()
         {
-            List<TrainingAndSymptomBean> list = new List<TrainingAndSymptomBean>();
+            List<NewTrainingAndSymptomBean> list = new List<NewTrainingAndSymptomBean>();
             for (int i = 0; i < datalist.Items.Count; i++)
             {
                 //判断选中哪些时间
-                if (selectedDate.Contains((datalist.Items[i] as TrainingAndSymptomBean).Gmt_Create))
+                if (selectedDate.Contains((datalist.Items[i] as NewTrainingAndSymptomBean).Gmt_Create))
                 {
                     //Console.WriteLine("打印的内容" + datalist.Items[i].ToString());
-                    list.Add((datalist.Items[i] as TrainingAndSymptomBean));
+                    list.Add((datalist.Items[i] as NewTrainingAndSymptomBean));
                 }
             }
 
             FileInfo newFile = ExcelUtil.GetExcelFile();
-            //FileInfo newFile = new FileInfo(CommUtil.GetDocPath("test.xlsx"));
-            //if (newFile.Exists)
-            //{
 
-            //    newFile.Delete();
-            //    newFile = new FileInfo(CommUtil.GetDocPath("test.xlsx"));
-            //}
             int count = 9;//包含的数据条数
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
@@ -562,13 +537,11 @@ namespace spms.view.Pages.ChildWin
                     worksheet.Cells[tableRow, 3, tableRow, 4].Merge = true;//血压
                     worksheet.Cells[tableRow, 1, tableRow + 1, 2].Merge = true;
                     worksheet.Cells[tableRow, 5, tableRow + 1, 6].Merge = true;//水分摄取量
-                    worksheet.Cells[tableRow, 7, tableRow + 1, 7].Merge = true;//平均指数
                     worksheet.Cells[tableRow, 8, tableRow + 1, 9].Merge = true;//总运动时间
                     worksheet.Cells[tableRow, 10, tableRow + 1, 11].Merge = true;//总消耗热量
                     worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("实施日期", "Date");
                     worksheet.Cells[tableRow, 3].Value = LanguageUtils.ConvertLanguage("血压", "Blood pressure");
                     worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("水分摄取量", "Moisture intake");
-                    worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("平均指数", "Average index");
                     worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("总运动时间", "Total exercise time");
                     worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("总消耗热量", "Total calories consumed");
                     worksheet.Cells[tableRow + 1, 3].Value = LanguageUtils.ConvertLanguage("运动前", "Before exercise");
@@ -600,10 +573,8 @@ namespace spms.view.Pages.ChildWin
                         worksheet.Cells[row, 3].Value = list[k].SI_Pre_HighPressure + "/" + list[k].SI_Pre_LowPressure;
                         worksheet.Cells[row, 4].Value = list[k].SI_Suf_HighPressure + "/" + list[k].SI_Suf_LowPressure;
                         worksheet.Cells[row, 5].Value = list[k].SI_WaterInput;
-                        worksheet.Cells[row, 7].Value = list[k].PR_Index;
-                        //worksheet.Cells[row, 8].Value = list[k].PR_Time2 - list[i].PR_Time1;
-                        worksheet.Cells[row, 8].Value = list[k].PR_Time1;
-                        worksheet.Cells[row, 10].Value = list[k].PR_Cal;
+                        worksheet.Cells[row, 8].Value = list[k].PR_Finish_Time;
+                        worksheet.Cells[row, 10].Value = list[k].PR_Energy;
                         worksheet.Cells[row + 1, 1].Value = list[k].SI_CareInfo;
                     }
 
@@ -667,11 +638,11 @@ namespace spms.view.Pages.ChildWin
                 {
                     if (Current_User != null)
                     {
-                        List<TrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(Current_User.Pk_User_Id);
+                        List<NewTrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(Current_User.Pk_User_Id);
                         trainingAndSymptomBeans = list;//赋值全局
 
                         List<DateTime?> dateTimes = new List<DateTime?>();
-                        foreach (TrainingAndSymptomBean tas in list)
+                        foreach (NewTrainingAndSymptomBean tas in list)
                         {
                             dateTimes.Add(tas.Gmt_Create);
                         }
@@ -716,12 +687,12 @@ namespace spms.view.Pages.ChildWin
                 {
                     if (Current_User != null)
                     {
-                        List<DevicePrescriptionExcel> list = excelService.ListTrainingDetailByUserId(Current_User.Pk_User_Id);
+                        List<NewDevicePrescriptionExcel> list = excelService.ListTrainingDetailByUserId(Current_User.Pk_User_Id);
                         Console.WriteLine(list.ToString());
                         devicePrescriptionExcels = list;//赋值全局
 
                         List<DateTime?> dateTimes = new List<DateTime?>();
-                        foreach (DevicePrescriptionExcel dpe in list)
+                        foreach (NewDevicePrescriptionExcel dpe in list)
                         {
                             dateTimes.Add(dpe.Gmt_Create);
                         }
@@ -872,9 +843,9 @@ namespace spms.view.Pages.ChildWin
         }
 
         //所有的训练信息
-        public List<TrainingAndSymptomBean> trainingAndSymptomBeans { get; set; }
+        public List<NewTrainingAndSymptomBean> trainingAndSymptomBeans { get; set; }
         //所有的看护记录
-        public List<DevicePrescriptionExcel> devicePrescriptionExcels { get; set; }
+        public List<NewDevicePrescriptionExcel> devicePrescriptionExcels { get; set; }
         /// <summary>
         /// 开始时间
         /// </summary>

@@ -3004,7 +3004,7 @@ namespace spms.view.Pages.ChildWin
 
                 //new TrainService().AbandonAllTempTrainInfo(user.Pk_User_Id);
                 // 将当前训练信息存入数据库表，此时是暂存状态，在此之前设置该用户所有暂存状态的数据为废弃。此过程在servie中实现
-                SaveTrainInfo2DB(TrainInfoStatus.Temp);
+                SaveTrainInfo2DB(TrainInfoStatus.Save);
             }
             catch (Exception ex)
             {
@@ -3012,7 +3012,8 @@ namespace spms.view.Pages.ChildWin
                 MessageBoxX.Warning(LanguageUtils.ConvertLanguage("插入数据库异常。", "Insert database exception."));
                 return;
             }
-
+            MessageBoxX.Info(LanguageUtils.ConvertLanguage("已下处方", "Finished storage"));
+            this.Close();
 
         }
 
