@@ -47,6 +47,7 @@ namespace NuitrackScanProgress.view.Pages
         //确认按钮，关闭此窗体
         private void Button_OK(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             NuitrackScan nuitrackScan = new NuitrackScan
             {
                 Owner = Window.GetWindow(this),
