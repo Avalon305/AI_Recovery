@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Documents;
+using NLog;
 using spms.bean;
 using spms.constant;
 using spms.dao;
@@ -24,13 +25,14 @@ namespace spms.service
         static DevicePrescriptionDAO devicePrescriptionDAO = new DevicePrescriptionDAO();
         static PrescriptionResultDAO prescriptionResultDAO = new PrescriptionResultDAO();
 		static PrescriptionResultTwoDao prescriptionResultTwoDao = new PrescriptionResultTwoDao();
-        /// <summary>
-        /// 保存训练信息
-        /// DevicePrescription
-        /// </summary>
-        /// <param name="trainInfo"></param>
-        /// <param name="devicePrescriptions"></param>
-        public void SaveTraininfo(object siId,TrainInfo trainInfo, List<NewDevicePrescription> devicePrescriptions)
+		private static Logger logger = LogManager.GetCurrentClassLogger();
+		/// <summary>
+		/// 保存训练信息
+		/// DevicePrescription
+		/// </summary>
+		/// <param name="trainInfo"></param>
+		/// <param name="devicePrescriptions"></param>
+		public void SaveTraininfo(object siId,TrainInfo trainInfo, List<NewDevicePrescription> devicePrescriptions)
         {
             using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
             {
@@ -183,11 +185,31 @@ namespace spms.service
         /// <param name="entity"></param>
         public void InsertPrescriptionResult(UploadRequest request, entity.newEntity.PrescriptionResultTwo entity )
 		{
+
+				//插入处方结果信息
+				if (entity != null) { 
+				  try
+				  {
+					long a = prescriptionResultTwoDao.Insert(entity);
+					if (a >0)
+					{
+						logger.Info("插入训练结果成功");
+					}
+					else
+					{
+						logger.Error("插入训练结果失败");
+					}
+			      }
+				   catch (Exception ex)
+				  {
+
+					throw;
+				  }
+
+			   }
 			using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
 			{
-				//插入处方结果信息
-				prescriptionResultTwoDao.Insert(entity);
-
+			
 				//查询是否还有没完成的训练处方，如果都完成了就更新TrinInfo
 				var unDoItemList = devicePrescriptionDAO.ListUnDoByDpId(request.DpId);
 				if (unDoItemList.Count == 1)

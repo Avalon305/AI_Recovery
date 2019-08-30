@@ -66,7 +66,7 @@ namespace spms.dao
 		
 			using (var conn = DbUtil.getConn())
 			{
-				const string query = "update bdl_traininfo set status = 3 where fk_user_id = @FK_User_Id and status = 0";
+				const string query = "update bdl_traininfo set status = 1 where fk_user_id = @FK_User_Id and status = 0";
 
 				conn.Execute(query, new { FK_User_Id = userId });
 			}
@@ -179,7 +179,7 @@ namespace spms.dao
 		/// <param name="dpid"></param>
 		public void updateDpStatus(int dpid)
 		{
-			string sql = @"update bdl_deviceprescription set dp_status=1 
+			string sql = @"update bdl_deviceprescription set dp_status = 1 
                             where pk_dp_id = @Pk_dp_id
             ";
 			using (var conn = DbUtil.getConn())

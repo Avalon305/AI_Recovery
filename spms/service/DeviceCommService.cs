@@ -38,6 +38,12 @@ namespace spms.service
 
 			//根据bind_id查询到Uerid
 			UserRelation userRelation = userRelationDao.FindUserRelationByBind_id(request.BindId);
+			if (userRelation == null)
+			{
+				logger.Info("数据库中没有对应的手环id");
+				response.InfoResponse = 0;
+				return response;
+			}
 			string uid = (userRelation.Fk_user_id).ToString();
 			response.Uid = uid;
 			response.ExisitSetting = false;
@@ -54,7 +60,14 @@ namespace spms.service
 				int now_year = int.Parse((DateTime.Now.ToString("yyyy")));
 				response.Age = now_year - int.Parse(birth_year);
 				SkeletonLengthEntity skeletonLengthEntity = skeletonLengthDAO.getSkeletonLengthRecord(int.Parse(uid));
-				response.Weight = skeletonLengthEntity.Weigth;
+				if (skeletonLengthEntity!=null )
+				{
+					response.Weight = skeletonLengthEntity.Weigth;
+				}
+				else
+				{
+					response.Weight = 0;
+				}
 				response.UserName = user.User_Name;
 			}
 			else
@@ -259,6 +272,7 @@ namespace spms.service
 			};
 			try
 			{
+				logger.Info("进入插入上传结果InsertPrescriptionResult");
 				trainService.InsertPrescriptionResult(request, prescriptionResult);
 			}
 			catch (Exception ex)
@@ -395,13 +409,11 @@ namespace spms.service
 				Reverse_force = request.ReverseForce,
 				Power = request.Power,
 			};
-			using (TransactionScope ts = new TransactionScope()) //使整个代码块成为事务性代码
-			{
+			
 				//更新个人设置
 				personalSettingDAO.UpdateSetting(setEntity);
 				response.Success = true;
-				ts.Complete();
-			}
+				
 			return response;
 		}
 		#endregion
