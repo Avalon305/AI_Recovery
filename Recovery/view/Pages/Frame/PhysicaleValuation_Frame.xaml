@@ -1,0 +1,88 @@
+﻿<Page x:Class="Recovery.view.Pages.Frame.PhysicaleValuation_Frame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Recovery.view.Pages.Frame"
+      mc:Ignorable="d" 
+      d:DesignHeight="300"  d:DesignWidth="955" Height="321.666"
+      Title="PhysicaleValuation">
+
+    <Grid>
+
+        <DataGrid x:Name="PhysicaleValuation" RowHeaderWidth="0" VerticalScrollBarVisibility="Hidden" IsReadOnly="True" HorizontalScrollBarVisibility="Hidden" SelectionMode="Single" KeyboardNavigation.TabNavigation="None" HorizontalAlignment="Left" Margin="5,11,0,0" VerticalAlignment="Top"  GridLinesVisibility="None"  Height="302" Width="942" CanUserSortColumns="False" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False">
+            <!--选中行失去焦点时的颜色-->
+            <DataGrid.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="White"/>
+
+            </DataGrid.Resources>
+            <!--固定行高，取消拉伸-->
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="18" />
+                </Style>
+            </DataGrid.RowStyle>
+            <!--去掉选中单元格的框线-->
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell" >
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="BorderThickness" Value="0"/>
+                        </Trigger>
+                    </Style.Triggers>
+                    <!--单元格tooltip效果-->
+                    <Setter Property="ToolTipService.ToolTip"  Value="{Binding RelativeSource={RelativeSource Mode=Self},Path=Content.Text}" />
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Header="ID" Width="130" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Gmt_Create,StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}" Header="{DynamicResource PhysicalEvaluationHistory.Date}" Width="130"/>
+                <DataGridTextColumn Binding="{Binding PP_High}" Header="{DynamicResource PhysicalEvaluationHistory.Height}" Width="80"/>
+                <DataGridTextColumn Binding="{Binding PP_Weight}" Header="{DynamicResource PhysicalEvaluationHistory.Weight}" Width="80"/>
+                <DataGridTextColumn Binding="{Binding PP_EyeOpenStand}" Header="{DynamicResource PhysicalEvaluationHistory.SingleLegStanding(OE)}" Width="150"/>
+                <DataGridTextColumn Binding="{Binding PP_TimeUpGo}" Header="{DynamicResource PhysicalEvaluationHistory.TimedUpGo}" Width="100"/>
+                <!--<DataGridTextColumn Binding="{Binding PP_UserMemo}" Header="使用者感想" Width="240"/>
+                <DataGridTextColumn Binding="{Binding PP_WorkerMemo}" Header="工作人员感想" Width="240"/>-->
+                <DataGridTemplateColumn Header="{DynamicResource PhysicalEvaluationHistory.Subjectcomment}" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <!--设置当单元格内容超过最大长度时，显示...-->
+                            <TextBlock Text="{Binding PP_UserMemo}" TextTrimming="WordEllipsis"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="DataGridCell" >
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <!--加tooltip，显示单元格内容-->
+                            <Setter Property="ToolTipService.ToolTip" Value="{Binding PP_UserMemo}"/>
+                        </Style>
+                       
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="{DynamicResource PhysicalEvaluationHistory.Staffcomment}" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <!--设置当单元格内容超过最大长度时，显示...-->
+                            <TextBlock Text="{Binding PP_WorkerMemo}" TextTrimming="WordEllipsis"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="DataGridCell" >
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <!--加tooltip，显示单元格内容-->
+                            <Setter Property="ToolTipService.ToolTip" Value="{Binding PP_WorkerMemo}"/>
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

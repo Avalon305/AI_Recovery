@@ -1,0 +1,258 @@
+﻿<Page x:Class="Recovery.view.Pages.DesignPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Recovery.view.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="{DynamicResource Title.Title}"
+      Height="720" Width="1290">
+
+    <StackPanel Orientation="Vertical" >
+        <Border Height="60" VerticalAlignment="Top">
+            <Image Source="C:\Users\lenovo\source\repos\UI\UI\Images\bdl.PNG" Margin="0,0,-0.4,0" HorizontalAlignment="Stretch" Stretch="UniformToFill"></Image>
+        </Border>
+        <Border Height="50" CornerRadius="5,5,0,0" Background="Gray" Margin="0,0,15,0">
+            <Grid>
+                <Label VerticalAlignment="Center" Margin="10,12,1144.6,11.6" Foreground="White">设定</Label>
+                <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,140,-0.4"  Foreground="Black">确定更改</Button>
+                <Button Width="140" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Foreground="Black">取消</Button>
+            </Grid>
+        </Border>
+        <StackPanel Margin="10" Orientation="Horizontal" >
+            <Grid>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="470"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Grid.Column="0" Padding="5" Width="140" HorizontalAlignment="Left">
+                    <Label Foreground="White" Background="Black">机构、团体名称</Label>
+                </Border>
+                <Border Grid.Row="0" Grid.Column="1" Padding="5">
+                    <TextBox></TextBox>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="0" Padding="5" Width="140" HorizontalAlignment="Left">
+                    <Label Foreground="White" Background="Black">机构区分</Label>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1" Padding="5" Width="280" HorizontalAlignment="Left">
+                    <ComboBox ></ComboBox>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="0" Padding="5" Width="140" HorizontalAlignment="Left">
+                    <Label Foreground="White" Background="Black">数据库名称</Label>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="1" Padding="5">
+                    <TextBox></TextBox>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="2" Padding="5">
+                    <Button>参照</Button>
+                </Border>
+                <Border Grid.Row="3" Grid.Column="0" Padding="5" Width="140" HorizontalAlignment="Left">
+                    <Label Foreground="White" Background="Black">视频保存文档</Label>
+                </Border>
+                <Border Grid.Row="3" Grid.Column="1" Padding="5">
+                    <TextBox></TextBox>
+                </Border>
+                <Border Grid.Row="3" Grid.Column="2" Padding="5">
+                    <Button>参照</Button>
+                </Border>
+                <Border Grid.Row="3" Grid.Column="3" Padding="5">
+                    <Button>设定视频</Button>
+                </Border>
+                <Border Grid.Row="4" Grid.Column="0" Padding="5" Width="140" HorizontalAlignment="Left">
+                    <Label Foreground="White" Background="Black">照片保存文档</Label>
+                </Border>
+                <Border Grid.Row="4" Grid.Column="1" Padding="5">
+                    <TextBox></TextBox>
+                </Border>
+                <Border Grid.Row="4" Grid.Column="2" Padding="5">
+                    <Button>参照</Button>
+                </Border>
+                <Border Grid.Row="5" Grid.Column="0" Padding="5" Width="140" HorizontalAlignment="Left">
+                    <Label Foreground="White" Background="Black">语言</Label>
+                </Border>
+                <Border Grid.Row="5" Grid.Column="1" Padding="5">
+                    <ComboBox>
+                    </ComboBox>
+                </Border>
+                <Border Grid.Row="6" Grid.Column="0" Padding="5" Width="140" HorizontalAlignment="Left">
+                    <Label Foreground="White" Background="Black">密码</Label>
+                </Border>
+                <Border Grid.Row="6" Grid.Column="1" Padding="5" Width="135" HorizontalAlignment="Left">
+                    <Button>设定密码</Button>
+                </Border>
+            </Grid>
+            <Grid Margin="100,10" VerticalAlignment="Top" >
+
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="140"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Grid.Column="0" Padding="5">
+                    <Label Foreground="White" Background="Black">选择器械系列</Label>
+                </Border>
+                <Border Grid.Row="0" Grid.Column="1" Padding="5">
+                    <ComboBox>
+                    </ComboBox>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="0"  Grid.ColumnSpan="2">
+                    <Label Foreground="White" Background="Black"   >使用器械</Label>
+                </Border>
+                <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="200">
+                    <StackPanel Margin="10" >
+
+                        <CheckBox>水平腿部推蹬机</CheckBox>
+                        <CheckBox>坐姿划船机</CheckBox>
+                        <CheckBox>身体伸展弯曲机</CheckBox>
+                        <CheckBox>腿部伸展弯曲机</CheckBox>
+                        <CheckBox>臀部外展内收机</CheckBox>
+                        <CheckBox>胸部推举机</CheckBox>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="15">
+            <Grid>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="390"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--<Border Grid.Row="0" Grid.Column="0">
+                    <Label Foreground="White" Background="Black">小组名称</Label>
+                </Border>
+                <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="170" >
+                    <StackPanel Margin="10" >
+
+                        <CheckBox>水平腿部推蹬机</CheckBox>
+                        <CheckBox>坐姿划船机</CheckBox>
+                        <CheckBox>身体伸展弯曲机</CheckBox>
+                        <CheckBox>腿部伸展弯曲机</CheckBox>
+                        <CheckBox>臀部外展内收机</CheckBox>
+                        <CheckBox>胸部推举机</CheckBox>
+                    </StackPanel>
+                </Border>-->
+                <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40">
+                    <StackPanel Orientation="Horizontal">
+                        <Border CornerRadius="5" Margin="35,0,50,0">
+                            <Button Height="25" Width="50">注册</Button>
+                        </Border>
+                        <Border CornerRadius="5" Margin="35,0,50,0" Background="Black" Height="25" Width="50">
+                            <Button Height="25" Width="50">更新</Button>
+                        </Border>
+                        <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50" Background="Black">
+                            <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
+                                <Hyperlink Name="delete_group"    NavigateUri=" http://www.google.com/" Foreground="White"> 删除 </Hyperlink>
+                            </TextBlock>-->
+                            <Button Height="25" Width="50">删除</Button>
+                        </Border>
+
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <Grid Margin="20,0,0,0">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="390"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Grid.Column="0">
+                    <Label Foreground="White" Background="Black">疾病名称</Label>
+                </Border>
+                <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="170" >
+                    <StackPanel Margin="10" >
+
+                        <CheckBox>水平腿部推蹬机</CheckBox>
+                        <CheckBox>坐姿划船机</CheckBox>
+                        <CheckBox>身体伸展弯曲机</CheckBox>
+                        <CheckBox>腿部伸展弯曲机</CheckBox>
+                        <CheckBox>臀部外展内收机</CheckBox>
+                        <CheckBox>胸部推举机</CheckBox>
+                    </StackPanel>
+                </Border>
+                <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40">
+                    <StackPanel Orientation="Horizontal">
+                        <Border CornerRadius="5" Margin="35,0,50,0">
+                            <Button Height="25" Width="50">注册</Button>
+                        </Border>
+                        <Border CornerRadius="5" Margin="35,0,50,0" Background="Black" Height="25" Width="50">
+                            <Button Height="25" Width="50">更新</Button>
+                        </Border>
+                        <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50" Background="Black">
+                            <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
+                                <Hyperlink Name="delete_group"    NavigateUri=" http://www.google.com/" Foreground="White"> 删除 </Hyperlink>
+                            </TextBlock>-->
+                            <Button Height="25" Width="50">删除</Button>
+                        </Border>
+
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <Grid Margin="20,0,0,0">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="390"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Grid.Column="0">
+                    <Label Foreground="White" Background="Black">残障名称</Label>
+                </Border>
+                <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="170" >
+                    <StackPanel Margin="10" >
+
+                        <CheckBox>水平腿部推蹬机</CheckBox>
+                        <CheckBox>坐姿划船机</CheckBox>
+                        <CheckBox>身体伸展弯曲机</CheckBox>
+                        <CheckBox>腿部伸展弯曲机</CheckBox>
+                        <CheckBox>臀部外展内收机</CheckBox>
+                        <CheckBox>胸部推举机</CheckBox>
+                    </StackPanel>
+                </Border>
+                <Border  BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Height="40">
+                    <StackPanel Orientation="Horizontal">
+                        <Border CornerRadius="5" Margin="35,0,50,0">
+                            <Button Height="25" Width="50">注册</Button>
+                        </Border>
+                        <Border CornerRadius="5" Margin="35,0,50,0" Background="Black" Height="25" Width="50">
+                            <Button Height="25" Width="50">更新</Button>
+                        </Border>
+                        <Border CornerRadius="5" Margin="35,0,50,0" Height="25" Width="50" Background="Black">
+                            <!--<TextBlock Name="delete_group_tb" Margin="14,0,0,5" Grid.Row="1"     TextWrapping="Wrap" Foreground="White" >     
+                                <Hyperlink Name="delete_group"    NavigateUri=" http://www.google.com/" Foreground="White"> 删除 </Hyperlink>
+                            </TextBlock>-->
+                            <Button Height="25" Width="50">删除</Button>
+                        </Border>
+
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</Page>

@@ -1,0 +1,199 @@
+﻿<Window x:Class="Recovery.view.Pages.ChildWin.TrainingReport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Recovery.view.Pages.ChildWin"
+        xmlns:my="clr-namespace:Recovery.view.controls"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"  
+        PreviewKeyDown="key_dowm"
+        SizeToContent="WidthAndHeight"
+        Icon="/view/Images/icon_3.png"
+        Title="{DynamicResource Title.Title}" 
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+
+        <Style TargetType="TextBlock">
+            <Setter   Property="VerticalAlignment"  Value="Center"></Setter>
+        </Style>
+        <Style TargetType="Border">
+            <Setter  Property="BorderBrush" Value="Gray"></Setter>
+            <Setter  Property="BorderThickness"  Value="1"></Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="1"/>
+        </Style>
+    </Window.Resources>
+    <!--<Window.Resources>
+
+        <Style TargetType="ListBoxItem" x:Key="myListBoxItem">
+            <Style.Resources>
+                -->
+    <!--SelectedItem with focus-->
+    <!--
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="White" Opacity=".4"/>
+                -->
+    <!--SelectedItem without focus-->
+    <!--
+                <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="White" Opacity=".4"/>
+            </Style.Resources>
+        </Style>
+
+    </Window.Resources>-->
+    <Viewbox Name="viewbox" Loaded="viewbox_load" Stretch="Uniform">
+    <StackPanel Orientation="Vertical">
+        <!--标题栏-->
+        <Border CornerRadius="5,5,0,0" Height="38" Margin="5,0,5,0" DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="Silver" Offset="0.1"/>
+                    <GradientStop Color="Gray" Offset="0.9"/>
+                </LinearGradientBrush>
+
+            </Border.Background>
+            <DockPanel >
+                    <Label  DockPanel.Dock="Left" FontSize="22" FontStyle="Normal" Foreground="White"     Content="{DynamicResource CreateTrainingReportView.CreateTrainingReport}" VerticalAlignment="Center"/>
+                <!--按钮部分--><!--
+                <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="131" Height="29" VerticalAlignment="Bottom"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0">
+                    <StackPanel Orientation="Horizontal"  >
+                        <Button Width="62" Height="25" VerticalAlignment="Bottom"    Foreground="Black" Content="保存" Margin="4,0,0,0" Style="{StaticResource Btn}"/>
+                        <Button Width="62" Height="25" VerticalAlignment="Bottom"    Content="返回"  Margin="4,0,0,0" Style="{StaticResource Btn}" Click="Cancel"/>
+                    </StackPanel>
+                </Border>
+                --><!--结束：按钮-->
+            </DockPanel>
+        </Border>
+        <!--结束：标题栏-->
+        <Grid Height="34" Margin="5,0,5,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="63.2"/>
+                <ColumnDefinition Width="72"/>
+            </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="{DynamicResource CreateTrainingReportView.LastName}" VerticalContentAlignment="Center" Margin="0,0,63.8,-0.4" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            <Label Grid.Column="1"  Margin="5,0,-43.2,-0.4" Name="User_Name" Grid.RowSpan="2" VerticalContentAlignment="Center"/>
+                <Label Grid.Row="0" Grid.Column="0"  Content="{DynamicResource CreateTrainingReportView.SubjectID}" Visibility="Hidden" Margin="-6,-6,69.8,15.6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Grid.Row="0" Grid.Column="1" Margin="2,-6,-9.2,15.6" Name="Pk_User_Id" Grid.RowSpan="2" Visibility="Hidden"/>
+        </Grid>
+        <!--结束：用户ID和姓名-->
+        <!--输入报告-->
+        <StackPanel Orientation="Horizontal" Height="67" Margin="5,5,5,0">
+            <Border Background="Silver" Width="95" Height="25" VerticalAlignment="Top" Margin="0,0,4,0">
+                    <Label Margin="0,-2,0,-4" VerticalContentAlignment="Center" Content="{DynamicResource CreateTrainingReportView.OutputReport}"></Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Width="384" Margin="0,0,0,0.2">
+                <Grid Margin="10.2,4.2,-11.4,0.4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                    </Grid.RowDefinitions>
+                        <RadioButton Name="is_comprehensiv" Checked="Document_Type_Checked" IsTabStop="False" Content="{DynamicResource CreateTrainingReportView.ComprehensiveReport}" IsChecked="True"  Grid.Row="0"/>
+                        <RadioButton Name="is_detail" Checked="Document_Type_Checked" IsTabStop="False" Content="{DynamicResource CreateTrainingReportView.Detailedreport}" Grid.Row="1"/>
+                        <RadioButton Name="is_nurse" Checked="Document_Type_Checked" IsTabStop="False" Content="{DynamicResource CreateTrainingReportView.NursingRecordReport}" Grid.Row="2"/>
+                </Grid>
+            </Border>
+
+        </StackPanel>
+        <!--结束：输入报告-->
+            <StackPanel Orientation="Horizontal" Margin="5,10,5,0">
+                <Border Background="Silver" Width="95" Height="25" VerticalAlignment="Center" Margin="0,0,4,0">
+                    <Label Margin="0,-2,0,-4" VerticalContentAlignment="Center" Content="{DynamicResource CreateTrainingReportView.SelectDate}"></Label>
+                </Border>
+                <Border Margin="0,0,0,0" Width="153" Grid.Row="0" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" >
+                    <DatePicker HorizontalAlignment="Left" SelectedDateChanged="start_date_SelectedDateChanged"  x:Name="start_date" VerticalAlignment="Top" Height="25" Width="150" >
+                        <DatePicker.Resources>
+                            <Style TargetType="DatePickerTextBox">
+                                <Setter Property="IsReadOnly" Value="True"/>
+                            </Style>
+                        </DatePicker.Resources>
+                    </DatePicker>
+                    
+                    <!--<DatePicker Name="implementation_date" Height="23" Margin="0.2,0,-1,0" VerticalAlignment="Bottom" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
+                </Border>
+                <Border Margin="10,0,10,0" Width="23" Grid.Row="0" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" >
+                    <Label Content="~" ></Label>
+                </Border>
+                <Border Margin="0,0,0,0" Width="153" Grid.Row="0" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" >
+                    <DatePicker HorizontalAlignment="Left" SelectedDateChanged="end_date_SelectedDateChanged" x:Name="end_date" VerticalAlignment="Top" Height="25" Width="150" >
+                        <DatePicker.Resources>
+                            <Style TargetType="DatePickerTextBox">
+                                <Setter Property="IsReadOnly" Value="True"/>
+                            </Style>
+                        </DatePicker.Resources>
+                    </DatePicker>
+                    <!--<DatePicker Name="implementation_date" Height="23" Margin="0.2,0,-1,0" VerticalAlignment="Bottom" SelectedDate="{x:Static sys:DateTime.Now}"/>-->
+                </Border>
+            </StackPanel>
+        <!--实施日期-->
+        <StackPanel Orientation="Horizontal" Height="300" Margin="5,10,5,0" Width="485">
+            <Border Background="Silver" Width="95" Height="25" VerticalAlignment="Top" Margin="0,0,4,0">
+                    <Label Margin="0,-2,0,-4" VerticalContentAlignment="Center" Content="{DynamicResource CreateTrainingReportView.Date}"></Label>
+            </Border>
+                
+            <Border BorderBrush="Black" BorderThickness="1" Width="385" Margin="0,0,0,1.8">
+                <Grid>
+                        <ListBox ItemsSource="{Binding}" KeyboardNavigation.TabNavigation="None" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+        x:Name="datalist" Margin="0,0,0.4,0" >
+                            
+                        <ListBox.ItemTemplate>
+                            <DataTemplate >
+                                <!--<TextBox  Name="txtCreateTime" HorizontalAlignment="Left" Width="170" Height="24" VerticalAlignment="Top" Background="White">
+                                    <TextBox.Text>
+                                        <Binding Path="Gmt_Create" StringFormat="{}{0:yyyy-MM-dd HH:mm}"/>
+                                    </TextBox.Text>
+                                </TextBox>-->
+                                <CheckBox IsChecked="True" Content="{Binding Gmt_Create}" ContentStringFormat="{}{0:yyyy-MM-dd HH:mm}" Unchecked="List_CheckBox_UnChecked" Checked="List_CheckBox_Checked"></CheckBox>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Border>
+
+        </StackPanel>
+        <!--结束：实施日期-->
+        <!--评论-->
+        <StackPanel Orientation="Horizontal" Height="100" Margin="5,10,5,0">
+            <Border Background="Silver" Width="95" Height="20" VerticalAlignment="Top" Margin="0,0,4,0">
+                    <Label Margin="0,-2,0,-4" Content="{DynamicResource CreateTrainingReportView.Comment}"></Label>
+            </Border>
+
+            <Border BorderBrush="Black" BorderThickness="1" Width="385" Height="100">
+                <Grid>
+                        <RichTextBox CaretBrush="Black"  AcceptsReturn="True">
+                        <!--行间距-->
+                        <RichTextBox.Document>
+                            <FlowDocument Focusable="True" LineHeight="1">
+                            </FlowDocument>
+                        </RichTextBox.Document>
+                    </RichTextBox>
+                </Grid>
+            </Border>
+
+        </StackPanel>
+        <!--结束：评论-->
+        <!--文档输出-->
+        <StackPanel Orientation="Vertical" Height="51" Margin="5,10,5,0">
+                <CheckBox Content="{DynamicResource CreateTrainingReportView.Export}" Name="DocumentInput_Check" IsTabStop="False"/>
+            <StackPanel Orientation="Horizontal">
+                    <Button Click="Button_Click_OutputDocument" Content="{DynamicResource CreateTrainingReportView.Output}" Width="80" Height="25" IsTabStop="False"  HorizontalAlignment="Left" Margin="0,6,8,-3" Style="{StaticResource Btn}" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"/>
+                    <TextBox Name="text_output_document" Width="396" VerticalAlignment="Center"  Height="25"  Margin="0,8,0,0" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=DocumentInput_Check}"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <!--结束：文档输出-->
+        <!--按钮部分-->
+        <Border CornerRadius="5,0,0,0" Background="White" HorizontalAlignment="Right" Width="220" Height="34" VerticalAlignment="Bottom"   DockPanel.Dock="Right" BorderBrush="White" BorderThickness="0" >
+            <StackPanel Orientation="Horizontal" Margin="22,0,5,6.6"  >
+                    <Button Width="59" Height="25" VerticalAlignment="Bottom" IsTabStop="False"   Foreground="Black" Content="{DynamicResource CreateTrainingReportView.Go}" Margin="4,0,0,-0.2" Style="{StaticResource Btn}" Click="Button_Click_Print"/>
+                    <Button Width="59" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"  Foreground="Black" Content="{DynamicResource CreateTrainingReportView.Preview}" Margin="4,0,0,-0.2" Style="{StaticResource Btn}" Click="Button_Click_Print_View"/>
+                    <Button Width="62" Height="25" VerticalAlignment="Bottom"  IsTabStop="False"  Content="{DynamicResource CreateTrainingReportView.Cancel}"  Margin="4,0,5,0" Style="{StaticResource Btn}" Click="Cancel"/>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+    </Viewbox>
+</Window>

@@ -1,0 +1,39 @@
+﻿<Page x:Class="Recovery.ganDongPinMing"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Recovery"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ganDongPinMing">
+
+    <Grid>
+        <Grid>
+            <Button Content="测试json" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+            <Button Content="测试list30" HorizontalAlignment="Left" Margin="105,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+            <Button Content="DTO驼峰测试" HorizontalAlignment="Left" Margin="202,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.199,-0.645" Click="Button_Click_2"/>
+            <Button Content="auth通过权限等级查询" HorizontalAlignment="Left" Margin="297,10,0,0" VerticalAlignment="Top" Width="134" Click="Button_Click_3"/>
+
+            <Button Content="冻结关闭弹窗效果" HorizontalAlignment="Left" Margin="450,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+            <Button Content="测试登录" HorizontalAlignment="Left" Margin="545,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.068,0.599" Click="Button_Click_5"/>
+            <Button Content="Test MAC" HorizontalAlignment="Left" Margin="634,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_6"/>
+            <Button Content="str->date" HorizontalAlignment="Left" Margin="155,42,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_8"/>
+            <Button Content="模糊查询" HorizontalAlignment="Left" Margin="262,42,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.104,-0.617" Click="Button_Click_9"/>
+            <Button Content="测试枚举" HorizontalAlignment="Left" Margin="365,42,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_10"/>
+            <Button Content="自定义list" HorizontalAlignment="Left" Margin="463,42,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_11"/>
+            <Button Content="自定义模糊查询" HorizontalAlignment="Left" Margin="560,42,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click_12"/>
+            <Button Content="测试indexof" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_13"/>
+            <Button Content="mac加密写入" HorizontalAlignment="Left" Margin="105,73,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_14"/>
+            <Button Content="mac解密获得" HorizontalAlignment="Left" Margin="202,73,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_15"/>
+            <Button Content="激活的逻辑" HorizontalAlignment="Left" Margin="297,73,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_16"/>
+            <Button Content="解密" HorizontalAlignment="Left" Margin="393,73,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_17"/>
+            <Button Content="测试auth存在" HorizontalAlignment="Left" Margin="490,73,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_18"/>
+            <Button Content="日期格式化" HorizontalAlignment="Left" Margin="583,73,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_19"/>
+            <Button Content="测试getauth" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_20"/>
+
+
+        </Grid>
+        <Button Content="测试获得未删除用户" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="121" Click="Button_Click_7"/>
+    </Grid>
+</Page>

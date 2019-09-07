@@ -246,7 +246,7 @@ namespace AutoUpdater.ViewModels
             Thread.Sleep(500);
             try
             {
-                Process.Start(UpdateInfo.UnpackPath + "/spms.exe");
+                Process.Start(UpdateInfo.UnpackPath + "/Recovery.exe");
 
             }
             catch (Exception ex)

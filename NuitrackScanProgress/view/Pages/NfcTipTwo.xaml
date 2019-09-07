@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NuitrackScanProgress.view.Pages"
         mc:Ignorable="d"
-        Icon="/view/Images/icon2.png"
+        Icon="/view/Images/icon_3.png"
         Title="{DynamicResource Title.Title}"
         ResizeMode="CanMinimize"  Height="300" Width="600">
     <Grid>
