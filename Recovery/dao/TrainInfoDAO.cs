@@ -66,7 +66,7 @@ namespace Recovery.dao
 
             using (var conn = DbUtil.getConn())
             {
-                const string query = "update bdl_traininfo set status = 1 where fk_user_id = @FK_User_Id and status = 0";
+                const string query = "update bdl_traininfo set status = 2 where fk_user_id = @FK_User_Id and status = 0";
 
                 conn.Execute(query, new { FK_User_Id = userId });
             }

@@ -143,14 +143,14 @@ namespace Recovery.service
                         return response;
                     }
                 }
-                else if (trainInfo.Status == 1)
+                else if (trainInfo.Status == 2)
                 {
                     //大处方完成了
                     logger.Info("大处方完成了" + uid);
                     response.InfoResponse = 3;
 
                 }
-                else if (trainInfo.Status == 2)
+                else if (trainInfo.Status == 3)
                 {
                     //大处方以废弃
                     logger.Info("大处方以废弃" + uid);
