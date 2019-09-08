@@ -214,7 +214,7 @@
                                     <TextBox Grid.Row="6" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPTime1" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
-                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPHeartRateList" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPHeartRateList" VerticalContentAlignment="Center"/>
 
                                     <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
                                     <TextBox Grid.Row="8" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HLPEnergy" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
@@ -314,7 +314,7 @@
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="ROWTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
-                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWHeartRateList" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="ROWHeartRateList" VerticalContentAlignment="Center"/>
 
                                     <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
                                     <TextBox Grid.Row="8" CaretBrush="Black" Grid.Column="1" Margin="0,1,20,0" Name="ROWEnergy" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
@@ -421,7 +421,7 @@
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" x:Name="TFTime1" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
-                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFHeartRateList" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="TFHeartRateList" VerticalContentAlignment="Center"/>
 
                                     <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
                                     <TextBox Grid.Row="8" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" x:Name="TFEnergy" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
@@ -527,7 +527,7 @@
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="LETime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
-                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LEHeartRateList" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="LEHeartRateList" VerticalContentAlignment="Center"/>
 
                                     <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
                                     <TextBox Grid.Row="8" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="LEEnergy" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
@@ -633,7 +633,7 @@
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="HATime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
-                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HAHeartRateList" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="HAHeartRateList" VerticalContentAlignment="Center"/>
 
                                     <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
                                     <TextBox Grid.Row="8" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="HAEnergy" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
@@ -738,7 +738,7 @@
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="CPTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
-                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPHeartRateList" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="CPHeartRateList" VerticalContentAlignment="Center"/>
 
                                     <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
                                     <TextBox Grid.Row="8" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="CPEnergy" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
@@ -841,7 +841,7 @@
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewATime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
-                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewAHeartRateList" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewAHeartRateList" VerticalContentAlignment="Center"/>
 
                                     <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
                                     <TextBox Grid.Row="8" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewAEnergy" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
@@ -943,7 +943,7 @@
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewBTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
-                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBHeartRateList" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewBHeartRateList" VerticalContentAlignment="Center"/>
 
                                     <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
                                     <TextBox Grid.Row="8" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewBEnergy" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
@@ -1046,7 +1046,7 @@
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewCTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
-                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCHeartRateList" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewCHeartRateList" VerticalContentAlignment="Center"/>
 
                                     <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
                                     <TextBox Grid.Row="8" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewCEnergy" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>
@@ -1149,7 +1149,7 @@
                                     <TextBox Grid.Row="6" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewDTime1" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
 
                                     <Label Grid.Row="7" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.HeartRateList}"  />
-                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDHeartRateList" VerticalContentAlignment="Center" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputNumbers"/>
+                                    <TextBox Grid.Row="7" Grid.Column="1" CaretBrush="Black" Margin="0,3,20,0" Name="NewDHeartRateList" VerticalContentAlignment="Center"/>
 
                                     <Label Grid.Row="8" Grid.Column="0" Background="Gray" Margin="0,3,10,0"  Content="{DynamicResource TrainingResultView.Energy(J)}"  />
                                     <TextBox Grid.Row="8" CaretBrush="Black" Grid.Column="1" Margin="0,3,20,0" Name="NewDEnergy" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="OnlyInputDouble"/>

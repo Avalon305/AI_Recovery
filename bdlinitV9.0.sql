@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 07/09/2019 14:50:23
+ Date: 08/09/2019 10:47:44
 */
 
 SET NAMES utf8mb4;
@@ -136,16 +136,29 @@ CREATE TABLE `bdl_deviceprescription`  (
   `dp_groupnum` int(10) UNSIGNED DEFAULT NULL COMMENT '每组个数',
   `dp_relaxtime` int(10) UNSIGNED DEFAULT NULL COMMENT '每组间隔休息时间',
   PRIMARY KEY (`pk_dp_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 211 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 205 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of bdl_deviceprescription
 -- ----------------------------
-INSERT INTO `bdl_deviceprescription` VALUES (206, '2019-08-29 12:13:22', '2019-08-29 12:13:22', 4, 1, 1, 0, 0, '11', 1, NULL, NULL, 2, 2, 2);
-INSERT INTO `bdl_deviceprescription` VALUES (207, '2019-09-07 11:14:21', '2019-09-07 13:50:12', 6, 1, 0, 1, 0, '1', 1, 1.00, 1.00, 1, 1, 1);
-INSERT INTO `bdl_deviceprescription` VALUES (208, '2019-09-07 13:56:42', '2019-09-07 13:56:42', 7, 0, 0, 0, 0, '333', NULL, 5.00, 5.00, 3, 3, 3);
-INSERT INTO `bdl_deviceprescription` VALUES (209, '2019-09-07 13:58:44', '2019-09-07 13:58:44', 8, 1, 0, 0, 0, '1', NULL, 5.00, 5.00, 1, 1, 1);
-INSERT INTO `bdl_deviceprescription` VALUES (210, '2019-09-07 13:58:44', '2019-09-07 13:58:44', 8, 0, 0, 0, 0, '2', NULL, 5.00, 5.00, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (179, '2019-08-17 10:00:11', '2019-08-17 10:00:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `bdl_deviceprescription` VALUES (180, '2019-08-22 20:48:07', '2019-08-22 20:48:07', 1, 0, 2, 0, 0, '1111', 1, NULL, NULL, 1, 10, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (183, '2019-08-26 10:30:06', '2019-08-26 10:30:06', 4, 0, 0, 0, 0, '1', NULL, 5.00, 5.00, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (184, '2019-08-26 16:43:38', '2019-08-26 16:43:38', 8, 0, 1, 0, 0, '111', 1, NULL, NULL, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (185, '2019-08-26 17:09:25', '2019-08-26 17:09:25', 9, 9, 1, 0, 0, '222222', 2, NULL, NULL, 2, 2, 2);
+INSERT INTO `bdl_deviceprescription` VALUES (186, '2019-08-26 17:24:50', '2019-08-26 19:08:46', 3, 1, 2, 0, 0, '', 1, NULL, NULL, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (187, '2019-08-26 17:24:50', '2019-08-26 19:08:46', 3, 0, 2, 0, 0, '', 1, NULL, NULL, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (188, '2019-08-26 17:24:50', '2019-08-26 19:08:46', 3, 9, 2, 0, 0, '', 1, NULL, NULL, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (189, '2019-08-26 17:24:50', '2019-08-26 19:08:46', 3, 6, 2, 0, 0, '', 1, NULL, NULL, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (190, '2019-08-26 17:24:50', '2019-08-26 19:08:46', 3, 2, 2, 0, 0, '', 1, NULL, NULL, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (191, '2019-08-26 17:24:50', '2019-08-26 19:08:46', 3, 5, 2, 0, 0, '', 1, NULL, NULL, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (192, '2019-08-26 17:24:50', '2019-08-26 19:08:46', 3, 3, 2, 0, 0, '', 1, NULL, NULL, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (193, '2019-08-26 17:24:50', '2019-08-26 19:08:46', 3, 4, 2, 0, 0, '', 1, NULL, NULL, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (194, '2019-08-26 17:24:50', '2019-08-26 19:08:46', 3, 7, 2, 0, 0, '', 1, NULL, NULL, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (196, '2019-08-26 19:14:04', '2019-08-26 19:14:04', 11, 8, 2, 0, 0, '', 1, NULL, NULL, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (202, '2019-08-26 20:14:48', '2019-08-26 20:14:59', 17, 1, 0, 1, 0, '11', 1, 1.00, 1.00, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (203, '2019-09-07 15:44:06', '2019-09-07 15:44:27', 1, 1, 0, 1, 1, '1', 1, 1.00, 1.00, 1, 1, 1);
+INSERT INTO `bdl_deviceprescription` VALUES (204, '2019-09-07 15:47:41', '2019-09-07 15:48:02', 2, 1, 0, 1, 1, '2', 2, 2.00, 2.00, 2, 2, 2);
 
 -- ----------------------------
 -- Table structure for bdl_deviceset
@@ -193,23 +206,6 @@ INSERT INTO `bdl_devicesort` VALUES (8, '坐式背部伸展机', NULL, NULL, 1, 
 INSERT INTO `bdl_devicesort` VALUES (9, '坐式划船机', '2018-03-21 23:54:19', '2018-03-21 23:54:21', 1, 1);
 
 -- ----------------------------
--- Table structure for bdl_nuitrack
--- ----------------------------
-DROP TABLE IF EXISTS `bdl_nuitrack`;
-CREATE TABLE `bdl_nuitrack`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id 自增',
-  `fk_user_id` int(11) DEFAULT NULL COMMENT '用户id',
-  `status` int(11) DEFAULT NULL COMMENT '0删除 1存在',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of bdl_nuitrack
--- ----------------------------
-INSERT INTO `bdl_nuitrack` VALUES (3, 9, 0);
-INSERT INTO `bdl_nuitrack` VALUES (4, 10, 1);
-
--- ----------------------------
 -- Table structure for bdl_onlinedevice
 -- ----------------------------
 DROP TABLE IF EXISTS `bdl_onlinedevice`;
@@ -247,31 +243,12 @@ CREATE TABLE `bdl_personal_setting`  (
   `gmt_modified` datetime(0) DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `member_id`(`member_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'bdl_personal_setting个人设置' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'bdl_personal_setting个人设置' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of bdl_personal_setting
 -- ----------------------------
-INSERT INTO `bdl_personal_setting` VALUES (12, 9, '1c67c44b07', '0', 1, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (13, 9, '1c67c44b07', '1', 2, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (14, 9, '1c67c44b07', '2', 3, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (15, 9, '1c67c44b07', '3', 4, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (16, 9, '1c67c44b07', '4', 5, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (17, 9, '1c67c44b07', '5', 6, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (18, 9, '1c67c44b07', '6', 7, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (19, 9, '1c67c44b07', '7', 8, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (20, 9, '1c67c44b07', '8', 9, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (21, 9, '1c67c44b07', '9', 10, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (32, 10, '1111896745', '0', 1, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (33, 10, '1111896745', '1', 2, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (34, 10, '1111896745', '2', 3, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (35, 10, '1111896745', '3', 4, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (36, 10, '1111896745', '4', 5, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (37, 10, '1111896745', '5', 6, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (38, 10, '1111896745', '6', 7, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (39, 10, '1111896745', '7', 8, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (40, 10, '1111896745', '8', 9, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
-INSERT INTO `bdl_personal_setting` VALUES (41, 10, '1111896745', '9', 10, '0', NULL, NULL, NULL, NULL, 150, 20, 21.00, 21.00, NULL, NULL, NULL, NULL);
+INSERT INTO `bdl_personal_setting` VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-10 19:03:19', NULL);
 
 -- ----------------------------
 -- Table structure for bdl_physicalpower
@@ -322,12 +299,42 @@ CREATE TABLE `bdl_prescriptionresult`  (
   `gmt_create` timestamp(0) DEFAULT CURRENT_TIMESTAMP,
   `gmt_modified` timestamp(0) DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`pk_pr_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of bdl_prescriptionresult
 -- ----------------------------
-INSERT INTO `bdl_prescriptionresult` VALUES (1, 207, 0, '1c67c44b07', NULL, NULL, NULL, 1.00, NULL, 1, NULL, 1.00, '11*29', '6', '2019-09-07 11:14:21', '2019-09-07 11:37:47');
+INSERT INTO `bdl_prescriptionresult` VALUES (1, 179, 1, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, '50*60*70*80*90*100*120*130*140*150*50*60*70*80*90*100*120*130*140*150*', '6', '2019-08-21 13:23:41', '2019-08-26 14:58:33');
+INSERT INTO `bdl_prescriptionresult` VALUES (2, 179, 1, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, '133*144*188*101*66*99*100*140*150*90*100*120*130*140*150*90*100*120*130*140*150*', '7', '2019-08-21 13:23:41', '2019-08-26 14:58:35');
+INSERT INTO `bdl_prescriptionresult` VALUES (3, 179, 2, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, '50*60*70*80*90*100*120*130*140*150*50*60*70*80*90*100*120*130*140*150*', '8', '2019-08-01 13:23:41', '2019-08-26 14:58:36');
+INSERT INTO `bdl_prescriptionresult` VALUES (4, 179, 2, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, '90*100*120*130*140*150*90*100*120*130*140*150*90*100*120*130*140*150*', '9', '2019-08-10 13:23:41', '2019-08-26 14:58:37');
+INSERT INTO `bdl_prescriptionresult` VALUES (5, 179, 3, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '10', '2019-08-21 13:23:41', '2019-08-26 14:58:39');
+INSERT INTO `bdl_prescriptionresult` VALUES (6, 179, 3, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '15', '2019-08-21 13:23:41', '2019-08-26 14:58:41');
+INSERT INTO `bdl_prescriptionresult` VALUES (7, 179, 4, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '14', '2019-08-21 13:23:41', '2019-08-26 14:58:43');
+INSERT INTO `bdl_prescriptionresult` VALUES (8, 179, 4, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '13', '2019-08-21 13:23:41', '2019-08-26 14:58:44');
+INSERT INTO `bdl_prescriptionresult` VALUES (9, 179, 5, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '12', '2019-08-21 13:23:41', '2019-08-26 14:58:45');
+INSERT INTO `bdl_prescriptionresult` VALUES (10, 179, 5, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '11', '2019-08-21 13:23:41', '2019-08-26 14:58:46');
+INSERT INTO `bdl_prescriptionresult` VALUES (11, 179, 6, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '10', '2019-08-21 13:23:41', '2019-08-26 14:58:49');
+INSERT INTO `bdl_prescriptionresult` VALUES (12, 179, 6, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '10', '2019-08-21 13:23:41', '2019-08-26 14:58:50');
+INSERT INTO `bdl_prescriptionresult` VALUES (13, 179, 7, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '9', '2019-08-21 13:23:41', '2019-08-26 14:58:52');
+INSERT INTO `bdl_prescriptionresult` VALUES (14, 179, 7, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '9', '2019-08-21 13:23:41', '2019-08-26 14:58:53');
+INSERT INTO `bdl_prescriptionresult` VALUES (15, 179, 8, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '7', '2019-08-21 13:23:41', '2019-08-26 14:58:53');
+INSERT INTO `bdl_prescriptionresult` VALUES (16, 179, 8, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '6', '2019-08-21 13:23:41', '2019-08-26 14:58:54');
+INSERT INTO `bdl_prescriptionresult` VALUES (17, 179, 9, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '8', '2019-08-21 13:23:41', '2019-08-26 14:58:55');
+INSERT INTO `bdl_prescriptionresult` VALUES (18, 179, 9, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '5', '2019-08-21 13:23:41', '2019-08-26 14:58:56');
+INSERT INTO `bdl_prescriptionresult` VALUES (19, 179, 10, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '12', '2019-08-21 13:23:41', '2019-08-26 14:59:00');
+INSERT INTO `bdl_prescriptionresult` VALUES (20, 179, 10, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '11', '2019-08-21 13:23:41', '2019-08-26 14:59:01');
+INSERT INTO `bdl_prescriptionresult` VALUES (21, 179, 10, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '14', '2019-08-21 13:23:41', '2019-08-26 14:59:02');
+INSERT INTO `bdl_prescriptionresult` VALUES (22, 179, 1, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, '90*100*120*130*140*150*90*100*120*130*140*150*90*100*120*130*140*150*', '8', '2019-08-21 13:23:41', '2019-08-26 14:59:04');
+INSERT INTO `bdl_prescriptionresult` VALUES (23, 179, 1, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, '180*170*160*150*140*130*120*110*100*120*130*140*150*', '9', '2019-08-15 13:23:41', '2019-08-26 14:59:05');
+INSERT INTO `bdl_prescriptionresult` VALUES (24, 179, 2, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, '180*170*160*150*140*130*120*110*100*120*130*140*150*', '6', '2019-08-21 13:23:41', '2019-08-26 14:59:05');
+INSERT INTO `bdl_prescriptionresult` VALUES (25, 179, 3, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '9', '2019-08-21 13:23:41', '2019-08-26 14:59:07');
+INSERT INTO `bdl_prescriptionresult` VALUES (26, 179, 4, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '14', '2019-08-21 13:23:41', '2019-08-26 14:59:09');
+INSERT INTO `bdl_prescriptionresult` VALUES (27, 179, 5, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, NULL, '15', '2019-08-21 13:23:41', '2019-08-26 14:59:10');
+INSERT INTO `bdl_prescriptionresult` VALUES (28, 179, 1, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, '134*145*98*184*160*180*170*160*150*140*130*120*110*100*120*130*140*150*', '7', '2019-08-26 10:23:41', '2019-08-26 14:59:13');
+INSERT INTO `bdl_prescriptionresult` VALUES (29, 179, 1, '305865088', 1, 50.00, 40.00, 30.00, 6, 10, NULL, 500.00, '111*121*131*139*156*173*180*148*170*160*150*140*130*120*110*100', '9', '2019-08-26 13:23:41', '2019-08-26 14:59:14');
+INSERT INTO `bdl_prescriptionresult` VALUES (30, 203, 0, '305865088', NULL, NULL, NULL, 1.00, NULL, 1, NULL, 1.00, '19', '6', '2019-09-07 15:44:06', '2019-09-07 15:44:27');
+INSERT INTO `bdl_prescriptionresult` VALUES (31, 204, 0, '305865088', NULL, NULL, NULL, 2.00, NULL, 2, NULL, 2.00, '20*30', '7', '2019-09-07 15:47:41', '2019-09-07 15:48:02');
 
 -- ----------------------------
 -- Table structure for bdl_set
@@ -369,12 +376,13 @@ CREATE TABLE `bdl_skeleton_length`  (
   `gmt_create` datetime(0) DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `gmt_modified` datetime(0) DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of bdl_skeleton_length
 -- ----------------------------
-INSERT INTO `bdl_skeleton_length` VALUES (1, 9, 1, 1, 1, 1, 1, 1, 1, 1, '2019-08-29 12:14:31', '2019-08-29 12:14:31');
+INSERT INTO `bdl_skeleton_length` VALUES (1, 801, NULL, NULL, 47.12, 18.4, 29.44, 26.77, 43.19, 42.51, '2019-08-10 16:31:24', NULL);
+INSERT INTO `bdl_skeleton_length` VALUES (2, 7, 110, 180, 1, 1, 1, 1, 1, 1, '2019-08-27 20:42:28', '2019-08-27 21:25:18');
 
 -- ----------------------------
 -- Table structure for bdl_symptominfo
@@ -414,16 +422,13 @@ CREATE TABLE `bdl_traininfo`  (
   `fk_user_id` int(8) DEFAULT NULL COMMENT '外键（dbl_user : pk_user_id）',
   `status` int(1) DEFAULT NULL COMMENT '0 未做 1保存 2 完成 3 废弃 4 暂存',
   PRIMARY KEY (`pk_ti_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of bdl_traininfo
 -- ----------------------------
-INSERT INTO `bdl_traininfo` VALUES (4, '2019-08-29 12:13:22', '2019-08-29 12:13:22', 9, 1);
-INSERT INTO `bdl_traininfo` VALUES (5, '2019-08-29 12:18:15', '2019-08-29 12:18:15', 9, 4);
-INSERT INTO `bdl_traininfo` VALUES (6, '2019-09-07 11:14:21', '2019-09-07 11:14:35', 9, 0);
-INSERT INTO `bdl_traininfo` VALUES (7, '2019-09-07 13:56:42', '2019-09-07 13:56:42', 10, 3);
-INSERT INTO `bdl_traininfo` VALUES (8, '2019-09-07 13:58:44', '2019-09-07 13:58:44', 10, 0);
+INSERT INTO `bdl_traininfo` VALUES (1, '2019-09-07 15:44:06', '2019-09-07 15:44:27', 6, 2);
+INSERT INTO `bdl_traininfo` VALUES (2, '2019-09-07 15:47:41', '2019-09-07 15:48:02', 6, 2);
 
 -- ----------------------------
 -- Table structure for bdl_uploadmanagement
@@ -435,7 +440,7 @@ CREATE TABLE `bdl_uploadmanagement`  (
   `um_datatable` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '待上传的数据表的名字',
   `um_exec` int(11) UNSIGNED NOT NULL,
   PRIMARY KEY (`pk_um_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 414 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 336 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of bdl_uploadmanagement
@@ -445,31 +450,13 @@ INSERT INTO `bdl_uploadmanagement` VALUES (325, 5, 'bdl_set', 1);
 INSERT INTO `bdl_uploadmanagement` VALUES (326, 6, 'bdl_user', 0);
 INSERT INTO `bdl_uploadmanagement` VALUES (327, 6, 'bdl_user', 1);
 INSERT INTO `bdl_uploadmanagement` VALUES (328, 6, 'bdl_user', 1);
-INSERT INTO `bdl_uploadmanagement` VALUES (389, 10, 'bdl_user', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (390, 1, 'bdl_traininfo', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (391, 203, 'bdl_deviceprescription', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (392, 7, 'bdl_traininfo', 1);
-INSERT INTO `bdl_uploadmanagement` VALUES (393, 2, 'bdl_traininfo', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (394, 204, 'bdl_deviceprescription', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (395, 3, 'bdl_traininfo', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (396, 205, 'bdl_deviceprescription', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (397, 8, 'bdl_user', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (398, 9, 'bdl_user', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (399, 4, 'bdl_traininfo', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (400, 206, 'bdl_deviceprescription', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (401, 9, 'bdl_traininfo', 1);
-INSERT INTO `bdl_uploadmanagement` VALUES (402, 5, 'bdl_traininfo', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (403, 207, 'bdl_deviceprescription', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (404, 6, 'bdl_traininfo', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (405, 207, 'bdl_deviceprescription', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (406, 1, 'bdl_prescriptionresult', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (407, 10, 'bdl_user', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (408, 7, 'bdl_traininfo', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (409, 208, 'bdl_deviceprescription', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (410, 10, 'bdl_traininfo', 1);
-INSERT INTO `bdl_uploadmanagement` VALUES (411, 8, 'bdl_traininfo', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (412, 209, 'bdl_deviceprescription', 0);
-INSERT INTO `bdl_uploadmanagement` VALUES (413, 210, 'bdl_deviceprescription', 0);
+INSERT INTO `bdl_uploadmanagement` VALUES (329, 1, 'bdl_traininfo', 0);
+INSERT INTO `bdl_uploadmanagement` VALUES (330, 203, 'bdl_deviceprescription', 0);
+INSERT INTO `bdl_uploadmanagement` VALUES (331, 30, 'bdl_prescriptionresult', 0);
+INSERT INTO `bdl_uploadmanagement` VALUES (332, 2, 'bdl_traininfo', 0);
+INSERT INTO `bdl_uploadmanagement` VALUES (333, 204, 'bdl_deviceprescription', 0);
+INSERT INTO `bdl_uploadmanagement` VALUES (334, 31, 'bdl_prescriptionresult', 0);
+INSERT INTO `bdl_uploadmanagement` VALUES (335, 6, 'bdl_user', 1);
 
 -- ----------------------------
 -- Table structure for bdl_user
@@ -495,14 +482,12 @@ CREATE TABLE `bdl_user`  (
   `is_deleted` tinyint(1) DEFAULT NULL COMMENT '是否删除',
   `user_privateinfo` text CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '非公开信息',
   PRIMARY KEY (`pk_user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of bdl_user
 -- ----------------------------
-INSERT INTO `bdl_user` VALUES (6, '2019-08-16 19:14:36', '2019-08-21 17:07:28', '陈其钊', 'chenqizhao', 1, '1998-04-05', '', '4', '6', '', '', '\r\n\r\n', NULL, '37098219804052315', '17863979633', 0, '');
-INSERT INTO `bdl_user` VALUES (9, '2019-08-29 12:11:28', '2019-08-29 12:11:28', '单岱印', 'shandaiyin', 1, '2019-08-29', '', '3', '1', '', '', '', NULL, '372901222211113333', '13700001111', 0, '');
-INSERT INTO `bdl_user` VALUES (10, '2019-09-07 13:54:33', '2019-09-07 13:54:33', '郑畅道', 'zhengchangdao', 1, '2019-09-07', '', '1', '0', '', '', '', 'zhengchangdao372922111122223333.jpg', '372922111122223333', '17811112222', 0, '');
+INSERT INTO `bdl_user` VALUES (6, '2019-08-16 19:14:36', '2019-09-07 15:49:11', '陈其钊', 'chenqizhao', 1, '1998-04-05', '', '4', '6', '', '', '\r\n\r\n\r\n', 'chenqizhao37098219804052315.jpg', '37098219804052315', '17863979633', 0, '');
 
 -- ----------------------------
 -- Table structure for bdl_user_relation
@@ -517,14 +502,14 @@ CREATE TABLE `bdl_user_relation`  (
   `gmt_create` datetime(0) DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `gmt_modified` datetime(0) DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of bdl_user_relation
 -- ----------------------------
 INSERT INTO `bdl_user_relation` VALUES (11, 2, '4', '', '2019-08-26 15:24:42', '2019-08-26 15:24:42', '2019-08-07 15:24:35');
-INSERT INTO `bdl_user_relation` VALUES (18, 9, '1c67c44b07', NULL, '2019-08-29 12:13:03', '2019-08-29 12:13:03', '2019-08-29 12:13:03');
-INSERT INTO `bdl_user_relation` VALUES (19, 10, '1111896745', NULL, '2019-09-07 13:55:31', '2019-09-07 13:55:31', NULL);
+INSERT INTO `bdl_user_relation` VALUES (12, 6, '305865088', NULL, '2019-08-26 15:32:56', '2019-08-26 15:32:56', '2019-08-27 22:17:15');
+INSERT INTO `bdl_user_relation` VALUES (17, 7, '1c67c4488a', NULL, '2019-08-26 15:38:20', '2019-08-26 15:38:20', NULL);
 
 -- ----------------------------
 -- Table structure for city

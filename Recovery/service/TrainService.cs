@@ -212,7 +212,10 @@ namespace Recovery.service
             {
 
                 //查询是否还有没完成的训练处方，如果都完成了就更新TrinInfo
-                var unDoItemList = devicePrescriptionDAO.ListUnDoByDpId(request.DpId);
+                var unDoDevicePrescription = devicePrescriptionDAO.ListUnDoByDpId(request.DpId);
+
+                var unDoItemList = devicePrescriptionDAO.ListUnDoByDpId(unDoDevicePrescription[0].Fk_TI_Id);
+                logger.Info("未做的小处方的数量:" + unDoItemList.Count);
                 if (unDoItemList.Count == 1)
                 {
                     if (unDoItemList[0].Pk_DP_Id == request.DpId)
