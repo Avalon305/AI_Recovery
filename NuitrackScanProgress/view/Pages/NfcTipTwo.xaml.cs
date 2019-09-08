@@ -72,9 +72,10 @@ namespace NuitrackScanProgress.view.Pages
             skeletonLengthDAO.updateStatusByFk_user_id(nuitrackEntity);
 
             SkeletonLengthEntity skeletonLengthEntity = new SkeletonLengthEntity();
-            skeletonLengthEntity = skeletonLengthDAO.GetByPk_User_Id(nuitrackScan.Pk_User_Id);
-            if (skeletonLengthEntity != null)
+            if (skeletonLengthDAO.GetByPk_User_Id(nuitrackScan.Pk_User_Id) != null)
             {
+                skeletonLengthEntity = skeletonLengthDAO.GetByPk_User_Id(nuitrackScan.Pk_User_Id);
+
                 if (skeletonLengthEntity.Weigth > 0)
                 {
                     nuitrackScan.Weigth.Text = skeletonLengthEntity.Weigth.ToString();
