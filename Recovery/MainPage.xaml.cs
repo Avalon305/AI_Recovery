@@ -598,6 +598,10 @@ namespace Recovery.view.Pages
                     trainingReport.Current_User = selectUser;
 
                     List<NewTrainingAndSymptomBean> list = excelService.ListTrainingAndSymptomByUserId(selectUser.Pk_User_Id);
+                    for(int i= 0; i < list.Count; i++)
+                    {
+                        Console.WriteLine("list.PR_Energy = " + list[i].SI_Pre_HighPressure);
+                    }
                     trainingReport.datalist.DataContext = list;
                     trainingReport.trainingAndSymptomBeans = list;//赋值全局变量
                     List<DateTime?> dateTimes = new List<DateTime?>();
@@ -1012,8 +1016,37 @@ namespace Recovery.view.Pages
         private void InputSymptomInformation(object sender, RoutedEventArgs e)
         {
             Object o = record.Content;
-            TrainDTO trainDto = null;
+            //TrainDTO trainDto = null;
+            NewTrainDTO trainDto = null;
             User user = (User)UsersInfo.SelectedItem;
+            #region 0.0
+            //if (o is TrainingRecord_Frame)
+            //{
+            //    TrainingRecord_Frame trainingRecordFrame = (TrainingRecord_Frame)o;
+            //    int index = trainingRecordFrame.TabControl1.SelectedIndex;
+            //    switch (index)
+            //    {
+            //        case 0:
+            //            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord1.SelectedItem;
+            //            break;
+            //        case 1:
+            //            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord2.SelectedItem;
+            //            break;
+            //        case 2:
+            //            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord3.SelectedItem;
+            //            break;
+            //        case 3:
+            //            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord4.SelectedItem;
+            //            break;
+            //        case 4:
+            //            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord5.SelectedItem;
+            //            break;
+            //        case 5:
+            //            trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord6.SelectedItem;
+            //            break;
+            //    }
+            //}
+            #endregion
             if (o is TrainingRecord_Frame)
             {
                 TrainingRecord_Frame trainingRecordFrame = (TrainingRecord_Frame)o;
@@ -1021,26 +1054,37 @@ namespace Recovery.view.Pages
                 switch (index)
                 {
                     case 0:
-                        trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord1.SelectedItem;
+                        trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord1.SelectedItem;
                         break;
                     case 1:
-                        trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord2.SelectedItem;
+                        trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord2.SelectedItem;
                         break;
                     case 2:
-                        trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord3.SelectedItem;
+                        trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord3.SelectedItem;
                         break;
                     case 3:
-                        trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord4.SelectedItem;
+                        trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord4.SelectedItem;
                         break;
                     case 4:
-                        trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord5.SelectedItem;
+                        trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord5.SelectedItem;
                         break;
                     case 5:
-                        trainDto = (TrainDTO)trainingRecordFrame.TrainingRecord6.SelectedItem;
+                        trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord6.SelectedItem;
+                        break;
+                    case 6:
+                        trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord7.SelectedItem;
+                        break;
+                    case 7:
+                        trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord8.SelectedItem;
+                        break;
+                    case 8:
+                        trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord9.SelectedItem;
+                        break;
+                    case 9:
+                        trainDto = (NewTrainDTO)trainingRecordFrame.TrainingRecord10.SelectedItem;
                         break;
                 }
             }
-
             if (user == null)
             {
                 MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));

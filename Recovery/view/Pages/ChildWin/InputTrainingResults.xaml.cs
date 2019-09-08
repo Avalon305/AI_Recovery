@@ -288,10 +288,11 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.REHABILITATION_MODEL;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(HLPConsequentForce.Text);
+                        prescriptionResult.Consequent_force = int.Parse(HLPConsequentForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -302,6 +303,7 @@ namespace Recovery.view.Pages.ChildWin
                     try
                     {
                         devicePrescription.Reverse_force = int.Parse(HLPReverseForce.Text);
+                        prescriptionResult.Reverse_force = int.Parse(HLPReverseForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -313,10 +315,11 @@ namespace Recovery.view.Pages.ChildWin
                 else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.ActiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.ACTIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(HLPSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(HLPSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -328,10 +331,11 @@ namespace Recovery.view.Pages.ChildWin
                 else if(LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.PASSIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(HLPSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(HLPSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -340,6 +344,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
+                else { }
                 // 顺向力
                 try
                 {
@@ -353,15 +358,6 @@ namespace Recovery.view.Pages.ChildWin
                 try
                 {
                     devicePrescription.Reverse_force = Convert.ToInt32(HLPRelaxTime.Text);
-                }
-                catch (Exception exception)
-                {
-                    logger.Warn(exception);
-                }
-                // 运动速度等级
-                try
-                {
-                    devicePrescription.Speed_rank = Convert.ToInt32(HLPRelaxTime.Text);
                 }
                 catch (Exception exception)
                 {
@@ -421,6 +417,15 @@ namespace Recovery.view.Pages.ChildWin
                 try
                 {
                     prescriptionResult.Finish_num = Convert.ToInt32(HLPFinishNum.Text);
+                }
+                catch (Exception exception)
+                {
+                    logger.Warn(exception);
+                }
+                // 训练时间
+                try
+                {
+                    prescriptionResult.Finish_time = Convert.ToInt32(HLPTime1.Text);
                 }
                 catch (Exception exception)
                 {
@@ -487,10 +492,11 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(ROWTrainingModel.Text, "TrainingResultView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.REHABILITATION_MODEL;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(ROWConsequentForce.Text);
+                        prescriptionResult.Consequent_force = int.Parse(ROWConsequentForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -501,6 +507,7 @@ namespace Recovery.view.Pages.ChildWin
                     try
                     {
                         devicePrescription.Reverse_force = int.Parse(ROWReverseForce.Text);
+                        prescriptionResult.Reverse_force = int.Parse(ROWReverseForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -512,10 +519,11 @@ namespace Recovery.view.Pages.ChildWin
                 else if (LanguageUtils.EqualsResource(ROWTrainingModel.Text, "TrainingResultView.ActiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.ACTIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(ROWSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(ROWSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -524,13 +532,14 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
+                else if (LanguageUtils.EqualsResource(ROWTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.PASSIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(ROWSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(ROWSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -539,6 +548,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
+                else { }
                 // 顺向力
                 try
                 {
@@ -552,15 +562,6 @@ namespace Recovery.view.Pages.ChildWin
                 try
                 {
                     devicePrescription.Reverse_force = Convert.ToInt32(ROWRelaxTime.Text);
-                }
-                catch (Exception exception)
-                {
-                    logger.Warn(exception);
-                }
-                // 运动速度等级
-                try
-                {
-                    devicePrescription.Speed_rank = Convert.ToInt32(ROWRelaxTime.Text);
                 }
                 catch (Exception exception)
                 {
@@ -627,6 +628,15 @@ namespace Recovery.view.Pages.ChildWin
                 {
                     logger.Warn(exception);
                 }
+                // 训练时间
+                try
+                {
+                    prescriptionResult.Finish_time = Convert.ToInt32(ROWTime1.Text);
+                }
+                catch (Exception exception)
+                {
+                    logger.Warn(exception);
+                }
                 #endregion
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -688,10 +698,11 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(TFTrainingModel.Text, "TrainingResultView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.REHABILITATION_MODEL;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(TFConsequentForce.Text);
+                        prescriptionResult.Consequent_force = int.Parse(TFConsequentForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -702,6 +713,7 @@ namespace Recovery.view.Pages.ChildWin
                     try
                     {
                         devicePrescription.Reverse_force = int.Parse(TFReverseForce.Text);
+                        prescriptionResult.Reverse_force = int.Parse(TFReverseForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -713,10 +725,11 @@ namespace Recovery.view.Pages.ChildWin
                 else if (LanguageUtils.EqualsResource(TFTrainingModel.Text, "TrainingResultView.ActiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.ACTIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(TFSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(TFSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -725,13 +738,14 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
+                else if (LanguageUtils.EqualsResource(TFTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.PASSIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(TFSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(TFSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -740,6 +754,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
+                else { }
                 // 顺向力
                 try
                 {
@@ -753,15 +768,6 @@ namespace Recovery.view.Pages.ChildWin
                 try
                 {
                     devicePrescription.Reverse_force = Convert.ToInt32(TFRelaxTime.Text);
-                }
-                catch (Exception exception)
-                {
-                    logger.Warn(exception);
-                }
-                // 运动速度等级
-                try
-                {
-                    devicePrescription.Speed_rank = Convert.ToInt32(TFRelaxTime.Text);
                 }
                 catch (Exception exception)
                 {
@@ -828,6 +834,15 @@ namespace Recovery.view.Pages.ChildWin
                 {
                     logger.Warn(exception);
                 }
+                // 训练时间
+                try
+                {
+                    prescriptionResult.Finish_time = Convert.ToInt32(TFTime1.Text);
+                }
+                catch (Exception exception)
+                {
+                    logger.Warn(exception);
+                }
                 #endregion
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -889,10 +904,11 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(LETrainingModel.Text, "TrainingResultView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.REHABILITATION_MODEL;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(LEConsequentForce.Text);
+                        prescriptionResult.Consequent_force = int.Parse(LEConsequentForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -903,6 +919,7 @@ namespace Recovery.view.Pages.ChildWin
                     try
                     {
                         devicePrescription.Reverse_force = int.Parse(LEReverseForce.Text);
+                        prescriptionResult.Reverse_force = int.Parse(LEReverseForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -914,10 +931,11 @@ namespace Recovery.view.Pages.ChildWin
                 else if (LanguageUtils.EqualsResource(LETrainingModel.Text, "TrainingResultView.ActiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.ACTIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(LESpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(LESpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -926,13 +944,14 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
+                else if (LanguageUtils.EqualsResource(LETrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.PASSIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(LESpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(LESpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -941,6 +960,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
+                else { }
                 // 顺向力
                 try
                 {
@@ -954,15 +974,6 @@ namespace Recovery.view.Pages.ChildWin
                 try
                 {
                     devicePrescription.Reverse_force = Convert.ToInt32(LERelaxTime.Text);
-                }
-                catch (Exception exception)
-                {
-                    logger.Warn(exception);
-                }
-                // 运动速度等级
-                try
-                {
-                    devicePrescription.Speed_rank = Convert.ToInt32(LERelaxTime.Text);
                 }
                 catch (Exception exception)
                 {
@@ -1029,6 +1040,15 @@ namespace Recovery.view.Pages.ChildWin
                 {
                     logger.Warn(exception);
                 }
+                // 训练时间
+                try
+                {
+                    prescriptionResult.Finish_time = Convert.ToInt32(LETime1.Text);
+                }
+                catch (Exception exception)
+                {
+                    logger.Warn(exception);
+                }
                 #endregion
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -1090,10 +1110,11 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(HATrainingModel.Text, "TrainingResultView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.REHABILITATION_MODEL;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(HAConsequentForce.Text);
+                        prescriptionResult.Consequent_force = int.Parse(HAConsequentForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1104,6 +1125,7 @@ namespace Recovery.view.Pages.ChildWin
                     try
                     {
                         devicePrescription.Reverse_force = int.Parse(HAReverseForce.Text);
+                        prescriptionResult.Reverse_force = int.Parse(HAReverseForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1115,10 +1137,11 @@ namespace Recovery.view.Pages.ChildWin
                 else if (LanguageUtils.EqualsResource(HATrainingModel.Text, "TrainingResultView.ActiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.ACTIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(HASpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(HASpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1127,13 +1150,14 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
+                else if (LanguageUtils.EqualsResource(HATrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.PASSIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(HASpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(HASpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1142,6 +1166,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
+                else { }
                 // 顺向力
                 try
                 {
@@ -1155,15 +1180,6 @@ namespace Recovery.view.Pages.ChildWin
                 try
                 {
                     devicePrescription.Reverse_force = Convert.ToInt32(HARelaxTime.Text);
-                }
-                catch (Exception exception)
-                {
-                    logger.Warn(exception);
-                }
-                // 运动速度等级
-                try
-                {
-                    devicePrescription.Speed_rank = Convert.ToInt32(HARelaxTime.Text);
                 }
                 catch (Exception exception)
                 {
@@ -1230,6 +1246,15 @@ namespace Recovery.view.Pages.ChildWin
                 {
                     logger.Warn(exception);
                 }
+                // 训练时间
+                try
+                {
+                    prescriptionResult.Finish_time = Convert.ToInt32(HATime1.Text);
+                }
+                catch (Exception exception)
+                {
+                    logger.Warn(exception);
+                }
                 #endregion
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -1291,10 +1316,11 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(CPTrainingModel.Text, "TrainingResultView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.REHABILITATION_MODEL;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(CPConsequentForce.Text);
+                        prescriptionResult.Consequent_force = int.Parse(CPConsequentForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1305,6 +1331,7 @@ namespace Recovery.view.Pages.ChildWin
                     try
                     {
                         devicePrescription.Reverse_force = int.Parse(CPReverseForce.Text);
+                        prescriptionResult.Reverse_force = int.Parse(CPReverseForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1316,10 +1343,11 @@ namespace Recovery.view.Pages.ChildWin
                 else if (LanguageUtils.EqualsResource(CPTrainingModel.Text, "TrainingResultView.ActiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.ACTIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(CPSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(CPSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1328,13 +1356,14 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
+                else if (LanguageUtils.EqualsResource(CPTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.PASSIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(CPSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(CPSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1343,6 +1372,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
+                else { }
                 // 顺向力
                 try
                 {
@@ -1356,15 +1386,6 @@ namespace Recovery.view.Pages.ChildWin
                 try
                 {
                     devicePrescription.Reverse_force = Convert.ToInt32(CPRelaxTime.Text);
-                }
-                catch (Exception exception)
-                {
-                    logger.Warn(exception);
-                }
-                // 运动速度等级
-                try
-                {
-                    devicePrescription.Speed_rank = Convert.ToInt32(CPRelaxTime.Text);
                 }
                 catch (Exception exception)
                 {
@@ -1431,6 +1452,15 @@ namespace Recovery.view.Pages.ChildWin
                 {
                     logger.Warn(exception);
                 }
+                // 训练时间
+                try
+                {
+                    prescriptionResult.Finish_time = Convert.ToInt32(CPTime1.Text);
+                }
+                catch (Exception exception)
+                {
+                    logger.Warn(exception);
+                }
                 #endregion
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -1492,10 +1522,11 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(NewATrainingModel.Text, "TrainingResultView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.REHABILITATION_MODEL;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(NewAConsequentForce.Text);
+                        prescriptionResult.Consequent_force = int.Parse(NewAConsequentForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1506,6 +1537,7 @@ namespace Recovery.view.Pages.ChildWin
                     try
                     {
                         devicePrescription.Reverse_force = int.Parse(NewAReverseForce.Text);
+                        prescriptionResult.Reverse_force = int.Parse(NewAReverseForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1517,10 +1549,11 @@ namespace Recovery.view.Pages.ChildWin
                 else if (LanguageUtils.EqualsResource(NewATrainingModel.Text, "TrainingResultView.ActiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.ACTIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(NewASpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(NewASpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1529,13 +1562,14 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
+                else if (LanguageUtils.EqualsResource(NewATrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.PASSIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(NewASpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(NewASpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1544,6 +1578,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
+                else { }
                 // 顺向力
                 try
                 {
@@ -1557,15 +1592,6 @@ namespace Recovery.view.Pages.ChildWin
                 try
                 {
                     devicePrescription.Reverse_force = Convert.ToInt32(NewARelaxTime.Text);
-                }
-                catch (Exception exception)
-                {
-                    logger.Warn(exception);
-                }
-                // 运动速度等级
-                try
-                {
-                    devicePrescription.Speed_rank = Convert.ToInt32(NewARelaxTime.Text);
                 }
                 catch (Exception exception)
                 {
@@ -1632,6 +1658,15 @@ namespace Recovery.view.Pages.ChildWin
                 {
                     logger.Warn(exception);
                 }
+                // 训练时间
+                try
+                {
+                    prescriptionResult.Finish_time = Convert.ToInt32(NewATime1.Text);
+                }
+                catch (Exception exception)
+                {
+                    logger.Warn(exception);
+                }
                 #endregion
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -1693,10 +1728,11 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(NewBTrainingModel.Text, "TrainingResultView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.REHABILITATION_MODEL;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(NewBConsequentForce.Text);
+                        prescriptionResult.Consequent_force = int.Parse(NewBConsequentForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1707,6 +1743,7 @@ namespace Recovery.view.Pages.ChildWin
                     try
                     {
                         devicePrescription.Reverse_force = int.Parse(NewBReverseForce.Text);
+                        prescriptionResult.Reverse_force = int.Parse(NewBReverseForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1718,10 +1755,11 @@ namespace Recovery.view.Pages.ChildWin
                 else if (LanguageUtils.EqualsResource(NewBTrainingModel.Text, "TrainingResultView.ActiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.ACTIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(NewBSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(NewBSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1730,13 +1768,14 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
+                else if (LanguageUtils.EqualsResource(NewBTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.PASSIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(NewBSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(NewBSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1745,6 +1784,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
+                else { }
                 // 顺向力
                 try
                 {
@@ -1758,15 +1798,6 @@ namespace Recovery.view.Pages.ChildWin
                 try
                 {
                     devicePrescription.Reverse_force = Convert.ToInt32(NewBRelaxTime.Text);
-                }
-                catch (Exception exception)
-                {
-                    logger.Warn(exception);
-                }
-                // 运动速度等级
-                try
-                {
-                    devicePrescription.Speed_rank = Convert.ToInt32(NewBRelaxTime.Text);
                 }
                 catch (Exception exception)
                 {
@@ -1833,6 +1864,15 @@ namespace Recovery.view.Pages.ChildWin
                 {
                     logger.Warn(exception);
                 }
+                // 训练时间
+                try
+                {
+                    prescriptionResult.Finish_time = Convert.ToInt32(NewBTime1.Text);
+                }
+                catch (Exception exception)
+                {
+                    logger.Warn(exception);
+                }
                 #endregion
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -1894,10 +1934,11 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(NewCTrainingModel.Text, "TrainingResultView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.REHABILITATION_MODEL;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(NewCConsequentForce.Text);
+                        prescriptionResult.Consequent_force = int.Parse(NewCConsequentForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1908,6 +1949,7 @@ namespace Recovery.view.Pages.ChildWin
                     try
                     {
                         devicePrescription.Reverse_force = int.Parse(NewCReverseForce.Text);
+                        prescriptionResult.Reverse_force = int.Parse(NewCReverseForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1919,10 +1961,11 @@ namespace Recovery.view.Pages.ChildWin
                 else if (LanguageUtils.EqualsResource(NewCTrainingModel.Text, "TrainingResultView.ActiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.ACTIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(NewCSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(NewCSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1931,13 +1974,14 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
+                else if (LanguageUtils.EqualsResource(NewCTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.PASSIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(NewCSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(NewCSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -1946,6 +1990,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
+                else { }
                 // 顺向力
                 try
                 {
@@ -1959,15 +2004,6 @@ namespace Recovery.view.Pages.ChildWin
                 try
                 {
                     devicePrescription.Reverse_force = Convert.ToInt32(NewCRelaxTime.Text);
-                }
-                catch (Exception exception)
-                {
-                    logger.Warn(exception);
-                }
-                // 运动速度等级
-                try
-                {
-                    devicePrescription.Speed_rank = Convert.ToInt32(NewCRelaxTime.Text);
                 }
                 catch (Exception exception)
                 {
@@ -2034,6 +2070,15 @@ namespace Recovery.view.Pages.ChildWin
                 {
                     logger.Warn(exception);
                 }
+                // 训练时间
+                try
+                {
+                    prescriptionResult.Finish_time = Convert.ToInt32(NewCTime1.Text);
+                }
+                catch (Exception exception)
+                {
+                    logger.Warn(exception);
+                }
                 #endregion
                 prescription.Add(devicePrescription, prescriptionResult);
             }
@@ -2095,10 +2140,11 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(NewDTrainingModel.Text, "TrainingResultView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.REHABILITATION_MODEL;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(NewDConsequentForce.Text);
+                        prescriptionResult.Consequent_force = int.Parse(NewDConsequentForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -2109,6 +2155,7 @@ namespace Recovery.view.Pages.ChildWin
                     try
                     {
                         devicePrescription.Reverse_force = int.Parse(NewDReverseForce.Text);
+                        prescriptionResult.Reverse_force = int.Parse(NewDReverseForce.Text);
                     }
                     catch (Exception ex)
                     {
@@ -2120,10 +2167,11 @@ namespace Recovery.view.Pages.ChildWin
                 else if (LanguageUtils.EqualsResource(NewDTrainingModel.Text, "TrainingResultView.ActiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.ACTIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.ACTIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(NewDSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(NewDSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -2132,13 +2180,14 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
+                else if (LanguageUtils.EqualsResource(NewDTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
-
+                    prescriptionResult.Device_mode = DevConstants.PASSIVE_MODEL;
                     try
                     {
                         devicePrescription.Speed_rank = int.Parse(NewDSpeedRank.Text);
+                        prescriptionResult.Speed_rank = int.Parse(NewDSpeedRank.Text);
                     }
                     catch (Exception ex)
                     {
@@ -2147,6 +2196,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
+                else { }
                 // 顺向力
                 try
                 {
@@ -2160,15 +2210,6 @@ namespace Recovery.view.Pages.ChildWin
                 try
                 {
                     devicePrescription.Reverse_force = Convert.ToInt32(NewDRelaxTime.Text);
-                }
-                catch (Exception exception)
-                {
-                    logger.Warn(exception);
-                }
-                // 运动速度等级
-                try
-                {
-                    devicePrescription.Speed_rank = Convert.ToInt32(NewDRelaxTime.Text);
                 }
                 catch (Exception exception)
                 {
@@ -2230,6 +2271,15 @@ namespace Recovery.view.Pages.ChildWin
                 try
                 {
                     prescriptionResult.Finish_num = Convert.ToInt32(NewDFinishNum.Text);
+                }
+                catch (Exception exception)
+                {
+                    logger.Warn(exception);
+                }
+                // 训练时间
+                try
+                {
+                    prescriptionResult.Finish_time = Convert.ToInt32(NewDTime1.Text);
                 }
                 catch (Exception exception)
                 {

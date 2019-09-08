@@ -20,5 +20,7 @@ namespace Recovery.entity.newEntity
         public int dp_relaxtime { get; set; }
         //移乘方式
         public int dp_moveway { get; set; }
+        //训练模式
+        public int device_mode { get; set; }
     }
 }

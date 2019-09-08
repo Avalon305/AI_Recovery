@@ -65,6 +65,7 @@ namespace Recovery.dao
                     "dp.dp_groupnum," +
                     "dp.dp_relaxtime," +
                     "dp.dp_moveway," +
+                    "dp.device_mode," +
                     "ds.ds_name," +
                     "pr.pr_userthoughts " +
                     "FROM bdl_traininfo ti, bdl_deviceprescription dp, bdl_devicesort ds,bdl_prescriptionresult pr " +

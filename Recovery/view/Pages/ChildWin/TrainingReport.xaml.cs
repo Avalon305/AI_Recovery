@@ -245,14 +245,14 @@ namespace Recovery.view.Pages.ChildWin
                     worksheet.Cells[tableRow, 5, tableRow + 1, 5].Merge = true;
                     worksheet.Cells[tableRow, 6, tableRow + 1, 6].Merge = true;
                     worksheet.Cells[tableRow, 7, tableRow + 1, 7].Merge = true;
-                    worksheet.Cells[tableRow, 8, tableRow + 1, 8].Merge = true;
-                    worksheet.Cells[tableRow, 9, tableRow + 1, 11].Merge = true;
+                    worksheet.Cells[tableRow, 8, tableRow + 1, 11].Merge = true;
+                    //worksheet.Cells[tableRow, 9, tableRow + 1, 11].Merge = true;
                     worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("实施日期", "Date");
                     worksheet.Cells[tableRow, 3].Value = LanguageUtils.ConvertLanguage("血压", "Blood pressure");
                     worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("水分摄取量", "Moisture intake");
-                    worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("总运动时间", "Total exercise time");
-                    worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("总消耗热量", "Total calories consumed");
-                    worksheet.Cells[tableRow, 9].Value = LanguageUtils.ConvertLanguage("看护记录", "Care record");
+                    worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("总运动时间", "Total exercise time");
+                    worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("总消耗热量", "Total calories consumed");
+                    worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("看护记录", "Care record");
                     worksheet.Cells[tableRow + 1, 3].Value = LanguageUtils.ConvertLanguage("运动前", "Before exercise");
                     worksheet.Cells[tableRow + 1, 4].Value = LanguageUtils.ConvertLanguage("运动后", "After exercise");
 
@@ -274,14 +274,14 @@ namespace Recovery.view.Pages.ChildWin
                         //表头行+两个表头
                         int row = tableRow + 2 + i;
                         worksheet.Cells[row, 1, row, 2].Merge = true;
-                        worksheet.Cells[row, 9, row, 11].Merge = true;
+                        worksheet.Cells[row, 8, row, 11].Merge = true;
                         worksheet.Cells[row, 1].Value = ((DateTime)list[k].Gmt_Create).ToString();
                         worksheet.Cells[row, 3].Value = list[k].SI_Pre_HighPressure + "/" + list[k].SI_Pre_LowPressure;
                         worksheet.Cells[row, 4].Value = list[k].SI_Suf_HighPressure + "/" + list[k].SI_Suf_LowPressure;
                         worksheet.Cells[row, 5].Value = list[k].SI_WaterInput;
-                        worksheet.Cells[row, 7].Value = list[k].PR_Finish_Time;
-                        worksheet.Cells[row, 8].Value = list[k].PR_Energy;
-                        worksheet.Cells[row, 9].Value = list[k].SI_CareInfo;
+                        worksheet.Cells[row, 6].Value = list[k].finish_time;
+                        worksheet.Cells[row, 7].Value = list[k].energy;
+                        worksheet.Cells[row, 8].Value = list[k].SI_CareInfo;
                     }
 
                     int borderRows = (j + 1) * count < list.Count ? count : list.Count - j * count;
@@ -392,13 +392,14 @@ namespace Recovery.view.Pages.ChildWin
                     ExcelUtil.GenerateUserBaseInfoToExcel(ref worksheet, userRow, LanguageUtils.ConvertLanguage("详细训练报告", "Detailed report"), Current_User);
 
                     worksheet.Cells[tableRow, 1, tableRow, 3].Merge = true;//合并单元格
-                    worksheet.Cells[tableRow, 10, tableRow, 11].Merge = true;//合并单元格
+                    worksheet.Cells[tableRow, 9, tableRow, 11].Merge = true;//合并单元格
                     worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("器械名称", "Device name");
                     worksheet.Cells[tableRow, 4].Value = LanguageUtils.ConvertLanguage("实施日期", "Date");
                     worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("移乘方法", "Transfer method");
                     worksheet.Cells[tableRow, 6].Value = LanguageUtils.ConvertLanguage("组数", "Groups");
                     worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("个数", "Number");
-                    worksheet.Cells[tableRow, 8].Value = "Borg";
+                    worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("间隔", "Borg");
+                    worksheet.Cells[tableRow, 9].Value = LanguageUtils.ConvertLanguage("训练模式", "Train model");
 
                     using (ExcelRange range = worksheet.Cells[tableRow, 1, tableRow, 11])
                     {
@@ -418,7 +419,7 @@ namespace Recovery.view.Pages.ChildWin
                         //表头行+两个表头
                         row = tableRow + 1 + i;
                         worksheet.Cells[row, 1, row, 3].Merge = true;
-                        worksheet.Cells[row, 10, row, 11].Merge = true;
+                        worksheet.Cells[row, 9, row, 11].Merge = true;
                         worksheet.Cells[row, 1].Value = list[k].DS_name;
                         worksheet.Cells[row, 4].Value = ((DateTime)list[k].Gmt_Create).ToString();//string.Format("{0:d}", list[i].Gmt_Create);
                         //worksheet.Cells[row, 5].Value = list[k].dp_moveway;
@@ -437,6 +438,18 @@ namespace Recovery.view.Pages.ChildWin
                         worksheet.Cells[row, 6].Value = list[k].dp_groupcount;
                         worksheet.Cells[row, 7].Value = list[k].dp_groupnum;
                         worksheet.Cells[row, 8].Value = list[k].dp_relaxtime;
+                        if (list[k].device_mode == 0)
+                        {
+                            worksheet.Cells[row, 9].Value = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation model");
+                        }
+                        else if (list[k].device_mode == 1)
+                        {
+                            worksheet.Cells[row, 9].Value = LanguageUtils.ConvertLanguage("主动模式", "Active model");
+                        }
+                        else if (list[k].device_mode == 2)
+                        {
+                            worksheet.Cells[row, 9].Value = LanguageUtils.ConvertLanguage("被动模式", "Passive model");
+                        }
                     }
 
                     int borderRows = (j + 1) * count < list.Count ? count : list.Count - j * count;
@@ -537,12 +550,12 @@ namespace Recovery.view.Pages.ChildWin
                     worksheet.Cells[tableRow, 3, tableRow, 4].Merge = true;//血压
                     worksheet.Cells[tableRow, 1, tableRow + 1, 2].Merge = true;
                     worksheet.Cells[tableRow, 5, tableRow + 1, 6].Merge = true;//水分摄取量
-                    worksheet.Cells[tableRow, 8, tableRow + 1, 9].Merge = true;//总运动时间
+                    worksheet.Cells[tableRow, 7, tableRow + 1, 9].Merge = true;//总运动时间
                     worksheet.Cells[tableRow, 10, tableRow + 1, 11].Merge = true;//总消耗热量
                     worksheet.Cells[tableRow, 1].Value = LanguageUtils.ConvertLanguage("实施日期", "Date");
                     worksheet.Cells[tableRow, 3].Value = LanguageUtils.ConvertLanguage("血压", "Blood pressure");
                     worksheet.Cells[tableRow, 5].Value = LanguageUtils.ConvertLanguage("水分摄取量", "Moisture intake");
-                    worksheet.Cells[tableRow, 8].Value = LanguageUtils.ConvertLanguage("总运动时间", "Total exercise time");
+                    worksheet.Cells[tableRow, 7].Value = LanguageUtils.ConvertLanguage("总运动时间", "Total exercise time");
                     worksheet.Cells[tableRow, 10].Value = LanguageUtils.ConvertLanguage("总消耗热量", "Total calories consumed");
                     worksheet.Cells[tableRow + 1, 3].Value = LanguageUtils.ConvertLanguage("运动前", "Before exercise");
                     worksheet.Cells[tableRow + 1, 4].Value = LanguageUtils.ConvertLanguage("运动后", "After exercise");
@@ -565,7 +578,7 @@ namespace Recovery.view.Pages.ChildWin
                         int row = tableRow + 2 + i * 3;
                         worksheet.Cells[row, 1, row, 2].Merge = true;//实施日期
                         worksheet.Cells[row, 5, row, 6].Merge = true;//水分摄取量
-                        worksheet.Cells[row, 8, row, 9].Merge = true;//总运动时间
+                        worksheet.Cells[row, 7, row, 9].Merge = true;//总运动时间
                         worksheet.Cells[row, 10, row, 11].Merge = true;//总消耗热量
                         worksheet.Cells[row + 1, 1, row + 2, 11].Merge = true;
 
@@ -573,8 +586,8 @@ namespace Recovery.view.Pages.ChildWin
                         worksheet.Cells[row, 3].Value = list[k].SI_Pre_HighPressure + "/" + list[k].SI_Pre_LowPressure;
                         worksheet.Cells[row, 4].Value = list[k].SI_Suf_HighPressure + "/" + list[k].SI_Suf_LowPressure;
                         worksheet.Cells[row, 5].Value = list[k].SI_WaterInput;
-                        worksheet.Cells[row, 8].Value = list[k].PR_Finish_Time;
-                        worksheet.Cells[row, 10].Value = list[k].PR_Energy;
+                        worksheet.Cells[row, 7].Value = list[k].finish_time;
+                        worksheet.Cells[row, 10].Value = list[k].energy;
                         worksheet.Cells[row + 1, 1].Value = list[k].SI_CareInfo;
                     }
 
@@ -688,7 +701,7 @@ namespace Recovery.view.Pages.ChildWin
                     if (Current_User != null)
                     {
                         List<NewDevicePrescriptionExcel> list = excelService.ListTrainingDetailByUserId(Current_User.Pk_User_Id);
-                        Console.WriteLine(list.ToString());
+                        //Console.WriteLine(list.ToString());
                         devicePrescriptionExcels = list;//赋值全局
 
                         List<DateTime?> dateTimes = new List<DateTime?>();
