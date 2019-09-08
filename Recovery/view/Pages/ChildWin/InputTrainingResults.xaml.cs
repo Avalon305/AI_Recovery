@@ -325,7 +325,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else
+                else if(LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
 
@@ -369,6 +369,7 @@ namespace Recovery.view.Pages.ChildWin
                 }
                 #endregion
                 #region 训练结果
+                prescriptionResult.Fk_ds_id = (int)DeviceType.P01;
                 prescriptionResult.Gmt_create = da;
                 prescriptionResult.Gmt_modified = DateTime.Now;
                 // 病人感想
@@ -479,7 +480,7 @@ namespace Recovery.view.Pages.ChildWin
                     logger.Warn(exception);
                 }
                 // 关联的单一设备类型ID
-                devicePrescription.Fk_ds_id = (int)DeviceType.P01;
+                devicePrescription.Fk_ds_id = (int)DeviceType.P00;
                 // 注意点
                 devicePrescription.Dp_memo = ROWAttentionpoint.Text;
                 // 训练模式
@@ -523,7 +524,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else
+                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
 
@@ -567,6 +568,7 @@ namespace Recovery.view.Pages.ChildWin
                 }
                 #endregion
                 #region 训练结果
+                prescriptionResult.Fk_ds_id = (int)DeviceType.P00;
                 prescriptionResult.Gmt_create = da;
                 prescriptionResult.Gmt_modified = DateTime.Now;
                 // 病人感想
@@ -679,7 +681,7 @@ namespace Recovery.view.Pages.ChildWin
                     logger.Warn(exception);
                 }
                 // 关联的单一设备类型ID
-                devicePrescription.Fk_ds_id = (int)DeviceType.P01;
+                devicePrescription.Fk_ds_id = (int)DeviceType.P09;
                 // 注意点
                 devicePrescription.Dp_memo = TFAttentionpoint.Text;
                 // 训练模式
@@ -723,7 +725,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else
+                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
 
@@ -767,6 +769,7 @@ namespace Recovery.view.Pages.ChildWin
                 }
                 #endregion
                 #region 训练结果
+                prescriptionResult.Fk_ds_id = (int)DeviceType.P09;
                 prescriptionResult.Gmt_create = da;
                 prescriptionResult.Gmt_modified = DateTime.Now;
                 // 病人感想
@@ -879,7 +882,7 @@ namespace Recovery.view.Pages.ChildWin
                     logger.Warn(exception);
                 }
                 // 关联的单一设备类型ID
-                devicePrescription.Fk_ds_id = (int)DeviceType.P01;
+                devicePrescription.Fk_ds_id = (int)DeviceType.P06;
                 // 注意点
                 devicePrescription.Dp_memo = LEAttentionpoint.Text;
                 // 训练模式
@@ -923,7 +926,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else
+                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
 
@@ -967,6 +970,7 @@ namespace Recovery.view.Pages.ChildWin
                 }
                 #endregion
                 #region 训练结果
+                prescriptionResult.Fk_ds_id = (int)DeviceType.P06;
                 prescriptionResult.Gmt_create = da;
                 prescriptionResult.Gmt_modified = DateTime.Now;
                 // 病人感想
@@ -1079,7 +1083,7 @@ namespace Recovery.view.Pages.ChildWin
                     logger.Warn(exception);
                 }
                 // 关联的单一设备类型ID
-                devicePrescription.Fk_ds_id = (int)DeviceType.P01;
+                devicePrescription.Fk_ds_id = (int)DeviceType.P02;
                 // 注意点
                 devicePrescription.Dp_memo = HAAttentionpoint.Text;
                 // 训练模式
@@ -1123,7 +1127,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else
+                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
 
@@ -1167,6 +1171,7 @@ namespace Recovery.view.Pages.ChildWin
                 }
                 #endregion
                 #region 训练结果
+                prescriptionResult.Fk_ds_id = (int)DeviceType.P02;
                 prescriptionResult.Gmt_create = da;
                 prescriptionResult.Gmt_modified = DateTime.Now;
                 // 病人感想
@@ -1279,7 +1284,7 @@ namespace Recovery.view.Pages.ChildWin
                     logger.Warn(exception);
                 }
                 // 关联的单一设备类型ID
-                devicePrescription.Fk_ds_id = (int)DeviceType.P01;
+                devicePrescription.Fk_ds_id = (int)DeviceType.P05;
                 // 注意点
                 devicePrescription.Dp_memo = CPAttentionpoint.Text;
                 // 训练模式
@@ -1323,7 +1328,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else
+                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
 
@@ -1367,6 +1372,7 @@ namespace Recovery.view.Pages.ChildWin
                 }
                 #endregion
                 #region 训练结果
+                prescriptionResult.Fk_ds_id = (int)DeviceType.P05;
                 prescriptionResult.Gmt_create = da;
                 prescriptionResult.Gmt_modified = DateTime.Now;
                 // 病人感想
@@ -1479,7 +1485,7 @@ namespace Recovery.view.Pages.ChildWin
                     logger.Warn(exception);
                 }
                 // 关联的单一设备类型ID
-                devicePrescription.Fk_ds_id = (int)DeviceType.P01;
+                devicePrescription.Fk_ds_id = (int)DeviceType.P03;
                 // 注意点
                 devicePrescription.Dp_memo = NewAAttentionpoint.Text;
                 // 训练模式
@@ -1523,7 +1529,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else
+                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
 
@@ -1567,6 +1573,7 @@ namespace Recovery.view.Pages.ChildWin
                 }
                 #endregion
                 #region 训练结果
+                prescriptionResult.Fk_ds_id = (int)DeviceType.P03;
                 prescriptionResult.Gmt_create = da;
                 prescriptionResult.Gmt_modified = DateTime.Now;
                 // 病人感想
@@ -1679,7 +1686,7 @@ namespace Recovery.view.Pages.ChildWin
                     logger.Warn(exception);
                 }
                 // 关联的单一设备类型ID
-                devicePrescription.Fk_ds_id = (int)DeviceType.P01;
+                devicePrescription.Fk_ds_id = (int)DeviceType.P04;
                 // 注意点
                 devicePrescription.Dp_memo = NewBAttentionpoint.Text;
                 // 训练模式
@@ -1723,7 +1730,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else
+                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
 
@@ -1767,6 +1774,7 @@ namespace Recovery.view.Pages.ChildWin
                 }
                 #endregion
                 #region 训练结果
+                prescriptionResult.Fk_ds_id = (int)DeviceType.P04;
                 prescriptionResult.Gmt_create = da;
                 prescriptionResult.Gmt_modified = DateTime.Now;
                 // 病人感想
@@ -1879,7 +1887,7 @@ namespace Recovery.view.Pages.ChildWin
                     logger.Warn(exception);
                 }
                 // 关联的单一设备类型ID
-                devicePrescription.Fk_ds_id = (int)DeviceType.P01;
+                devicePrescription.Fk_ds_id = (int)DeviceType.P07;
                 // 注意点
                 devicePrescription.Dp_memo = NewCAttentionpoint.Text;
                 // 训练模式
@@ -1923,7 +1931,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else
+                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
 
@@ -1967,6 +1975,7 @@ namespace Recovery.view.Pages.ChildWin
                 }
                 #endregion
                 #region 训练结果
+                prescriptionResult.Fk_ds_id = (int)DeviceType.P07;
                 prescriptionResult.Gmt_create = da;
                 prescriptionResult.Gmt_modified = DateTime.Now;
                 // 病人感想
@@ -2079,7 +2088,7 @@ namespace Recovery.view.Pages.ChildWin
                     logger.Warn(exception);
                 }
                 // 关联的单一设备类型ID
-                devicePrescription.Fk_ds_id = (int)DeviceType.P01;
+                devicePrescription.Fk_ds_id = (int)DeviceType.P08;
                 // 注意点
                 devicePrescription.Dp_memo = NewDAttentionpoint.Text;
                 // 训练模式
@@ -2123,7 +2132,7 @@ namespace Recovery.view.Pages.ChildWin
                         return;
                     }
                 }
-                else
+                else if (LanguageUtils.EqualsResource(HLPTrainingModel.Text, "TrainingResultView.PassiveModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.PASSIVE_MODEL;
 
@@ -2167,6 +2176,7 @@ namespace Recovery.view.Pages.ChildWin
                 }
                 #endregion
                 #region 训练结果
+                prescriptionResult.Fk_ds_id = (int)DeviceType.P08;
                 prescriptionResult.Gmt_create = da;
                 prescriptionResult.Gmt_modified = DateTime.Now;
                 // 病人感想

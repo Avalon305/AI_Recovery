@@ -125,7 +125,8 @@ namespace Recovery.view.Pages
                 //Endurance.ObjectForScripting = new WebEndurancePie();
                 //获取项目的根路径
                 string path = AppDomain.CurrentDomain.BaseDirectory;
-                string rootpath = path.Substring(0, path.LastIndexOf("bin"));
+                Console.WriteLine(path + "dist\\Line1.html");
+                //string rootpath = path.Substring(0, path.LastIndexOf("bin"));
                 //图表中每一个设置的折线都不能为空必须加载，所以分为三种图表加载
                 switch (num)
                 {
@@ -202,7 +203,7 @@ namespace Recovery.view.Pages
                 //Endurance.ObjectForScripting = new WebEndurancePie();
                 //获取项目的根路径
                 string path = AppDomain.CurrentDomain.BaseDirectory;
-                string rootpath = path.Substring(0, path.LastIndexOf("bin"));
+                //string rootpath = path.Substring(0, path.LastIndexOf("bin"));
                 //图表中每一个设置的折线都不能为空必须加载，所以分为三种图表加载
 
                 this.ThoughtsLine.Navigate(new Uri(path + "dist\\ThoughtsLine.html"));

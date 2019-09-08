@@ -53,7 +53,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>view\Images\001.ico</ApplicationIcon>
+    <ApplicationIcon>003.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -800,6 +800,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="view\Images\003.ico" />
     <Resource Include="view\Images\icon_3.png" />
     <Resource Include="view\Images\002.ico" />
     <Resource Include="view\Images\001.ico" />
@@ -838,6 +839,7 @@
     </Resource>
     <Resource Include="doc\none_english.png" />
     <Resource Include="doc\logo_english.png" />
+    <Resource Include="003.ico" />
     <Content Include="Echarts\dist\AerobicStacked.html" />
     <Content Include="Echarts\dist\NewDLine.html" />
     <Content Include="Echarts\dist\NewCLine.html" />

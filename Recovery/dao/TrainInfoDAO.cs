@@ -357,6 +357,11 @@ namespace Recovery.dao
             }
         }
 
+        /// <summary>
+        /// 根据训练结果id获得大处方id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int GetTIIdByPRId(int id)
         {
             using (var conn = DbUtil.getConn())

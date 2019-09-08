@@ -37,7 +37,7 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>view\Images\001.ico</ApplicationIcon>
+    <ApplicationIcon>view\Images\003.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -184,6 +184,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="lib\nuitrack.net.dll" />
+    <Resource Include="view\images\003.ico" />
     <Resource Include="view\images\001.ico" />
     <Resource Include="view\images\icon_3.png" />
     <Resource Include="view\images\right.png" />

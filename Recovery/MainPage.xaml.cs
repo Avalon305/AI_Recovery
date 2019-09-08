@@ -756,10 +756,55 @@ namespace Recovery.view.Pages
 
                 Object o = record.Content;
                 NewTrainDTO trainDto = null;
+                #region 优化
+                //List<NewTrainDTO> newTrainDTOs = new List<NewTrainDTO>();
+                #endregion
                 User user = (User)UsersInfo.SelectedItem;
                 if (o is TrainingRecord_Frame)
                 {
                     TrainingRecord_Frame trainingRecordFrame = (TrainingRecord_Frame)o;
+                    #region 优化
+                    //if ((NewTrainDTO)trainingRecordFrame.TrainingRecord1.SelectedItem != null)
+                    //{
+                    //    newTrainDTOs.Add((NewTrainDTO)trainingRecordFrame.TrainingRecord1.SelectedItem);
+                    //}
+                    //if ((NewTrainDTO)trainingRecordFrame.TrainingRecord2.SelectedItem != null)
+                    //{
+                    //    newTrainDTOs.Add((NewTrainDTO)trainingRecordFrame.TrainingRecord2.SelectedItem);
+                    //}
+                    //if ((NewTrainDTO)trainingRecordFrame.TrainingRecord3.SelectedItem != null)
+                    //{
+                    //    newTrainDTOs.Add((NewTrainDTO)trainingRecordFrame.TrainingRecord3.SelectedItem);
+                    //}
+                    //if ((NewTrainDTO)trainingRecordFrame.TrainingRecord4.SelectedItem != null)
+                    //{
+                    //    newTrainDTOs.Add((NewTrainDTO)trainingRecordFrame.TrainingRecord4.SelectedItem);
+                    //}
+                    //if ((NewTrainDTO)trainingRecordFrame.TrainingRecord5.SelectedItem != null)
+                    //{
+                    //    newTrainDTOs.Add((NewTrainDTO)trainingRecordFrame.TrainingRecord5.SelectedItem);
+                    //}
+                    //if ((NewTrainDTO)trainingRecordFrame.TrainingRecord6.SelectedItem != null)
+                    //{
+                    //    newTrainDTOs.Add((NewTrainDTO)trainingRecordFrame.TrainingRecord6.SelectedItem);
+                    //}
+                    //if ((NewTrainDTO)trainingRecordFrame.TrainingRecord7.SelectedItem != null)
+                    //{
+                    //    newTrainDTOs.Add((NewTrainDTO)trainingRecordFrame.TrainingRecord7.SelectedItem);
+                    //}
+                    //if ((NewTrainDTO)trainingRecordFrame.TrainingRecord8.SelectedItem != null)
+                    //{
+                    //    newTrainDTOs.Add((NewTrainDTO)trainingRecordFrame.TrainingRecord8.SelectedItem);
+                    //}
+                    //if ((NewTrainDTO)trainingRecordFrame.TrainingRecord9.SelectedItem != null)
+                    //{
+                    //    newTrainDTOs.Add((NewTrainDTO)trainingRecordFrame.TrainingRecord9.SelectedItem);
+                    //}
+                    //if ((NewTrainDTO)trainingRecordFrame.TrainingRecord10.SelectedItem != null)
+                    //{
+                    //    newTrainDTOs.Add((NewTrainDTO)trainingRecordFrame.TrainingRecord10.SelectedItem);
+                    //}
+                    #endregion
                     int index = trainingRecordFrame.TabControl1.SelectedIndex;
                     switch (index)
                     {
@@ -795,7 +840,7 @@ namespace Recovery.view.Pages
                             break;
                     }
                 }
-                Console.WriteLine("trainDto.moveway = " + trainDto.moveway);
+                //Console.WriteLine("trainDto.moveway = " + trainDto.moveway);
                 if (user == null)
                 {
                     MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择用户再进行操作！", "Please Select A Subject!"));
@@ -806,6 +851,13 @@ namespace Recovery.view.Pages
                     MessageBoxX.Warning(LanguageUtils.ConvertLanguage("请选择训练信息再进行操作！", "Please Select A Train Info!"));
                     return;
                 }
+                #region 优化
+                //Dictionary<string, Object> dic = new Dictionary<string, object>();
+                //dic.Add("user", user);
+                //dic.Add("trainDtos", newTrainDTOs);
+                //viewTrainingResults.DataContext = dic;
+                //viewTrainingResults.ShowDialog();
+                #endregion
                 Dictionary<string, Object> dic = new Dictionary<string, object>();
                 dic.Add("user", user);
                 dic.Add("trainDto", trainDto);

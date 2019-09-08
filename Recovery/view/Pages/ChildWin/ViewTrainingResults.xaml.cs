@@ -41,6 +41,10 @@ namespace Recovery.view.Pages.ChildWin
         private User user;
         private NewTrainDTO trainDto;
 
+        #region 优化
+        //private List<NewTrainDTO> trainDtoList;
+        #endregion
+
         /// <summary>
         /// dic未知
         /// </summary>
@@ -57,6 +61,12 @@ namespace Recovery.view.Pages.ChildWin
             user = (User) dic["user"];
             trainDto = (NewTrainDTO) dic["trainDto"];
             logger.Info("user:" + user + "; trainDto:" + trainDto);
+            #region 优化
+            //Dictionary<string, object> dic = (Dictionary<string, Object>)DataContext;
+            //user = (User)dic["user"];
+            //trainDtoList = (List<NewTrainDTO>)dic["trainDtos"];
+            //logger.Info("user:" + user + "; trainDtos:" + trainDtoList.Count);
+            #endregion
             //绑定数据
             Load_Data();
             certain_dev();
@@ -86,8 +96,18 @@ namespace Recovery.view.Pages.ChildWin
             //训练日期
             da.Content = trainDto.prescriptionResult.Gmt_create.ToString();
             string path = AppDomain.CurrentDomain.BaseDirectory;
-            string rootpath = path.Substring(0, path.LastIndexOf("bin"));
+            //string rootpath = path.Substring(0, path.LastIndexOf("bin"));
             //查询处方和结果
+            #region 优化
+            //List<NewTrainDTO> trainDtoLists = new List<NewTrainDTO>();
+            //for(int i=0; i< trainDtoList.Count; i++)
+            //{
+            //    if(new TrainService().GetTrainDTOByPRId(Convert.ToInt32(trainDtoList[i].prescriptionResult.Pk_pr_id))[0] != null)
+            //    {
+            //        trainDtoLists.Add(new TrainService().GetTrainDTOByPRId(Convert.ToInt32(trainDtoList[i].prescriptionResult.Pk_pr_id))[0]);
+            //    }
+            //}
+            #endregion
             List<NewTrainDTO> trainDtos = new TrainService().GetTrainDTOByPRId(Convert.ToInt32(trainDto.prescriptionResult.Pk_pr_id));
             DeviceSortDAO deviceSortDao = new DeviceSortDAO();
             ResultLine resultLine = new ResultLine();
