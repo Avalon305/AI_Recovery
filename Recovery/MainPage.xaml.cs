@@ -1321,6 +1321,7 @@ namespace Recovery.view.Pages
             //string rootpath = path.Substring(0, path.LastIndexOf("bin"));
             //string baseDir = rootpath + "NuitrackScanProgress\\bin\\Debug\\";
             string baseDir = path + "nuitrack";
+            Console.WriteLine(baseDir);
             Process startProc = new Process();
             startProc.StartInfo.FileName = System.IO.Path.Combine(baseDir, "NuitrackScanProgress.exe");  //就是你要打开的文件的详细路径
             startProc.StartInfo.UseShellExecute = true;

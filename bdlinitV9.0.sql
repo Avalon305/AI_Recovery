@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 08/09/2019 10:47:44
+ Date: 08/09/2019 15:01:25
 */
 
 SET NAMES utf8mb4;
@@ -204,6 +204,22 @@ INSERT INTO `bdl_devicesort` VALUES (6, '蝴蝶机', NULL, NULL, 1, 1);
 INSERT INTO `bdl_devicesort` VALUES (7, '反向蝴蝶机', NULL, NULL, 1, 1);
 INSERT INTO `bdl_devicesort` VALUES (8, '坐式背部伸展机', NULL, NULL, 1, 1);
 INSERT INTO `bdl_devicesort` VALUES (9, '坐式划船机', '2018-03-21 23:54:19', '2018-03-21 23:54:21', 1, 1);
+
+-- ----------------------------
+-- Table structure for bdl_nuitrack
+-- ----------------------------
+DROP TABLE IF EXISTS `bdl_nuitrack`;
+CREATE TABLE `bdl_nuitrack`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_user_id` int(11) DEFAULT NULL COMMENT '用户id',
+  `status` int(11) DEFAULT NULL COMMENT '0删除 1存在',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of bdl_nuitrack
+-- ----------------------------
+INSERT INTO `bdl_nuitrack` VALUES (1, 6, 1);
 
 -- ----------------------------
 -- Table structure for bdl_onlinedevice
