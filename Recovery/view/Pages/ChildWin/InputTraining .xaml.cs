@@ -4028,10 +4028,21 @@ namespace Recovery.view.Pages.ChildWin
         {
             if(nfc.Text.Length == 16)
             {
+                Console.WriteLine("nfc.Text = " + nfc.Text);
                 nfc.Text = DecodeNfc(nfc.Text);
-                if(nfc.Text.Length == 10)
+                Console.WriteLine("nfc.Text = " + nfc.Text);
+                if (nfc.Text.Length == 10)
                 {
                     nfc.Focusable = false;
+                    Console.WriteLine("nfc.Text = " + nfc.Text);
+                }
+                else
+                {
+                    MessageBoxX.Error("录入错误，请重新录入");
+                    nfc.Text = "";
+                    nfc.Focusable = true;
+                    nfc.Focus();
+                    return;
                 }
 
                 UserRelationDao userRelationDao = new UserRelationDao();

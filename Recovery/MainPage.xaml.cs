@@ -1145,6 +1145,10 @@ namespace Recovery.view.Pages
                     inputTraining.nfc.Text = userRelation.Bind_id;
                 }
             }
+            if (inputTraining.nfc.Text.Length >= 10)
+            {
+                inputTraining.nfc.Focusable = false;
+            }
             inputTraining.ShowDialog();
         }
 
