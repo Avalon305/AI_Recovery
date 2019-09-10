@@ -2964,8 +2964,9 @@ namespace Recovery.view.Pages.ChildWin
         }
         
         public int nfc_change = 0;
+
         /// <summary>
-        /// nfc
+        /// 下处方
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -3925,6 +3926,7 @@ namespace Recovery.view.Pages.ChildWin
 
         //    }
         //}
+
         public static void SetAlignment()
         {
             //获取系统是以Left-handed（true）还是Right-handed（false）
@@ -3948,7 +3950,8 @@ namespace Recovery.view.Pages.ChildWin
         /// <param name="e"></param>
         private void Bind_Nfc(object sender, RoutedEventArgs e)
         {
-            nfc.Focusable = true;
+            //nfc.Focusable = true;
+            nfc.IsEnabled = true;
             nfc.Text = "";
             nfc.Focus();
             //InputMethod.SetIsInputMethodEnabled(nfc, false);
@@ -4019,6 +4022,7 @@ namespace Recovery.view.Pages.ChildWin
 			resultCode = personalSettingDao.BatchInsert(personalSettingList);
 			return resultCode;
 		}
+
 		/// <summary>
 		/// NFC绑定，一人只能绑定一个NFC
 		/// </summary>
@@ -4028,23 +4032,21 @@ namespace Recovery.view.Pages.ChildWin
         {
             if(nfc.Text.Length == 16)
             {
-                Console.WriteLine("nfc.Text = " + nfc.Text);
                 nfc.Text = DecodeNfc(nfc.Text);
-                Console.WriteLine("nfc.Text = " + nfc.Text);
                 if (nfc.Text.Length == 10)
                 {
-                    nfc.Focusable = false;
-                    Console.WriteLine("nfc.Text = " + nfc.Text);
+                    //nfc.Focusable = false;
+                    nfc.IsEnabled = false;
                 }
                 else
                 {
                     MessageBoxX.Error("录入错误，请重新录入");
                     nfc.Text = "";
-                    nfc.Focusable = true;
+                    nfc.IsEnabled = true;
+                    //nfc.Focusable = true;
                     nfc.Focus();
                     return;
                 }
-
                 UserRelationDao userRelationDao = new UserRelationDao();
                 UserRelation userRelation = new UserRelation();
                 UserRelation userRelationTwo = new UserRelation();

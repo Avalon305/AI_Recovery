@@ -54,7 +54,7 @@ namespace Recovery.service
             if (user != null)
             {
 
-                logger.Info("用户存在", uid);
+                logger.Info("用户存在", user.Pk_User_Id);
                 string birth_year = (user.User_Birth.ToString().Split('/'))[0];
 
                 int now_year = int.Parse((DateTime.Now.ToString("yyyy")));
@@ -102,71 +102,78 @@ namespace Recovery.service
 
 
             //查询此用户是否有未做大处方
-            TrainInfo trainInfo = trainService.GetTrainInfoByUserId(int.Parse(uid));
-            if (trainInfo != null)
+            List<TrainInfo> trainInfos = trainService.GetTrainInfosByUserId(int.Parse(uid));
+            int use_trainfo_number = 0;
+            if (trainInfos != null)
             {
-                //有大处方信息
-                if (trainInfo.Status == 0)
+                int no_use_trainfos = 0;
+               
+                for(int i = 0; i < trainInfos.Count; i++)
                 {
-                    var trainInfo_id = trainInfo.Pk_TI_Id;
-                    var ds_id = (int)(request.DeviceType);
 
-                    //根据traininfo_id和设备id获取处方信息
-                    entity.newEntity.NewDevicePrescription newDevicePrescription = trainService.GetDevicePrescriptionByTiIdAndDsId(trainInfo_id, ds_id);
-                    if (newDevicePrescription != null)
+                    if (trainInfos[i].Status == 0)
                     {
-                        if (newDevicePrescription.Dp_status == 0)
+                        use_trainfo_number = i;
+                        var trainInfo_id = trainInfos[i].Pk_TI_Id;
+                        var ds_id = (int)(request.DeviceType);
+
+                        //根据traininfo_id和设备id获取处方信息
+                        entity.newEntity.NewDevicePrescription newDevicePrescription = trainService.GetDevicePrescriptionByTiIdAndDsId(trainInfo_id, ds_id);
+                        if (newDevicePrescription != null)
                         {
-                            //有大处方，有此设备的训练计划,，没完成
-                            response.DpStatus = 0;
-                            response.DpMoveway = (int)newDevicePrescription.Dp_moveway;
-                            response.DpMemo = newDevicePrescription.Dp_memo;
-                            response.DpGroupcount = (int)newDevicePrescription.Dp_groupcount;
-                            response.DpGroupnum = (int)newDevicePrescription.Dp_groupnum;
-                            response.DpRelaxtime = (int)newDevicePrescription.Dp_relaxtime;
-                            response.SpeedRank = (int)newDevicePrescription.Speed_rank;
-                            response.DpId = (int)newDevicePrescription.Pk_dp_id;
-                            response.InfoResponse = 6;
+                            if (newDevicePrescription.Dp_status == 0)
+                            {
+                                //有大处方，有此设备的训练计划,，没完成
+                                response.DpStatus = 0;
+                                response.DpMoveway = (int)newDevicePrescription.Dp_moveway;
+                                response.DpMemo = newDevicePrescription.Dp_memo;
+                                response.DpGroupcount = (int)newDevicePrescription.Dp_groupcount;
+                                response.DpGroupnum = (int)newDevicePrescription.Dp_groupnum;
+                                response.DpRelaxtime = (int)newDevicePrescription.Dp_relaxtime;
+                                response.SpeedRank = (int)newDevicePrescription.Speed_rank;
+                                response.DpId = (int)newDevicePrescription.Pk_dp_id;
+                                response.InfoResponse = 6;
+                            }
+                            else
+                            {
+                                //有大处方，有此设备的训练计划,，完成了
+                                response.DpStatus = 1;
+                                response.InfoResponse = 6;
+                            }
+
                         }
                         else
                         {
-                            //有大处方，有此设备的训练计划,，完成了
-                            response.DpStatus = 1;
-                            response.InfoResponse = 6;
+                            //有大处方，无此设备的训练计划
+                            response.InfoResponse = 5;
+                            return response;
                         }
 
+                        break;
                     }
                     else
                     {
-                        //有大处方，无此设备的训练计划
-                        response.InfoResponse = 5;
-                        return response;
+                        no_use_trainfos += 1;
+                        
                     }
+
                 }
-                else if (trainInfo.Status == 2)
+                if(no_use_trainfos== trainInfos.Count)
                 {
-                    //大处方完成了
-                    logger.Info("大处方完成了" + uid);
+                    logger.Info("大处方已完成或者废弃了" + uid);
                     response.InfoResponse = 3;
-
                 }
-                else if (trainInfo.Status == 3)
-                {
-                    //大处方以废弃
-                    logger.Info("大处方以废弃" + uid);
-                    response.InfoResponse = 4;
-                }
-
-
+                
+                
             }
             else
             {
-                //无大处方
-                logger.Info("无大处方" + uid);
-                response.InfoResponse = 1;
-                return response;
+                logger.Info("用户没有设置大处方");
             }
 
+          
+
+          
             //当前系统版本
             Setter setter = setterService.getSetter();
             if (setter != null)
@@ -182,7 +189,7 @@ namespace Recovery.service
             }
 
             // 待训练列表 
-            List<DeviceType> todoDevices = GenToDoDevices(trainInfo.Pk_TI_Id);
+            List<DeviceType> todoDevices = GenToDoDevices(trainInfos[use_trainfo_number].Pk_TI_Id);
             response.DeviceTypeArr.AddRange(todoDevices);
             return response;
         }
@@ -392,6 +399,7 @@ namespace Recovery.service
                 Success = false,
 
             };
+            try {
             var setEntity = new PersonalSettingEntity
             {
                 Fk_member_id = long.Parse(request.Uid),
@@ -409,10 +417,17 @@ namespace Recovery.service
                 Reverse_force = request.ReverseForce,
                 Power = request.Power,
             };
+                personalSettingDAO.UpdateSetting(setEntity);
+                response.Success = true;
+            }
+            catch(Exception ex)
+            {
+                response.Success = false;
+                logger.Error("更新个人设置出错"+ex.ToString());
+            }
 
             //更新个人设置
-            personalSettingDAO.UpdateSetting(setEntity);
-            response.Success = true;
+           
 
             return response;
         }

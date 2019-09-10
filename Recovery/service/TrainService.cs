@@ -112,6 +112,19 @@ namespace Recovery.service
             }
         }
 
+        public List<TrainInfo> GetTrainInfosByUserId(int userId)
+        {
+            List<TrainInfo> trainInfos = trainInfoDao.GetTrainInfoByUserId(userId);
+            if (trainInfos == null || trainInfos.Count == 0)
+            {
+                Console.WriteLine("用户没有设置大处方信息");
+                return null;
+            }
+            else
+            {
+                return trainInfos;
+            }
+        }
         public TrainInfo GetTrainInfoByUserId(int userId)
         {
             List<TrainInfo> trainInfos = trainInfoDao.GetTrainInfoByUserId(userId);
@@ -214,7 +227,7 @@ namespace Recovery.service
                 //查询是否还有没完成的训练处方，如果都完成了就更新TrinInfo
                 var unDoDevicePrescription = devicePrescriptionDAO.ListUnDoByDpId(request.DpId);
 
-                var unDoItemList = devicePrescriptionDAO.ListUnDoByDpId(unDoDevicePrescription[0].Fk_TI_Id);
+                var unDoItemList = devicePrescriptionDAO.ListUnDoByTIId(unDoDevicePrescription[0].Fk_TI_Id);
                 logger.Info("未做的小处方的数量:" + unDoItemList.Count);
                 if (unDoItemList.Count == 1)
                 {
@@ -223,6 +236,11 @@ namespace Recovery.service
                         //未完成的项目恰好是一个且为上报上来的这个项目就说明该大处方已经完成了，更新状态
                         trainInfoDao.UpdateTraninfoStatusByUserId(int.Parse(request.Uid));
                     }
+                }
+                else if(unDoItemList.Count == 0)
+                {
+                    logger.Info("数据存储出现错误");
+                    return;
                 }
                 //更新处方表中的status
                 devicePrescriptionDAO.updateDpStatus(request.DpId);

@@ -1147,7 +1147,8 @@ namespace Recovery.view.Pages
             }
             if (inputTraining.nfc.Text.Length >= 10)
             {
-                inputTraining.nfc.Focusable = false;
+                //inputTraining.nfc.Focusable = false;
+                inputTraining.nfc.IsEnabled = false;
             }
             inputTraining.ShowDialog();
         }
