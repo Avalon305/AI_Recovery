@@ -300,6 +300,9 @@
     <Compile Include="view\converter\StrengthConverter.cs" />
     <Compile Include="view\converter\TimeConverter.cs" />
     <Compile Include="view\dto\NewTrainDTO.cs" />
+    <Compile Include="view\Pages\ChildWin\BindTip.xaml.cs">
+      <DependentUpon>BindTip.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\ChildWin\NfcTip.xaml.cs">
       <DependentUpon>NfcTip.xaml</DependentUpon>
     </Compile>
@@ -537,6 +540,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Compile>
     <Page Include="view\ChartsTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Pages\ChildWin\BindTip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

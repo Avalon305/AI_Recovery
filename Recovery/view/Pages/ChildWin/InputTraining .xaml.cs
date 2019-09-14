@@ -309,6 +309,7 @@ namespace Recovery.view.Pages.ChildWin
 
         //private volatile List<DevicePrescription> devicePrescriptionList;
         private volatile List<NewDevicePrescription> devicePrescriptionList;
+        private volatile List<int> alterSetting = new List<int>();
 
         /// <summary>
         /// 得到当前的训练计划，用于save时候的调用，强制进行数据一致性的设置。
@@ -317,6 +318,15 @@ namespace Recovery.view.Pages.ChildWin
         private List<NewDevicePrescription> GetDevicePrescriptions()
         {
             return this.devicePrescriptionList;
+        }
+
+        /// <summary>
+        /// 下处方影响到的个人设置表中的用户id和设备id
+        /// </summary>
+        /// <returns></returns>
+        private List<int> GetAlterSetting()
+        {
+            return this.alterSetting;
         }
 
         /// <summary>
@@ -1012,7 +1022,7 @@ namespace Recovery.view.Pages.ChildWin
         {
             //当前页面的临时数据
             List<NewDevicePrescription> devicePrescriptionsTmp = new List<NewDevicePrescription>();
-
+            alterSetting.Add(user.Pk_User_Id);
             string devName; //设备名字
 
             DeviceSortDAO deviceSortDao = new DeviceSortDAO();
@@ -1020,7 +1030,7 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox1.IsChecked == true)
             {
                 devName = "坐式推胸机";
-
+                alterSetting.Add((int)DeviceType.P01);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
                 devicePrescription.Dp_memo = t1.Text; //注意点
                 devicePrescription.Fk_ds_id = (int)DeviceType.P01;
@@ -1126,6 +1136,7 @@ namespace Recovery.view.Pages.ChildWin
                 // 计时器
                 // ...
 
+                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1134,7 +1145,7 @@ namespace Recovery.view.Pages.ChildWin
             {
                 //坐姿划船机
                 devName = "坐姿划船机";
-
+                alterSetting.Add((int)DeviceType.P00);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
                 devicePrescription.Dp_memo = t2.Text; //注意点
                 devicePrescription.Fk_ds_id = (int)DeviceType.P00;
@@ -1232,7 +1243,7 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-
+                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1240,6 +1251,7 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox3.IsChecked == true)
             {
                 devName = "坐式背部伸展机";
+                alterSetting.Add((int)DeviceType.P09);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
                 devicePrescription.Fk_ds_id = (int)DeviceType.P09;
                 devicePrescription.Dp_memo = t3.Text; //注意点
@@ -1337,7 +1349,7 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-
+                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1345,6 +1357,7 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox4.IsChecked == true)
             {
                 devName = "腿部内弯机";
+                alterSetting.Add((int)DeviceType.P06);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t4.Text; //注意点
@@ -1443,7 +1456,7 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-
+                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1452,6 +1465,7 @@ namespace Recovery.view.Pages.ChildWin
             {
                 // 腿部推蹬机
                 devName = "腿部推蹬机";
+                alterSetting.Add((int)DeviceType.P02);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t5.Text; //注意点
@@ -1550,7 +1564,7 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-
+                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1558,6 +1572,7 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox6.IsChecked == true)
             {
                 devName = "腿部外弯机";
+                alterSetting.Add((int)DeviceType.P05);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t6.Text; //注意点
@@ -1656,7 +1671,7 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-
+                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1664,6 +1679,7 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox7.IsChecked == true)
             {
                 devName = "腹肌训练机";
+                alterSetting.Add((int)DeviceType.P03);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t7.Text; //注意点
@@ -1762,7 +1778,7 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-
+                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1770,6 +1786,7 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox8.IsChecked == true)
             {
                 devName = "三头训练机";
+                alterSetting.Add((int)DeviceType.P04);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t8.Text; //注意点
@@ -1868,7 +1885,7 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-
+                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1876,6 +1893,7 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox9.IsChecked == true)
             {
                 devName = "蝴蝶机";
+                alterSetting.Add((int)DeviceType.P07);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t9.Text; //注意点
@@ -1974,7 +1992,7 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-
+                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1982,6 +2000,7 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox10.IsChecked == true)
             {
                 devName = "反向蝴蝶机";
+                alterSetting.Add((int)DeviceType.P08);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t10.Text; //注意点
@@ -2080,7 +2099,7 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-
+                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -2996,6 +3015,12 @@ namespace Recovery.view.Pages.ChildWin
 
                     if (!MessageBoxX.Question(LanguageUtils.ConvertLanguage("是否覆盖用户" + user.User_Name + "的已有训练计划？", "Whether or not to cover?")))
                     {
+                        personalSettingDao.DeleteSettingByUserId(user.Pk_User_Id.ToString());
+                        long result = AutoSavePersonalSettings(user.Pk_User_Id.ToString(), nfc.Text);
+                        if (result == 10)
+                        {
+                            logger.Info("重新添加个人设置");
+                        }
                         return;
                     }
                 }
@@ -3005,6 +3030,22 @@ namespace Recovery.view.Pages.ChildWin
 
                 //SaveTrainInfo2DB(TrainInfoStatus.Save);
                 SaveTrainInfo2DB(TrainInfoStatus.Normal);
+                //更改个人设置表
+                if (alterSetting.Count > 1)
+                {
+                    for (int num = 1; num < alterSetting.Count; num++)
+                    {
+                        PersonalSettingEntity personalSettingEntityTemp = new PersonalSettingEntity();
+                        personalSettingEntityTemp.Fk_member_id = alterSetting[0];
+                        personalSettingEntityTemp.Device_code = alterSetting[num].ToString();
+                        personalSettingEntityTemp.Training_mode = alterSetting[num + 1].ToString();
+                        Console.WriteLine(alterSetting[0]);
+                        Console.WriteLine(alterSetting[num].ToString());
+                        Console.WriteLine(alterSetting[num + 1].ToString());
+                        personalSettingDao.UpdateTrainMode(personalSettingEntityTemp);
+                        num++;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -3980,10 +4021,15 @@ namespace Recovery.view.Pages.ChildWin
         public string DecodeNfc(string nfcOriginalInfo)
         {
             string nfcTrueInfo = "";
-
-            nfcOriginalInfo = nfc.Text;
-            nfcTrueInfo = nfcOriginalInfo.Substring(12, 2) + nfcOriginalInfo.Substring(10, 2) + nfcOriginalInfo.Substring(8, 2) + nfcOriginalInfo.Substring(6, 2) + nfcOriginalInfo.Substring(4, 2);
-
+            try
+            {
+                nfcOriginalInfo = nfc.Text;
+                nfcTrueInfo = nfcOriginalInfo.Substring(12, 2) + nfcOriginalInfo.Substring(10, 2) + nfcOriginalInfo.Substring(8, 2) + nfcOriginalInfo.Substring(6, 2) + nfcOriginalInfo.Substring(4, 2);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
             return nfcTrueInfo;
         }
 
@@ -4030,11 +4076,33 @@ namespace Recovery.view.Pages.ChildWin
 		/// <param name="e"></param>
 		private void nfc_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(nfc.Text.Length == 16)
+            UserRelationDao userRelationDao = new UserRelationDao();
+
+            if (nfc.Text.Length == 16)
             {
                 nfc.Text = DecodeNfc(nfc.Text);
                 if (nfc.Text.Length == 10)
                 {
+                    List<UserRelation> userRelations = userRelationDao.GetExistUserRelation(nfc.Text);
+                    Console.WriteLine("userRelations.Count = " + userRelations.Count);
+                    if (userRelations.Count == 1)
+                    {
+                        BindTip bindTip = new BindTip
+                        {
+                            Owner = Window.GetWindow(this),
+                            ShowActivated = true,
+                            ShowInTaskbar = false,
+                            WindowStartupLocation = WindowStartupLocation.CenterScreen
+                        };
+                        bindTip.UserRelations = userRelations;
+                        bindTip.UserId = user.Pk_User_Id;
+                        bindTip.ShowDialog();
+                        if(bindTip.isCancle == 1)
+                        {
+                            nfc.Text = "";
+                            return;
+                        }
+                    }
                     //nfc.Focusable = false;
                     nfc.IsEnabled = false;
                 }
@@ -4047,10 +4115,9 @@ namespace Recovery.view.Pages.ChildWin
                     nfc.Focus();
                     return;
                 }
-                UserRelationDao userRelationDao = new UserRelationDao();
                 UserRelation userRelation = new UserRelation();
                 UserRelation userRelationTwo = new UserRelation();
-
+                userRelation.Gmt_modified = DateTime.Now;//
                 userRelationTwo = userRelationDao.FindUserRelationByuserID(user.Pk_User_Id);
                 if(userRelationTwo == null)
                 {

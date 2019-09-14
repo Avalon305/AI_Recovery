@@ -548,4 +548,5 @@
     <s:String x:Key="NfcTip.Cancle">Cancle</s:String>
     <s:String x:Key="NfcTip.Confirm">Confirm</s:String>
     <s:String x:Key="NfcTip.OneTip">Please brush the NFC to automatically bind the NFC information</s:String>
+    <s:String x:Key="NfcTip.ResetTip">Will overwrite the information that originally binds the bad guy, whether to overwrite</s:String>
 </ResourceDictionary>

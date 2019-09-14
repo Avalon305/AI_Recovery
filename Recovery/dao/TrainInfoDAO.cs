@@ -141,6 +141,35 @@ namespace Recovery.dao
                 conn.Execute(query, new { FK_User_Id = userID });
             }
         }
+        /// <summary>
+        /// 根据用户id，更新总处方表为废弃
+        /// </summary>
+        /// <param name="userId"></param>
+        public void UpdateStatusIs3ByUserId(int userId)
+        {
+
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "update bdl_traininfo set status = 3 where fk_user_id = @FK_User_Id and status = 0";
+
+                conn.Execute(query, new { FK_User_Id = userId });
+            }
+        }
+        /// <summary>
+        /// 根据病人id获取训练信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        public List<TrainInfo> GetTiIdUserId(int userId)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "SELECT * FROM bdl_traininfo WHERE fk_user_id = @FK_User_Id AND status = 3;";
+
+                return conn.Query<TrainInfo>(query, new { FK_User_Id = userId }).ToList();
+            }
+        }
     }
 
     public class DevicePrescriptionDAO : BaseDAO<DevicePrescription>
@@ -185,6 +214,16 @@ namespace Recovery.dao
             using (var conn = DbUtil.getConn())
             {
                 conn.Execute(sql, new { Pk_dp_id = dpid });
+            }
+        }
+        public void updateDpStatusByTiId(int tiid)
+        {
+            string sql = @"update bdl_deviceprescription set dp_status = 1 
+                            where fk_ti_id = @Fk_ti_id
+            ";
+            using (var conn = DbUtil.getConn())
+            {
+                conn.Execute(sql, new { Fk_ti_id = tiid });
             }
         }
         /// <summary>

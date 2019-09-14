@@ -46,42 +46,42 @@ namespace Recovery.protocol
 			{
 
 				case HeadType.LoginRequest:
-					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.LoginRequest));
+                    logger.Info("收到报文：-------->" + JsonConvert.SerializeObject(buffer.LoginRequest));
 
 					var loginResp = service.HandleLoginRequest(buffer.LoginRequest);
 					response.Type = HeadType.LoginResponse;
 				    response.LoginResponse = loginResp;
 					break;
 				case HeadType.KeepaliveRequest:
-					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.KeepaliveRequest));
+                    logger.Info("收到报文：-------->" + JsonConvert.SerializeObject(buffer.KeepaliveRequest));
 
 					var kpResp = service.HandleKeepaliveResponse(buffer.KeepaliveRequest);
 					response.Type = HeadType.KeepaliveResponse;
 					response.KeepaliveResponse = kpResp;
 					break;
 				case HeadType.PersonalSetRequest:
-					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.PersonalSetRequest));
+                    logger.Info("收到报文：-------->" + JsonConvert.SerializeObject(buffer.PersonalSetRequest));
 
 					var setResp = service.HandlePersonalSetRequest(buffer.PersonalSetRequest);
 					response.Type = HeadType.PersonalSetResponse;
 					response.PersonalSetResponse = setResp;
 					break;
 				case HeadType.UploadRequest:
-					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.UploadRequest));
+                    logger.Info("收到报文：-------->" + JsonConvert.SerializeObject(buffer.UploadRequest));
 
 					var upResp = service.HandleUploadRequest(buffer.UploadRequest);
 					response.Type = HeadType.UploadResponse;
 					response.UploadResponse = upResp;
 					break;
 				case HeadType.MuscleStrengthRequest:
-					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.MuscleStrengthRequest));
+                    logger.Info("收到报文：-------->" + JsonConvert.SerializeObject(buffer.MuscleStrengthRequest));
 
 					var muscleResp = service.HandleMuscleStrengthRequest(buffer.MuscleStrengthRequest);
 					response.Type = HeadType.MuscleStrengthResponse;
 					response.MuscleStrengthResponse = muscleResp;
 					break;
 				case HeadType.ErrorInfoRequest:
-					Console.WriteLine("收到报文：-------->" + JsonConvert.SerializeObject(buffer.ErrorInfoRequest));
+                    logger.Info("收到报文：-------->" + JsonConvert.SerializeObject(buffer.ErrorInfoRequest));
 
 					var errorResp = service.HandleErrorInfoRequest(buffer.ErrorInfoRequest);
 					response.Type = HeadType.ErrorInfoResponse;
@@ -92,7 +92,7 @@ namespace Recovery.protocol
 
 					break;
 			}
-			logger.Info("响应报文：" + response.ToString());
+			logger.Info("响应报文：" + JsonConvert.SerializeObject(response));
 			context.WriteAndFlushAsync(response);
 			#region
 			//var buffer = message as IByteBuffer;

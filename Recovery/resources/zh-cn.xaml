@@ -566,4 +566,5 @@
     <s:String x:Key="NfcTip.Cancle">取消</s:String>
     <s:String x:Key="NfcTip.Confirm">确认</s:String>
     <s:String x:Key="NfcTip.OneTip">请刷NFC，将自动绑定NFC信息</s:String>
+    <s:String x:Key="NfcTip.ResetTip">将覆盖原有绑定该手坏人的信息，是否覆盖</s:String>
 </ResourceDictionary>

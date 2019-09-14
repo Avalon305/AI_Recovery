@@ -54,7 +54,8 @@ namespace Recovery.service
             if (user != null)
             {
 
-                logger.Info("用户存在", user.Pk_User_Id);
+                logger.Info("用户存在" + user.Pk_User_Id.ToString());
+                logger.Info("锻炼设备id" + (int)(request.DeviceType));
                 string birth_year = (user.User_Birth.ToString().Split('/'))[0];
 
                 int now_year = int.Parse((DateTime.Now.ToString("yyyy")));

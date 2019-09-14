@@ -22,7 +22,7 @@ namespace Recovery.dao
 
 		public void updateMuscle(UserRelation entity)
 		{
-			string sql = @"update bdl_user_relation set muscle_test_val=@Muscle_test_val,muscle_create_time=@Mtv_create_time
+			string sql = @"update bdl_user_relation set muscle_test_val=@Muscle_test_val,mtv_create_time=@Mtv_create_time
                 where fk_user_id = @Fk_user_id
             ";
 			using (var conn = DbUtil.getConn())
@@ -83,6 +83,33 @@ namespace Recovery.dao
         public void updateBind_idByFk_user_id(UserRelation userRelation)
         {
             string sql = @"update bdl_user_relation set bind_id=@Bind_id ,gmt_modified=@Gmt_modified where fk_user_id = @Fk_user_id";
+            using (var conn = DbUtil.getConn())
+            {
+                try
+                {
+                    conn.Execute(sql, userRelation);
+                }
+                catch (Exception ex)
+                {
+                    logger.Error("数据库updateUserRelation操作异常：" + ex.ToString());
+                }
+
+            }
+        }
+
+        public List<UserRelation> GetExistUserRelation(string Bind_id)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select * from bdl_user_relation where bind_id = @Bind_id";
+
+                return (List<UserRelation>)conn.Query<UserRelation>(query, new { Bind_id });
+            }
+        }
+
+        public void updateBind_idToNull(UserRelation userRelation)
+        {
+            string sql = @"update bdl_user_relation set bind_id=Null ,gmt_modified=@Gmt_modified where fk_user_id = @Fk_user_id";
             using (var conn = DbUtil.getConn())
             {
                 try

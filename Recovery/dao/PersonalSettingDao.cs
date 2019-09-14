@@ -87,5 +87,26 @@ namespace Recovery.dao
 			}
 		}
 
-	}
+        /// <summary>
+        /// 下处方时更新训练模式
+        /// </summary>
+        /// <param name="entity"></param>
+        public void UpdateTrainMode(PersonalSettingEntity entity)
+        {
+            string sql = @"update bdl_personal_setting set Training_mode=@Training_mode where fk_member_id = @Fk_member_id and Device_code=@Device_code";
+            using (var conn = DbUtil.getConn())
+            {
+                try
+                {
+                    conn.Execute(sql, entity);
+                }
+                catch (Exception ex)
+                {
+                    logger.Error("数据库UpdateTrainMode操作异常" + ex.ToString());
+                }
+
+            }
+
+        }
+    }
 }
