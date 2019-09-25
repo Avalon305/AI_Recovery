@@ -42,7 +42,8 @@ namespace Recovery.view.Pages.ChildWin
             List<TrainInfo> trainInfos = new List<TrainInfo>();
             DevicePrescriptionDAO devicePrescriptionDAO = new DevicePrescriptionDAO();
             PersonalSettingDao personalSettingDao = new PersonalSettingDao();
-            if (userRelations.Count == 1)
+            //userRelations.Count == 1
+            if (userRelations.Count > 0)
             {
                 for (int i = 0; i < userRelations.Count; i++)
                 {

@@ -153,7 +153,7 @@ namespace Recovery.view.Pages
             }
             else
             {
-                MessageBox.Show("无数据！","Warning");
+                MessageBoxX.Warning("无心率数据！");
                 return;
             }
             
@@ -210,7 +210,7 @@ namespace Recovery.view.Pages
             }
             else
             {
-                MessageBox.Show("无数据！", "Warning");
+                MessageBoxX.Warning("无用户感想数据！");
 
                 return;
             }

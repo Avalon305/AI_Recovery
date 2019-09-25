@@ -20,7 +20,6 @@ namespace Recovery.service
     class DeviceCommService
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        #region
         private PersonalSettingDao personalSettingDAO = new PersonalSettingDao();
         private UserRelationDao userRelationDao = new UserRelationDao();
         private static TrainService trainService = new TrainService();
@@ -28,6 +27,7 @@ namespace Recovery.service
         private static UserDAO userDAO = new UserDAO();
         private static SetterService setterService = new SetterService();
         private static SkeletonLengthDAO skeletonLengthDAO = new SkeletonLengthDAO();
+        private static ErrorDao errorDao = new ErrorDao();
         ///// <summary>
         /// 处理登录请求
         /// </summary>
@@ -108,8 +108,8 @@ namespace Recovery.service
             if (trainInfos != null)
             {
                 int no_use_trainfos = 0;
-               
-                for(int i = 0; i < trainInfos.Count; i++)
+
+                for (int i = 0; i < trainInfos.Count; i++)
                 {
 
                     if (trainInfos[i].Status == 0)
@@ -131,9 +131,10 @@ namespace Recovery.service
                                 response.DpGroupcount = (int)newDevicePrescription.Dp_groupcount;
                                 response.DpGroupnum = (int)newDevicePrescription.Dp_groupnum;
                                 response.DpRelaxtime = (int)newDevicePrescription.Dp_relaxtime;
-                                response.SpeedRank = (int)newDevicePrescription.Speed_rank;
+                                response.SpeedRank = newDevicePrescription.Speed_rank ==null ? 0 : (int)(newDevicePrescription.Speed_rank);
                                 response.DpId = (int)newDevicePrescription.Pk_dp_id;
-                                response.InfoResponse = 6;
+                                response.InfoResponse = 7;
+                             
                             }
                             else
                             {
@@ -170,11 +171,13 @@ namespace Recovery.service
             else
             {
                 logger.Info("用户没有设置大处方");
+                response.InfoResponse = 1;
+                return response;
             }
 
           
 
-          
+   
             //当前系统版本
             Setter setter = setterService.getSetter();
             if (setter != null)
@@ -190,7 +193,8 @@ namespace Recovery.service
             }
 
             // 待训练列表 
-            List<DeviceType> todoDevices = GenToDoDevices(trainInfos[use_trainfo_number].Pk_TI_Id);
+            // List<DeviceType> todoDevices = GenToDoDevices(trainInfos[use_trainfo_number].Pk_TI_Id);
+            List<DeviceType> todoDevices = GenToDoDevicesTwo(trainInfos[use_trainfo_number].Pk_TI_Id);
             response.DeviceTypeArr.AddRange(todoDevices);
             return response;
         }
@@ -219,6 +223,25 @@ namespace Recovery.service
                 todoDevices.Remove((DeviceType)ecode);
             }
 
+            return todoDevices;
+        }
+
+        /// <summary>
+        /// 获取待训练设备列表 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="setDto"></param>
+        /// <returns></returns>
+        private List<DeviceType> GenToDoDevicesTwo(int tiid)
+        {
+            List<long> doneList = trainService.dscodelistTwo(tiid);
+            var todoDevices = new List<DeviceType>();
+
+            for (int i = 0; i < doneList.Count; i++)
+            {
+                int ecode = (int)doneList[i];
+                todoDevices.Add((DeviceType)ecode);
+            }
             return todoDevices;
         }
 
@@ -432,7 +455,7 @@ namespace Recovery.service
 
             return response;
         }
-        #endregion
+
 
         /// <summary>
         /// 处理肌力测试上传请求
@@ -483,6 +506,13 @@ namespace Recovery.service
                 TrainMode = request.TrainMode,
                 Success = false
             };
+            Error error = new Error();
+            error.device_type = (int)request.DeviceType;
+            error.error_info = request.Error;
+            error.fk_user_id = Convert.ToInt32(request.Uid);
+            error.train_mode = (int)request.TrainMode;
+            error.error_time = request.ErrorStartTime;
+            errorDao.Insert(error);
 
             logger.Error("当前出现错误时间," + request.ErrorStartTime
                          + ",用户id" + request.Uid

@@ -93,7 +93,51 @@ namespace Recovery.dao
         /// <param name="entity"></param>
         public void UpdateTrainMode(PersonalSettingEntity entity)
         {
-            string sql = @"update bdl_personal_setting set Training_mode=@Training_mode where fk_member_id = @Fk_member_id and Device_code=@Device_code";
+            string sql = @"update bdl_personal_setting set Training_mode=@Training_mode where Fk_member_id = @Fk_member_id and Device_code=@Device_code";
+            using (var conn = DbUtil.getConn())
+            {
+                try
+                {
+                    conn.Execute(sql, entity);
+                }
+                catch (Exception ex)
+                {
+                    logger.Error("数据库UpdateTrainMode操作异常" + ex.ToString());
+                }
+
+            }
+
+        }
+
+        /// <summary>
+        /// 下处方时更新正反向力
+        /// </summary>
+        /// <param name="entity"></param>
+        public void UpdateForce(PersonalSettingEntity entity)
+        {
+            string sql = @"update bdl_personal_setting set Consequent_force=@Consequent_force,Reverse_force=@Reverse_force where fk_member_id = @Fk_member_id and Device_code=@Device_code";
+            using (var conn = DbUtil.getConn())
+            {
+                try
+                {
+                    conn.Execute(sql, entity);
+                }
+                catch (Exception ex)
+                {
+                    logger.Error("数据库UpdateTrainMode操作异常" + ex.ToString());
+                }
+
+            }
+
+        }
+
+        /// <summary>
+        /// 下处方时更新正反向力、训练模式
+        /// </summary>
+        /// <param name="entity"></param>
+        public void UpdateSettingTraining(PersonalSettingEntity entity)
+        {
+            string sql = @"update bdl_personal_setting set training_mode=@Training_mode and consequent_force=@Consequent_force and reverse_force=@Reverse_force where fk_member_id = @Fk_member_id and Device_code=@Device_code";
             using (var conn = DbUtil.getConn())
             {
                 try

@@ -251,6 +251,19 @@ namespace Recovery.service
                 //serviceResult.URL = "bigData/physicalPower";
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<PhysicalPowerDTO>(physicalPowerDTO);
             }
+            else if (uploadManagement.UM_DataTable == "bdl_error")
+            {
+                ErrorDao errorDao = new ErrorDao();
+                var result = errorDao.Load(uploadManagement.UM_DataId);
+                if (result == null)
+                {
+                    return null;
+                }
+
+                ErrorDTO errorDTO = new ErrorDTO(result, mac);
+                //serviceResult.URL = "bigData/physicalPower";
+                serviceResult.Data = JsonTools.Obj2JSONStrNew<ErrorDTO>(errorDTO);
+            }
 
             return serviceResult;
         }

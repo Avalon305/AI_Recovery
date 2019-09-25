@@ -83,6 +83,7 @@ namespace Recovery.view.Pages.ChildWin
         private User user;
 		private PersonalSettingDao personalSettingDao = new PersonalSettingDao();
         private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static string G_bind_id;
 
         // 训练信息的缓存
         //List<DevicePrescription> devicePrescriptionsTmp = null;
@@ -309,7 +310,6 @@ namespace Recovery.view.Pages.ChildWin
 
         //private volatile List<DevicePrescription> devicePrescriptionList;
         private volatile List<NewDevicePrescription> devicePrescriptionList;
-        private volatile List<int> alterSetting = new List<int>();
 
         /// <summary>
         /// 得到当前的训练计划，用于save时候的调用，强制进行数据一致性的设置。
@@ -318,15 +318,6 @@ namespace Recovery.view.Pages.ChildWin
         private List<NewDevicePrescription> GetDevicePrescriptions()
         {
             return this.devicePrescriptionList;
-        }
-
-        /// <summary>
-        /// 下处方影响到的个人设置表中的用户id和设备id
-        /// </summary>
-        /// <returns></returns>
-        private List<int> GetAlterSetting()
-        {
-            return this.alterSetting;
         }
 
         /// <summary>
@@ -1022,7 +1013,6 @@ namespace Recovery.view.Pages.ChildWin
         {
             //当前页面的临时数据
             List<NewDevicePrescription> devicePrescriptionsTmp = new List<NewDevicePrescription>();
-            alterSetting.Add(user.Pk_User_Id);
             string devName; //设备名字
 
             DeviceSortDAO deviceSortDao = new DeviceSortDAO();
@@ -1030,7 +1020,6 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox1.IsChecked == true)
             {
                 devName = "坐式推胸机";
-                alterSetting.Add((int)DeviceType.P01);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
                 devicePrescription.Dp_memo = t1.Text; //注意点
                 devicePrescription.Fk_ds_id = (int)DeviceType.P01;
@@ -1083,7 +1072,7 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(combobox_06.Text, "TrainingListView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    devicePrescription.Speed_rank = 1;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(combobox_07.Text);
@@ -1136,7 +1125,6 @@ namespace Recovery.view.Pages.ChildWin
                 // 计时器
                 // ...
 
-                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1145,7 +1133,6 @@ namespace Recovery.view.Pages.ChildWin
             {
                 //坐姿划船机
                 devName = "坐姿划船机";
-                alterSetting.Add((int)DeviceType.P00);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
                 devicePrescription.Dp_memo = t2.Text; //注意点
                 devicePrescription.Fk_ds_id = (int)DeviceType.P00;
@@ -1195,7 +1182,7 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(combobox_16.Text, "TrainingListView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    devicePrescription.Speed_rank = 1;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(combobox_17.Text);
@@ -1243,7 +1230,7 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
+
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1251,7 +1238,6 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox3.IsChecked == true)
             {
                 devName = "坐式背部伸展机";
-                alterSetting.Add((int)DeviceType.P09);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
                 devicePrescription.Fk_ds_id = (int)DeviceType.P09;
                 devicePrescription.Dp_memo = t3.Text; //注意点
@@ -1301,7 +1287,7 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(combobox_26.Text, "TrainingListView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    devicePrescription.Speed_rank = 1;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(combobox_27.Text);
@@ -1349,7 +1335,6 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1357,7 +1342,6 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox4.IsChecked == true)
             {
                 devName = "腿部内弯机";
-                alterSetting.Add((int)DeviceType.P06);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t4.Text; //注意点
@@ -1408,7 +1392,7 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(combobox_36.Text, "TrainingListView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    devicePrescription.Speed_rank = 1;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(combobox_37.Text);
@@ -1456,7 +1440,7 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
+
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1465,7 +1449,6 @@ namespace Recovery.view.Pages.ChildWin
             {
                 // 腿部推蹬机
                 devName = "腿部推蹬机";
-                alterSetting.Add((int)DeviceType.P02);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t5.Text; //注意点
@@ -1516,7 +1499,7 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(combobox_46.Text, "TrainingListView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    devicePrescription.Speed_rank = 1;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(combobox_47.Text);
@@ -1564,7 +1547,6 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1572,7 +1554,6 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox6.IsChecked == true)
             {
                 devName = "腿部外弯机";
-                alterSetting.Add((int)DeviceType.P05);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t6.Text; //注意点
@@ -1623,7 +1604,7 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(combobox_56.Text, "TrainingListView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    devicePrescription.Speed_rank = 1;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(combobox_57.Text);
@@ -1671,7 +1652,6 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1679,7 +1659,6 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox7.IsChecked == true)
             {
                 devName = "腹肌训练机";
-                alterSetting.Add((int)DeviceType.P03);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t7.Text; //注意点
@@ -1730,7 +1709,7 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(combobox_66.Text, "TrainingListView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    devicePrescription.Speed_rank = 1;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(combobox_67.Text);
@@ -1778,7 +1757,6 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1786,7 +1764,6 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox8.IsChecked == true)
             {
                 devName = "三头训练机";
-                alterSetting.Add((int)DeviceType.P04);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t8.Text; //注意点
@@ -1837,7 +1814,7 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(combobox_76.Text, "TrainingListView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    devicePrescription.Speed_rank = 1;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(combobox_77.Text);
@@ -1885,7 +1862,6 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -1893,7 +1869,6 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox9.IsChecked == true)
             {
                 devName = "蝴蝶机";
-                alterSetting.Add((int)DeviceType.P07);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t9.Text; //注意点
@@ -1944,7 +1919,7 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(combobox_86.Text, "TrainingListView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    devicePrescription.Speed_rank = 1;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(combobox_87.Text);
@@ -1992,7 +1967,6 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -2000,7 +1974,6 @@ namespace Recovery.view.Pages.ChildWin
             if (checkbox10.IsChecked == true)
             {
                 devName = "反向蝴蝶机";
-                alterSetting.Add((int)DeviceType.P08);
                 NewDevicePrescription devicePrescription = new NewDevicePrescription();
 
                 devicePrescription.Dp_memo = t10.Text; //注意点
@@ -2051,7 +2024,7 @@ namespace Recovery.view.Pages.ChildWin
                 if (LanguageUtils.EqualsResource(combobox_96.Text, "TrainingListView.RehabilitationModel"))
                 {
                     devicePrescription.Device_mode = DevConstants.REHABILITATION_MODEL;
-
+                    devicePrescription.Speed_rank = 1;
                     try
                     {
                         devicePrescription.Consequent_force = int.Parse(combobox_97.Text);
@@ -2099,7 +2072,7 @@ namespace Recovery.view.Pages.ChildWin
                         throw e;
                     }
                 }
-                alterSetting.Add(Convert.ToInt32((devicePrescription.Device_mode)));
+
                 devicePrescription.Dp_status = 0;
                 devicePrescriptionsTmp.Add(devicePrescription);
             }
@@ -2176,81 +2149,81 @@ namespace Recovery.view.Pages.ChildWin
             combobox_02.ItemsSource = Add(1, 20, 2);
             combobox_03.ItemsSource = Add(1, 60, 2);
             combobox_05.ItemsSource = dataItems;
-            combobox_07.ItemsSource = Add(5, 100, 2);
-            combobox_08.ItemsSource = Add(5, 100, 2);
-            combobox_09.ItemsSource = Add(1, 7, 2);
+            combobox_07.ItemsSource = Add(5, 99, 2);
+            combobox_08.ItemsSource = Add(5, 99, 2);
+            combobox_09.ItemsSource = Add(1, 10, 2);
 
             combobox_11.ItemsSource = Add(1, 3, 2);
             combobox_12.ItemsSource = Add(1, 20, 2);
             combobox_13.ItemsSource = Add(1, 60, 2);
             combobox_15.ItemsSource = dataItems;
-            combobox_17.ItemsSource = Add(5, 100, 2);
-            combobox_18.ItemsSource = Add(5, 100, 2);
-            combobox_19.ItemsSource = Add(1, 7, 2);
+            combobox_17.ItemsSource = Add(5, 99, 2);
+            combobox_18.ItemsSource = Add(5, 99, 2);
+            combobox_19.ItemsSource = Add(1, 10, 2);
 
             combobox_21.ItemsSource = Add(1, 3, 2);
             combobox_22.ItemsSource = Add(1, 20, 2);
             combobox_23.ItemsSource = Add(1, 60, 2);
             combobox_25.ItemsSource = dataItems;
-            combobox_27.ItemsSource = Add(5, 100, 2);
-            combobox_28.ItemsSource = Add(5, 100, 2);
-            combobox_29.ItemsSource = Add(1, 7, 2);
+            combobox_27.ItemsSource = Add(5, 99, 2);
+            combobox_28.ItemsSource = Add(5, 99, 2);
+            combobox_29.ItemsSource = Add(1, 10, 2);
 
             combobox_31.ItemsSource = Add(1, 3, 2);
             combobox_32.ItemsSource = Add(1, 20, 2);
             combobox_33.ItemsSource = Add(1, 60, 2);
             combobox_35.ItemsSource = dataItems;
-            combobox_37.ItemsSource = Add(5, 100, 2);
-            combobox_38.ItemsSource = Add(5, 100, 2);
-            combobox_39.ItemsSource = Add(1, 7, 2);
+            combobox_37.ItemsSource = Add(5, 99, 2);
+            combobox_38.ItemsSource = Add(5, 99, 2);
+            combobox_39.ItemsSource = Add(1, 10, 2);
 
             combobox_41.ItemsSource = Add(1, 3, 2);
             combobox_42.ItemsSource = Add(1, 20, 2);
             combobox_43.ItemsSource = Add(1, 60, 2);
             combobox_45.ItemsSource = dataItems;
-            combobox_47.ItemsSource = Add(5, 100, 2);
-            combobox_48.ItemsSource = Add(5, 100, 2);
-            combobox_49.ItemsSource = Add(1, 7, 2);
+            combobox_47.ItemsSource = Add(5, 99, 2);
+            combobox_48.ItemsSource = Add(5, 99, 2);
+            combobox_49.ItemsSource = Add(1, 10, 2);
 
             combobox_51.ItemsSource = Add(1, 3, 2);
             combobox_52.ItemsSource = Add(1, 20, 2);
             combobox_53.ItemsSource = Add(1, 60, 2);
             combobox_55.ItemsSource = dataItems;
-            combobox_57.ItemsSource = Add(5, 100, 2);
-            combobox_58.ItemsSource = Add(5, 100, 2);
-            combobox_59.ItemsSource = Add(1, 7, 2);
+            combobox_57.ItemsSource = Add(5, 99, 2);
+            combobox_58.ItemsSource = Add(5, 99, 2);
+            combobox_59.ItemsSource = Add(1, 10, 2);
 
             combobox_61.ItemsSource = Add(1, 3, 2);
             combobox_62.ItemsSource = Add(1, 20, 2);
             combobox_63.ItemsSource = Add(1, 60, 2);
             combobox_65.ItemsSource = dataItems;
-            combobox_67.ItemsSource = Add(5, 100, 2);
-            combobox_68.ItemsSource = Add(5, 100, 2);
-            combobox_69.ItemsSource = Add(1, 7, 2);
+            combobox_67.ItemsSource = Add(5, 99, 2);
+            combobox_68.ItemsSource = Add(5, 99, 2);
+            combobox_69.ItemsSource = Add(1, 10, 2);
 
             combobox_71.ItemsSource = Add(1, 3, 2);
             combobox_72.ItemsSource = Add(1, 20, 2);
             combobox_73.ItemsSource = Add(1, 60, 2);
             combobox_75.ItemsSource = dataItems;
-            combobox_77.ItemsSource = Add(5, 100, 2);
-            combobox_78.ItemsSource = Add(5, 100, 2);
-            combobox_79.ItemsSource = Add(1, 7, 2);
+            combobox_77.ItemsSource = Add(5, 99, 2);
+            combobox_78.ItemsSource = Add(5, 99, 2);
+            combobox_79.ItemsSource = Add(1, 10, 2);
 
             combobox_81.ItemsSource = Add(1, 3, 2);
             combobox_82.ItemsSource = Add(1, 20, 2);
             combobox_83.ItemsSource = Add(1, 60, 2);
             combobox_85.ItemsSource = dataItems;
-            combobox_87.ItemsSource = Add(5, 100, 2);
-            combobox_88.ItemsSource = Add(5, 100, 2);
-            combobox_89.ItemsSource = Add(1, 7, 2);
+            combobox_87.ItemsSource = Add(5, 99, 2);
+            combobox_88.ItemsSource = Add(5, 99, 2);
+            combobox_89.ItemsSource = Add(1, 10, 2);
 
             combobox_91.ItemsSource = Add(1, 3, 2);
             combobox_92.ItemsSource = Add(1, 20, 2);
             combobox_93.ItemsSource = Add(1, 60, 2);
             combobox_95.ItemsSource = dataItems;
-            combobox_97.ItemsSource = Add(5, 100, 2);
-            combobox_98.ItemsSource = Add(5, 100, 2);
-            combobox_99.ItemsSource = Add(1, 7, 2);
+            combobox_97.ItemsSource = Add(5, 99, 2);
+            combobox_98.ItemsSource = Add(5, 99, 2);
+            combobox_99.ItemsSource = Add(1, 10, 2);
             #endregion
 
             // status为1：完成
@@ -3012,16 +2985,15 @@ namespace Recovery.view.Pages.ChildWin
                 TrainInfo trainInfo = new TrainService().GetTrainInfoByUserIdAndStatus(user.Pk_User_Id, (int)TrainInfoStatus.Normal);
                 if (trainInfo != null)
                 {
-
                     if (!MessageBoxX.Question(LanguageUtils.ConvertLanguage("是否覆盖用户" + user.User_Name + "的已有训练计划？", "Whether or not to cover?")))
                     {
-                        personalSettingDao.DeleteSettingByUserId(user.Pk_User_Id.ToString());
-                        long result = AutoSavePersonalSettings(user.Pk_User_Id.ToString(), nfc.Text);
-                        if (result == 10)
-                        {
-                            logger.Info("重新添加个人设置");
-                        }
                         return;
+                    }
+                    personalSettingDao.DeleteSettingByUserId(user.Pk_User_Id.ToString());
+                    long result = AutoSavePersonalSettings(user.Pk_User_Id.ToString(), nfc.Text);
+                    if (result == 10)
+                    {
+                        logger.Info("重新添加个人设置");
                     }
                 }
 
@@ -3031,19 +3003,21 @@ namespace Recovery.view.Pages.ChildWin
                 //SaveTrainInfo2DB(TrainInfoStatus.Save);
                 SaveTrainInfo2DB(TrainInfoStatus.Normal);
                 //更改个人设置表
-                if (alterSetting.Count > 1)
+                for (int i = 0; i < devicePrescriptionList.Count; i++)
                 {
-                    for (int num = 1; num < alterSetting.Count; num++)
+                    PersonalSettingEntity personalSettingEntityTemp = new PersonalSettingEntity();
+                    personalSettingEntityTemp.Fk_member_id = user.Pk_User_Id;
+                    personalSettingEntityTemp.Device_code = devicePrescriptionList[i].Fk_ds_id.ToString();
+                    if (Convert.ToInt32(devicePrescriptionList[i].Device_mode) == DevConstants.REHABILITATION_MODEL)
                     {
-                        PersonalSettingEntity personalSettingEntityTemp = new PersonalSettingEntity();
-                        personalSettingEntityTemp.Fk_member_id = alterSetting[0];
-                        personalSettingEntityTemp.Device_code = alterSetting[num].ToString();
-                        personalSettingEntityTemp.Training_mode = alterSetting[num + 1].ToString();
-                        Console.WriteLine(alterSetting[0]);
-                        Console.WriteLine(alterSetting[num].ToString());
-                        Console.WriteLine(alterSetting[num + 1].ToString());
+                        personalSettingEntityTemp.Consequent_force = devicePrescriptionList[i].Consequent_force;
+                        personalSettingEntityTemp.Reverse_force = devicePrescriptionList[i].Reverse_force;
+                        personalSettingDao.UpdateForce(personalSettingEntityTemp);
+                    }
+                    else
+                    {
+                        personalSettingEntityTemp.Training_mode = devicePrescriptionList[i].Device_mode.ToString();
                         personalSettingDao.UpdateTrainMode(personalSettingEntityTemp);
-                        num++;
                     }
                 }
             }
@@ -4060,10 +4034,11 @@ namespace Recovery.view.Pages.ChildWin
 				personalSetting.Power = null;
 				personalSetting.Consequent_force = 21;//顺向力
 				personalSetting.Reverse_force = 21;//反向力
-				personalSetting.Front_limit = 150;//前方限制
-				personalSetting.Back_limit = 20;//后方限制
+				personalSetting.Front_limit = 130;//前方限制
+				personalSetting.Back_limit = 50;//后方限制
+                personalSetting.Gmt_modified = DateTime.Now;
 
-				personalSettingList.Add(personalSetting);
+                personalSettingList.Add(personalSetting);
 			}
 			resultCode = personalSettingDao.BatchInsert(personalSettingList);
 			return resultCode;
@@ -4084,8 +4059,9 @@ namespace Recovery.view.Pages.ChildWin
                 if (nfc.Text.Length == 10)
                 {
                     List<UserRelation> userRelations = userRelationDao.GetExistUserRelation(nfc.Text);
-                    Console.WriteLine("userRelations.Count = " + userRelations.Count);
-                    if (userRelations.Count == 1)
+                    //Console.WriteLine("userRelations.Count = " + userRelations.Count);
+                    //userRelations.Count == 1
+                    if (userRelations.Count > 0)
                     {
                         BindTip bindTip = new BindTip
                         {

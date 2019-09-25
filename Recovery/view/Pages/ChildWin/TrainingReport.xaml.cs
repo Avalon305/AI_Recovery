@@ -444,7 +444,7 @@ namespace Recovery.view.Pages.ChildWin
                         }
                         else if (list[k].device_mode == 1)
                         {
-                            worksheet.Cells[row, 9].Value = LanguageUtils.ConvertLanguage("主动模式", "Active model");
+                            worksheet.Cells[row, 9].Value = LanguageUtils.ConvertLanguage("主被动模式", "Active model");
                         }
                         else if (list[k].device_mode == 2)
                         {

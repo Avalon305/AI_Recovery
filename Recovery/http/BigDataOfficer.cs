@@ -78,7 +78,6 @@ namespace Recovery.http
                     case "bdl_onlinedevice":
                         sendMsgDto.dataType = "OnlineDevice";
                         break;
-
                     case "bdl_physicalpower":
                         sendMsgDto.dataType = "PhysicalPower";
                         break;
@@ -97,6 +96,9 @@ namespace Recovery.http
                     case "bdl_user":
                         sendMsgDto.dataType = "User";
                         break;
+                    case "bdl_error":
+                        sendMsgDto.dataType = "Error";
+                        break;
                     default:
                         Console.WriteLine("没找到对应的表");
                         //Console.WriteLine(uploadManagement.UM_DataTable);
@@ -106,9 +108,10 @@ namespace Recovery.http
                 sendMsgDto.dataExec = uploadManagement.UM_Exec;//操作方式 0是add（insert） 1是update
                 sendMsgDto.dataId = uploadManagement.UM_DataId;//数据的id
                 sendMsgDto.belongProduct = "Recovery";//项目名称必须是这个，与云平台相一致
-
-
-
+                if(sendMsgDto.dataType == "Error")
+                {
+                    sendMsgDto.belongProduct = "RecoveryError";
+                }
 
                 // Console.WriteLine("大数据线程实例化Upload方法-table:" + uploadManagement.UM_DataTable);
                 //1.根据上传表内容查询具体数据（这里的数据是已经转换成json串形式），赋值给字段content

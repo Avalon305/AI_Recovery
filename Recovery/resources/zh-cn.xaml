@@ -317,7 +317,7 @@
     <s:String x:Key="TrainingListView.NFCLable">NFC标签</s:String>
     <s:String x:Key="TrainingListView.TrainingModel">训练模式</s:String>
     <s:String x:Key="TrainingListView.RehabilitationModel">康复模式</s:String>
-    <s:String x:Key="TrainingListView.ActiveModel">主动模式</s:String>
+    <s:String x:Key="TrainingListView.ActiveModel">主被动模式</s:String>
     <s:String x:Key="TrainingListView.PassiveModel">被动模式</s:String>
     <s:String x:Key="TrainingListView.ConsequentForce">顺向力</s:String>
     <s:String x:Key="TrainingListView.ReverseForce">反向力</s:String>
@@ -440,7 +440,7 @@
     <s:String x:Key="TrainingResultView.HeartRateList">心率集合(1*1*1)</s:String>
     <s:String x:Key="TrainingResultView.TrainingModel">训练模式</s:String>
     <s:String x:Key="TrainingResultView.RehabilitationModel">康复模式</s:String>
-    <s:String x:Key="TrainingResultView.ActiveModel">主动模式</s:String>
+    <s:String x:Key="TrainingResultView.ActiveModel">主被动模式</s:String>
     <s:String x:Key="TrainingResultView.PassiveModel">被动模式</s:String>
     <s:String x:Key="TrainingResultView.ConsequentForce">顺向力</s:String>
     <s:String x:Key="TrainingResultView.ReverseForce">反向力</s:String>

@@ -229,6 +229,7 @@
     <Compile Include="dao\AuthDAO.cs" />
     <Compile Include="dao\app\SetterDAO.cs" />
     <Compile Include="dao\DataCodeDAO.cs" />
+    <Compile Include="dao\ErrorDao.cs" />
     <Compile Include="dao\MusclePieChartDAO.cs" />
     <Compile Include="dao\NewDao\NewExcelDao.cs" />
     <Compile Include="dao\PersonalSettingDao.cs" />
@@ -244,6 +245,7 @@
     <Compile Include="Echarts\EchartsClass\ResultLine.cs" />
     <Compile Include="entity\CustomData.cs" />
     <Compile Include="entity\DataCode.cs" />
+    <Compile Include="entity\Error.cs" />
     <Compile Include="entity\newEntity\NewDevicePrescription.cs" />
     <Compile Include="entity\newEntity\NewDevicePrescriptionExcel.cs" />
     <Compile Include="entity\newEntity\NewTrainComprehensive.cs" />
@@ -268,6 +270,7 @@
     <Compile Include="http\dto\DataCodeDTO.cs" />
     <Compile Include="http\dto\DeviceSetDTO.cs" />
     <Compile Include="http\dto\DeviceSortDTO.cs" />
+    <Compile Include="http\dto\ErrorDTO.cs" />
     <Compile Include="http\dto\OnlineDeviceDTO.cs" />
     <Compile Include="http\dto\SendMsgDTO.cs" />
     <Compile Include="http\dto\SetterDTO.cs" />

@@ -130,7 +130,7 @@ namespace Recovery.view.Pages.ChildWin
                         }
                         else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
                         {
-                            HLPTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式","Active Model");
+                            HLPTrainingModel.Text = LanguageUtils.ConvertLanguage("主被动模式","Active Model");
                             HLPselect_change();
                             HLPSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
@@ -168,7 +168,7 @@ namespace Recovery.view.Pages.ChildWin
                         }
                         else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
                         {
-                            ROWTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            ROWTrainingModel.Text = LanguageUtils.ConvertLanguage("主被动模式", "Active Model");
                             ROWselect_change();
                             ROWSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
@@ -206,7 +206,7 @@ namespace Recovery.view.Pages.ChildWin
                         }
                         else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
                         {
-                            TFTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            TFTrainingModel.Text = LanguageUtils.ConvertLanguage("主被动模式", "Active Model");
                             TFselect_change();
                             TFSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
@@ -244,7 +244,7 @@ namespace Recovery.view.Pages.ChildWin
                         }
                         else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
                         {
-                            LETrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            LETrainingModel.Text = LanguageUtils.ConvertLanguage("主被动模式", "Active Model");
                             LEselect_change();
                             LESpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
@@ -282,7 +282,7 @@ namespace Recovery.view.Pages.ChildWin
                         }
                         else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
                         {
-                            HATrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            HATrainingModel.Text = LanguageUtils.ConvertLanguage("主被动模式", "Active Model");
                             HAselect_change();
                             HASpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
@@ -320,7 +320,7 @@ namespace Recovery.view.Pages.ChildWin
                         }
                         else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
                         {
-                            CPTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            CPTrainingModel.Text = LanguageUtils.ConvertLanguage("主被动模式", "Active Model");
                             CPselect_change();
                             CPSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
@@ -358,7 +358,7 @@ namespace Recovery.view.Pages.ChildWin
                         }
                         else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
                         {
-                            NewATrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            NewATrainingModel.Text = LanguageUtils.ConvertLanguage("主被动模式", "Active Model");
                             NewAselect_change();
                             NewASpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
@@ -396,7 +396,7 @@ namespace Recovery.view.Pages.ChildWin
                         }
                         else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
                         {
-                            NewBTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            NewBTrainingModel.Text = LanguageUtils.ConvertLanguage("主被动模式", "Active Model");
                             NewBselect_change();
                             NewBSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
@@ -434,7 +434,7 @@ namespace Recovery.view.Pages.ChildWin
                         }
                         else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
                         {
-                            NewCTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            NewCTrainingModel.Text = LanguageUtils.ConvertLanguage("主被动模式", "Active Model");
                             NewCselect_change();
                             NewCSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
@@ -472,7 +472,7 @@ namespace Recovery.view.Pages.ChildWin
                         }
                         else if (trainDto.devicePrescription.Device_mode == DevConstants.ACTIVE_MODEL)
                         {
-                            NewDTrainingModel.Text = LanguageUtils.ConvertLanguage("主动模式", "Active Model");
+                            NewDTrainingModel.Text = LanguageUtils.ConvertLanguage("主被动模式", "Active Model");
                             NewDselect_change();
                             NewDSpeedRank.Text = trainDto.devicePrescription.Speed_rank.ToString();
                         }
@@ -885,32 +885,33 @@ namespace Recovery.view.Pages.ChildWin
 
         private String StrengthConverter(String value)
         {
-            if(value == "")
-            {
-                return "";
-            }
-            int reValue = System.Convert.ToInt32(value);
-            if (reValue == 1 || reValue == 2)
-            {
-                return "非常轻松";
-            }
-            else if (reValue == 3 || reValue == 4)
-            {
-                return "很轻松";
-            }
-            else if (reValue == 5 || reValue == 6)
-            {
-                return "轻松";
-            }
-            else if (reValue == 7 || reValue == 8)
-            {
-                return "有点儿困难";
+            return value;
+            //if(value == "")
+            //{
+            //    return "";
+            //}
+            //int reValue = System.Convert.ToInt32(value);
+            //if (reValue == 1 || reValue == 2)
+            //{
+            //    return "非常轻松";
+            //}
+            //else if (reValue == 3 || reValue == 4)
+            //{
+            //    return "很轻松";
+            //}
+            //else if (reValue == 5 || reValue == 6)
+            //{
+            //    return "轻松";
+            //}
+            //else if (reValue == 7 || reValue == 8)
+            //{
+            //    return "有点儿困难";
 
-            }
-            else
-            {
-                return "困难";
-            }
+            //}
+            //else
+            //{
+            //    return "困难";
+            //}
         }
     }
 }

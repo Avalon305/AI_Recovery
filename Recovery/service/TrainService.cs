@@ -117,7 +117,7 @@ namespace Recovery.service
             List<TrainInfo> trainInfos = trainInfoDao.GetTrainInfoByUserId(userId);
             if (trainInfos == null || trainInfos.Count == 0)
             {
-                Console.WriteLine("用户没有设置大处方信息");
+                //Console.WriteLine("用户没有设置大处方信息");
                 return null;
             }
             else
@@ -393,6 +393,24 @@ namespace Recovery.service
         {
 
             List<entity.newEntity.NewDevicePrescription> devicePrescriptions = new NewDevicePrescriptionDAO().findAllDevicePrescriptionByTiId(tiid);
+
+            List<long> listdscoed = new List<long>();
+            for (int i = 0; i < devicePrescriptions.Count; i++)
+            {
+                listdscoed.Add(devicePrescriptions[i].Fk_ds_id);
+            }
+            return listdscoed;
+        }
+
+        /// <summary>
+        /// 返回未完成的设备号
+        /// </summary>
+        /// <param name="tiid"></param>
+        /// <returns></returns>
+        public List<long> dscodelistTwo(int tiid)
+        {
+
+            List<entity.newEntity.NewDevicePrescription> devicePrescriptions = new NewDevicePrescriptionDAO().findAllDevicePrescriptionByTiIdTwo(tiid);
 
             List<long> listdscoed = new List<long>();
             for (int i = 0; i < devicePrescriptions.Count; i++)

@@ -32,7 +32,7 @@ namespace Recovery.constant
         /// </summary>
         public static readonly int REHABILITATION_MODEL = 0;
         /// <summary>
-        /// 主动模式
+        /// 主被动模式
         /// </summary>
         public static readonly int ACTIVE_MODEL = 1;
         /// <summary>

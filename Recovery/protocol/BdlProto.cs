@@ -187,7 +187,7 @@ public enum TrainMode
 	/// </summary>
 	[pbr::OriginalName("RehabilitationModel")] RehabilitationModel = 0,
 	/// <summary>
-	///主动模式
+	///主被动模式
 	/// </summary>
 	[pbr::OriginalName("ActiveModel")] ActiveModel = 1,
 	/// <summary>

@@ -367,6 +367,22 @@ namespace Recovery.dao
         }
 
         /// <summary>
+        /// 根据tiid 查询未完成的处方列表
+        /// </summary>
+        /// <param name="tiId"></param>
+        /// <returns></returns>
+        public List<entity.newEntity.NewDevicePrescription> findAllDevicePrescriptionByTiIdTwo(int tiId)
+        {
+            using (var conn = DbUtil.getConn())
+            {
+                const string query = "select * from bdl_deviceprescription where fk_ti_id = @Fk_ti_id and dp_status=0";
+
+                return (List<entity.newEntity.NewDevicePrescription>)conn.Query<entity.newEntity.NewDevicePrescription>(query, new { Fk_ti_id = tiId });
+            }
+
+        }
+
+        /// <summary>
         /// 根据训练信息id删除
         /// </summary>
         /// <param name="tiId"></param>
