@@ -2145,80 +2145,80 @@ namespace Recovery.view.Pages.ChildWin
             symp.ItemsSource = new SymptomInfoDTO().ConvertDtoList(nullTiIdByUserId);
 
             #region 输入框设置值的范围
-            combobox_01.ItemsSource = Add(1, 3, 2);
-            combobox_02.ItemsSource = Add(1, 20, 2);
+            combobox_01.ItemsSource = Add(1, 20, 2);
+            combobox_02.ItemsSource = Add(1, 50, 2);
             combobox_03.ItemsSource = Add(1, 60, 2);
             combobox_05.ItemsSource = dataItems;
             combobox_07.ItemsSource = Add(5, 99, 2);
             combobox_08.ItemsSource = Add(5, 99, 2);
             combobox_09.ItemsSource = Add(1, 10, 2);
 
-            combobox_11.ItemsSource = Add(1, 3, 2);
-            combobox_12.ItemsSource = Add(1, 20, 2);
+            combobox_11.ItemsSource = Add(1, 20, 2);
+            combobox_12.ItemsSource = Add(1, 50, 2);
             combobox_13.ItemsSource = Add(1, 60, 2);
             combobox_15.ItemsSource = dataItems;
             combobox_17.ItemsSource = Add(5, 99, 2);
             combobox_18.ItemsSource = Add(5, 99, 2);
             combobox_19.ItemsSource = Add(1, 10, 2);
 
-            combobox_21.ItemsSource = Add(1, 3, 2);
-            combobox_22.ItemsSource = Add(1, 20, 2);
+            combobox_21.ItemsSource = Add(1, 20, 2);
+            combobox_22.ItemsSource = Add(1, 50, 2);
             combobox_23.ItemsSource = Add(1, 60, 2);
             combobox_25.ItemsSource = dataItems;
             combobox_27.ItemsSource = Add(5, 99, 2);
             combobox_28.ItemsSource = Add(5, 99, 2);
             combobox_29.ItemsSource = Add(1, 10, 2);
 
-            combobox_31.ItemsSource = Add(1, 3, 2);
-            combobox_32.ItemsSource = Add(1, 20, 2);
+            combobox_31.ItemsSource = Add(1, 20, 2);
+            combobox_32.ItemsSource = Add(1, 50, 2);
             combobox_33.ItemsSource = Add(1, 60, 2);
             combobox_35.ItemsSource = dataItems;
             combobox_37.ItemsSource = Add(5, 99, 2);
             combobox_38.ItemsSource = Add(5, 99, 2);
             combobox_39.ItemsSource = Add(1, 10, 2);
 
-            combobox_41.ItemsSource = Add(1, 3, 2);
-            combobox_42.ItemsSource = Add(1, 20, 2);
+            combobox_41.ItemsSource = Add(1, 20, 2);
+            combobox_42.ItemsSource = Add(1, 50, 2);
             combobox_43.ItemsSource = Add(1, 60, 2);
             combobox_45.ItemsSource = dataItems;
             combobox_47.ItemsSource = Add(5, 99, 2);
             combobox_48.ItemsSource = Add(5, 99, 2);
             combobox_49.ItemsSource = Add(1, 10, 2);
 
-            combobox_51.ItemsSource = Add(1, 3, 2);
-            combobox_52.ItemsSource = Add(1, 20, 2);
+            combobox_51.ItemsSource = Add(1, 20, 2);
+            combobox_52.ItemsSource = Add(1, 50, 2);
             combobox_53.ItemsSource = Add(1, 60, 2);
             combobox_55.ItemsSource = dataItems;
             combobox_57.ItemsSource = Add(5, 99, 2);
             combobox_58.ItemsSource = Add(5, 99, 2);
             combobox_59.ItemsSource = Add(1, 10, 2);
 
-            combobox_61.ItemsSource = Add(1, 3, 2);
-            combobox_62.ItemsSource = Add(1, 20, 2);
+            combobox_61.ItemsSource = Add(1, 20, 2);
+            combobox_62.ItemsSource = Add(1, 50, 2);
             combobox_63.ItemsSource = Add(1, 60, 2);
             combobox_65.ItemsSource = dataItems;
             combobox_67.ItemsSource = Add(5, 99, 2);
             combobox_68.ItemsSource = Add(5, 99, 2);
             combobox_69.ItemsSource = Add(1, 10, 2);
 
-            combobox_71.ItemsSource = Add(1, 3, 2);
-            combobox_72.ItemsSource = Add(1, 20, 2);
+            combobox_71.ItemsSource = Add(1, 20, 2);
+            combobox_72.ItemsSource = Add(1, 50, 2);
             combobox_73.ItemsSource = Add(1, 60, 2);
             combobox_75.ItemsSource = dataItems;
             combobox_77.ItemsSource = Add(5, 99, 2);
             combobox_78.ItemsSource = Add(5, 99, 2);
             combobox_79.ItemsSource = Add(1, 10, 2);
 
-            combobox_81.ItemsSource = Add(1, 3, 2);
-            combobox_82.ItemsSource = Add(1, 20, 2);
+            combobox_81.ItemsSource = Add(1, 20, 2);
+            combobox_82.ItemsSource = Add(1, 50, 2);
             combobox_83.ItemsSource = Add(1, 60, 2);
             combobox_85.ItemsSource = dataItems;
             combobox_87.ItemsSource = Add(5, 99, 2);
             combobox_88.ItemsSource = Add(5, 99, 2);
             combobox_89.ItemsSource = Add(1, 10, 2);
 
-            combobox_91.ItemsSource = Add(1, 3, 2);
-            combobox_92.ItemsSource = Add(1, 20, 2);
+            combobox_91.ItemsSource = Add(1, 20, 2);
+            combobox_92.ItemsSource = Add(1, 50, 2);
             combobox_93.ItemsSource = Add(1, 60, 2);
             combobox_95.ItemsSource = dataItems;
             combobox_97.ItemsSource = Add(5, 99, 2);
