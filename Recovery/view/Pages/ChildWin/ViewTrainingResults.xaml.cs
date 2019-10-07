@@ -121,6 +121,8 @@ namespace Recovery.view.Pages.ChildWin
                         HLPGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
                         HLPRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
                         HLPMoveway.Text = trainDto.moveway;
+                        HLPPower.Text = trainDto.prescriptionResult.Power.ToString();
+                        HLPTime1.Text = trainDto.prescriptionResult.Finish_time.ToString();
                         if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
                             HLPTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式","Rehabilitation Model");
@@ -159,6 +161,8 @@ namespace Recovery.view.Pages.ChildWin
                         ROWGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
                         ROWRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
                         ROWMoveway.Text = trainDto.moveway;
+                        ROWPower.Text = trainDto.prescriptionResult.Power.ToString();
+                        ROWTime1.Text = trainDto.prescriptionResult.Finish_time.ToString();
                         if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
                             ROWTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
@@ -197,6 +201,8 @@ namespace Recovery.view.Pages.ChildWin
                         TFGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
                         TFRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
                         TFMoveway.Text = trainDto.moveway;
+                        TFPower.Text = trainDto.prescriptionResult.Power.ToString();
+                        TFTime1.Text = trainDto.prescriptionResult.Finish_time.ToString();
                         if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
                             TFTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
@@ -235,6 +241,8 @@ namespace Recovery.view.Pages.ChildWin
                         LEGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
                         LERelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
                         LEMoveway.Text = trainDto.moveway;
+                        LEPower.Text = trainDto.prescriptionResult.Power.ToString();
+                        LETime1.Text = trainDto.prescriptionResult.Finish_time.ToString();
                         if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
                             LETrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
@@ -273,6 +281,8 @@ namespace Recovery.view.Pages.ChildWin
                         HAGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
                         HARelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
                         HAMoveway.Text = trainDto.moveway;
+                        HAPower.Text = trainDto.prescriptionResult.Power.ToString();
+                        HATime1.Text = trainDto.prescriptionResult.Finish_time.ToString();
                         if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
                             HATrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
@@ -311,6 +321,8 @@ namespace Recovery.view.Pages.ChildWin
                         CPGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
                         CPRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
                         CPMoveway.Text = trainDto.moveway;
+                        CPPower.Text = trainDto.prescriptionResult.Power.ToString();
+                        CPTime1.Text = trainDto.prescriptionResult.Finish_time.ToString();
                         if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
                             CPTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
@@ -349,6 +361,8 @@ namespace Recovery.view.Pages.ChildWin
                         NewAGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
                         NewARelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
                         NewAMoveway.Text = trainDto.moveway;
+                        NewAPower.Text = trainDto.prescriptionResult.Power.ToString();
+                        NewATime1.Text = trainDto.prescriptionResult.Finish_time.ToString();
                         if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
                             NewATrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
@@ -387,6 +401,8 @@ namespace Recovery.view.Pages.ChildWin
                         NewBGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
                         NewBRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
                         NewBMoveway.Text = trainDto.moveway;
+                        NewBPower.Text = trainDto.prescriptionResult.Power.ToString();
+                        NewBTime1.Text = trainDto.prescriptionResult.Finish_time.ToString();
                         if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
                             NewBTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
@@ -425,6 +441,8 @@ namespace Recovery.view.Pages.ChildWin
                         NewCGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
                         NewCRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
                         NewCMoveway.Text = trainDto.moveway;
+                        NewCPower.Text = trainDto.prescriptionResult.Power.ToString();
+                        NewCTime1.Text = trainDto.prescriptionResult.Finish_time.ToString();
                         if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
                             NewCTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
@@ -463,6 +481,8 @@ namespace Recovery.view.Pages.ChildWin
                         NewDGroupnum.Text = trainDto.devicePrescription.Dp_groupnum.ToString();
                         NewDRelaxTime.Text = trainDto.devicePrescription.Dp_relaxtime.ToString();
                         NewDMoveway.Text = trainDto.moveway;
+                        NewDPower.Text = trainDto.prescriptionResult.Power.ToString();
+                        NewDTime1.Text = trainDto.prescriptionResult.Finish_time.ToString();
                         if (trainDto.devicePrescription.Device_mode == DevConstants.REHABILITATION_MODEL)
                         {
                             NewDTrainingModel.Text = LanguageUtils.ConvertLanguage("康复模式", "Rehabilitation Model");
