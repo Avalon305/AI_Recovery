@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using NLog;
 using Recovery.http.entity;
 using Recovery.util;
 
@@ -19,7 +20,7 @@ namespace Recovery.http
         public static readonly string URLBASE = "http://192.168.43.95:8080/bigDataRecivedHandler/";
         //public static readonly string URLBASE = "http://172.20.10.5:8080/cloud/";
         public static readonly string URL_UPDATE = "http://49.4.67.157:8080/bdl_update/AutoUpdate";
-
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         //私有化空构造
         private HttpSender()
         {
@@ -123,7 +124,8 @@ namespace Recovery.http
             catch (WebException ex)
             {
                 res = (HttpWebResponse)ex.Response;
-                Console.WriteLine(ex.ToString());
+                //Console.WriteLine(ex.ToString());
+                logger.Error(ex.ToString());
             }
             if (res == null)
             {

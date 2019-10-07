@@ -10,6 +10,7 @@ using Recovery.service;
 using Recovery.entity;
 using Recovery.dao;
 using Recovery.http.dto;
+using NLog;
 
 namespace Recovery.http
 {
@@ -19,7 +20,7 @@ namespace Recovery.http
 
         SetterDAO setterDao = new SetterDAO();
         UploadManagementService uploadManagementService = new UploadManagementService();
-
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
 
 
@@ -113,9 +114,18 @@ namespace Recovery.http
                     sendMsgDto.belongProduct = "RecoveryError";
                 }
 
+
                 // Console.WriteLine("大数据线程实例化Upload方法-table:" + uploadManagement.UM_DataTable);
                 //1.根据上传表内容查询具体数据（这里的数据是已经转换成json串形式），赋值给字段content
-                ServiceResult serviceResult = uploadManagementService.GetServiceResult(uploadManagement);
+                ServiceResult serviceResult = null;
+                try
+                {
+                    serviceResult = uploadManagementService.GetServiceResult(uploadManagement);
+                }
+                catch(Exception e)
+                {
+                    logger.Error("uploadManagement上传云平台失败");
+                }
 
                 /*
                 int i = 1;
@@ -124,7 +134,8 @@ namespace Recovery.http
                 if (serviceResult == null)
                 {
                     //没有查到返回
-                    Console.WriteLine("上传表查询失败____________________");
+                    //Console.WriteLine("上传表查询失败____________________");
+                    logger.Error("上传表查询失败，" + DateTime.Now.ToString());
                     return;
                 }
                 sendMsgDto.content = serviceResult.Data;
@@ -167,7 +178,8 @@ namespace Recovery.http
                 }
                 else
                 {
-                    Console.WriteLine("失败的内容：" + webResult.result);
+                    logger.Error("失败的内容：" + webResult.result + "，" + DateTime.Now.ToString());
+                    //Console.WriteLine("失败的内容：" + webResult.result);
                 }
                 //Console.WriteLine("-----------------------------返回结果 dataid"+webResult.dataId +"type:"+webResult.dataType+"result:"+webResult.result);
             }

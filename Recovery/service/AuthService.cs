@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Recovery.constant;
 using Recovery.util;
-
+using NLog;
 
 namespace Recovery.service
 {
@@ -16,6 +16,7 @@ namespace Recovery.service
     class AuthService
     {
         UploadManagementDAO uploadManagementDAO = new UploadManagementDAO();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public void updateTest()
         {
@@ -110,7 +111,8 @@ namespace Recovery.service
             catch (Exception ex)
             {
                 //解密出现问题，经常会报错，目前是直接返回的登陆成功的信息。
-                Console.WriteLine("解密异常:" + ex.Message);
+                logger.Error("解密异常:" + ex.Message);
+                //Console.WriteLine("解密异常:" + ex.Message);
                 //loginResult = "解密异常.";
                 //return loginResult;
             }
@@ -122,8 +124,7 @@ namespace Recovery.service
 
                 //loginResult = "登录异常";
                 //return loginResult;
-
-                Console.WriteLine("机器码匹配异常" );
+                logger.Error("机器码匹配异常，" + DateTime.Now.ToString());
             }
             if (autherCN.User_Status == Auther.USER_STATUS_FREEZE)
             {

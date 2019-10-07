@@ -167,17 +167,17 @@ namespace Recovery.view
         }
         private void MainWindow_Resize(object sender, System.EventArgs e)
         {
-            Console.WriteLine("窗体改变");
-            Console.WriteLine(SystemParameters.WorkArea.Size.Height);
-            Console.WriteLine(SystemParameters.WorkArea.Size.Width);
+            //Console.WriteLine("窗体改变");
+            //Console.WriteLine(SystemParameters.WorkArea.Size.Height);
+            //Console.WriteLine(SystemParameters.WorkArea.Size.Width);
             if (this.WindowState == WindowState.Maximized)
             {
-                Console.WriteLine("123123");
+                //Console.WriteLine("123123");
                 this.Height = SystemParameters.WorkArea.Size.Height;
                 this.Width = SystemParameters.WorkArea.Size.Width;
             }
-            Console.WriteLine("当前窗体高度："+ this.Height);
-            Console.WriteLine("当前窗体宽度：" + this.Width);
+            //Console.WriteLine("当前窗体高度："+ this.Height);
+            //Console.WriteLine("当前窗体宽度：" + this.Width);
         }
         //登录操作
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -506,13 +506,22 @@ namespace Recovery.service
                 TrainMode = request.TrainMode,
                 Success = false
             };
-            Error error = new Error();
-            error.device_type = (int)request.DeviceType;
-            error.error_info = request.Error;
-            error.fk_user_id = Convert.ToInt32(request.Uid);
-            error.train_mode = (int)request.TrainMode;
-            error.error_time = request.ErrorStartTime;
-            errorDao.Insert(error);
+            try
+            {
+                Error error = new Error();
+                error.device_type = (int)request.DeviceType;
+                error.error_info = request.Error;
+                error.fk_user_id = Convert.ToInt32(request.Uid);
+                error.train_mode = (int)request.TrainMode;
+                error.error_time = request.ErrorStartTime;
+                errorDao.Insert(error);
+                UploadManagementDAO uploadManagementDao = new UploadManagementDAO();
+                uploadManagementDao.Insert(new UploadManagement(errorDao.GetErrorLastId(), "bdl_error", 0));
+            }
+            catch(Exception e)
+            {
+                logger.Error("错误信息插入失败。");
+            }
 
             logger.Error("当前出现错误时间," + request.ErrorStartTime
                          + ",用户id" + request.Uid
