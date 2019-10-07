@@ -115,7 +115,7 @@ namespace Recovery.dao
         /// <param name="entity"></param>
         public void UpdateForce(PersonalSettingEntity entity)
         {
-            string sql = @"update bdl_personal_setting set Consequent_force=@Consequent_force,Reverse_force=@Reverse_force where fk_member_id = @Fk_member_id and Device_code=@Device_code";
+            string sql = @"update bdl_personal_setting set Consequent_force=@Consequent_force,Reverse_force=@Reverse_force,Training_mode=Training_mode where fk_member_id = @Fk_member_id and Device_code=@Device_code";
             using (var conn = DbUtil.getConn())
             {
                 try

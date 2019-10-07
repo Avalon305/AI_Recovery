@@ -3012,6 +3012,7 @@ namespace Recovery.view.Pages.ChildWin
                     {
                         personalSettingEntityTemp.Consequent_force = devicePrescriptionList[i].Consequent_force;
                         personalSettingEntityTemp.Reverse_force = devicePrescriptionList[i].Reverse_force;
+                        personalSettingEntityTemp.Training_mode = devicePrescriptionList[i].Device_mode.ToString();
                         personalSettingDao.UpdateForce(personalSettingEntityTemp);
                     }
                     else
