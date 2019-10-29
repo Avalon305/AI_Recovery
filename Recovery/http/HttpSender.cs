@@ -17,9 +17,12 @@ namespace Recovery.http
     public class HttpSender
     {
 
-        public static readonly string URLBASE = "http://192.168.43.95:8080/bigDataRecivedHandler/";
+        //public static readonly string URLBASE = "http://192.168.43.95:8080/bigDataRecivedHandler/";
         //public static readonly string URLBASE = "http://172.20.10.5:8080/cloud/";
+        //public static readonly string URL_UPDATE = "http://49.4.67.157:8080/bdl_update/AutoUpdate";
+        public static readonly string URLBASE = "http://192.168.43.100:8888/bigDataRecivedHandler/";
         public static readonly string URL_UPDATE = "http://49.4.67.157:8080/bdl_update/AutoUpdate";
+
         private static Logger logger = LogManager.GetCurrentClassLogger();
         //私有化空构造
         private HttpSender()
@@ -29,24 +32,25 @@ namespace Recovery.http
         /// <summary>
         /// 测试网络是否通畅
         /// </summary>
-        private static bool Ping()
-        {
-            string pingResult = POSTByJsonStr("communicationController/analysisJson",
-                JsonTools.Obj2JSONStrNew(new HttpHeartBeat("ping")));
+        //private static bool Ping()
+        //{
+        //    string pingResult = POSTByJsonStr("communicationController/analysisJson",
+        //        JsonTools.Obj2JSONStrNew(new HttpHeartBeat("ping")));
 
-            HttpHeartBeat httpHeartBeat = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(pingResult);
-            if (httpHeartBeat != null && httpHeartBeat.username.Equals("pong"))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //    HttpHeartBeat httpHeartBeat = JsonTools.DeserializeJsonToObject<HttpHeartBeat>(pingResult);
+        //    if (httpHeartBeat != null && httpHeartBeat.username.Equals("pong"))
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
 
 
         //post方式，参数为json串
+
         public static string POSTByJsonStr(string url, string jsonStr)
         {
             try
@@ -139,50 +143,50 @@ namespace Recovery.http
 
         //url为请求的网址，param为需要传递的参数
         //返回服务端的响应
-        public static string POST(string url, Dictionary<String, String> param)
-        {
-            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest; //创建请求
-            CookieContainer cookieContainer = new CookieContainer();
-            request.CookieContainer = cookieContainer;
-            request.Timeout = 10 * 1000; //10s超时
-            request.AllowAutoRedirect = true;
-            //request.AllowReadStreamBuffering = true;
-            request.MaximumResponseHeadersLength = 1024;
-            request.Method = "POST"; //请求方式为post
-            request.AllowAutoRedirect = true;
-            request.MaximumResponseHeadersLength = 1024;
-            request.ContentType = "application/json";
-            JObject json = new JObject();
-            if (param.Count != 0) //将参数添加到json对象中
-            {
-                foreach (var item in param)
-                {
-                    json.Add(item.Key, item.Value);
-                }
-            }
+        //public static string POST(string url, Dictionary<String, String> param)
+        //{
+        //    HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest; //创建请求
+        //    CookieContainer cookieContainer = new CookieContainer();
+        //    request.CookieContainer = cookieContainer;
+        //    request.Timeout = 10 * 1000; //10s超时
+        //    request.AllowAutoRedirect = true;
+        //    //request.AllowReadStreamBuffering = true;
+        //    request.MaximumResponseHeadersLength = 1024;
+        //    request.Method = "POST"; //请求方式为post
+        //    request.AllowAutoRedirect = true;
+        //    request.MaximumResponseHeadersLength = 1024;
+        //    request.ContentType = "application/json";
+        //    JObject json = new JObject();
+        //    if (param.Count != 0) //将参数添加到json对象中
+        //    {
+        //        foreach (var item in param)
+        //        {
+        //            json.Add(item.Key, item.Value);
+        //        }
+        //    }
 
-            string jsonstring = json.ToString(); //获得参数的json字符串
-            byte[] jsonbyte = Encoding.UTF8.GetBytes(jsonstring);
-            Stream postStream = request.GetRequestStream();
-            postStream.Write(jsonbyte, 0, jsonbyte.Length);
-            postStream.Close();
-            //发送请求并获取相应回应数据       
-            HttpWebResponse res;
-            try
-            {
-                res = (HttpWebResponse)request.GetResponse();
-            }
-            catch (WebException ex)
-            {
-                res = (HttpWebResponse)ex.Response;
-            }
-            if (res == null)
-            {
-                return "";
-            }
-            StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
-            string content = sr.ReadToEnd(); //获得响应字符串
-            return content;
-        }
+        //    string jsonstring = json.ToString(); //获得参数的json字符串
+        //    byte[] jsonbyte = Encoding.UTF8.GetBytes(jsonstring);
+        //    Stream postStream = request.GetRequestStream();
+        //    postStream.Write(jsonbyte, 0, jsonbyte.Length);
+        //    postStream.Close();
+        //    //发送请求并获取相应回应数据       
+        //    HttpWebResponse res;
+        //    try
+        //    {
+        //        res = (HttpWebResponse)request.GetResponse();
+        //    }
+        //    catch (WebException ex)
+        //    {
+        //        res = (HttpWebResponse)ex.Response;
+        //    }
+        //    if (res == null)
+        //    {
+        //        return "";
+        //    }
+        //    StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
+        //    string content = sr.ReadToEnd(); //获得响应字符串
+        //    return content;
+        //}
     }
 }

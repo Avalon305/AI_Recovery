@@ -37,7 +37,7 @@ namespace Recovery.heartbeat
 
                     }));
 
-                IChannel bootstrapChannel = await bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.43.137"), 60000));
+                IChannel bootstrapChannel = await bootstrap.ConnectAsync(new IPEndPoint(IPAddress.Parse("192.168.43.100"), 29999));
 
                 await bootstrapChannel.WriteAndFlushAsync(msg);
                 //Console.ReadLine();

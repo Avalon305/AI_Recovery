@@ -37,6 +37,7 @@ namespace Recovery.http
             if (setterDao.ListAll() == null)
             {
                 //网路不通 或 未注册 不上传//Console.WriteLine("大数据线程实例化run方法-执行:");
+           
                 return;
             }
 
@@ -47,7 +48,7 @@ namespace Recovery.http
 
             if (result == null)
             {
-                //Console.WriteLine("大数据线程RUN方法-result==null");
+                Console.WriteLine("大数据线程RUN方法-result==null");
             }
             //遍历查询到的数据集合
             foreach (var uploadManagement in result)
@@ -136,7 +137,7 @@ namespace Recovery.http
                     //没有查到返回
                     //Console.WriteLine("上传表查询失败____________________");
                     logger.Error("上传表查询失败，" + DateTime.Now.ToString());
-                    return;
+                    continue;
                 }
                 sendMsgDto.content = serviceResult.Data;
                 //用于接受云服务器端返回的字符串
@@ -151,8 +152,9 @@ namespace Recovery.http
                 serviceResult.Data = JsonTools.Obj2JSONStrNew<SendMsgDTO>(sendMsgDto);
 
                 //2.上传和接受云服务器端返回的字符串
-                strWebResult = HttpSender.POSTByJsonStr(serviceResult.URL, serviceResult.Data);
-              
+                //strWebResult = HttpSender.POSTByJsonStr(serviceResult.URL, serviceResult.Data);
+                strWebResult = HTTPClientHelper.HttpPost(serviceResult.Data);
+
 
                 //将接受到的字符串赋值给webResult对象
                 webResult = JsonTools.DeserializeJsonToObject<WebResult>(strWebResult);
@@ -174,6 +176,7 @@ namespace Recovery.http
                 else
                  if (webResult.result == "2")
                 {
+                    Console.WriteLine("线程");
                     break;//不做处理，五分钟后再发，目的是等待云服务器建表
                 }
                 else

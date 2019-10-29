@@ -279,6 +279,7 @@
     <Compile Include="http\dto\SendMsgDTO.cs" />
     <Compile Include="http\dto\SetterDTO.cs" />
     <Compile Include="http\entity\WebResult.cs" />
+    <Compile Include="http\HTTPClientHelper.cs" />
     <Compile Include="ImageDealer\ImageDealer.xaml.cs">
       <DependentUpon>ImageDealer.xaml</DependentUpon>
     </Compile>

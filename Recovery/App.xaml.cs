@@ -52,7 +52,7 @@ namespace Recovery
             //加载语言
             LanguageUtils.SetLanguage();
 
-            //启动netty
+            //启动netty,用于与设备端通信
             Thread th = new Thread(() =>
             {
                 try
@@ -146,13 +146,14 @@ namespace Recovery
                         {
                             BigDataOfficer bigDataOfficer = new BigDataOfficer();
                             bigDataOfficer.Run();
-                            int heartBeatRate = (int)CommUtil.GetBigDataRate();
-                            Thread.Sleep(1000 * 500);
+                            //int heartBeatRate = (int)CommUtil.GetBigDataRate();
+                            Thread.Sleep(1000 * 60);
                             //Console.WriteLine("-----------------boom");
                         }
                         catch(Exception e)
                         {
-                            Console.WriteLine("失败:"+e.Message);
+                            logger.Error("大数据线程失败:" + e.StackTrace);
+                            Console.WriteLine("大数据线程失败:" + e.Message);
                            
                         }
                     }
@@ -184,12 +185,14 @@ namespace Recovery
                 {
                     try
                     {
+                        
                         BodyStrongMessage bodyStrongMessage = new BodyStrongMessage
                         {
                             MessageType = BodyStrongMessage.Types.MessageType.Heaerbeatreq,
                             //可能为null
                             HeartbeatRequest = TcpHeartBeatUtils.GetHeartBeatByCurrent()
                         };
+                        
                         socket.SendMessage(bodyStrongMessage);
                         Console.WriteLine("发送msg!!");
                         //Thread.Sleep(5000);

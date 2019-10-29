@@ -73,14 +73,15 @@ namespace Recovery.heartbeat
             {
                 try
                 {
-                    var clientChannel = await SocketBootstrap.ConnectAsync("192.168.43.95", 60000);
+                    //var clientChannel = await SocketBootstrap.ConnectAsync("222.133.43.210", 29999);
+                    var clientChannel = await SocketBootstrap.ConnectAsync("192.168.43.100", 29999);
                     Channel = clientChannel;
                     ChannelInitilizedEvent.Set();
                     connected = true;
                 }
-                catch (Exception /*ce*/)
+                catch (Exception error_net)
                 {
-                    //Console.WriteLine(ce.StackTrace);
+                    Console.WriteLine("心跳线程连接失败：" + error_net.StackTrace);
                     Console.WriteLine("Reconnect server after 5 seconds...");
                     Thread.Sleep(5000);
                 }
