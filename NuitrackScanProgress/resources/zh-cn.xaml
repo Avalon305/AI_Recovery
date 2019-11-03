@@ -545,7 +545,7 @@
     <s:String x:Key="NfcMyodynamia.Bracelet">手环信息</s:String>
     <s:String x:Key="NfcMyodynamia.Myodynamia">肌力测试信息</s:String>
     <s:String x:Key="NfcMyodynamia.Tips">温馨提示</s:String>
-    <s:String x:Key="NfcMyodynamia.TipsInfo">点击开始后，请站到对着摄像头的一个合适距离的位置</s:String>
+    <s:String x:Key="NfcMyodynamia.TipsInfo">点击开始后，请站到对着摄像头的一个合适距离的位置，并做出图片上的动作</s:String>
 
     <!-- 新设备 -->
     <s:String x:Key="NewDev.Rowing">坐式划船机</s:String>

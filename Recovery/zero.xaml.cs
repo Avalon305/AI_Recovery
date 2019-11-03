@@ -201,6 +201,7 @@ namespace Recovery
             string path = ConfigurationManager.AppSettings["PicPath"];
             setter.Set_PhotoLocation = basePath + path;
             setter.Set_Language = 1;
+            setter.Pk_Set_Id = 1;
             //设置版本号
             setter.Set_Version = CommUtil.GetCurrentVersion();
             if (!Directory.Exists(@setter.Set_PhotoLocation))

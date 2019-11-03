@@ -135,7 +135,7 @@ namespace Recovery.http
                 if (serviceResult == null)
                 {
                     //没有查到返回
-                    //Console.WriteLine("上传表查询失败____________________");
+                    Console.WriteLine("上传表查询失败____________________");
                     logger.Error("上传表查询失败，" + DateTime.Now.ToString());
                     continue;
                 }
@@ -154,7 +154,6 @@ namespace Recovery.http
                 //2.上传和接受云服务器端返回的字符串
                 //strWebResult = HttpSender.POSTByJsonStr(serviceResult.URL, serviceResult.Data);
                 strWebResult = HTTPClientHelper.HttpPost(serviceResult.Data);
-
 
                 //将接受到的字符串赋值给webResult对象
                 webResult = JsonTools.DeserializeJsonToObject<WebResult>(strWebResult);

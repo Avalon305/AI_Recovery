@@ -14,7 +14,7 @@ namespace Recovery.http
         private static readonly HttpClient HttpClient;
         //宝德龙厂区服务器地址
         //public static readonly string URL_BD = "http://222.133.43.210:28888/cloud/bigDataRecivedHandler/msg";
-        public static readonly string URL_BD = "http://10.22.70.195:8888/cloud/bigDataRecivedHandler/msg";
+        public static readonly string URL_BD = "http://192.168.43.129:8888/bigDataRecivedHandler/msg";
         static HTTPClientHelper()
         {
             var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.None };

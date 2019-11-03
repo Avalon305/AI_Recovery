@@ -58,18 +58,20 @@ namespace NuitrackScanProgress.view.Pages
 
             SkeletonLengthDAO skeletonLengthDAO = new SkeletonLengthDAO();
             NuitrackEntity nuitrackEntity = new NuitrackEntity();
-            if (skeletonLengthDAO.GetPk_user_idByStatus(1) == null)
+            //if (skeletonLengthDAO.GetPk_user_idByStatus(1) == null)
+            //{
+            //    this.Hide();
+            //    nuitrackScan.ShowDialog();
+            //    G_NfcTipTwoStatus = 0;
+            //    this.Close();
+            //    return;
+            //}
+            if (skeletonLengthDAO.GetPk_user_idByStatus(1) != null)
             {
-                this.Hide();
-                nuitrackScan.ShowDialog();
-                G_NfcTipTwoStatus = 0;
-                this.Close();
-                return;
+                nuitrackEntity = skeletonLengthDAO.GetPk_user_idByStatus(1);
+                nuitrackScan.Pk_User_Id = nuitrackEntity.Fk_user_id;
+                skeletonLengthDAO.updateStatusByFk_user_id(nuitrackEntity);
             }
-            nuitrackEntity = skeletonLengthDAO.GetPk_user_idByStatus(1);
-
-            nuitrackScan.Pk_User_Id = nuitrackEntity.Fk_user_id;
-            skeletonLengthDAO.updateStatusByFk_user_id(nuitrackEntity);
 
             SkeletonLengthEntity skeletonLengthEntity = new SkeletonLengthEntity();
             if (skeletonLengthDAO.GetByPk_User_Id(nuitrackScan.Pk_User_Id) != null)

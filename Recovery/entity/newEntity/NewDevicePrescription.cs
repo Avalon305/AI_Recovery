@@ -21,6 +21,10 @@ namespace Recovery.entity.newEntity
         // 主键 自增
         [Key]
         public long Pk_dp_id { get; set; }
+        // 创建时间
+        public DateTime? Gmt_create { get; set; }
+        // 修改时间
+        public DateTime? Gmt_modified { get; set; }
         // 关联的单一训练信息ID
         public long Fk_ti_id { get; set; }
         // 关联的单一设备类型ID
@@ -45,9 +49,5 @@ namespace Recovery.entity.newEntity
         public int? Dp_groupnum { get; set; }
         //休息时间
         public int? Dp_relaxtime { get; set; }
-        // 创建时间
-        public DateTime? Gmt_create { get; set; }
-        // 修改时间
-        public DateTime? Gmt_modified { get; set; }
     }
 }

@@ -238,7 +238,10 @@ namespace Recovery.view.Pages.ChildWin
                 UserRelationDao userRelationDao = new UserRelationDao();
                 UserRelation userRelation = new UserRelation();
                 userRelation = userRelationDao.FindUserRelationByuserID(user.Pk_User_Id);
-                prescriptionResult.Bind_id = userRelation.Bind_id;
+                if (userRelation != null)
+                {
+                    prescriptionResult.Bind_id = userRelation.Bind_id;
+                }
                 devicePrescription.Gmt_create = da;
                 devicePrescription.Gmt_modified = DateTime.Now;
                 #region 处方
@@ -442,7 +445,10 @@ namespace Recovery.view.Pages.ChildWin
                 UserRelationDao userRelationDao = new UserRelationDao();
                 UserRelation userRelation = new UserRelation();
                 userRelation = userRelationDao.FindUserRelationByuserID(user.Pk_User_Id);
-                prescriptionResult.Bind_id = userRelation.Bind_id;
+                if (userRelation != null)
+                {
+                    prescriptionResult.Bind_id = userRelation.Bind_id;
+                }
                 devicePrescription.Gmt_create = da;
                 devicePrescription.Gmt_modified = DateTime.Now;
                 #region 处方
@@ -648,7 +654,10 @@ namespace Recovery.view.Pages.ChildWin
                 UserRelationDao userRelationDao = new UserRelationDao();
                 UserRelation userRelation = new UserRelation();
                 userRelation = userRelationDao.FindUserRelationByuserID(user.Pk_User_Id);
-                prescriptionResult.Bind_id = userRelation.Bind_id;
+                if (userRelation != null)
+                {
+                    prescriptionResult.Bind_id = userRelation.Bind_id;
+                }
                 devicePrescription.Gmt_create = da;
                 devicePrescription.Gmt_modified = DateTime.Now;
                 #region 处方
@@ -854,7 +863,10 @@ namespace Recovery.view.Pages.ChildWin
                 UserRelationDao userRelationDao = new UserRelationDao();
                 UserRelation userRelation = new UserRelation();
                 userRelation = userRelationDao.FindUserRelationByuserID(user.Pk_User_Id);
-                prescriptionResult.Bind_id = userRelation.Bind_id;
+                if (userRelation != null)
+                {
+                    prescriptionResult.Bind_id = userRelation.Bind_id;
+                }
                 devicePrescription.Gmt_create = da;
                 devicePrescription.Gmt_modified = DateTime.Now;
                 #region 处方
@@ -1060,7 +1072,10 @@ namespace Recovery.view.Pages.ChildWin
                 UserRelationDao userRelationDao = new UserRelationDao();
                 UserRelation userRelation = new UserRelation();
                 userRelation = userRelationDao.FindUserRelationByuserID(user.Pk_User_Id);
-                prescriptionResult.Bind_id = userRelation.Bind_id;
+                if (userRelation != null)
+                {
+                    prescriptionResult.Bind_id = userRelation.Bind_id;
+                }
                 devicePrescription.Gmt_create = da;
                 devicePrescription.Gmt_modified = DateTime.Now;
                 #region 处方
@@ -1266,7 +1281,10 @@ namespace Recovery.view.Pages.ChildWin
                 UserRelationDao userRelationDao = new UserRelationDao();
                 UserRelation userRelation = new UserRelation();
                 userRelation = userRelationDao.FindUserRelationByuserID(user.Pk_User_Id);
-                prescriptionResult.Bind_id = userRelation.Bind_id;
+                if (userRelation != null)
+                {
+                    prescriptionResult.Bind_id = userRelation.Bind_id;
+                }
                 devicePrescription.Gmt_create = da;
                 devicePrescription.Gmt_modified = DateTime.Now;
                 #region 处方
@@ -1472,7 +1490,10 @@ namespace Recovery.view.Pages.ChildWin
                 UserRelationDao userRelationDao = new UserRelationDao();
                 UserRelation userRelation = new UserRelation();
                 userRelation = userRelationDao.FindUserRelationByuserID(user.Pk_User_Id);
-                prescriptionResult.Bind_id = userRelation.Bind_id;
+                if (userRelation != null)
+                {
+                    prescriptionResult.Bind_id = userRelation.Bind_id;
+                }
                 devicePrescription.Gmt_create = da;
                 devicePrescription.Gmt_modified = DateTime.Now;
                 #region 处方
@@ -1678,7 +1699,10 @@ namespace Recovery.view.Pages.ChildWin
                 UserRelationDao userRelationDao = new UserRelationDao();
                 UserRelation userRelation = new UserRelation();
                 userRelation = userRelationDao.FindUserRelationByuserID(user.Pk_User_Id);
-                prescriptionResult.Bind_id = userRelation.Bind_id;
+                if (userRelation != null)
+                {
+                    prescriptionResult.Bind_id = userRelation.Bind_id;
+                }
                 devicePrescription.Gmt_create = da;
                 devicePrescription.Gmt_modified = DateTime.Now;
                 #region 处方
@@ -1884,7 +1908,10 @@ namespace Recovery.view.Pages.ChildWin
                 UserRelationDao userRelationDao = new UserRelationDao();
                 UserRelation userRelation = new UserRelation();
                 userRelation = userRelationDao.FindUserRelationByuserID(user.Pk_User_Id);
-                prescriptionResult.Bind_id = userRelation.Bind_id;
+                if (userRelation != null)
+                {
+                    prescriptionResult.Bind_id = userRelation.Bind_id;
+                }
                 devicePrescription.Gmt_create = da;
                 devicePrescription.Gmt_modified = DateTime.Now;
                 #region 处方
@@ -2090,7 +2117,10 @@ namespace Recovery.view.Pages.ChildWin
                 UserRelationDao userRelationDao = new UserRelationDao();
                 UserRelation userRelation = new UserRelation();
                 userRelation = userRelationDao.FindUserRelationByuserID(user.Pk_User_Id);
-                prescriptionResult.Bind_id = userRelation.Bind_id;
+                if (userRelation != null)
+                {
+                    prescriptionResult.Bind_id = userRelation.Bind_id;
+                }
                 devicePrescription.Gmt_create = da;
                 devicePrescription.Gmt_modified = DateTime.Now;
                 #region 处方

@@ -74,7 +74,7 @@ namespace Recovery.heartbeat
                 try
                 {
                     //var clientChannel = await SocketBootstrap.ConnectAsync("222.133.43.210", 29999);
-                    var clientChannel = await SocketBootstrap.ConnectAsync("192.168.43.100", 29999);
+                    var clientChannel = await SocketBootstrap.ConnectAsync("192.168.43.129", 29999);
                     Channel = clientChannel;
                     ChannelInitilizedEvent.Set();
                     connected = true;

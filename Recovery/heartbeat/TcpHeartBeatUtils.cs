@@ -53,15 +53,13 @@ namespace Recovery.heartbeat
                 //设置表没有唯一标识，直接返回
                 return null;
             }
-            Console.WriteLine("直接返回");
             AuthDAO authDAO = new AuthDAO();
             var result = authDAO.GetByAuthLevel(Auther.AUTH_LEVEL_MANAGER);
             if (result == null) {
                 return null;
             }
-            Console.WriteLine("直接返回1");
             //机器码mac地址从本地拿
-            sendHeartBeat.UniqueId = setter.Set_Unique_Id;
+            sendHeartBeat.UniqueId = setter.Set_Unique_Id;           
             //setting表装换成json，赋值
             sendHeartBeat.SettingJSON = JsonTools.Obj2JSONStrNew<Setter>(setter);
             //项目名 医疗康复赋值
@@ -69,14 +67,13 @@ namespace Recovery.heartbeat
             //使用期限
             sendHeartBeat.UseDeadTime = result.Auth_OfflineTime.ToString().Replace("/", "-");
 			//地理位置
-			sendHeartBeat.Address = setter.Set_Organizationaddress;
+			//sendHeartBeat.Address = setter.Set_Organizationaddress;
             //冻结
             if (result.User_Status == Auther.USER_STATUS_FREEZE)
             {
                 //是否为冻结状态的心跳,这里不能从数据库取，否则，云通知本地锁死，本地改状态后，会再次通知云锁死本机，陷入死循环
                 //状态 正常0和锁定1
                 sendHeartBeat.Status = 1.ToString();
-                Console.WriteLine("直接返回2");
             }
             //正常
             else if(result.User_Status == Auther.USER_STATUS_GENERAL)
@@ -84,7 +81,6 @@ namespace Recovery.heartbeat
                 //状态 正常0和锁定1
                 //默认为正常心跳
                 sendHeartBeat.Status = 0.ToString();
-                Console.WriteLine("直接返回3");
             }
             return sendHeartBeat;
         }

@@ -527,7 +527,7 @@
     <s:String x:Key="NfcMyodynamia.Bracelet">Bracelet</s:String>
     <s:String x:Key="NfcMyodynamia.Myodynamia">Myodynamia</s:String>
     <s:String x:Key="NfcMyodynamia.Tips">Tips</s:String>
-    <s:String x:Key="NfcMyodynamia.TipsInfo">After clicking Start,Please stand at a suitable distance from the camera.</s:String>
+    <s:String x:Key="NfcMyodynamia.TipsInfo">After clicking Start,Please stand at a suitable distance from the camera,And make the action on the picture</s:String>
 
     <!-- 新设备 -->
     <s:String x:Key="NewDev.Rowing">Rowing</s:String>

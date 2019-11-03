@@ -81,7 +81,7 @@ namespace Recovery.dao
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "select * from bdl_nuitrack where fk_user_id=@Fk_user_id";
+                const string query = "select * from bdl_nuitrack where fk_user_id=@Fk_user_id and status = 1";
 
                 return conn.QueryFirstOrDefault<NuitrackEntity>(query, new { Fk_user_id });
 

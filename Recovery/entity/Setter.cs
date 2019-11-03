@@ -18,18 +18,18 @@ namespace Recovery.entity
         public int Pk_Set_Id { get; set; }
         //主机唯一标识 MAC地址
         public string Set_Unique_Id { get; set; }
-        //设置语言
-        public int Set_Language { get; set; }
         //机构名称
         public string Set_OrganizationName { get; set; }
-        //机构分类
-        public string Set_OrganizationSort { get; set; }
         //照片位置
         public string Set_PhotoLocation { get; set; }
         //机构电话
         public string Set_OrganizationPhone { get; set; }
-		//机构位置
-		public string Set_Organizationaddress { get; set; }
+        //设置语言
+        public int Set_Language { get; set; }
+        //机构分类
+        public string Set_OrganizationSort { get; set; }
+        //机构位置
+        //public string Set_Organizationaddress { get; set; }
 		//版本号
 		public string Set_Version { get; set; }
         public string Back_Up { get; set; }
