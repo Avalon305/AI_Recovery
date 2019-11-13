@@ -47,7 +47,7 @@ namespace NuitrackScanProgress.view.Pages
         //确认按钮，关闭此窗体
         private void Button_OK(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             NuitrackScan nuitrackScan = new NuitrackScan
             {
                 Owner = Window.GetWindow(this),
@@ -91,15 +91,17 @@ namespace NuitrackScanProgress.view.Pages
                 nuitrackScan.Body_length.Text = skeletonLengthEntity.Body_length.ToString();
             }
 
-            this.Hide();
+            //this.Hide();
             nuitrackScan.ShowDialog();
             G_NfcTipTwoStatus = 0;
-            this.Close();
+            //this.Close();
+            Application.Current.Shutdown();
         }
 
         private void Button_Cancel(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            //this.Close();
+            Application.Current.Shutdown();
         }
     }
 }

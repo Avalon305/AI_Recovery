@@ -114,8 +114,19 @@ namespace NuitrackScanProgress.view.Pages
         public NuitrackScan()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.MaxHeight = SystemParameters.WorkArea.Size.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Size.Width;
             //调用3D扫描的构造函数 cqz
-            NuitrackCreate();
+            try
+            {
+                NuitrackCreate();
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex);
+                Application.Current.Shutdown();
+            }
         }
 
         /// <summary>
@@ -206,6 +217,17 @@ namespace NuitrackScanProgress.view.Pages
             //取消窗体X操作
             var hwnd = new WindowInteropHelper(this).Handle;
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+
+            // 设置全屏
+            //this.WindowState = System.Windows.WindowState.Normal;
+            //this.WindowStyle = System.Windows.WindowStyle.None;
+            //this.ResizeMode = System.Windows.ResizeMode.NoResize;
+            //this.Topmost = true;
+
+            //this.Left = 0.0;
+            //this.Top = 0.0;
+            //this.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            //this.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
         }
 
         private void onIssueDataUpdate(IssuesData issuesData)
