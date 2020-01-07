@@ -57,8 +57,9 @@ namespace Recovery.service
                 logger.Info("用户存在" + user.Pk_User_Id.ToString());
                 logger.Info("锻炼设备id" + (int)(request.DeviceType));
                 string birth_year = (user.User_Birth.ToString().Split('/'))[0];
-
+                //Console.WriteLine("birth_year：" + birth_year);
                 int now_year = int.Parse((DateTime.Now.ToString("yyyy")));
+                //Console.WriteLine("now_year：" + DateTime.Now.ToString());
                 response.Age = now_year - int.Parse(birth_year);
                 SkeletonLengthEntity skeletonLengthEntity = skeletonLengthDAO.getSkeletonLengthRecord(int.Parse(uid));
                 if (skeletonLengthEntity != null)
@@ -134,13 +135,14 @@ namespace Recovery.service
                                 response.SpeedRank = newDevicePrescription.Speed_rank ==null ? 0 : (int)(newDevicePrescription.Speed_rank);
                                 response.DpId = (int)newDevicePrescription.Pk_dp_id;
                                 response.InfoResponse = 7;
-                             
+
                             }
                             else
                             {
                                 //有大处方，有此设备的训练计划,，完成了
                                 response.DpStatus = 1;
                                 response.InfoResponse = 6;
+
                             }
 
                         }
@@ -485,7 +487,7 @@ namespace Recovery.service
             catch (Exception ex)
             {
                 logger.Error(ex.ToString());
-                throw;
+                //throw;
             }
 
             response.Success = true;

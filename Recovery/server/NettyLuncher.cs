@@ -42,7 +42,7 @@ namespace Recovery.server
 
             int port = 6860;
             string p = ConfigurationManager.AppSettings["NettyPort"];
-            if (p == null || "".Equals(p))
+            if (p != null && !"".Equals(p))
             {
                 port = int.Parse(p);
             }

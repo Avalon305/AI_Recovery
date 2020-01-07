@@ -250,7 +250,7 @@ namespace Recovery.view.Pages
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             passwordInput.ShowDialog();
-            if (ProtocolConstant.USB_SUCCESS == 1)//u盘成功读取 破解状态为0
+            if (ProtocolConstant.USB_SUCCESS == 0)//u盘成功读取 破解状态为0
             {   //获取mac地址
                 StringBuilder stringBuilder = new StringBuilder();
                 //string strMac = CommUtil.GetMacAddress();

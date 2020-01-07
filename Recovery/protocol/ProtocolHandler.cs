@@ -26,10 +26,10 @@ namespace Recovery.protocol
 		//链接建立时出发，主动给客户端发数据
 		public override void ChannelActive(IChannelHandlerContext context)
 		{
+            logger.Info("收到链接请求..." );
 
 
-
-		}
+        }
 
 
 		//	重写基类的方法，当消息到达时触发，这里收到消息后，在控制台输出收到的内容，并原样返回了客户端
@@ -38,8 +38,8 @@ namespace Recovery.protocol
 			var service = new DeviceCommService();
 			var buffer = message as Message;
 			logger.Info("收到报文：" + buffer.ToString());
-
-			Message response = new Message();
+            //Console.WriteLine("收到报文：" + buffer.ToString());
+            Message response = new Message();
 			response.Sequence = buffer.Sequence > Int32.MaxValue - 1 ? 0 : buffer.Sequence + 1;
 
 			switch (buffer.Type)

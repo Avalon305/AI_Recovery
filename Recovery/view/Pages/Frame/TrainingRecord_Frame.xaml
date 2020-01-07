@@ -50,7 +50,7 @@
                             <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
                             <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
@@ -111,7 +111,7 @@
                             <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
                             <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
@@ -175,7 +175,7 @@
                             <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
                             <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
@@ -239,7 +239,7 @@
                             <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
                             <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
@@ -303,7 +303,7 @@
                             <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
                             <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
@@ -367,7 +367,7 @@
                             <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
                             <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
@@ -430,7 +430,7 @@
                             <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
                             <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
@@ -493,7 +493,7 @@
                             <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
                             <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
@@ -556,7 +556,7 @@
                             <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
                             <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>
@@ -619,7 +619,7 @@
                             <DataGridTextColumn Binding="{Binding devicePrescription.Device_mode}" Header="{DynamicResource TrainingHistoryView.TrainModel}" Width="80"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupcount}" Header="{DynamicResource TrainingHistoryView.Sets}" Width="50"/>
                             <DataGridTextColumn Binding="{Binding devicePrescription.Dp_groupnum}" Header="{DynamicResource TrainingHistoryView.Reps}" Width="50"/>
-                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy,Converter={StaticResource strengconverter}}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
+                            <DataGridTextColumn Binding="{Binding prescriptionResult.Energy}" Header="{DynamicResource TrainingHistoryView.Energy}" Width="90"/>
                             <DataGridTextColumn Binding="{Binding prescriptionResult.pr_userthoughts}" Header="{DynamicResource TrainingHistoryView.UserThough}" Width="100"/>
                             <DataGridTemplateColumn Header="{DynamicResource TrainingHistoryView.NewMemo}" Width="185" >
                                 <DataGridTemplateColumn.CellTemplate>

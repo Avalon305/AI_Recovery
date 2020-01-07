@@ -60,7 +60,9 @@
                 <TextBox Margin="10,5"  Text="" Name="Leg_length_down" Height="30"/>
                 <Label Content="{DynamicResource Skeleton.BodyLength}"  FontSize="20" Background="Gray" Foreground="White"></Label>
                 <TextBox Margin="10,5"  Text="" Name="Body_length" Height="30"/>
+                <Button Margin="10,10,10,0" Style="{StaticResource Btn}" Content="初始权重" Click="Init_Weight" BorderBrush="#FFE0D147" Foreground="#000" FontSize="20"/>
                 <Button Margin="10,20" Style="{StaticResource Btn}" Content="{DynamicResource Skeleton.Start}" Click="Button_Click" BorderBrush="#FFE0D147" Foreground="#000" FontSize="20"/>
+                <Button Margin="10,0,10,20" Style="{StaticResource Btn}" Content="手动拍照" Click="Button_Click_handleSnapXu" BorderBrush="#FFE0D147" Foreground="#000" FontSize="20"/>
                 <Button Margin="10,0" Style="{StaticResource Btn}" Content="{DynamicResource Skeleton.Save}" BorderBrush="#FFE0D147" Click="Button_Click_Save" Foreground="#000" FontSize="20"/>
                 <Button Margin="10,20,10,0"  Style="{StaticResource Btn}"  Content="{DynamicResource Skeleton.Reset}" Click="Button_Click_Clear" BorderBrush="#FFE0D147"  Foreground="#000" FontSize="20"/>
                 <Button Margin="10,20,10,0" Style="{StaticResource Btn}"  Content="{DynamicResource Skeleton.Close}" Click="Button_Close" BorderBrush="#FFE0D147"  Foreground="#000" FontSize="20"/>

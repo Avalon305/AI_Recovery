@@ -51,12 +51,13 @@ namespace Recovery
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             //加载语言
             LanguageUtils.SetLanguage();
-
+           
             //启动netty,用于与设备端通信
             Thread th = new Thread(() =>
             {
                 try
                 {
+                    logger.Info("线程启动成功");
                     NettyLuncher.getInstance().Start().Wait();
 
                 }

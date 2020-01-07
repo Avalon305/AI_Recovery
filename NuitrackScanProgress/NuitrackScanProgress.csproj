@@ -94,6 +94,9 @@
     <Compile Include="view\Pages\MessageBoxX.xaml.cs">
       <DependentUpon>MessageBoxX.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\Pages\ModalBoxX.xaml.cs">
+      <DependentUpon>ModalBoxX.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\NfcTipTwo.xaml.cs">
       <DependentUpon>NfcTipTwo.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,10 @@
     <Page Include="view\Pages\MessageBoxX.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\Pages\ModalBoxX.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Pages\NfcTipTwo.xaml">
       <Generator>MSBuild:Compile</Generator>

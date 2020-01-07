@@ -508,7 +508,7 @@ namespace Recovery.service
                         //如果没有训练结果，
                         continue;
                     }
-
+                    Console.WriteLine("prescriptionResult = " + prescriptionResult.Energy);
                     //查找字典是否有以此设备名字命名的key,不存在则先创建
                     if (!dic.ContainsKey(devId))
                     {

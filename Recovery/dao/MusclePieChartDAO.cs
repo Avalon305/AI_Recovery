@@ -66,7 +66,14 @@ namespace AI_Sports.AISports.Dao
         {
             using (var conn = DbUtil.getConn())
             {
-                const string query = "select pr.pr_userthoughts,pr.gmt_create from bdl_prescriptionresult as pr JOIN bdl_user_relation as ur ON pr.bind_id = ur.bind_id  WHERE ur.fk_user_id = @userId AND pr.fk_ds_id = @deviceId ORDER BY pr.gmt_create DESC LIMIT 20";
+                const string query = "select " +
+                    "pr.pr_userthoughts," +
+                    "pr.gmt_create " +
+                    "from bdl_prescriptionresult as pr " +
+                    "JOIN bdl_user_relation as ur " +
+                    "ON pr.bind_id = ur.bind_id " +
+                    "WHERE ur.fk_user_id = @userId AND pr.fk_ds_id = @deviceId " +
+                    "ORDER BY pr.gmt_create DESC LIMIT 20";
                 var para = new { userId, deviceId };
                 return conn.Query<PrescriptionResultTwo>(query, para).ToList();
             }
